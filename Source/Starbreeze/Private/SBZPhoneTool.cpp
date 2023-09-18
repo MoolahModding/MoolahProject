@@ -1,4 +1,6 @@
 #include "SBZPhoneTool.h"
+
+#include "SBZToolSkeletalMeshComponent.h"
 #include "Components/StaticMeshComponent.h"
 
 ASBZPhoneTool::ASBZPhoneTool(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {

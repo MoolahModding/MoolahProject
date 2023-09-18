@@ -11,7 +11,7 @@
 
 class APlayerState;
 
-UCLASS(Blueprintable, NotPlaceable, Transient)
+UCLASS(Blueprintable, NotPlaceable, Transient, Config=Engine)
 class STARBREEZE_API USBZPartyHost : public UObject {
     GENERATED_BODY()
 public:

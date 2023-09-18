@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "ESBZFocusPriority.generated.h"
 
-UENUM(BlueprintType)
-enum class ESBZFocusPriority : uint8 {
+UENUM()
+enum class ESBZFocusPriority : int8 {
     AI = 0x3,
-    Attack,
-    Override,
+    Attack = 0x4,
+    Override = 0x5,
 };
 

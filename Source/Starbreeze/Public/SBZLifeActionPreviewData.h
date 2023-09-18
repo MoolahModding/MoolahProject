@@ -26,7 +26,7 @@ public:
     ESBZEquippableFamily PreviewEquippableFamily;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> PreviewEquippableClass;
+    TSoftClassPtr<UClass> PreviewEquippableClass;
     
     USBZLifeActionPreviewData();
 

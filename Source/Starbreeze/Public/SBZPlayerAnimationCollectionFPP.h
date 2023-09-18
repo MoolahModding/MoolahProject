@@ -11,7 +11,7 @@ class USBZPlayerAnimationCollectionFPP : public USBZBaseCharacterAnimationCollec
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
+    TMap<TSoftClassPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
     
     USBZPlayerAnimationCollectionFPP();
 

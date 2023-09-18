@@ -7,6 +7,6 @@ enum class ESBZWindowMode : uint8 {
     FullScreen,
     Borderless,
     Windowed,
-    Invalid = -0x1,
+    Invalid = 0xFF,
 };
 

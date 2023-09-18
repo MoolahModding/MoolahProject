@@ -1,7 +1,18 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Animation/AnimNotifies/AnimNotifyState.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=AnimNotifyState_WarpingBase -FallbackName=AnimNotifyState_WarpingBase
 #include "SBZDeltaCorrectionNotifyState.generated.h"
+
+UCLASS(Blueprintable, CollapseCategories, EditInlineNew)
+class STARBREEZE_API UAnimNotifyState_WarpingBase : public UAnimNotifyState {
+    GENERATED_BODY()
+public:
+    UAnimNotifyState_WarpingBase()
+    {
+        
+    }
+};
 
 UCLASS(Blueprintable, CollapseCategories, EditInlineNew)
 class STARBREEZE_API USBZDeltaCorrectionNotifyState : public UAnimNotifyState_WarpingBase {

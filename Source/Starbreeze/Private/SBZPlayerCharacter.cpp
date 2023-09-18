@@ -15,6 +15,7 @@
 #include "SBZPlayerMovementComponent.h"
 #include "SBZRecoilComponent.h"
 #include "SBZShoutoutComponent.h"
+#include "Components/CapsuleComponent.h"
 
 ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZPlayerInteractableComponent>(TEXT("SBZInteractableComponent")).SetDefaultSubobjectClass<USBZModularCharacterComponent>(TEXT("CharacterMesh0")).SetDefaultSubobjectClass<USBZPlayerMovementComponent>(TEXT("CharMoveComp"))) {
     this->VisualDetectionMultiplierSprinting = 1.00f;
@@ -33,7 +34,7 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->IntimidationRange = 3000.00f;
     this->FPCameraAttachment = CreateDefaultSubobject<USBZFirstPersonCameraAttachment>(TEXT("FirstPersonCameraAttachment"));
     FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
-    this->FPCameraAttachment->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<CapsuleComponent>(this));
+    this->FPCameraAttachment->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
     this->RecoilComponent = CreateDefaultSubobject<USBZRecoilComponent>(TEXT("RecoilComponent"));
     this->AimAssistComponent = CreateDefaultSubobject<USBZAimAssistComponent>(TEXT("SBZAimAssistComponent"));
     this->CharacterComponent = CreateDefaultSubobject<USBZCharacterComponent>(TEXT("CharacterComponent"));
@@ -161,9 +162,8 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->HumanShieldStartTime = -1.00f;
     this->DefeatControlsReferenceID = -1;
     this->MinLandingSlideWalkToRunLerp = 0.40f;
-    FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
     FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    *p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this)->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<CapsuleComponent>(this));
+    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
     this->AutoPossessAI = EAutoPossessAI::Disabled;
     this->SpawnCollisionHandlingMethod = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 }

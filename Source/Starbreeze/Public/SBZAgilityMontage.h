@@ -10,7 +10,7 @@ struct FSBZAgilityMontage {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> CharacterClass;
+    TSoftClassPtr<UClass> CharacterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAnimMontage* Montage;

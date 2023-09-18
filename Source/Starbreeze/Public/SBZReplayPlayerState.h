@@ -9,5 +9,9 @@ class STARBREEZE_API ASBZReplayPlayerState : public ASBZPlayerState {
 public:
     ASBZReplayPlayerState(const FObjectInitializer& ObjectInitializer);
 
+    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+    {
+        return AbilitySystem;
+    }
 };
 

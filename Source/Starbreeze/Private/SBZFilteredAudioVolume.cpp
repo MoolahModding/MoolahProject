@@ -1,6 +1,7 @@
 #include "SBZFilteredAudioVolume.h"
 #include "AkComponent.h"
 #include "SBZActorFilterComponent.h"
+#include "Components/BrushComponent.h"
 
 ASBZFilteredAudioVolume::ASBZFilteredAudioVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ActorFilterComponent = CreateDefaultSubobject<USBZActorFilterComponent>(TEXT("ActorFilterComponent"));
@@ -9,7 +10,7 @@ ASBZFilteredAudioVolume::ASBZFilteredAudioVolume(const FObjectInitializer& Objec
     this->StopEvent = NULL;
     this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     FProperty* p_BrushComponent_Parent = GetClass()->FindPropertyByName("BrushComponent");
-    this->AudioComponent->SetupAttachment(p_BrushComponent_Parent->ContainerPtrToValuePtr<BrushComponent>(this));
+    this->AudioComponent->SetupAttachment(p_BrushComponent_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
     this->RTPC = NULL;
     this->Intensity = 0.00f;
     this->InterPolationTimerMs = 200;

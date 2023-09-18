@@ -16,7 +16,7 @@ class USBZThrowableData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> ThrowableClass;
+    TSoftClassPtr<UClass> ThrowableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ThrowForce;

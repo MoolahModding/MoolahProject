@@ -15,13 +15,13 @@ class USBZToolData : public USBZEquippableData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> PrimaryToolClass;
+    TSoftClassPtr<UClass> PrimaryToolClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> PlaceableToolClass;
+    TSoftClassPtr<UClass> PlaceableToolClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> GhostToolClass;
+    TSoftClassPtr<UClass> GhostToolClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZEquippableAnimationCollection* PrimaryToolAnimCollection;

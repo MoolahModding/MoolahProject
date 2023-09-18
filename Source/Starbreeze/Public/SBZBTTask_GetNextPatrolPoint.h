@@ -9,7 +9,7 @@ class USBZBTTask_GetNextPatrolPoint : public UBTTask_BlackboardBase {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FEQSParametrizedQueryExecutionRequest EQSRequest;
     
 public:

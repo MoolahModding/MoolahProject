@@ -4,8 +4,8 @@
 
 UENUM(BlueprintType)
 enum class EHoudiniCurveMethod : uint8 {
-    Invalid = -0x1,
-    CVs,
+    Invalid = 0xFF,
+    CVs = 0,
     Breakpoints,
     Freehand,
 };

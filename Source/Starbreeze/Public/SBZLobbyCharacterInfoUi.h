@@ -17,7 +17,7 @@ public:
     UClass* PawnClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> PawnSoftClass;
+    TSoftClassPtr<UClass> PawnSoftClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bAsyncLoadInProgress;

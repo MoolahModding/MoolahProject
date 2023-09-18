@@ -13,7 +13,7 @@ ASBZAITaserMine::ASBZAITaserMine(const FObjectInitializer& ObjectInitializer) : 
     this->TasedEffect = NULL;
     this->OverlapSphere = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
     FProperty* p_StaticMeshComponent_Parent = GetClass()->FindPropertyByName("StaticMeshComponent");
-    this->OverlapSphere->SetupAttachment(p_StaticMeshComponent_Parent->ContainerPtrToValuePtr<StaticMeshComponent>(this));
+    this->OverlapSphere->SetupAttachment(p_StaticMeshComponent_Parent->ContainerPtrToValuePtr<UStaticMeshComponent>(this));
     this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AudioComponent"));
     this->PlaceSound = NULL;
     this->WalkedOnEvent = NULL;

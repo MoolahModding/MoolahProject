@@ -586,7 +586,7 @@ protected:
     UAnimMontage* UncrouchMontage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> CurrentEquippableClass;
+    TSoftClassPtr<UClass> CurrentEquippableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UBlendSpaceBase* AimOffsetSliding;

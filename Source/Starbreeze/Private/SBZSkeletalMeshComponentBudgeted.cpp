@@ -1,6 +1,6 @@
 #include "SBZSkeletalMeshComponentBudgeted.h"
 
-USBZSkeletalMeshComponentBudgeted::USBZSkeletalMeshComponentBudgeted() {
+USBZSkeletalMeshComponentBudgeted::USBZSkeletalMeshComponentBudgeted() : USkeletalMeshComponentBudgeted(FObjectInitializer::Get()) {
     this->CapsuleShadowingData = NULL;
 }
 

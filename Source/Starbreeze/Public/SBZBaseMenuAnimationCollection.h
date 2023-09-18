@@ -11,10 +11,10 @@ class STARBREEZE_API USBZBaseMenuAnimationCollection : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> DefaultCharacter;
+    TSoftClassPtr<UClass> DefaultCharacter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<TSoftObjectPtr<UClass>> SupportedCharacters;
+    TArray<TSoftClassPtr<UClass>> SupportedCharacters;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZBaseMenuAnimationCollection> Template;

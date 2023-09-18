@@ -12,7 +12,7 @@ class USBZPlaceableData : public USBZEquippableData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> GhostActorClass;
+    TSoftClassPtr<UClass> GhostActorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 AmmoInventoryMax;

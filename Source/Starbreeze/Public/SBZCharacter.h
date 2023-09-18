@@ -19,6 +19,7 @@
 #include "ESBZHumanShieldInstigatorState.h"
 #include "ESBZHurtReactionType.h"
 #include "ESBZReloadState.h"
+#include "SBZAbilitySystemComponent.h"
 #include "SBZAIVisibilityLeafNode.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZAgilityTraversalTrajectory.h"
@@ -789,6 +790,11 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
+
+    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+    {
+        return AbilitySystem;
+    }
     
 };
 

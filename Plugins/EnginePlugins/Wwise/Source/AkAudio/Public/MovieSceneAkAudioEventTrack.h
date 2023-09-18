@@ -5,7 +5,7 @@
 #include "MovieSceneAkAudioEventTrack.generated.h"
 
 UCLASS(Blueprintable, MinimalAPI)
-class UMovieSceneAkAudioEventTrack : public UMovieSceneAkTrack, public IMovieSceneTrackTemplateProducer {
+class UMovieSceneAkAudioEventTrack : public UMovieSceneAkTrack/*, public IMovieSceneTrackTemplateProducer*/ {
     GENERATED_BODY()
 public:
     UMovieSceneAkAudioEventTrack();

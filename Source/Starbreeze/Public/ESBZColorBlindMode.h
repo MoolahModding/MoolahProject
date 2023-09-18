@@ -8,6 +8,6 @@ enum class ESBZColorBlindMode : uint8 {
     Deuteranope,
     Protanope,
     Tritanope,
-    Invalid = -0x1,
+    Invalid = 0xFF,
 };
 

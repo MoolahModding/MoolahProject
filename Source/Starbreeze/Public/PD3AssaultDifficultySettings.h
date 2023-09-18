@@ -28,7 +28,7 @@ public:
     TArray<FPD3AssaulSustainPhaseSettings> SustainPhaseDurationProgressionArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<UClass>, FSBZSquadLimits> SquadLimits;
+    TMap<TSoftClassPtr<UClass>, FSBZSquadLimits> SquadLimits;
     
     STARBREEZE_API FPD3AssaultDifficultySettings();
 };

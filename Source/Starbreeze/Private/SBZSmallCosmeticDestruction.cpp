@@ -11,7 +11,7 @@ ASBZSmallCosmeticDestruction::ASBZSmallCosmeticDestruction(const FObjectInitiali
     FProperty* p_bCanBeDamaged = GetClass()->FindPropertyByName("bCanBeDamaged");
     *p_bCanBeDamaged->ContainerPtrToValuePtr<uint8>(this) = true;
     this->Tags.AddDefaulted(1);
-    this->bWantsDetailedDamageEvents = true;
+    /*this->bWantsDetailedDamageEvents = true;*/
 }
 
 void ASBZSmallCosmeticDestruction::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {

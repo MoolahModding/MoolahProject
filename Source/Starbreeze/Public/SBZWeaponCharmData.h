@@ -19,7 +19,7 @@ public:
     FName AttachmentBoneName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> WeaponCharmClass;
+    TSoftClassPtr<UClass> WeaponCharmClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform AttachmentOffset;

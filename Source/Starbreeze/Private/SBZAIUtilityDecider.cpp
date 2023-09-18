@@ -22,7 +22,7 @@ void USBZAIUtilityDecider::OnDeselected() {
 }
 
 
-void USBZAIUtilityDecider::OnDeactivated(TEnumAsByte<EBTNodeResult::Type> NodeResult) {
+void USBZAIUtilityDecider::OnDeactivated(EBTNodeResult::Type NodeResult) {
 }
 
 

@@ -52,7 +52,7 @@ public:
     ESBZWeaponAmmoVisibilityType AmmoVisibilityType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> GrenadeProjectileClass;
+    TSoftClassPtr<UClass> GrenadeProjectileClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetrationProjectile;

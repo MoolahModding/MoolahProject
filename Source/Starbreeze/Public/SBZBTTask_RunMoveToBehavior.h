@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "SBZBTTask_MoveTo.h"
 #include "BehaviorTree/Tasks/BTTask_RunBehavior.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=SBZPathOffset -FallbackName=SBZPathOffset

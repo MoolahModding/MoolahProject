@@ -3,9 +3,9 @@
 #include "EHoudiniRampInterpolationType.generated.h"
 
 UENUM()
-enum class EHoudiniRampInterpolationType : int8 {
-    InValid = -0x1,
-    CONSTANT,
+enum class EHoudiniRampInterpolationType : uint8 {
+    InValid = 0xFF,
+    CONSTANT = 0,
     LINEAR,
     CATMULL_ROM,
     MONOTONE_CUBIC,

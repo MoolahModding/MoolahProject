@@ -3,18 +3,18 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZCharacterVoiceComponent.h"
 #include "SBZPropDamageComponent.h"
+#include "SBZWheeledVehicleSkeletalMeshComponent.h"
 
 ASBZAIFBIVan::ASBZAIFBIVan(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->PropDamageComponent = CreateDefaultSubobject<USBZPropDamageComponent>(TEXT("Prop Damage Component"));
     this->AntennaHitMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Antenna Hit Mesh"));
     FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->AntennaHitMeshComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<SBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->AntennaHitMeshComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
     this->AntennaDestroyedEffect = NULL;
     this->AntennaDestroyedMesh = NULL;
     this->AntennaDestroyedOnEvent = NULL;
     this->VoiceComponent = CreateDefaultSubobject<USBZCharacterVoiceComponent>(TEXT("SBZCharacterVoiceComponent"));
-    FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->VoiceComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<SBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->VoiceComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
     this->FBIArrivedVO = NULL;
     this->AntennaDestroyedVO = NULL;
     this->AssaultBarkVO = NULL;

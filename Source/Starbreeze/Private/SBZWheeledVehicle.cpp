@@ -12,10 +12,9 @@
 ASBZWheeledVehicle::ASBZWheeledVehicle(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZWheeledVehicleSkeletalMeshComponent>(TEXT("VehicleMesh")).SetDefaultSubobjectClass<USBZWheeledVehicleMovementComponent>(TEXT("MovementComp"))) {
     this->AudioComponent = CreateDefaultSubobject<USBZWheeledVehicleAudioComponent>(TEXT("Sound System Component"));
     FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->AudioComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<SBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->AudioComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
     this->RadioComponent = CreateDefaultSubobject<USBZAmbientSoundRadioComponent>(TEXT("Radio Component"));
-    FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->RadioComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<SBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->RadioComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
     this->ActiveLightsBitmask = 0;
     this->AnimationCollection = NULL;
     this->VariationSetData = NULL;

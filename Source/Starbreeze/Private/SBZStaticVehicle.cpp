@@ -10,7 +10,7 @@ ASBZStaticVehicle::ASBZStaticVehicle(const FObjectInitializer& ObjectInitializer
     this->bAlarmActivated = false;
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     FProperty* p_StaticMeshComponent_Parent = GetClass()->FindPropertyByName("StaticMeshComponent");
-    this->AkComponent->SetupAttachment(p_StaticMeshComponent_Parent->ContainerPtrToValuePtr<StaticMeshComponent>(this));
+    this->AkComponent->SetupAttachment(p_StaticMeshComponent_Parent->ContainerPtrToValuePtr<UStaticMeshComponent>(this));
     this->AlarmStartEvent = NULL;
     this->AlarmStopEvent = NULL;
     this->bCanBeInCluster = false;

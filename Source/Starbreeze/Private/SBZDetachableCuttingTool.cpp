@@ -1,5 +1,6 @@
 #include "SBZDetachableCuttingTool.h"
 #include "AkComponent.h"
+#include "SBZToolSkeletalMeshComponent.h"
 #include "Components/BoxComponent.h"
 
 ASBZDetachableCuttingTool::ASBZDetachableCuttingTool(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {

@@ -18,7 +18,7 @@ class STARBREEZE_API USBZEquippableData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> EquippableClass;
+    TSoftClassPtr<UClass> EquippableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZTagReactionAsset> TagReactionAsset;

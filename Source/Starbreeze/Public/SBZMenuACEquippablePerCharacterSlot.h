@@ -10,7 +10,7 @@ struct FSBZMenuACEquippablePerCharacterSlot {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<UClass>, FSBZMenuACCharacterEquippableSlots> Slots;
+    TMap<TSoftClassPtr<UClass>, FSBZMenuACCharacterEquippableSlots> Slots;
     
     STARBREEZE_API FSBZMenuACEquippablePerCharacterSlot();
 };

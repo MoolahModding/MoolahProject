@@ -3,9 +3,9 @@
 #include "EAttribStorageType.generated.h"
 
 UENUM()
-enum class EAttribStorageType : int8 {
-    Invalid = -0x1,
-    INT,
+enum class EAttribStorageType : uint8 {
+    Invalid = 0xFF,
+    INT = 0,
     INT64,
     FLOAT,
     FLOAT64,

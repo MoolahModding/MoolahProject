@@ -7,13 +7,11 @@
 ASBZSoundEnvironment::ASBZSoundEnvironment(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UBrushComponent>(TEXT("BrushComponent0"))) {
     this->LateReverbComponent = CreateDefaultSubobject<UAkLateReverbComponent>(TEXT("AkLateReverbComponent"));
     FProperty* p_BrushComponentPointer_Parent = GetClass()->FindPropertyByName("BrushComponentPointer");
-    this->LateReverbComponent->SetupAttachment(p_BrushComponentPointer_Parent->ContainerPtrToValuePtr<BrushComponent>(this));
+    this->LateReverbComponent->SetupAttachment(p_BrushComponentPointer_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
     this->RoomComponent = CreateDefaultSubobject<UAkRoomComponent>(TEXT("UAkRoomComponent"));
-    FProperty* p_BrushComponentPointer_Parent = GetClass()->FindPropertyByName("BrushComponentPointer");
-    this->RoomComponent->SetupAttachment(p_BrushComponentPointer_Parent->ContainerPtrToValuePtr<BrushComponent>(this));
+    this->RoomComponent->SetupAttachment(p_BrushComponentPointer_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
-    FProperty* p_BrushComponentPointer_Parent = GetClass()->FindPropertyByName("BrushComponentPointer");
-    this->AkComponent->SetupAttachment(p_BrushComponentPointer_Parent->ContainerPtrToValuePtr<BrushComponent>(this));
+    this->AkComponent->SetupAttachment(p_BrushComponentPointer_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
     this->SoundEnvironmentManager = NULL;
     this->bDebugEnabled = false;
     this->DebugTimer = 5.00f;

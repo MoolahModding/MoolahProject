@@ -66,7 +66,7 @@ public:
     USBZAIOrder();
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnStoppedBP(APawn* Pawn, TEnumAsByte<EBTNodeResult::Type> NodeResult);
+    void OnStoppedBP(APawn* Pawn, EBTNodeResult::Type NodeResult);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStartedBP(APawn* Pawn);
@@ -78,7 +78,7 @@ public:
     void OnDeselectedBP();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnCompletedBP(APawn* Pawn, TEnumAsByte<EBTNodeResult::Type> NodeResult);
+    void OnCompletedBP(APawn* Pawn, EBTNodeResult::Type NodeResult);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
     bool ExecPredicate(const ASBZAIController* AIController) const;

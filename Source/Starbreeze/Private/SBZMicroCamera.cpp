@@ -1,5 +1,6 @@
 #include "SBZMicroCamera.h"
 #include "AkComponent.h"
+#include "SBZToolSkeletalMeshComponent.h"
 #include "Components/BoxComponent.h"
 
 ASBZMicroCamera::ASBZMicroCamera(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {

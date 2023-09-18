@@ -1,4 +1,6 @@
 #include "SBZPlaceableSensorTool.h"
+
+#include "SBZToolSkeletalMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "Components/SphereComponent.h"
 

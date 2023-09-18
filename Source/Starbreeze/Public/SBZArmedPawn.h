@@ -8,6 +8,7 @@
 #include "GameplayTagAssetInterface.h"
 #include "GameplayTagContainer.h"
 #include "ESBZAIVisibilityNodeComputationFrequency.h"
+#include "SBZAbilitySystemComponent.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZEquippableConfig.h"
 #include "SBZPawnInterface.h"
@@ -84,6 +85,11 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
+
+    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+    {
+        return AbilitySystemComponent;
+    }
     
 };
 

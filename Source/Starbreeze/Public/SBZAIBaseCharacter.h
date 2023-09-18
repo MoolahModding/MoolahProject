@@ -199,5 +199,10 @@ public:
     
 
     // Fix for true pure virtual functions not being implemented
+
+    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+    {
+        return AbilitySystem;
+    }
 };
 

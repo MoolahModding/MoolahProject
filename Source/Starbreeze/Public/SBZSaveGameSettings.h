@@ -10,7 +10,7 @@ class USBZSaveGameSettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> DefaultProgressionSaveGame;
+    TSoftClassPtr<UClass> DefaultProgressionSaveGame;
     
     USBZSaveGameSettings();
 

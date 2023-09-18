@@ -9,7 +9,6 @@ enum class EPD3DispatchCaller : uint8 {
     Camera,
     Dispatch,
     MAX,
-    Default = 0x0,
-    Cop = 0x0,
+    Default = Cop,
 };
 

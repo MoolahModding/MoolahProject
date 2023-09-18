@@ -1,0 +1,8 @@
+{
+	"BuildId": "17155196",
+	"Modules": 
+	{
+		"SBZWorldRuntime": "UE4Editor-SBZWorldRuntime.dll",
+		"Starbreeze": "UE4Editor-Starbreeze.dll"
+	}
+}

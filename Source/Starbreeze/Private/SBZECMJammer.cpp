@@ -1,5 +1,6 @@
 #include "SBZECMJammer.h"
 #include "AkComponent.h"
+#include "SBZToolSkeletalMeshComponent.h"
 #include "Components/BoxComponent.h"
 
 ASBZECMJammer::ASBZECMJammer(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {

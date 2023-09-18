@@ -19,10 +19,10 @@ public:
     TMap<FGameplayTag, FSBZSoftMontageContainer> GamePlayTagBasedMontageContainers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationPerSpecificEquippablesContainers;
+    TMap<TSoftClassPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationPerSpecificEquippablesContainers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
+    TMap<TSoftClassPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
     
     FSBZAnimationsPerEquippablesContainer();
 };

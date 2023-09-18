@@ -35,6 +35,11 @@ public:
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnKill();
-    
+
+
+    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+    {
+        return AbilitySystemComponent;
+    }
 };
 

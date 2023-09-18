@@ -17,7 +17,7 @@ public:
     void OnDeselectedBP();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnDeactivatedBP(TEnumAsByte<EBTNodeResult::Type> NodeResult);
+    void OnDeactivatedBP(EBTNodeResult::Type NodeResult);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivatedBP();

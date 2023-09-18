@@ -9,6 +9,6 @@ enum class ESBZUpscalingMode : uint8 {
     Balanced,
     Performance,
     UltraPerformance,
-    Invalid = -0x1,
+    Invalid = 0xFF,
 };
 

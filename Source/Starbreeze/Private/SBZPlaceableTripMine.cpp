@@ -1,5 +1,6 @@
 #include "SBZPlaceableTripMine.h"
 #include "AkComponent.h"
+#include "SBZToolSkeletalMeshComponent.h"
 #include "Components/BoxComponent.h"
 
 ASBZPlaceableTripMine::ASBZPlaceableTripMine(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {

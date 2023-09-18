@@ -12,6 +12,7 @@
 #include "SBZOutlineComponent.h"
 #include "SBZSkeletalMeshComponentBudgeted.h"
 #include "SBZZiplineAudioController.h"
+#include "Components/CapsuleComponent.h"
 
 ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0"))) {
     this->MarkedVoiceComment = NULL;
@@ -21,7 +22,7 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->HumanShieldCarryType = NULL;
     this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
-    this->AudioComponent->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<CapsuleComponent>(this));
+    this->AudioComponent->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
     this->ZiplineAudioController = CreateDefaultSubobject<USBZZiplineAudioController>(TEXT("SBZZiplineAudioController"));
     this->ZiplineMotorClass = NULL;
     this->ZiplineMotorClass = NULL;
@@ -176,10 +177,9 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->HeadBone = TEXT("Head");
     this->CarryWeightTierOffset = 1.00f;
     this->CurrentlyUsedThrowable = NULL;
-    FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
     FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    *p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this)->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<CapsuleComponent>(this));
-    this->bWantsDetailedDamageEvents = true;
+    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
+    /*this->bWantsDetailedDamageEvents = true;*/
 }
 
 void ASBZCharacter::SetStance(ESBZCharacterStance InStance) {

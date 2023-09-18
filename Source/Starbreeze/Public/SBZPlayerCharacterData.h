@@ -16,7 +16,7 @@ class STARBREEZE_API USBZPlayerCharacterData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UClass> CharacterClass;
+    TSoftClassPtr<UClass> CharacterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMaskData* DefaultMaskData;

@@ -8,6 +8,6 @@ enum class ESBZMultipleChoiceState : uint8 {
     Medium,
     High,
     Ultra,
-    Invalid = -0x1,
+    Invalid = 0xFF,
 };
 

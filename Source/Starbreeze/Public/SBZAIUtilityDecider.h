@@ -70,10 +70,10 @@ public:
     void OnDeselected();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnDeactivatedBP(TEnumAsByte<EBTNodeResult::Type> NodeResult);
+    void OnDeactivatedBP(EBTNodeResult::Type NodeResult);
     
     UFUNCTION(BlueprintCallable)
-    void OnDeactivated(TEnumAsByte<EBTNodeResult::Type> NodeResult);
+    void OnDeactivated(EBTNodeResult::Type NodeResult);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivatedBP();

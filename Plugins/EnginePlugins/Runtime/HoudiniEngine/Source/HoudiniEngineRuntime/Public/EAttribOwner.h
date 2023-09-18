@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "EAttribOwner.generated.h"
 
-UENUM()
-enum class EAttribOwner : int8 {
-    Invalid = -0x1,
-    Vertex,
+UENUM(BlueprintType)
+enum class EAttribOwner : uint8 {
+    Invalid = 0xFF,
+    Vertex = 0,
     Point,
     Prim,
     Detail,

@@ -6,6 +6,6 @@ UENUM(BlueprintType)
 enum class ESBZToggleState : uint8 {
     Off,
     On,
-    Invalid = -0x1,
+    Invalid = 0xFF,
 };
 

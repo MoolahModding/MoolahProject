@@ -18,6 +18,7 @@
 #include "SBZDropPlaceableEquippableData.h"
 #include "SBZEffectHandleArray.h"
 #include "SBZOnInfamyLevelChangedDynamicDelegate.h"
+#include "SBZPlayerAbilitySystemComponent.h"
 #include "SBZPlayerEndMissionResultData.h"
 #include "SBZReplicatedReloadState.h"
 #include "SBZPlayerState.generated.h"
@@ -483,5 +484,10 @@ public:
     
 
     // Fix for true pure virtual functions not being implemented
+
+    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
+    {
+        return AbilitySystem;
+    }
 };
 
