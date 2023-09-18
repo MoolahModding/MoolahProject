@@ -10,7 +10,7 @@ AAkReverbVolume::AAkReverbVolume(const FObjectInitializer& ObjectInitializer) : 
     this->Priority = 1.00f;
     this->LateReverbComponent = CreateDefaultSubobject<UAkLateReverbComponent>(TEXT("LateReverb"));
     FProperty* p_BrushComponent_Parent = GetClass()->FindPropertyByName("BrushComponent");
-    this->LateReverbComponent->SetupAttachment(p_BrushComponent_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
+    this->LateReverbComponent->SetupAttachment(*p_BrushComponent_Parent->ContainerPtrToValuePtr<UBrushComponent*>(this));
     this->bColored = true;
 }
 

@@ -11,7 +11,7 @@ ASBZSabotagableVehicle::ASBZSabotagableVehicle(const FObjectInitializer& ObjectI
     this->SabotagePointInstance = NULL;
     this->EscortCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
     FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->EscortCapsule->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->EscortCapsule->SetupAttachment(*p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent*>(this));
     this->SpeedPerPlayer = 1.20f;
     this->PlayersOverlapping = 0;
     this->bEscortModeEnabled = false;

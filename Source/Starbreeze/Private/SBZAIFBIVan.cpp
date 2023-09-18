@@ -9,12 +9,12 @@ ASBZAIFBIVan::ASBZAIFBIVan(const FObjectInitializer& ObjectInitializer) : Super(
     this->PropDamageComponent = CreateDefaultSubobject<USBZPropDamageComponent>(TEXT("Prop Damage Component"));
     this->AntennaHitMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Antenna Hit Mesh"));
     FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
-    this->AntennaHitMeshComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->AntennaHitMeshComponent->SetupAttachment(*p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent*>(this));
     this->AntennaDestroyedEffect = NULL;
     this->AntennaDestroyedMesh = NULL;
     this->AntennaDestroyedOnEvent = NULL;
     this->VoiceComponent = CreateDefaultSubobject<USBZCharacterVoiceComponent>(TEXT("SBZCharacterVoiceComponent"));
-    this->VoiceComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent>(this));
+    this->VoiceComponent->SetupAttachment(*p_Mesh_Parent->ContainerPtrToValuePtr<USBZWheeledVehicleSkeletalMeshComponent*>(this));
     this->FBIArrivedVO = NULL;
     this->AntennaDestroyedVO = NULL;
     this->AssaultBarkVO = NULL;

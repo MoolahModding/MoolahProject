@@ -37,7 +37,7 @@ ASBZAICrewCharacter::ASBZAICrewCharacter(const FObjectInitializer& ObjectInitial
     this->CrewAIMarkerAsset = NULL;
     FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
     FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
+    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(*p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent*>(this));
 }
 
 void ASBZAICrewCharacter::OnServerStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled) {

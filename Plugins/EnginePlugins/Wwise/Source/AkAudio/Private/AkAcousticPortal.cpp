@@ -4,8 +4,7 @@
 
 AAkAcousticPortal::AAkAcousticPortal(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Portal = CreateDefaultSubobject<UAkPortalComponent>(TEXT("PortalComponent"));
-    FProperty* p_BrushComponent_Parent = GetClass()->FindPropertyByName("BrushComponent");
-    this->Portal->SetupAttachment(p_BrushComponent_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
+    this->Portal->SetupAttachment(GetBrushComponent());
     this->InitialState = AkAcousticPortalState::Open;
     this->bRequiresStateMigration = false;
     this->bColored = true;

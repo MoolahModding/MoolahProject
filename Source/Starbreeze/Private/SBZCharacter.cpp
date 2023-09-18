@@ -22,7 +22,7 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->HumanShieldCarryType = NULL;
     this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
-    this->AudioComponent->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
+    this->AudioComponent->SetupAttachment(*p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent*>(this));
     this->ZiplineAudioController = CreateDefaultSubobject<USBZZiplineAudioController>(TEXT("SBZZiplineAudioController"));
     this->ZiplineMotorClass = NULL;
     this->ZiplineMotorClass = NULL;
@@ -178,7 +178,7 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->CarryWeightTierOffset = 1.00f;
     this->CurrentlyUsedThrowable = NULL;
     FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent>(this));
+    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(*p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent*>(this));
     /*this->bWantsDetailedDamageEvents = true;*/
 }
 

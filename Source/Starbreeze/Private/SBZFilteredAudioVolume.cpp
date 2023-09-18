@@ -10,7 +10,7 @@ ASBZFilteredAudioVolume::ASBZFilteredAudioVolume(const FObjectInitializer& Objec
     this->StopEvent = NULL;
     this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     FProperty* p_BrushComponent_Parent = GetClass()->FindPropertyByName("BrushComponent");
-    this->AudioComponent->SetupAttachment(p_BrushComponent_Parent->ContainerPtrToValuePtr<UBrushComponent>(this));
+    this->AudioComponent->SetupAttachment(*p_BrushComponent_Parent->ContainerPtrToValuePtr<UBrushComponent*>(this));
     this->RTPC = NULL;
     this->Intensity = 0.00f;
     this->InterPolationTimerMs = 200;
