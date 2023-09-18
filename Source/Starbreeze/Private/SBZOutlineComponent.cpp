@@ -6,8 +6,7 @@ USBZOutlineComponent::USBZOutlineComponent() {
     this->InteractableFocusAsset = NULL;
     this->ActiveReplicated = NULL;
     this->bIsReplicatedHidden = false;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZOutlineComponent::SetReplicatedHidden(bool bInIsReplicatedHidden) {

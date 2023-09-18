@@ -1,9 +1,8 @@
 #include "SBZBagManager.h"
 #include "Net/UnrealNetwork.h"
 
-USBZBagManager::USBZBagManager() {
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+USBZBagManager::USBZBagManager() : UActorComponent(FObjectInitializer::Get()) {
+    
 }
 
 bool USBZBagManager::TryRemoveClaim(FSBZBagHandle Handle, AActor* Actor) {

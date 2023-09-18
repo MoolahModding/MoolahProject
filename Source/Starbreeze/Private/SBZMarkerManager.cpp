@@ -2,8 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 USBZMarkerManager::USBZMarkerManager() {
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZMarkerManager::OnRep_ReplicatedMarkers() {

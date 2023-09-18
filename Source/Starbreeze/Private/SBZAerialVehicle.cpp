@@ -7,8 +7,8 @@
 
 ASBZAerialVehicle::ASBZAerialVehicle(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->AerialVehicleAudioComponent = CreateDefaultSubobject<USBZAerialVehicleAudioComponent>(TEXT("SBZAerialVehicleAudioComponent"));
-    this->AerialVehicleAudioComponent->SetupAttachment(Mesh);
     this->Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("AerialVehicleMesh"));
+    this->AerialVehicleAudioComponent->SetupAttachment(Mesh);
     this->SplineFollowingComponent = CreateDefaultSubobject<USBZAerialVehicleSplineFollowingComponent>(TEXT("SBZVehicleSplineFollowingComponent"));
     this->StateMachine = NULL;
     this->DoorState = 0;

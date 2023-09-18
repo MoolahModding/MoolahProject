@@ -4,8 +4,7 @@
 UDEPRECATED_SBZAlertnessDataComponent::UDEPRECATED_SBZAlertnessDataComponent() {
     this->AlertState = -1;
     this->AlertMarkerAsset = NULL;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void UDEPRECATED_SBZAlertnessDataComponent::OnRep_AlertState() {

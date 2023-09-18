@@ -23,8 +23,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZCoverPointManager* CoverPointManager;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UDEPRECATED_SBZFirePermissionManager* FirePermissionManager;
+    UPROPERTY(Instanced, meta=(AllowPrivateAccess=true))
+    UDEPRECATED_SBZFirePermissionManager* FirePermissionManager_DEPRECATED;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZReconnectPlayerStateData> ReconnectPlayerStateDataArray;

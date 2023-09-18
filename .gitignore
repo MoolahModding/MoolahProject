@@ -9102,3 +9102,5 @@ Content/Weapons/Tools/ZipTies/SM_EQ_ZipTie_Normal.uasset
 Content/Weapons/Tools/ZipTies/T_ZipTIes_BCA.uasset
 Content/Weapons/Tools/ZipTies/T_ZipTIes_NMA.uasset
 Content/Weapons/WeaponMasterSkeleton/SK_WP_Master_Rig_Skeleton.uasset
+
+Binaries/Win64/EOSSDK-Win64-Shipping.dll

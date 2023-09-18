@@ -25,9 +25,7 @@
 class AActor;
 class ASBZAICrewState;
 class ASBZCharacter;
-class ASBZMissionState;
 class UAkAudioBank;
-class UObject;
 class USBZActorPoolManager;
 class USBZAgentManager;
 class USBZBagManager;

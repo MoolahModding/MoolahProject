@@ -9,7 +9,7 @@ ASBZMissionGameMode::ASBZMissionGameMode(const FObjectInitializer& ObjectInitial
     this->SpawnManager = CreateDefaultSubobject<USBZSpawnManager>(TEXT("SpawnManager"));
     this->AIVisibilityManager = NULL;
     this->CoverPointManager = CreateDefaultSubobject<USBZCoverPointManager>(TEXT("CoverPointManager"));
-    this->FirePermissionManager = CreateDefaultSubobject<UDEPRECATED_SBZFirePermissionManager>(TEXT("FirePermissionManager"));
+    this->FirePermissionManager_DEPRECATED = CreateDefaultSubobject<UDEPRECATED_SBZFirePermissionManager>(TEXT("FirePermissionManager"));
     this->MaxInactivePlayers = 16;
     this->GameStateClass = ASBZMissionState::StaticClass();
     this->SpectatorClass = ASBZGameSpectatorPawn::StaticClass();

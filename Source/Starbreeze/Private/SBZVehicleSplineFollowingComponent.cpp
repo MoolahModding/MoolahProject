@@ -16,8 +16,7 @@ USBZVehicleSplineFollowingComponent::USBZVehicleSplineFollowingComponent() {
     this->Deceleration = -1500.00f;
     this->bIsStopping = false;
     this->bIsStopRequestedByUser = false;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZVehicleSplineFollowingComponent::Stop() {

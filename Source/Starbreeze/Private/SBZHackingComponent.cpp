@@ -3,8 +3,7 @@
 
 USBZHackingComponent::USBZHackingComponent() {
     this->HackingState = ESBZHackingState::NotHacked;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZHackingComponent::SetHackingState(ESBZHackingState NewHackingState) {

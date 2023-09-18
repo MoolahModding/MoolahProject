@@ -3,8 +3,7 @@
 
 USBZStateMachineSharedState::USBZStateMachineSharedState() {
     this->OnlineSessionPhase = ESBZOnlineSessionPhase::Undefined;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZStateMachineSharedState::NotifyServerInActionPhase_Implementation() {

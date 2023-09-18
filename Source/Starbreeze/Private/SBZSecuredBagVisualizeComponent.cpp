@@ -2,8 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 USBZSecuredBagVisualizeComponent::USBZSecuredBagVisualizeComponent() {
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZSecuredBagVisualizeComponent::OnRep_BagTypes() {

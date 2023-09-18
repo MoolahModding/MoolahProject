@@ -12,8 +12,7 @@ USBZInteractorComponent::USBZInteractorComponent() {
     this->ScreenInteractDistance = 1000.00f;
     this->MinScreenInteractDegrees = 30.00f;
     this->MinScreenInteractDot = 0.87f;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZInteractorComponent::Server_StopInteraction_Implementation(USBZBaseInteractableComponent* Interaction) {

@@ -2,8 +2,7 @@
 #include "Net/UnrealNetwork.h"
 
 USBZRagdollSyncManager::USBZRagdollSyncManager() {
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZRagdollSyncManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {

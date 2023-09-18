@@ -6,7 +6,7 @@
 ASBZEquippable::ASBZEquippable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->LocalDamageFeedback = NULL;
     this->LocalDamageFeedback = NULL;
-    this->Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
+    this->Mesh = CreateDefaultSubobject<UMeshComponent>(TEXT("Mesh"));
     this->EquippableIndex = -1;
     this->ModOverrideGripAnimData = NULL;
     this->bIsInventory = true;

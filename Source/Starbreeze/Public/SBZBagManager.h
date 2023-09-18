@@ -7,7 +7,6 @@
 
 class AActor;
 class UObject;
-class USBZBagManager;
 class USBZBagType;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))

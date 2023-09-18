@@ -11,8 +11,7 @@ USBZCuttableComponent::USBZCuttableComponent() {
     this->CoolSpeed = 50.00f;
     this->InitialCutAngle = 0.00f;
     this->NiagaraEffectVisibilityTime = 0.10f;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZCuttableComponent::OnRep_InitialCutAngle() {

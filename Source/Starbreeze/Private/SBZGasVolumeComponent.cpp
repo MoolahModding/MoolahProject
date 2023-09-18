@@ -29,8 +29,7 @@ USBZGasVolumeComponent::USBZGasVolumeComponent() {
     this->UpdateParticleLocationsInterval = 0.30f;
     this->MaxUpdateLocationPerFrame = 2;
     this->OverdrawOptimisationPoolID = 2;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 bool USBZGasVolumeComponent::IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const {

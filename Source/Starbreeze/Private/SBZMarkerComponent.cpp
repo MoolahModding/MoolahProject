@@ -24,8 +24,7 @@ USBZMarkerComponent::USBZMarkerComponent() {
     this->MarkerPriority[9] = 0;
     this->MarkerState = ESBZMarkerState::None;
     this->AttachComponent = NULL;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZMarkerComponent::OnRep_MarkerState() {

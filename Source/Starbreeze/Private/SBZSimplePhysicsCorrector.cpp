@@ -3,8 +3,7 @@
 
 USBZSimplePhysicsCorrector::USBZSimplePhysicsCorrector() {
     this->TeleportDistance = 200.00f;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZSimplePhysicsCorrector::SetVelocity(FVector Vel) {

@@ -24,8 +24,7 @@ USBZInteractableComponent::USBZInteractableComponent() {
     this->bIsAllowedInCasing = false;
     this->bIsIllegal = true;
     this->CompletedComment = NULL;
-    FProperty* p_bReplicates = GetClass()->FindPropertyByName("bReplicates");
-    *p_bReplicates->ContainerPtrToValuePtr<uint8>(this) = true;
+    
 }
 
 void USBZInteractableComponent::Stop3DSound(UAkAudioEvent* AudioEvent) {
