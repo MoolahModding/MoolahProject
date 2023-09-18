@@ -1,0 +1,38 @@
+{
+	"FileVersion": 3,
+	"Version": 17,
+	"VersionName": "2.9.0",
+	"FriendlyName": "AccelByteNetworkUtilities",
+	"Description": "Provides shared network helpers and utilities for working with AccelByte online services, including STUN/TURN.",
+	"Category": "Other",
+	"CreatedBy": "AccelByte",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "AccelByteNetworkUtilities",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "AccelByteUe4Sdk",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystem",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemUtils",
+			"Enabled": true
+		}
+	]
+}

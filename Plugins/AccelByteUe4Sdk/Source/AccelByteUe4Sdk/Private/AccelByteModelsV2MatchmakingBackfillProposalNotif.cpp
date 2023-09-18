@@ -1,0 +1,5 @@
+#include "AccelByteModelsV2MatchmakingBackfillProposalNotif.h"
+
+FAccelByteModelsV2MatchmakingBackfillProposalNotif::FAccelByteModelsV2MatchmakingBackfillProposalNotif() {
+}
+

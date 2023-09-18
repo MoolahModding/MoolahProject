@@ -1,0 +1,51 @@
+{
+	"FileVersion": 3,
+	"Version": 28,
+	"VersionName": "0.8.11",
+	"FriendlyName": "Online Subsystem AccelByte",
+	"Description": "Online Subsystem implementation for AccelByte Cloud services",
+	"Category": "Online Platform",
+	"CreatedBy": "AccelByte",
+	"CreatedByURL": "https://accelbyte.io",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "OnlineSubsystemAccelByte",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "AccelByteUe4Sdk",
+			"Enabled": true
+		},
+		{
+			"Name": "AccelByteNetworkUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystem",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemUtils",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemSteam",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux"
+			]
+		}
+	]
+}

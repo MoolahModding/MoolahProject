@@ -1,0 +1,19 @@
+{
+	"FileVersion": 3,
+	"Version": 9,
+	"VersionName": "3.01.0",
+	"FriendlyName": "RMMethods",
+	"Description": "Generate Displacement Textures from a Height Map and use it with a set of Material Functions",
+	"Category": "Displacement",
+	"CreatedBy": "@turbocheke",
+	"CreatedByURL": "",
+	"DocsURL": "https://bit.ly/35I9xTQ",
+	"MarketplaceURL": "https://ue/marketplace/content/5130aca7d5594834aa035a077058f5ae",
+	"SupportURL": "",
+	"EngineVersion": "4.27.0",
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true
+}

@@ -1,0 +1,48 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "ESBZWeaponAttribute.generated.h"
+
+UENUM(BlueprintType)
+enum class ESBZWeaponAttribute : uint8 {
+    NONE,
+    VerticalRecoil,
+    HorizontalRecoil,
+    InitialRecoil,
+    OverallReloadPlayRate,
+    EquipPlayRate,
+    UnequipPlayRate,
+    SprintExitPlayRate,
+    DamageDistance,
+    CriticalDamageMultiplierDistance,
+    TargetingTransitionTime,
+    ArmorPenetration,
+    HipfireSpread,
+    TargetingSpread,
+    SpreadIncrement,
+    VerticalSpreadRadius,
+    HorizontalSpreadRadius,
+    VerticalGunkick,
+    HorizontalGunkick,
+    ScreenShakeAmplitude,
+    OverallPelletDeviation,
+    ViewKickRecoverySpeed,
+    ViewKickRecoveryDelay,
+    GunKickBackDistance,
+    HurtBuildup,
+    CriticalHurtBuildup,
+    HurtBuildupMultiplier,
+    EndCycleReloadPlayRate,
+    OverallDamage,
+    CriticalDamage,
+    LoadoutWeight,
+    OverallRecoil,
+    OverallSpread,
+    OverallGunkick,
+    OverallSwapSpeed,
+    OverallSpreadRadius,
+    OverallHurtBuildup,
+    MAX,
+    ATTRIBUTE_START = 0x1,
+    PARENT_START = 0x1F,
+};
+

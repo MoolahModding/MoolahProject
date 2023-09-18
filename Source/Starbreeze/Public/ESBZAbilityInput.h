@@ -1,0 +1,47 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "ESBZAbilityInput.generated.h"
+
+UENUM(BlueprintType)
+enum class ESBZAbilityInput : uint8 {
+    None,
+    Jump,
+    Slide,
+    Crouch,
+    Run,
+    Targeting,
+    Fire,
+    EquipPrimaryWeapon,
+    EquipSecondaryWeapon,
+    Interact,
+    Reload,
+    EquipNextWeapon,
+    EquipPreviousWeapon,
+    ThrowItem,
+    ThrowBag,
+    Traverse,
+    Melee,
+    MaskOn,
+    PlaceItem,
+    EquipNextGadget,
+    PrimaryTool,
+    PlaceableTool,
+    ToolSkill,
+    Shout,
+    ShoveHumanShield,
+    Tackle,
+    ToolEquip,
+    ToolUnequip,
+    ToolActivate,
+    ToolInteractAlt,
+    ToolInteract1,
+    ToolInteract2,
+    ToolNavUp,
+    ToolNavDown,
+    ToolNavLeft,
+    ToolNavRight,
+    RequestOverkillWeapon,
+    AnticipateExplosion,
+    MAX,
+};
+

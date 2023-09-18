@@ -1,0 +1,28 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "TimeEnhancements",
+  "Description": "Expressive and lightweight time-related components for blueprints",
+  "Category": "Time",
+  "CreatedBy": "Pedro Montoto García",
+  "CreatedByURL": "https://github.com/McOmghall/time-enhancements-UE4-plugin",
+  "DocsURL": "https://github.com/McOmghall/time-enhancements-UE4-plugin/wiki",
+  "MarketplaceURL": "",
+  "SupportURL": "https://github.com/McOmghall/time-enhancements-UE4-plugin/issues",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+	"Modules": [
+		{
+			"Name": "TimeEnhancements",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TimeEnhancementsEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}

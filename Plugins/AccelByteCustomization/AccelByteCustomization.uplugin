@@ -1,0 +1,30 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "AccelByteCustomization",
+	"Description": "AccelByte Customized SDK",
+	"Category": "Other",
+	"CreatedBy": "Accelbyte Inc",
+	"CreatedByURL": "https://accelbyte.io/",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "AccelByteCustomization",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "AccelByteUe4Sdk",
+			"Enabled": true
+		}
+	]
+}

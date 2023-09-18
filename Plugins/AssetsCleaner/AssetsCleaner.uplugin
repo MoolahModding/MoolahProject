@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 200,
+	"VersionName": "2.00",
+	"FriendlyName": "Assets Cleaner",
+	"Description": "Assets Cleaner provides quick and easy listing and clean-up of unused assets in a project.",
+	"Category": "Assets Tools",
+	"CreatedBy": "The Tool Shed",
+	"CreatedByURL": "",
+	"DocsURL": "https://docs.google.com/presentation/d/1vdp49Poe0Iu_AGhIww9Lkb5HgOxExtChmGLGLwRs7P8/present?usp=sharing",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/3caab7c6e81f449296989122c043ae21",
+	"SupportURL": "https://forums.unrealengine.com/unreal-engine/marketplace/1664564-assets-cleaner-project-cleaning-tool-support-thread",
+	"EngineVersion": "4.27.0",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"Plugins": [
+		{
+			"Name": "AssetManagerEditor",
+			"Enabled": true
+		}
+	]
+}

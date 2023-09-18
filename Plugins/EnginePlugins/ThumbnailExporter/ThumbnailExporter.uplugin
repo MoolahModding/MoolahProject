@@ -1,0 +1,19 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ThumbnailExporter",
+	"Description": "Render assets thumbnail to jpg file",
+	"Category": "Other",
+	"CreatedBy": "Lian Zhang",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/b48e190a04664422972d37b03899371c",
+	"SupportURL": "",
+	"EngineVersion": "4.27.0",
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true
+}

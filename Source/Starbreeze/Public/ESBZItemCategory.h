@@ -1,0 +1,48 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "ESBZItemCategory.generated.h"
+
+UENUM(BlueprintType)
+enum class ESBZItemCategory : uint8 {
+    PrimaryWeapon,
+    SecondaryWeapon,
+    OverkillWeapon,
+    Throwable,
+    Mask,
+    Tool,
+    Placeable,
+    SkillLine,
+    PreplanningAsset,
+    PrimaryWeaponSlot,
+    SecondaryWeaponSlot,
+    Armor,
+    PrimaryWeaponPreset,
+    SecondaryWeaponPreset,
+    LoadoutSlot,
+    PlayerCharacter,
+    MaskInventorySlot,
+    SuitInventorySlot,
+    GloveInventorySlot,
+    SprayCan,
+    WeaponCharm,
+    WeaponPattern,
+    WeaponSticker,
+    WeaponWearAndTear,
+    SuitPreset,
+    SuitMaterial,
+    SuitPattern,
+    Watch,
+    Glove,
+    Suit,
+    SuitBase,
+    MaskMould,
+    MaskPreset,
+    MaskPreconfig,
+    MaskPattern,
+    MaskMaterial,
+    MaskVFX,
+    Coin,
+    ItemBundle,
+    PayDayCredits,
+};
+

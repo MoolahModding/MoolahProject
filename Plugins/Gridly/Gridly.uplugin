@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1.0",
+	"FriendlyName": "Gridly",
+	"Description": "The #1 spreadsheet for multi-language content. Bring your digital assets together and localize at speed",
+	"Category": "Localization",
+	"CreatedBy": "LocalizeDirect",
+	"CreatedByURL": "https://www.gridly.com",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "Gridly",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
