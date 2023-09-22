@@ -6,7 +6,6 @@
 #include "SBZWaitStateMachineStateCallbackProxy.generated.h"
 
 class UObject;
-class USBZWaitStateMachineStateCallbackProxy;
 
 UCLASS(Blueprintable, MinimalAPI)
 class USBZWaitStateMachineStateCallbackProxy : public UBlueprintAsyncActionBase {
