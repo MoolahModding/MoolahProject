@@ -5,7 +5,6 @@
 #include "SBZReplicationGraph.generated.h"
 
 class AActor;
-class UClass;
 class UReplicationGraphNode_ActorList;
 class UReplicationGraphNode_DynamicSpatialFrequency;
 class UReplicationGraphNode_GridSpatialization2D;
@@ -40,7 +39,6 @@ protected:
     
 public:
     USBZReplicationGraph();
-
     UFUNCTION(BlueprintCallable)
     void OnActorDependencyRemoved(AActor* Master, AActor* Slave);
     

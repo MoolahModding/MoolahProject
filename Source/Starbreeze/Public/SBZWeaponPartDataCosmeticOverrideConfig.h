@@ -26,8 +26,7 @@ public:
     TMap<USkeletalMesh*, FSBZOverrideConfigWeaponMaterials> OverriddenWeaponMaterialPerMesh;
     
     USBZWeaponPartDataCosmeticOverrideConfig();
-
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

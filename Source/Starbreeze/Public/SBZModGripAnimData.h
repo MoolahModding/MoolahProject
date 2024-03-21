@@ -25,6 +25,5 @@ public:
     UAnimSequenceBase* OverrideLeftGripTPPose;
     
     USBZModGripAnimData();
-
 };
 

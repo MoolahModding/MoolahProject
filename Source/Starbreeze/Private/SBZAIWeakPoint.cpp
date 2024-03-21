@@ -1,5 +1,8 @@
 #include "SBZAIWeakPoint.h"
 
+void USBZAIWeakPoint::Multicast_OnWeakPointDestroyed_Implementation() {
+}
+
 USBZAIWeakPoint::USBZAIWeakPoint() {
     this->WeakPointHealth[0] = 0.00f;
     this->WeakPointHealth[1] = 0.00f;
@@ -10,11 +13,5 @@ USBZAIWeakPoint::USBZAIWeakPoint() {
     this->WeakPointAttributeSet = NULL;
     this->DestroyedInstigator = NULL;
     this->WeakPointType = ESBZAIWeakPointType::None;
-    this->CanCharacterStepUpOn = ECB_No;
-    this->bCanEverAffectNavigation = false;
 }
-
-void USBZAIWeakPoint::Multicast_OnWeakPointDestroyed_Implementation() {
-}
-
 

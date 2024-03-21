@@ -13,6 +13,5 @@ public:
     TArray<USBZEquippablePartDataAsset*> SharedModParts;
     
     USBZSharedPartList();
-
 };
 

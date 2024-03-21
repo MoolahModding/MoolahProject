@@ -28,8 +28,7 @@ protected:
     uint8 bIsMinigameFrontOnly: 1;
     
 public:
-    ASBZInteractableGate(const FObjectInitializer& ObjectInitializer);
-
+    ASBZInteractableGate();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
@@ -49,7 +48,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

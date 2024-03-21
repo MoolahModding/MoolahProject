@@ -22,7 +22,6 @@ private:
     
 public:
     UPD3Dispatcher();
-
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
     void Multicast_CallDispatcherByAsset(const USBZActionNotificationAsset* CallerReason);

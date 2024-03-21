@@ -8,6 +8,5 @@ class USBZElectricEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZElectricEffect();
-
 };
 

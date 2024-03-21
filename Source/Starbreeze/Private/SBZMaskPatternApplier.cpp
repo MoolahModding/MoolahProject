@@ -3,4 +3,3 @@
 USBZMaskPatternApplier::USBZMaskPatternApplier() {
 }
 
-

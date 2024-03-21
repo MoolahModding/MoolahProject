@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "ESBZWidgetZOrdering.h"
+#include "SBZAnimatedInteractionInterface.h"
 #include "SBZOnMiniGameInteractionDelegate.h"
 #include "SBZMiniGameComponent.generated.h"
 
@@ -16,7 +17,7 @@ class USBZMiniGameData;
 class USceneComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class USBZMiniGameComponent : public UActorComponent {
+class USBZMiniGameComponent : public UActorComponent, public ISBZAnimatedInteractionInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -107,7 +108,6 @@ private:
     
 public:
     USBZMiniGameComponent();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SetAudioPerspective(UAkComponent* AkComponent, UAkRtpc* Rtpc, bool bIsLocallyControlled);
@@ -127,8 +127,13 @@ protected:
     void Multicast_ActivateMiniGame(ASBZCharacter* Character);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPD3MiniGameWidgetBase* GetSpawnedWidget() const;
+    
     UFUNCTION(BlueprintCallable)
     void ActivateMiniGame(ASBZCharacter* Character, bool bIsLocallyControlled, bool bIsReplicated);
     
+    
+    // Fix for true pure virtual functions not being implemented
 };
 

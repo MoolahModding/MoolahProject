@@ -17,6 +17,5 @@ protected:
     
 public:
     USBZPlayerNearWorldEvent();
-
 };
 

@@ -5,9 +5,5 @@ USBZPlaceableTripMineData::USBZPlaceableTripMineData() {
     this->AdditionalPlayerRange = 0.00f;
     this->StunTime = 6.00f;
     this->GameplayEffectClass = NULL;
-    this->GameplayEffectClass = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZPlaceableTripMineData::StaticClass();
 }
-
 

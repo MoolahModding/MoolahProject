@@ -16,7 +16,6 @@ private:
     
 public:
     USBZStateMachineStateWaitingReturnToIIS();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandlePostLoadMap(UWorld* NewWorld);

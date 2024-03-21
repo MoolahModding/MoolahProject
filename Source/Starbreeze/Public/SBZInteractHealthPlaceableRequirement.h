@@ -8,6 +8,5 @@ class USBZInteractHealthPlaceableRequirement : public USBZBaseInteractRequiremen
     GENERATED_BODY()
 public:
     USBZInteractHealthPlaceableRequirement();
-
 };
 

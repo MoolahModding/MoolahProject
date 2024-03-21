@@ -15,7 +15,6 @@ protected:
     
 public:
     USBZNotificationWidget();
-
     UFUNCTION(BlueprintCallable)
     void SetupWidget(UTextBlock* InTextBlock);
     

@@ -1,10 +1,10 @@
 #include "SBZSessionLeavePartyCallbackProxy.h"
 
-USBZSessionLeavePartyCallbackProxy::USBZSessionLeavePartyCallbackProxy() {
-}
-
-USBZSessionLeavePartyCallbackProxy* USBZSessionLeavePartyCallbackProxy::SessionLeaveParty(UObject* WorldContextObject) {
+USBZSessionLeavePartyCallbackProxy* USBZSessionLeavePartyCallbackProxy::SessionLeaveParty(UObject* NewWorldContextObject) {
     return NULL;
 }
 
+USBZSessionLeavePartyCallbackProxy::USBZSessionLeavePartyCallbackProxy() {
+    this->WorldContextObject = NULL;
+}
 

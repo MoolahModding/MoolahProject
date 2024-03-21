@@ -37,7 +37,6 @@ private:
     
 public:
     USBZWeaponCustomizationSubscreen();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void UpdatePreview();
     

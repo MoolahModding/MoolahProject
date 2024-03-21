@@ -68,24 +68,27 @@ protected:
     bool bIsSabotaged;
     
 public:
-    ASBZHackingZoneController(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHackingZoneController();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    void OnServerCompleteInteraction(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
-    
     UFUNCTION(BlueprintCallable)
     void OnSabotaged(bool bNewSabotagedState);
     
     UFUNCTION(BlueprintCallable)
     void OnHeistGoneLoud();
     
+    UFUNCTION(BlueprintCallable)
+    void OnAckCompleteInteraction(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
+    
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DisableHackingZones();
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_OnSabotageChanged(bool bIsSabotagedState);
     
 };
 

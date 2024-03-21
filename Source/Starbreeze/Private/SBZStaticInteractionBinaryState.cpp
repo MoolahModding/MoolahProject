@@ -2,14 +2,6 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 
-ASBZStaticInteractionBinaryState::ASBZStaticInteractionBinaryState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->InteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->bState = false;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZStaticInteractionBinaryState::SetInteractionEnabled(bool bEnabled) {
 }
 
@@ -26,4 +18,8 @@ void ASBZStaticInteractionBinaryState::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(ASBZStaticInteractionBinaryState, bState);
 }
 
+ASBZStaticInteractionBinaryState::ASBZStaticInteractionBinaryState() {
+    this->InteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->bState = false;
+}
 

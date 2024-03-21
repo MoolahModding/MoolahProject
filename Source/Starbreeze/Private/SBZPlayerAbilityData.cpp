@@ -21,8 +21,5 @@ USBZPlayerAbilityData::USBZPlayerAbilityData() {
     this->InitialLoadoutWeight = 0.00f;
     this->InitialWeightTierOffset = 0.00f;
     this->InitialMaxRuntimeCount = 0;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZPlayerAbilityData::StaticClass();
 }
-
 

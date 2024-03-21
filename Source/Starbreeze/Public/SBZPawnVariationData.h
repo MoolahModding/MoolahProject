@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPawnVariationData.generated.h"
 
-class UClass;
+class APawn;
 class USBZAIEquipmentData;
 class USBZVariationSetData;
 
@@ -12,7 +13,7 @@ struct FSBZPawnVariationData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PawnClass;
+    TSubclassOf<APawn> PawnClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bOverrideEquipmentData;

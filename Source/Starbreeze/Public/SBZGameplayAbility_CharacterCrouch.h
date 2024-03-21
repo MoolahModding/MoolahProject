@@ -12,6 +12,5 @@ public:
     FSBZHUDNotificationData UncrouchNotification;
     
     USBZGameplayAbility_CharacterCrouch();
-
 };
 

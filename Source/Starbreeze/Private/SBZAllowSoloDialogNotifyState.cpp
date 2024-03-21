@@ -3,4 +3,3 @@
 USBZAllowSoloDialogNotifyState::USBZAllowSoloDialogNotifyState() {
 }
 
-

@@ -15,10 +15,14 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnOnlineSessionSearchEventDelegate OnComplete;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     USBZSessionUpdateListCallbackProxy();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static USBZSessionUpdateListCallbackProxy* SessionUpdateList(UObject* WorldContextObject, const FSBZOnlineSessionParams& InSearchParams);
+    static USBZSessionUpdateListCallbackProxy* SessionUpdateList(UObject* NewWorldContextObject, const FSBZOnlineSessionParams& InSearchParams);
     
 };
 

@@ -8,6 +8,5 @@ class USBZModularPartDataAsset : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZModularPartDataAsset();
-
 };
 

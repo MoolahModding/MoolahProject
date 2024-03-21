@@ -8,6 +8,5 @@ class USBZCuffedAbility : public USBZDefeatAbility {
     GENERATED_BODY()
 public:
     USBZCuffedAbility();
-
 };
 

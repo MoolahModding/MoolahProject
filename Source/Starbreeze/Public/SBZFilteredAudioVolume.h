@@ -54,8 +54,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CrowdCurrent;
     
-    ASBZFilteredAudioVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZFilteredAudioVolume();
     UFUNCTION(BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     

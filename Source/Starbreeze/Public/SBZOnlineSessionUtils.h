@@ -17,7 +17,6 @@ public:
     USBZLobby* Lobby;
     
     USBZOnlineSessionUtils();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPartyOwner() const;
     

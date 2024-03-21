@@ -1,47 +1,5 @@
 #include "SBZUIManager.h"
 
-USBZUIManager::USBZUIManager() {
-    this->PopUpWidgetClass = NULL;
-    this->PopUpWidgetClass = NULL;
-    this->PopUpWidget = NULL;
-    this->TutorialPopUpBodyWidgetClass = NULL;
-    this->TutorialPopUpBodyWidgetClass = NULL;
-    this->TutorialPopUpBody = NULL;
-    this->FullscreenNotificationWidgetClass = NULL;
-    this->FullscreenNotificationWidgetClass = NULL;
-    this->FullscreenNotificationWidget = NULL;
-    this->SideBarNotificationWidgetClass = NULL;
-    this->SideBarNotificationWidgetClass = NULL;
-    this->SideBarNotificationWidget = NULL;
-    this->InfoPopupWidgetWidgetClass = NULL;
-    this->InfoPopupWidgetWidgetClass = NULL;
-    this->InfoPopupWidget = NULL;
-    this->DebugWidgetClass = NULL;
-    this->DebugWidgetClass = NULL;
-    this->DebugWidget = NULL;
-    this->SubtitleWidgetClass = NULL;
-    this->SubtitleWidgetClass = NULL;
-    this->PlatformSprite_GenericPC = NULL;
-    this->PlatformSprite_GenericConsole = NULL;
-    this->PlatformSprite_Playstation = NULL;
-    this->PlatformSprite_XBox = NULL;
-    this->NebulaSprite = NULL;
-    this->XBoxGamepadSprite = NULL;
-    this->PlayStationGamepadSprite = NULL;
-    this->KeySpriteEmpty = NULL;
-    this->SubtitleWidget = NULL;
-    this->PopUpStackString = TEXT("PopUp");
-    this->SwitchingStackString = TEXT("Switching");
-    this->BlackBackgroundWidgetClass = NULL;
-    this->BlackBackgroundWidgetClass = NULL;
-    this->ActiveMenuWidget = NULL;
-    this->ActiveLoginScreenWidget = NULL;
-    this->LastFocusedWidget = NULL;
-    this->LastUIStackUpdate = 0.00f;
-    this->bSetFocusOnUnlock = false;
-    this->UIData = NULL;
-}
-
 bool USBZUIManager::TryRemoveFromStack(const FName& StackValue) {
     return false;
 }
@@ -180,7 +138,7 @@ USBZUIData* USBZUIManager::GetUIData(UObject* WorldContextObject) {
     return NULL;
 }
 
-UPaperSprite* USBZUIManager::GetSpriteForPlatform(ESBZPlatform InPlatform) {
+UPaperSprite* USBZUIManager::GetSpriteForPlatform(ESBZPlatform InPlatform, bool bUseCurrentPlatformIconIfUnknown) {
     return NULL;
 }
 
@@ -251,4 +209,37 @@ int32 USBZUIManager::AddControlsReference(const FSBZControlsReference& InControl
     return 0;
 }
 
+USBZUIManager::USBZUIManager() {
+    this->PopUpWidgetClass = NULL;
+    this->PopUpWidget = NULL;
+    this->TutorialPopUpBodyWidgetClass = NULL;
+    this->TutorialPopUpBody = NULL;
+    this->FullscreenNotificationWidgetClass = NULL;
+    this->FullscreenNotificationWidget = NULL;
+    this->SideBarNotificationWidgetClass = NULL;
+    this->SideBarNotificationWidget = NULL;
+    this->InfoPopupWidgetWidgetClass = NULL;
+    this->InfoPopupWidget = NULL;
+    this->DebugWidgetClass = NULL;
+    this->DebugWidget = NULL;
+    this->SubtitleWidgetClass = NULL;
+    this->PlatformSprite_GenericPC = NULL;
+    this->PlatformSprite_GenericConsole = NULL;
+    this->PlatformSprite_Playstation = NULL;
+    this->PlatformSprite_XBox = NULL;
+    this->NebulaSprite = NULL;
+    this->XBoxGamepadSprite = NULL;
+    this->PlayStationGamepadSprite = NULL;
+    this->KeySpriteEmpty = NULL;
+    this->SubtitleWidget = NULL;
+    this->PopUpStackString = TEXT("PopUp");
+    this->SwitchingStackString = TEXT("Switching");
+    this->BlackBackgroundWidgetClass = NULL;
+    this->ActiveMenuWidget = NULL;
+    this->ActiveLoginScreenWidget = NULL;
+    this->LastFocusedWidget = NULL;
+    this->LastUIStackUpdate = 0.00f;
+    this->bSetFocusOnUnlock = false;
+    this->UIData = NULL;
+}
 

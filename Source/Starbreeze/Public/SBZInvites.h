@@ -15,7 +15,6 @@ public:
     FSBZOnlineEventDelegate EventUserSwitchDuringInvite;
     
     USBZInvites();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandleStateEnteredPlayTogether(FName StateName);

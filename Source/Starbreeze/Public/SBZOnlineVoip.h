@@ -10,7 +10,6 @@ class USBZOnlineVoip : public UObject {
     GENERATED_BODY()
 public:
     USBZOnlineVoip();
-
     UFUNCTION(BlueprintCallable)
     void SetCaptureDevice(const FString& DeviceName);
     

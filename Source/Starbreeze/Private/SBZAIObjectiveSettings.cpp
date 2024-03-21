@@ -5,4 +5,3 @@ USBZAIObjectiveSettings::USBZAIObjectiveSettings() {
     this->ThrownMoveToEQSBPClass = NULL;
 }
 
-

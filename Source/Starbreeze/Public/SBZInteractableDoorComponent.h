@@ -8,6 +8,5 @@ class USBZInteractableDoorComponent : public USBZInteractableComponent {
     GENERATED_BODY()
 public:
     USBZInteractableDoorComponent();
-
 };
 

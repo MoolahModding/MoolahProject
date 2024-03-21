@@ -8,6 +8,5 @@ class USBZDisableAgentCollision : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZDisableAgentCollision();
-
 };
 

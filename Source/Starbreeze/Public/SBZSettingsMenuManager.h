@@ -24,7 +24,6 @@ private:
     
 public:
     USBZSettingsMenuManager();
-
     UFUNCTION(BlueprintCallable)
     void OnPopUpClosedUnappliedChanges(FName ActionName);
     

@@ -4,4 +4,3 @@ USBZBTDecorator_SendAIMessage::USBZBTDecorator_SendAIMessage() {
     this->ActivationMessage = TEXT("Activation");
 }
 
-

@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZMainMenuSpectatorPawn : public ASBZSpectatorPawn {
     GENERATED_BODY()
 public:
-    ASBZMainMenuSpectatorPawn(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMainMenuSpectatorPawn();
 };
 

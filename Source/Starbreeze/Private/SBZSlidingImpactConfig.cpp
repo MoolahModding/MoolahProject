@@ -3,4 +3,3 @@
 USBZSlidingImpactConfig::USBZSlidingImpactConfig() {
 }
 
-

@@ -14,6 +14,5 @@ public:
     float VisorHardness;
     
     USBZTankAbilityData();
-
 };
 

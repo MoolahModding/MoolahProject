@@ -8,6 +8,5 @@ class USBZAIArmedCharacterAnimationCollection : public USBZAICharacterAnimationC
     GENERATED_BODY()
 public:
     USBZAIArmedCharacterAnimationCollection();
-
 };
 

@@ -1,10 +1,5 @@
 #include "SBZEquippableCharm.h"
 
-ASBZEquippableCharm::ASBZEquippableCharm(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->OwningCharacter = NULL;
-    this->OwningEquippable = NULL;
-}
-
 void ASBZEquippableCharm::UpdateMeshPropertiesFrom(const UMeshComponent* Reference, USBZOutlineComponent* OutlineComponent, bool bIsReset) {
 }
 
@@ -58,4 +53,8 @@ void ASBZEquippableCharm::EquippableEquipped(const ASBZEquippable* Equippable) {
 void ASBZEquippableCharm::EquippableDropped(const ASBZEquippable* Equippable) {
 }
 
+ASBZEquippableCharm::ASBZEquippableCharm() {
+    this->OwningCharacter = NULL;
+    this->OwningEquippable = NULL;
+}
 

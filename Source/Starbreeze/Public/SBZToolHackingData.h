@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZToolData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZToolHackingData.generated.h"
 
-class UClass;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class USBZToolHackingData : public USBZToolData {
@@ -16,12 +17,11 @@ public:
     float HackingSynchTimer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HackingToolDOFFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> HackingToolDOFFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HackingAimDegreePadding;
     
     USBZToolHackingData();
-
 };
 

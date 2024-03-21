@@ -45,6 +45,5 @@ private:
     
 public:
     USBZAICloakerMeleeAbility();
-
 };
 

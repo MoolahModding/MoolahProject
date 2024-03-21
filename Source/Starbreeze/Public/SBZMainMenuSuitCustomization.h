@@ -21,7 +21,6 @@ protected:
     
 public:
     USBZMainMenuSuitCustomization();
-
     UFUNCTION(BlueprintCallable)
     USBZModularPartDataAsset* GetCosmeticItemInSlot(ESBZSuitPart SuitPart, const USBZCosmeticsPartSlot* InCosmeticPartSlot);
     

@@ -23,7 +23,6 @@ private:
     
 public:
     USBZMainMenuWeaponPartProgressionButton();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void WeaponPartProgressionInitialized(const FSBZWeaponPartProgressionCurrent& InWeaponPartProgression);

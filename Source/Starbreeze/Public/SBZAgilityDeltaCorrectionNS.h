@@ -28,6 +28,5 @@ public:
     ESBZAgilityPointType TargetPointTypeToRecomputeFrom;
     
     USBZAgilityDeltaCorrectionNS();
-
 };
 

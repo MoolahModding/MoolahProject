@@ -35,8 +35,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowStateChange;
     
-    ASBZAkAcousticPortal(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAkAcousticPortal(const class FObjectInitializer& ObjectInitializer);
     UFUNCTION(BlueprintCallable)
     void OnDebugLogging();
     

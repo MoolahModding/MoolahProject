@@ -8,6 +8,5 @@ class USBZGameplayAbility_CharacterRun : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZGameplayAbility_CharacterRun();
-
 };
 

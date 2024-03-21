@@ -20,7 +20,6 @@ private:
     
 public:
     USBZSaveManager();
-
     UFUNCTION(BlueprintCallable)
     void UpdateLoadoutInLobby();
     
@@ -30,7 +29,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZSaveManager* Get(const UObject* WorldContextObject);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

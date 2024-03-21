@@ -6,7 +6,6 @@
 
 class ASBZAIBaseCharacter;
 class ASBZPedestrianTrafficNavLink;
-class UClass;
 class USBZAICharacterMovementComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -61,6 +60,5 @@ protected:
     
 public:
     USBZAgentPathFollowingComponent();
-
 };
 

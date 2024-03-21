@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTDecorator.h"
 #include "UObject/NoExportTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTDecorator_CloakerMelee.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZBTDecorator_CloakerMelee : public UBTDecorator {
@@ -12,7 +13,7 @@ class STARBREEZE_API USBZBTDecorator_CloakerMelee : public UBTDecorator {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FilterClass;
+    TSubclassOf<UNavigationQueryFilter> FilterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TriggerAcceptanceRadius;
@@ -23,14 +24,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float KickAcceptanceRadiusZ;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float AllowedDistanceFromPath;
-    
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatInterval TelegraphAttackTriggerDistance;
     
 public:
     USBZBTDecorator_CloakerMelee();
-
 };
 

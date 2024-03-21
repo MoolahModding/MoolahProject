@@ -8,6 +8,5 @@ class USBZTacticianDiscombobulateEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZTacticianDiscombobulateEffect();
-
 };
 

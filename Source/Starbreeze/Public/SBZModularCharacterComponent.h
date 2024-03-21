@@ -27,8 +27,7 @@ private:
     USkeletalMeshComponent* BodyMeshComponent;
     
 public:
-    USBZModularCharacterComponent();
-
+    USBZModularCharacterComponent(const class FObjectInitializer& ObjectInitializer);
     UFUNCTION(BlueprintCallable)
     void SetSuitMesh(USkeletalMesh* SuitSkeletalMesh);
     

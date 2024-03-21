@@ -15,6 +15,5 @@ protected:
     
 public:
     USBZAIUtilityScorer_DistanceToGrenade();
-
 };
 

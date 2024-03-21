@@ -26,7 +26,6 @@ protected:
     
 public:
     USBZLobbyLocalState();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SendInfoToServer();

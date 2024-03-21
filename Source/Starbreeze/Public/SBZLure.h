@@ -84,10 +84,9 @@ private:
     bool bIsPlayingEffects;
     
 public:
-    ASBZLure(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLure();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
@@ -110,7 +109,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void HandleHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

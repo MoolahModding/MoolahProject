@@ -54,6 +54,5 @@ public:
     float DeviationTargetingFireMultiplier;
     
     USBZWeaponSpreadData();
-
 };
 

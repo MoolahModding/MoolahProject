@@ -24,4 +24,3 @@ USBZAIArmedCharacterLinkedAnimation::USBZAIArmedCharacterLinkedAnimation() {
     this->CrouchCoverToStandCover = NULL;
 }
 
-

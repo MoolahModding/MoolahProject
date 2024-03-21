@@ -36,6 +36,5 @@ private:
     
 public:
     USBZOnlineSlotsHost();
-
 };
 

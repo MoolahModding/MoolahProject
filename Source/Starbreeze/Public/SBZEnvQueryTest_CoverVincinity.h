@@ -16,6 +16,5 @@ public:
     FAIDataProviderBoolValue OccupiedOnly;
     
     USBZEnvQueryTest_CoverVincinity();
-
 };
 

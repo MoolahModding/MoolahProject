@@ -8,6 +8,5 @@ class USBZPlaceSensorToolAbility : public USBZPlaceToolAbility {
     GENERATED_BODY()
 public:
     USBZPlaceSensorToolAbility();
-
 };
 

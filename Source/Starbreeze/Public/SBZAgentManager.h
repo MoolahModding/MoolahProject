@@ -17,7 +17,6 @@ private:
     
 public:
     USBZAgentManager();
-
     UFUNCTION(Server, Unreliable, WithValidation)
     void ServerUnreliableRPC(uint64 ClientId, const TArray<uint8>& Data);
     
@@ -42,7 +41,7 @@ public:
     UFUNCTION(Reliable, Server, WithValidation)
     void ClientInitializedRPC(uint64 ClientId);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

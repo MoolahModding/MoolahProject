@@ -8,8 +8,5 @@ USBZWeaponStickerData::USBZWeaponStickerData() {
     this->StickerNormalStrength = 5.00f;
     this->StickerRoughnessContrast = 0.10f;
     this->StickerRoughnessValue = 0.00f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZWeaponStickerData::StaticClass();
 }
-
 

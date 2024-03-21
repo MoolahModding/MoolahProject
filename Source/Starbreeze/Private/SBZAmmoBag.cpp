@@ -1,9 +1,7 @@
 #include "SBZAmmoBag.h"
 
-ASBZAmmoBag::ASBZAmmoBag(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAmmoBag::ASBZAmmoBag() {
     this->NumberOfMagazinesPerCharge = 5;
     this->NumberOfGrenadesPerCharge = 1;
-    this->Tags.AddDefaulted(1);
 }
-
 

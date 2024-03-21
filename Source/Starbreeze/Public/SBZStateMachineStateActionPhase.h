@@ -26,7 +26,6 @@ private:
     
 public:
     USBZStateMachineStateActionPhase();
-
     UFUNCTION(BlueprintCallable)
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     

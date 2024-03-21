@@ -12,10 +12,8 @@ USBZRangedWeaponData::USBZRangedWeaponData() {
     this->TargetingAimAssistData = NULL;
     this->TargetingAimAssistDataFiring = NULL;
     this->OnFireWeaponFeedback = NULL;
-    this->OnFireWeaponFeedback = NULL;
     this->NormalMagnification = 1.00f;
     this->DOFData = NULL;
-    this->WeaponBoxClass = NULL;
     this->WeaponBoxClass = NULL;
     this->SprintEnterPlayRate = 1.00f;
     this->SprintExitPlayRate = 1.00f;
@@ -25,8 +23,5 @@ USBZRangedWeaponData::USBZRangedWeaponData() {
     this->ReloadEmptyNotifyTime = 0.00f;
     this->ReloadNotifyTime = 0.00f;
     this->CachedMagazineData = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZRangedWeaponData::StaticClass();
 }
-
 

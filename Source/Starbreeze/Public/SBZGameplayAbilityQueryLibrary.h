@@ -14,7 +14,6 @@ class USBZGameplayAbilityQueryLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZGameplayAbilityQueryLibrary();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool QueryGameplayTagContainerFromAbilitySystemComponent(UAbilitySystemComponent* AbilitySystem, const FSBZGameplayTagContainerComparison& Comparison);
     

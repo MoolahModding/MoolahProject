@@ -20,7 +20,6 @@ protected:
     
 public:
     USBZStateMachineStateLobby();
-
 private:
     UFUNCTION(BlueprintCallable)
     void WaitPlayersTickSeconds();

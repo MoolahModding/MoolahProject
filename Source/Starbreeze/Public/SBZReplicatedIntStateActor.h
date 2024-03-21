@@ -18,10 +18,9 @@ private:
     float ClientStateDelay;
     
 public:
-    ASBZReplicatedIntStateActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZReplicatedIntStateActor();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(int32 NewState, bool bDoCosmetics);
     

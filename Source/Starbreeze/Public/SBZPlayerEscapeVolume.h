@@ -19,7 +19,6 @@ protected:
     bool bDisableWhenEscapeTimeIsComplete;
     
 public:
-    ASBZPlayerEscapeVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerEscapeVolume();
 };
 

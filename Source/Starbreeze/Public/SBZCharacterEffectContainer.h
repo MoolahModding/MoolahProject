@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "SBZCharacterEffectRuntime.h"
 #include "SBZPlayerStatePawnWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZCharacterEffectContainer.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZCharacterEffectWidget;
 
@@ -17,7 +17,7 @@ protected:
     UPanelWidget* Panel_CharacterEffectsContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CharacterEffectWidgetClass;
+    TSubclassOf<USBZCharacterEffectWidget> CharacterEffectWidgetClass;
     
 private:
     UPROPERTY(EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -28,7 +28,6 @@ private:
     
 public:
     USBZCharacterEffectContainer();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnCharacterEffectRemoved(FSBZCharacterEffectRuntime& CharacterRuntime);

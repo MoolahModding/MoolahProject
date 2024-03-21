@@ -8,6 +8,5 @@ class USBZCrowdFollowingComponent : public UCrowdFollowingComponent {
     GENERATED_BODY()
 public:
     USBZCrowdFollowingComponent();
-
 };
 

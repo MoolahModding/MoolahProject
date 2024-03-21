@@ -78,7 +78,6 @@ private:
     
 public:
     USBZShoutTargetComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetEnabled(bool bNewValue);
     

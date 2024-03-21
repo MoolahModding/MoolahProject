@@ -29,7 +29,6 @@ protected:
     
 public:
     USBZLifeActionInstance();
-
     UFUNCTION(BlueprintCallable)
     void StopDialog(bool bReset);
     

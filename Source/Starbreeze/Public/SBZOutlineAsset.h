@@ -17,6 +17,5 @@ public:
     float Distance;
     
     USBZOutlineAsset();
-
 };
 

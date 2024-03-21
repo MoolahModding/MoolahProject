@@ -8,6 +8,5 @@ class USBZMaskSprayCanApplier : public USBZModularPartApplier {
     GENERATED_BODY()
 public:
     USBZMaskSprayCanApplier();
-
 };
 

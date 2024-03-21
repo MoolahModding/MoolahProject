@@ -5,4 +5,3 @@ USBZAIActionData_SetHostile::USBZAIActionData_SetHostile() {
     this->bShouldCheckSightPerception = false;
 }
 
-

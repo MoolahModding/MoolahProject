@@ -8,6 +8,5 @@ class USBZAIUtilityScorer_HasRelocationRequest : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_HasRelocationRequest();
-
 };
 

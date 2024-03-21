@@ -1,6 +1,6 @@
 #include "SBZRangedWeapon.h"
 
-ASBZRangedWeapon::ASBZRangedWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZRangedWeapon::ASBZRangedWeapon() {
     this->FireEffect = NULL;
     this->FireEmitterMesh = NULL;
     this->FireEffectSocket = TEXT("L_Fire");
@@ -19,5 +19,4 @@ ASBZRangedWeapon::ASBZRangedWeapon(const FObjectInitializer& ObjectInitializer) 
     this->FPExitTargetingEvent = NULL;
     this->DryFireEvent = NULL;
 }
-
 

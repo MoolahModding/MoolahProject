@@ -11,7 +11,6 @@ class USBZSettingsFunctionsUserInterface : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsUserInterface();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetSubtitlesSize(UObject* WorldContextObject, float Size);
     

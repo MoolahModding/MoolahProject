@@ -3,15 +3,16 @@
 #include "Engine/GameInstance.h"
 #include "ESBZDifficulty.h"
 #include "SBZReplayInfo.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGameInstance.generated.h"
 
 class UAkInitBank;
-class UClass;
 class USBZAccelByteNetworkErrorManager;
 class USBZAccelByteUser;
 class USBZAchievementManager;
 class USBZAnalyticsManager;
 class USBZAssetDatabaseManager;
+class USBZBanPlayerManager;
 class USBZChallengeCategoryManager;
 class USBZChallengeManager;
 class USBZCharacterManager;
@@ -66,37 +67,37 @@ protected:
     UAkInitBank* WwiseInitBank;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MusicManagerClass;
+    TSubclassOf<USBZMusicManager> MusicManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MotionManagerClass;
+    TSubclassOf<USBZWwiseMotionManagerComponent> MotionManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* VolumeManagerClass;
+    TSubclassOf<USBZVolumeManager> VolumeManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GamepadBindingsManagerClass;
+    TSubclassOf<USBZGamepadBindingsManager> GamepadBindingsManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ListenerManagerClass;
+    TSubclassOf<USBZListenerManager> ListenerManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SoundEnvironmentManagerClass;
+    TSubclassOf<USBZSoundEnvironmentManager> SoundEnvironmentManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChallengeManagerClass;
+    TSubclassOf<USBZChallengeManager> ChallengeManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChallengeCategoryManagerClass;
+    TSubclassOf<USBZChallengeCategoryManager> ChallengeCategoryManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* UIManagerClass;
+    TSubclassOf<USBZUIManager> UIManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GlobalItemDatabaseClass;
+    TSubclassOf<USBZGlobalItemDatabase> GlobalItemDatabaseClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GlobalQuickStartItemDatabaseClass;
+    TSubclassOf<USBZGlobalItemDatabase> GlobalQuickStartItemDatabaseClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZGameStateMachine* GameStateMachine;
@@ -214,6 +215,9 @@ private:
     USBZItemProgressionManager* ItemProgressionManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZBanPlayerManager* BanPlayerManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZUE4StatsProfiler* UE4StatsProfiler;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -227,7 +231,6 @@ private:
     
 public:
     USBZGameInstance();
-
     UFUNCTION(BlueprintCallable)
     void SetDifficulty(ESBZDifficulty InDifficulty);
     

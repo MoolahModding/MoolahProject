@@ -1,13 +1,6 @@
 #include "SBZVotingReplicatedProxy.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZVotingReplicatedProxy::ASBZVotingReplicatedProxy(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bDummy = false;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZVotingReplicatedProxy::Server_NotifySendVoteRecall_Implementation(FUniqueNetIdRepl PlayerId) {
 }
 
@@ -44,4 +37,7 @@ void ASBZVotingReplicatedProxy::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(ASBZVotingReplicatedProxy, bDummy);
 }
 
+ASBZVotingReplicatedProxy::ASBZVotingReplicatedProxy() {
+    this->bDummy = false;
+}
 

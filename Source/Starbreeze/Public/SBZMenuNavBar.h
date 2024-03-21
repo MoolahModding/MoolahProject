@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "SBZNavButtonParameters.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMenuNavBar.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZMenuNavBarButton;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZMenuNavBar : public USBZWidgetBase {
@@ -22,7 +23,7 @@ protected:
     TArray<FSBZNavButtonParameters> NavigationButtons;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* NavigationButtonClass;
+    TSubclassOf<USBZMenuNavBarButton> NavigationButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_ButtonContainer;
@@ -32,7 +33,6 @@ protected:
     
 public:
     USBZMenuNavBar();
-
     UFUNCTION(BlueprintCallable)
     void SetActiveTab(const FName& InTabName);
     

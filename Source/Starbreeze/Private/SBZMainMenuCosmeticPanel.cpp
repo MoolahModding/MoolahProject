@@ -1,9 +1,5 @@
 #include "SBZMainMenuCosmeticPanel.h"
 
-USBZMainMenuCosmeticPanel::USBZMainMenuCosmeticPanel() {
-    this->Panel_ButtonsContainer = NULL;
-}
-
 void USBZMainMenuCosmeticPanel::UpdateStackCount(const USBZCosmeticsDataAsset* InCosmeticItem, int32 InNewStackCount) {
 }
 
@@ -25,4 +21,7 @@ void USBZMainMenuCosmeticPanel::InitializeCosmeticItemPanel(const FSBZCosmeticPa
 void USBZMainMenuCosmeticPanel::GiveKeyboardFocus() {
 }
 
+USBZMainMenuCosmeticPanel::USBZMainMenuCosmeticPanel() {
+    this->Panel_ButtonsContainer = NULL;
+}
 

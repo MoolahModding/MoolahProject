@@ -1,5 +1,4 @@
 #include "SBZAICloakerMeleeAbility.h"
-#include "ESBZAbilityInput.h"
 
 USBZAICloakerMeleeAbility::USBZAICloakerMeleeAbility() {
     this->HitAcceptanceRadius = 80.00f;
@@ -11,7 +10,5 @@ USBZAICloakerMeleeAbility::USBZAICloakerMeleeAbility() {
     this->AICharacter = NULL;
     this->CurrentMeleeMontage = NULL;
     this->CurrentBeatOnGroundMontage = NULL;
-    this->Input = ESBZAbilityInput::Fire;
 }
-
 

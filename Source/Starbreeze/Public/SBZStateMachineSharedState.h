@@ -14,9 +14,8 @@ public:
     ESBZOnlineSessionPhase OnlineSessionPhase;
     
     USBZStateMachineSharedState();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NotifyServerInActionPhase();
     

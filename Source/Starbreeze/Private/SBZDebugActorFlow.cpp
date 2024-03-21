@@ -1,9 +1,8 @@
 #include "SBZDebugActorFlow.h"
-#include "Components/SceneComponent.h"
 #include "SBZDebugActorComponentFlow.h"
 #include "SBZDebugObjectFlow.h"
 
-ASBZDebugActorFlow::ASBZDebugActorFlow(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZDebugActorFlow::ASBZDebugActorFlow() {
     this->bIs = true;
     this->bIsDuplicateTransient = true;
     this->Float = 0.00f;
@@ -13,7 +12,5 @@ ASBZDebugActorFlow::ASBZDebugActorFlow(const FObjectInitializer& ObjectInitializ
     this->Object = CreateDefaultSubobject<USBZDebugObjectFlow>(TEXT("Object"));
     this->InstanceObject = CreateDefaultSubobject<USBZDebugObjectFlow>(TEXT("InstanceObject"));
     this->DynamicObject = NULL;
-    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 }
-
 

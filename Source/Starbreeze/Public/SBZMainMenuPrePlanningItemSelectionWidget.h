@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "SBZMenuStackWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuPrePlanningItemSelectionWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZMainMenuPrePlanningItemSelectionButton;
 class USBZMenuButton;
@@ -20,7 +20,7 @@ protected:
     UPanelWidget* Panel_ButtonList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PreplanningItemButtonClass;
+    TSubclassOf<USBZMainMenuPrePlanningItemSelectionButton> PreplanningItemButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FUniqueNetIdRepl, USBZPreplanningAssetData*> ActiveMap;
@@ -34,7 +34,6 @@ private:
     
 public:
     USBZMainMenuPrePlanningItemSelectionWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void UpdateAvailablePrePlanningAssetList();

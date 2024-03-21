@@ -11,7 +11,6 @@ class USBZSettingsFunctionsGamepad : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsGamepad();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetGamepadBindingsPreset(UObject* WorldContextObject, int32 Preset);
     

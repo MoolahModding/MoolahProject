@@ -9,7 +9,6 @@ class USBZMainMenuMatchmakingStatusWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuMatchmakingStatusWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTravelToGameStarted();

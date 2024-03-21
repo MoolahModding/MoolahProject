@@ -3,4 +3,3 @@
 USBZWidgetCreditsRowBase::USBZWidgetCreditsRowBase() {
 }
 
-

@@ -1,15 +1,6 @@
 #include "SBZLobbyRemoteState.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZLobbyRemoteState::ASBZLobbyRemoteState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->SlotReservationTimeout = 20.00f;
-    this->LobbyTravelTimeoutTime = 20.00f;
-    this->LobbyTimeout = 0;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZLobbyRemoteState::OnRep_LobbyTimeout() {
 }
 
@@ -33,4 +24,9 @@ void ASBZLobbyRemoteState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(ASBZLobbyRemoteState, LobbyTimeout);
 }
 
+ASBZLobbyRemoteState::ASBZLobbyRemoteState() {
+    this->SlotReservationTimeout = 20.00f;
+    this->LobbyTravelTimeoutTime = 20.00f;
+    this->LobbyTimeout = 0;
+}
 

@@ -1,24 +1,5 @@
 #include "SBZSocialFriendButtonContainer.h"
 
-USBZSocialFriendButtonContainer::USBZSocialFriendButtonContainer() {
-    this->Button_FilterFriends = NULL;
-    this->LeavePartyButton = NULL;
-    this->Panel_AccelByteFriendList = NULL;
-    this->Panel_PlatformFriendList = NULL;
-    this->Panel_IncomingFriendRequests = NULL;
-    this->Panel_OutgoingFriendRequests = NULL;
-    this->Panel_UserSearch = NULL;
-    this->Panel_BlockedPlayers = NULL;
-    this->Panel_PartyMembers = NULL;
-    this->Panel_OfflinePlayers = NULL;
-    this->FriendButtonWidgetClass = NULL;
-    this->FriendButtonWidgetClass = NULL;
-    this->PartyMemberButtonWidgetClass = NULL;
-    this->PartyMemberButtonWidgetClass = NULL;
-    this->CurrentlyFocusedButton = NULL;
-    this->StackValue = TEXT("Default__SBZSocialFriendButtonContainer");
-}
-
 void USBZSocialFriendButtonContainer::UpdatePartyMembersList() {
 }
 
@@ -68,4 +49,19 @@ void USBZSocialFriendButtonContainer::BuildPartyMembersList() {
 void USBZSocialFriendButtonContainer::AddPartyMember(FSBZPartyMember NewMember) {
 }
 
+USBZSocialFriendButtonContainer::USBZSocialFriendButtonContainer() {
+    this->Button_FilterFriends = NULL;
+    this->LeavePartyButton = NULL;
+    this->Panel_AccelByteFriendList = NULL;
+    this->Panel_PlatformFriendList = NULL;
+    this->Panel_IncomingFriendRequests = NULL;
+    this->Panel_OutgoingFriendRequests = NULL;
+    this->Panel_UserSearch = NULL;
+    this->Panel_BlockedPlayers = NULL;
+    this->Panel_PartyMembers = NULL;
+    this->Panel_OfflinePlayers = NULL;
+    this->FriendButtonWidgetClass = NULL;
+    this->PartyMemberButtonWidgetClass = NULL;
+    this->CurrentlyFocusedButton = NULL;
+}
 

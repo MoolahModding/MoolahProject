@@ -8,6 +8,5 @@ class USBZSkillCQCSpecialistGroundskeeper : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillCQCSpecialistGroundskeeper();
-
 };
 

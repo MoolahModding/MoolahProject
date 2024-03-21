@@ -36,6 +36,5 @@ protected:
     
 public:
     USBZBTTask_CoverInFear();
-
 };
 

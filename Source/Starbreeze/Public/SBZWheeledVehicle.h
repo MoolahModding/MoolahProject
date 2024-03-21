@@ -124,10 +124,9 @@ private:
     FVector DebugServerLocation1;
     
 public:
-    ASBZWheeledVehicle(const FObjectInitializer& ObjectInitializer);
-
+    ASBZWheeledVehicle();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void SetLightType(ESBZVehicleLightType LightType, bool bIsOn);
@@ -180,7 +179,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZVehicleDoorState GetDoorState(ESBZVehicleDoorType DoorType) const;
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     USBZVehicleSplineFollowingComponent* GetSplineFollowingComponent() const override PURE_VIRTUAL(GetSplineFollowingComponent, return NULL;);

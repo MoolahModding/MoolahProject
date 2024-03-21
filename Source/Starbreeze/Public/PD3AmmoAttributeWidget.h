@@ -22,7 +22,6 @@ protected:
     
 public:
     UPD3AmmoAttributeWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup(float AmmoLoadedSetup, float AmmoInventorySetup, float AmmoTotal);

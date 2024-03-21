@@ -15,7 +15,6 @@ protected:
     
 public:
     UPD3WeaponStatusWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnReloadStateChanged(const FSBZCombinedReloadState& OldCombinedState, const FSBZCombinedReloadState& NewCombinedState, bool bWasPlaying, bool bIsPlaying);

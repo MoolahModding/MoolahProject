@@ -17,8 +17,7 @@ protected:
     USBZMarkerDataAsset* MarkerAsset;
     
 public:
-    ASBZWaypoint(const FObjectInitializer& ObjectInitializer);
-
+    ASBZWaypoint();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveMarker();
     

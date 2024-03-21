@@ -36,6 +36,5 @@ public:
     FInt32Interval StopStayingInterval;
     
     USBZCivilianManagerSettings();
-
 };
 

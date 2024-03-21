@@ -21,12 +21,11 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZDebugObjectFlow* InstanceObject;
-    
+   
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDebugObjectFlow* DynamicObject;
     
 public:
     USBZDebugActorComponentFlow();
-
 };
 

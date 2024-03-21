@@ -8,6 +8,5 @@ class USBZSkillAmmoSpecialistFullyLoaded : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillAmmoSpecialistFullyLoaded();
-
 };
 

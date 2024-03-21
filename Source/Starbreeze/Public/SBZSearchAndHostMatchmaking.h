@@ -40,7 +40,6 @@ private:
     
 public:
     USBZSearchAndHostMatchmaking();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToHost(ESBZOnlineCode Result);

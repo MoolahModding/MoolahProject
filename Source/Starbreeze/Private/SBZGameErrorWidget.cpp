@@ -1,9 +1,5 @@
 #include "SBZGameErrorWidget.h"
 
-USBZGameErrorWidget::USBZGameErrorWidget() {
-    this->Button_ReturnToMainMenu = NULL;
-}
-
 void USBZGameErrorWidget::SetInternetConnected(ESBZServiceStatus ServiceStatus) {
 }
 
@@ -19,4 +15,7 @@ USBZMenuButton* USBZGameErrorWidget::GetButton_ReturnToMainMenu() const {
     return NULL;
 }
 
+USBZGameErrorWidget::USBZGameErrorWidget() {
+    this->Button_ReturnToMainMenu = NULL;
+}
 

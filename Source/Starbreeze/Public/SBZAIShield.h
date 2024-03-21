@@ -68,7 +68,6 @@ private:
     
 public:
     USBZAIShield();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_ShieldBreak();

@@ -8,6 +8,5 @@ class USBZAIAction_LookAndComment : public USBZAIAction_Order {
     GENERATED_BODY()
 public:
     USBZAIAction_LookAndComment();
-
 };
 

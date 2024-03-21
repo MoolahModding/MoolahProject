@@ -65,5 +65,8 @@ enum class ESBZMetaRequestResult : uint8 {
     FailedToPurchaseRealMoneyItem,
     FailedToQueryAchievements,
     InventoryItemCannotBeDiscarded,
+    FailedToGetReceipts,
+    HaveNotReceivedInitialRewards,
+    MissingEnitlementPermission,
 };
 

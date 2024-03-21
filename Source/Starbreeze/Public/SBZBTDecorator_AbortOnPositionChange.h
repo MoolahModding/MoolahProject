@@ -8,6 +8,5 @@ class UDEPRECATED_SBZBTDecorator_AbortOnPositionChange : public UBTDecorator_Bla
     GENERATED_BODY()
 public:
     UDEPRECATED_SBZBTDecorator_AbortOnPositionChange();
-
 };
 

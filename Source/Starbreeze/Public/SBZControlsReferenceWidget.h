@@ -2,10 +2,12 @@
 #include "CoreMinimal.h"
 #include "SBZControlsReference.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZControlsReferenceWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZControlsReferenceActionWidget;
+class USBZControlsReferenceAxisWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZControlsReferenceWidget : public USBZWidgetBase {
@@ -16,10 +18,10 @@ protected:
     int32 MaxActionsDisplayed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ControlsReferenceActionWidgetClass;
+    TSubclassOf<USBZControlsReferenceActionWidget> ControlsReferenceActionWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ControlsReferenceAxisWidgetClass;
+    TSubclassOf<USBZControlsReferenceAxisWidget> ControlsReferenceAxisWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_ActionLists;
@@ -29,7 +31,6 @@ protected:
     
 public:
     USBZControlsReferenceWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void NativeDisplayControlsReference(const FSBZControlsReference& InControlsReference);

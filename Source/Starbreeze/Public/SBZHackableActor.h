@@ -138,10 +138,9 @@ protected:
     FText ObjectiveInfo;
     
 public:
-    ASBZHackableActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHackableActor();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool VisionPredicate(const AActor* Viewer) const;
@@ -211,7 +210,7 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ActivateHackableActor();
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);

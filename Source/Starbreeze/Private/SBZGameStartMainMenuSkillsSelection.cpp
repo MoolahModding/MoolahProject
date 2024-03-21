@@ -1,15 +1,5 @@
 #include "SBZGameStartMainMenuSkillsSelection.h"
 
-USBZGameStartMainMenuSkillsSelection::USBZGameStartMainMenuSkillsSelection() {
-    this->AlternativeSelectionInput = TEXT("UI_TertiaryInteraction");
-    this->AlternativeSelectionHoldDuration = 0.50f;
-    this->DescriptionScrollAxis = TEXT("LookUpRate");
-    this->DescriptionScrollSpeed = 1.00f;
-    this->AxisDeadZone = 0.10f;
-    this->CurrentLoadoutIndex = -1;
-    this->StackValue = TEXT("SkillsCustomization");
-}
-
 
 
 
@@ -31,4 +21,12 @@ bool USBZGameStartMainMenuSkillsSelection::CustomizeSkillsForPlayerLoadout(const
     return false;
 }
 
+USBZGameStartMainMenuSkillsSelection::USBZGameStartMainMenuSkillsSelection() {
+    this->AlternativeSelectionInput = TEXT("UI_TertiaryInteraction");
+    this->AlternativeSelectionHoldDuration = 0.50f;
+    this->DescriptionScrollAxis = TEXT("LookUpRate");
+    this->DescriptionScrollSpeed = 1.00f;
+    this->AxisDeadZone = 0.10f;
+    this->CurrentLoadoutIndex = -1;
+}
 

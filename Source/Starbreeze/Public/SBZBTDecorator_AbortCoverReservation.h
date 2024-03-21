@@ -8,6 +8,5 @@ class USBZBTDecorator_AbortCoverReservation : public UBTDecorator_BlackboardBase
     GENERATED_BODY()
 public:
     USBZBTDecorator_AbortCoverReservation();
-
 };
 

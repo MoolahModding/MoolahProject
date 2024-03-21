@@ -3,9 +3,9 @@
 #include "Layout/Margin.h"
 #include "ESBZEquippableLoadoutSlot.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponProgressionScreen.generated.h"
 
-class UClass;
 class UHorizontalBox;
 class USBZMainMenuWeaponPartProgressionButton;
 class USBZMainMenuWeaponProgressionDisplayWidget;
@@ -24,7 +24,7 @@ protected:
     USBZMainMenuWeaponProgressionDisplayWidget* Widget_WeaponProgressionDisplay;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponPartProgressionButtonClass;
+    TSubclassOf<USBZMainMenuWeaponPartProgressionButton> WeaponPartProgressionButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMargin DefaultButtonMargin;
@@ -35,7 +35,6 @@ private:
     
 public:
     USBZMainMenuWeaponProgressionScreen();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnWeaponPartProgressionButtonFocusedChanged(USBZMenuButton* InButton, bool bIsFocused);

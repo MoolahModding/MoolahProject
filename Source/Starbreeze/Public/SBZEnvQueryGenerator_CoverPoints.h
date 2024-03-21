@@ -3,9 +3,10 @@
 #include "DataProviders/AIDataProvider.h"
 #include "DataProviders/AIDataProvider.h"
 #include "EnvironmentQuery/EnvQueryGenerator.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryGenerator_CoverPoints.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZEnvQueryGenerator_CoverPoints : public UEnvQueryGenerator {
@@ -13,7 +14,7 @@ class USBZEnvQueryGenerator_CoverPoints : public UEnvQueryGenerator {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SearchCenter;
+    TSubclassOf<UEnvQueryContext> SearchCenter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseContextAsGenerator;
@@ -28,10 +29,10 @@ protected:
     bool bSortByDistance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SortCenter;
+    TSubclassOf<UEnvQueryContext> SortCenter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TargetContext;
+    TSubclassOf<UEnvQueryContext> TargetContext;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NrAdditionalRandomDistCovers;
@@ -44,6 +45,5 @@ protected:
     
 public:
     USBZEnvQueryGenerator_CoverPoints();
-
 };
 

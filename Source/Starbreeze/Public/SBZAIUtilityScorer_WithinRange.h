@@ -17,6 +17,5 @@ protected:
     
 public:
     USBZAIUtilityScorer_WithinRange();
-
 };
 

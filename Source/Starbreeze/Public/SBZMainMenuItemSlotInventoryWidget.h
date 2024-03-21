@@ -3,9 +3,9 @@
 #include "ESBZItemLoadoutSlot.h"
 #include "OnActiveItemChangedDelegate.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuItemSlotInventoryWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZInventoryBaseData;
 class USBZMainMenuInventoryItemSlotButton;
@@ -20,7 +20,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ItemSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventoryItemSlotButton> ItemSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_ItemSlotButtons;
@@ -37,7 +37,6 @@ private:
     
 public:
     USBZMainMenuItemSlotInventoryWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemSlotsUpdated();

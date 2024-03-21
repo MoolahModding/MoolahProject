@@ -2,11 +2,6 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZLandingEffect.h"
 
-USBZAbilitySystemComponent::USBZAbilitySystemComponent() {
-    this->Character = NULL;
-    this->LandingGameplayEffectClass = USBZLandingEffect::StaticClass();
-}
-
 void USBZAbilitySystemComponent::Server_ReplicateExplosion_Implementation(UObject* ExplosiveObject, const FSBZExplosionResult& Result, FPredictionKey PredictionKey) {
 }
 
@@ -70,4 +65,8 @@ void USBZAbilitySystemComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     DOREPLIFETIME(USBZAbilitySystemComponent, AppliedVolumeDamageNetIDArray);
 }
 
+USBZAbilitySystemComponent::USBZAbilitySystemComponent() {
+    this->Character = NULL;
+    this->LandingGameplayEffectClass = USBZLandingEffect::StaticClass();
+}
 

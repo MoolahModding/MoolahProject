@@ -8,6 +8,7 @@
 #include "SBZPlayerCosmeticsConfig.h"
 #include "SBZPlayerLoadoutConfig.h"
 #include "SBZSuitConfigInventorySaveData.h"
+#include "SBZWeaponPartAttachmentData.h"
 #include "SBZProgressionSaveGameData.generated.h"
 
 class USBZPlayerCharacterData;
@@ -57,6 +58,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 StoryProgression;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<int32> StoryProgressionArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZWeaponPartAttachmentData WeaponPartAttachmentData;
     
     FSBZProgressionSaveGameData();
 };

@@ -8,6 +8,5 @@ class USBZEnvQueryContext_SquadOrderTargetConnector : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_SquadOrderTargetConnector();
-
 };
 

@@ -27,6 +27,5 @@ protected:
     
 public:
     USBZBTDecorator_IdleBreaker();
-
 };
 

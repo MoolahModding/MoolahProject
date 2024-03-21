@@ -14,7 +14,6 @@ public:
     FSBZSecurityCompanySettingData Settings;
     
     USBZSecurityCompanySettings();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool HasLeadGuard(const UObject* WorldContextObject);
     

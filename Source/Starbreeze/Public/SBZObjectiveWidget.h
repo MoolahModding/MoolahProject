@@ -1,13 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZObjectiveWidget.generated.h"
 
 class ASBZObjective;
-class UClass;
 class UPanelWidget;
 class UProgressBar;
 class URichTextBlock;
+class USBZObjectiveWidget;
 class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -16,7 +17,7 @@ class USBZObjectiveWidget : public USBZWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubObjectiveWidgetClass;
+    TSubclassOf<USBZObjectiveWidget> SubObjectiveWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     URichTextBlock* Text_Objective;
@@ -42,7 +43,6 @@ private:
     
 public:
     USBZObjectiveWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnObjectiveUpdated();

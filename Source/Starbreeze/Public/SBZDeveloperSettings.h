@@ -8,6 +8,5 @@ class USBZDeveloperSettings : public UDeveloperSettings {
     GENERATED_BODY()
 public:
     USBZDeveloperSettings();
-
 };
 

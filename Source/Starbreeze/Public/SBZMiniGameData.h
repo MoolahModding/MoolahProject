@@ -3,16 +3,19 @@
 #include "Engine/DataAsset.h"
 #include "SBZControlsReference.h"
 #include "SBZLockCameraData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMiniGameData.generated.h"
 
-class UClass;
+class USBZAnimatedInteractionData;
+class USBZLocalPlayerFeedback;
+class UUserWidget;
 
 UCLASS(Blueprintable)
 class USBZMiniGameData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WidgetClass;
+    TSubclassOf<UUserWidget> WidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZControlsReference ControlsReference;
@@ -21,12 +24,14 @@ public:
     FSBZLockCameraData LockCameraData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> PlayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsLockpickMiniGame;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZAnimatedInteractionData* AnimatedInteractionData;
+    
     USBZMiniGameData();
-
 };
 

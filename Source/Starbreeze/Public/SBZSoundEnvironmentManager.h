@@ -18,6 +18,5 @@ private:
     
 public:
     USBZSoundEnvironmentManager();
-
 };
 

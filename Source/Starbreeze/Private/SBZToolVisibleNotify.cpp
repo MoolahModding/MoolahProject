@@ -3,4 +3,3 @@
 USBZToolVisibleNotify::USBZToolVisibleNotify() {
 }
 
-

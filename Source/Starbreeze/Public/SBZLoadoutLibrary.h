@@ -20,7 +20,6 @@ class USBZLoadoutLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZLoadoutLibrary();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetWeaponPartOnWeapon(const UObject* WorldContextObject, const ESBZEquippableLoadoutSlot EquippableSlot, const int32 SlotIndex, const USBZWeaponPartSlot* ModularPartSlot, const USBZEquippablePartDataAsset* EquippablePartDataAsset);
     

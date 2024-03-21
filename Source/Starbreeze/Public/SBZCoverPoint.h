@@ -7,6 +7,7 @@
 #include "SBZAIVisibilityLeafNode.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZAIVisibilitySerializablePayload.h"
+#include "SBZCoverShootingPointAiVisibilityInfo.h"
 #include "SBZCoverShootingPoints.h"
 #include "SBZRoomVolumeInterface.h"
 #include "SBZCoverPoint.generated.h"
@@ -45,6 +46,15 @@ private:
     float LinkRadius;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<AActor*> BlockingActors;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<AActor*> OverlappingActors;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZCoverShootingPointAiVisibilityInfo> ShootingPointsVisibilityInfo;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZRoomVolume* CurrentRoom;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -54,8 +64,7 @@ private:
     uint8 bManualRegistering: 1;
     
 public:
-    ASBZCoverPoint(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCoverPoint();
     UFUNCTION(BlueprintCallable)
     bool Reserve(AActor* ForActor);
     
@@ -130,7 +139,7 @@ public:
     UFUNCTION(BlueprintCallable)
     bool Abandon(AActor* OccupyingActor);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

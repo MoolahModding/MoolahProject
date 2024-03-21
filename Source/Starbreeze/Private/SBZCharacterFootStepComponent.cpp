@@ -17,4 +17,3 @@ USBZCharacterFootStepComponent::USBZCharacterFootStepComponent() {
     this->OwnerCharacterMovementComponent = NULL;
 }
 
-

@@ -1,10 +1,10 @@
 #include "SBZOnlineGetAvailableRegions.h"
 
-USBZOnlineGetAvailableRegions::USBZOnlineGetAvailableRegions() {
-}
-
-USBZOnlineGetAvailableRegions* USBZOnlineGetAvailableRegions::GetAvailableRegions(UObject* WorldContextObject) {
+USBZOnlineGetAvailableRegions* USBZOnlineGetAvailableRegions::GetAvailableRegions(UObject* NewWorldContextObject) {
     return NULL;
 }
 
+USBZOnlineGetAvailableRegions::USBZOnlineGetAvailableRegions() {
+    this->WorldContextObject = NULL;
+}
 

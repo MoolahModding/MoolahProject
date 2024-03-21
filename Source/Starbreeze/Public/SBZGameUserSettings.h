@@ -4,11 +4,12 @@
 #include "GameFramework/GameUserSettings.h"
 #include "InputCoreTypes.h"
 #include "Rendering/RenderingCommon.h"
-#include "ESBZTutorialType.h"
+#include "ESBZPopupType.h"
 #include "SBZCrosshairSettings.h"
 #include "SBZHitIndicatorSettings.h"
 #include "SBZInputActionKeyboardBinding.h"
 #include "SBZInputAxisKeyboardBinding.h"
+#include "SBZPlatformsBackendSettingsInfo.h"
 #include "SBZGameUserSettings.generated.h"
 
 class USBZGameInstance;
@@ -128,6 +129,9 @@ protected:
     float CinematicVolume;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseContractorAudioBriefing;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MouseSensitivityMultiplier;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -181,14 +185,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 GamepadBindingsPreset;
     
-    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsGameSenseEnabled;
-    
-    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsTelemetryEnabled;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZPlatformsBackendSettingsInfo PlatformsBackendSettingsInfo;
     
     UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint32 TutorialsShownBitmask;
+    uint32 PopupsShownBitmask;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsPristine;
@@ -199,7 +200,6 @@ private:
     
 public:
     USBZGameUserSettings();
-
     UFUNCTION(BlueprintCallable)
     void SetVOVolume(float Volume);
     
@@ -214,9 +214,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetUpscalingMode(int32 Mode);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetTutorialPopupShown(bool bPopupShown);
     
     UFUNCTION(BlueprintCallable)
     void SetTelemetryEnabled(bool bIsEnabled);
@@ -246,10 +243,7 @@ public:
     void SetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale, FKey Key);
     
     UFUNCTION(BlueprintCallable)
-    void SetPopupShown(ESBZTutorialType PopupType, bool bIsShown);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetPhotosensitivityConfirmed(bool bConfirmed);
+    void SetPopupShown(ESBZPopupType PopupType, bool bIsShown);
     
     UFUNCTION(BlueprintCallable)
     void SetOutlinesEnabled(bool bEnable);
@@ -342,9 +336,6 @@ public:
     void SetForceFeedbackEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
-    void SetFirstTimePopupsShown(bool bConfirmed);
-    
-    UFUNCTION(BlueprintCallable)
     void SetDLSSSRMode(int32 Mode);
     
     UFUNCTION(BlueprintCallable)
@@ -352,9 +343,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetCustomVideoToDefaults();
-    
-    UFUNCTION(BlueprintCallable)
-    void SetCrossplayPopupShown(bool bPopupShown);
     
     UFUNCTION(BlueprintCallable)
     void SetCrossplayDisabled(bool bDisable);
@@ -379,6 +367,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetContrast(float Value);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetContractorAudioBriefingEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
     void SetColorBlindStrength(float Value);
@@ -414,7 +405,7 @@ public:
     bool IsReticleEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsPopupShown(ESBZTutorialType PopupType) const;
+    bool IsPopupShown(ESBZPopupType PopupType) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMouseSmoothingEnabled() const;
@@ -450,6 +441,9 @@ public:
     bool IsCrossplayDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsContractorAudioBriefingEnabled();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsChatDisabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -462,7 +456,7 @@ public:
     int32 GetUpscalingMode();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetTutorialPopupShown() const;
+    bool GetTelemetryEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTargetingSensitivityMultiplier() const;
@@ -478,9 +472,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetPhotosensitivityConfirmed() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMusicVolume() const;
@@ -519,6 +510,9 @@ public:
     float GetGamma() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetGameSenseEnabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetGamepadVerticalSensitivityMultiplier() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -527,14 +521,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGamepadBindingsPreset() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetFirstTimePopupsShown() const;
-    
     UFUNCTION(BlueprintCallable)
     int32 GetDLSSSRMode();
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetCrossplayPopupShown() const;
     
     UFUNCTION(BlueprintCallable)
     FSBZCrosshairSettings GetCrosshairSettings();

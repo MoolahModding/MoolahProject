@@ -8,6 +8,5 @@ class USBZSkillInfiltratorQuickFingers : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillInfiltratorQuickFingers();
-
 };
 

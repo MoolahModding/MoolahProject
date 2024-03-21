@@ -7,4 +7,3 @@ USBZCommonStateMachineState::USBZCommonStateMachineState() {
     this->bReplayEnabled = false;
 }
 
-

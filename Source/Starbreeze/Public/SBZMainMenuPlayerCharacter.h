@@ -49,8 +49,7 @@ private:
     FPD3PlayerLoadout CachedLoadout;
     
 public:
-    ASBZMainMenuPlayerCharacter(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMainMenuPlayerCharacter();
     UFUNCTION(BlueprintCallable)
     void DestroyEquippable();
     

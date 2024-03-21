@@ -1,8 +1,5 @@
 #include "SBZOnlineVoip.h"
 
-USBZOnlineVoip::USBZOnlineVoip() {
-}
-
 void USBZOnlineVoip::SetCaptureDevice(const FString& DeviceName) {
 }
 
@@ -25,4 +22,6 @@ float USBZOnlineVoip::GetCaptureDeviceAmplitude() {
     return 0.0f;
 }
 
+USBZOnlineVoip::USBZOnlineVoip() {
+}
 

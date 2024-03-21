@@ -5,9 +5,9 @@
 #include "GameFramework/OnlineReplStructs.h"
 #include "SBZCosmeticsInventoryItem.h"
 #include "SBZItemEntitlementArray.h"
+#include "SBZItemRewardRequestEntry.h"
 #include "SBZInventoryManager.generated.h"
 
-class ASBZPlayerState;
 class USBZCosmeticsPartSlot;
 class USBZInventoryManager;
 class USBZPlayerInventory;
@@ -21,7 +21,7 @@ public:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<ASBZPlayerState*> RewardRequestArray;
+    TArray<FSBZItemRewardRequestEntry> RewardRequestArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FUniqueNetIdRepl, FSBZItemEntitlementArray> ServerPlayerOwnedItemAccelByteItemIdMap;
@@ -30,11 +30,19 @@ private:
     TMap<FGuid, FSBZCosmeticsInventoryItem> InventoryItemMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FGuid> OwningEntitlementIdArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FGuid> OwningItemIdArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FString> OwnedHeistSkus;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FString> VendorPermissionArray;
     
 public:
     USBZInventoryManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetCosmeticsInventoryItemsForType(const USBZCosmeticsPartSlot* CosmeticsPartSlot, TArray<FSBZCosmeticsInventoryItem>& CosmeticsInventoryItemArrayOut);
     

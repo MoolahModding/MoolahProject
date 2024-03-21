@@ -4,9 +4,10 @@
 #include "DataProviders/AIDataProvider.h"
 #include "EnvironmentQuery/EnvQueryTest.h"
 #include "Engine/EngineTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryTest_Trace.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable)
 class USBZEnvQueryTest_Trace : public UEnvQueryTest {
@@ -26,13 +27,12 @@ protected:
     FAIDataProviderFloatValue ContextHeightOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* Context;
+    TSubclassOf<UEnvQueryContext> Context;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FAIDataProviderBoolValue StopOnOverlap;
     
 public:
     USBZEnvQueryTest_Trace();
-
 };
 

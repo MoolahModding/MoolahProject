@@ -26,7 +26,6 @@ protected:
     
 public:
     USBZCuttableSplineComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetupSplineComponent();
     

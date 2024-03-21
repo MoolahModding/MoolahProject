@@ -9,7 +9,6 @@ class UPD3HUDEscapeVolumeWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     UPD3HUDEscapeVolumeWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPlayersInEscapeChangedEvent(const FSBZPlayerInEscapeChangedEvent& PlayerInEscapeChangedEvent);

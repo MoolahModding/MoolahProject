@@ -3,7 +3,7 @@
 #include "Engine/DataAsset.h"
 #include "SBZBaseMenuAnimationCollection.generated.h"
 
-class UClass;
+class ASBZPlayerCharacter;
 class USBZBaseMenuAnimationCollection;
 
 UCLASS(Abstract, Blueprintable)
@@ -11,10 +11,10 @@ class STARBREEZE_API USBZBaseMenuAnimationCollection : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> DefaultCharacter;
+    TSoftClassPtr<ASBZPlayerCharacter> DefaultCharacter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<TSoftClassPtr<UClass>> SupportedCharacters;
+    TArray<TSoftClassPtr<ASBZPlayerCharacter>> SupportedCharacters;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZBaseMenuAnimationCollection> Template;
@@ -23,6 +23,5 @@ public:
     bool bUpdateCollection;
     
     USBZBaseMenuAnimationCollection();
-
 };
 

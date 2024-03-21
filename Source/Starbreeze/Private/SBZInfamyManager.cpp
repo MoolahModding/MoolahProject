@@ -1,8 +1,5 @@
 #include "SBZInfamyManager.h"
 
-USBZInfamyManager::USBZInfamyManager() {
-}
-
 void USBZInfamyManager::HandleOnStateMachineStateEntered(FName StateName) {
 }
 
@@ -22,11 +19,18 @@ int32 USBZInfamyManager::GetExperienceForLevel(const int32 InLevel) const {
     return 0;
 }
 
+void USBZInfamyManager::ClientGetProgressInfo(int32& OutProgressTowardsNextLevelUp, int32& OutPointsRequiredForNextLevelUp) {
+}
+
 int32 USBZInfamyManager::ClientGetPreviousExperience() const {
     return 0;
 }
 
 int32 USBZInfamyManager::ClientGetPreMatchExperience() const {
+    return 0;
+}
+
+int32 USBZInfamyManager::ClientGetCurrentRenownLevel() const {
     return 0;
 }
 
@@ -38,4 +42,6 @@ int32 USBZInfamyManager::ClientGetCurrentExperience() const {
     return 0;
 }
 
+USBZInfamyManager::USBZInfamyManager() {
+}
 

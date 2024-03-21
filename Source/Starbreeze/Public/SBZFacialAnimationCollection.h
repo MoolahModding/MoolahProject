@@ -13,6 +13,5 @@ public:
     TMap<ESBZFacialEmotion, FSBZFacialAnimationContainer> Animations;
     
     USBZFacialAnimationCollection();
-
 };
 

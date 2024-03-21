@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZStateMachineStateWaitingActionPhaseHost();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void PostLoadTransitionMap(UWorld* NewWorld);

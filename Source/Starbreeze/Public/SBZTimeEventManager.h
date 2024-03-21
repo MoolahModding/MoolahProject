@@ -10,7 +10,6 @@ class STARBREEZE_API USBZTimeEventManager : public UObject {
     GENERATED_BODY()
 public:
     USBZTimeEventManager();
-
     UFUNCTION(BlueprintCallable)
     void RequestTimeEventCheck();
     

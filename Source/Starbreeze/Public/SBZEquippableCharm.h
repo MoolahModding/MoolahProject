@@ -21,8 +21,7 @@ protected:
     ASBZEquippable* OwningEquippable;
     
 public:
-    ASBZEquippableCharm(const FObjectInitializer& ObjectInitializer);
-
+    ASBZEquippableCharm();
     UFUNCTION(BlueprintCallable)
     void UpdateMeshPropertiesFrom(const UMeshComponent* Reference, USBZOutlineComponent* OutlineComponent, bool bIsReset);
     

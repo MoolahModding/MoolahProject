@@ -11,11 +11,6 @@ USBZGrenadeData::USBZGrenadeData() {
     this->DetonationEffect = NULL;
     this->DropDetonationEffect = NULL;
     this->LocalplayerFeedback = NULL;
-    this->LocalplayerFeedback = NULL;
     this->TacticianDiscombobulateEffectClass = NULL;
-    this->TacticianDiscombobulateEffectClass = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZGrenadeData::StaticClass();
 }
-
 

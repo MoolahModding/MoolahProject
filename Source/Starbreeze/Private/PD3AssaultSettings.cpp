@@ -18,16 +18,9 @@ UPD3AssaultSettings::UPD3AssaultSettings() {
     this->SpawnerDistScoreWeight = 1.50f;
     this->MaxNumVehicleSpawnRequests = 4;
     this->VehicleSpawnChance = 0.50f;
-    this->CloakerRegroupSpawnChance[0] = 0.00f;
-    this->CloakerRegroupSpawnChance[1] = 0.00f;
-    this->CloakerRegroupSpawnChance[2] = 0.00f;
-    this->CloakerRegroupSpawnChance[3] = 0.00f;
     this->MaxNrAttackers[0] = 15;
     this->MaxNrAttackers[1] = 15;
     this->MaxNrAttackers[2] = 15;
     this->MaxNrAttackers[3] = 15;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = UPD3AssaultSettings::StaticClass();
 }
-
 

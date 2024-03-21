@@ -8,4 +8,3 @@ USBZOnlineSlotsHost::USBZOnlineSlotsHost() {
     this->OnlineSession = NULL;
 }
 
-

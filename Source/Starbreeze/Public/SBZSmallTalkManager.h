@@ -68,7 +68,6 @@ private:
     
 public:
     USBZSmallTalkManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);

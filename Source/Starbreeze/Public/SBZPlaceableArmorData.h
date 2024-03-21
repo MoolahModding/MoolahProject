@@ -8,6 +8,5 @@ class USBZPlaceableArmorData : public USBZPlaceableData {
     GENERATED_BODY()
 public:
     USBZPlaceableArmorData();
-
 };
 

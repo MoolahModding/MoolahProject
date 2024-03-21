@@ -18,8 +18,5 @@ USBZAICharacterMovementComponent::USBZAICharacterMovementComponent() {
     this->NeighbourCollisionMaxDuration = 2.00f;
     this->bNeighbourCollisionEnabled = false;
     this->MaxStepHeightRootMotion = 20.00f;
-    this->bProjectNavMeshWalking = true;
-    this->bUseAccelerationForPaths = true;
 }
-
 

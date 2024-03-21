@@ -1,11 +1,6 @@
 #include "SBZAIWeakPointAttributeSet.h"
 #include "Net/UnrealNetwork.h"
 
-USBZAIWeakPointAttributeSet::USBZAIWeakPointAttributeSet() {
-    this->WeakPoint = NULL;
-    this->Instigator = NULL;
-}
-
 void USBZAIWeakPointAttributeSet::OnRep_WeakPointHealth(const FGameplayAttributeData& OldValue) {
 }
 
@@ -18,4 +13,8 @@ void USBZAIWeakPointAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(USBZAIWeakPointAttributeSet, WeakPointHealth);
 }
 
+USBZAIWeakPointAttributeSet::USBZAIWeakPointAttributeSet() {
+    this->WeakPoint = NULL;
+    this->Instigator = NULL;
+}
 

@@ -19,7 +19,6 @@ private:
     
 public:
     USBZRandomNoiseComponent();
-
     UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
     void MulticastForceSound();
     

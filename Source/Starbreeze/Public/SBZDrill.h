@@ -43,10 +43,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* OutlineAsset;
     
-    ASBZDrill(const FObjectInitializer& ObjectInitializer);
-
+    ASBZDrill();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool UnjamDrill();
     

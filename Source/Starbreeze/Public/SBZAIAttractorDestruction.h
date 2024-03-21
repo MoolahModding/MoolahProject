@@ -28,9 +28,8 @@ protected:
     USBZAIAttractorComponent* AttractorComponent;
     
 public:
-    ASBZAIAttractorDestruction(const FObjectInitializer& ObjectInitializer);
-
-
+    ASBZAIAttractorDestruction();
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);

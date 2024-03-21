@@ -1,10 +1,9 @@
 #include "SBZInternetStatusWidget.h"
 
-USBZInternetStatusWidget::USBZInternetStatusWidget() {
-    this->NetworkErrorImage = NULL;
-}
-
 void USBZInternetStatusWidget::SetNetworkLostConnectionVisibility(ESBZServiceStatus ServiceStatus) {
 }
 
+USBZInternetStatusWidget::USBZInternetStatusWidget() {
+    this->NetworkErrorImage = NULL;
+}
 

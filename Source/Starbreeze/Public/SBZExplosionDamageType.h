@@ -8,6 +8,5 @@ class USBZExplosionDamageType : public USBZDamageType {
     GENERATED_BODY()
 public:
     USBZExplosionDamageType();
-
 };
 

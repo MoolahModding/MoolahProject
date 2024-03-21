@@ -1,11 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "AccelByteModelsChatNotif.h"
 #include "UObject/Object.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "ChatMessageReceivedDelegate.h"
 #include "SBZChatMessage.h"
 #include "SBZWhisperInfo.h"
 #include "SBZChat.generated.h"
+
+class USBZChat;
 
 UCLASS(Blueprintable, NotPlaceable, Transient, Config=Game)
 class STARBREEZE_API USBZChat : public UObject {
@@ -26,18 +29,29 @@ private:
     
 public:
     USBZChat();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SendSystemChatMessage(UObject* WorldContextObject, const FString& Message);
     
     UFUNCTION(BlueprintCallable)
+    void SendSessionMessage(const FSBZChatMessage& InMessage);
+    
+    UFUNCTION(BlueprintCallable)
     void SendChatMessage(FSBZChatMessage ChatMessage);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnSessionMessageReceived(const FAccelByteModelsChatNotif& Result);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsMuted(FUniqueNetIdRepl UniqueNetId);
     
     UFUNCTION(BlueprintCallable)
     TArray<FSBZWhisperInfo> GetWhisperOptions();
     
     UFUNCTION(BlueprintCallable)
     bool GetNextWhisperOption(const FUniqueNetIdRepl& CurrentWhisper, FUniqueNetIdRepl& OutNextWhisper, FString& OutNextWhisperName, bool& bOutNoWhisperOptions);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZChat* GetChat(UObject* WorldContextObject);
     
 };
 

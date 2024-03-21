@@ -8,6 +8,5 @@ class USBZBTService_UpdateStance : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_UpdateStance();
-
 };
 

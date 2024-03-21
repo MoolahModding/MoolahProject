@@ -3,7 +3,5 @@
 USBZBTService_PlaceActor::USBZBTService_PlaceActor() {
     this->PlacingCooldown = 10.00f;
     this->RandomChance = 0.20f;
-    this->NodeName = TEXT("Place Actor");
 }
-
 

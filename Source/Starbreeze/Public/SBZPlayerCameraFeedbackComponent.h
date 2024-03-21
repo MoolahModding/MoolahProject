@@ -4,11 +4,12 @@
 #include "Engine/EngineTypes.h"
 #include "SBZLocalPlayerFeedbackInfo.h"
 #include "SBZLocalPlayerFeedbackParameters.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlayerCameraFeedbackComponent.generated.h"
 
 class ASBZPlayerCameraManager;
-class UClass;
 class UObject;
+class USBZLocalPlayerFeedback;
 class USBZPlayerCameraFeedbackComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, Within=SBZPlayerCameraManager, meta=(BlueprintSpawnableComponent))
@@ -24,11 +25,10 @@ protected:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<UClass*, FTimerHandle> FeedbackFirstPlayCooldowns;
+    TMap<TSubclassOf<USBZLocalPlayerFeedback>, FTimerHandle> FeedbackFirstPlayCooldowns;
     
 public:
     USBZPlayerCameraFeedbackComponent();
-
     UFUNCTION(BlueprintCallable)
     bool SetFeedbackIntensity(int32 FeedbackID, float InIntensity);
     
@@ -48,7 +48,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void CooldownTimerDelegate(UClass* FeedbackClass);
+    void CooldownTimerDelegate(TSubclassOf<USBZLocalPlayerFeedback> FeedbackClass);
     
 public:
     UFUNCTION(BlueprintCallable)

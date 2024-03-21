@@ -30,6 +30,5 @@ private:
     
 public:
     USBZBTTask_Peek();
-
 };
 

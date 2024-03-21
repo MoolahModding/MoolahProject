@@ -1,9 +1,5 @@
 #include "SBZSafeHouseManager.h"
 
-USBZSafeHouseManager::USBZSafeHouseManager() {
-    this->WorldLoader = NULL;
-}
-
 void USBZSafeHouseManager::TravelToSafeHouse() {
 }
 
@@ -17,4 +13,7 @@ USBZSafeHouseManager* USBZSafeHouseManager::Get(const UObject* WorldContextObjec
 void USBZSafeHouseManager::DebugExitSafeHouse() {
 }
 
+USBZSafeHouseManager::USBZSafeHouseManager() {
+    this->WorldLoader = NULL;
+}
 

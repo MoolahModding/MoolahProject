@@ -6,7 +6,7 @@
 #include "SBZSoftMontageContainer.h"
 #include "SBZAnimationsPerEquippablesContainer.generated.h"
 
-class UClass;
+class ASBZEquippable;
 
 USTRUCT(BlueprintType)
 struct STARBREEZE_API FSBZAnimationsPerEquippablesContainer {
@@ -19,10 +19,10 @@ public:
     TMap<FGameplayTag, FSBZSoftMontageContainer> GamePlayTagBasedMontageContainers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftClassPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationPerSpecificEquippablesContainers;
+    TMap<TSoftClassPtr<ASBZEquippable>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationPerSpecificEquippablesContainers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftClassPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
+    TMap<TSoftClassPtr<ASBZEquippable>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
     
     FSBZAnimationsPerEquippablesContainer();
 };

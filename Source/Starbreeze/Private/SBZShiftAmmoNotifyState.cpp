@@ -5,4 +5,3 @@ USBZShiftAmmoNotifyState::USBZShiftAmmoNotifyState() {
     this->FixedEmptyCount = 0;
 }
 
-

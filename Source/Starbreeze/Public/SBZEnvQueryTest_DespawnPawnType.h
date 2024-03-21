@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EnvironmentQuery/EnvQueryTest.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryTest_DespawnPawnType.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable)
 class USBZEnvQueryTest_DespawnPawnType : public UEnvQueryTest {
@@ -11,10 +12,9 @@ class USBZEnvQueryTest_DespawnPawnType : public UEnvQueryTest {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PawnTypeContext;
+    TSubclassOf<UEnvQueryContext> PawnTypeContext;
     
 public:
     USBZEnvQueryTest_DespawnPawnType();
-
 };
 

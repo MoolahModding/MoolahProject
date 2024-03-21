@@ -28,8 +28,7 @@ protected:
     int32 MarkerId;
     
 public:
-    ASBZHackingMinigameActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHackingMinigameActor();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnHackingStateChanged(AActor* InOwner, ESBZHackingState NewState, bool bDoCosmetics);
@@ -37,7 +36,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnEnabledStateChanged(bool bEnabled, bool bDoCosmetics);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

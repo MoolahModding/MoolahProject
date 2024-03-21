@@ -7,6 +7,7 @@ enum class ESBZRuntimeState : uint8 {
     None,
     HackerAced,
     SecureLoop,
-    RoutedPing = 0x4,
+    RoutedPing,
+    ScramblerBase,
 };
 

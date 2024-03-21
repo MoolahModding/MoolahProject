@@ -108,9 +108,8 @@ protected:
     
 public:
     USBZGasVolumeComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const;
     

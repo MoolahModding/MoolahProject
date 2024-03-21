@@ -1,19 +1,23 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "SBZAnimationsPerSpecificEquippablesContainer.h"
 #include "SBZBaseCharacterAnimationCollection.h"
+#include "SBZMontageContainer.h"
 #include "SBZPlayerAnimationCollectionFPP.generated.h"
 
-class UClass;
+class ASBZEquippable;
 
 UCLASS(Blueprintable)
 class USBZPlayerAnimationCollectionFPP : public USBZBaseCharacterAnimationCollection {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftClassPtr<UClass>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
+    TMap<TSoftClassPtr<ASBZEquippable>, FSBZAnimationsPerSpecificEquippablesContainer> AnimationLeftHandEquippedContainers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayTag, FSBZMontageContainer> GamePlayTagBasedMontageContainers;
     
     USBZPlayerAnimationCollectionFPP();
-
 };
 

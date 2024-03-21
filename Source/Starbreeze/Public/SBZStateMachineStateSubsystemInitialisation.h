@@ -8,7 +8,6 @@ class STARBREEZE_API USBZStateMachineStateSubsystemInitialisation : public USBZC
     GENERATED_BODY()
 public:
     USBZStateMachineStateSubsystemInitialisation();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandlePlatformUserLoginComplete(bool bSuccess);

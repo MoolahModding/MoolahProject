@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZStaticReplicatedActor : public AActor {
     GENERATED_BODY()
 public:
-    ASBZStaticReplicatedActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStaticReplicatedActor();
 };
 

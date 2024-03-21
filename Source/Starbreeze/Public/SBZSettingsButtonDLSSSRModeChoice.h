@@ -13,7 +13,6 @@ protected:
     
 public:
     USBZSettingsButtonDLSSSRModeChoice();
-
     UFUNCTION(BlueprintCallable)
     void SetOptionDLSSSRModes(const TArray<int64>& InOptionDLSSSRModes);
     

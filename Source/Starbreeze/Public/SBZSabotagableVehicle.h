@@ -6,12 +6,12 @@
 #include "SBZOnVehicleEscortChangedDelegate.h"
 #include "SBZOnVehicleSabotageChangedDelegate.h"
 #include "SBZWheeledVehicle.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSabotagableVehicle.generated.h"
 
 class AActor;
 class ASBZSabotagePoint;
 class UCapsuleComponent;
-class UClass;
 class UPrimitiveComponent;
 class USBZPredefinedBoxNavModifierComponent;
 
@@ -27,7 +27,7 @@ public:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SabotagePointClass;
+    TSubclassOf<ASBZSabotagePoint> SabotagePointClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZPredefinedBoxNavModifierComponent* MovingNavModifier;
@@ -63,10 +63,9 @@ private:
     float EscortCapsulePreplanningHalfHeight;
     
 public:
-    ASBZSabotagableVehicle(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSabotagableVehicle();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void UpdateSabotageVehicle();

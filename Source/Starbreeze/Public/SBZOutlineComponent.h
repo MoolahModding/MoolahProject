@@ -30,6 +30,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<UMeshComponent*> Meshes;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZOutlineAsset* ActiveAsset;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ActiveReplicated, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* ActiveReplicated;
     
@@ -38,9 +41,8 @@ private:
     
 public:
     USBZOutlineComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetReplicatedHidden(bool bInIsReplicatedHidden);
     

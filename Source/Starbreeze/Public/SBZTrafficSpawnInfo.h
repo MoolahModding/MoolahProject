@@ -2,16 +2,17 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "ESBZTrafficVehicleType.h"
+#include "Templates/SubclassOf.h"
 #include "SBZTrafficSpawnInfo.generated.h"
 
-class UClass;
+class ASBZWheeledVehicle;
 
 USTRUCT(BlueprintType)
 struct FSBZTrafficSpawnInfo {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* VehicleActorClass;
+    TSubclassOf<ASBZWheeledVehicle> VehicleActorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZTrafficVehicleType VehicleType;

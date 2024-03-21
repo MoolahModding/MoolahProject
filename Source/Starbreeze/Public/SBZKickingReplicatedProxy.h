@@ -11,8 +11,7 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZKickingReplicatedProxy : public AInfo {
     GENERATED_BODY()
 public:
-    ASBZKickingReplicatedProxy(const FObjectInitializer& ObjectInitializer);
-
+    ASBZKickingReplicatedProxy();
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void VoteToKick(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick);
     

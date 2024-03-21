@@ -45,8 +45,7 @@ private:
     FTimerHandle LeaveLobbyTimeoutTimer;
     
 public:
-    ASBZPartyBeaconHost(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPartyBeaconHost();
     UFUNCTION(BlueprintCallable)
     void NotifyClientLeftLobby(const FUniqueNetIdRepl& PartyMemberId);
     

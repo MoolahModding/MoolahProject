@@ -32,7 +32,6 @@ protected:
     
 public:
     USBZLifeActionManager();
-
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StopActionForCharacter(ASBZCharacter* Character, USBZLifeActionSlot* Slot, ESBZLifeActionStopReason StopReason);
     

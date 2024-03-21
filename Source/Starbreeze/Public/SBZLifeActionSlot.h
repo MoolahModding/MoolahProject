@@ -142,7 +142,6 @@ protected:
     
 public:
     USBZLifeActionSlot();
-
     UFUNCTION(BlueprintCallable)
     void SwitchMontageSection(const FName& SectionName);
     

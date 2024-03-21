@@ -12,6 +12,5 @@ public:
     FGameplayAttributeData AccuracyPenalty;
     
     USBZAICharacterAttributeSet();
-
 };
 

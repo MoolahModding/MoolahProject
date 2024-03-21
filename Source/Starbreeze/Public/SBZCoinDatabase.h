@@ -13,6 +13,5 @@ public:
     TArray<USBZCoinData*> CoinsArray;
     
     USBZCoinDatabase();
-
 };
 

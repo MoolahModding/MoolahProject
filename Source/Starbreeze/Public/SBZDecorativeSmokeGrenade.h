@@ -38,10 +38,9 @@ protected:
     ESBZDecorativeSmokeState SmokeState;
     
 public:
-    ASBZDecorativeSmokeGrenade(const FObjectInitializer& ObjectInitializer);
-
+    ASBZDecorativeSmokeGrenade();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSpawned();
     

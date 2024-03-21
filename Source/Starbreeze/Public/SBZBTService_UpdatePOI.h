@@ -8,6 +8,5 @@ class USBZBTService_UpdatePOI : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_UpdatePOI();
-
 };
 

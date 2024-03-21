@@ -3,6 +3,7 @@
 #include "GameFramework/Actor.h"
 #include "SBZBagHandle.h"
 #include "SBZZiplinerInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBagItem.generated.h"
 
 class ASBZZipline;
@@ -10,7 +11,6 @@ class ASBZZiplineMotor;
 class UAkAudioEvent;
 class UAkComponent;
 class UBoxComponent;
-class UClass;
 class USBZAIObjectiveComponent;
 class USBZBaseInteractableComponent;
 class USBZInteractableComponent;
@@ -36,7 +36,7 @@ public:
     float MinimumImpactVelocity;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ZiplineMotorClass;
+    TSubclassOf<ASBZZiplineMotor> ZiplineMotorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZZiplineMotor* CurrentZiplineMotor;
@@ -78,11 +78,13 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanCrewAICarry;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldBroadcastOnHitEvent;
+    
 public:
-    ASBZBagItem(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBagItem();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SecureBag(bool bDestroyOnSecured);
     
@@ -102,7 +104,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnDegradationChanged(const int32 DegredationLevel);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

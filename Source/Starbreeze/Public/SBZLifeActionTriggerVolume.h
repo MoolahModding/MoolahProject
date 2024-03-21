@@ -68,8 +68,7 @@ protected:
     FSBZLifeActionStopEventDelegate OnCharacterSlotFreed;
     
 public:
-    ASBZLifeActionTriggerVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLifeActionTriggerVolume();
     UFUNCTION(BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     

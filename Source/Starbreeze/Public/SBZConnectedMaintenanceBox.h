@@ -97,10 +97,9 @@ protected:
     bool bHasTriggeredSearch;
     
 public:
-    ASBZConnectedMaintenanceBox(const FObjectInitializer& ObjectInitializer);
-
+    ASBZConnectedMaintenanceBox();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bEnabled);
     

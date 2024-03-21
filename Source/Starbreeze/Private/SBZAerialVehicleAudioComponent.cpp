@@ -1,21 +1,5 @@
 #include "SBZAerialVehicleAudioComponent.h"
 
-USBZAerialVehicleAudioComponent::USBZAerialVehicleAudioComponent() {
-    this->EngineSoundEvent = NULL;
-    this->EngineStopSoundEvent = NULL;
-    this->CollisionTyresSoundEvent = NULL;
-    this->CollisionBodySoundEvent = NULL;
-    this->RadioSoundEvent = NULL;
-    this->RadioStopSoundEvent = NULL;
-    this->SpotlightOnSoundEvent = NULL;
-    this->SpotlightOffSoundEvent = NULL;
-    this->EngineRTPC = NULL;
-    this->CollisionTyresRTPC = NULL;
-    this->CollisionBodyRTPC = NULL;
-    this->EngineSoundMultiplicationValue = 0.01f;
-    this->TyreSoundMultiplicationValue = 0.01f;
-}
-
 void USBZAerialVehicleAudioComponent::StopEngineSound() {
 }
 
@@ -46,4 +30,19 @@ void USBZAerialVehicleAudioComponent::PlayEngineSound(float EngineValue) {
 void USBZAerialVehicleAudioComponent::DisableSounds() {
 }
 
+USBZAerialVehicleAudioComponent::USBZAerialVehicleAudioComponent() {
+    this->EngineSoundEvent = NULL;
+    this->EngineStopSoundEvent = NULL;
+    this->CollisionTyresSoundEvent = NULL;
+    this->CollisionBodySoundEvent = NULL;
+    this->RadioSoundEvent = NULL;
+    this->RadioStopSoundEvent = NULL;
+    this->SpotlightOnSoundEvent = NULL;
+    this->SpotlightOffSoundEvent = NULL;
+    this->EngineRTPC = NULL;
+    this->CollisionTyresRTPC = NULL;
+    this->CollisionBodyRTPC = NULL;
+    this->EngineSoundMultiplicationValue = 0.01f;
+    this->TyreSoundMultiplicationValue = 0.01f;
+}
 

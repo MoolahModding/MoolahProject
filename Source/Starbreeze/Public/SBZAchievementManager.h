@@ -11,7 +11,6 @@ class USBZAchievementManager : public UObject {
     GENERATED_BODY()
 public:
     USBZAchievementManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnInitializedChallengeRecordsCacheDone();

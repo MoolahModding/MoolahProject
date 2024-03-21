@@ -12,7 +12,6 @@ class USBZAICharacterVoiceComponent : public USBZCharacterVoiceComponent {
     GENERATED_BODY()
 public:
     USBZAICharacterVoiceComponent();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandleOnHostageStateChanged(uint8 HostageState);

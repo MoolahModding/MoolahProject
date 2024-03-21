@@ -11,14 +11,15 @@
 #include "SBZLocalPlayerFeedbackParameters.h"
 #include "SBZLockCameraData.h"
 #include "SBZPlayerControllerBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlayerController.generated.h"
 
 class AActor;
 class ISBZViewTargetCollectionInterface;
 class USBZViewTargetCollectionInterface;
 class UAnimMontage;
-class UClass;
 class UObject;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API ASBZPlayerController : public ASBZPlayerControllerBase, public IGenericTeamAgentInterface, public ISBZDamageInstigatorInterface {
@@ -30,25 +31,25 @@ protected:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefeatCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> DefeatCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinDefeatCameraFeedbackIntensity;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TasedCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> TasedCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubduedCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> SubduedCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HealthDamageCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> HealthDamageCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HealthDamageCameraFeedbackThreshold;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGameplayTag, UClass*> TagFeedbackClassMap;
+    TMap<FGameplayTag, TSubclassOf<USBZLocalPlayerFeedback>> TagFeedbackClassMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, int32> TagFeedbackIDMap;
@@ -57,13 +58,13 @@ private:
     TMap<FGameplayTag, int32> FadedOutTagFeedbackIDMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ViewTargetCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> ViewTargetCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DestroyedViewTargetCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> DestroyedViewTargetCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChangedViewTargetCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> ChangedViewTargetCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TScriptInterface<ISBZViewTargetCollectionInterface> ViewTargetCollection;
@@ -78,8 +79,7 @@ private:
     EPD3DefeatState AppliedDefeatState;
     
 public:
-    ASBZPlayerController(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerController();
     UFUNCTION(BlueprintCallable)
     void SetViewTargetCollection(const TScriptInterface<ISBZViewTargetCollectionInterface>& InViewTargetCollection, int32 Offset);
     
@@ -148,7 +148,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 ApplyCameraFeedback(UPARAM(Ref) FSBZLocalPlayerFeedbackParameters& Parameters);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

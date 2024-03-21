@@ -8,6 +8,5 @@ class USBZAIUtilityScorer_CanPerceivePlayerAction : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_CanPerceivePlayerAction();
-
 };
 

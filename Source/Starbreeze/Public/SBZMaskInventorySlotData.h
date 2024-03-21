@@ -13,6 +13,5 @@ public:
     USBZModularPartSlotBase* MaskMouldSlot;
     
     USBZMaskInventorySlotData();
-
 };
 

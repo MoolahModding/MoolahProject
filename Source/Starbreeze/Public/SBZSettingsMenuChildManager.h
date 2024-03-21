@@ -12,6 +12,5 @@ public:
     TArray<FSBZSettingsMenuChildData> Items;
     
     USBZSettingsMenuChildManager();
-
 };
 

@@ -8,6 +8,5 @@ class USBZDownedAbility : public USBZDamageDefeatAbility {
     GENERATED_BODY()
 public:
     USBZDownedAbility();
-
 };
 

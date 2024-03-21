@@ -8,6 +8,5 @@ class USBZHandCuffAnimationCollection : public USBZEquippableAnimationCollection
     GENERATED_BODY()
 public:
     USBZHandCuffAnimationCollection();
-
 };
 

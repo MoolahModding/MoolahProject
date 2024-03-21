@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZMainMenuInventoryMaskSlotButton();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveMaskSlot(bool bIsActiveMaskSlot);
     

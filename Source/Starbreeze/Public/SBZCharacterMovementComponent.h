@@ -6,6 +6,7 @@
 #include "SBZMinimalAgilityTraversalTrajectory.h"
 #include "SBZCharacterMovementComponent.generated.h"
 
+class ASBZCharacter;
 class ASBZZipline;
 class USBZAgilitySlideParams;
 class USBZAgilityTraversalQueryParams;
@@ -21,6 +22,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAgilitySlideParams* AgilitySlideParams;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZZipline* CurrentZipline;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 CurrentControlsReferenceID;
@@ -49,9 +53,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZCharacterMovementState CharacterMovementState;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZCharacter* SBZCharacterOwner;
+    
 public:
     USBZCharacterMovementComponent();
-
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_StopZipline(const bool bWasCancelled);

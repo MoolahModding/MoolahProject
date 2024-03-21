@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EnvironmentQuery/EnvQueryTest.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryTest_IsContextActor.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable)
 class USBZEnvQueryTest_IsContextActor : public UEnvQueryTest {
@@ -11,10 +12,9 @@ class USBZEnvQueryTest_IsContextActor : public UEnvQueryTest {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActorContext;
+    TSubclassOf<UEnvQueryContext> ActorContext;
     
 public:
     USBZEnvQueryTest_IsContextActor();
-
 };
 

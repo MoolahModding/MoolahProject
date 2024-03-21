@@ -3,4 +3,3 @@
 USBZThermiteInteractRequirement::USBZThermiteInteractRequirement() {
 }
 
-

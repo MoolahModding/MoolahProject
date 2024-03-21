@@ -3,4 +3,3 @@
 USBZTargetFinder::USBZTargetFinder() {
 }
 
-

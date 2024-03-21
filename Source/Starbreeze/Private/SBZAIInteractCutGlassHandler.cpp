@@ -1,9 +1,10 @@
 #include "SBZAIInteractCutGlassHandler.h"
 
-USBZAIInteractCutGlassHandler::USBZAIInteractCutGlassHandler() {
-}
-
 void USBZAIInteractCutGlassHandler::OnCutGlassInteractionCompleted() {
 }
 
+USBZAIInteractCutGlassHandler::USBZAIInteractCutGlassHandler() {
+    this->Interactable = NULL;
+    this->Interactor = NULL;
+}
 

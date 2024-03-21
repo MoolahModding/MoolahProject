@@ -29,7 +29,6 @@ private:
     
 public:
     USBZMainMenuInventoryItemSlotButton();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveItem(bool bIsActiveItem);
     

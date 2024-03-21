@@ -20,7 +20,6 @@ protected:
     
 public:
     USBZAIAction_Order();
-
     UFUNCTION(BlueprintCallable)
     void OnOrderStopped(USBZAIOrder* Order, APawn* OrderPawn, TEnumAsByte<EBTNodeResult::Type> Result);
     

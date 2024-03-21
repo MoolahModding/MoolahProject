@@ -23,7 +23,6 @@ protected:
     
 public:
     USBZMainMenuCrimeNetHeistMapIcon();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetSelected(bool bInIsSelected);
     

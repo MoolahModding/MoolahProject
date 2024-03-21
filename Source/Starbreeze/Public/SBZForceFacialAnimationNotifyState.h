@@ -13,6 +13,5 @@ public:
     UAnimSequence* FacialAnimation;
     
     USBZForceFacialAnimationNotifyState();
-
 };
 

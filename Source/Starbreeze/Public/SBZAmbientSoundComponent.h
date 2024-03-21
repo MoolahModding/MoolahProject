@@ -53,7 +53,6 @@ private:
     
 public:
     USBZAmbientSoundComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetSwitchState(const UAkSwitchValue* SwitchValue, const FString& InSwitchGroup, const FString& InSwitchState);
     

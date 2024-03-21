@@ -1,5 +1,22 @@
 #include "SBZBaseInteractableComponent.h"
 
+void USBZBaseInteractableComponent::SetGameplayEffectsOnInteract(const TArray<FSBZGameplayEffectData> GameplayEffects) {
+}
+
+void USBZBaseInteractableComponent::OnFocusChanged_Implementation(bool bInNewFocusState) {
+}
+
+bool USBZBaseInteractableComponent::IsInteractionIllegal(int32 InModeIndex) const {
+    return false;
+}
+
+void USBZBaseInteractableComponent::GetGameplayEffectsOnInteract(TArray<FSBZGameplayEffectData>& GameplayEffects) const {
+}
+
+int32 USBZBaseInteractableComponent::GetCurrentModeIndex() const {
+    return 0;
+}
+
 USBZBaseInteractableComponent::USBZBaseInteractableComponent() {
     this->NormalDistance = 200.00f;
     this->PitchDistance = 200.00f;
@@ -19,26 +36,19 @@ USBZBaseInteractableComponent::USBZBaseInteractableComponent() {
     this->MinScreenInteractDot = 0.87f;
     this->bOverrideScreenInteractPendingDelay = false;
     this->PendingOnScreenDelay = 0.00f;
+    this->OnStart2DAudioEvent = NULL;
+    this->OnStart3DAudioEvent = NULL;
+    this->OnFinish2DAudioEvent = NULL;
+    this->OnFinish3DAudioEvent = NULL;
+    this->OnCancel2DAudioEvent = NULL;
+    this->OnCancel3DAudioEvent = NULL;
+    this->StartComment = NULL;
+    this->CompletedComment = NULL;
+    this->CancelComment = NULL;
     this->LastInteractor = NULL;
     this->ModeIndex = 0;
     this->AnimationName = TEXT("Interact_Equipped_Montage");
+    this->AnimatedInteractionData = NULL;
+    this->bIsScramblerAffected = false;
 }
-
-void USBZBaseInteractableComponent::SetGameplayEffectsOnInteract(const TArray<FSBZGameplayEffectData> GameplayEffects) {
-}
-
-void USBZBaseInteractableComponent::OnFocusChanged_Implementation(bool bInNewFocusState) {
-}
-
-bool USBZBaseInteractableComponent::IsInteractionIllegal(int32 InModeIndex) const {
-    return false;
-}
-
-void USBZBaseInteractableComponent::GetGameplayEffectsOnInteract(TArray<FSBZGameplayEffectData>& GameplayEffects) const {
-}
-
-int32 USBZBaseInteractableComponent::GetCurrentModeIndex() const {
-    return 0;
-}
-
 

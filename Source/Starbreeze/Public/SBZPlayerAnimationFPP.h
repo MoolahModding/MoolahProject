@@ -163,6 +163,5 @@ private:
     
 public:
     USBZPlayerAnimationFPP();
-
 };
 

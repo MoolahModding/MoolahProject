@@ -38,7 +38,6 @@ protected:
     
 public:
     USBZAIWeakPoint();
-
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnWeakPointDestroyed();

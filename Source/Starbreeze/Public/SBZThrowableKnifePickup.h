@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZThrowableKnifePickup : public ASBZAmmoPickup {
     GENERATED_BODY()
 public:
-    ASBZThrowableKnifePickup(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThrowableKnifePickup();
 };
 

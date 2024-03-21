@@ -38,8 +38,7 @@ protected:
     TMap<int32, FSBZEventIndexes> EventIndexMap;
     
 public:
-    ASBZRandomLevelEventDistributor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZRandomLevelEventDistributor();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnHackComplete(const int32 EventIndex);

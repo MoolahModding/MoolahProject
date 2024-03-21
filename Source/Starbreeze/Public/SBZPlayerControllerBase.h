@@ -15,8 +15,7 @@ protected:
     ASBZPlayerState* SBZPlayerState;
     
 public:
-    ASBZPlayerControllerBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerControllerBase();
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_SetLoadout(const FPD3PlayerLoadout& Loadout);

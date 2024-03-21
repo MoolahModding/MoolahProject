@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuCredits.generated.h"
 
-class UClass;
 class UDataTable;
+class USBZWidgetCreditsRowBase;
 class UScrollBox;
 class UVerticalBox;
 
@@ -17,7 +18,7 @@ protected:
     UDataTable* CreditsDataTable;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TypeWidgets[7];
+    TSubclassOf<USBZWidgetCreditsRowBase> TypeWidgets[7];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float StartOffsetSize;
@@ -46,6 +47,5 @@ private:
     
 public:
     USBZMainMenuCredits();
-
 };
 

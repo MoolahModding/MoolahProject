@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZStateMachineStateABPreMatch();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void HandleReceivedPlayerReadyAck();

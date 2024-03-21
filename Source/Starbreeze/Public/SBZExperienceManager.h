@@ -11,7 +11,6 @@ class USBZExperienceManager : public USBZPlayerStatisticsManager {
     GENERATED_BODY()
 public:
     USBZExperienceManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZExperienceManager* GetExperienceManager(const UObject* WorldContextObject);
     

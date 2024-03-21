@@ -20,7 +20,6 @@ private:
     
 public:
     USBZRoomConnectorComponent();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     FVector GetRoomBLocation() const;
@@ -28,7 +27,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     FVector GetRoomALocation() const;
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

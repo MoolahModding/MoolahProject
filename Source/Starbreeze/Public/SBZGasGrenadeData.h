@@ -21,6 +21,5 @@ public:
     UCurveFloat* DropDamageModifierCurve;
     
     USBZGasGrenadeData();
-
 };
 

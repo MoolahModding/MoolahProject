@@ -8,6 +8,5 @@ class USBZAllowConversationDialogNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZAllowConversationDialogNotifyState();
-
 };
 

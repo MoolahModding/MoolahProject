@@ -3,4 +3,3 @@
 USBZAIActionData::USBZAIActionData() {
 }
 
-

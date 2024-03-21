@@ -8,6 +8,5 @@ class USBZInteractableWindowComponent : public USBZInteractableComponent {
     GENERATED_BODY()
 public:
     USBZInteractableWindowComponent();
-
 };
 

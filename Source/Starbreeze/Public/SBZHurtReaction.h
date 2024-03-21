@@ -30,6 +30,5 @@ public:
     TArray<FSBZHurtReactionLookup> LookupArray;
     
     USBZHurtReaction();
-
 };
 

@@ -8,6 +8,5 @@ class USBZReactionPredicate_RoomSoundDistance : public USBZReactionPredicate {
     GENERATED_BODY()
 public:
     USBZReactionPredicate_RoomSoundDistance();
-
 };
 

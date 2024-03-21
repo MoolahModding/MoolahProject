@@ -15,6 +15,5 @@ public:
     FSBZWeaponAimAssistData Mouse;
     
     USBZWeaponAimAssistDataAsset();
-
 };
 

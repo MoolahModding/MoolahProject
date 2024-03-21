@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZMissionGameMode.h"
+#include "Templates/Subclassof.h"
 #include "PD3HeistGameMode.generated.h"
 
 class AActor;
@@ -54,8 +55,7 @@ private:
     TSet<ASBZAICharacter*> TransporterBrutalCarrySkillAISet;
     
 public:
-    APD3HeistGameMode(const FObjectInitializer& ObjectInitializer);
-
+    APD3HeistGameMode(const class FObjectInitializer& ObjectInitializer);
     UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZNegotiationManager* GetNegotiationManager() const;
     

@@ -13,6 +13,5 @@ protected:
     
 public:
     USBZZiplineAttachmentBone();
-
 };
 

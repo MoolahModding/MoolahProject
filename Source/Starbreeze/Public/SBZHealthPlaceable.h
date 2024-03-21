@@ -15,7 +15,6 @@ protected:
     bool bAllowPartialCharges;
     
 public:
-    ASBZHealthPlaceable(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHealthPlaceable();
 };
 

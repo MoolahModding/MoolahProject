@@ -1,10 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZPlayerStatePawnWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "PD3DetectionMeterContainer.generated.h"
 
 class UAkAudioEvent;
-class UClass;
 class UOverlay;
 class UPD3DetectionMeter;
 
@@ -14,7 +14,7 @@ class UPD3DetectionMeterContainer : public USBZPlayerStatePawnWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DetectionMeterClass;
+    TSubclassOf<UPD3DetectionMeter> DetectionMeterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UOverlay* Overlay_DetectionMeters;
@@ -37,7 +37,6 @@ private:
     
 public:
     UPD3DetectionMeterContainer();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnObservedChanged(bool bObserved);
     

@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZBaseMenuWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnActiveControlsReferenceChanged(const FSBZControlsReference& InControlsReference);

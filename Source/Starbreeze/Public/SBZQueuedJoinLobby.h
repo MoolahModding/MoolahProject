@@ -1,18 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SBZArmadaInfo.h"
-#include "SBZFriendListEntry.h"
 #include "SBZQueuedJoinLobby.generated.h"
+
+class USBZStateMachineDataMatchmaking;
 
 USTRUCT(BlueprintType)
 struct FSBZQueuedJoinLobby {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZFriendListEntry FriendEntry;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZArmadaInfo ArmadaInfo;
+    USBZStateMachineDataMatchmaking* MatchmakingData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bHasQueuedJoinLobby;

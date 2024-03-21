@@ -108,10 +108,9 @@ protected:
     USBZMarkerDataAsset* MarkerAsset;
     
 public:
-    ASBZObjective(const FObjectInitializer& ObjectInitializer);
-
+    ASBZObjective();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetProgress(int32 NewProgress);
     

@@ -25,7 +25,11 @@
 class AActor;
 class ASBZAICrewState;
 class ASBZCharacter;
+class ASBZMissionState;
+class ASBZSeasonalEventItemBase;
 class UAkAudioBank;
+class UObject;
+class UPD3HeistDataAsset;
 class USBZActorPoolManager;
 class USBZAgentManager;
 class USBZBagManager;
@@ -158,17 +162,22 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZVariationSeedGenerator VariationSeedGenerator;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 SeasonalEventItemCount;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverkillWeaponCooldown;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPD3HeistDataAsset* CurrentHeistData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZPlayerCharacterData* TutorialPlayerCharacterData;
     
 public:
-    ASBZMissionState(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMissionState();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void ServerPostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
@@ -189,6 +198,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnStandaloneNetIDEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnServerSeasonalItemPickedUp(ASBZSeasonalEventItemBase* SeasonalEventItem);
     
 protected:
     UFUNCTION(BlueprintCallable)

@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZControlsReferenceAxisWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZAxisInputWidget;
 class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -22,13 +23,12 @@ protected:
     int32 MaxAxisInputsDisplayed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* AxisInputWidgetClass;
+    TSubclassOf<USBZAxisInputWidget> AxisInputWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FName> AxisList;
     
 public:
     USBZControlsReferenceAxisWidget();
-
 };
 

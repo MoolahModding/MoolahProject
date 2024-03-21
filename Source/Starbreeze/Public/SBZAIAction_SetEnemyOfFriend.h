@@ -8,6 +8,5 @@ class USBZAIAction_SetEnemyOfFriend : public USBZAIAction {
     GENERATED_BODY()
 public:
     USBZAIAction_SetEnemyOfFriend();
-
 };
 

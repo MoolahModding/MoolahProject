@@ -20,11 +20,11 @@
 #include "SBZCharacterAnimationTPP.generated.h"
 
 class AActor;
+class ASBZEquippable;
 class UAnimMontage;
 class UAnimSequence;
 class UAnimSequenceBase;
 class UBlendSpaceBase;
-class UClass;
 class USBZCharacterAnimationCollection;
 class USBZCharacterAnimationTPP;
 
@@ -586,7 +586,7 @@ protected:
     UAnimMontage* UncrouchMontage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> CurrentEquippableClass;
+    TSoftClassPtr<ASBZEquippable> CurrentEquippableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UBlendSpaceBase* AimOffsetSliding;
@@ -779,6 +779,5 @@ protected:
     
 public:
     USBZCharacterAnimationTPP();
-
 };
 

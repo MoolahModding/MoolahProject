@@ -82,7 +82,6 @@ protected:
     
 public:
     USBZPartyManager();
-
     UFUNCTION(BlueprintCallable)
     void SetLobbyType(ESBZOnlineJoinType InLobbyType);
     

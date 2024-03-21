@@ -1,15 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGameplayEffectData.generated.h"
 
-class UClass;
+class UGameplayEffect;
 
 USTRUCT(BlueprintType)
 struct FSBZGameplayEffectData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GameplayEffectClass;
+    TSubclassOf<UGameplayEffect> GameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Level;

@@ -16,10 +16,9 @@ private:
     uint8 bDummy: 1;
     
 public:
-    ASBZVotingReplicatedProxy(const FObjectInitializer& ObjectInitializer);
-
+    ASBZVotingReplicatedProxy();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_NotifySendVoteRecall(FUniqueNetIdRepl PlayerId);
     

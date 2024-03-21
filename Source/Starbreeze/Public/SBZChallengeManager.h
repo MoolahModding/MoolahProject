@@ -7,6 +7,7 @@
 #include "SBZChallengeProgressStat.h"
 #include "SBZOnCompletedAchievementRequestDoneDelegateDelegate.h"
 #include "SBZOnCompletedChallengeRequestDoneDelegateDelegate.h"
+#include "SBZRecommendedChallenges.h"
 #include "SBZStatData.h"
 #include "SBZChallengeManager.generated.h"
 
@@ -32,10 +33,10 @@ protected:
     FString InfamyPointRewardStatID;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UStringTable* ChallengesStringTable;
+    TArray<UStringTable*> ChallengesStringTables;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UStringTable* ChallengesStatsStringTable;
+    TArray<UStringTable*> ChallengesStatsStringTables;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -59,9 +60,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FUserChallengeRecord> ChallengeRecordCaches;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FString, FSBZRecommendedChallenges> RecommendedChallengesMap;
+    
 public:
     USBZChallengeManager();
-
     UFUNCTION(BlueprintCallable)
     void RefreshChallengeRecordCache();
     
@@ -75,6 +78,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetStatProgress(const FName& InStatID);
+    
+    UFUNCTION(BlueprintCallable)
+    bool GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZChallengeData> GetCompletedChallengesDuringMission() const;

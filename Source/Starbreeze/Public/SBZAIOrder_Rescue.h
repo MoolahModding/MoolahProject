@@ -5,6 +5,7 @@
 
 class APawn;
 class USBZOutlineAsset;
+class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZAIOrder_Rescue : public USBZAIOrder_TacticalMoveTo {
@@ -12,11 +13,13 @@ class USBZAIOrder_Rescue : public USBZAIOrder_TacticalMoveTo {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZVoiceCommentDataAsset* RescueHostageComment;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* RescueTargetOutline;
     
 public:
     USBZAIOrder_Rescue();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnTargetKilled(APawn* KilledPawn);

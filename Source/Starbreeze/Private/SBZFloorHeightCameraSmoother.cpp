@@ -3,4 +3,3 @@
 USBZFloorHeightCameraSmoother::USBZFloorHeightCameraSmoother() {
 }
 
-

@@ -1,5 +1,14 @@
 #include "SBZAIShield.h"
 
+void USBZAIShield::OnRep_ShieldBreak() {
+}
+
+void USBZAIShield::OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive) {
+}
+
+void USBZAIShield::Multicast_ShieldBreak_Implementation() {
+}
+
 USBZAIShield::USBZAIShield() {
     this->VisorArmor[0] = 0.00f;
     this->VisorArmor[1] = 0.00f;
@@ -25,18 +34,5 @@ USBZAIShield::USBZAIShield() {
     this->VisorDamageSteps = 4;
     this->ExplosionBlockDegrees = 45.00f;
     this->ExplosionBlockDot = 0.71f;
-    this->CanCharacterStepUpOn = ECB_No;
-    this->ComponentTags.AddDefaulted(1);
-    this->bCanEverAffectNavigation = false;
 }
-
-void USBZAIShield::OnRep_ShieldBreak() {
-}
-
-void USBZAIShield::OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive) {
-}
-
-void USBZAIShield::Multicast_ShieldBreak_Implementation() {
-}
-
 

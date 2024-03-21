@@ -40,7 +40,6 @@ private:
     
 public:
     USBZStateMachineStateDsResult();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRestartTimerFinsihed();

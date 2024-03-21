@@ -31,6 +31,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZReactionPredicate* Predicate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TArray<USBZReactionPredicate*> Predicates;
+    
     STARBREEZE_API FSBZStimuliReaction();
 };
 

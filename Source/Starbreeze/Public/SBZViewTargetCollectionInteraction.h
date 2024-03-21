@@ -19,8 +19,7 @@ private:
     USBZInteractableComponent* Interactable;
     
 public:
-    ASBZViewTargetCollectionInteraction(const FObjectInitializer& ObjectInitializer);
-
+    ASBZViewTargetCollectionInteraction();
     UFUNCTION(BlueprintCallable)
     void SetViewTargetCollection(AActor* InActor);
     

@@ -1,5 +1,8 @@
 #include "SBZDrillWidget.h"
 
+
+
+
 USBZDrillWidget::USBZDrillWidget() : UUserWidget(FObjectInitializer::Get()) {
     this->TimeLeftText = NULL;
     this->ProgressItem = NULL;
@@ -8,8 +11,4 @@ USBZDrillWidget::USBZDrillWidget() : UUserWidget(FObjectInitializer::Get()) {
     this->DrillEx = NULL;
     this->PocketDrill = NULL;
 }
-
-
-
-
 

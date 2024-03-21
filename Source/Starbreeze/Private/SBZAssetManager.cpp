@@ -4,4 +4,3 @@ USBZAssetManager::USBZAssetManager() {
     this->AssetLookupData = NULL;
 }
 
-

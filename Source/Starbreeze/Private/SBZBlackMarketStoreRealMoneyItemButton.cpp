@@ -1,8 +1,5 @@
 #include "SBZBlackMarketStoreRealMoneyItemButton.h"
 
-USBZBlackMarketStoreRealMoneyItemButton::USBZBlackMarketStoreRealMoneyItemButton() {
-}
-
 void USBZBlackMarketStoreRealMoneyItemButton::InitializeRealMoneyStoreItem(const FSBZPayDayCreditStoreItem& InRealMoneyStoreItem) {
 }
 
@@ -10,4 +7,6 @@ FSBZPayDayCreditStoreItem USBZBlackMarketStoreRealMoneyItemButton::GetRealMoneyS
     return FSBZPayDayCreditStoreItem{};
 }
 
+USBZBlackMarketStoreRealMoneyItemButton::USBZBlackMarketStoreRealMoneyItemButton() {
+}
 

@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "SBZUIStackChangedEvent.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBreadCrumbWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBreadCrumbButtonWidget;
 
@@ -17,7 +17,7 @@ protected:
     TMap<FName, FText> StackValueToNameMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* BreadCrumbButtonClass;
+    TSubclassOf<USBZBreadCrumbButtonWidget> BreadCrumbButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_ButtonContainer;
@@ -28,7 +28,6 @@ private:
     
 public:
     USBZBreadCrumbWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent);

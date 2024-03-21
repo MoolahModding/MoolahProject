@@ -5,8 +5,5 @@ USBZDozerFaceArmor::USBZDozerFaceArmor() {
     this->BreakVFX = NULL;
     this->BreakComment = NULL;
     this->bCarryOnBreak = false;
-    this->CanCharacterStepUpOn = ECB_No;
-    this->bCanEverAffectNavigation = false;
 }
-
 

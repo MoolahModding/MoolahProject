@@ -20,7 +20,6 @@ private:
     
 public:
     USBZMainMenuInventoryCharacterSlotButton();
-
     UFUNCTION(BlueprintCallable)
     void SetPreferredValueIndex(int32 InPreferredValueIndex);
     

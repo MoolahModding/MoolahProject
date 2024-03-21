@@ -10,8 +10,7 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZJobOverviewSync : public AInfo {
     GENERATED_BODY()
 public:
-    ASBZJobOverviewSync(const FObjectInitializer& ObjectInitializer);
-
+    ASBZJobOverviewSync();
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void UpdateReadyClientStatusReceived(const FSBZPlayersReadyStatusStateArray& PlayersReadyStatus);
     

@@ -7,4 +7,3 @@ USBZAimAssistComponent::USBZAimAssistComponent() {
     this->MaxFireTime = 0.10f;
 }
 
-

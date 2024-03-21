@@ -1,11 +1,5 @@
 #include "SBZStateMachineStateLobby.h"
 
-USBZStateMachineStateLobby::USBZStateMachineStateLobby() {
-    this->PlayersWaitTimeout = 60;
-    this->ActionPhasePlayersWaitTimeout = 30;
-    this->GameStartTimeout = 5;
-}
-
 void USBZStateMachineStateLobby::WaitPlayersTickSeconds() {
 }
 
@@ -42,4 +36,9 @@ void USBZStateMachineStateLobby::HandleLostConnectionToPartyHost(ESBZOnlineCode 
 void USBZStateMachineStateLobby::HandleLostConnectionToHost(ESBZOnlineCode ErrorCode) {
 }
 
+USBZStateMachineStateLobby::USBZStateMachineStateLobby() {
+    this->PlayersWaitTimeout = 60;
+    this->ActionPhasePlayersWaitTimeout = 30;
+    this->GameStartTimeout = 5;
+}
 

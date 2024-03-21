@@ -3,4 +3,3 @@
 USBZExplosionImpactConfig::USBZExplosionImpactConfig() {
 }
 
-

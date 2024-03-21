@@ -12,8 +12,7 @@ UCLASS(Blueprintable, NonTransient)
 class STARBREEZE_API ASBZOnlineBeaconClient : public AOnlineBeaconClient {
     GENERATED_BODY()
 public:
-    ASBZOnlineBeaconClient(const FObjectInitializer& ObjectInitializer);
-
+    ASBZOnlineBeaconClient();
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void VoteToKick(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick);
     

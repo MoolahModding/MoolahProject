@@ -52,7 +52,6 @@ private:
     
 public:
     USBZAIVisualDetectionComponent();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnTargetIllegalAction(AActor* Target);

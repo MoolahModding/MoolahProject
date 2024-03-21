@@ -8,6 +8,5 @@ class USBZCurrencyHelper : public UObject {
     GENERATED_BODY()
 public:
     USBZCurrencyHelper();
-
 };
 

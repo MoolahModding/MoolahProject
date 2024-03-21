@@ -18,6 +18,5 @@ protected:
     
 public:
     USBZAIUtilityDecider_AIObjectiveSearch();
-
 };
 

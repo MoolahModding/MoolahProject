@@ -7,4 +7,3 @@ USBZSkill::USBZSkill() {
     this->SkillLine = NULL;
 }
 
-

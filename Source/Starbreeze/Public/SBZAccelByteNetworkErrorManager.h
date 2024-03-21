@@ -16,13 +16,15 @@ private:
     
 public:
     USBZAccelByteNetworkErrorManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void ValidateFailedInternetConnection();
     
     UFUNCTION(BlueprintCallable)
     void PollAccelTimeService();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnPopUpWaitToReconnectClosed(FName ActionName);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))

@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZHeistDeveloperSettings();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static UPD3HeistDataAsset* GetHeistDataFromLevelShortName(const FString& ShortName);
     

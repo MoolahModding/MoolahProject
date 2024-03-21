@@ -8,4 +8,3 @@ USBZHelmetPopper::USBZHelmetPopper() {
     this->CPDValue = ESBZVariationValue::A;
 }
 
-

@@ -16,7 +16,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UNavModifierComponent* NavModifierComponent;
     
-    ASBZLongNavLinkPlatform(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLongNavLinkPlatform();
 };
 

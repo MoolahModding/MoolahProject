@@ -4,14 +4,15 @@
 #include "Engine/EngineTypes.h"
 #include "SBZKnifeProjectileTargetData.h"
 #include "SBZThrowable.h"
+#include "Templates/SubclassOf.h"
 #include "SBZThrowableKnife.generated.h"
 
 class AActor;
 class ASBZAIPointOfInterest;
 class ASBZAmmoPickup;
+class ASBZThrowableKnifePickup;
 class UAkAudioEvent;
 class UBoxComponent;
-class UClass;
 class UPrimitiveComponent;
 
 UCLASS(Abstract, Blueprintable)
@@ -29,10 +30,10 @@ protected:
     UAkAudioEvent* OverrideThrowableProjectileBounceHitEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* AmmoPickupAsset;
+    TSubclassOf<ASBZThrowableKnifePickup> AmmoPickupAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ThrowableKnifePOIClass;
+    TSubclassOf<ASBZAIPointOfInterest> ThrowableKnifePOIClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZAIPointOfInterest* ThrowableKnifePOIInstance;
@@ -44,8 +45,7 @@ protected:
     ASBZAmmoPickup* AmmoPickup;
     
 public:
-    ASBZThrowableKnife(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThrowableKnife();
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_ReplicateDamage(const FSBZKnifeProjectileTargetData& TargetData);
@@ -64,6 +64,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateImpact(bool bInShouldBladeBounce, bool bInHasRetrieverSkill);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasRetrieverSkill() const;
     
 };
 

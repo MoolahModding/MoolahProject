@@ -22,6 +22,5 @@ public:
     TMap<FGameplayTag, FSBZSoftMontageContainer> CachedGamePlayTagBasedMontages;
     
     USBZBaseCharacterAnimationCollection();
-
 };
 

@@ -16,6 +16,5 @@ private:
     
 public:
     USBZAIUtilityScorer_AnyPlayerVisibleFromAI();
-
 };
 

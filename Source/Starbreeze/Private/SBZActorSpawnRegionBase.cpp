@@ -1,6 +1,6 @@
 #include "SBZActorSpawnRegionBase.h"
 
-ASBZActorSpawnRegionBase::ASBZActorSpawnRegionBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZActorSpawnRegionBase::ASBZActorSpawnRegionBase() {
     this->CollisionCapsuleRadius = 34.00f;
     this->CollisionCapsuleHalfHeight = 88.00f;
     this->SpawnLocationBreadth = 10.00f;
@@ -10,5 +10,4 @@ ASBZActorSpawnRegionBase::ASBZActorSpawnRegionBase(const FObjectInitializer& Obj
     this->bSurfaceNormalAligned = true;
     this->bDrawSpawnLocationGenerationDebugShapes = false;
 }
-
 

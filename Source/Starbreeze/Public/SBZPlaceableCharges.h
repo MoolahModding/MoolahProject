@@ -2,15 +2,17 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "ESBZPlaceableChargeState.h"
 #include "SBZOnPlaceableReachedTargetDelegateDelegate.h"
 #include "SBZPlaceableBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlaceableCharges.generated.h"
 
 class AActor;
+class AStaticMeshActor;
 class UBoxComponent;
-class UClass;
 class UProjectileMovementComponent;
 class USBZBaseInteractableComponent;
 class USBZInteractorComponent;
@@ -43,9 +45,9 @@ protected:
     UBoxComponent* OutOfBoundsBoxComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CloakerBMMessage;
+    TSubclassOf<AStaticMeshActor> CloakerBMMessage;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_TargetLocation, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FVector TargetLocation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_PlaceableChargeState, meta=(AllowPrivateAccess=true))
@@ -65,10 +67,9 @@ private:
     FVector MeshRelativeLocation;
     
 public:
-    ASBZPlaceableCharges(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlaceableCharges();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetPlaceableChargeState(ESBZPlaceableChargeState NewPlaceableChargeState);
     
@@ -81,9 +82,6 @@ private:
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    void OnRep_TargetLocation();
-    
     UFUNCTION(BlueprintCallable)
     void OnRep_PlaceableChargeState(ESBZPlaceableChargeState OldPlaceableChargeState);
     
@@ -122,6 +120,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReachedTargetLocation(const FVector& InTargetLocation, const FRotator& InTargetRotation);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_Fall(const FVector& InStartLocation, const FVector& InTargetLocation, const FQuat& InTargetQuat);
     
 };
 

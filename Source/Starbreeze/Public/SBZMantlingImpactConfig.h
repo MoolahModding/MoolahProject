@@ -8,6 +8,5 @@ class USBZMantlingImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZMantlingImpactConfig();
-
 };
 

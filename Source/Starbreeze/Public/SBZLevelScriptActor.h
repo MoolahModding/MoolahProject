@@ -30,8 +30,7 @@ protected:
     int32 Seed;
     
 public:
-    ASBZLevelScriptActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLevelScriptActor();
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ULevelStreamingDynamic* SBZPlaceRandomSublevelBySoftObjectPtr(UObject* WorldContextObject, const TSoftObjectPtr<UWorld> Level, const FTransform& RoomTransform, bool& bOutSuccess);
     

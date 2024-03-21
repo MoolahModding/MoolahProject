@@ -7,7 +7,9 @@ UCLASS(Blueprintable, EditInlineNew)
 class USBZAIAction_HogTie : public USBZAIAction {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bForceGoDownOnGround;
+    
     USBZAIAction_HogTie();
-
 };
 

@@ -19,7 +19,6 @@ private:
     
 public:
     USBZVehicleDamageComponent();
-
     UFUNCTION(BlueprintCallable)
     void HandleTakeRadialDamage(AActor* DamagedActor, float DamageAmount, const FRadialDamageEvent& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
     

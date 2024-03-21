@@ -93,7 +93,6 @@ private:
     
 public:
     USBZCharacterVoiceComponent();
-
     UFUNCTION(BlueprintCallable)
     void StopTalking();
     

@@ -16,6 +16,5 @@ public:
     TArray<FSBZFactionAttitude> Attitudes;
     
     USBZFactionsConfig();
-
 };
 

@@ -14,9 +14,8 @@ private:
     
 public:
     USBZHackingComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetHackingState(ESBZHackingState NewHackingState);
     

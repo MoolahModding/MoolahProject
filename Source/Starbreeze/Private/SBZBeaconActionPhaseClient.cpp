@@ -1,17 +1,13 @@
 #include "SBZBeaconActionPhaseClient.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bIsDsLobbyClient = false;
-}
-
 void ASBZBeaconActionPhaseClient::ServerVoteStayAsParty_Implementation() {
 }
 
 void ASBZBeaconActionPhaseClient::ServerSetSlotStatus_Implementation(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status) {
 }
 
-void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
+void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZFirstPartyPlatform& FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
 }
 
 void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadingComplete_Implementation(const FUniqueNetIdRepl& InPlayerId) {
@@ -83,7 +79,7 @@ void ASBZBeaconActionPhaseClient::ClientStartWaitingPlayersLoadingComplete_Imple
 void ASBZBeaconActionPhaseClient::ClientStartTravelAck_Implementation(const ESBZOnlineCode& Result) {
 }
 
-void ASBZBeaconActionPhaseClient::ClientSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
+void ASBZBeaconActionPhaseClient::ClientSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZFirstPartyPlatform FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
 }
 
 void ASBZBeaconActionPhaseClient::ClientRestartPreTravelTimer_Implementation(float PreTravelTimeLimit) {
@@ -125,4 +121,7 @@ void ASBZBeaconActionPhaseClient::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(ASBZBeaconActionPhaseClient, PlayersInfo);
 }
 
+ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient() {
+    this->bIsDsLobbyClient = false;
+}
 

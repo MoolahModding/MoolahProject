@@ -19,7 +19,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Weight;
     
-    ASBZPlayerStartGroup(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerStartGroup();
 };
 

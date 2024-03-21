@@ -80,7 +80,6 @@ private:
     
 public:
     USBZGameStateMachine();
-
     UFUNCTION(BlueprintCallable)
     void SetMatchmakingSecurityCompanies(const TArray<ESBZSecurityCompany>& InSecurityCompanies);
     

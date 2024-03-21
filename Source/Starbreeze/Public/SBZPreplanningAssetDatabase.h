@@ -13,6 +13,5 @@ public:
     TArray<USBZPreplanningAssetData*> PreplanningAssetArray;
     
     USBZPreplanningAssetDatabase();
-
 };
 

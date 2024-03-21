@@ -3,4 +3,3 @@
 USBZPhoneThumbPressedNotify::USBZPhoneThumbPressedNotify() {
 }
 
-

@@ -1,6 +1,31 @@
 #include "SBZGasVolumeComponent.h"
 #include "Net/UnrealNetwork.h"
 
+bool USBZGasVolumeComponent::IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const {
+    return false;
+}
+
+bool USBZGasVolumeComponent::IsLocationOverlapping(const FVector& Location) const {
+    return false;
+}
+
+bool USBZGasVolumeComponent::IsCharacterOverlapping(const ASBZCharacter* Character) const {
+    return false;
+}
+
+void USBZGasVolumeComponent::Init() {
+}
+
+void USBZGasVolumeComponent::FeedNiagaraWithParticleLocations(UNiagaraComponent* NiagaraComponent) {
+}
+
+void USBZGasVolumeComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedLocalLocations);
+    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedLocalBorderLocations);
+}
+
 USBZGasVolumeComponent::USBZGasVolumeComponent() {
     this->LineBatchComponent = NULL;
     this->bInitOnBeginPlay = false;
@@ -29,32 +54,5 @@ USBZGasVolumeComponent::USBZGasVolumeComponent() {
     this->UpdateParticleLocationsInterval = 0.30f;
     this->MaxUpdateLocationPerFrame = 2;
     this->OverdrawOptimisationPoolID = 2;
-    
 }
-
-bool USBZGasVolumeComponent::IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const {
-    return false;
-}
-
-bool USBZGasVolumeComponent::IsLocationOverlapping(const FVector& Location) const {
-    return false;
-}
-
-bool USBZGasVolumeComponent::IsCharacterOverlapping(const ASBZCharacter* Character) const {
-    return false;
-}
-
-void USBZGasVolumeComponent::Init() {
-}
-
-void USBZGasVolumeComponent::FeedNiagaraWithParticleLocations(UNiagaraComponent* NiagaraComponent) {
-}
-
-void USBZGasVolumeComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedLocalLocations);
-    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedLocalBorderLocations);
-}
-
 

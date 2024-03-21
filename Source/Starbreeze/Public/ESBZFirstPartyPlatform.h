@@ -4,11 +4,12 @@
 
 UENUM(BlueprintType)
 enum class ESBZFirstPartyPlatform : uint8 {
+    Unknown,
+    Null,
     Steam,
-    Playstation,
-    Xbox,
-    Epic,
-    WindowsStore,
+    PlayStationNetwork,
+    XboxLive,
+    EpicOnlineSystem,
     MAX,
 };
 

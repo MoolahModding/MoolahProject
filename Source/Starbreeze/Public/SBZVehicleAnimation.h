@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZVehicleAnimation();
-
     UFUNCTION(BlueprintCallable)
     void StopBuiltInAnimMontage(const USBZBuiltInAnimMontage* AnimMontage);
     

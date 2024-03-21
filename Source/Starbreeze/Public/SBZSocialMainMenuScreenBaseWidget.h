@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZSocialMainMenuScreenBaseWidget();
-
     UFUNCTION(BlueprintCallable)
     void SetToggleSocialScreenInput(FName InNewToggleActionName);
     

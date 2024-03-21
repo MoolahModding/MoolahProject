@@ -25,8 +25,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZMainMenuCameraManager* MainMenuCameraManager;
     
-    ASBZLevelScriptMainMenuActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLevelScriptMainMenuActor();
     UFUNCTION(BlueprintCallable)
     void PostInitializeComponents();
     

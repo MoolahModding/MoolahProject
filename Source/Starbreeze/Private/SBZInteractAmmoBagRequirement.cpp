@@ -3,4 +3,3 @@
 USBZInteractAmmoBagRequirement::USBZInteractAmmoBagRequirement() {
 }
 
-

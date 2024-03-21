@@ -3,4 +3,3 @@
 USBZVoteFactory::USBZVoteFactory() {
 }
 
-

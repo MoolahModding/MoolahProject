@@ -1,24 +1,9 @@
 #include "SBZMainMenuWeaponInventoryScreen.h"
 
-USBZMainMenuWeaponInventoryScreen::USBZMainMenuWeaponInventoryScreen() {
-    this->WeaponSlotButtonClass = NULL;
-    this->WeaponSlotButtonClass = NULL;
-    this->Panel_WeaponSlotButtons = NULL;
-    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
-    this->CurrentLoadoutIndex = -1;
-    this->ActiveWeaponSlotIndex = -1;
-    this->ActiveLoadoutWeaponSlotIndex = -1;
-    this->ActiveWeaponSlots = 0;
-    this->WeaponSlotCount = 0;
-    this->Button_WeaponSlotStoreItem = NULL;
-    this->DiscardWeaponPopUpBodyWidgetClass = NULL;
-    this->DiscardWeaponPopUpBodyWidgetClass = NULL;
-    this->WeaponToDiscardIndex = -1;
-    this->DiscardWeaponPopUpBody = NULL;
-    this->StackValue = TEXT("Default__SBZMainMenuWeaponInventoryScreen");
+
+
+void USBZMainMenuWeaponInventoryScreen::UpdateWeaponSlotButtons() {
 }
-
-
 
 void USBZMainMenuWeaponInventoryScreen::UpdateActiveWeaponSlotIndex(int32 InNewIndex) {
 }
@@ -65,4 +50,18 @@ bool USBZMainMenuWeaponInventoryScreen::CanDiscardWeaponIndex(int32 InWeaponInde
     return false;
 }
 
+USBZMainMenuWeaponInventoryScreen::USBZMainMenuWeaponInventoryScreen() {
+    this->WeaponSlotButtonClass = NULL;
+    this->Panel_WeaponSlotButtons = NULL;
+    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
+    this->CurrentLoadoutIndex = -1;
+    this->ActiveWeaponSlotIndex = -1;
+    this->ActiveLoadoutWeaponSlotIndex = -1;
+    this->ActiveWeaponSlots = 0;
+    this->WeaponSlotCount = 0;
+    this->Button_WeaponSlotStoreItem = NULL;
+    this->DiscardWeaponPopUpBodyWidgetClass = NULL;
+    this->WeaponToDiscardIndex = -1;
+    this->DiscardWeaponPopUpBody = NULL;
+}
 

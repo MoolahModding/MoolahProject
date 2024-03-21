@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIEscortStateData.generated.h"
 
 class UBehaviorTree;
-class UClass;
+class UNavigationQueryFilter;
 
 USTRUCT(BlueprintType)
 struct FSBZAIEscortStateData {
@@ -16,7 +17,7 @@ public:
     uint8 Priority;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* NavQueryFilterOverride;
+    TSubclassOf<UNavigationQueryFilter> NavQueryFilterOverride;
     
     STARBREEZE_API FSBZAIEscortStateData();
 };

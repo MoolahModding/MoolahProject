@@ -1,8 +1,5 @@
 #include "SBZGameplayManager.h"
 
-USBZGameplayManager::USBZGameplayManager() {
-}
-
 void USBZGameplayManager::OnRestartLevelStarted() {
 }
 
@@ -28,4 +25,6 @@ USBZGameplayManager* USBZGameplayManager::Get(const UObject* WorldContextObject)
     return NULL;
 }
 
+USBZGameplayManager::USBZGameplayManager() {
+}
 

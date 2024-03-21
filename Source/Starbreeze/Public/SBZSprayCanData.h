@@ -47,6 +47,5 @@ public:
     float SprayCanMetallic;
     
     USBZSprayCanData();
-
 };
 

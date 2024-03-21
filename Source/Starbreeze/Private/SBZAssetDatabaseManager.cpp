@@ -3,4 +3,3 @@
 USBZAssetDatabaseManager::USBZAssetDatabaseManager() {
 }
 
-

@@ -1,5 +1,8 @@
 #include "SBZNavLinkAgilityComponent.h"
 
+void USBZNavLinkAgilityComponent::ComputeTrajectories() {
+}
+
 USBZNavLinkAgilityComponent::USBZNavLinkAgilityComponent() {
     this->QueryParams = NULL;
     this->LeftToRightType = ESBZAgilityType::Invalid;
@@ -12,8 +15,4 @@ USBZNavLinkAgilityComponent::USBZNavLinkAgilityComponent() {
     this->bComputeOnBeginPlay = true;
     this->InterfaceObject = NULL;
 }
-
-void USBZNavLinkAgilityComponent::ComputeTrajectories() {
-}
-
 

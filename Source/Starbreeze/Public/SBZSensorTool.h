@@ -49,8 +49,7 @@ protected:
     UStaticMeshComponent* SensorGlassMeshBounds;
     
 public:
-    ASBZSensorTool(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSensorTool();
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SensorToolTurnedOn();

@@ -1,12 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZObjectiveContainerWidget.generated.h"
 
 class ASBZObjective;
-class UClass;
 class UObject;
 class UPanelWidget;
+class USBZObjectiveWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZObjectiveContainerWidget : public USBZWidgetBase {
@@ -20,11 +21,10 @@ protected:
     UPanelWidget* Panel_OptionalObjectivesContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ObjectiveWidgetClass;
+    TSubclassOf<USBZObjectiveWidget> ObjectiveWidgetClass;
     
 public:
     USBZObjectiveContainerWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnObjectiveRemoved(UObject* ObjectiveUObject);

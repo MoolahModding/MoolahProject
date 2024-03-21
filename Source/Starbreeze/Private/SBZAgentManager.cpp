@@ -1,8 +1,5 @@
 #include "SBZAgentManager.h"
 
-USBZAgentManager::USBZAgentManager() {
-}
-
 void USBZAgentManager::ServerUnreliableRPC_Implementation(uint64 ClientId, const TArray<uint8>& Data) {
 }
 bool USBZAgentManager::ServerUnreliableRPC_Validate(uint64 ClientId, const TArray<uint8>& Data) {
@@ -39,4 +36,6 @@ bool USBZAgentManager::ClientInitializedRPC_Validate(uint64 ClientId) {
     return true;
 }
 
+USBZAgentManager::USBZAgentManager() {
+}
 

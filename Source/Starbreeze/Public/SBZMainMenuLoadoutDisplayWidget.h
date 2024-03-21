@@ -56,7 +56,6 @@ public:
     FOnItemButtonSelected PlaceableButtonSelected;
     
     USBZMainMenuLoadoutDisplayWidget();
-
     UFUNCTION(BlueprintCallable)
     void UpdateLoadoutConfigFromIndex(int32 InLoadoutIndex);
     

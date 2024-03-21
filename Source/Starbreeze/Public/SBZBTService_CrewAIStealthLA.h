@@ -21,6 +21,5 @@ private:
     
 public:
     USBZBTService_CrewAIStealthLA();
-
 };
 

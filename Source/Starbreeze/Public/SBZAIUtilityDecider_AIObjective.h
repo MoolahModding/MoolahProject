@@ -18,7 +18,6 @@ protected:
     
 public:
     USBZAIUtilityDecider_AIObjective();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnCancelationTimer();

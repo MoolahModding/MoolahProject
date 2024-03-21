@@ -23,7 +23,6 @@ private:
     
 public:
     USBZHeadbobCameraModifier();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandleEquippableArrayChanged(ASBZCharacter* Character);

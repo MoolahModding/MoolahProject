@@ -13,7 +13,6 @@ private:
     ESBZReplaySpectatorView SpectatorView;
     
 public:
-    ASBZReplaySpectatorPawn(const FObjectInitializer& ObjectInitializer);
-
+    ASBZReplaySpectatorPawn();
 };
 

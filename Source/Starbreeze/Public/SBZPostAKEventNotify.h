@@ -33,6 +33,5 @@ protected:
     
 public:
     USBZPostAKEventNotify();
-
 };
 

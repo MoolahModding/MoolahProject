@@ -35,7 +35,6 @@ protected:
     
 public:
     UPD3ActionNotificationWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnRevive(const FSBZReviveEvent& ReviveEventData);

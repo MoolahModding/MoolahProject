@@ -6,6 +6,7 @@
 
 class AActor;
 class ASBZSecurityCamera;
+class USBZDialogDataAsset;
 class UWorld;
 
 UCLASS(Blueprintable)
@@ -14,14 +15,19 @@ class ASBZSecurityRoom : public ASBZPawnSpawnPredefined, public ISBZViewTargetCo
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDialogDataAsset* ShadeCameraDownVO;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDialogDataAsset* ShadeCameraUpVO;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<ASBZSecurityCamera*> SecurityCameras;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZPawnSpawnPredefined* GuardRoomSpawner;
     
 public:
-    ASBZSecurityRoom(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSecurityRoom();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnPlayableLevelInitialized(UWorld* World);
@@ -29,14 +35,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnCameraDestroyed(AActor* DestroyedActor);
     
-public:
-    UFUNCTION(BlueprintCallable)
-    void EnableSecurityRoom();
     
-    UFUNCTION(BlueprintCallable)
-    void DisableSecurityRoom();
-    
-
     // Fix for true pure virtual functions not being implemented
 };
 

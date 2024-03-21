@@ -36,8 +36,7 @@ protected:
     float ConeAngle;
     
 public:
-    ASBZBagSpawner(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBagSpawner();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StartSpawningBags();
     

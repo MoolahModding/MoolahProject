@@ -35,6 +35,9 @@ enum class ESBZGameMachineStateError : uint8 {
     NebulaLoginWrongCreds,
     Unknown,
     PartySessionDoesNotExist,
+    GameSessionDoesNotExist,
     ReturningFromSuspendedState,
+    LobbyClosedConnection,
+    PlayerBanned,
 };
 

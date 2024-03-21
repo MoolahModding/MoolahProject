@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZAIOrder_MoveTo();
-
     UFUNCTION(BlueprintCallable)
     void SetMoveToLocation(const FVector& Location);
     

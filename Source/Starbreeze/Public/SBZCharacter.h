@@ -27,6 +27,7 @@
 #include "SBZBoneDamageMultiplier.h"
 #include "SBZCharacterAnimEventActiveDelegateDelegate.h"
 #include "SBZCharacterMeshScaleData.h"
+#include "SBZDropCharacterSound.h"
 #include "SBZEquippableConfig.h"
 #include "SBZEquippableRuntime.h"
 #include "SBZHumanShieldSlotParameters.h"
@@ -43,6 +44,7 @@
 #include "SBZTypeInterface.h"
 #include "SBZVoiceComponentInterface.h"
 #include "SBZZiplinerInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZCharacter.generated.h"
 
 class AActor;
@@ -58,8 +60,9 @@ class ASBZZipline;
 class ASBZZiplineMotor;
 class UAkAudioEvent;
 class UAkComponent;
+class UAnimInstance;
 class UAnimMontage;
-class UClass;
+class UAnimSequence;
 class UDamageType;
 class UPaperSprite;
 class UPhysicalMaterial;
@@ -130,7 +133,7 @@ public:
     USBZZiplineAudioController* ZiplineAudioController;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ZiplineMotorClass;
+    TSubclassOf<ASBZZiplineMotor> ZiplineMotorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZZiplineMotor* CurrentZiplineMotor;
@@ -155,13 +158,16 @@ protected:
     USBZEventReactionComponent* EventReactionComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AActor* CurrentBagActor;
+    TArray<AActor*> BagActorArray;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentBag, meta=(AllowPrivateAccess=true))
-    FSBZBagHandle CurrentBag;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BagHandleArray, meta=(AllowPrivateAccess=true))
+    TArray<FSBZBagHandle> BagHandleArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZCarryType* CurrentCarriedType;
+    int32 MaxCarryBagCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZCarryType*> CurrentCarryTypeArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FSBZReplicatedMontage ReplicatedMontage;
@@ -201,6 +207,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsCarriedDropAnimation: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsDropAndCarryScope;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsCarryChangedUsingInteraction;
@@ -293,7 +302,7 @@ protected:
     FName EquippableAttachementSocketName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LinkedAnimationClass;
+    TSubclassOf<UAnimInstance> LinkedAnimationClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZBaseCharacterAnimationCollection* AnimationCollection;
@@ -401,6 +410,12 @@ protected:
     UAkAudioEvent* LandSoundEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZDropCharacterSound VictimDropCharacterSound;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZDropCharacterSound InstigatorDropCharacterSound;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinInteractionDurationToUnequip;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentThrowableIndex, meta=(AllowPrivateAccess=true))
@@ -478,6 +493,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDialogBodyGesturesData* DialogBodyGesturesData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UAnimSequence* ForcedFacialAnimaton;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText CharacterName;
     
@@ -486,6 +504,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPaperSprite* DisplayIcon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer HitImmunityGrantingTags;
     
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -537,15 +558,14 @@ private:
     TArray<ASBZGrenadeProjectile*> ReplicatedGrenadeProjectileArray;
     
 public:
-    ASBZCharacter(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCharacter(const class FObjectInitializer& ObjectInitializer);
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable)
     void SetStance(ESBZCharacterStance InStance);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_WantsToTranferBagFrom(ASBZCharacter* FromCharacter);
+    void Server_TransferBagFrom(ASBZCharacter* ToCharacter);
     
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -561,10 +581,10 @@ protected:
     void Server_HumanShieldInstigatorSlotReached();
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveLooseGameplayTag(const FGameplayTag& GameplayTag, int32 Count);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -620,9 +640,8 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentPlaceableIndex(int32 OldPlaceableIndex);
     
-public:
     UFUNCTION(BlueprintCallable)
-    void OnRep_CurrentBag();
+    void OnRep_BagHandleArray(const TArray<FSBZBagHandle>& OldBagHandleArray);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -748,14 +767,17 @@ public:
     UFUNCTION(BlueprintCallable)
     void HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser);
     
-    UFUNCTION(BlueprintCallable)
-    bool GiveBag(FSBZBagHandle Bag);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSeed() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ASBZRoomVolume* GetLastKnownRoom() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    USBZCarryType* GetLastCurrentCarryType() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FSBZBagHandle GetLastBagHandle() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ASBZRoomVolume* GetCurrentRoom_Implementation() const;
@@ -774,10 +796,13 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void AddLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void AddLooseGameplayTag(const FGameplayTag& GameplayTag, int32 Count);
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);
@@ -790,11 +815,10 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-
+    
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
     {
         return AbilitySystem;
     }
-    
 };
 

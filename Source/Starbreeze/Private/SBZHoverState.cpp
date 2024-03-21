@@ -4,4 +4,3 @@ USBZHoverState::USBZHoverState() {
     this->StateMachine = NULL;
 }
 
-

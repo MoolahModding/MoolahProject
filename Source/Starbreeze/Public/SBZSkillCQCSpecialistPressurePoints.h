@@ -8,6 +8,5 @@ class USBZSkillCQCSpecialistPressurePoints : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillCQCSpecialistPressurePoints();
-
 };
 

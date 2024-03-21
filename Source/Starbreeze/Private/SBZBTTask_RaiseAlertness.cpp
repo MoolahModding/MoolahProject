@@ -2,7 +2,5 @@
 
 USBZBTTask_RaiseAlertness::USBZBTTask_RaiseAlertness() {
     this->RaiseAlertnessTime = 2.00f;
-    this->NodeName = TEXT("RaiseAlertness");
 }
-
 

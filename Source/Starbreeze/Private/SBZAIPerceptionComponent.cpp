@@ -1,8 +1,5 @@
 #include "SBZAIPerceptionComponent.h"
 
-USBZAIPerceptionComponent::USBZAIPerceptionComponent() {
-}
-
 void USBZAIPerceptionComponent::SetSenseConfig(ESBZSenseConfig ConfigID) {
 }
 
@@ -12,4 +9,6 @@ void USBZAIPerceptionComponent::OnTransporterBrutalCarrySkillPerceptionInfoUpdat
 void USBZAIPerceptionComponent::OnTargetPerception(AActor* Actor, FAIStimulus Stimulus) {
 }
 
+USBZAIPerceptionComponent::USBZAIPerceptionComponent() {
+}
 

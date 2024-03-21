@@ -55,7 +55,6 @@ protected:
     
 public:
     USBZNiagaraWwiseComponent();
-
     UFUNCTION(BlueprintCallable)
     void UpdateRtpc(float RtpcValue, float RtpcInterpolationValue);
     

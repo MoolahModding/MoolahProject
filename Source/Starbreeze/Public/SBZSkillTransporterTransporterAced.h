@@ -8,6 +8,5 @@ class USBZSkillTransporterTransporterAced : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTransporterTransporterAced();
-
 };
 

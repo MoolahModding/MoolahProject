@@ -71,10 +71,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZAIAttractorComponent* AttractorComponent;
     
-    ASBZDrillEx(const FObjectInitializer& ObjectInitializer);
-
+    ASBZDrillEx();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool UnjamDrill();
     
@@ -149,7 +148,7 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void AdjustSpeed();
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);

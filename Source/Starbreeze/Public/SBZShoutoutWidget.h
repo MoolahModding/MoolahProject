@@ -18,7 +18,6 @@ protected:
     
 public:
     USBZShoutoutWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnShoutoutReleased();

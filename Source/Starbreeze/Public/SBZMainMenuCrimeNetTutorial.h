@@ -3,9 +3,9 @@
 #include "UObject/NoExportTypes.h"
 #include "Layout/Margin.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuCrimeNetTutorial.generated.h"
 
-class UClass;
 class USBZMainMenuCrimeNetHeistButton;
 class USBZMenuButton;
 class UVerticalBox;
@@ -16,7 +16,7 @@ class USBZMainMenuCrimeNetTutorial : public USBZMenuStackScreenWidget {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HeistButtonClass;
+    TSubclassOf<USBZMainMenuCrimeNetHeistButton> HeistButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UVerticalBox* VerticalBox_HeistButtons;
@@ -39,7 +39,6 @@ private:
     
 public:
     USBZMainMenuCrimeNetTutorial();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);

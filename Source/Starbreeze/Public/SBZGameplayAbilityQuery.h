@@ -12,6 +12,5 @@ public:
     TArray<FSBZGameplayTagContainerComparison> TagContainersQuery;
     
     USBZGameplayAbilityQuery();
-
 };
 

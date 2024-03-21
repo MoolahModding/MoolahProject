@@ -23,6 +23,5 @@ public:
     FVector2D DecalTexturePosition;
     
     USBZWeaponDecalData();
-
 };
 

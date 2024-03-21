@@ -11,7 +11,6 @@ class USBZInteractionWidget : public USBZPlayerStatePawnWidgetBase {
     GENERATED_BODY()
 public:
     USBZInteractionWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerIsInteracting(const USBZPlayerInteractorComponent* Interactor, bool bIsInteracting);

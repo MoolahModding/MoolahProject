@@ -12,6 +12,5 @@ public:
     FContainerTickDelegate TickDelegate;
     
     USBZObjectContainerTickable();
-
 };
 

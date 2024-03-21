@@ -19,7 +19,6 @@ private:
     
 public:
     UPD3DetectionMeter();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStoppedBeingDetected();

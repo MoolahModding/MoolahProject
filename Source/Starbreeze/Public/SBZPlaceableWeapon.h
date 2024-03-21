@@ -27,10 +27,9 @@ protected:
     bool bDestroyOnInteraction;
     
 public:
-    ASBZPlaceableWeapon(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlaceableWeapon();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);

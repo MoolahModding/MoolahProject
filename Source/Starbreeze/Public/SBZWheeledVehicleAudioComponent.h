@@ -77,7 +77,6 @@ protected:
     
 public:
     USBZWheeledVehicleAudioComponent();
-
     UFUNCTION(BlueprintCallable)
     void StopTyreFrictionSound();
     

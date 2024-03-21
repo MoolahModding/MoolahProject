@@ -14,6 +14,5 @@ public:
     float AdditionalRange;
     
     USBZAIUtilityScorer_WeaponPreferredRange();
-
 };
 

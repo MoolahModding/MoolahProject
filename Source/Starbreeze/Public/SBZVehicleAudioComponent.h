@@ -88,7 +88,6 @@ protected:
     
 public:
     USBZVehicleAudioComponent();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void StopTyreFrictionSound();

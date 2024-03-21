@@ -5,6 +5,8 @@
 #include "SBZOnlineSessionRequestHandler.generated.h"
 
 class USBZLobby;
+class USBZOnlineSession;
+class USBZOnlineSessionUtils;
 class USBZParty;
 
 UCLASS(Blueprintable, Config=Game)
@@ -18,12 +20,17 @@ public:
     USBZParty* Party;
     
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZOnlineSessionUtils* SBZOnlineSessionUtils;
+    
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SessionRequestTimeoutDuration;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZOnlineSession* SBZOnlineSession;
+    
 public:
     USBZOnlineSessionRequestHandler();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EOnlineSessionInfo GetSessionInfo() const;
     

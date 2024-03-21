@@ -1,16 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZLocalPlayerFeedbackParameters.generated.h"
 
-class UClass;
+class USBZLocalPlayerFeedback;
 
 USTRUCT(BlueprintType)
 struct FSBZLocalPlayerFeedbackParameters {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> FeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Intensity;

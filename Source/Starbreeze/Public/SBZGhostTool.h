@@ -23,8 +23,7 @@ protected:
     USBZOutlineAsset* OutlineAsset;
     
 public:
-    ASBZGhostTool(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGhostTool();
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGhostToolStateChanged(ESBZPlacementState NewPlacementState);
     

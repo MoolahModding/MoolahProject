@@ -3,4 +3,3 @@
 USBZAccelByteArgs::USBZAccelByteArgs() {
 }
 
-

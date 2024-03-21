@@ -14,6 +14,5 @@ protected:
     
 public:
     UDEPRECATED_SBZBTService_Patrol();
-
 };
 

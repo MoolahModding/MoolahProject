@@ -6,8 +6,5 @@ USBZPathFocusSettings::USBZPathFocusSettings() {
     this->MinRemainingPathLength = 200.00f;
     this->MinDistanceFromEnemy = 1300.00f;
     this->MinShotRadius = 700.00f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZPathFocusSettings::StaticClass();
 }
-
 

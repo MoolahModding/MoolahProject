@@ -23,7 +23,6 @@ private:
     
 public:
     USBZPlaceItemAbility();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void Tick(float DeltaSeconds);

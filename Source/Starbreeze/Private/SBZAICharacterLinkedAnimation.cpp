@@ -10,4 +10,3 @@ USBZAICharacterLinkedAnimation::USBZAICharacterLinkedAnimation() {
     this->AICharacter = NULL;
 }
 
-

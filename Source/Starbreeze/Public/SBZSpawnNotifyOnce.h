@@ -19,8 +19,7 @@ protected:
     TArray<AActor*> SpawnNotifyReactors;
     
 public:
-    ASBZSpawnNotifyOnce(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSpawnNotifyOnce();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnSpawnComplete(APawn* SpawnedPawn);

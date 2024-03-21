@@ -8,6 +8,5 @@ class STARBREEZE_API USBZReplicationGraphNode_PrototypingOnly : public UReplicat
     GENERATED_BODY()
 public:
     USBZReplicationGraphNode_PrototypingOnly();
-
 };
 

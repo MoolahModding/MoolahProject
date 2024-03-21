@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZGloveInventorySlot> GloveConfigSlots;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZGloveInventorySlot> CheckedGloveConfigSlots;
+    
     STARBREEZE_API FSBZGloveConfigInventorySaveData();
 };
 

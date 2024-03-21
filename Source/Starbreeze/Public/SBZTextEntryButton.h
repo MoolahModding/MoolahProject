@@ -23,7 +23,6 @@ protected:
     
 public:
     USBZTextEntryButton();
-
     UFUNCTION(BlueprintCallable)
     void SetInputText(const FText& InText);
     

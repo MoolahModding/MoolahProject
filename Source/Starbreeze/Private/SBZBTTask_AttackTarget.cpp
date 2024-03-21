@@ -6,7 +6,5 @@ USBZBTTask_AttackTarget::USBZBTTask_AttackTarget() {
     this->AimTime = 0.00f;
     this->LOSLostAdditionalAimTime = 0.00f;
     this->bIsContinousFire = false;
-    this->NodeName = TEXT("AttackTarget");
 }
-
 

@@ -13,6 +13,5 @@ private:
     
 public:
     USBZBTDecorator_StanceTransition();
-
 };
 

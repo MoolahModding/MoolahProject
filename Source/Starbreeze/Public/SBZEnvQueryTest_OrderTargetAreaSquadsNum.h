@@ -8,6 +8,5 @@ class USBZEnvQueryTest_OrderTargetAreaSquadsNum : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_OrderTargetAreaSquadsNum();
-
 };
 

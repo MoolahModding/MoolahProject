@@ -78,9 +78,8 @@ private:
     
 public:
     USBZPlayerAbilitySystemComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetSpeedBuffTime(const FGameplayTag& SkillTag, float Time);

@@ -28,6 +28,5 @@ protected:
     
 public:
     USBZOnlineSlotsClient();
-
 };
 

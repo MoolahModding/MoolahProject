@@ -22,7 +22,6 @@ private:
     
 public:
     USBZAIPerceptionComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetSenseConfig(ESBZSenseConfig ConfigID);
     

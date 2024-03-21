@@ -3,4 +3,3 @@
 USBZInteractWindowRequirement::USBZInteractWindowRequirement() {
 }
 
-

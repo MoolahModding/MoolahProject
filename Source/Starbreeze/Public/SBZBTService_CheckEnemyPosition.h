@@ -8,6 +8,5 @@ class USBZBTService_CheckEnemyPosition : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_CheckEnemyPosition();
-
 };
 

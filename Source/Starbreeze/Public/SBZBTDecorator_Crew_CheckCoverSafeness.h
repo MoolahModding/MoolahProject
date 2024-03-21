@@ -13,6 +13,5 @@ protected:
     
 public:
     USBZBTDecorator_Crew_CheckCoverSafeness();
-
 };
 

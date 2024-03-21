@@ -67,7 +67,6 @@ protected:
     
 public:
     USBZNavLinkAgilityComponent();
-
     UFUNCTION(BlueprintCallable)
     void ComputeTrajectories();
     

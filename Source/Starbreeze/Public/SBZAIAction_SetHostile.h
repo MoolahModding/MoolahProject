@@ -22,6 +22,5 @@ protected:
     
 public:
     USBZAIAction_SetHostile();
-
 };
 

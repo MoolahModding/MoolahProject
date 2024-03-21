@@ -24,7 +24,6 @@ protected:
     
 public:
     UPD3HUDPlayerCombinedHealthWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Setup();

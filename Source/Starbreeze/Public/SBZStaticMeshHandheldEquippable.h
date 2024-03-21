@@ -9,8 +9,7 @@ UCLASS(Abstract, Blueprintable)
 class STARBREEZE_API ASBZStaticMeshHandheldEquippable : public ASBZHandheldEquippable {
     GENERATED_BODY()
 public:
-    ASBZStaticMeshHandheldEquippable(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStaticMeshHandheldEquippable();
     UFUNCTION(BlueprintCallable)
     UStaticMeshComponent* GetStaticMeshComponent();
     

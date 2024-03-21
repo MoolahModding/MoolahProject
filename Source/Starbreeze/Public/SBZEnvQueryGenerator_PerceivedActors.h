@@ -2,9 +2,11 @@
 #include "CoreMinimal.h"
 #include "EnvironmentQuery/EnvQueryGenerator.h"
 #include "GameplayTagContainer.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryGenerator_PerceivedActors.generated.h"
 
-class UClass;
+class UAISense;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZEnvQueryGenerator_PerceivedActors : public UEnvQueryGenerator {
@@ -12,7 +14,7 @@ class USBZEnvQueryGenerator_PerceivedActors : public UEnvQueryGenerator {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PerceiverContext;
+    TSubclassOf<UEnvQueryContext> PerceiverContext;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bHostilesOnly;
@@ -24,13 +26,12 @@ protected:
     bool bCurrentlySensed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> Senses;
+    TArray<TSubclassOf<UAISense>> Senses;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer AllowedPawnTypes;
     
 public:
     USBZEnvQueryGenerator_PerceivedActors();
-
 };
 

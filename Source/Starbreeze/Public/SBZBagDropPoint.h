@@ -12,8 +12,7 @@ protected:
     bool bShouldActivateOnBeginPlay;
     
 public:
-    ASBZBagDropPoint(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBagDropPoint();
     UFUNCTION(BlueprintCallable)
     void EnableAsBagDropPoint();
     

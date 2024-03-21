@@ -3,4 +3,3 @@
 USBZAIUtilityScorer_HasFollowTarget::USBZAIUtilityScorer_HasFollowTarget() {
 }
 
-

@@ -8,6 +8,5 @@ class USBZHackerRoutedPingAbility : public USBZHackerBaseAbility {
     GENERATED_BODY()
 public:
     USBZHackerRoutedPingAbility();
-
 };
 

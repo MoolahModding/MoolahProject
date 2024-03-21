@@ -8,6 +8,5 @@ class UDEPRECATED_SBZAllowSprintHurtForwardNotifyState : public UAnimNotifyState
     GENERATED_BODY()
 public:
     UDEPRECATED_SBZAllowSprintHurtForwardNotifyState();
-
 };
 

@@ -2,12 +2,12 @@
 #include "CoreMinimal.h"
 #include "Types/SlateEnums.h"
 #include "Layout/Margin.h"
-#include "SBZHeistCollection.h"
+#include "SBZHeistCollectionWithOwnership.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuCrimeNet.generated.h"
 
 class UCanvasPanel;
-class UClass;
 class UHorizontalBox;
 class USBZMainMenuCrimeNetHeistButton;
 class USBZMainMenuCrimeNetHeistMapIcon;
@@ -20,10 +20,10 @@ class USBZMainMenuCrimeNet : public USBZMenuStackScreenWidget {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HeistButtonClass;
+    TSubclassOf<USBZMainMenuCrimeNetHeistButton> HeistButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* StoryModeButtonClass;
+    TSubclassOf<USBZMainMenuCrimeNetStoryModeButton> StoryModeButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UHorizontalBox* HorizontalBox_HeistButtons;
@@ -32,13 +32,16 @@ protected:
     FMargin HeistButtonPadding;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HeistMapIconClass;
+    TSubclassOf<USBZMainMenuCrimeNetHeistMapIcon> HeistMapIconClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCanvasPanel* CanvasPanel_HeistMapIcons;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZMainMenuCrimeNetHeistButton* SelectedHeistButton;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZMainMenuCrimeNetHeistButton*> ActiveHeistButtons;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bShowStoryModeButtons;
@@ -48,7 +51,7 @@ private:
     int32 ActiveHeistCollectionIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FSBZHeistCollection> HeistCollections;
+    TArray<FSBZHeistCollectionWithOwnership> HeistCollections;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCrimeNetHeistButton*> HeistButtonPool;
@@ -61,16 +64,23 @@ private:
     
 public:
     USBZMainMenuCrimeNet();
-
 protected:
+    UFUNCTION(BlueprintCallable)
+    void UpdateHeistCollection();
+    
     UFUNCTION(BlueprintCallable)
     bool ToggleStoryModeFilter();
     
     UFUNCTION(BlueprintCallable)
     void SetActiveHeistCollection(int32 NewIndex);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void RefreshCollections();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnHeistCollectionChanged(const FSBZHeistCollection& ActiveHeistCollection);
+    void OnHeistCollectionChanged(const FSBZHeistCollectionWithOwnership& ActiveHeistCollection);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);

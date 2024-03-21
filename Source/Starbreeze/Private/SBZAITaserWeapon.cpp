@@ -1,7 +1,6 @@
 #include "SBZAITaserWeapon.h"
 
-ASBZAITaserWeapon::ASBZAITaserWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAITaserWeapon::ASBZAITaserWeapon() {
     this->TasingComment = NULL;
 }
-
 

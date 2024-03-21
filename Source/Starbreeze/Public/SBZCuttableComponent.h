@@ -46,11 +46,13 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NiagaraEffectVisibilityTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool bIsCuttingBlocked;
+    
 public:
     USBZCuttableComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_InitialCutAngle();
@@ -66,6 +68,9 @@ public:
     void OnCutCompleted();
     
 protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetCuttingBlocked(bool bInIsBlocked);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCuttableState(ESBZCuttableState NewCuttableState);
     

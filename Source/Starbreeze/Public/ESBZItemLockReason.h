@@ -7,5 +7,6 @@ enum class ESBZItemLockReason : uint8 {
     NotLocked,
     InfamyLevel,
     AlreadyPurchased,
+    NotOwningDLC,
 };
 

@@ -3,4 +3,3 @@
 USBZLaserPoint::USBZLaserPoint() {
 }
 
-

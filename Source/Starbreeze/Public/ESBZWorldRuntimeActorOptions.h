@@ -19,6 +19,7 @@ enum class ESBZWorldRuntimeActorOptions : uint8 {
     AllProtectPoints,
     AllArmedGrenades,
     AllHostages,
+    AllTowerHideLifeActions,
     MAX,
 };
 

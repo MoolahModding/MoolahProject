@@ -14,7 +14,6 @@ class USBZCoverPointManager : public UObject {
     GENERATED_BODY()
 public:
     USBZCoverPointManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZCoverShootingPoints> GetShootingPoints() const;
     

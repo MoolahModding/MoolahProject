@@ -45,10 +45,9 @@ private:
     
 public:
     USBZLobby();
-
 private:
     UFUNCTION(BlueprintCallable)
-    void JoinLobbyComplete(const ESBZOnlineCode& Result);
+    void JoinLobbyComplete(ESBZOnlineCode Result);
     
     UFUNCTION(BlueprintCallable)
     void InitLobbyHostComplete(const ESBZOnlineCode& Result);
@@ -59,7 +58,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void HostLobbyComplete(const ESBZOnlineCode& Result);
+    void HostLobbyComplete(ESBZOnlineCode Result);
     
 public:
     UFUNCTION(BlueprintCallable)

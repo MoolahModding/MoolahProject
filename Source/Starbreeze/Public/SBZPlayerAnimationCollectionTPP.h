@@ -8,6 +8,5 @@ class USBZPlayerAnimationCollectionTPP : public USBZCharacterAnimationCollection
     GENERATED_BODY()
 public:
     USBZPlayerAnimationCollectionTPP();
-
 };
 

@@ -16,6 +16,5 @@ protected:
     
 public:
     USBZAIOrder_InvestigateSeenPlayer();
-
 };
 

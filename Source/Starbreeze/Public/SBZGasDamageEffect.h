@@ -8,6 +8,5 @@ class USBZGasDamageEffect : public USBZVolumeDamageEffect {
     GENERATED_BODY()
 public:
     USBZGasDamageEffect();
-
 };
 

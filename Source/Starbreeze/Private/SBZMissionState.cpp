@@ -11,34 +11,6 @@
 #include "SBZStateMachineSharedState.h"
 #include "SBZVehicleManager.h"
 
-ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->RandomSeed = -1;
-    this->ServerChangelist = 624677;
-    this->Difficulty = ESBZDifficulty::Default;
-    this->PredictionTimeOutSeconds = 1.00f;
-    this->ServerUnblockAbilityEarlierSeconds = 0.25f;
-    this->MissionStartTime = 0;
-    this->BagManager = CreateDefaultSubobject<USBZBagManager>(TEXT("BagManager"));
-    this->DialogManager = CreateDefaultSubobject<USBZDialogManager>(TEXT("SBZDialogManager"));
-    this->AgentManager = CreateDefaultSubobject<USBZAgentManager>(TEXT("SBZAgentManager"));
-    this->RagdollSyncManager = CreateDefaultSubobject<USBZRagdollSyncManager>(TEXT("SBZRagdollSyncManager"));
-    this->VehicleManager = CreateDefaultSubobject<USBZVehicleManager>(TEXT("SBZVehicleManager"));
-    this->MarkerManager = CreateDefaultSubobject<USBZMarkerManager>(TEXT("SBZMarkerManager"));
-    this->LifeActionManager = CreateDefaultSubobject<USBZLifeActionManager>(TEXT("SBZLifeActionManager"));
-    this->ActorPoolManager = CreateDefaultSubobject<USBZActorPoolManager>(TEXT("SBZActorPoolManager"));
-    this->SmallTalkManager = CreateDefaultSubobject<USBZSmallTalkManager>(TEXT("SBZSmallTalkManager"));
-    this->StateMachineSharedState = CreateDefaultSubobject<USBZStateMachineSharedState>(TEXT("SBZStateMachineSharedState"));
-    this->bPlayerFriendlyFire = false;
-    this->PlayersInEscapeVolume = 0;
-    this->PlayersRequiredInEscapeVolume = 0;
-    this->EscapeTimeLeft = 0;
-    this->KillingSpreeAmount = 5;
-    this->DropKillingSpreeWaitTime = 2.00f;
-    this->MaxQueuedCosmeticDestruction = 10;
-    this->OverkillWeaponCooldown = 45.00f;
-    this->TutorialPlayerCharacterData = NULL;
-}
-
 void ASBZMissionState::ServerPostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData) {
 }
 
@@ -55,6 +27,9 @@ void ASBZMissionState::RemovePreplanningAsset(const FUniqueNetIdRepl& InPlayerId
 }
 
 void ASBZMissionState::OnStandaloneNetIDEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
+void ASBZMissionState::OnServerSeasonalItemPickedUp(ASBZSeasonalEventItemBase* SeasonalEventItem) {
 }
 
 void ASBZMissionState::OnRep_ServerChangelist() {
@@ -202,4 +177,33 @@ void ASBZMissionState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
     DOREPLIFETIME(ASBZMissionState, PreplanningAssets);
 }
 
+ASBZMissionState::ASBZMissionState() {
+    this->RandomSeed = -1;
+    this->ServerChangelist = 650196;
+    this->Difficulty = ESBZDifficulty::Default;
+    this->PredictionTimeOutSeconds = 1.00f;
+    this->ServerUnblockAbilityEarlierSeconds = 0.25f;
+    this->MissionStartTime = 0;
+    this->BagManager = CreateDefaultSubobject<USBZBagManager>(TEXT("BagManager"));
+    this->DialogManager = CreateDefaultSubobject<USBZDialogManager>(TEXT("SBZDialogManager"));
+    this->AgentManager = CreateDefaultSubobject<USBZAgentManager>(TEXT("SBZAgentManager"));
+    this->RagdollSyncManager = CreateDefaultSubobject<USBZRagdollSyncManager>(TEXT("SBZRagdollSyncManager"));
+    this->VehicleManager = CreateDefaultSubobject<USBZVehicleManager>(TEXT("SBZVehicleManager"));
+    this->MarkerManager = CreateDefaultSubobject<USBZMarkerManager>(TEXT("SBZMarkerManager"));
+    this->LifeActionManager = CreateDefaultSubobject<USBZLifeActionManager>(TEXT("SBZLifeActionManager"));
+    this->ActorPoolManager = CreateDefaultSubobject<USBZActorPoolManager>(TEXT("SBZActorPoolManager"));
+    this->SmallTalkManager = CreateDefaultSubobject<USBZSmallTalkManager>(TEXT("SBZSmallTalkManager"));
+    this->StateMachineSharedState = CreateDefaultSubobject<USBZStateMachineSharedState>(TEXT("SBZStateMachineSharedState"));
+    this->bPlayerFriendlyFire = false;
+    this->PlayersInEscapeVolume = 0;
+    this->PlayersRequiredInEscapeVolume = 0;
+    this->EscapeTimeLeft = 0;
+    this->KillingSpreeAmount = 5;
+    this->DropKillingSpreeWaitTime = 2.00f;
+    this->MaxQueuedCosmeticDestruction = 10;
+    this->SeasonalEventItemCount = 0;
+    this->OverkillWeaponCooldown = 45.00f;
+    this->CurrentHeistData = NULL;
+    this->TutorialPlayerCharacterData = NULL;
+}
 

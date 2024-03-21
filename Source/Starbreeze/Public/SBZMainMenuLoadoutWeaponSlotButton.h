@@ -25,7 +25,6 @@ protected:
     
 public:
     USBZMainMenuLoadoutWeaponSlotButton();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveWeaponSlot(bool bIsActiveWeaponSlot);
     

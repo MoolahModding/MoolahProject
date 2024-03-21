@@ -20,6 +20,5 @@ public:
     float RepeatDelay;
     
     USBZPlayerSettings();
-
 };
 

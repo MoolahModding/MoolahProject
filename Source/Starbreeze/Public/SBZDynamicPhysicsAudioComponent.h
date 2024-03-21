@@ -54,7 +54,6 @@ protected:
     
 public:
     USBZDynamicPhysicsAudioComponent();
-
     UFUNCTION(BlueprintCallable)
     void UpdateRollingVelocity(float Value);
     

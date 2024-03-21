@@ -8,7 +8,6 @@ class USBZCuttableWidget : public UUserWidget {
     GENERATED_BODY()
 public:
     USBZCuttableWidget();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetInitialCut(float AtSegment);
     

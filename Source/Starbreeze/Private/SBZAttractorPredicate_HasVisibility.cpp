@@ -3,4 +3,3 @@
 USBZAttractorPredicate_HasVisibility::USBZAttractorPredicate_HasVisibility() {
 }
 
-

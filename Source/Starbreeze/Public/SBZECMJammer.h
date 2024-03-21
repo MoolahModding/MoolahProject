@@ -18,8 +18,7 @@ protected:
     UBoxComponent* BoxComponent;
     
 public:
-    ASBZECMJammer(const FObjectInitializer& ObjectInitializer);
-
+    ASBZECMJammer();
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnJammerEffectEnded();

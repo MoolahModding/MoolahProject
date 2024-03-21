@@ -4,4 +4,3 @@ USBZStateMachineDataGameError::USBZStateMachineDataGameError() {
     this->ErrorType = ESBZGameMachineStateError::Unknown;
 }
 
-

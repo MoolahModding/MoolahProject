@@ -1,62 +1,5 @@
 #include "SBZGameUserSettings.h"
 
-USBZGameUserSettings::USBZGameUserSettings() {
-    this->SBZVersion = 1;
-    this->CameraVerticalFoV = 60;
-    this->Brightness = 1.00f;
-    this->Contrast = 1.00f;
-    this->Gamma = 1.00f;
-    this->ColorBlindMode = EColorVisionDeficiency::NormalVision;
-    this->ColorBlindStrength = 0.50f;
-    this->bUseMotionBlur = true;
-    this->bUseDepthOfField = true;
-    this->AntiAliasingMode = 2;
-    this->UpscalingMode = 0;
-    this->DLSSSRMode = 0;
-    this->CapsuleShadowQuality = 3;
-    this->bUseOutlines = true;
-    this->bUseSubtitles = true;
-    this->SubtitlesSize = 16;
-    this->bUseFPSDisplay = false;
-    this->bUseReticle = true;
-    this->CrosshairsBarWidth = 2.00f;
-    this->CrosshairsBarLength = 8.00f;
-    this->CrosshairsDotSize = 2.00f;
-    this->MinCrosshairsScale = 2.00f;
-    this->MaxCrosshairsScale = 48.00f;
-    this->bUseHitIndicators = true;
-    this->HitIndicatorScale = 32.00f;
-    this->MasterVolume = 75.00f;
-    this->MusicVolume = 75.00f;
-    this->VOVolume = 100.00f;
-    this->SFXVolume = 100.00f;
-    this->VoipVolume = 100.00f;
-    this->CinematicVolume = 100.00f;
-    this->MouseSensitivityMultiplier = 1.00f;
-    this->bUseMouseSmoothing = true;
-    this->GamepadHorizontalSensitivity = 1.00f;
-    this->GamepadVerticalSensitivity = 1.00f;
-    this->bUseInvertedYAxis = false;
-    this->bUseForceFeedback = true;
-    this->TargetingSensitivityMultiplier = 1.00f;
-    this->bUseHoldToRun = true;
-    this->bUseHoldToCrouch = false;
-    this->bUseHoldToTarget = true;
-    this->bUseSwitchWeaponAutomatically = true;
-    this->bIsChatDisabled = false;
-    this->bIsCrossplayDisabled = false;
-    this->MouseSensitivity = 0.07f;
-    this->bUseHoldForTabMenu = false;
-    this->AxisKeyboardBindings.AddDefaulted(8);
-    this->ActionKeyboardBindings.AddDefaulted(34);
-    this->GamepadBindingsPreset = 0;
-    this->bIsGameSenseEnabled = false;
-    this->bIsTelemetryEnabled = false;
-    this->TutorialsShownBitmask = 131162;
-    this->bIsPristine = false;
-    this->GameInstance = NULL;
-}
-
 void USBZGameUserSettings::SetVOVolume(float Volume) {
 }
 
@@ -70,9 +13,6 @@ void USBZGameUserSettings::SetUserInterfaceToDefaults() {
 }
 
 void USBZGameUserSettings::SetUpscalingMode(int32 Mode) {
-}
-
-void USBZGameUserSettings::SetTutorialPopupShown(bool bPopupShown) {
 }
 
 void USBZGameUserSettings::SetTelemetryEnabled(bool bIsEnabled) {
@@ -102,10 +42,7 @@ void USBZGameUserSettings::SetReticleEnabled(bool bEnable) {
 void USBZGameUserSettings::SetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale, FKey Key) {
 }
 
-void USBZGameUserSettings::SetPopupShown(ESBZTutorialType PopupType, bool bIsShown) {
-}
-
-void USBZGameUserSettings::SetPhotosensitivityConfirmed(bool bConfirmed) {
+void USBZGameUserSettings::SetPopupShown(ESBZPopupType PopupType, bool bIsShown) {
 }
 
 void USBZGameUserSettings::SetOutlinesEnabled(bool bEnable) {
@@ -198,9 +135,6 @@ void USBZGameUserSettings::SetFPSDisplayEnabled(bool bEnable) {
 void USBZGameUserSettings::SetForceFeedbackEnabled(bool bEnable) {
 }
 
-void USBZGameUserSettings::SetFirstTimePopupsShown(bool bConfirmed) {
-}
-
 void USBZGameUserSettings::SetDLSSSRMode(int32 Mode) {
 }
 
@@ -208,9 +142,6 @@ void USBZGameUserSettings::SetDepthOfFieldEnabled(bool bEnable) {
 }
 
 void USBZGameUserSettings::SetCustomVideoToDefaults() {
-}
-
-void USBZGameUserSettings::SetCrossplayPopupShown(bool bPopupShown) {
 }
 
 void USBZGameUserSettings::SetCrossplayDisabled(bool bDisable) {
@@ -235,6 +166,9 @@ void USBZGameUserSettings::SetCrosshairsBarColor(FLinearColor Color) {
 }
 
 void USBZGameUserSettings::SetContrast(float Value) {
+}
+
+void USBZGameUserSettings::SetContractorAudioBriefingEnabled(bool bEnable) {
 }
 
 void USBZGameUserSettings::SetColorBlindStrength(float Value) {
@@ -272,7 +206,7 @@ bool USBZGameUserSettings::IsReticleEnabled() const {
     return false;
 }
 
-bool USBZGameUserSettings::IsPopupShown(ESBZTutorialType PopupType) const {
+bool USBZGameUserSettings::IsPopupShown(ESBZPopupType PopupType) const {
     return false;
 }
 
@@ -320,6 +254,10 @@ bool USBZGameUserSettings::IsCrossplayDisabled() const {
     return false;
 }
 
+bool USBZGameUserSettings::IsContractorAudioBriefingEnabled() {
+    return false;
+}
+
 bool USBZGameUserSettings::IsChatDisabled() const {
     return false;
 }
@@ -336,7 +274,7 @@ int32 USBZGameUserSettings::GetUpscalingMode() {
     return 0;
 }
 
-bool USBZGameUserSettings::GetTutorialPopupShown() const {
+bool USBZGameUserSettings::GetTelemetryEnabled() const {
     return false;
 }
 
@@ -358,10 +296,6 @@ FKey USBZGameUserSettings::GetSecondaryKeyboardBinding(FName AxisOrActionName, f
 
 FKey USBZGameUserSettings::GetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale) {
     return FKey{};
-}
-
-bool USBZGameUserSettings::GetPhotosensitivityConfirmed() const {
-    return false;
 }
 
 float USBZGameUserSettings::GetMusicVolume() const {
@@ -412,6 +346,10 @@ float USBZGameUserSettings::GetGamma() const {
     return 0.0f;
 }
 
+bool USBZGameUserSettings::GetGameSenseEnabled() const {
+    return false;
+}
+
 float USBZGameUserSettings::GetGamepadVerticalSensitivityMultiplier() const {
     return 0.0f;
 }
@@ -424,16 +362,8 @@ int32 USBZGameUserSettings::GetGamepadBindingsPreset() const {
     return 0;
 }
 
-bool USBZGameUserSettings::GetFirstTimePopupsShown() const {
-    return false;
-}
-
 int32 USBZGameUserSettings::GetDLSSSRMode() {
     return 0;
-}
-
-bool USBZGameUserSettings::GetCrossplayPopupShown() const {
-    return false;
 }
 
 FSBZCrosshairSettings USBZGameUserSettings::GetCrosshairSettings() {
@@ -515,4 +445,59 @@ bool USBZGameUserSettings::AreHitIndicatorsEnabled() const {
     return false;
 }
 
+USBZGameUserSettings::USBZGameUserSettings() {
+    this->SBZVersion = 1;
+    this->CameraVerticalFoV = 90;
+    this->Brightness = 1.00f;
+    this->Contrast = 1.00f;
+    this->Gamma = 1.00f;
+    this->ColorBlindMode = EColorVisionDeficiency::NormalVision;
+    this->ColorBlindStrength = 0.50f;
+    this->bUseMotionBlur = true;
+    this->bUseDepthOfField = false;
+    this->AntiAliasingMode = 0;
+    this->UpscalingMode = 0;
+    this->DLSSSRMode = 4;
+    this->CapsuleShadowQuality = 3;
+    this->bUseOutlines = true;
+    this->bUseSubtitles = true;
+    this->SubtitlesSize = 16;
+    this->bUseFPSDisplay = false;
+    this->bUseReticle = true;
+    this->CrosshairsBarWidth = 2.00f;
+    this->CrosshairsBarLength = 8.00f;
+    this->CrosshairsDotSize = 2.00f;
+    this->MinCrosshairsScale = 2.00f;
+    this->MaxCrosshairsScale = 48.00f;
+    this->bUseHitIndicators = true;
+    this->HitIndicatorScale = 32.00f;
+    this->MasterVolume = 11.94f;
+    this->MusicVolume = 75.00f;
+    this->VOVolume = 100.00f;
+    this->SFXVolume = 100.00f;
+    this->VoipVolume = 100.00f;
+    this->CinematicVolume = 100.00f;
+    this->bUseContractorAudioBriefing = false;
+    this->MouseSensitivityMultiplier = 1.00f;
+    this->bUseMouseSmoothing = true;
+    this->GamepadHorizontalSensitivity = 1.00f;
+    this->GamepadVerticalSensitivity = 1.00f;
+    this->bUseInvertedYAxis = false;
+    this->bUseForceFeedback = true;
+    this->TargetingSensitivityMultiplier = 1.00f;
+    this->bUseHoldToRun = true;
+    this->bUseHoldToCrouch = false;
+    this->bUseHoldToTarget = true;
+    this->bUseSwitchWeaponAutomatically = true;
+    this->bIsChatDisabled = false;
+    this->bIsCrossplayDisabled = false;
+    this->MouseSensitivity = 0.07f;
+    this->bUseHoldForTabMenu = false;
+    this->AxisKeyboardBindings.AddDefaulted(8);
+    this->ActionKeyboardBindings.AddDefaulted(34);
+    this->GamepadBindingsPreset = 0;
+    this->PopupsShownBitmask = 2;
+    this->bIsPristine = false;
+    this->GameInstance = NULL;
+}
 

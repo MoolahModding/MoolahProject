@@ -5,4 +5,3 @@ USBZAIUtilityScorer_WithinRange::USBZAIUtilityScorer_WithinRange() {
     this->Target = ESBZRangeTestTargetType::Enemy;
 }
 
-

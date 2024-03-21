@@ -64,8 +64,7 @@ protected:
     int32 MarkerId;
     
 public:
-    ASBZSabotagePoint(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSabotagePoint();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled);
     
@@ -79,7 +78,7 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void BroadcastOnSabotaged(bool bIsSabotaged);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

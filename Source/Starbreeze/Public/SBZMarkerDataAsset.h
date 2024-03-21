@@ -4,10 +4,11 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataAsset.h"
 #include "Styling/SlateBrush.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMarkerDataAsset.generated.h"
 
 class UAkAudioEvent;
-class UClass;
+class USBZMarkerWidget;
 
 UCLASS(Blueprintable, Const)
 class USBZMarkerDataAsset : public UDataAsset {
@@ -17,7 +18,7 @@ public:
     FVector Offset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MarkerWidgetOverride;
+    TSubclassOf<USBZMarkerWidget> MarkerWidgetOverride;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSlateBrush Brush;
@@ -38,6 +39,5 @@ public:
     FFloatInterval VisibleRange;
     
     USBZMarkerDataAsset();
-
 };
 

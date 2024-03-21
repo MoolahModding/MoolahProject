@@ -8,6 +8,5 @@ class USBZRappellingRopeComponent : public USBZCableComponent {
     GENERATED_BODY()
 public:
     USBZRappellingRopeComponent();
-
 };
 

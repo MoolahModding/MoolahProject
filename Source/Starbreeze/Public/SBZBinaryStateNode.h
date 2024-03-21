@@ -14,8 +14,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bState;
     
-    ASBZBinaryStateNode(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBinaryStateNode();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(bool bInState);
     

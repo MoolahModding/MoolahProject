@@ -11,7 +11,6 @@ class USBZMainMenuChallengeStatDisplay : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuChallengeStatDisplay();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void StatInitialized(const FSBZChallengeData& InChallenge, const FSBZChallengeProgressStat& InProgressStat);

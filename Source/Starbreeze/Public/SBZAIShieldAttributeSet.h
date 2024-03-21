@@ -29,9 +29,8 @@ private:
     
 public:
     USBZAIShieldAttributeSet();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_VisorArmor(const FGameplayAttributeData& OldValue);

@@ -1,8 +1,5 @@
 #include "SBZChallengeCategoryManager.h"
 
-USBZChallengeCategoryManager::USBZChallengeCategoryManager() {
-}
-
 USBZChallengeCategoryManager* USBZChallengeCategoryManager::GetChallengeCategoryManager(const UObject* WorldContextObject) {
     return NULL;
 }
@@ -18,4 +15,6 @@ USBZChallengeCategoryData* USBZChallengeCategoryManager::GetChallengeCategoryFor
 void USBZChallengeCategoryManager::GetChallengeCategoryData(const UObject* WorldContextObject, TArray<USBZChallengeCategoryData*>& OutCategoryList) {
 }
 
+USBZChallengeCategoryManager::USBZChallengeCategoryManager() {
+}
 

@@ -1,8 +1,6 @@
 #include "SBZAIProtectPoint.h"
 
-ASBZAIProtectPoint::ASBZAIProtectPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAIProtectPoint::ASBZAIProtectPoint() {
     this->AssignedSquad = NULL;
-    this->bConsiderCoversDirection = false;
 }
-
 

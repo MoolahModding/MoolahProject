@@ -3,9 +3,10 @@
 #include "DataProviders/AIDataProvider.h"
 #include "EnvironmentQuery/EnvQueryGenerator.h"
 #include "SBZAIDataProvider_NavQueryFilter.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryGenerator_SafeWallPosition.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZEnvQueryGenerator_SafeWallPosition : public UEnvQueryGenerator {
@@ -13,13 +14,13 @@ class USBZEnvQueryGenerator_SafeWallPosition : public UEnvQueryGenerator {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SearchCenter;
+    TSubclassOf<UEnvQueryContext> SearchCenter;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FAIDataProviderFloatValue SearchRadius;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* EnemyContext;
+    TSubclassOf<UEnvQueryContext> EnemyContext;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FAIDataProviderFloatValue WallToEnemyMinDot;
@@ -32,6 +33,5 @@ private:
     
 public:
     USBZEnvQueryGenerator_SafeWallPosition();
-
 };
 

@@ -8,6 +8,5 @@ class USBZPlayerViewTargetAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZPlayerViewTargetAbility();
-
 };
 

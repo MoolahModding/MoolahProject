@@ -61,10 +61,9 @@ protected:
     uint8 FailCounter;
     
 public:
-    ASBZConnectedCableBox(const FObjectInitializer& ObjectInitializer);
-
+    ASBZConnectedCableBox();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable)
     void SetCorrectColorSequence(const TArray<int32> CorrectSequence);
     

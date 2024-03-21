@@ -5,7 +5,8 @@ public class PAYDAY3EditorTarget : TargetRules {
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		ExtraModuleNames.AddRange(new string[] {
-			"SBZWorldRuntime",
+			"PAYDAY3",
+            "SBZWorldRuntime",
 			"Starbreeze",
 		});
 	}

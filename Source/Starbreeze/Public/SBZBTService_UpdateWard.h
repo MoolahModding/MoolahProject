@@ -30,6 +30,5 @@ protected:
     
 public:
     USBZBTService_UpdateWard();
-
 };
 

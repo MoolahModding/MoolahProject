@@ -3,11 +3,12 @@
 #include "SBZCashRewardData.h"
 #include "SBZCharacterEndMissionExpBonusData.h"
 #include "SBZCharacterEndMissionResultData.h"
+#include "SBZInfamyPointPayoutRewardData.h"
+#include "SBZPlayerStatisticsValue.h"
+#include "SBZRandomItemReward.h"
 #include "SBZSkillRewardData.h"
 #include "SBZWeaponProgressionUpdateData.h"
 #include "SBZPlayerEndMissionResultData.generated.h"
-
-class USBZInventoryBaseData;
 
 USTRUCT(BlueprintType)
 struct FSBZPlayerEndMissionResultData : public FSBZCharacterEndMissionResultData {
@@ -26,13 +27,22 @@ public:
     FSBZCashRewardData CashRewardData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<USBZInventoryBaseData*> RandomItemRewardArray;
+    TArray<FSBZRandomItemReward> RandomItemRewardArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZWeaponProgressionUpdateData> WeaponProgressionUpdateArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZSkillRewardData SkillRewardData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZInfamyPointPayoutRewardData InfamyPointPayoutRewardData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZPlayerStatisticsValue InfamyStatsValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZPlayerStatisticsValue RenownStatsValue;
     
     STARBREEZE_API FSBZPlayerEndMissionResultData();
 };

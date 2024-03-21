@@ -8,6 +8,5 @@ class USBZDisableFootPlacementNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZDisableFootPlacementNotifyState();
-
 };
 

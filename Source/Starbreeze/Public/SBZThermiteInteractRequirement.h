@@ -8,6 +8,5 @@ class USBZThermiteInteractRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZThermiteInteractRequirement();
-
 };
 

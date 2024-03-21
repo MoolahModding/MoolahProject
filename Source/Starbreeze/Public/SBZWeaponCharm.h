@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZWeaponCharm : public ASBZEquippableCharm {
     GENERATED_BODY()
 public:
-    ASBZWeaponCharm(const FObjectInitializer& ObjectInitializer);
-
+    ASBZWeaponCharm();
 };
 

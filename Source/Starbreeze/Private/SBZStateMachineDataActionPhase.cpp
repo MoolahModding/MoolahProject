@@ -3,4 +3,3 @@
 USBZStateMachineDataActionPhase::USBZStateMachineDataActionPhase() {
 }
 
-

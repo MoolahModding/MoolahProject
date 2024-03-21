@@ -8,6 +8,5 @@ class USBZSkillEngineerDetonation : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEngineerDetonation();
-
 };
 

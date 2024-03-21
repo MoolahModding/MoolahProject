@@ -39,7 +39,6 @@ private:
     
 public:
     USBZGameStartMainMenuSkillsSelection();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDescriptionScrollAxisChanged(float Value);

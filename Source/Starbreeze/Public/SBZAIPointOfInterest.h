@@ -34,15 +34,14 @@ private:
     USphereComponent* SphereCollision;
     
 public:
-    ASBZAIPointOfInterest(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAIPointOfInterest();
     UFUNCTION(BlueprintCallable)
     void OnOwnerDestroyed(AActor* DestroyedActor);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInteracted(AActor* ActionInstigator, const FGameplayTag& InteractionTag);
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);

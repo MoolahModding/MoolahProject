@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
-#include "ESBZStoreItemUICategory.h"
+#include "SBZStoreItemUICategory.h"
 #include "SBZVendorData.generated.h"
 
 class UPaperSprite;
@@ -23,9 +23,8 @@ public:
     TSoftObjectPtr<UPaperSprite> DisplayIcon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<ESBZStoreItemUICategory> StoreCategories;
+    TArray<FSBZStoreItemUICategory> StoreCategories;
     
     USBZVendorData();
-
 };
 

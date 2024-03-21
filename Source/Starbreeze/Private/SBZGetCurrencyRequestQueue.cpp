@@ -3,4 +3,3 @@
 USBZGetCurrencyRequestQueue::USBZGetCurrencyRequestQueue() {
 }
 
-

@@ -26,6 +26,5 @@ public:
     TMap<FName, int32> ShowActionInputGamepadMap;
     
     USBZUISettings();
-
 };
 

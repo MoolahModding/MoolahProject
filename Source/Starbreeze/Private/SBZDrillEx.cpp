@@ -4,24 +4,6 @@
 #include "SBZInteractableComponent.h"
 #include "SBZOutlineComponent.h"
 
-ASBZDrillEx::ASBZDrillEx(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->Duration = 60.00f;
-    this->TransitionProgressMultiplier = 1.00f;
-    this->TransitionHeatAddition = 0.00f;
-    this->CooldownPerSec = 0.10f;
-    this->bRandomMaterial = false;
-    this->UnjamInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("UnjamInteraction"));
-    this->FixTransitionInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("FixTransitionInteraction"));
-    this->AdjustSpeedInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AdjustSpeedInteraction"));
-    this->ToggleOnOffInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ToggleToggleOnOffInteraction"));
-    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("OutlineComponent"));
-    this->OutlineAsset = NULL;
-    this->AttractorComponent = CreateDefaultSubobject<USBZAIAttractorComponent>(TEXT("SBZAIAttractorComponent"));
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 bool ASBZDrillEx::UnjamDrill() {
     return false;
 }
@@ -106,4 +88,18 @@ void ASBZDrillEx::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
     DOREPLIFETIME(ASBZDrillEx, Data);
 }
 
+ASBZDrillEx::ASBZDrillEx() {
+    this->Duration = 60.00f;
+    this->TransitionProgressMultiplier = 1.00f;
+    this->TransitionHeatAddition = 0.00f;
+    this->CooldownPerSec = 0.10f;
+    this->bRandomMaterial = false;
+    this->UnjamInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("UnjamInteraction"));
+    this->FixTransitionInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("FixTransitionInteraction"));
+    this->AdjustSpeedInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AdjustSpeedInteraction"));
+    this->ToggleOnOffInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ToggleToggleOnOffInteraction"));
+    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("OutlineComponent"));
+    this->OutlineAsset = NULL;
+    this->AttractorComponent = CreateDefaultSubobject<USBZAIAttractorComponent>(TEXT("SBZAIAttractorComponent"));
+}
 

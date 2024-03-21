@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZCuttableSkylightActor : public ASBZCuttableActor {
     GENERATED_BODY()
 public:
-    ASBZCuttableSkylightActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCuttableSkylightActor();
 };
 

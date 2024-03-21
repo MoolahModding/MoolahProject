@@ -1,8 +1,5 @@
 #include "SBZParticleLibrary.h"
 
-USBZParticleLibrary::USBZParticleLibrary() {
-}
-
 UParticleSystemComponent* USBZParticleLibrary::SpawnPooledEmitterAtLocation(const UObject* WorldContextObject, UParticleSystem* EmitterTemplate, FVector Location, FRotator Rotation, FVector Scale) {
     return NULL;
 }
@@ -11,4 +8,6 @@ UParticleSystemComponent* USBZParticleLibrary::InternalSpawnPooledEmitterAtLocat
     return NULL;
 }
 
+USBZParticleLibrary::USBZParticleLibrary() {
+}
 

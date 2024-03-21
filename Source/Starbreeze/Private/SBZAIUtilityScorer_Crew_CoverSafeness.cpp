@@ -3,4 +3,3 @@
 USBZAIUtilityScorer_Crew_CoverSafeness::USBZAIUtilityScorer_Crew_CoverSafeness() {
 }
 
-

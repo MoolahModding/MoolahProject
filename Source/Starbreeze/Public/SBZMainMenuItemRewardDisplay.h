@@ -9,7 +9,6 @@ class USBZMainMenuItemRewardDisplay : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuItemRewardDisplay();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ItemInitialized(const FSBZChallengeRewardItem& InRewardItem);

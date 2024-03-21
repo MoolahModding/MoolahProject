@@ -33,8 +33,7 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZFilterAllDesiredCountsDynamicDelegate FiltersAllHaveDesiredCountsChanged;
     
-    ASBZFilteredTriggerVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZFilteredTriggerVolume();
     UFUNCTION(BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     

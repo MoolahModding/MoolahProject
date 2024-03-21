@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "SBZPlayerReadyInfo.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZJobOverviewBaseWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZJobOverviewPlayerStatusWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZJobOverviewBaseWidget : public USBZWidgetBase {
@@ -13,14 +14,13 @@ class USBZJobOverviewBaseWidget : public USBZWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlayerStatusWidgetClass;
+    TSubclassOf<USBZJobOverviewPlayerStatusWidget> PlayerStatusWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_PartyWidgetContainer;
     
 public:
     USBZJobOverviewBaseWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPlayerReadyStatusUpdated(const TArray<FSBZPlayerReadyInfo>& PlayerReadyStatus);

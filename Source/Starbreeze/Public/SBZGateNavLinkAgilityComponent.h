@@ -8,6 +8,5 @@ class USBZGateNavLinkAgilityComponent : public USBZNavLinkAgilityComponent {
     GENERATED_BODY()
 public:
     USBZGateNavLinkAgilityComponent();
-
 };
 

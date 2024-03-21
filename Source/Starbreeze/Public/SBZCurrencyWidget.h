@@ -26,7 +26,6 @@ protected:
     
 public:
     USBZCurrencyWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SetCurrencyValue(int32 InValue);

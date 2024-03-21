@@ -5,9 +5,9 @@
 #include "ESBZMetaRequestResult.h"
 #include "OnActiveWeaponSlotChangedDelegate.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponSlotInventoryWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBlackMarketStoreItemButton;
 class USBZInventoryBaseData;
@@ -23,7 +23,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponSlotButtonClass;
+    TSubclassOf<USBZMainMenuLoadoutWeaponSlotButton> WeaponSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_WeaponSlotButtons;
@@ -52,7 +52,6 @@ private:
     
 public:
     USBZMainMenuWeaponSlotInventoryWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void WeaponSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);

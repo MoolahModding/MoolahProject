@@ -36,7 +36,6 @@ public:
     FSBZWeaponGunKickBackData GunKickBackTargeting;
     
     USBZRecoilData();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGunKickVerticalTop(float& OutMin, float& OutMax) const;
     

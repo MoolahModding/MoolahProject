@@ -10,15 +10,18 @@
 #include "SBZExplosive.h"
 #include "SBZExplosivePhysicsEffectData.h"
 #include "SBZProjectileInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGrenadeProjectile.generated.h"
 
 class ASBZCharacter;
 class UAkAudioEvent;
-class UClass;
+class UGameplayEffect;
 class UMeshComponent;
 class UNiagaraSystem;
 class UPrimitiveComponent;
 class UProjectileMovementComponent;
+class USBZDamageType;
+class USBZLocalPlayerFeedback;
 class USBZMarkerDataAsset;
 class USBZRangedWeaponData;
 class USBZWeaponFireData;
@@ -69,13 +72,13 @@ protected:
     UNiagaraSystem* DetonationEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageGameplayEffectClass;
+    TSubclassOf<UGameplayEffect> DamageGameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageTypeClass;
+    TSubclassOf<USBZDamageType> DamageTypeClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PlayerFeedbackCurve;
@@ -109,10 +112,9 @@ private:
     FSBZExplosivePhysicsEffectData PostDamagePhysicsEffectData;
     
 public:
-    ASBZGrenadeProjectile(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGrenadeProjectile();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_EquippableIndex();
@@ -149,10 +151,7 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DestroyBreakable(const FHitResult& InBreakableHitResult);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_CollisionExplosion();
     
-
     // Fix for true pure virtual functions not being implemented
 };
 

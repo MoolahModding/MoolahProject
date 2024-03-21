@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZPlaceableCharges.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlaceableSentry.generated.h"
 
-class UClass;
+class ASBZSentryGun;
 
 UCLASS(Abstract, Blueprintable)
 class ASBZPlaceableSentry : public ASBZPlaceableCharges {
@@ -11,10 +12,9 @@ class ASBZPlaceableSentry : public ASBZPlaceableCharges {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SentryClassToSpawn;
+    TSubclassOf<ASBZSentryGun> SentryClassToSpawn;
     
 public:
-    ASBZPlaceableSentry(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlaceableSentry();
 };
 

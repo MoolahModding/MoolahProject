@@ -15,10 +15,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_LobbyState, meta=(AllowPrivateAccess=true))
     ASBZLobbyRemoteState* LobbyState;
     
-    ASBZLobbyBeaconClient(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLobbyBeaconClient();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerUpdateSlot(const FUniqueNetIdRepl& InPlayerId, FSBZSlotData InSlotData);
     

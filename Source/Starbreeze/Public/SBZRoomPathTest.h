@@ -14,7 +14,6 @@ public:
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector EndPosition;
     
-    ASBZRoomPathTest(const FObjectInitializer& ObjectInitializer);
-
+    ASBZRoomPathTest();
 };
 

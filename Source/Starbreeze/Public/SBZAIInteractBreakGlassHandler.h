@@ -8,7 +8,6 @@ class USBZAIInteractBreakGlassHandler : public UObject {
     GENERATED_BODY()
 public:
     USBZAIInteractBreakGlassHandler();
-
     UFUNCTION(BlueprintCallable)
     void OnBreakGlassInteractionCompleted();
     

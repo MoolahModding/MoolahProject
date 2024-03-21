@@ -4,4 +4,3 @@ USBZCrouchNotify::USBZCrouchNotify() {
     this->bCrouched = true;
 }
 
-

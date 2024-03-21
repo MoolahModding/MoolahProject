@@ -8,6 +8,5 @@ class USBZAIOrder_Roaming : public USBZAIOrder {
     GENERATED_BODY()
 public:
     USBZAIOrder_Roaming();
-
 };
 

@@ -21,7 +21,6 @@ private:
     
 public:
     USBZStateMachineStateJobOverview();
-
     UFUNCTION(BlueprintCallable)
     void WaitForRandomizedRooms();
     

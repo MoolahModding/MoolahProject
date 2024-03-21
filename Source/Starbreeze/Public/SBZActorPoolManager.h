@@ -3,10 +3,10 @@
 #include "Components/ActorComponent.h"
 #include "Engine/EngineTypes.h"
 #include "SBZActorPool.h"
+#include "Templates/SubclassOf.h"
 #include "SBZActorPoolManager.generated.h"
 
 class AActor;
-class UClass;
 class UObject;
 class USBZActorPoolManager;
 class UWorld;
@@ -17,14 +17,13 @@ class USBZActorPoolManager : public UActorComponent {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<UClass*, FSBZActorPool> Pools;
+    TMap<TSubclassOf<AActor>, FSBZActorPool> Pools;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<AActor*, FTimerHandle> ReturnActorTimerHandles;
     
 public:
     USBZActorPoolManager();
-
     UFUNCTION(BlueprintCallable)
     void ReturnActor(AActor* Actor, float Delay);
     
@@ -35,10 +34,10 @@ public:
     void OnActorDestroyed(AActor* DestroyedActor);
     
     UFUNCTION(BlueprintCallable)
-    void InitPool(UWorld* World, UClass* ActorClass, int32 Count);
+    void InitPool(UWorld* World, TSubclassOf<AActor> ActorClass, int32 Count);
     
     UFUNCTION(BlueprintCallable)
-    AActor* GetActor(UWorld* World, UClass* ActorClass);
+    AActor* GetActor(UWorld* World, TSubclassOf<AActor> ActorClass);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZActorPoolManager* Get(const UObject* WorldContextObject);

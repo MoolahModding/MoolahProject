@@ -1,8 +1,7 @@
 #include "SBZCarriedStaticInteractionActor.h"
 
-ASBZCarriedStaticInteractionActor::ASBZCarriedStaticInteractionActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZCarriedStaticInteractionActor::ASBZCarriedStaticInteractionActor() {
     this->AttachedAIParent = NULL;
     this->bIsSingleUse = true;
 }
-
 

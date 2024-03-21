@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZMenuStackScreenWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnBackPressed();

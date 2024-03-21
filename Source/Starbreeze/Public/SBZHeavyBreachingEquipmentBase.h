@@ -33,10 +33,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* PartAddedEvent;
     
-    ASBZHeavyBreachingEquipmentBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHeavyBreachingEquipmentBase();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_PartsAdded();

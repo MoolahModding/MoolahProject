@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZActorSpawnShapes : public ASBZActorSpawnRegionBase {
     GENERATED_BODY()
 public:
-    ASBZActorSpawnShapes(const FObjectInitializer& ObjectInitializer);
-
+    ASBZActorSpawnShapes();
 };
 

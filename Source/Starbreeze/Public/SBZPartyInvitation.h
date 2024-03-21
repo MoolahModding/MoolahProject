@@ -1,7 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
+#include "ESBZPartyInvitationSystem.h"
 #include "ESBZPartyInvitationType.h"
+#include "ESBZPartyInviteStatus.h"
 #include "SBZPartyInvitation.generated.h"
 
 USTRUCT(BlueprintType)
@@ -22,6 +24,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZPartyInvitationType Type;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZPartyInvitationSystem System;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZPartyInviteStatus Status;
     
     STARBREEZE_API FSBZPartyInvitation();
 };

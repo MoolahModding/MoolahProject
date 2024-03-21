@@ -20,7 +20,6 @@ private:
     
 public:
     USBZStateMachineStateDsWaitingForPlayers();
-
     UFUNCTION(BlueprintCallable)
     void UnregisterClient(const FUniqueNetIdRepl& PlayerId);
     

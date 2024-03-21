@@ -25,6 +25,12 @@ protected:
     USBZBaseInteractableComponent* ServerCompletingInteractable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float TickCompleteDuration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsCompletePending;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 InteractId;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -48,11 +54,13 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinScreenInteractDot;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsLocallyControlled;
+    
 public:
     USBZInteractorComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_StopInteraction(USBZBaseInteractableComponent* Interaction);

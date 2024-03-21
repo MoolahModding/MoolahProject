@@ -8,6 +8,5 @@ class STARBREEZE_API USBZReplicationGraphNode_InitialFrameReplication : public U
     GENERATED_BODY()
 public:
     USBZReplicationGraphNode_InitialFrameReplication();
-
 };
 

@@ -1,17 +1,5 @@
 #include "SBZCharacterVoiceComponent.h"
 
-USBZCharacterVoiceComponent::USBZCharacterVoiceComponent() {
-    this->VoiceAttachPoint = TEXT("Jaw");
-    this->VoiceSpacialRTPC = NULL;
-    this->VoiceFilterRTPC = NULL;
-    this->VoiceFilterRTPCValue = 0.00f;
-    this->DialogAnimDataCollection = NULL;
-    this->RemoveLipSyncPrefix = TEXT("LPS_");
-    this->SBZCharacterOwner = NULL;
-    this->PerformsInDialog = NULL;
-    this->bAutoActivate = false;
-}
-
 void USBZCharacterVoiceComponent::StopTalking() {
 }
 
@@ -57,4 +45,14 @@ void USBZCharacterVoiceComponent::Multicast_SaySystemComment_Implementation(cons
 void USBZCharacterVoiceComponent::CallRecieved(const FSBZPlayerCallEvent& CallEventData) {
 }
 
+USBZCharacterVoiceComponent::USBZCharacterVoiceComponent() {
+    this->VoiceAttachPoint = TEXT("Jaw");
+    this->VoiceSpacialRTPC = NULL;
+    this->VoiceFilterRTPC = NULL;
+    this->VoiceFilterRTPCValue = 0.00f;
+    this->DialogAnimDataCollection = NULL;
+    this->RemoveLipSyncPrefix = TEXT("LPS_");
+    this->SBZCharacterOwner = NULL;
+    this->PerformsInDialog = NULL;
+}
 

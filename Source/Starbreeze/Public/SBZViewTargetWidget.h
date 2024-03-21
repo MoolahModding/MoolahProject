@@ -16,7 +16,6 @@ private:
     
 public:
     USBZViewTargetWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SecurityCameraStateChanged(ESBZCameraState CurrentState);

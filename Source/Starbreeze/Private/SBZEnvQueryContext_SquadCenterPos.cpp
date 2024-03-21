@@ -3,4 +3,3 @@
 USBZEnvQueryContext_SquadCenterPos::USBZEnvQueryContext_SquadCenterPos() {
 }
 
-

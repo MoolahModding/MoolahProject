@@ -4,9 +4,8 @@
 USBZDebugActorComponentFlow::USBZDebugActorComponentFlow() {
     this->bIs = true;
     this->bIsDuplicateTransient = true;
-    this->Object = CreateDefaultSubobject<USBZDebugObjectFlow>(TEXT("Object"));
+    this->Object = CreateDefaultSubobject<USBZDebugObjectFlow>(TEXT("Object")); 
     this->InstanceObject = CreateDefaultSubobject<USBZDebugObjectFlow>(TEXT("InstanceObject"));
     this->DynamicObject = NULL;
 }
-
 

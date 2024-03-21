@@ -23,6 +23,5 @@ public:
     float MinShotRadius;
     
     USBZPathFocusSettings();
-
 };
 

@@ -8,6 +8,5 @@ class USBZSkillInfiltratorRetriever : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillInfiltratorRetriever();
-
 };
 

@@ -25,10 +25,9 @@ protected:
     float ActiveTime;
     
 public:
-    ASBZHackingZone(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHackingZone();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_ZoneEnabled();

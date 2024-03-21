@@ -60,9 +60,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZComponentSelector CuttableCollisionComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHinged;
+    
 public:
-    ASBZCuttableActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCuttableActor();
     UFUNCTION(BlueprintCallable)
     void PropDamageReached();
     
@@ -84,7 +86,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnCuttingEnabledChanged(bool bCuttingEnabled);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

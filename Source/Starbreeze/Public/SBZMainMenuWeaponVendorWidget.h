@@ -25,7 +25,6 @@ private:
     
 public:
     USBZMainMenuWeaponVendorWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void TryBuyWeaponPreset(const FSBZWeaponPresetStoreItem& WeaponPresetStoreItem);

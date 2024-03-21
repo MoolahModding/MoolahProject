@@ -12,6 +12,5 @@ public:
     TArray<FSBZNavLinkWaitSlot> Slots;
     
     USBZNavLinkWaitSlotRoot();
-
 };
 

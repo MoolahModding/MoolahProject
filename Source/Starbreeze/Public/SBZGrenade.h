@@ -31,8 +31,7 @@ protected:
     UNiagaraComponent* DetonationEffect;
     
 public:
-    ASBZGrenade(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGrenade();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnCollisionComponentHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
@@ -43,10 +42,7 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_CollisionExplosion();
     
-
     // Fix for true pure virtual functions not being implemented
 };
 

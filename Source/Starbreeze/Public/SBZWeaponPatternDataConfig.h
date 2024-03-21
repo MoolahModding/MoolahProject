@@ -13,6 +13,5 @@ public:
     TArray<USBZSprayCanData*> PatternSprayCans;
     
     USBZWeaponPatternDataConfig();
-
 };
 

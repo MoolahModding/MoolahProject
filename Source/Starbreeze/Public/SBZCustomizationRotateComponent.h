@@ -3,6 +3,8 @@
 #include "Components/ActorComponent.h"
 #include "SBZCustomizationRotateComponent.generated.h"
 
+class APlayerController;
+
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZCustomizationRotateComponent : public UActorComponent {
     GENERATED_BODY()
@@ -43,7 +45,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RotationRollLimitMax;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    APlayerController* FoundController;
+    
+public:
     USBZCustomizationRotateComponent();
-
 };
 

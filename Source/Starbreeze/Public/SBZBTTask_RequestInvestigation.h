@@ -13,6 +13,5 @@ private:
     
 public:
     USBZBTTask_RequestInvestigation();
-
 };
 

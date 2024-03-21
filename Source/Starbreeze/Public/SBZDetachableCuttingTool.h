@@ -6,14 +6,16 @@
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
 #include "SBZPlaceableToolBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZDetachableCuttingTool.generated.h"
 
 class AActor;
 class UAkAudioEvent;
 class UAkComponent;
 class UBoxComponent;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class ASBZDetachableCuttingTool : public ASBZPlaceableToolBase, public ISBZExplosive, public ISBZHurtReactionDataInterface {
@@ -27,7 +29,7 @@ protected:
     AActor* ExplosionInstigator;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DetachableCuttingToolEffectClass;
+    TSubclassOf<UGameplayEffect> DetachableCuttingToolEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* DetachableCuttingToolExplodedEvent;
@@ -54,14 +56,13 @@ protected:
     FRuntimeFloatCurve PlayerFeedbackCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZHurtReactionData HurtReactionData;
     
 public:
-    ASBZDetachableCuttingTool(const FObjectInitializer& ObjectInitializer);
-
+    ASBZDetachableCuttingTool();
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmed();
     
@@ -69,7 +70,7 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

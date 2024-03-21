@@ -1,8 +1,5 @@
 #include "SBZAISquadManager.h"
 
-USBZAISquadManager::USBZAISquadManager() {
-}
-
 void USBZAISquadManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
 }
 
@@ -14,4 +11,6 @@ USBZAISquad* USBZAISquadManager::AddSquad(const TArray<APawn*>& Pawns) {
     return NULL;
 }
 
+USBZAISquadManager::USBZAISquadManager() {
+}
 

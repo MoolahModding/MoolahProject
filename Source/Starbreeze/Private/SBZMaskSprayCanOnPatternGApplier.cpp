@@ -3,4 +3,3 @@
 USBZMaskSprayCanOnPatternGApplier::USBZMaskSprayCanOnPatternGApplier() {
 }
 
-

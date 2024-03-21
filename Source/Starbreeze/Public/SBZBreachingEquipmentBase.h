@@ -100,10 +100,9 @@ protected:
     TArray<ASBZRoomVolume*> RoomVolumes;
     
 public:
-    ASBZBreachingEquipmentBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBreachingEquipmentBase();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState(ESBZBreachingEquipmentState OldState);
@@ -124,7 +123,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZBreachingEquipmentState OldState, ESBZBreachingEquipmentState NewState, bool bDoCosmetics);
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);

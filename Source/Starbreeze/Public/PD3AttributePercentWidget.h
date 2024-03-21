@@ -17,7 +17,6 @@ protected:
     
 public:
     UPD3AttributePercentWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup(float CurrentValueSetup, float MaxValueSetup, float PercentageSetup);

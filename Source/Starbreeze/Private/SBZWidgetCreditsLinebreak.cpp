@@ -3,4 +3,3 @@
 USBZWidgetCreditsLinebreak::USBZWidgetCreditsLinebreak() {
 }
 
-

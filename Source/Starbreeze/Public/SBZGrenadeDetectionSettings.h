@@ -17,6 +17,5 @@ public:
     int32 GrenadeTypeFlags;
     
     USBZGrenadeDetectionSettings();
-
 };
 

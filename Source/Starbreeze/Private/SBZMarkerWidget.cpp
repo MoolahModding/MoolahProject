@@ -7,4 +7,3 @@ USBZMarkerWidget::USBZMarkerWidget() : UUserWidget(FObjectInitializer::Get()) {
     this->DescriptionText = NULL;
 }
 
-

@@ -23,8 +23,7 @@ protected:
     TArray<FSBZControlsReference> ControlsReferenceArray;
     
 public:
-    ASBZTutorialPopUpActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZTutorialPopUpActor();
     UFUNCTION(BlueprintCallable)
     void ShowTutorialPopUp(const int32 TutorialIndex, FSBZOnPopUpWidgetClosed InTutorialPopUpClosed);
     

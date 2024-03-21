@@ -12,180 +12,11 @@
 #include "SBZOutlineComponent.h"
 #include "SBZSkeletalMeshComponentBudgeted.h"
 #include "SBZZiplineAudioController.h"
-#include "Components/CapsuleComponent.h"
-
-ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0"))) {
-    this->MarkedVoiceComment = NULL;
-    this->MarkedOutline = NULL;
-    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
-    this->CarryType = NULL;
-    this->HumanShieldCarryType = NULL;
-    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
-    FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
-    this->AudioComponent->SetupAttachment(*p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent*>(this));
-    this->ZiplineAudioController = CreateDefaultSubobject<USBZZiplineAudioController>(TEXT("SBZZiplineAudioController"));
-    this->ZiplineMotorClass = NULL;
-    this->ZiplineMotorClass = NULL;
-    this->CurrentZiplineMotor = NULL;
-    this->ZiplineAttachmentBone = TEXT("Hips");
-    this->bRandomMeshScaleEnabled = false;
-    this->EventReactionComponent = NULL;
-    this->CurrentBagActor = NULL;
-    this->CurrentCarriedType = NULL;
-    this->bIsAlive = true;
-    this->bIsRagdolled = false;
-    this->bIsLocallyControlled = false;
-    this->bIsRunning = false;
-    this->bIsJumping = false;
-    this->bIsTargeting = false;
-    this->bIsHurtReactionScope = false;
-    this->bIsHurtReactionScopeStackAllowedOnce = false;
-    this->bIsPlayReady = false;
-    this->bIsCarried = false;
-    this->bIsCarriedPredicted = false;
-    this->bIsCarriedDropAnimation = false;
-    this->bIsCarryChangedUsingInteraction = true;
-    this->StartReloadState = ESBZReloadState::None;
-    this->bIsCurrentAnimationMagazineRemoved = false;
-    this->LastLocalReloadMontage = NULL;
-    this->LastRecoilMontage = NULL;
-    this->MovementSettings = NULL;
-    this->Stance = ESBZCharacterStance::First;
-    this->CompatibleStances = 0;
-    this->MaxStartAimOffsetYawDegrees = 67.50f;
-    this->MaxAimOffsetYawDegrees = 74.00f;
-    this->MaxStartAimOffsetYawDegreesTargeting = 35.00f;
-    this->MaxAimOffsetYawDegreesTargeting = 74.00f;
-    this->RemoteViewYaw = 0;
-    this->AbilitySystem = NULL;
-    this->CurrentEquippableIndex = -1;
-    this->LastEquippableIndex = -1;
-    this->LastRequiredEquippableIndex = -1;
-    this->CurrentEquippable = NULL;
-    this->EquipState = ESBZEquipState::Unequipped;
-    this->EquipStateAndIndex = 0;
-    this->EquippableAttachementSocketName = TEXT("RootWeapon");
-    this->LinkedAnimationClass = NULL;
-    this->LinkedAnimationClass = NULL;
-    this->AnimationCollection = NULL;
-    this->FacialAnimationCollection = NULL;
-    this->EmotionMapping = NULL;
-    this->AnimationData = NULL;
-    this->DefaultLifeActionAffinityData = NULL;
-    this->RandomizedMeshScaleLifeActionAffinityData = NULL;
-    this->bCanEverHaveFacialAnimation = true;
-    this->TargetEquippableIndex = -1;
-    this->InitialEquippableIndex = 0;
-    this->ForbiddenEquippableIndexCountArray[0] = 0;
-    this->ForbiddenEquippableIndexCountArray[1] = 0;
-    this->ForbiddenEquippableIndexCountArray[2] = 0;
-    this->ForbiddenEquippableIndexCountArray[3] = 0;
-    this->ForbiddenEquippableIndexCountArray[4] = 0;
-    this->ForbiddenEquippableIndexCountArray[5] = 0;
-    this->ForbiddenEquippableIndexCountArray[6] = 0;
-    this->EquippableVisibleCount = -1;
-    this->EquippedCount = 0;
-    this->bIsInitialEquipped = false;
-    this->VoiceComponent = CreateDefaultSubobject<USBZCharacterVoiceComponent>(TEXT("SBZCharacterVoiceComponent"));
-    this->DamageTracker = CreateDefaultSubobject<USBZDamageTracker>(TEXT("SBZDamageTracker"));
-    this->FootStepComponent = CreateDefaultSubobject<USBZCharacterFootStepComponent>(TEXT("SBZCharacterFootStepComponent"));
-    this->SlidingComponent = CreateDefaultSubobject<USBZCharacterSlidingComponent>(TEXT("SBZCharacterSlidingComponent"));
-    this->MantlingComponent = CreateDefaultSubobject<USBZCharacterMantlingComponent>(TEXT("SBZCharacterMantlingComponent"));
-    this->VaultingComponent = CreateDefaultSubobject<USBZCharacterVaultingComponent>(TEXT("SBZCharacterVaultingComponent"));
-    this->AIVisibilityNodeComputationFrequency = ESBZAIVisibilityNodeComputationFrequency::Automatic;
-    this->AbilityData = NULL;
-    this->TagReactionAsset = NULL;
-    this->CurrentTagReactionAsset = NULL;
-    this->LastTagReactionMontage = NULL;
-    this->HurtReactionArray[0] = NULL;
-    this->HurtReactionArray[1] = NULL;
-    this->HurtReactionArray[2] = NULL;
-    this->HurtReactionArray[3] = NULL;
-    this->HurtReactionArray[4] = NULL;
-    this->HurtReactionArray[5] = NULL;
-    this->HurtReactionArray[6] = NULL;
-    this->HurtReactionArray[7] = NULL;
-    this->HurtReactionArray[8] = NULL;
-    this->HurtReactionArray[9] = NULL;
-    this->HurtReactionArray[10] = NULL;
-    this->HurtReactionArray[11] = NULL;
-    this->HurtReactionArray[12] = NULL;
-    this->HurtReactionArray[13] = NULL;
-    this->HurtReactionArray[14] = NULL;
-    this->HurtReactionArray[15] = NULL;
-    this->HurtReactionArray[16] = NULL;
-    this->HurtReactionArray[17] = NULL;
-    this->HurtReactionArray[18] = NULL;
-    this->HurtReactionArray[19] = NULL;
-    this->HurtReactionArray[20] = NULL;
-    this->HurtReactionArray[21] = NULL;
-    this->HurtReactionArray[22] = NULL;
-    this->HurtReactionArray[23] = NULL;
-    this->LandSoundEvent = NULL;
-    this->MinInteractionDurationToUnequip = 1.20f;
-    this->CurrentThrowableIndex = -1;
-    this->CurrentPlaceableIndex = -1;
-    this->Interactable = CreateDefaultSubobject<USBZCharacterInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->MeleeComponent = CreateDefaultSubobject<USBZMeleeComponent>(TEXT("SBZMeleeComponent"));
-    this->MeleeDamageData = NULL;
-    this->CurrentCarryActor = NULL;
-    this->CurrentCarryInstigator = NULL;
-    this->CarryActorSocketName = TEXT("Spine");
-    this->PhysicsAssetWhenCarried = NULL;
-    this->PhysicsAssetWhenNotCarried = NULL;
-    this->HumanShieldInstigatorState = ESBZHumanShieldInstigatorState::None;
-    this->HumanShieldInstigatorAcceptableRadius = 5.00f;
-    this->MeleeComment = NULL;
-    this->CurrentHumanShieldInstigatorEnterMontage = NULL;
-    this->CarryingFromCrouchAcceptableRadius = 2.00f;
-    this->Seed = -1;
-    this->LastController = NULL;
-    this->DialogBodyGesturesData = NULL;
-    this->EquippedMask = NULL;
-    this->DisplayIcon = NULL;
-    this->HurtReactionOffset[0] = 0;
-    this->HurtReactionOffset[1] = 0;
-    this->HurtReactionOffset[2] = 0;
-    this->HurtReactionOffset[3] = 0;
-    this->HurtReactionOffset[4] = 0;
-    this->HurtReactionOffset[5] = 0;
-    this->HurtReactionOffset[6] = 0;
-    this->HurtReactionOffset[7] = 0;
-    this->HurtReactionOffset[8] = 0;
-    this->HurtReactionOffset[9] = 0;
-    this->HurtReactionOffset[10] = 0;
-    this->HurtReactionOffset[11] = 0;
-    this->HurtReactionOffset[12] = 0;
-    this->HurtReactionOffset[13] = 0;
-    this->HurtReactionOffset[14] = 0;
-    this->HurtReactionOffset[15] = 0;
-    this->HurtReactionOffset[16] = 0;
-    this->HurtReactionOffset[17] = 0;
-    this->HurtReactionOffset[18] = 0;
-    this->HurtReactionOffset[19] = 0;
-    this->HurtReactionOffset[20] = 0;
-    this->HurtReactionOffset[21] = 0;
-    this->HurtReactionOffset[22] = 0;
-    this->HurtReactionOffset[23] = 0;
-    this->LastAppliedHurtReactionIndex = -1;
-    this->CurrentHurtReactionType = ESBZHurtReactionType::MAX;
-    this->HurtReactionEndTime = -1.00f;
-    this->PredictedHurtReactionEndTime = -1.00f;
-    this->CurrentMeleeMontage = NULL;
-    this->LastKnownRoom = NULL;
-    this->ExplosionLineTraceBoneArray.AddDefaulted(6);
-    this->HeadBone = TEXT("Head");
-    this->CarryWeightTierOffset = 1.00f;
-    this->CurrentlyUsedThrowable = NULL;
-    FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(*p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent*>(this));
-    /*this->bWantsDetailedDamageEvents = true;*/
-}
 
 void ASBZCharacter::SetStance(ESBZCharacterStance InStance) {
 }
 
-void ASBZCharacter::Server_WantsToTranferBagFrom_Implementation(ASBZCharacter* FromCharacter) {
+void ASBZCharacter::Server_TransferBagFrom_Implementation(ASBZCharacter* ToCharacter) {
 }
 
 void ASBZCharacter::Server_SetEquipStateAndIndex_Implementation(uint8 InEquipStateAndIndex) {
@@ -257,7 +88,7 @@ void ASBZCharacter::OnRep_CurrentThrowableIndex(int32 OldThrowableIndex) {
 void ASBZCharacter::OnRep_CurrentPlaceableIndex(int32 OldPlaceableIndex) {
 }
 
-void ASBZCharacter::OnRep_CurrentBag() {
+void ASBZCharacter::OnRep_BagHandleArray(const TArray<FSBZBagHandle>& OldBagHandleArray) {
 }
 
 void ASBZCharacter::OnEquipStateTimerDone() {
@@ -365,16 +196,20 @@ void ASBZCharacter::Multicast_ActivateMelee_Implementation() {
 void ASBZCharacter::HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser) {
 }
 
-bool ASBZCharacter::GiveBag(FSBZBagHandle Bag) {
-    return false;
-}
-
 int32 ASBZCharacter::GetSeed() const {
     return 0;
 }
 
 ASBZRoomVolume* ASBZCharacter::GetLastKnownRoom() const {
     return NULL;
+}
+
+USBZCarryType* ASBZCharacter::GetLastCurrentCarryType() const {
+    return NULL;
+}
+
+FSBZBagHandle ASBZCharacter::GetLastBagHandle() const {
+    return FSBZBagHandle{};
 }
 
 ASBZRoomVolume* ASBZCharacter::GetCurrentRoom_Implementation() const {
@@ -389,6 +224,9 @@ void ASBZCharacter::Client_OnPickupCarryActorFailed_Implementation(uint32 NetID)
 
 
 
+void ASBZCharacter::AddLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count) {
+}
+
 void ASBZCharacter::AddLooseGameplayTag(const FGameplayTag& GameplayTag, int32 Count) {
 }
 
@@ -396,7 +234,7 @@ void ASBZCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZCharacter, bRandomMeshScaleEnabled);
-    DOREPLIFETIME(ASBZCharacter, CurrentBag);
+    DOREPLIFETIME(ASBZCharacter, BagHandleArray);
     DOREPLIFETIME(ASBZCharacter, ReplicatedMontage);
     DOREPLIFETIME(ASBZCharacter, bIsAlive);
     DOREPLIFETIME(ASBZCharacter, bIsTargeting);
@@ -412,4 +250,165 @@ void ASBZCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZCharacter, Seed);
 }
 
+ASBZCharacter::ASBZCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0"))) {
+    this->MarkedVoiceComment = NULL;
+    this->MarkedOutline = NULL;
+    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
+    this->CarryType = NULL;
+    this->HumanShieldCarryType = NULL;
+    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    this->ZiplineAudioController = CreateDefaultSubobject<USBZZiplineAudioController>(TEXT("SBZZiplineAudioController"));
+    this->ZiplineMotorClass = NULL;
+    this->CurrentZiplineMotor = NULL;
+    this->ZiplineAttachmentBone = TEXT("Hips");
+    this->bRandomMeshScaleEnabled = false;
+    this->EventReactionComponent = NULL;
+    this->MaxCarryBagCount = 1;
+    this->bIsAlive = true;
+    this->bIsRagdolled = false;
+    this->bIsLocallyControlled = false;
+    this->bIsRunning = false;
+    this->bIsJumping = false;
+    this->bIsTargeting = false;
+    this->bIsHurtReactionScope = false;
+    this->bIsHurtReactionScopeStackAllowedOnce = false;
+    this->bIsPlayReady = false;
+    this->bIsCarried = false;
+    this->bIsCarriedPredicted = false;
+    this->bIsCarriedDropAnimation = false;
+    this->bIsDropAndCarryScope = false;
+    this->bIsCarryChangedUsingInteraction = true;
+    this->StartReloadState = ESBZReloadState::None;
+    this->bIsCurrentAnimationMagazineRemoved = false;
+    this->LastLocalReloadMontage = NULL;
+    this->LastRecoilMontage = NULL;
+    this->MovementSettings = NULL;
+    this->Stance = ESBZCharacterStance::First;
+    this->CompatibleStances = 0;
+    this->MaxStartAimOffsetYawDegrees = 67.50f;
+    this->MaxAimOffsetYawDegrees = 74.00f;
+    this->MaxStartAimOffsetYawDegreesTargeting = 35.00f;
+    this->MaxAimOffsetYawDegreesTargeting = 74.00f;
+    this->RemoteViewYaw = 0;
+    this->AbilitySystem = NULL;
+    this->CurrentEquippableIndex = -1;
+    this->LastEquippableIndex = -1;
+    this->LastRequiredEquippableIndex = -1;
+    this->CurrentEquippable = NULL;
+    this->EquipState = ESBZEquipState::Unequipped;
+    this->EquipStateAndIndex = 0;
+    this->EquippableAttachementSocketName = TEXT("RootWeapon");
+    this->LinkedAnimationClass = NULL;
+    this->AnimationCollection = NULL;
+    this->FacialAnimationCollection = NULL;
+    this->EmotionMapping = NULL;
+    this->AnimationData = NULL;
+    this->DefaultLifeActionAffinityData = NULL;
+    this->RandomizedMeshScaleLifeActionAffinityData = NULL;
+    this->bCanEverHaveFacialAnimation = true;
+    this->TargetEquippableIndex = -1;
+    this->InitialEquippableIndex = 0;
+    this->ForbiddenEquippableIndexCountArray[0] = 0;
+    this->ForbiddenEquippableIndexCountArray[1] = 0;
+    this->ForbiddenEquippableIndexCountArray[2] = 0;
+    this->ForbiddenEquippableIndexCountArray[3] = 0;
+    this->ForbiddenEquippableIndexCountArray[4] = 0;
+    this->ForbiddenEquippableIndexCountArray[5] = 0;
+    this->ForbiddenEquippableIndexCountArray[6] = 0;
+    this->EquippableVisibleCount = -1;
+    this->EquippedCount = 0;
+    this->bIsInitialEquipped = false;
+    this->VoiceComponent = CreateDefaultSubobject<USBZCharacterVoiceComponent>(TEXT("SBZCharacterVoiceComponent"));
+    this->DamageTracker = CreateDefaultSubobject<USBZDamageTracker>(TEXT("SBZDamageTracker"));
+    this->FootStepComponent = CreateDefaultSubobject<USBZCharacterFootStepComponent>(TEXT("SBZCharacterFootStepComponent"));
+    this->SlidingComponent = CreateDefaultSubobject<USBZCharacterSlidingComponent>(TEXT("SBZCharacterSlidingComponent"));
+    this->MantlingComponent = CreateDefaultSubobject<USBZCharacterMantlingComponent>(TEXT("SBZCharacterMantlingComponent"));
+    this->VaultingComponent = CreateDefaultSubobject<USBZCharacterVaultingComponent>(TEXT("SBZCharacterVaultingComponent"));
+    this->AIVisibilityNodeComputationFrequency = ESBZAIVisibilityNodeComputationFrequency::Automatic;
+    this->AbilityData = NULL;
+    this->TagReactionAsset = NULL;
+    this->CurrentTagReactionAsset = NULL;
+    this->LastTagReactionMontage = NULL;
+    this->HurtReactionArray[0] = NULL;
+    this->HurtReactionArray[1] = NULL;
+    this->HurtReactionArray[2] = NULL;
+    this->HurtReactionArray[3] = NULL;
+    this->HurtReactionArray[4] = NULL;
+    this->HurtReactionArray[5] = NULL;
+    this->HurtReactionArray[6] = NULL;
+    this->HurtReactionArray[7] = NULL;
+    this->HurtReactionArray[8] = NULL;
+    this->HurtReactionArray[9] = NULL;
+    this->HurtReactionArray[10] = NULL;
+    this->HurtReactionArray[11] = NULL;
+    this->HurtReactionArray[12] = NULL;
+    this->HurtReactionArray[13] = NULL;
+    this->HurtReactionArray[14] = NULL;
+    this->HurtReactionArray[15] = NULL;
+    this->HurtReactionArray[16] = NULL;
+    this->HurtReactionArray[17] = NULL;
+    this->HurtReactionArray[18] = NULL;
+    this->HurtReactionArray[19] = NULL;
+    this->HurtReactionArray[20] = NULL;
+    this->HurtReactionArray[21] = NULL;
+    this->HurtReactionArray[22] = NULL;
+    this->HurtReactionArray[23] = NULL;
+    this->LandSoundEvent = NULL;
+    this->MinInteractionDurationToUnequip = 1.20f;
+    this->CurrentThrowableIndex = -1;
+    this->CurrentPlaceableIndex = -1;
+    this->Interactable = CreateDefaultSubobject<USBZCharacterInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->MeleeComponent = CreateDefaultSubobject<USBZMeleeComponent>(TEXT("SBZMeleeComponent"));
+    this->MeleeDamageData = NULL;
+    this->CurrentCarryActor = NULL;
+    this->CurrentCarryInstigator = NULL;
+    this->CarryActorSocketName = TEXT("Spine");
+    this->PhysicsAssetWhenCarried = NULL;
+    this->PhysicsAssetWhenNotCarried = NULL;
+    this->HumanShieldInstigatorState = ESBZHumanShieldInstigatorState::None;
+    this->HumanShieldInstigatorAcceptableRadius = 5.00f;
+    this->MeleeComment = NULL;
+    this->CurrentHumanShieldInstigatorEnterMontage = NULL;
+    this->CarryingFromCrouchAcceptableRadius = 2.00f;
+    this->Seed = -1;
+    this->LastController = NULL;
+    this->DialogBodyGesturesData = NULL;
+    this->ForcedFacialAnimaton = NULL;
+    this->EquippedMask = NULL;
+    this->DisplayIcon = NULL;
+    this->HurtReactionOffset[0] = 0;
+    this->HurtReactionOffset[1] = 0;
+    this->HurtReactionOffset[2] = 0;
+    this->HurtReactionOffset[3] = 0;
+    this->HurtReactionOffset[4] = 0;
+    this->HurtReactionOffset[5] = 0;
+    this->HurtReactionOffset[6] = 0;
+    this->HurtReactionOffset[7] = 0;
+    this->HurtReactionOffset[8] = 0;
+    this->HurtReactionOffset[9] = 0;
+    this->HurtReactionOffset[10] = 0;
+    this->HurtReactionOffset[11] = 0;
+    this->HurtReactionOffset[12] = 0;
+    this->HurtReactionOffset[13] = 0;
+    this->HurtReactionOffset[14] = 0;
+    this->HurtReactionOffset[15] = 0;
+    this->HurtReactionOffset[16] = 0;
+    this->HurtReactionOffset[17] = 0;
+    this->HurtReactionOffset[18] = 0;
+    this->HurtReactionOffset[19] = 0;
+    this->HurtReactionOffset[20] = 0;
+    this->HurtReactionOffset[21] = 0;
+    this->HurtReactionOffset[22] = 0;
+    this->HurtReactionOffset[23] = 0;
+    this->LastAppliedHurtReactionIndex = -1;
+    this->CurrentHurtReactionType = ESBZHurtReactionType::MAX;
+    this->HurtReactionEndTime = -1.00f;
+    this->PredictedHurtReactionEndTime = -1.00f;
+    this->CurrentMeleeMontage = NULL;
+    this->LastKnownRoom = NULL;
+    this->ExplosionLineTraceBoneArray.AddDefaulted(6);
+    this->HeadBone = TEXT("Head");
+    this->CarryWeightTierOffset = 1.00f;
+    this->CurrentlyUsedThrowable = NULL;
+}
 

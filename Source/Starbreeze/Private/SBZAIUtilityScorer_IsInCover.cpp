@@ -4,4 +4,3 @@ USBZAIUtilityScorer_IsInCover::USBZAIUtilityScorer_IsInCover() {
     this->CurrentCoverPointBBKey = TEXT("CurrentCoverPoint");
 }
 
-

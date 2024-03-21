@@ -3,4 +3,3 @@
 USBZEnvQueryContext_SquadOrderTargetConnector::USBZEnvQueryContext_SquadOrderTargetConnector() {
 }
 
-

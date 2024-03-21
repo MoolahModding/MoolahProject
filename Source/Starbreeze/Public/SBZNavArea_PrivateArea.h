@@ -8,6 +8,5 @@ class STARBREEZE_API USBZNavArea_PrivateArea : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_PrivateArea();
-
 };
 

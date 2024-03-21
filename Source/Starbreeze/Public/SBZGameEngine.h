@@ -8,6 +8,5 @@ class USBZGameEngine : public UGameEngine {
     GENERATED_BODY()
 public:
     USBZGameEngine();
-
 };
 

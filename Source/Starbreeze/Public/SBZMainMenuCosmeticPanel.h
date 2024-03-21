@@ -37,7 +37,6 @@ private:
     
 public:
     USBZMainMenuCosmeticPanel();
-
     UFUNCTION(BlueprintCallable)
     void UpdateStackCount(const USBZCosmeticsDataAsset* InCosmeticItem, int32 InNewStackCount);
     

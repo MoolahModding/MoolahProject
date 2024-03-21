@@ -13,6 +13,5 @@ public:
     TArray<USBZThrowableData*> Throwables;
     
     USBZThrowableDatabase();
-
 };
 

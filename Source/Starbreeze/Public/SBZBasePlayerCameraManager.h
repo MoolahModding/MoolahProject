@@ -12,7 +12,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<UAkComponent*> DefaultListenerComponentArray;
     
-    ASBZBasePlayerCameraManager(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBasePlayerCameraManager();
 };
 

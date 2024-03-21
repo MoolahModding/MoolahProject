@@ -77,10 +77,9 @@ protected:
     float AudioImpactForceModifierValue;
     
 public:
-    ASBZThrowable(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThrowable();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetThrowableState(ESBZThrowableState NewThrowableState);
     
@@ -134,7 +133,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void CreateImpactPoint(const FHitResult& Hit, float Velocity);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

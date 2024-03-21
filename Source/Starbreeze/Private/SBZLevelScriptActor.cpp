@@ -1,9 +1,5 @@
 #include "SBZLevelScriptActor.h"
 
-ASBZLevelScriptActor::ASBZLevelScriptActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->Seed = -1;
-}
-
 ULevelStreamingDynamic* ASBZLevelScriptActor::SBZPlaceRandomSublevelBySoftObjectPtr(UObject* WorldContextObject, const TSoftObjectPtr<UWorld> Level, const FTransform& RoomTransform, bool& bOutSuccess) {
     return NULL;
 }
@@ -72,4 +68,7 @@ void ASBZLevelScriptActor::CriteriaObjectiveComplete(const USBZStatisticCriteria
 
 
 
+ASBZLevelScriptActor::ASBZLevelScriptActor() {
+    this->Seed = -1;
+}
 

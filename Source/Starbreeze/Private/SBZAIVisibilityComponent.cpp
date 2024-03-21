@@ -15,4 +15,3 @@ USBZAIVisibilityComponent::USBZAIVisibilityComponent() {
     this->bDynVerticesHavedBeenTransformed = false;
 }
 
-

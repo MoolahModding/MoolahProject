@@ -8,6 +8,5 @@ class USBZEarlyOutDuringSprintingNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZEarlyOutDuringSprintingNotify();
-
 };
 

@@ -27,7 +27,6 @@ protected:
     
 public:
     USBZCivilianManager();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void StopStaying();

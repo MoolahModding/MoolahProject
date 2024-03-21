@@ -4,4 +4,3 @@ USBZAIOrder_Agility::USBZAIOrder_Agility() {
     this->AgilityNavLink = NULL;
 }
 
-

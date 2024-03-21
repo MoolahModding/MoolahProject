@@ -81,27 +81,17 @@ protected:
     
 public:
     USBZLoginScreenBaseWidget();
-
     UFUNCTION(BlueprintCallable)
     void WidgetReady();
     
     UFUNCTION(BlueprintCallable)
-    void ShowTelemetryPopup();
-    
-    UFUNCTION(BlueprintCallable)
     void ShowPrivacyPolicyPopup();
-    
-    UFUNCTION(BlueprintCallable)
-    void ShowGameSensePopup();
     
     UFUNCTION(BlueprintCallable)
     void ShowEULAPopup();
     
     UFUNCTION(BlueprintCallable)
     void ShowEpilepsyWarningPopup();
-    
-    UFUNCTION(BlueprintCallable)
-    void ShowCrossplayPopup();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetLoginPanelsVisibility(ESlateVisibility InVisibility);
@@ -113,9 +103,6 @@ public:
     void SetLoadingCanvasPanelVisibility(ESlateVisibility InVisibility);
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    void OnTelemetryPopUpClosed(FName ClosingActionName);
-    
     UFUNCTION(BlueprintCallable)
     void OnPrivacyPopUpClosed(FName ClosingActionName);
     
@@ -133,16 +120,10 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnGameSensePopUpClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
     void OnEULAPopUpClosed(FName ClosingActionName);
     
     UFUNCTION(BlueprintCallable)
     void OnEpilepsyPopUpClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnCrossplayPopUpClosed(FName ClosingActionName);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

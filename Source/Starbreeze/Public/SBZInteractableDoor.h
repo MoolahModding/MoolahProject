@@ -23,8 +23,7 @@ protected:
     FSBZComponentSelector BreachPropDamageSelector;
     
 public:
-    ASBZInteractableDoor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZInteractableDoor();
 private:
     UFUNCTION(BlueprintCallable)
     void HandleBreachPropDamageHits(UActorComponent* PoolComponent, int32 Hits, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);

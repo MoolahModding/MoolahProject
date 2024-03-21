@@ -24,8 +24,7 @@ protected:
     USBZAIObjectiveComponent* AIOjectiveComponent;
     
 public:
-    ASBZKeycardReader(const FObjectInitializer& ObjectInitializer);
-
+    ASBZKeycardReader();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* Interactable, bool bInNewState);

@@ -7,4 +7,3 @@ USBZAIScorer::USBZAIScorer() {
     this->AIController = NULL;
 }
 
-

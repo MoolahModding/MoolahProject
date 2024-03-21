@@ -36,7 +36,6 @@ protected:
     
 public:
     USBZDrillWidget();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnUpdateState(ESBZDrillState StateUpdated);
     

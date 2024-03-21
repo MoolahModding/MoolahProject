@@ -41,7 +41,6 @@ protected:
     
 public:
     USBZParty();
-
     UFUNCTION(BlueprintCallable)
     void UpdatePartyState(const FSBZPartyData& InPartyState);
     

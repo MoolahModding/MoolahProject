@@ -30,7 +30,6 @@ private:
     
 public:
     USBZSafeHouseManager();
-
     UFUNCTION(BlueprintCallable)
     void TravelToSafeHouse();
     
@@ -46,7 +45,7 @@ private:
     UFUNCTION(BlueprintCallable, Exec)
     void DebugExitSafeHouse();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

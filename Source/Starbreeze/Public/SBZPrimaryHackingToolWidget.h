@@ -9,7 +9,6 @@ class USBZPrimaryHackingToolWidget : public USBZPrimaryToolWidget {
     GENERATED_BODY()
 public:
     USBZPrimaryHackingToolWidget();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHackinToolEquipped(bool bHasUpgrade02);
     

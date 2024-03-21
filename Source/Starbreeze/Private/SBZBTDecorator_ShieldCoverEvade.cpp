@@ -2,7 +2,5 @@
 
 USBZBTDecorator_ShieldCoverEvade::USBZBTDecorator_ShieldCoverEvade() {
     this->bShouldGoBack = false;
-    this->NodeName = TEXT("Evade Out of ShieldCover");
 }
-
 

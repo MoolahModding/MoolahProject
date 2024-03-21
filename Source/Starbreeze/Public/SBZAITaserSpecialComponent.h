@@ -8,6 +8,5 @@ class USBZAITaserSpecialComponent : public USBZSpecialAIComponent {
     GENERATED_BODY()
 public:
     USBZAITaserSpecialComponent();
-
 };
 

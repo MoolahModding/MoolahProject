@@ -22,6 +22,5 @@ protected:
     
 public:
     USBZAIOrder_LookAndComment();
-
 };
 

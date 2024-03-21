@@ -8,6 +8,5 @@ class USBZBTService_UpdateFocus : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_UpdateFocus();
-
 };
 

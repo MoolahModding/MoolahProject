@@ -27,10 +27,10 @@
 #include "SBZSideBarNotificationData.h"
 #include "SBZUIFullscreenNotificationData.h"
 #include "SBZUIPopupData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZUIManager.generated.h"
 
 class AActor;
-class UClass;
 class UPaperSprite;
 class USBZBaseMenuWidget;
 class USBZDebugWidget;
@@ -53,32 +53,32 @@ public:
     FSBZOnDisplayHUDNotification OnDisplayNotification;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PopUpWidgetClass;
+    TSubclassOf<USBZPopupWidget> PopUpWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZPopupWidget* PopUpWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TutorialPopUpBodyWidgetClass;
+    TSubclassOf<USBZTutorialPopUpBody> TutorialPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZTutorialPopUpBody* TutorialPopUpBody;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FullscreenNotificationWidgetClass;
+    TSubclassOf<USBZFullScreenNotification> FullscreenNotificationWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZFullScreenNotification* FullscreenNotificationWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SideBarNotificationWidgetClass;
+    TSubclassOf<USBZSideBarNotifications> SideBarNotificationWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZSideBarNotifications* SideBarNotificationWidget;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* InfoPopupWidgetWidgetClass;
+    TSubclassOf<USBZLoginScreenInfoPopupWidget> InfoPopupWidgetWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZLoginScreenInfoPopupWidget* InfoPopupWidget;
@@ -91,7 +91,7 @@ public:
     FSBZOnHUDContextChanged OnHUDContextChanged;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DebugWidgetClass;
+    TSubclassOf<USBZDebugWidget> DebugWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZDebugWidget* DebugWidget;
@@ -110,7 +110,7 @@ protected:
     FGameplayTagContainer UIGameplayTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubtitleWidgetClass;
+    TSubclassOf<USBZSubtitleWidget> SubtitleWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPaperSprite* PlatformSprite_GenericPC;
@@ -183,7 +183,7 @@ private:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* BlackBackgroundWidgetClass;
+    TSubclassOf<USBZWidgetBase> BlackBackgroundWidgetClass;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -211,7 +211,6 @@ protected:
     
 public:
     USBZUIManager();
-
     UFUNCTION(BlueprintCallable)
     bool TryRemoveFromStack(const FName& StackValue);
     
@@ -343,7 +342,7 @@ public:
     static USBZUIData* GetUIData(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPaperSprite* GetSpriteForPlatform(ESBZPlatform InPlatform);
+    UPaperSprite* GetSpriteForPlatform(ESBZPlatform InPlatform, bool bUseCurrentPlatformIconIfUnknown);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetSpriteForNebula();
@@ -399,7 +398,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 AddControlsReference(const FSBZControlsReference& InControlsReference);
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);

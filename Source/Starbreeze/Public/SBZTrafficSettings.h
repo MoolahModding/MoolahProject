@@ -45,6 +45,5 @@ public:
     UAkAudioEvent* PedestrianRedSoundEvent;
     
     USBZTrafficSettings();
-
 };
 

@@ -8,6 +8,5 @@ class STARBREEZE_API USBZSuitPatternData : public USBZCosmeticsPatternDataAsset 
     GENERATED_BODY()
 public:
     USBZSuitPatternData();
-
 };
 

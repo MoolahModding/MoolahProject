@@ -9,8 +9,6 @@ USBZToolData::USBZToolData() {
     this->PrimaryToolAmmoInventoryMax = 2000;
     this->PrimaryToolAmmoInventory = 2000;
     this->PrimaryAbilityClass = NULL;
-    this->PrimaryAbilityClass = NULL;
-    this->PlaceableAbilityClass = NULL;
     this->PlaceableAbilityClass = NULL;
     this->bActivateImmediately = false;
     this->AutoDeactivateTimer = 0.50f;
@@ -21,8 +19,5 @@ USBZToolData::USBZToolData() {
     this->ViewDistanceOffset = 3.00f;
     this->bIsClippingAllowed = true;
     this->SurfaceOffset = 0.00f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZToolData::StaticClass();
 }
-
 

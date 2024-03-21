@@ -65,7 +65,6 @@ protected:
     
 public:
     USBZMenuButton();
-
     UFUNCTION(BlueprintCallable)
     void SetButtonDisabled(bool bInIsDisabled);
     

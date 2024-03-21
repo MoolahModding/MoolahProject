@@ -20,7 +20,6 @@ protected:
     
 public:
     USBZMainMenuInventorySuitSlotButton();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveSuitSlot(bool bIsActiveSuitSlot);
     

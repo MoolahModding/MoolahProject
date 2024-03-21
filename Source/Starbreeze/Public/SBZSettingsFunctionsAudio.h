@@ -10,7 +10,6 @@ class USBZSettingsFunctionsAudio : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsAudio();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetVOVolume(UObject* WorldContextObject, float Volume);
     

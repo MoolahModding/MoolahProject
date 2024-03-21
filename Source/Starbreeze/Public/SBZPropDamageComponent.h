@@ -30,9 +30,8 @@ protected:
     
 public:
     USBZPropDamageComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_DamagePools();

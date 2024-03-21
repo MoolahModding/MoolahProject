@@ -28,7 +28,6 @@ protected:
     
 public:
     USBZActionPhaseBaseWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent);

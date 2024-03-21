@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZSettingsCategoryScreenGamepad();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SettingsCategoryInitialized();

@@ -12,6 +12,5 @@ public:
     TArray<FSBZSettingsMenuCategoryInfo> SettingsCategories;
     
     USBZSettingsMenuConfig();
-
 };
 

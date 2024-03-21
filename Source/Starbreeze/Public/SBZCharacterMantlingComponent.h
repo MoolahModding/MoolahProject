@@ -32,6 +32,5 @@ protected:
     
 public:
     USBZCharacterMantlingComponent();
-
 };
 

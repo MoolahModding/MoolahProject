@@ -8,7 +8,6 @@ class USBZPartyManagerAB : public USBZPartyManager {
     GENERATED_BODY()
 public:
     USBZPartyManagerAB();
-
     UFUNCTION(BlueprintCallable)
     void OnPartyLeaderStoppedMatchmaking();
     

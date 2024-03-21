@@ -24,7 +24,6 @@ private:
     
 public:
     USBZStateMachineStateGameError();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SetNetworkConnected(ESBZServiceStatus ServiceStatus);

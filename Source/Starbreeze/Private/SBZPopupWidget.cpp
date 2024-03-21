@@ -1,13 +1,5 @@
 #include "SBZPopupWidget.h"
 
-USBZPopupWidget::USBZPopupWidget() {
-    this->Text_Header = NULL;
-    this->Text_Description = NULL;
-    this->Widget_ControlsReference = NULL;
-    this->CanvasPanel_PopUpBody = NULL;
-    this->bIsShowing = false;
-}
-
 
 void USBZPopupWidget::OnActionPressed(FName ActionName) {
 }
@@ -22,4 +14,11 @@ void USBZPopupWidget::HidePopUpWidget(FName ActionName) {
 void USBZPopupWidget::AdvanceCountdown() {
 }
 
+USBZPopupWidget::USBZPopupWidget() {
+    this->Text_Header = NULL;
+    this->Text_Description = NULL;
+    this->Widget_ControlsReference = NULL;
+    this->CanvasPanel_PopUpBody = NULL;
+    this->bIsShowing = false;
+}
 

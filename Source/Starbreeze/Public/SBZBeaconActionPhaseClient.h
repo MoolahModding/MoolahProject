@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/OnlineReplStructs.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "ESBZOnlineCode.h"
 #include "ESBZPlatform.h"
 #include "ESBZPreMatchLobbyStatus.h"
@@ -24,10 +25,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDsLobbyClient;
     
-    ASBZBeaconActionPhaseClient(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBeaconActionPhaseClient();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerVoteStayAsParty();
     
@@ -35,7 +35,7 @@ public:
     void ServerSetSlotStatus(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ServerSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
+    void ServerSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZFirstPartyPlatform& FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerLoadingComplete(const FUniqueNetIdRepl& InPlayerId);
@@ -107,7 +107,7 @@ public:
     void ClientStartTravelAck(const ESBZOnlineCode& Result);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ClientSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
+    void ClientSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZFirstPartyPlatform FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientRestartPreTravelTimer(float PreTravelTimeLimit);

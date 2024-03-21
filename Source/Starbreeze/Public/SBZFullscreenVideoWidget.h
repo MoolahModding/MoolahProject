@@ -41,7 +41,6 @@ private:
     
 public:
     USBZFullscreenVideoWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnControlReferencePressed(FName ActionName);

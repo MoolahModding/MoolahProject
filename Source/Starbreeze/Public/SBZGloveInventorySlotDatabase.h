@@ -13,6 +13,5 @@ public:
     TArray<USBZGloveInventorySlotData*> InventorySlotArray;
     
     USBZGloveInventorySlotDatabase();
-
 };
 

@@ -1,10 +1,19 @@
 #include "SBZHackingTool.h"
 
-ASBZHackingTool::ASBZHackingTool(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+
+
+
+
+void ASBZHackingTool::Multicast_SetCurrentHackable_Implementation(AActor* InHackedDevice) {
+}
+
+void ASBZHackingTool::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
+}
+
+ASBZHackingTool::ASBZHackingTool() {
     this->CurrentHackable = NULL;
     this->LockedInHackable = NULL;
     this->ExplosionInstigator = NULL;
-    this->HackingToolEMPEffectClass = NULL;
     this->HackingToolEMPEffectClass = NULL;
     this->HackingToolEMPExplodedEvent = NULL;
     this->EMPDetonationEffect = NULL;
@@ -22,15 +31,4 @@ ASBZHackingTool::ASBZHackingTool(const FObjectInitializer& ObjectInitializer) : 
     this->OnHackingSyncCompletedEventRtpc = NULL;
     this->OnHackingSyncSucceededEventRtpc = NULL;
 }
-
-
-
-
-
-void ASBZHackingTool::Multicast_SetCurrentHackable_Implementation(AActor* InHackedDevice) {
-}
-
-void ASBZHackingTool::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
-}
-
 

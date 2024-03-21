@@ -5,6 +5,7 @@
 #include "GameplayTagContainer.h"
 #include "ESBZAbilityInput.h"
 #include "ESBZCharacterStance.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAILibrary.generated.h"
 
 class AActor;
@@ -13,7 +14,7 @@ class ASBZAICharacter;
 class ASBZAIController;
 class ASBZCharacter;
 class ASBZRoomVolume;
-class UClass;
+class UNavigationQueryFilter;
 class UObject;
 class USBZAIAction;
 class USBZAIActionData;
@@ -25,7 +26,6 @@ class STARBREEZE_API USBZAILibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZAILibrary();
-
     UFUNCTION(BlueprintCallable)
     static void TriggerAbility(ASBZAICharacter* Character, ESBZAbilityInput InAbility);
     
@@ -48,19 +48,19 @@ public:
     static float GetNavAreaSmallestSideSqSize(const UObject* WorldContextObject, FVector CharacterLocation, float SearchRange, float WallAdditiveLength);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
-    static float FindDistance2DToWallAlongDir(const ASBZCharacter* Character, float MaxDistance, const FVector Direction, UClass* FilterClass, const bool bProjectStartLocation);
+    static float FindDistance2DToWallAlongDir(const ASBZCharacter* Character, float MaxDistance, const FVector Direction, TSubclassOf<UNavigationQueryFilter> FilterClass, const bool bProjectStartLocation);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool DetectNavBottleNeckAndRelocate(const UObject* WorldContextObject, const FVector& BlockingCharacterLocation, const FVector& BlockedCharacterDirection, float& OutBottleNeckSqSize2D, FVector& OutRelocationPosition, float CharacterRadius, float BottleNeckSize);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
-    static USBZAIOrder_MoveTo* CreateAIOrderMoveTo(UClass* OrderClass, FVector Location, ASBZAIController* AIController);
+    static USBZAIOrder_MoveTo* CreateAIOrderMoveTo(TSubclassOf<USBZAIOrder_MoveTo> OrderClass, FVector Location, ASBZAIController* AIController);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
-    static USBZAIOrder* CreateAIOrder(UClass* OrderClass, ASBZAIController* AIController);
+    static USBZAIOrder* CreateAIOrder(TSubclassOf<USBZAIOrder> OrderClass, ASBZAIController* AIController);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
-    static USBZAIActionData* CreateActionData(UClass* ObjectClass, UObject* Outer);
+    static USBZAIActionData* CreateActionData(TSubclassOf<USBZAIActionData> ObjectClass, UObject* Outer);
     
 };
 

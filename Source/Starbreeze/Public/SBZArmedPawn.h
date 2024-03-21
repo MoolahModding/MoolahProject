@@ -68,11 +68,10 @@ protected:
     TArray<ASBZRoomVolume*> RoomVolumes;
     
 public:
-    ASBZArmedPawn(const FObjectInitializer& ObjectInitializer);
-
+    ASBZArmedPawn(const class FObjectInitializer& ObjectInitializer);
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
-
+    
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);
@@ -85,11 +84,10 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-
+    
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
     {
         return AbilitySystemComponent;
     }
-    
 };
 

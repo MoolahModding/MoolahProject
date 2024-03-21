@@ -17,9 +17,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UWidget* MiniGameWidget;
     
-    ASBZMicroCameraHandler(const FObjectInitializer& ObjectInitializer);
-
-
+    ASBZMicroCameraHandler();
+    
     // Fix for true pure virtual functions not being implemented
 };
 

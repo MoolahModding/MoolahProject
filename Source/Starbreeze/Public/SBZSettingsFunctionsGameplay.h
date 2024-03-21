@@ -10,7 +10,9 @@ class USBZSettingsFunctionsGameplay : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsGameplay();
-
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetTelemetryDisabled(UObject* WorldContextObject, bool bDisabled);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetTargetingSensitivityMultiplier(UObject* WorldContextObject, float Sensitivity);
     
@@ -36,6 +38,9 @@ public:
     static void SetHoldToCrouchEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetGamesightDisabled(UObject* WorldContextObject, bool bDisabled);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetGamepadVerticalSensitivityMultiplier(UObject* WorldContextObject, float Sensitivity);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -49,6 +54,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetChatDisabled(UObject* WorldContextObject, bool bDisabled);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsTelemetryDisabledByDefault(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsTelemetryDisabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsSwitchWeaponAutomaticallyEnabledByDefault(UObject* WorldContextObject);
@@ -85,6 +96,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsHoldToCrouchEnabled(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsGamesightDisabledByDefault(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsGamesightDisabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsCrossplayDisabledByDefault(UObject* WorldContextObject);

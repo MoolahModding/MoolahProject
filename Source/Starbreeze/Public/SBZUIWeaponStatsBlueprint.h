@@ -10,7 +10,6 @@ class USBZUIWeaponStatsBlueprint : public UObject {
     GENERATED_BODY()
 public:
     USBZUIWeaponStatsBlueprint();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetStabilityValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     

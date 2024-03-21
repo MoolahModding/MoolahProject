@@ -8,6 +8,5 @@ class USBZSkillTacticianScramble : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTacticianScramble();
-
 };
 

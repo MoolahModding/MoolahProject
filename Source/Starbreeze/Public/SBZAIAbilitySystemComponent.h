@@ -9,7 +9,6 @@ class STARBREEZE_API USBZAIAbilitySystemComponent : public USBZAbilitySystemComp
     GENERATED_BODY()
 public:
     USBZAIAbilitySystemComponent();
-
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ApplyHurtInterrupt(const FSBZHurtReactionPrediction& HurtReactionPrediction);
     

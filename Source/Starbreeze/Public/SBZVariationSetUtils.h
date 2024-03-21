@@ -13,7 +13,6 @@ class STARBREEZE_API USBZVariationSetUtils : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZVariationSetUtils();
-
     UFUNCTION(BlueprintCallable)
     static void ApplyVariationToStatic(UStaticMeshComponent* StatComponent, USBZVariationSetData* VariationSet, int32 VariationIdx);
     

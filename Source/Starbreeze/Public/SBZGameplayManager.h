@@ -16,7 +16,6 @@ private:
     
 public:
     USBZGameplayManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnRestartLevelStarted();

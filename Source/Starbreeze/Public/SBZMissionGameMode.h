@@ -23,8 +23,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZCoverPointManager* CoverPointManager;
     
-    UPROPERTY(Instanced, meta=(AllowPrivateAccess=true))
-    UDEPRECATED_SBZFirePermissionManager* FirePermissionManager_DEPRECATED;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UDEPRECATED_SBZFirePermissionManager* FirePermissionManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZReconnectPlayerStateData> ReconnectPlayerStateDataArray;
@@ -33,8 +33,7 @@ protected:
     int32 MaxInactivePlayers;
     
 public:
-    ASBZMissionGameMode(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMissionGameMode(const class FObjectInitializer& ObjectInitializer);
 protected:
     UFUNCTION(BlueprintCallable)
     void OnActionPhaseStarted();

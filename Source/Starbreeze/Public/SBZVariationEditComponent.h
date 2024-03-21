@@ -5,6 +5,8 @@
 #include "SBZVariationEditComponent.generated.h"
 
 class USBZVariationSetData;
+class USkeletalMeshComponent;
+class UStaticMeshComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZVariationEditComponent : public UActorComponent {
@@ -19,7 +21,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 CurrentVariationIdx;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USkeletalMeshComponent* SkeletalMeshComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UStaticMeshComponent* StaticMeshComponent;
+    
     USBZVariationEditComponent();
-
 };
 

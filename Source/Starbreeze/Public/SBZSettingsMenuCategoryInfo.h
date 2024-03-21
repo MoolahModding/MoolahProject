@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZSettingsMenuGroupInfo.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSettingsMenuCategoryInfo.generated.h"
 
-class UClass;
+class USBZSettingsFunctions;
 
 USTRUCT(BlueprintType)
 struct FSBZSettingsMenuCategoryInfo {
@@ -28,7 +29,7 @@ public:
     FName CategoryName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SettingsFunctions;
+    TSubclassOf<USBZSettingsFunctions> SettingsFunctions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZSettingsMenuGroupInfo> SettingsGroups;

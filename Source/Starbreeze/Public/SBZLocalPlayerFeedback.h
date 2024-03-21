@@ -5,13 +5,13 @@
 #include "UObject/NoExportTypes.h"
 #include "Curves/CurveFloat.h"
 #include "SBZLockCameraData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZLocalPlayerFeedback.generated.h"
 
 class ASBZPlayerCameraManager;
 class UAkAudioEvent;
 class UAkComponent;
 class UCameraShakeBase;
-class UClass;
 class UForceFeedbackEffect;
 class UNiagaraComponent;
 class UNiagaraSystem;
@@ -60,7 +60,7 @@ protected:
     float ParticleLifeTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CameraShakeClass;
+    TSubclassOf<UCameraShakeBase> CameraShakeClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CameraShakeScale;
@@ -73,6 +73,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TopPassFieldOfViewAngle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FieldOfViewOverridenAngle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector CameraPositionModifier;
@@ -111,6 +114,9 @@ protected:
     int32 Priority;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 OverridenFOVPriority;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bRemoveAtEndOfActionPhase;
     
 private:
@@ -131,6 +137,5 @@ private:
     
 public:
     USBZLocalPlayerFeedback();
-
 };
 

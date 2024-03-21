@@ -9,7 +9,6 @@ class USBZVoipWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZVoipWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerTalkingChangedEvent(const FString& PlayerName, bool bPlayerTalking);

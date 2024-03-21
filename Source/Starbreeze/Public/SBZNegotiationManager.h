@@ -21,7 +21,6 @@ private:
     
 public:
     USBZNegotiationManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPawnKilledDuringNegotiation(APawn* DeadPawn);

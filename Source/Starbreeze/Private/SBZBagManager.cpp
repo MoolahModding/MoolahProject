@@ -1,10 +1,6 @@
 #include "SBZBagManager.h"
 #include "Net/UnrealNetwork.h"
 
-USBZBagManager::USBZBagManager() : UActorComponent(FObjectInitializer::Get()) {
-    
-}
-
 bool USBZBagManager::TryRemoveClaim(FSBZBagHandle Handle, AActor* Actor) {
     return false;
 }
@@ -26,6 +22,9 @@ void USBZBagManager::Multicast_RemoveClaim_Implementation(const int32 BagId) {
 void USBZBagManager::Multicast_RemoveBag_Implementation(const int32 BagId) {
 }
 
+void USBZBagManager::Multicast_CreateBagArray_Implementation(const int32 FirstBagId, const USBZBagType* BagType, const int32 NumberOfBags) {
+}
+
 void USBZBagManager::Multicast_CreateBag_Implementation(const int32 BagId, const USBZBagType* BagType) {
 }
 
@@ -40,7 +39,7 @@ FSBZBagPersistentData USBZBagManager::GetValidBagData(FSBZBagHandle Handle) cons
     return FSBZBagPersistentData{};
 }
 
-USBZBagManager* USBZBagManager::Get(UObject* WorldContextObject) {
+USBZBagManager* USBZBagManager::Get(const UObject* WorldContextObject) {
     return NULL;
 }
 
@@ -58,4 +57,6 @@ void USBZBagManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     DOREPLIFETIME(USBZBagManager, Bags);
 }
 
+USBZBagManager::USBZBagManager() {
+}
 

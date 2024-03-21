@@ -3,4 +3,3 @@
 USBZDialogBodyGestureEndNotify::USBZDialogBodyGestureEndNotify() {
 }
 
-

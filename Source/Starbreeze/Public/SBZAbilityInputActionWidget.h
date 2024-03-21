@@ -32,7 +32,6 @@ private:
     
 public:
     USBZAbilityInputActionWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPlayerStateDestroyed(AActor* DestroyedActor);

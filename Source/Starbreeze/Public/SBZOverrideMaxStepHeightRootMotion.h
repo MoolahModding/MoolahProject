@@ -8,6 +8,5 @@ class USBZOverrideMaxStepHeightRootMotion : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZOverrideMaxStepHeightRootMotion();
-
 };
 

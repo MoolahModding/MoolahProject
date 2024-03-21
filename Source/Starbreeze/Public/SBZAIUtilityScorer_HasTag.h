@@ -17,6 +17,5 @@ private:
     
 public:
     USBZAIUtilityScorer_HasTag();
-
 };
 

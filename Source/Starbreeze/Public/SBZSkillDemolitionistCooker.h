@@ -8,6 +8,5 @@ class USBZSkillDemolitionistCooker : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillDemolitionistCooker();
-
 };
 

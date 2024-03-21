@@ -5,11 +5,12 @@
 #include "SBZButtonControlReference.h"
 #include "SBZInventorySlotStoreItem.h"
 #include "SBZMenuStackInventoryBaseScreen.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuGloveInventoryScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBaseInventoryItemVisualsWidget;
+class USBZInventoryDefaultButton;
 class USBZMainMenuInventoryGloveSlotButton;
 class USBZMenuButton;
 
@@ -19,7 +20,7 @@ class USBZMainMenuGloveInventoryScreen : public USBZMenuStackInventoryBaseScreen
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GloveSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventoryGloveSlotButton> GloveSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_GloveSlotButtons;
@@ -28,10 +29,10 @@ protected:
     USBZMenuButton* Button_BuySlots;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZMenuButton* Button_DefaultGlove;
+    USBZInventoryDefaultButton* Button_DefaultGlove;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DiscardGlovePopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> DiscardGlovePopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText DiscardGlovePopUpHeader;
@@ -60,11 +61,15 @@ private:
     
 public:
     USBZMainMenuGloveInventoryScreen();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardGloveInSlot(int32 InGloveIndex);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void RefreshWidgetVisuals();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryBuyGloveSlot();
     

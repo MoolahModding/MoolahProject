@@ -8,6 +8,5 @@ class USBZFootstepImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZFootstepImpactConfig();
-
 };
 

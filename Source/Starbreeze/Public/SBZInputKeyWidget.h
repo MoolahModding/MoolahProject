@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZInputKeyWidget();
-
     UFUNCTION(BlueprintCallable)
     void SetKey(FKey InKey);
     

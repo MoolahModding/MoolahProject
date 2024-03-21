@@ -8,6 +8,5 @@ class USBZEnvQueryTest_HasWard : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_HasWard();
-
 };
 

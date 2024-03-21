@@ -32,6 +32,5 @@ public:
     TArray<FSBZCustomPrimitiveData> Variations;
     
     USBZVariationSetData();
-
 };
 

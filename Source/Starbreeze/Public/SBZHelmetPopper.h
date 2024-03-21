@@ -54,6 +54,5 @@ public:
     TArray<FSBZHelmetHideInfo> HideInfo;
     
     USBZHelmetPopper();
-
 };
 

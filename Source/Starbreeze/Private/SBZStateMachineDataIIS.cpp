@@ -4,4 +4,3 @@ USBZStateMachineDataIIS::USBZStateMachineDataIIS() {
     this->ReturnReason = ESBZReturnToIISReason::NoError;
 }
 
-

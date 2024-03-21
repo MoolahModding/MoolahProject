@@ -8,6 +8,5 @@ class USBZShieldHunkeredDownNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZShieldHunkeredDownNotifyState();
-
 };
 

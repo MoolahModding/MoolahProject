@@ -58,7 +58,7 @@ public:
     int32 MaxSpawnGroupQueryCount;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FPD3AssaultPlatformSettings PlatformSettingsArray[3];
+    FPD3AssaultPlatformSettings PlatformSettingsArray[4];
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FPD3AssaultDifficultySettings DifficultySettingsArray[4];
@@ -79,9 +79,6 @@ public:
     float SpawnerDistScoreWeight;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGameplayTag, int32> TypeLimits;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, float> TypeCooldowns;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -97,18 +94,14 @@ public:
     float VehicleSpawnChance;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFloatInterval CloakerControlSpawnDelay;
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CloakerRegroupSpawnChance[4];
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FInt32Interval AttackingAiPerPlayer[4];
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 MaxNrAttackers[4];
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayTag, int32> TypeLimits;
+    
     UPD3AssaultSettings();
-
 };
 

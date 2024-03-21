@@ -20,7 +20,6 @@ private:
     
 public:
     USBZVehicleManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnExitedActionPhase();

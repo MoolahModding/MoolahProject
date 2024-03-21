@@ -4,4 +4,3 @@ USBZVehicleWheel::USBZVehicleWheel() {
     this->bDriven = true;
 }
 
-

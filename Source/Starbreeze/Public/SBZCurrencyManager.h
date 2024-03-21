@@ -22,7 +22,6 @@ private:
     
 public:
     USBZCurrencyManager();
-
     UFUNCTION(BlueprintCallable)
     void SubtractCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int32 Amount);
     

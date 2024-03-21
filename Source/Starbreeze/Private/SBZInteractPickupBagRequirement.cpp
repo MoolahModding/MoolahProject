@@ -3,4 +3,3 @@
 USBZInteractPickupBagRequirement::USBZInteractPickupBagRequirement() {
 }
 
-

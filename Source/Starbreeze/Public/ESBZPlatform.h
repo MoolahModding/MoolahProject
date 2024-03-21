@@ -4,6 +4,7 @@
 
 UENUM(BlueprintType)
 enum class ESBZPlatform : uint8 {
+    Unknown,
     Windows,
     Playstation,
     Xbox,

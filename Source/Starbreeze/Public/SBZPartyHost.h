@@ -46,7 +46,6 @@ private:
     
 public:
     USBZPartyHost();
-
     UFUNCTION(BlueprintCallable)
     void NotifyClientLeftLobby(const FUniqueNetIdRepl& PartyMemberId);
     

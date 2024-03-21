@@ -21,6 +21,5 @@ public:
     TSoftObjectPtr<USkeletalMesh> AgilitySkeletalPreview;
     
     USBZDebugPreviewSettings();
-
 };
 

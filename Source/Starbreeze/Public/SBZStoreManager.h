@@ -32,7 +32,6 @@ private:
     
 public:
     USBZStoreManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZStoreManager* GetStoreManager(const UObject* WorldContextObject);
     

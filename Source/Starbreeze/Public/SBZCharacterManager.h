@@ -11,7 +11,6 @@ class USBZCharacterManager : public UObject {
     GENERATED_BODY()
 public:
     USBZCharacterManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetPreferredCharacters(TArray<FSBZCharacterSlotData>& PreferredCharacterIndexArrayOut);
     

@@ -15,6 +15,6 @@ enum class ESBZFramerateLimit {
     _240 = 0xF0,
     _360 = 0x168,
     Unlimited = 0x0,
-    Invalid = 0xFF,
+    Invalid = -0x1,
 };
 

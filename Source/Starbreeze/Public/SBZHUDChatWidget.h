@@ -3,16 +3,19 @@
 #include "Types/SlateEnums.h"
 #include "SBZAICrewChatEvent.h"
 #include "SBZAICrewDefeatStateChangedData.h"
+#include "SBZDelegateHandle.h"
 #include "SBZHUDWidgetBase.h"
 #include "SBZKeyItemCountChangedEvent.h"
 #include "SBZPlayerCallEvent.h"
 #include "SBZPlayerChatEvent.h"
 #include "SBZPlayerDefeatStateChangedData.h"
 #include "SBZPlayerPingEvent.h"
+#include "SBZPlayerStateRemovedEvent.h"
 #include "SBZSystemChatEvent.h"
 #include "SBZVotingChatEvent.h"
 #include "SBZHUDChatWidget.generated.h"
 
+class ASBZPlayerState;
 class UEditableTextBox;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -35,9 +38,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsChatDisabled;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZPlayerDefeatStateChangedData> QueuedPlayerDefeatStateChangedDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<ASBZPlayerState*, FSBZDelegateHandle> PlayerNameChangedHandleMap;
+    
 public:
     USBZHUDChatWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void VotingMessageReceived(const FSBZVotingChatEvent& ChatEventData);
@@ -61,6 +70,15 @@ private:
     void OnTextCommited(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
     
 protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPlayerStateRemoved(const FSBZPlayerStateRemovedEvent& PlayerStateRemovedData);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPlayerJoinedTheHeist(const FText& JoinedPlayerName);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnPlayerDefeatStateChangedInternal(const FSBZPlayerDefeatStateChangedData& InData);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerDefeatStateChanged(const FSBZPlayerDefeatStateChangedData& InData);
     

@@ -8,6 +8,5 @@ class USBZDetachableCuttingToolExecutionCalculation : public UGameplayEffectExec
     GENERATED_BODY()
 public:
     USBZDetachableCuttingToolExecutionCalculation();
-
 };
 

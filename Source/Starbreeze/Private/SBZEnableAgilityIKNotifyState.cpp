@@ -8,4 +8,3 @@ USBZEnableAgilityIKNotifyState::USBZEnableAgilityIKNotifyState() {
     this->PointType = ESBZAgilityPointType::FrontEdgeTop;
 }
 
-

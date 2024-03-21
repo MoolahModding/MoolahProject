@@ -13,6 +13,5 @@ public:
     TArray<USBZSuitPresetData*> SuitPresets;
     
     USBZSuitPresetDatabase();
-
 };
 

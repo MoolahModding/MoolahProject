@@ -1,13 +1,5 @@
 #include "SBZVehicleSpawnComponent.h"
 
-USBZVehicleSpawnComponent::USBZVehicleSpawnComponent() {
-    this->bEnableForAssault = false;
-    this->MaxNumSpawn = -1;
-    this->bInitialSpawnOnly = false;
-    this->bCustomSpawnCompleted = false;
-    this->SpawnGroup = NULL;
-}
-
 void USBZVehicleSpawnComponent::SpawnCompleted(ESBZVehicleSpawnResult Result) {
 }
 
@@ -29,4 +21,11 @@ void USBZVehicleSpawnComponent::OnAerialStarted(ASBZAerialVehicle* Vehicle, ASBZ
 void USBZVehicleSpawnComponent::OnAerialReachedPathEnd(ASBZAerialVehicle* Vehicle) {
 }
 
+USBZVehicleSpawnComponent::USBZVehicleSpawnComponent() {
+    this->bEnableForAssault = false;
+    this->MaxNumSpawn = -1;
+    this->bInitialSpawnOnly = false;
+    this->bCustomSpawnCompleted = false;
+    this->SpawnGroup = NULL;
+}
 

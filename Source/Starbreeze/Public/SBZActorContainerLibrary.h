@@ -12,7 +12,6 @@ class USBZActorContainerLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZActorContainerLibrary();
-
     UFUNCTION(BlueprintCallable)
     static AActor* FindNearestActorFromContainer(const USBZActorContainer* Container, const FVector& Location);
     

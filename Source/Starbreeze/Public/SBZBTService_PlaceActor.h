@@ -20,6 +20,5 @@ protected:
     
 public:
     USBZBTService_PlaceActor();
-
 };
 

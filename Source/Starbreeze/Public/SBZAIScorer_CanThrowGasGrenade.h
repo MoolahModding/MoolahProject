@@ -8,6 +8,5 @@ class USBZAIScorer_CanThrowGasGrenade : public USBZAIScorer {
     GENERATED_BODY()
 public:
     USBZAIScorer_CanThrowGasGrenade();
-
 };
 

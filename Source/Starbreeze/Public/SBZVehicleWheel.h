@@ -11,6 +11,5 @@ public:
     bool bDriven;
     
     USBZVehicleWheel();
-
 };
 

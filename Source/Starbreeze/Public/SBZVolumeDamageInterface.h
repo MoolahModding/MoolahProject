@@ -2,11 +2,14 @@
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
 #include "GameplayTagContainer.h"
+#include "Templates/SubclassOf.h"
 #include "SBZVolumeDamageInterface.generated.h"
 
 class AActor;
-class UClass;
+class UGameplayEffect;
 class UObject;
+class USBZDamageType;
+class USBZVolumeDamageEffect;
 
 UINTERFACE(Blueprintable)
 class USBZVolumeDamageInterface : public UInterface {
@@ -20,7 +23,7 @@ public:
     bool IsVolumeDamageReady() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UClass* GetVolumeDamageType() const;
+    TSubclassOf<USBZDamageType> GetVolumeDamageType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetVolumeDamageTickSeconds() const;
@@ -32,7 +35,7 @@ public:
     AActor* GetVolumeDamageOwner(UObject* ThisObject) const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UClass* GetVolumeDamageEffectClass() const;
+    TSubclassOf<USBZVolumeDamageEffect> GetVolumeDamageEffectClass() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetVolumeDamageArmorPenetration() const;
@@ -44,7 +47,7 @@ public:
     TMap<FName, float> GetTacticianDiscombobulateVolumeDamageEffectValueMap() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UClass* GetTacticianDiscombobulateVolumeDamageEffectClass() const;
+    TSubclassOf<UGameplayEffect> GetTacticianDiscombobulateVolumeDamageEffectClass() const;
     
 };
 

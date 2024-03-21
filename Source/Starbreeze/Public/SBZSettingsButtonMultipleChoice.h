@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZSettingsButtonMultipleChoice();
-
     UFUNCTION(BlueprintCallable)
     void SetOptionNames(const TArray<FText>& InOptionNames);
     

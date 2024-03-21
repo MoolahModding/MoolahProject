@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZStateMachineStateWaitingActionPhaseBase();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void HandleTransitionGameModeReady();

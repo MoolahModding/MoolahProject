@@ -3,4 +3,3 @@
 USBZStateMachineStateHostMigration::USBZStateMachineStateHostMigration() {
 }
 
-

@@ -6,6 +6,10 @@
 #include "SBZObservableActorContainer.h"
 #include "SBZSignificanceManager.h"
 
+USBZWorldRuntime* USBZWorldRuntime::Get(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 USBZWorldRuntime::USBZWorldRuntime() {
     this->AllPawns = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllPawns"));
     this->AllPlayerCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllPlayerCharacters"));
@@ -46,10 +50,6 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllSensorToolOrangeActors = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllSensorToolOrangeActors"));
     this->AllScreenInteractComponents = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllScreenInteractComponents"));
     this->AllCrewAILifeActionComponents = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllCrewAILifeActionComponents"));
+    this->AllAITowerHideLifeActionObjects = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllAITowerHideLifeActionComponents"));
 }
-
-USBZWorldRuntime* USBZWorldRuntime::Get(const UObject* WorldContextObject) {
-    return NULL;
-}
-
 

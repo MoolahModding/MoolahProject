@@ -22,10 +22,9 @@ protected:
     USBZOnlineSession* OnlineSession;
     
 public:
-    ASBZOnlineSlotsSync(const FObjectInitializer& ObjectInitializer);
-
+    ASBZOnlineSlotsSync();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void UpdatePlayerName(ASBZPlayerState* InPlayerState);

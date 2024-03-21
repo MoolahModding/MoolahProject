@@ -13,7 +13,6 @@ class STARBREEZE_API USBZGameStateMachineFunctionLibrary : public UBlueprintFunc
     GENERATED_BODY()
 public:
     USBZGameStateMachineFunctionLibrary();
-
     UFUNCTION(BlueprintCallable)
     static bool IsValidPakchunkIndex(int32 PakchunkIndex);
     

@@ -23,10 +23,9 @@ protected:
     bool bState;
     
 public:
-    ASBZStaticInteractionBinaryState(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStaticInteractionBinaryState();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     

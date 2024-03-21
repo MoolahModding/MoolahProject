@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
-#include "GameplayTagContainer.h"
+//CROSS-MODULE INCLUDE V2: -ModuleName=CoreUObject -ObjectName=Int32Interval -FallbackName=Int32Interval
+//CROSS-MODULE INCLUDE V2: -ModuleName=CoreUObject -ObjectName=Vector -FallbackName=Vector
+//CROSS-MODULE INCLUDE V2: -ModuleName=GameplayTags -ObjectName=GameplayTagContainer -FallbackName=GameplayTagContainer
 #include "ESBZAIBehaviorCategory.h"
 #include "ESBZAICharacterVariationCategory.h"
 #include "ESBZInteractionAction.h"
@@ -19,18 +19,23 @@
 #include "SBZOnHumanShieldDelegate.h"
 #include "SBZOnPlayerMeleeHitReceivedDelegate.h"
 #include "SBZTagStanceMapping.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAICharacter.generated.h"
 
 class ASBZAIPointOfInterest;
 class ASBZAIPointOfInterestDeadBody;
+class ASBZAmmoPickup;
 class ASBZCarriedStaticInteractionActor;
 class ASBZCharacter;
 class ASBZLifeActionTriggerVolume;
+class ASBZPlaceableCharges;
 class ASBZPlayerCharacter;
 class ASBZPlayerState;
-class UClass;
 class UDEPRECATED_SBZAlertnessDataComponent;
+class UGameplayEffect;
+class UNavigationQueryFilter;
 class UPhysicalAnimationComponent;
+class USBZAIAction;
 class USBZAIEquipmentData;
 class USBZAIUtilityData;
 class USBZBaseInteractableComponent;
@@ -108,16 +113,16 @@ protected:
     USBZAIUtilityData* SurrenderedUtilityData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* AmmoPickupAsset;
+    TSubclassOf<ASBZAmmoPickup> AmmoPickupAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> PlaceablePickupAssetArray;
+    TArray<TSubclassOf<ASBZPlaceableCharges>> PlaceablePickupAssetArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PlaceableSpawnForwardOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> TradeHostagePickupAssetArray;
+    TArray<TSubclassOf<ASBZPlaceableCharges>> TradeHostagePickupAssetArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UDEPRECATED_SBZAlertnessDataComponent* AlertnessDataComponent;
@@ -144,7 +149,7 @@ protected:
     float PreferredCoverDist;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<ESBZInteractionAction, UClass*> InteractionActions;
+    TMap<ESBZInteractionAction, TSubclassOf<USBZAIAction>> InteractionActions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* TradeOutline;
@@ -180,7 +185,7 @@ protected:
     float ShotBlockedDownTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SurrenderedNavFilter;
+    TSubclassOf<UNavigationQueryFilter> SurrenderedNavFilter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZTagStanceMapping> TagToStanceMappingTable;
@@ -205,13 +210,13 @@ private:
     USBZVoiceCommentDataAsset* HumanShieldReleased;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DeadBodyPOIClass;
+    TSubclassOf<ASBZAIPointOfInterestDeadBody> DeadBodyPOIClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HostagePOIClass;
+    TSubclassOf<ASBZAIPointOfInterest> HostagePOIClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HumanShieldPOIClass;
+    TSubclassOf<ASBZAIPointOfInterest> HumanShieldPOIClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZAIPointOfInterestDeadBody* DeadBodyPOIInstance;
@@ -252,6 +257,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsPagerSnatched: 1;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint8 bIsScramblerSignalScanSkillActive: 1;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZPagerData* PagerData;
     
@@ -262,7 +270,7 @@ private:
     USBZInteractorComponent* PagerSnatchedInteractor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* NavQueryFilterOverride;
+    TSubclassOf<UNavigationQueryFilter> NavQueryFilterOverride;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint16 ValidTargetDefeatStates;
@@ -274,7 +282,7 @@ private:
     float CivilianNearRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HackedGameplayEffectClass;
+    TSubclassOf<UGameplayEffect> HackedGameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZCarriedStaticInteractionActor* AttachedLoot;
@@ -283,7 +291,7 @@ private:
     ASBZLifeActionTriggerVolume* CurrentLifeActionTriggerVolume;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZPlayerCharacter* LocallyKilledByPlayer;
+    ASBZPlayerCharacter* LocallyDamagedByPlayer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZCharacter* PendingMeleeDownOnGoundInstigator;
@@ -297,16 +305,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString MarkGuard;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSet<int32> CQCSpecialistPinPullerDoneSet;
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<uint32> CQCSpecialistPinPullerDoneSet;
+    
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<uint32> CQCSpecialistSoftAssetsDoneSet;
     
 public:
-    ASBZAICharacter(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAICharacter(const class FObjectInitializer& ObjectInitializer);
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
-    ASBZCarriedStaticInteractionActor* SpawnLootOnCharacter(UClass* ClassTOSpawn);
+    ASBZCarriedStaticInteractionActor* SpawnLootOnCharacter(TSubclassOf<ASBZCarriedStaticInteractionActor> ClassTOSpawn);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -325,6 +335,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnServerEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnServerECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
     UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
@@ -358,9 +371,6 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime);
     
 protected:
     UFUNCTION(BlueprintCallable)
@@ -422,7 +432,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnTagReactionPlayed();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

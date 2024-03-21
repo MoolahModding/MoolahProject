@@ -12,8 +12,5 @@ USBZHeadbobData::USBZHeadbobData() {
     this->LocomotionFPRigModifier = 0.50f;
     this->BreathingFPRigModifier = 0.50f;
     this->TargetingData = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZHeadbobData::StaticClass();
 }
-
 

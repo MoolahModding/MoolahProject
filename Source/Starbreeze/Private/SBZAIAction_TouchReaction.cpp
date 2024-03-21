@@ -8,4 +8,3 @@ USBZAIAction_TouchReaction::USBZAIAction_TouchReaction() {
     this->Escalation = NULL;
 }
 
-

@@ -24,9 +24,8 @@ protected:
     
 public:
     USBZSimplePhysicsCorrector();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable)
     void SetVelocity(FVector Vel);
     

@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "SBZArmorDamageScaleOverrideData.h"
 #include "SBZInventoryBaseData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZArmorData.generated.h"
 
-class UClass;
+class UGameplayEffect;
 
 UCLASS(Blueprintable)
 class USBZArmorData : public USBZInventoryBaseData {
@@ -12,13 +13,12 @@ class USBZArmorData : public USBZInventoryBaseData {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> GameplayEffectArray;
+    TArray<TSubclassOf<UGameplayEffect>> GameplayEffectArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZArmorDamageScaleOverrideData> ArmorDamageScaleOverrideDataArray;
     
 public:
     USBZArmorData();
-
 };
 

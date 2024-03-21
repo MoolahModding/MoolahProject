@@ -37,7 +37,6 @@ private:
     
 public:
     USBZReticleWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCrossHairVisibilityChanged(bool bIsVisible);

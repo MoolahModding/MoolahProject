@@ -24,7 +24,6 @@ private:
     
 public:
     USBZReplayManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRecording() const;
     

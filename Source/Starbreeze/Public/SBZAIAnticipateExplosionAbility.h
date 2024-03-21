@@ -26,6 +26,5 @@ protected:
     
 public:
     USBZAIAnticipateExplosionAbility();
-
 };
 

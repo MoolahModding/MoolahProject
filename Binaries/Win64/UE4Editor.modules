@@ -2,6 +2,7 @@
 	"BuildId": "17155196",
 	"Modules": 
 	{
+		"PAYDAY3": "UE4Editor-PAYDAY3.dll",
 		"SBZWorldRuntime": "UE4Editor-SBZWorldRuntime.dll",
 		"Starbreeze": "UE4Editor-Starbreeze.dll"
 	}

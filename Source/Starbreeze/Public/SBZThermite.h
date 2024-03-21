@@ -91,10 +91,9 @@ protected:
     int32 InitialSeed;
     
 public:
-    ASBZThermite(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThermite();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetOutsideInterferenceActive(const bool bInActive);
     
@@ -141,7 +140,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnFlashOver();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

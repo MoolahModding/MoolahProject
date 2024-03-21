@@ -25,10 +25,9 @@ protected:
     
 public:
     USBZAIOrder_Escalate();
-
 private:
     UFUNCTION(BlueprintCallable)
-    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime);
+    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 };
 

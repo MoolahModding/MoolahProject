@@ -5,11 +5,12 @@
 #include "NavLinkCustomInterface.h"
 #include "SBZAgilityTrajectoryInterface.h"
 #include "SBZBlockableNavlinkInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGateNavLinkComponent.generated.h"
 
 class AController;
 class ASBZCharacter;
-class UClass;
+class UNavArea;
 class USBZNavLinkAgilityComponent;
 
 UCLASS(Blueprintable, EditInlineNew, HideDropdown, ClassGroup=Custom, Within=SBZGate, meta=(BlueprintSpawnableComponent))
@@ -36,12 +37,11 @@ private:
     AController* AllowedBlockingController;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* OriginalAreaClass;
+    TSubclassOf<UNavArea> OriginalAreaClass;
     
 public:
     USBZGateNavLinkComponent();
-
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

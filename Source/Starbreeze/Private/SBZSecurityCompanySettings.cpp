@@ -1,8 +1,5 @@
 #include "SBZSecurityCompanySettings.h"
 
-USBZSecurityCompanySettings::USBZSecurityCompanySettings() {
-}
-
 bool USBZSecurityCompanySettings::HasLeadGuard(const UObject* WorldContextObject) {
     return false;
 }
@@ -19,4 +16,6 @@ FSBZSecurityCompanySettingData USBZSecurityCompanySettings::Get() {
     return FSBZSecurityCompanySettingData{};
 }
 
+USBZSecurityCompanySettings::USBZSecurityCompanySettings() {
+}
 

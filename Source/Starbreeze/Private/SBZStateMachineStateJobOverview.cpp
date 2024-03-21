@@ -1,9 +1,5 @@
 #include "SBZStateMachineStateJobOverview.h"
 
-USBZStateMachineStateJobOverview::USBZStateMachineStateJobOverview() {
-    this->JobOverviewWidget = NULL;
-}
-
 void USBZStateMachineStateJobOverview::WaitForRandomizedRooms() {
 }
 
@@ -67,4 +63,7 @@ void USBZStateMachineStateJobOverview::ClientDisconnected(const FUniqueNetIdRepl
 void USBZStateMachineStateJobOverview::AutoReadyTimeout() {
 }
 
+USBZStateMachineStateJobOverview::USBZStateMachineStateJobOverview() {
+    this->JobOverviewWidget = NULL;
+}
 

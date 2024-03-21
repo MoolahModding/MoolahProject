@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZEscortPoint : public AActor {
     GENERATED_BODY()
 public:
-    ASBZEscortPoint(const FObjectInitializer& ObjectInitializer);
-
+    ASBZEscortPoint();
 };
 

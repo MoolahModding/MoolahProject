@@ -13,6 +13,5 @@ public:
     TArray<ASBZPlayerState*> PlayersReadyStatus;
     
     USBZCommonStateMachine();
-
 };
 

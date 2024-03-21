@@ -1,10 +1,5 @@
 #include "SBZMainMenuCosmeticSlotButton.h"
 
-USBZMainMenuCosmeticSlotButton::USBZMainMenuCosmeticSlotButton() {
-    this->PartSlot = NULL;
-    this->ItemInSlot = NULL;
-}
-
 void USBZMainMenuCosmeticSlotButton::SetItemInSlot(const USBZInventoryBaseData* InItemBaseData) {
 }
 
@@ -16,4 +11,8 @@ void USBZMainMenuCosmeticSlotButton::InitializeButton(const USBZCosmeticsPartSlo
 }
 
 
+USBZMainMenuCosmeticSlotButton::USBZMainMenuCosmeticSlotButton() {
+    this->PartSlot = NULL;
+    this->ItemInSlot = NULL;
+}
 

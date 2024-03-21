@@ -8,6 +8,5 @@ class USBZAttractorPredicate_RoomSoundDistance : public USBZAttractorPredicate {
     GENERATED_BODY()
 public:
     USBZAttractorPredicate_RoomSoundDistance();
-
 };
 

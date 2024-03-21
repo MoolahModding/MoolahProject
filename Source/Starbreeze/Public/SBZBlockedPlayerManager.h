@@ -17,7 +17,6 @@ private:
     
 public:
     USBZBlockedPlayerManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void XsxBlockListChangeTimer();

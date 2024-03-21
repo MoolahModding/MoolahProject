@@ -65,6 +65,5 @@ protected:
     
 public:
     USBZAICharacterMovementComponent();
-
 };
 

@@ -3,4 +3,3 @@
 USBZAttractorPredicate_RoomSoundDistance::USBZAttractorPredicate_RoomSoundDistance() {
 }
 
-

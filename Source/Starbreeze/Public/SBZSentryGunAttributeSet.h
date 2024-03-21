@@ -8,6 +8,5 @@ class USBZSentryGunAttributeSet : public USBZPawnAttributeSet {
     GENERATED_BODY()
 public:
     USBZSentryGunAttributeSet();
-
 };
 

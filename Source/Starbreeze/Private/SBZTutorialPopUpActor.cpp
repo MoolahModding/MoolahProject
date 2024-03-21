@@ -1,12 +1,4 @@
 #include "SBZTutorialPopUpActor.h"
-#include "Components/SceneComponent.h"
-
-ASBZTutorialPopUpActor::ASBZTutorialPopUpActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
-}
 
 void ASBZTutorialPopUpActor::ShowTutorialPopUp(const int32 TutorialIndex, FSBZOnPopUpWidgetClosed InTutorialPopUpClosed) {
 }
@@ -35,4 +27,6 @@ void ASBZTutorialPopUpActor::Client_ShowSideBarNotification_Implementation(const
 void ASBZTutorialPopUpActor::Client_ShowControlsReference_Implementation(const int32 Index) {
 }
 
+ASBZTutorialPopUpActor::ASBZTutorialPopUpActor() {
+}
 

@@ -1,8 +1,5 @@
 #include "SBZStateMachineStateWaitingActionPhaseClient.h"
 
-USBZStateMachineStateWaitingActionPhaseClient::USBZStateMachineStateWaitingActionPhaseClient() {
-}
-
 void USBZStateMachineStateWaitingActionPhaseClient::ReceivedHostUpdate() {
 }
 
@@ -15,4 +12,6 @@ void USBZStateMachineStateWaitingActionPhaseClient::HandleJoinedHost(UWorld* New
 void USBZStateMachineStateWaitingActionPhaseClient::HandleGameStateReady() {
 }
 
+USBZStateMachineStateWaitingActionPhaseClient::USBZStateMachineStateWaitingActionPhaseClient() {
+}
 

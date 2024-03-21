@@ -2,6 +2,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/CheatManager.h"
 #include "Engine/EngineTypes.h"
+#include "ESBZCurrencyCode.h"
+#include "ESBZDebugNetEmulationTarget.h"
+#include "ESBZDebugNetEmulationType.h"
 #include "ESBZGameMachineStateError.h"
 #include "SBZDebugSelection.h"
 #include "SBZCheatManagerBase.generated.h"
@@ -27,9 +30,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZAccelByteAdminHelper* AccelByteAdminHelper;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ESBZDebugNetEmulationType SelectedEmulationType;
+    
 public:
     USBZCheatManagerBase();
-
     UFUNCTION(BlueprintCallable, Exec)
     void VoteRestartLevel();
     
@@ -55,10 +60,40 @@ public:
     void ToggleCVar(const FString& CVar, int32 First, int32 Second);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SimulateLobbyConnectSuccess();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SimulateLobbyCloseConnection();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetPaused(bool bIsPaused);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetNetEmulationType(ESBZDebugNetEmulationType Type, ESBZDebugNetEmulationTarget Target);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetListenerEnabled(bool bIsEnabled);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetInputTypeOverride(int32 Override);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetInfamyLevelExperience(int32 Level, int32 Experience);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetInfamyLevel(int32 Amount, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetInfamyExperience(int32 Amount, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetDebugEarnedExperiencePoints(int32 EarnedExperiencePoints);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetCulture(const FString& Name);
@@ -127,7 +162,10 @@ public:
     void RequestGameError(ESBZGameMachineStateError State, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void PrintWarning(const FString& Text, bool bIsDecodingNeeded);
+    void RemoveCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintWarning(const FString& Text, bool bIsDecodingNeeded) const;
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintVersion();
@@ -145,7 +183,7 @@ public:
     void PrintSelection(int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void PrintLog(const FString& Text, bool bIsDecodingNeeded);
+    void PrintLog(const FString& Text, bool bIsDecodingNeeded) const;
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintInputEnabledBothCurrent();
@@ -154,7 +192,7 @@ public:
     void PrintInputEnabled(int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void PrintError(const FString& Text, bool bIsDecodingNeeded);
+    void PrintError(const FString& Text, bool bIsDecodingNeeded) const;
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintAbilitySystemBothCurrent();
@@ -184,6 +222,15 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpAssetDatabase();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpAllPlayerStatistics(int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpAllPlayersInfamyAndPlatform();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpAllPlayersAccelByteDisplayName();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpActiveLoadout();
@@ -222,7 +269,16 @@ public:
     void DebugChallengeRecords(const FString& Tag, const FString& Status, int32 Offset, int32 Limit);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void CompleteChallenge(int32 Count, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ClearFriends();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ChangeStatCode(const FString& StatCode, int32 Count, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void AddCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
     
 };
 

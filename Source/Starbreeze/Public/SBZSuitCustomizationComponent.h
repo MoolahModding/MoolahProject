@@ -10,8 +10,15 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZSuitCustomizationComponent : public UActorComponent {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USkeletalMeshComponent* MeshComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZSuitConfig SuitConfig;
+    
+public:
     USBZSuitCustomizationComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetSuitConfig(const FSBZSuitConfig& Config);
     

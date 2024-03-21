@@ -8,6 +8,5 @@ class USBZMeleeWeaponExecutionCalculation : public UGameplayEffectExecutionCalcu
     GENERATED_BODY()
 public:
     USBZMeleeWeaponExecutionCalculation();
-
 };
 

@@ -16,9 +16,8 @@ protected:
     
 public:
     USBZPartyClient();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerNotifyLeftLobby(const FUniqueNetIdRepl& ClientId);

@@ -4,4 +4,3 @@ USBZRappellingRopeNotifyState::USBZRappellingRopeNotifyState() {
     this->RappellingRopeData = NULL;
 }
 
-

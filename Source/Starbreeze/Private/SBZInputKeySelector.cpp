@@ -1,10 +1,5 @@
 #include "SBZInputKeySelector.h"
 
-USBZInputKeySelector::USBZInputKeySelector() {
-    this->Button_Background = NULL;
-    this->Widget_InputKey = NULL;
-}
-
 void USBZInputKeySelector::SetSelectedKey(const FInputChord& InSelectedKey) {
 }
 
@@ -38,4 +33,8 @@ void USBZInputKeySelector::OnFocusLost_Internal(FFocusEvent InFocusEvent) {
 void USBZInputKeySelector::OnClicked_Internal() {
 }
 
+USBZInputKeySelector::USBZInputKeySelector() {
+    this->Button_Background = NULL;
+    this->Widget_InputKey = NULL;
+}
 

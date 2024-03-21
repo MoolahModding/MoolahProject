@@ -12,7 +12,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZEllipsoidComponent* EllipsoidComponent;
     
-    ASBZEllipsoid(const FObjectInitializer& ObjectInitializer);
-
+    ASBZEllipsoid();
 };
 

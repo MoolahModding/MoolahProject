@@ -3,4 +3,3 @@
 USBZEnvQueryContext_PreferredDistancePos::USBZEnvQueryContext_PreferredDistancePos() {
 }
 
-

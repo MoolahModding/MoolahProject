@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZMainMenuInventoryGloveSlotButton();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveGloveSlot(bool bIsActiveGloveSlot);
     

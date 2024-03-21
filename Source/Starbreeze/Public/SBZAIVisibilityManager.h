@@ -63,8 +63,7 @@ protected:
     TMap<USBZAIVisibilityComponent*, FTransform> RSLVisComponentTransforms;
     
 public:
-    ASBZAIVisibilityManager(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAIVisibilityManager();
     UFUNCTION(BlueprintCallable)
     void UnregisterVisibilityComponent(USBZAIVisibilityComponent* InVisibilityComponent);
     

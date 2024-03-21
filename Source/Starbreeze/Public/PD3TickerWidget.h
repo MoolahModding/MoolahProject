@@ -30,7 +30,6 @@ protected:
     
 public:
     UPD3TickerWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnTickerModeChanged(const FText& Text, const FLinearColor& TextColor, const FLinearColor& BackgroundColor);

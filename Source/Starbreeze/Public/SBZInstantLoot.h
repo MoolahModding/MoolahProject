@@ -34,10 +34,9 @@ protected:
     bool bIsLooted;
     
 public:
-    ASBZInstantLoot(const FObjectInitializer& ObjectInitializer);
-
+    ASBZInstantLoot();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bIsEnabled);
     

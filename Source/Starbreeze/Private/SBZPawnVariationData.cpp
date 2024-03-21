@@ -2,7 +2,6 @@
 
 FSBZPawnVariationData::FSBZPawnVariationData() {
     this->PawnClass = NULL;
-    this->PawnClass = NULL;
     this->bOverrideEquipmentData = false;
     this->EquipmentData = NULL;
     this->bOverrideInitialEquippableIndex = false;

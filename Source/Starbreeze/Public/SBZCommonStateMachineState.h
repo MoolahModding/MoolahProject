@@ -27,8 +27,7 @@ protected:
     
 public:
     USBZCommonStateMachineState();
-
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

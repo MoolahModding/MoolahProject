@@ -111,11 +111,13 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName RootName;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bActiveEngine;
+    
 public:
-    ASBZAerialVehicle(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAerialVehicle();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetDoorState(uint8 NewState);
     
@@ -157,7 +159,7 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZVehicleSplineFollowingComponent* GetVehicleSplineFollowingComponent() const;
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     USBZVehicleSplineFollowingComponent* GetSplineFollowingComponent() const override PURE_VIRTUAL(GetSplineFollowingComponent, return NULL;);

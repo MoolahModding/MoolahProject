@@ -1,9 +1,5 @@
 #include "SBZMainMenuCameraManager.h"
 
-ASBZMainMenuCameraManager::ASBZMainMenuCameraManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->LobbyCameraName = TEXT("Lobby");
-}
-
 void ASBZMainMenuCameraManager::SwitchToDefaultCamera() {
 }
 
@@ -14,4 +10,7 @@ ASBZMainMenuCameraManager* ASBZMainMenuCameraManager::GetMainMenuCameraManager(c
     return NULL;
 }
 
+ASBZMainMenuCameraManager::ASBZMainMenuCameraManager() {
+    this->LobbyCameraName = TEXT("Lobby");
+}
 

@@ -3,4 +3,3 @@
 USBZCanUIActivatePhoneAbility::USBZCanUIActivatePhoneAbility() {
 }
 
-

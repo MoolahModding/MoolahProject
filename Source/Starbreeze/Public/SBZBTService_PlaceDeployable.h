@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZBTService_PlaceActor.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTService_PlaceDeployable.generated.h"
 
-class UClass;
+class ASBZPlaceableCharges;
 
 UCLASS(Blueprintable)
 class USBZBTService_PlaceDeployable : public USBZBTService_PlaceActor {
@@ -11,10 +12,9 @@ class USBZBTService_PlaceDeployable : public USBZBTService_PlaceActor {
 public:
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* Deployables[3];
+    TSubclassOf<ASBZPlaceableCharges> Deployables[3];
     
 public:
     USBZBTService_PlaceDeployable();
-
 };
 

@@ -21,8 +21,7 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZActorOnInteraction OnServerCompleteInteraction;
     
-    ASBZInteractionActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZInteractionActor();
 protected:
     UFUNCTION(BlueprintCallable)
     void HandleServerComplete(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);

@@ -1,10 +1,5 @@
 #include "SBZSaveManager.h"
 
-USBZSaveManager::USBZSaveManager() {
-    this->ProgressionSaveGame = NULL;
-    this->DefaultProgressionSaveGame = NULL;
-}
-
 void USBZSaveManager::UpdateLoadoutInLobby() {
 }
 
@@ -16,4 +11,8 @@ USBZSaveManager* USBZSaveManager::Get(const UObject* WorldContextObject) {
     return NULL;
 }
 
+USBZSaveManager::USBZSaveManager() {
+    this->ProgressionSaveGame = NULL;
+    this->DefaultProgressionSaveGame = NULL;
+}
 

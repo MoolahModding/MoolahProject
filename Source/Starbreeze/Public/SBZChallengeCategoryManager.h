@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZChallengeCategoryManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZChallengeCategoryManager* GetChallengeCategoryManager(const UObject* WorldContextObject);
     

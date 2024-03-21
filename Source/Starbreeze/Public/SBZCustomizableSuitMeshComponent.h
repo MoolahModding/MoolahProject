@@ -28,7 +28,6 @@ protected:
     
 public:
     USBZCustomizableSuitMeshComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetSuitConfig(const FSBZSuitConfig& Config);
     

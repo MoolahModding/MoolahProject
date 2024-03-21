@@ -32,7 +32,6 @@ private:
     
 public:
     USBZStateMachineStateMatchmaking();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandleSessionBecomeOutdated();

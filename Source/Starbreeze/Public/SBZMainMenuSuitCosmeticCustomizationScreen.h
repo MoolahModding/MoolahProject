@@ -3,9 +3,9 @@
 #include "SBZButtonControlReference.h"
 #include "SBZCosmeticPanelDefaultParams.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuSuitCosmeticCustomizationScreen.generated.h"
 
-class UClass;
 class USBZBaseInventoryItemVisualsWidget;
 class USBZCosmeticsDataAsset;
 class USBZCosmeticsPartSlot;
@@ -34,7 +34,7 @@ protected:
     FSBZCosmeticPanelDefaultParams DefaultButtonParams;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> PopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText PopUpHeader;
@@ -54,7 +54,6 @@ private:
     
 public:
     USBZMainMenuSuitCosmeticCustomizationScreen();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPopUpClosed(FName ClosingActionName);

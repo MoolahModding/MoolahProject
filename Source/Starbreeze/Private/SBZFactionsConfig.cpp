@@ -5,4 +5,3 @@ USBZFactionsConfig::USBZFactionsConfig() {
     this->Attitudes.AddDefaulted(11);
 }
 
-

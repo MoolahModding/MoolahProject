@@ -1,20 +1,6 @@
 #include "SBZInteractorComponent.h"
 #include "Net/UnrealNetwork.h"
 
-USBZInteractorComponent::USBZInteractorComponent() {
-    this->CurrentInteraction = NULL;
-    this->LastInteraction = NULL;
-    this->ServerCompletingInteractable = NULL;
-    this->InteractId = 0;
-    this->ModeIndex = 0;
-    this->ModeRaw = 255;
-    this->bIsInteractionSignalRequired = false;
-    this->ScreenInteractDistance = 1000.00f;
-    this->MinScreenInteractDegrees = 30.00f;
-    this->MinScreenInteractDot = 0.87f;
-    
-}
-
 void USBZInteractorComponent::Server_StopInteraction_Implementation(USBZBaseInteractableComponent* Interaction) {
 }
 
@@ -69,4 +55,19 @@ void USBZInteractorComponent::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(USBZInteractorComponent, ReplicatedData);
 }
 
+USBZInteractorComponent::USBZInteractorComponent() {
+    this->CurrentInteraction = NULL;
+    this->LastInteraction = NULL;
+    this->ServerCompletingInteractable = NULL;
+    this->TickCompleteDuration = -1.00f;
+    this->bIsCompletePending = false;
+    this->InteractId = 0;
+    this->ModeIndex = 0;
+    this->ModeRaw = 255;
+    this->bIsInteractionSignalRequired = false;
+    this->ScreenInteractDistance = 1000.00f;
+    this->MinScreenInteractDegrees = 30.00f;
+    this->MinScreenInteractDot = 0.87f;
+    this->bIsLocallyControlled = false;
+}
 

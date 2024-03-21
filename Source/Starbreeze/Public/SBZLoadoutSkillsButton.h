@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZLoadoutSkillsButton();
-
     UFUNCTION(BlueprintCallable)
     void NativeInitializeSkills(const TArray<USBZSkillData*>& SkillList);
     

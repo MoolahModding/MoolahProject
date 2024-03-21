@@ -3,8 +3,10 @@
 #include "Perception/AISightTargetInterface.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "Curves/CurveFloat.h"
+#include "SBZAbilitySystemComponent.h"
 #include "SBZArmedPawn.h"
 #include "SBZDamageDistance.h"
 #include "SBZExplosionResult.h"
@@ -12,6 +14,7 @@
 #include "SBZExplosivePhysicsEffectData.h"
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSentryGun.generated.h"
 
 class AActor;
@@ -21,13 +24,16 @@ class UAkAudioEvent;
 class UAkComponent;
 class UAnimMontage;
 class UBoxComponent;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
 class UProjectileMovementComponent;
 class USBZBaseInteractableComponent;
-class USBZInteractableComponent;
+class USBZDamageType;
 class USBZInteractorComponent;
+class USBZLocalPlayerFeedback;
+class USBZOutlineAsset;
 class USBZSentryGunAttributeSet;
+class USBZSentryInteractableComponent;
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
@@ -87,7 +93,7 @@ protected:
     UAkAudioEvent* DetonationEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZInteractableComponent* Interactable;
+    USBZSentryInteractableComponent* Interactable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OwnerPlayerState, meta=(AllowPrivateAccess=true))
     ASBZPlayerState* OwnerPlayerState;
@@ -105,19 +111,22 @@ protected:
     float CurrentSentryRotationCooldown;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZOutlineAsset* LocallyControlledOutline;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ExplosionRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UNiagaraSystem* DetonationEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageGameplayEffectClass;
+    TSubclassOf<UGameplayEffect> DamageGameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageTypeClass;
+    TSubclassOf<USBZDamageType> DamageTypeClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PlayerFeedbackCurve;
@@ -156,10 +165,9 @@ protected:
     FVector TargetLocation;
     
 public:
-    ASBZSentryGun(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSentryGun(const class FObjectInitializer& ObjectInitializer);
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
@@ -206,9 +214,12 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReachedTargetLocation(const FVector& InTargetLocation, const FRotator& InTargetRotation);
     
-
+protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_Fall(const FVector& InStartLocation, const FVector& InTargetLocation, const FQuat& InTargetQuat);
+    
+    
     // Fix for true pure virtual functions not being implemented
-
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
     {
         return AbilitySystemComponent;

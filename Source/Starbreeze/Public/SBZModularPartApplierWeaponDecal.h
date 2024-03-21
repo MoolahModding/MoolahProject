@@ -8,6 +8,5 @@ class USBZModularPartApplierWeaponDecal : public USBZModularPartApplierWeaponCos
     GENERATED_BODY()
 public:
     USBZModularPartApplierWeaponDecal();
-
 };
 

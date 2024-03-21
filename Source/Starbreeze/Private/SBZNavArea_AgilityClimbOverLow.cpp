@@ -3,4 +3,3 @@
 USBZNavArea_AgilityClimbOverLow::USBZNavArea_AgilityClimbOverLow() {
 }
 
-

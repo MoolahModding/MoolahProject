@@ -11,7 +11,6 @@ class USBZBaseInteractRequirement : public UObject {
     GENERATED_BODY()
 public:
     USBZBaseInteractRequirement();
-
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool BP_CheckRequirement(const USBZInteractorComponent* Interactor, FSBZInteractReqData& OutData, bool bIsSignalRequired, bool bInIsScreenInteract, bool bIsCasing) const;
     

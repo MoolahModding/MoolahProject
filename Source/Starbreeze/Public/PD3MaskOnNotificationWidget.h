@@ -13,7 +13,6 @@ protected:
     
 public:
     UPD3MaskOnNotificationWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnProgressChanged(float InProgress);

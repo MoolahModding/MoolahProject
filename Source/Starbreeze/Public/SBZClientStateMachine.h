@@ -28,7 +28,6 @@ private:
     
 public:
     USBZClientStateMachine();
-
     UFUNCTION(BlueprintCallable)
     void RequestTravelToServer();
     

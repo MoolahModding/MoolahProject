@@ -8,6 +8,5 @@ class USBZAccelByteDS : public UObject {
     GENERATED_BODY()
 public:
     USBZAccelByteDS();
-
 };
 

@@ -10,7 +10,6 @@ class USBZWeaponProgressionManager : public UObject {
     GENERATED_BODY()
 public:
     USBZWeaponProgressionManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWeaponProgressionManager* GetWeaponProgressionManager(const UObject* WorldContextObject);
     

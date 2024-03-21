@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EnvironmentQuery/EnvQueryTest.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryTest_FriendlyFire.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable)
 class USBZEnvQueryTest_FriendlyFire : public UEnvQueryTest {
@@ -11,13 +12,12 @@ class USBZEnvQueryTest_FriendlyFire : public UEnvQueryTest {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* OriginContext;
+    TSubclassOf<UEnvQueryContext> OriginContext;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TargetContext;
+    TSubclassOf<UEnvQueryContext> TargetContext;
     
 public:
     USBZEnvQueryTest_FriendlyFire();
-
 };
 

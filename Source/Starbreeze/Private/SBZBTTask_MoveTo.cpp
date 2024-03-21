@@ -11,7 +11,5 @@ USBZBTTask_MoveTo::USBZBTTask_MoveTo() {
     this->PartialPathMaxRange = 300.00f;
     this->bCheckPathEndToGoalHeight = false;
     this->MaxPathEndToGoalHeightDistance = 150.00f;
-    this->NodeName = TEXT("SBZMoveTo");
 }
-
 

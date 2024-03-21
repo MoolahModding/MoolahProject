@@ -34,7 +34,6 @@ private:
     
 public:
     USBZPersistentWorldDamageZoneComponent();
-
     UFUNCTION(BlueprintCallable)
     void HandleTakeRadialDamage(AActor* DamagedActor, float DamageAmount, const FRadialDamageEvent& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
     

@@ -14,7 +14,6 @@ protected:
     USkeletalMeshComponent* SkeletalMeshComponent;
     
 public:
-    ASBZSkeletalDebris(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSkeletalDebris();
 };
 

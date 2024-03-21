@@ -23,9 +23,8 @@ protected:
     
 public:
     USBZAIWeakPointAttributeSet();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_WeakPointHealth(const FGameplayAttributeData& OldValue);

@@ -8,6 +8,5 @@ class USBZSkillMowerAmmoFunnel : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMowerAmmoFunnel();
-
 };
 

@@ -3,10 +3,11 @@
 #include "OnControlsReferenceActionPressedDelegate.h"
 #include "SBZActionControlReference.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZControlsReferenceActionWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZActionInputWidget;
 class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -24,7 +25,7 @@ protected:
     int32 MaxActionInputsDisplayed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActionInputWidgetClass;
+    TSubclassOf<USBZActionInputWidget> ActionInputWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FName> ActionList;
@@ -37,7 +38,6 @@ protected:
     
 public:
     USBZControlsReferenceActionWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void PressControlsReferenceAction();

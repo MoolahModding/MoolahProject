@@ -23,6 +23,5 @@ private:
     
 public:
     USBZDsStateMachine();
-
 };
 

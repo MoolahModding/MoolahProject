@@ -44,5 +44,8 @@ enum class ESBZItemCategory : uint8 {
     Coin,
     ItemBundle,
     PayDayCredits,
+    Heist,
+    VendorPermission,
+    WeaponPartAttachment,
 };
 

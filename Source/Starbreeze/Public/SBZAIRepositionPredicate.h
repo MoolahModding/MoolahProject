@@ -8,6 +8,5 @@ class USBZAIRepositionPredicate : public UObject {
     GENERATED_BODY()
 public:
     USBZAIRepositionPredicate();
-
 };
 

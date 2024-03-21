@@ -1,32 +1,6 @@
 #include "SBZInteractableComponent.h"
 #include "Net/UnrealNetwork.h"
 
-USBZInteractableComponent::USBZInteractableComponent() {
-    this->OnStart2DAudioEvent = NULL;
-    this->OnFinish2DAudioEvent = NULL;
-    this->OnCancel2DAudioEvent = NULL;
-    this->OnStart3DAudioEvent = NULL;
-    this->OnFinish3DAudioEvent = NULL;
-    this->OnCancel3DAudioEvent = NULL;
-    this->LoopingAkComponent = NULL;
-    this->GameplayInteractionQuery = NULL;
-    this->SharedKeyItemQuery = NULL;
-    this->PredictedInteractor = NULL;
-    this->PredictionTimeoutSeconds = -1.00f;
-    this->bCurrentlyInteracting = false;
-    this->bInteractionEnabled = true;
-    this->bLocalEnabled = true;
-    this->bPredictLocalEnd = false;
-    this->bSyncInteracting = true;
-    this->bSyncAbortEvent = false;
-    this->bRepeatable = false;
-    this->bClearInteractorsOnComplete = true;
-    this->bIsAllowedInCasing = false;
-    this->bIsIllegal = true;
-    this->CompletedComment = NULL;
-    
-}
-
 void USBZInteractableComponent::Stop3DSound(UAkAudioEvent* AudioEvent) {
 }
 
@@ -60,4 +34,21 @@ void USBZInteractableComponent::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(USBZInteractableComponent, bInteractionEnabled);
 }
 
+USBZInteractableComponent::USBZInteractableComponent() {
+    this->LoopingAkComponent = NULL;
+    this->GameplayInteractionQuery = NULL;
+    this->SharedKeyItemQuery = NULL;
+    this->PredictedInteractor = NULL;
+    this->PredictionTimeoutSeconds = -1.00f;
+    this->bCurrentlyInteracting = false;
+    this->bInteractionEnabled = true;
+    this->bLocalEnabled = true;
+    this->bPredictLocalEnd = false;
+    this->bSyncInteracting = true;
+    this->bSyncAbortEvent = false;
+    this->bRepeatable = false;
+    this->bClearInteractorsOnComplete = true;
+    this->bIsAllowedInCasing = false;
+    this->bIsIllegal = true;
+}
 

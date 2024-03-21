@@ -11,8 +11,5 @@ USBZEquippableData::USBZEquippableData() {
     this->CompatibleStances = 2147483647;
     this->WeightTierOffset = 0.00f;
     this->EquippableMenuAnimCollection = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZEquippableData::StaticClass();
 }
-
 

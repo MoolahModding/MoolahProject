@@ -8,6 +8,5 @@ class USBZBTTask_LifeActionSetReady : public UBTTaskNode {
     GENERATED_BODY()
 public:
     USBZBTTask_LifeActionSetReady();
-
 };
 

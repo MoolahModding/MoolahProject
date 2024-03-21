@@ -17,6 +17,8 @@ class UAkAudioEvent;
 class UNiagaraSystem;
 class USBZCharacterVoiceComponent;
 class USBZDialogDataAsset;
+class USBZOutlineAsset;
+class USBZOutlineComponent;
 class USBZPropDamageComponent;
 class USBZVoiceCommentDataAsset;
 class UStaticMesh;
@@ -102,11 +104,16 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsFBIActive, meta=(AllowPrivateAccess=true))
     bool bIsFBIActive;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZOutlineComponent* ECMOutlineComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZOutlineAsset* ECMOutlineAsset;
+    
 public:
-    ASBZAIFBIVan(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAIFBIVan();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnVanArrived(ASBZWheeledVehicle* Vehicle, ASBZSpline* Spline);
@@ -128,6 +135,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 };
 

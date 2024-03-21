@@ -3,4 +3,3 @@
 USBZAvatarCache::USBZAvatarCache() {
 }
 
-

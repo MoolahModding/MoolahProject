@@ -13,6 +13,5 @@ public:
     TArray<USBZMaskVFXData*> MaskVFXArray;
     
     USBZMaskVFXDatabase();
-
 };
 

@@ -16,6 +16,5 @@ public:
     TMap<FSoftObjectPath, FSBZLevelVOInfo> LevelToVOInfo;
     
     USBZVOImportBindings();
-
 };
 

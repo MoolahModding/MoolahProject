@@ -32,7 +32,6 @@ private:
     
 public:
     USBZBTService_DozerCharge();
-
 private:
     UFUNCTION(BlueprintCallable)
     void TickChargeMeleeCheck();

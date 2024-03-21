@@ -14,7 +14,6 @@ public:
     TArray<FName> AchievementObjectiveStatCodeArray;
     
     USBZChallengeToAchievementSettings();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static TMap<FName, FName> GetChallengeToAchievementSettings();
     

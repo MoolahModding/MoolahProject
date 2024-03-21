@@ -14,12 +14,14 @@
 #include "SBZRevertDamageAttributeSetData.h"
 #include "SBZSkillTriggeredHurtTargetData.h"
 #include "SBZVolumeDamageData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAbilitySystemComponent.generated.h"
 
 class ACharacter;
 class ASBZCharacter;
-class UClass;
+class UGameplayEffect;
 class UObject;
+class USBZDamageType;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZAbilitySystemComponent : public UAbilitySystemComponent {
@@ -37,7 +39,7 @@ private:
     TArray<FSBZQueuedAbilityData> QueuedAbilityArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LandingGameplayEffectClass;
+    TSubclassOf<UGameplayEffect> LandingGameplayEffectClass;
     
     UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnRep_AppliedVolumeDamageNetIDArray, meta=(AllowPrivateAccess=true))
     TArray<uint32> AppliedVolumeDamageNetIDArray;
@@ -49,13 +51,12 @@ private:
     TArray<FSBZVolumeDamageData> CurrentVolumeDamageDataArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<UClass*, float> LastVolumeDamageTypeUpdateTimeMap;
+    TMap<TSubclassOf<USBZDamageType>, float> LastVolumeDamageTypeUpdateTimeMap;
     
 public:
     USBZAbilitySystemComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(Reliable, Server)
     void Server_ReplicateExplosion(UObject* ExplosiveObject, const FSBZExplosionResult& Result, FPredictionKey PredictionKey);
     

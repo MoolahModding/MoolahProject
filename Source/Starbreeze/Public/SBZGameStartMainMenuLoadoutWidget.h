@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGameStartMainMenuLoadoutWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZMainMenuInventoryItemWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZGameStartMainMenuLoadoutWidget : public USBZWidgetBase {
@@ -15,10 +16,9 @@ protected:
     UPanelWidget* Panel_LoadoutContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefaultItemWidgetClass;
+    TSubclassOf<USBZMainMenuInventoryItemWidget> DefaultItemWidgetClass;
     
 public:
     USBZGameStartMainMenuLoadoutWidget();
-
 };
 

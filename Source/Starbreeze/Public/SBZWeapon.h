@@ -48,7 +48,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeaponCustomizationFOV;
     
-    ASBZWeapon(const FObjectInitializer& ObjectInitializer);
-
+    ASBZWeapon();
 };
 

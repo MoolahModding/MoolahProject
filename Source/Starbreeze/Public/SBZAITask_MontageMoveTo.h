@@ -29,7 +29,6 @@ protected:
     UAnimMontage* EndMontagePtr;
     
 public:
-    USBZAITask_MontageMoveTo();
-
+    USBZAITask_MontageMoveTo(const class FObjectInitializer& ObjectInitializer);
 };
 

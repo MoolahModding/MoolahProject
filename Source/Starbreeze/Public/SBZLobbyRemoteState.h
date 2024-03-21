@@ -29,10 +29,9 @@ private:
     int32 LobbyTimeout;
     
 public:
-    ASBZLobbyRemoteState(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLobbyRemoteState();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_LobbyTimeout();

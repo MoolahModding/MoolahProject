@@ -43,10 +43,9 @@ protected:
     UWidgetComponent* WidgetComponent;
     
 public:
-    ASBZMiniGameActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMiniGameActor();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetMiniGameIgnored(bool bIgnored);
     

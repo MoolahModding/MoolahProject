@@ -1,6 +1,6 @@
 #include "SBZSettingsFunctionsGameplay.h"
 
-USBZSettingsFunctionsGameplay::USBZSettingsFunctionsGameplay() {
+void USBZSettingsFunctionsGameplay::SetTelemetryDisabled(UObject* WorldContextObject, bool bDisabled) {
 }
 
 void USBZSettingsFunctionsGameplay::SetTargetingSensitivityMultiplier(UObject* WorldContextObject, float Sensitivity) {
@@ -27,6 +27,9 @@ void USBZSettingsFunctionsGameplay::SetHoldToRunEnabled(UObject* WorldContextObj
 void USBZSettingsFunctionsGameplay::SetHoldToCrouchEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
+void USBZSettingsFunctionsGameplay::SetGamesightDisabled(UObject* WorldContextObject, bool bDisabled) {
+}
+
 void USBZSettingsFunctionsGameplay::SetGamepadVerticalSensitivityMultiplier(UObject* WorldContextObject, float Sensitivity) {
 }
 
@@ -40,6 +43,14 @@ void USBZSettingsFunctionsGameplay::SetControllerVibrationsEnabled(UObject* Worl
 }
 
 void USBZSettingsFunctionsGameplay::SetChatDisabled(UObject* WorldContextObject, bool bDisabled) {
+}
+
+bool USBZSettingsFunctionsGameplay::IsTelemetryDisabledByDefault(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsTelemetryDisabled(UObject* WorldContextObject) {
+    return false;
 }
 
 bool USBZSettingsFunctionsGameplay::IsSwitchWeaponAutomaticallyEnabledByDefault(UObject* WorldContextObject) {
@@ -87,6 +98,14 @@ bool USBZSettingsFunctionsGameplay::IsHoldToCrouchEnabledByDefault(UObject* Worl
 }
 
 bool USBZSettingsFunctionsGameplay::IsHoldToCrouchEnabled(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsGamesightDisabledByDefault(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsGamesightDisabled(UObject* WorldContextObject) {
     return false;
 }
 
@@ -146,4 +165,6 @@ bool USBZSettingsFunctionsGameplay::AreControllerVibrationsEnabled(UObject* Worl
     return false;
 }
 
+USBZSettingsFunctionsGameplay::USBZSettingsFunctionsGameplay() {
+}
 

@@ -8,6 +8,5 @@ class USBZSpecialAIComponent : public UActorComponent {
     GENERATED_BODY()
 public:
     USBZSpecialAIComponent();
-
 };
 

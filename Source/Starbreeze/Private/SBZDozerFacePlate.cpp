@@ -4,4 +4,3 @@ USBZDozerFacePlate::USBZDozerFacePlate() {
     this->PoppedMaterial = NULL;
 }
 
-

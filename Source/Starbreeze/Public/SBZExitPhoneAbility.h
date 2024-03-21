@@ -19,6 +19,5 @@ private:
     
 public:
     USBZExitPhoneAbility();
-
 };
 

@@ -17,6 +17,5 @@ public:
     UImage* Image_DamageTakenIndicator;
     
     USBZHUDDamageTakenIndicatorWidget();
-
 };
 

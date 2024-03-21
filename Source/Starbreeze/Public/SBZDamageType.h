@@ -21,6 +21,5 @@ public:
     bool bIsThrowableProjectile;
     
     USBZDamageType();
-
 };
 

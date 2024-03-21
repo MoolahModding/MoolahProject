@@ -11,5 +11,6 @@ FSBZStatisticCriteriaDataCollection::FSBZStatisticCriteriaDataCollection() {
     this->AfterParty = NULL;
     this->ColorMeSurprised = NULL;
     this->SpecOps = NULL;
+    this->NoBagOnGround = NULL;
 }
 

@@ -8,6 +8,5 @@ class USBZPlayerFireRangedWeaponAbility : public USBZFireRangedWeaponAbility {
     GENERATED_BODY()
 public:
     USBZPlayerFireRangedWeaponAbility();
-
 };
 

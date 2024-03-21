@@ -3,4 +3,3 @@
 USBZAILifeActionAbility::USBZAILifeActionAbility() {
 }
 
-

@@ -11,7 +11,6 @@ class USBZSettingsFunctionsKeyboard : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsKeyboard();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetSecondaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale, FInputChord Binding);
     

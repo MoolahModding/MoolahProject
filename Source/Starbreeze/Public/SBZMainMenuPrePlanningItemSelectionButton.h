@@ -18,7 +18,6 @@ protected:
     
 public:
     USBZMainMenuPrePlanningItemSelectionButton();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetRemoveAssetButton(bool bIsRemoveAssetButton);
     

@@ -7,8 +7,11 @@
 #include "SBZOnInteractableStateChangedDelegateDelegate.h"
 #include "SBZBaseInteractableComponent.generated.h"
 
+class UAkAudioEvent;
+class USBZAnimatedInteractionData;
 class USBZBaseInteractRequirement;
 class USBZInteractorComponent;
+class USBZVoiceCommentDataAsset;
 
 UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZBaseInteractableComponent : public UActorComponent {
@@ -84,6 +87,33 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZInteractableModeData> AlternativeModeData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OnStart2DAudioEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OnStart3DAudioEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OnFinish2DAudioEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OnFinish3DAudioEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OnCancel2DAudioEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OnCancel3DAudioEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZVoiceCommentDataAsset* StartComment;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZVoiceCommentDataAsset* CompletedComment;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZVoiceCommentDataAsset* CancelComment;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZInteractorComponent* LastInteractor;
     
@@ -93,9 +123,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName AnimationName;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZAnimatedInteractionData* AnimatedInteractionData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsScramblerAffected;
+    
 public:
     USBZBaseInteractableComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetGameplayEffectsOnInteract(const TArray<FSBZGameplayEffectData> GameplayEffects);
     

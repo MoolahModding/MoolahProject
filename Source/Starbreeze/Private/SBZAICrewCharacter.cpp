@@ -1,44 +1,6 @@
 #include "SBZAICrewCharacter.h"
 #include "Net/UnrealNetwork.h"
-#include "SBZAICrewCharacterInteractableComponent.h"
 #include "SBZActivateReplenishHealthEffect.h"
-#include "SBZModularCharacterComponent.h"
-#include "Components/CapsuleComponent.h"
-
-ASBZAICrewCharacter::ASBZAICrewCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZAICrewCharacterInteractableComponent>(TEXT("SBZInteractableComponent")).SetDefaultSubobjectClass<USBZModularCharacterComponent>(TEXT("CharacterMesh0"))) {
-    this->EquipmentData = NULL;
-    this->HealthReplenishEffectClass = USBZActivateReplenishHealthEffect::StaticClass();
-    this->CallComment = NULL;
-    this->HelpComment = NULL;
-    this->CPD00 = 0;
-    this->CPD01 = 0;
-    this->CrewState = NULL;
-    this->DefeatState = EPD3DefeatState::None;
-    this->OldDefeatState = EPD3DefeatState::None;
-    this->DefeatTime = -1.00f;
-    this->ReviveMarker = NULL;
-    this->TasedMarker = NULL;
-    this->CuffedMarker = NULL;
-    this->SubduedMarker = NULL;
-    this->DownedOutline = NULL;
-    this->RevivedComment = NULL;
-    this->UncuffedComment = NULL;
-    this->DownedDialog = NULL;
-    this->InCustodyDialog = NULL;
-    this->BackFromCustodyDialog = NULL;
-    this->CuffedDialog = NULL;
-    this->TasedDialog = NULL;
-    this->SubduedDialog = NULL;
-    this->CurrentWard = NULL;
-    this->bIsMaskOn = false;
-    this->bIsLoadoutLoaded = false;
-    this->MarkingVoicePriority = ESBZVoicePriority::MediumPriority;
-    this->MarkingDuration = 5.00f;
-    this->CrewAIMarkerAsset = NULL;
-    FProperty* p_CapsuleComponent_Parent = GetClass()->FindPropertyByName("CapsuleComponent");
-    FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent>(this)->SetupAttachment(*p_CapsuleComponent_Parent->ContainerPtrToValuePtr<UCapsuleComponent*>(this));
-}
 
 void ASBZAICrewCharacter::OnServerStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled) {
 }
@@ -80,4 +42,35 @@ void ASBZAICrewCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(ASBZAICrewCharacter, DefeatTime);
 }
 
+ASBZAICrewCharacter::ASBZAICrewCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->EquipmentData = NULL;
+    this->HealthReplenishEffectClass = USBZActivateReplenishHealthEffect::StaticClass();
+    this->CallComment = NULL;
+    this->HelpComment = NULL;
+    this->CPD00 = 0;
+    this->CPD01 = 0;
+    this->CrewState = NULL;
+    this->DefeatState = EPD3DefeatState::None;
+    this->OldDefeatState = EPD3DefeatState::None;
+    this->DefeatTime = -1.00f;
+    this->ReviveMarker = NULL;
+    this->TasedMarker = NULL;
+    this->CuffedMarker = NULL;
+    this->SubduedMarker = NULL;
+    this->DownedOutline = NULL;
+    this->RevivedComment = NULL;
+    this->UncuffedComment = NULL;
+    this->DownedDialog = NULL;
+    this->InCustodyDialog = NULL;
+    this->BackFromCustodyDialog = NULL;
+    this->CuffedDialog = NULL;
+    this->TasedDialog = NULL;
+    this->SubduedDialog = NULL;
+    this->CurrentWard = NULL;
+    this->bIsMaskOn = false;
+    this->bIsLoadoutLoaded = false;
+    this->MarkingVoicePriority = ESBZVoicePriority::MediumPriority;
+    this->MarkingDuration = 5.00f;
+    this->CrewAIMarkerAsset = NULL;
+}
 

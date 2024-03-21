@@ -11,6 +11,7 @@ enum class ESBZCharacterMovementState : uint8 {
     Traversing,
     Sliding,
     Proning,
+    Falling,
     MAX,
 };
 

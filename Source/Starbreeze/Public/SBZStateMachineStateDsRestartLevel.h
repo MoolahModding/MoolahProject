@@ -15,7 +15,6 @@ private:
     
 public:
     USBZStateMachineStateDsRestartLevel();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnClientStartSeamlessTravel(const FUniqueNetIdRepl& PlayerId);

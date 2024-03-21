@@ -1,8 +1,5 @@
 #include "SBZVoiceLibrary.h"
 
-USBZVoiceLibrary::USBZVoiceLibrary() {
-}
-
 ESBZPlayDialogResult USBZVoiceLibrary::PlayDialogWithSuitablePlayers(UObject* WorldContextObject, const USBZDialogDataAsset* DialogDataAsset, const FBPOnDialogEnded_Delegate& OnDialogEnded) {
     return ESBZPlayDialogResult::Successful;
 }
@@ -11,4 +8,6 @@ ESBZPlayDialogResult USBZVoiceLibrary::PlayDialog(UObject* WorldContextObject, c
     return ESBZPlayDialogResult::Successful;
 }
 
+USBZVoiceLibrary::USBZVoiceLibrary() {
+}
 

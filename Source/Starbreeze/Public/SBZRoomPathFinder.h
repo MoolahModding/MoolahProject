@@ -20,6 +20,5 @@ private:
     
 public:
     USBZRoomPathFinder();
-
 };
 

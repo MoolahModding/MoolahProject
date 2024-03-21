@@ -11,8 +11,5 @@ USBZAgilityTraversalQueryParams::USBZAgilityTraversalQueryParams() {
     this->CapsuleHalfHeightTraversing = 40.00f;
     this->bKeepLandPointOnFloor = true;
     this->MaxReflectionAngle = 45.00f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZAgilityTraversalQueryParams::StaticClass();
 }
-
 

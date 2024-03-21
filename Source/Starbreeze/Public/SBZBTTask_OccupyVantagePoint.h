@@ -17,6 +17,5 @@ private:
     
 public:
     USBZBTTask_OccupyVantagePoint();
-
 };
 

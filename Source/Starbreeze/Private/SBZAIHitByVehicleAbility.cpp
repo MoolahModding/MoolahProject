@@ -7,4 +7,3 @@ USBZAIHitByVehicleAbility::USBZAIHitByVehicleAbility() {
     this->MinDeadlyVehicleImpactWidth = 10.00f;
 }
 
-

@@ -130,6 +130,9 @@ public:
     float WeaponDeselectionTimer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldApplyWeaponSwitchCooldown;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanAttackWhileMoving;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -139,7 +142,6 @@ public:
     TMap<USBZWeaponPatternAreaData*, FSBZWeaponPatternAreaDefinition> PatternAreas;
     
     USBZBaseWeaponData();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetNbStickerPlacements() const;
     

@@ -1,10 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EAccelBytePlatformType.h"
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "EOnlineSessionInfo.h"
 #include "ESBZDifficulty.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "ESBZOnlineJoinType.h"
 #include "ESBZPlatform.h"
 #include "ESBZSecurityCompany.h"
@@ -26,7 +28,6 @@ class STARBREEZE_API USBZOnlineFunctionLibrary : public UBlueprintFunctionLibrar
     GENERATED_BODY()
 public:
     USBZOnlineFunctionLibrary();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
@@ -238,6 +239,9 @@ public:
     static int32 GetFoundPlayersCount(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static ESBZFirstPartyPlatform GetFirstPartyPlatform();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetDifficultyIdxArgument();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -257,6 +261,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetAllPlayersUniqueNetIds(UObject* WorldContextObject, TArray<FUniqueNetIdRepl>& OutParam);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static EAccelBytePlatformType GetAccelbytePlatformTypeFromFirstPartyPlatformType(ESBZFirstPartyPlatform FirstPartyPlatform);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static EAccelBytePlatformType GetAccelBytePlatformType();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetAccelByteLinkedAccountsUrl();

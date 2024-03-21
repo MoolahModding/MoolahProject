@@ -8,6 +8,5 @@ class STARBREEZE_API USBZStateMachineDataWaitResult : public USBZStateMachineDat
     GENERATED_BODY()
 public:
     USBZStateMachineDataWaitResult();
-
 };
 

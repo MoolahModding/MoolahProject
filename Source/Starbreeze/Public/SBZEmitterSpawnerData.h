@@ -43,6 +43,5 @@ protected:
     
 public:
     USBZEmitterSpawnerData();
-
 };
 

@@ -1,12 +1,10 @@
 #include "SBZTrafficFunctionLibrary.h"
+#include "Templates/SubclassOf.h"
 
-USBZTrafficFunctionLibrary::USBZTrafficFunctionLibrary() {
+void USBZTrafficFunctionLibrary::SpawnEscapeVanWithRoute(UObject* WorldContextObject, TSubclassOf<ASBZWheeledVehicle> EscapeVanActorClass, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo) {
 }
 
-void USBZTrafficFunctionLibrary::SpawnEscapeVanWithRoute(UObject* WorldContextObject, UClass* EscapeVanActorClass, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo) {
-}
-
-void USBZTrafficFunctionLibrary::SpawnEscapeVan(UObject* WorldContextObject, UClass* EscapeVanActorClass, const FTransform& SpawnTransform, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo) {
+void USBZTrafficFunctionLibrary::SpawnEscapeVan(UObject* WorldContextObject, TSubclassOf<ASBZWheeledVehicle> EscapeVanActorClass, const FTransform& SpawnTransform, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo) {
 }
 
 void USBZTrafficFunctionLibrary::SpawnAndDriveSwatVan(UObject* WorldContextObject, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo) {
@@ -45,4 +43,6 @@ bool USBZTrafficFunctionLibrary::AppendEscapeVanRoute(UObject* WorldContextObjec
     return false;
 }
 
+USBZTrafficFunctionLibrary::USBZTrafficFunctionLibrary() {
+}
 

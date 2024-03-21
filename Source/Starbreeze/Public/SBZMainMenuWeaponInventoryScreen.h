@@ -5,9 +5,9 @@
 #include "ESBZMetaRequestResult.h"
 #include "SBZButtonControlReference.h"
 #include "SBZMenuStackInventoryBaseScreen.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponInventoryScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBaseInventoryItemVisualsWidget;
 class USBZBlackMarketStoreItemButton;
@@ -21,7 +21,7 @@ class USBZMainMenuWeaponInventoryScreen : public USBZMenuStackInventoryBaseScree
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponSlotButtonClass;
+    TSubclassOf<USBZMainMenuLoadoutWeaponSlotButton> WeaponSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_WeaponSlotButtons;
@@ -48,7 +48,7 @@ protected:
     USBZBlackMarketStoreItemButton* Button_WeaponSlotStoreItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DiscardWeaponPopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> DiscardWeaponPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText DiscardWeaponPopUpHeader;
@@ -71,13 +71,16 @@ private:
     
 public:
     USBZMainMenuWeaponInventoryScreen();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void WeaponSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void WeaponSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void UpdateWeaponSlotButtons();
     
 public:
     UFUNCTION(BlueprintCallable)

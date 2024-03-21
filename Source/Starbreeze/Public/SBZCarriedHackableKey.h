@@ -48,8 +48,7 @@ protected:
     int32 ChecksMade;
     
 public:
-    ASBZCarriedHackableKey(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCarriedHackableKey();
 protected:
     UFUNCTION(BlueprintCallable)
     void OnInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);

@@ -7,6 +7,7 @@ class USBZArmorDatabase;
 class USBZCoinDatabase;
 class USBZGloveDatabase;
 class USBZGloveInventorySlotDatabase;
+class USBZHeistDatabase;
 class USBZInventorySlotDatabase;
 class USBZItemBundleDatabase;
 class USBZLoadoutSlotDatabase;
@@ -32,6 +33,7 @@ class USBZSuitPresetDatabase;
 class USBZThrowableDatabase;
 class USBZToolDatabase;
 class USBZVendorDatabase;
+class USBZVendorPermissionDatabase;
 class USBZWatchDatabase;
 class USBZWeaponCharmDatabase;
 class USBZWeaponDatabase;
@@ -108,6 +110,9 @@ public:
     TSoftObjectPtr<USBZVendorDatabase> Vendors;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USBZVendorPermissionDatabase> VendorPermissions;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZPlayerCharacterDatabase> PlayerCharacters;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -164,7 +169,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZPayDayCreditDatabase> PayDayCredits;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USBZHeistDatabase> Heists;
+    
     USBZGlobalItemDatabase();
-
 };
 

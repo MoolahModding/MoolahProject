@@ -23,8 +23,5 @@ USBZThrowableData::USBZThrowableData() {
     this->WeaponSelectionScorer = NULL;
     this->AimAssistData = NULL;
     this->FireData = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZThrowableData::StaticClass();
 }
-
 

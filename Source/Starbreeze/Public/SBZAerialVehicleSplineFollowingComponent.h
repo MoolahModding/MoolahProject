@@ -8,6 +8,5 @@ class STARBREEZE_API USBZAerialVehicleSplineFollowingComponent : public USBZVehi
     GENERATED_BODY()
 public:
     USBZAerialVehicleSplineFollowingComponent();
-
 };
 

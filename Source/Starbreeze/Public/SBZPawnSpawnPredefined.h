@@ -42,8 +42,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZPawnSpawnRequest PredefinedPawnRequest;
     
-    ASBZPawnSpawnPredefined(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPawnSpawnPredefined();
     UFUNCTION(BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo"))
     void SpawnPredefinedLatent(FLatentActionInfo LatentInfo);
     

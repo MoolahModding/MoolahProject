@@ -28,7 +28,6 @@ protected:
     
 public:
     USBZMaskCustomizationGenericSlotScreen();
-
     UFUNCTION(BlueprintCallable)
     bool InitializePartsSlot(const USBZCosmeticsPartSlot* PartsSlot, FSBZCosmeticPanelDefaultParams DefaultButtonParams);
     

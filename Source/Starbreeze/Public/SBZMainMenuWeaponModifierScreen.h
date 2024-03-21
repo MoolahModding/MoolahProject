@@ -5,10 +5,11 @@
 #include "ESBZMetaRequestResult.h"
 #include "SBZButtonControlReference.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponModifierScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZLoadoutConfirmationPopupBody;
 class USBZMainMenuWeaponPartProgressionButton;
 class USBZMenuButton;
 class USBZWeaponPartDataAsset;
@@ -23,7 +24,7 @@ protected:
     UPanelWidget* Panel_WeaponProgressionPartButtons;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponPartProgressionButtonClass;
+    TSubclassOf<USBZMainMenuWeaponPartProgressionButton> WeaponPartProgressionButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZMainMenuWeaponPartProgressionButton* EquippedWeaponProgressionButton;
@@ -35,7 +36,7 @@ protected:
     FSBZButtonControlReference OkControlReference;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PurchaseItemPopUpBodyWidgetClass;
+    TSubclassOf<USBZLoadoutConfirmationPopupBody> PurchaseItemPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText PurchaseItemPopUpHeader;
@@ -62,9 +63,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZWeaponPartDataAsset* WeaponPartInPurchase;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZMainMenuWeaponPartProgressionButton* SelectedWeaponProgressionButton;
+    
 public:
     USBZMainMenuWeaponModifierScreen();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SetNewEquippedButton(USBZMainMenuWeaponPartProgressionButton* InEquippedWeaponProgressionButton);
@@ -73,6 +76,9 @@ protected:
     void SetDefaultFocus();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void SendPurchaseAttemptEvent(const bool bIsAcceptPressed);
+    
     UFUNCTION(BlueprintCallable)
     void OnWeaponPartProgressionButtonSelected(USBZMenuButton* InSelectedButton);
     

@@ -1,12 +1,5 @@
 #include "SBZChatInGame.h"
 
-ASBZChatInGame::ASBZChatInGame(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-    /*this->bEnableNetReadyEvent = true;*/
-}
-
 void ASBZChatInGame::ServerChatMessageReceived_Implementation(int32 PlayerId, const FSBZPlayerChatEvent& PlayerChatEvent) {
 }
 
@@ -28,4 +21,6 @@ void ASBZChatInGame::MulticastCallMessageReceived_Implementation(APlayerState* P
 void ASBZChatInGame::ClientSubscribeToChatMessages_Implementation() {
 }
 
+ASBZChatInGame::ASBZChatInGame() {
+}
 

@@ -12,7 +12,6 @@ class USBZAIOrder_Attack : public USBZAIOrder_TacticalMoveTo {
     GENERATED_BODY()
 public:
     USBZAIOrder_Attack();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnTargetKilled(APawn* KilledPawn);

@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTService.h"
 #include "EnvironmentQuery/EnvQueryTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTService_UpdateShieldCover.generated.h"
 
-class UClass;
+class USBZAIOrder;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable)
@@ -16,7 +17,7 @@ protected:
     FEQSParametrizedQueryExecutionRequest EQSRequest;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* StayInCoverOrder;
+    TSubclassOf<USBZAIOrder> StayInCoverOrder;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float LostLoSAbandonOrderTime;
@@ -29,6 +30,5 @@ protected:
     
 public:
     USBZBTService_UpdateShieldCover();
-
 };
 

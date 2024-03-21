@@ -3,4 +3,3 @@
 USBZStepUpImpactConfig::USBZStepUpImpactConfig() {
 }
 
-

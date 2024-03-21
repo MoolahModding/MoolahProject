@@ -20,8 +20,12 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnSkillLineRequestResultDelegate ResearchMarkerResultDelegate;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZSkillLine* ModifyingSkillLine;
+    
+public:
     USBZSkillManager();
-
     UFUNCTION(BlueprintCallable)
     bool UnequipSkills(TArray<USBZSkill*>& Skills, FSBZPlayerLoadoutConfig& PlayerLoadoutConfig);
     

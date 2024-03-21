@@ -1,36 +1,9 @@
 #include "SBZZipline.h"
 #include "Components/BoxComponent.h"
-#include "Components/SceneComponent.h"
 #include "Components/SplineComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
-
-ASBZZipline::ASBZZipline(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bSnapNavLinkEnd = false;
-    this->bSnapNavLinkStart = false;
-    this->ZiplineType = ESBZZiplineType::Horizontal;
-    this->OverlapBox = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapBox"));
-    this->OverlapBox->SetupAttachment(SplineComponent);
-    this->SplineComponent = CreateDefaultSubobject<USplineComponent>(TEXT("SplineComponent"));
-    this->SplineComponent->SetupAttachment(RootComponent);
-    this->StartPointMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StartPointMesh"));
-    this->StartPointMesh->SetupAttachment(RootComponent);
-    this->EndPointMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EndPointMesh"));
-    this->EndPointMesh->SetupAttachment(RootComponent);
-    this->InteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->NavLink = NULL;
-    this->MaxDistanceSolverIterations = 2;
-    this->ExitLaunchSpeed = 1000.00f;
-    this->bDisabledAtStart = false;
-    this->bZiplineEnabled = true;
-    this->DistanceFromEndToStop = 50.00f;
-    this->HalfExtentSizeToAdd = 15.00f;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
-}
 
 void ASBZZipline::SetZiplineEnabled(bool bEnabled) {
 }
@@ -60,4 +33,21 @@ void ASBZZipline::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
     DOREPLIFETIME(ASBZZipline, bZiplineEnabled);
 }
 
+ASBZZipline::ASBZZipline() {
+    this->bSnapNavLinkEnd = false;
+    this->bSnapNavLinkStart = false;
+    this->ZiplineType = ESBZZiplineType::Horizontal;
+    this->OverlapBox = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapBox"));
+    this->SplineComponent = CreateDefaultSubobject<USplineComponent>(TEXT("SplineComponent"));
+    this->StartPointMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StartPointMesh"));
+    this->EndPointMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EndPointMesh"));
+    this->InteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->NavLink = NULL;
+    this->MaxDistanceSolverIterations = 2;
+    this->ExitLaunchSpeed = 1000.00f;
+    this->bDisabledAtStart = false;
+    this->bZiplineEnabled = true;
+    this->DistanceFromEndToStop = 50.00f;
+    this->HalfExtentSizeToAdd = 15.00f;
+}
 

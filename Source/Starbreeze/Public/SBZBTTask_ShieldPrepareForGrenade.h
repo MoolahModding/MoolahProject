@@ -15,6 +15,5 @@ private:
     
 public:
     USBZBTTask_ShieldPrepareForGrenade();
-
 };
 

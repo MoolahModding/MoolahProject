@@ -20,7 +20,6 @@ protected:
     
 public:
     USBZOnTelegraphAttackComponent();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnUnequip(const ASBZEquippable* Equippable);

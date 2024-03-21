@@ -56,7 +56,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPD3ModifiableLoadoutData> ModifiableLoadoutDataArray;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerAbilityData* AbilityData;
     
 public:

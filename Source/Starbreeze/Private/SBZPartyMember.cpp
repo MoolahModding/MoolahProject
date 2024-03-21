@@ -3,7 +3,7 @@
 FSBZPartyMember::FSBZPartyMember() {
     this->PlatformIcon = NULL;
     this->NebulaIcon = NULL;
-    this->Platform = ESBZPlatform::Windows;
+    this->Platform = ESBZPlatform::Unknown;
     this->bIsPartyLeader = false;
 }
 

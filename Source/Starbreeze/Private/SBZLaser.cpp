@@ -3,4 +3,3 @@
 USBZLaser::USBZLaser() {
 }
 
-

@@ -16,7 +16,6 @@ public:
     USBZChatGameSettings* CachedSchematic;
     
     USBZChatSettings();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static USBZChatGameSettings* GetChatSettings();
     

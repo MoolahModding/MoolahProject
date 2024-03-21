@@ -37,6 +37,5 @@ public:
     ESBZSplineType SplineType;
     
     USBZSplineComponent();
-
 };
 

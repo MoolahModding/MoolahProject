@@ -3,4 +3,3 @@
 USBZObjectImpactConfig::USBZObjectImpactConfig() {
 }
 
-

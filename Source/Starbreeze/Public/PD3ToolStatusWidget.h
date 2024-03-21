@@ -26,7 +26,6 @@ private:
     
 public:
     UPD3ToolStatusWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnIconChanged(const TSoftObjectPtr<UPaperSprite>& InIcon);

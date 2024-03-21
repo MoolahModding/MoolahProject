@@ -15,7 +15,6 @@ public:
     USBZGamepadBindingsPresetsConfig* GamepadBindingsPresetsConfig;
     
     USBZGamepadBindingsManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZGamepadBindingsManager* GetGamepadBindingsManager(UObject* WorldContextObject);
     

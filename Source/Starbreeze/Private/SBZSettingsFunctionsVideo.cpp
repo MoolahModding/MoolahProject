@@ -1,8 +1,5 @@
 #include "SBZSettingsFunctionsVideo.h"
 
-USBZSettingsFunctionsVideo::USBZSettingsFunctionsVideo() {
-}
-
 void USBZSettingsFunctionsVideo::SetWindowMode(UObject* WorldContextObject, int32 Value) {
 }
 
@@ -242,4 +239,6 @@ int32 USBZSettingsFunctionsVideo::GetAntiAliasingMode(UObject* WorldContextObjec
     return 0;
 }
 
+USBZSettingsFunctionsVideo::USBZSettingsFunctionsVideo() {
+}
 

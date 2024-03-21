@@ -9,7 +9,6 @@ class USBZMainMenuPrePlanningWidget : public USBZMenuStackWidget {
     GENERATED_BODY()
 public:
     USBZMainMenuPrePlanningWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAsyncLoadingDone();

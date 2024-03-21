@@ -35,6 +35,5 @@ private:
     
 public:
     USBZAIOrder_Investigate();
-
 };
 

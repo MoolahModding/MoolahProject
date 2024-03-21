@@ -43,6 +43,5 @@ public:
     uint8 CPD01;
     
     USBZSuitBaseData();
-
 };
 

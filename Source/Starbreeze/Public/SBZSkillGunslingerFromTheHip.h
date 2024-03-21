@@ -8,6 +8,5 @@ class USBZSkillGunslingerFromTheHip : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGunslingerFromTheHip();
-
 };
 

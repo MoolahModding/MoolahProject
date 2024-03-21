@@ -8,6 +8,5 @@ class USBZPreplanningAssetData1 : public USBZPreplanningAssetData {
     GENERATED_BODY()
 public:
     USBZPreplanningAssetData1();
-
 };
 

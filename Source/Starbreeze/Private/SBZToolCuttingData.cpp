@@ -13,8 +13,5 @@ USBZToolCuttingData::USBZToolCuttingData() {
     this->bUseInstigatorPlayerDamageScale = false;
     this->DefaultSkillSpeedModifier = 0.00f;
     this->MinCuttableTier = ESBZCuttingMaterialTier::None;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZToolCuttingData::StaticClass();
 }
-
 

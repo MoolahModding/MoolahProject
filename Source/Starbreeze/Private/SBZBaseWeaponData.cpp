@@ -1,5 +1,9 @@
 #include "SBZBaseWeaponData.h"
 
+int32 USBZBaseWeaponData::GetNbStickerPlacements() const {
+    return 0;
+}
+
 USBZBaseWeaponData::USBZBaseWeaponData() {
     this->SwayData = NULL;
     this->HeadbobData = NULL;
@@ -24,13 +28,7 @@ USBZBaseWeaponData::USBZBaseWeaponData() {
     this->bIsInaccurateWeapon = false;
     this->WeaponSelectionScorer = NULL;
     this->WeaponDeselectionTimer = 0.00f;
+    this->bShouldApplyWeaponSwitchCooldown = true;
     this->bCanAttackWhileMoving = true;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZBaseWeaponData::StaticClass();
 }
-
-int32 USBZBaseWeaponData::GetNbStickerPlacements() const {
-    return 0;
-}
-
 

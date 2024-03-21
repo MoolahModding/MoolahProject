@@ -19,9 +19,8 @@ protected:
     ASBZRoomVolume* Room;
     
 public:
-    ASBZDespawnVolume(const FObjectInitializer& ObjectInitializer);
-
-
+    ASBZDespawnVolume();
+    
     // Fix for true pure virtual functions not being implemented
 };
 

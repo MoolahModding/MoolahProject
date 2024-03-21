@@ -75,8 +75,7 @@ private:
     UAkAudioEvent* AddCannisterEvent;
     
 public:
-    ASBZThermalLance(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThermalLance();
 private:
     UFUNCTION(BlueprintCallable)
     void OnServerRemovedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);

@@ -8,6 +8,5 @@ class USBZBTDecorator_TaskFailTracker : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_TaskFailTracker();
-
 };
 

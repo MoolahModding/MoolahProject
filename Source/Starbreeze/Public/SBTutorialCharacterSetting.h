@@ -15,7 +15,6 @@ public:
     FString CharacterSku;
     
     USBTutorialCharacterSetting();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetTutorialPlayerSku();
     

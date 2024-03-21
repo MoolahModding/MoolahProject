@@ -22,7 +22,6 @@ protected:
     
 public:
     USBZAIOrder_FirstResponder();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);

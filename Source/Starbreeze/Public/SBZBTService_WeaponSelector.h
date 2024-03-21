@@ -29,6 +29,5 @@ private:
     
 public:
     USBZBTService_WeaponSelector();
-
 };
 

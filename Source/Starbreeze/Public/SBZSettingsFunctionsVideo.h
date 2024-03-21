@@ -11,7 +11,6 @@ class USBZSettingsFunctionsVideo : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsVideo();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetWindowMode(UObject* WorldContextObject, int32 Value);
     

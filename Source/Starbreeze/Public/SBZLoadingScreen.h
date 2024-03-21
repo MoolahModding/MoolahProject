@@ -8,6 +8,5 @@ class USBZLoadingScreen : public USBZLoadingWidgetBase {
     GENERATED_BODY()
 public:
     USBZLoadingScreen();
-
 };
 

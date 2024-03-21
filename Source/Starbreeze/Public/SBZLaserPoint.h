@@ -8,6 +8,5 @@ class USBZLaserPoint : public UStaticMeshComponent {
     GENERATED_BODY()
 public:
     USBZLaserPoint();
-
 };
 

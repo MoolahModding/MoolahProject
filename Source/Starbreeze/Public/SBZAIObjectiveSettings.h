@@ -25,6 +25,5 @@ protected:
     
 public:
     USBZAIObjectiveSettings();
-
 };
 

@@ -8,6 +8,5 @@ class STARBREEZE_API USBZAudioRaycasting : public UObject {
     GENERATED_BODY()
 public:
     USBZAudioRaycasting();
-
 };
 

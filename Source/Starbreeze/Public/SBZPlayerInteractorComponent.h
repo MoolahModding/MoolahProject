@@ -53,7 +53,6 @@ protected:
     
 public:
     USBZPlayerInteractorComponent();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShowInteractWidget() const;
     

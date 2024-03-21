@@ -8,6 +8,5 @@ class USBZSentryGunOverheatExecutionCalculation : public UGameplayEffectExecutio
     GENERATED_BODY()
 public:
     USBZSentryGunOverheatExecutionCalculation();
-
 };
 

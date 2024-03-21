@@ -50,7 +50,6 @@ private:
     
 public:
     USBZVehicleSpawnComponent();
-
 private:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SpawnCompleted(ESBZVehicleSpawnResult Result);

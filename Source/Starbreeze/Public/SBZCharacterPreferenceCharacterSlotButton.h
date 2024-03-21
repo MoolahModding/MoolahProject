@@ -25,7 +25,6 @@ protected:
     
 public:
     USBZCharacterPreferenceCharacterSlotButton();
-
     UFUNCTION(BlueprintCallable)
     void SetLocked(bool bInIsLocked);
     

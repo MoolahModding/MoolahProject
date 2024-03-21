@@ -15,10 +15,14 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnMetaRequestResultAndItemIdBluePrintDelegate OnComplete;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     USBZBuyItemCallbackProxy();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static USBZBuyItemCallbackProxy* BuyItem(UObject* WorldContextObject, FGuid ItemId, int32 Price, int32 DiscountedPrice, int32 Quantity, const FString& CurrencyCode);
+    static USBZBuyItemCallbackProxy* BuyItem(UObject* NewWorldContextObject, FGuid ItemId, int32 Price, int32 DiscountedPrice, int32 Quantity, const FString& CurrencyCode);
     
 };
 

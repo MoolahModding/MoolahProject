@@ -1,8 +1,5 @@
 #include "SBZBlockedPlayerManager.h"
 
-USBZBlockedPlayerManager::USBZBlockedPlayerManager() {
-}
-
 void USBZBlockedPlayerManager::XsxBlockListChangeTimer() {
 }
 
@@ -24,4 +21,6 @@ USBZBlockedPlayerManager* USBZBlockedPlayerManager::Get(const UObject* WorldCont
     return NULL;
 }
 
+USBZBlockedPlayerManager::USBZBlockedPlayerManager() {
+}
 

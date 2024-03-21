@@ -15,6 +15,5 @@ protected:
     
 public:
     USBZGameplayAbility_Equip();
-
 };
 

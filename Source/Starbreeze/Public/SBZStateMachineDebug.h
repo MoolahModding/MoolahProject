@@ -7,7 +7,6 @@ UCLASS(Blueprintable, NonTransient)
 class ASBZStateMachineDebug : public AHUD {
     GENERATED_BODY()
 public:
-    ASBZStateMachineDebug(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStateMachineDebug();
 };
 

@@ -1,10 +1,6 @@
 #include "SBZSecuredBagVisualizeComponent.h"
 #include "Net/UnrealNetwork.h"
 
-USBZSecuredBagVisualizeComponent::USBZSecuredBagVisualizeComponent() {
-    
-}
-
 void USBZSecuredBagVisualizeComponent::OnRep_BagTypes() {
 }
 
@@ -20,4 +16,6 @@ void USBZSecuredBagVisualizeComponent::GetLifetimeReplicatedProps(TArray<FLifeti
     DOREPLIFETIME(USBZSecuredBagVisualizeComponent, BagTypes);
 }
 
+USBZSecuredBagVisualizeComponent::USBZSecuredBagVisualizeComponent() {
+}
 

@@ -17,7 +17,6 @@ class USBZUIStatics : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZUIStatics();
-
     UFUNCTION(BlueprintCallable)
     static void Stop2DSound(UPARAM(Ref) int32& SoundID);
     
@@ -34,7 +33,7 @@ public:
     static void PrintSubtitle(const UObject* WorldContextObject, const FString& StringToPrint, FLinearColor Colour, float TimeToDisplay);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static int32 Play2DSound(const UObject* WorldContextObject, UAkAudioEvent* AudioEvent);
+    static int32 Play2DSound(const UObject* WorldContextObject, const UAkAudioEvent* AudioEvent);
     
     UFUNCTION(BlueprintCallable)
     static void LogUiVerbose(const FString& LogText);

@@ -42,7 +42,6 @@ public:
     USBZWeaponMuzzleData* MuzzleData;
     
     USBZPlayerWeaponFireData();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetDamageOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutDamageArray) const;
     

@@ -14,7 +14,6 @@ protected:
     UStaticMeshComponent* LaserMesh;
     
 public:
-    ASBZLaserGadget(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLaserGadget();
 };
 

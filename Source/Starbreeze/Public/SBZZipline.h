@@ -78,10 +78,9 @@ protected:
     float HalfExtentSizeToAdd;
     
 public:
-    ASBZZipline(const FObjectInitializer& ObjectInitializer);
-
+    ASBZZipline();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetZiplineEnabled(bool bEnabled);
     

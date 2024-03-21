@@ -5,4 +5,3 @@ USBZAIUtilityScorer_CanAnticipateExplosion::USBZAIUtilityScorer_CanAnticipateExp
     this->DetectionSettings = NULL;
 }
 
-

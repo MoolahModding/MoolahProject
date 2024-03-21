@@ -47,6 +47,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZComponentSelector SlotSelector;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bWaitForEquipped;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZLifeActionSlot* ReservedSlot;
     
@@ -58,7 +61,6 @@ protected:
     
 public:
     USBZAIOrder_LifeAction();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnCharacterSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);

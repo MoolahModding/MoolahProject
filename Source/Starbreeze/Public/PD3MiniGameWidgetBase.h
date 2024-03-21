@@ -37,7 +37,6 @@ protected:
     
 public:
     UPD3MiniGameWidgetBase();
-
     UFUNCTION(BlueprintCallable)
     void SetMiniGameState(EPD3MiniGameState NewState);
     

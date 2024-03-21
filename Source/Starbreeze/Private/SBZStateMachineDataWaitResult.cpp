@@ -3,4 +3,3 @@
 USBZStateMachineDataWaitResult::USBZStateMachineDataWaitResult() {
 }
 
-

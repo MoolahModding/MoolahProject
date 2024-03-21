@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZHUDWidgetBase();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetRequiresUITagsChanged(bool bInHasRequiredTags);

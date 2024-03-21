@@ -1,18 +1,6 @@
 #include "SBZLifeActionTriggerVolume.h"
 #include "SBZActorFilterComponent.h"
 
-ASBZLifeActionTriggerVolume::ASBZLifeActionTriggerVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bShouldStartEnabled = true;
-    this->bDisableOnLifeActionReserved = false;
-    this->bDisableOnLifeActionExiting = false;
-    this->bDisableOnLifeActionComplete = false;
-    this->ActorFilterComponent = CreateDefaultSubobject<USBZActorFilterComponent>(TEXT("SBZActorFilterComponent"));
-    this->bTriggeredByHumanShield = false;
-    this->bAutoTrigger = false;
-    this->Action = NULL;
-    this->bNetLoadOnClient = false;
-}
-
 void ASBZLifeActionTriggerVolume::SetVolumeEnabled(bool bEnabled) {
 }
 
@@ -43,4 +31,14 @@ void ASBZLifeActionTriggerVolume::OnFilteredActorEndOverlapping(FName Identifier
 void ASBZLifeActionTriggerVolume::OnFilteredActorBeginOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors) {
 }
 
+ASBZLifeActionTriggerVolume::ASBZLifeActionTriggerVolume() {
+    this->bShouldStartEnabled = true;
+    this->bDisableOnLifeActionReserved = false;
+    this->bDisableOnLifeActionExiting = false;
+    this->bDisableOnLifeActionComplete = false;
+    this->ActorFilterComponent = CreateDefaultSubobject<USBZActorFilterComponent>(TEXT("SBZActorFilterComponent"));
+    this->bTriggeredByHumanShield = false;
+    this->bAutoTrigger = false;
+    this->Action = NULL;
+}
 

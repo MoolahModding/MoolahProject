@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZToolData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSensorToolData.generated.h"
 
-class UClass;
+class USBZLocalPlayerFeedback;
 class USBZOutlineAsset;
 
 UCLASS(Blueprintable)
@@ -20,7 +21,7 @@ public:
     float MaxDistance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SensorToolDOFFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> SensorToolDOFFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* MarkedOutline;
@@ -38,6 +39,5 @@ public:
     float ScanLineTime;
     
     USBZSensorToolData();
-
 };
 

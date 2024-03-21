@@ -19,6 +19,5 @@ public:
     float ThrowableCooldown;
     
     USBZAIEquipmentData();
-
 };
 

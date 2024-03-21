@@ -77,10 +77,9 @@ protected:
     float ProgressPerSecond;
     
 public:
-    ASBZPocketDrill(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPocketDrill();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetActive(bool bIsActive);
     

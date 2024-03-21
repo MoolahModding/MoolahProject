@@ -40,10 +40,9 @@ private:
     TArray<int32> ViewTargetPlayerStateIdArray;
     
 public:
-    ASBZPlayerMicroCamera(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerMicroCamera();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_ViewTargetPlayerStateIdArray(const TArray<int32>& OldViewTargetPlayerStateIdArray);
@@ -67,7 +66,7 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnViewTargetChanged(bool bIsViewTarget);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

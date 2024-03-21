@@ -209,7 +209,6 @@ private:
     
 public:
     USBZOnlineSession();
-
     UFUNCTION(BlueprintCallable)
     void SetLocalClientReady(bool bIsClientReady);
     

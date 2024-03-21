@@ -13,6 +13,5 @@ public:
     TArray<USBZWeaponPresetConfigData*> WeaponPresetConfigDataArray;
     
     USBZWeaponPresetConfigDatabase();
-
 };
 

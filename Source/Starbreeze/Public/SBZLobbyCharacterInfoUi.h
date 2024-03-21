@@ -2,22 +2,24 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/OnlineReplStructs.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "ESBZPlatform.h"
 #include "ESBZSlotStatus.h"
 #include "PD3PlayerLoadout.h"
+#include "Templates/SubclassOf.h"
 #include "SBZLobbyCharacterInfoUi.generated.h"
 
-class UClass;
+class APawn;
 
 USTRUCT(BlueprintType)
 struct FSBZLobbyCharacterInfoUi {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* PawnClass;
+    TSubclassOf<APawn> PawnClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> PawnSoftClass;
+    TSoftClassPtr<APawn> PawnSoftClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bAsyncLoadInProgress;
@@ -54,6 +56,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZPlatform Platform;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ESBZFirstPartyPlatform FirstPartyPlatform;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 InfamyLevel;

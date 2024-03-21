@@ -40,7 +40,6 @@ public:
     bool bAutoComputeCableLength;
     
     USBZCableComponent();
-
     UFUNCTION(BlueprintCallable)
     void UpdateSegmentCount(const float InCableLength, const float SegmentLength, const int32 MaxSegmentCount);
     

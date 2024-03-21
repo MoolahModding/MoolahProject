@@ -3,9 +3,10 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTTask_GetClosestPosition.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable)
 class USBZBTTask_GetClosestPosition : public UBTTaskNode {
@@ -19,13 +20,12 @@ private:
     FBlackboardKeySelector MoveToLocation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FilterClass;
+    TSubclassOf<UNavigationQueryFilter> FilterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector ProjectionExtent;
     
 public:
     USBZBTTask_GetClosestPosition();
-
 };
 

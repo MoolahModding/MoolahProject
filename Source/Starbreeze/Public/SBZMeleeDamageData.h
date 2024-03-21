@@ -6,20 +6,22 @@
 #include "ESBZMeleeAttackCategory.h"
 #include "ESBZMeleeImpactType.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMeleeDamageData.generated.h"
 
 class UAkAudioEvent;
-class UClass;
+class UGameplayEffect;
+class USBZDamageType;
 
 UCLASS(Abstract, Blueprintable)
 class USBZMeleeDamageData : public UDataAsset, public ISBZHurtReactionDataInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageTypeClass;
+    TSubclassOf<USBZDamageType> DamageTypeClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageGameplayEffectClass;
+    TSubclassOf<UGameplayEffect> DamageGameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HurtReactionWeightModifier;
@@ -67,8 +69,7 @@ public:
     float Duration;
     
     USBZMeleeDamageData();
-
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

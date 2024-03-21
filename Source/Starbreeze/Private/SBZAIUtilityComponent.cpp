@@ -11,4 +11,3 @@ USBZAIUtilityComponent::USBZAIUtilityComponent() {
     this->CachedTopDecider = NULL;
 }
 
-

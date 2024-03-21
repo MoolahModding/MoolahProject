@@ -25,7 +25,6 @@ protected:
     
 public:
     USBZStateMachineStateWaitingActionPhase();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void TravelToHostTimeout();

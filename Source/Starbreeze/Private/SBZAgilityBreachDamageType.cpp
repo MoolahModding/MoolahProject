@@ -3,4 +3,3 @@
 USBZAgilityBreachDamageType::USBZAgilityBreachDamageType() {
 }
 
-

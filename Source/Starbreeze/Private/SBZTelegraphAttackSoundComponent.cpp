@@ -5,4 +5,3 @@ USBZTelegraphAttackSoundComponent::USBZTelegraphAttackSoundComponent() {
     this->TelegraphStopEvent = NULL;
 }
 
-

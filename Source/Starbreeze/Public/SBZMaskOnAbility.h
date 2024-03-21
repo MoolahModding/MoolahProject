@@ -8,6 +8,5 @@ class USBZMaskOnAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZMaskOnAbility();
-
 };
 

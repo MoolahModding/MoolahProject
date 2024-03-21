@@ -37,7 +37,6 @@ private:
     
 public:
     USBZCosmeticDestructionComponent();
-
 private:
     UFUNCTION(BlueprintCallable)
     void HandleSBZTakeRadialDamageEx(AActor* DamagedActor, float Damage, const FRadialDamageEvent& DamageEvent, AController* InstigatedBy, AActor* DamageCauser);

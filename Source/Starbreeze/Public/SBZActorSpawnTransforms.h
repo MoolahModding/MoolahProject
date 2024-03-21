@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZActorSpawnTransforms : public ASBZActorSpawnBase {
     GENERATED_BODY()
 public:
-    ASBZActorSpawnTransforms(const FObjectInitializer& ObjectInitializer);
-
+    ASBZActorSpawnTransforms();
 };
 

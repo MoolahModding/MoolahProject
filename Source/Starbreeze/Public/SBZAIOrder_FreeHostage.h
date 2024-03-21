@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "SBZAIOrder.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIOrder_FreeHostage.generated.h"
 
 class ASBZAICharacter;
-class UClass;
+class USBZAIOrder_ReleaseHostage;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZAIOrder_FreeHostage : public USBZAIOrder {
@@ -16,7 +17,7 @@ protected:
     FName BlackboardKey;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ReleaseHostageOrder;
+    TSubclassOf<USBZAIOrder_ReleaseHostage> ReleaseHostageOrder;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -24,7 +25,6 @@ private:
     
 public:
     USBZAIOrder_FreeHostage();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive);

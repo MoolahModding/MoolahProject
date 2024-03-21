@@ -13,7 +13,6 @@ protected:
     
 public:
     USBZSettingHelperPanel();
-
     UFUNCTION(BlueprintCallable)
     void SetSettingCategoryName(const FName& InSettingCategoryName);
     

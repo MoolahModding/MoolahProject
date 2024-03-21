@@ -20,7 +20,6 @@ private:
     int32 VehicleTypeFlags;
     
 public:
-    ASBZTrafficSpline(const FObjectInitializer& ObjectInitializer);
-
+    ASBZTrafficSpline();
 };
 

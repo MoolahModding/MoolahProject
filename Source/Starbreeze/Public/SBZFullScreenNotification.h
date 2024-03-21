@@ -34,7 +34,6 @@ protected:
     
 public:
     USBZFullScreenNotification();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisplayedNewActiveNotification(const FSBZUIFullscreenNotificationData& NewNotificationData);
     
@@ -46,7 +45,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void DismissActiveNotification();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

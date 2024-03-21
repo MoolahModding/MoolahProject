@@ -23,7 +23,6 @@ class USBZSpawnManagerFunctionLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZSpawnManagerFunctionLibrary();
-
     UFUNCTION(BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo", WorldContext="WorldContextObject"))
     static void WaitForPawnRequest(const UObject* WorldContextObject, FSBZPawnSpawnRequestHandle Handle, FLatentActionInfo LatentInfo);
     

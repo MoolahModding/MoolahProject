@@ -1,10 +1,5 @@
 #include "SBZMainMenuCosmeticItemButton.h"
 
-USBZMainMenuCosmeticItemButton::USBZMainMenuCosmeticItemButton() {
-    this->bIsDefault = false;
-    this->CosmeticItemData = NULL;
-}
-
 void USBZMainMenuCosmeticItemButton::SetItemCount(int32 InItemCount) {
 }
 
@@ -21,4 +16,8 @@ USBZCosmeticsDataAsset* USBZMainMenuCosmeticItemButton::GetCosmeticItemData() co
     return NULL;
 }
 
+USBZMainMenuCosmeticItemButton::USBZMainMenuCosmeticItemButton() {
+    this->bIsDefault = false;
+    this->CosmeticItemData = NULL;
+}
 

@@ -3,4 +3,3 @@
 USBZDropEquipmentNotify::USBZDropEquipmentNotify() {
 }
 
-

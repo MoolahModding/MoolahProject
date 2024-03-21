@@ -5,7 +5,7 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZThrowableData.generated.h"
 
-class UClass;
+class ASBZThrowable;
 class USBZAIScorer;
 class USBZVoiceCommentDataAsset;
 class USBZWeaponAimAssistDataAsset;
@@ -16,7 +16,7 @@ class USBZThrowableData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> ThrowableClass;
+    TSoftClassPtr<ASBZThrowable> ThrowableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ThrowForce;
@@ -97,6 +97,5 @@ public:
     USBZWeaponFireData* FireData;
     
     USBZThrowableData();
-
 };
 

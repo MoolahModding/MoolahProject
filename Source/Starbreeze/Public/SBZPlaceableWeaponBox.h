@@ -14,8 +14,7 @@ private:
     bool bIsActive;
     
 public:
-    ASBZPlaceableWeaponBox(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlaceableWeaponBox();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetActiveState(bool bActive);
     

@@ -5,4 +5,3 @@ USBZCharacterLinkedAnimation::USBZCharacterLinkedAnimation() {
     this->CurrentAnimationCollection = NULL;
 }
 
-

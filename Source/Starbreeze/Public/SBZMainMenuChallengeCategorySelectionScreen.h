@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuChallengeCategorySelectionScreen.generated.h"
 
-class UClass;
 class UHorizontalBox;
+class USBZMainMenuChallengeCategoryButton;
 class USBZMainMenuChallengesWidget;
 class USBZMenuButton;
 
@@ -20,14 +21,13 @@ protected:
     USBZMainMenuChallengesWidget* Widget_ChallengeScreen;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChallengeCategoryButton;
+    TSubclassOf<USBZMainMenuChallengeCategoryButton> ChallengeCategoryButton;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PanelButtonPadding;
     
 public:
     USBZMainMenuChallengeCategorySelectionScreen();
-
 private:
     UFUNCTION(BlueprintCallable)
     void NativeOnCategoryButtonSelected(USBZMenuButton* InCategoryButton);

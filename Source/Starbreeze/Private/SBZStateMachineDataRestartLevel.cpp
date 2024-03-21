@@ -3,4 +3,3 @@
 USBZStateMachineDataRestartLevel::USBZStateMachineDataRestartLevel() {
 }
 
-

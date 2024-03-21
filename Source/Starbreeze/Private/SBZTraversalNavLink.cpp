@@ -1,9 +1,7 @@
 #include "SBZTraversalNavLink.h"
 #include "SBZNavLinkTraversalComponent.h"
 
-ASBZTraversalNavLink::ASBZTraversalNavLink(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZTraversalNavLink::ASBZTraversalNavLink() {
     this->NavLinkTraversalComponent = CreateDefaultSubobject<USBZNavLinkTraversalComponent>(TEXT("SBZNavLinkTraversalComponent"));
-    this->bCustomMove = true;
 }
-
 

@@ -3,4 +3,3 @@
 UDEPRECATED_SBZAllowSprintHurtForwardNotifyState::UDEPRECATED_SBZAllowSprintHurtForwardNotifyState() {
 }
 
-

@@ -32,7 +32,6 @@ protected:
     
 public:
     USBZSpawnManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPawnLifetimeChanged(APawn* Pawn);

@@ -8,6 +8,5 @@ class USBZEquippablePartCustomData : public UDataAsset {
     GENERATED_BODY()
 public:
     USBZEquippablePartCustomData();
-
 };
 

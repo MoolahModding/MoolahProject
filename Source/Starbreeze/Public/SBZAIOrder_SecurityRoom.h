@@ -4,7 +4,6 @@
 #include "SBZAIOrder.h"
 #include "SBZAIOrder_SecurityRoom.generated.h"
 
-class AActor;
 class ASBZAIController;
 class ASBZGate;
 class ASBZRoomVolume;
@@ -29,19 +28,12 @@ private:
     
 public:
     USBZAIOrder_SecurityRoom();
-
 private:
     UFUNCTION(BlueprintCallable)
-    void OnSecurityRoomVolumeBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnPaused(const FString& Reason);
+    void OnPausedFunc(const FName& Reason);
     
     UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
-    
-    UFUNCTION(BlueprintCallable)
-    void ClearDelegates();
     
 };
 

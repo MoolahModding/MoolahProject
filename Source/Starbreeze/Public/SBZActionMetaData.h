@@ -4,6 +4,7 @@
 #include "SBZActionMetaData.generated.h"
 
 class USBZAIAction;
+class USBZAttractorPredicate;
 
 USTRUCT(BlueprintType)
 struct FSBZActionMetaData {
@@ -23,6 +24,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinAge;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, NoClear, meta=(AllowPrivateAccess=true))
+    TArray<USBZAttractorPredicate*> AttractorPredicates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer RequiredTags;

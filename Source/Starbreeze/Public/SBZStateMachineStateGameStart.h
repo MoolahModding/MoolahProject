@@ -17,7 +17,6 @@ private:
     
 public:
     USBZStateMachineStateGameStart();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SessionJoinStarted();

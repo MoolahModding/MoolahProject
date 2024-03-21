@@ -12,6 +12,5 @@ public:
     FSoftClassPath PreviewActorClassName;
     
     USBZPawnSpawnPreviewActorConfig();
-
 };
 

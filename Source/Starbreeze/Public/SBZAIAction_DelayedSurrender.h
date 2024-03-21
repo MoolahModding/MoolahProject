@@ -25,7 +25,6 @@ private:
     
 public:
     USBZAIAction_DelayedSurrender();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnTakeDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);

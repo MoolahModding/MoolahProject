@@ -4,7 +4,7 @@
 #include "SBZWidgetBase.h"
 #include "SBZPingWidget.generated.h"
 
-class APlayerState;
+class ASBZPlayerState;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZPingWidget : public USBZWidgetBase {
@@ -20,13 +20,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CriticalThreshold;
     
-private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    APlayerState* PlayerState;
+    ASBZPlayerState* PlayerState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPingAllowed;
     
 public:
     USBZPingWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPingValueChanged(const int32 PingValue);

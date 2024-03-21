@@ -3,6 +3,7 @@
 #include "Engine/EngineTypes.h"
 #include "ESBZToolState.h"
 #include "SBZEquippable.h"
+#include "Templates/SubclassOf.h"
 #include "SBZTool.generated.h"
 
 class AActor;
@@ -11,7 +12,7 @@ class ASBZCharacter;
 class ASBZPlayerController;
 class UAkAudioEvent;
 class UAkRtpc;
-class UClass;
+class USBZLocalPlayerFeedback;
 class USBZToolData;
 class USBZToolSkeletalMeshComponent;
 
@@ -78,19 +79,18 @@ protected:
     ASBZPlayerController* ActiveUsingPlayerController;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* EquipPlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> EquipPlayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActivePlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ActivePlayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActiveUsingPlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ActiveUsingPlayerFeedback;
     
 public:
-    ASBZTool(const FObjectInitializer& ObjectInitializer);
-
+    ASBZTool();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void StopAllSounds();

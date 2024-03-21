@@ -7,6 +7,7 @@
 
 class AActor;
 class UObject;
+class USBZBagManager;
 class USBZBagType;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -19,9 +20,8 @@ protected:
     
 public:
     USBZBagManager();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool TryRemoveClaim(FSBZBagHandle Handle, AActor* Actor);
     
@@ -42,6 +42,9 @@ protected:
     void Multicast_RemoveBag(const int32 BagId);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_CreateBagArray(const int32 FirstBagId, const USBZBagType* BagType, const int32 NumberOfBags);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateBag(const int32 BagId, const USBZBagType* BagType);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -55,7 +58,7 @@ public:
     FSBZBagPersistentData GetValidBagData(FSBZBagHandle Handle) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static USBZBagManager* Get(UObject* WorldContextObject);
+    static USBZBagManager* Get(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     FSBZBagHandle CreateBag(const USBZBagType* BagType);

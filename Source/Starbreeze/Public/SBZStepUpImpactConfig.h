@@ -8,6 +8,5 @@ class USBZStepUpImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZStepUpImpactConfig();
-
 };
 

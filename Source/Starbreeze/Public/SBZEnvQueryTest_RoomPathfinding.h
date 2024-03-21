@@ -4,9 +4,10 @@
 #include "EnvironmentQuery/EnvQueryTest.h"
 #include "ESBZEnvTestPathfindingDetail.h"
 #include "SBZAIDataProvider_NavQueryFilter.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryTest_RoomPathfinding.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable)
 class USBZEnvQueryTest_RoomPathfinding : public UEnvQueryTest {
@@ -17,15 +18,15 @@ protected:
     ESBZEnvTestPathfindingDetail Detail;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* Context;
+    TSubclassOf<UEnvQueryContext> Context;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* RoomContext;
+    TSubclassOf<UEnvQueryContext> RoomContext;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FAIDataProviderBoolValue PathFromContext;
     
-    UPROPERTY(AdvancedDisplay, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FAIDataProviderBoolValue SkipUnreachable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -36,6 +37,5 @@ protected:
     
 public:
     USBZEnvQueryTest_RoomPathfinding();
-
 };
 

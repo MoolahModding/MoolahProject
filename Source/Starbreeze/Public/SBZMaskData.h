@@ -3,8 +3,8 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZMaskData.generated.h"
 
+class ASBZMask;
 class UAnimMontage;
-class UClass;
 class USBZMaskMaterialData;
 class USBZMaskMouldData;
 class USBZMaskPatternData;
@@ -15,7 +15,7 @@ class USBZMaskData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> MaskClass;
+    TSoftClassPtr<ASBZMask> MaskClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UAnimMontage> EquipAnimationCharacterFP;
@@ -42,6 +42,5 @@ public:
     USBZMaskVFXData* VFX;
     
     USBZMaskData();
-
 };
 

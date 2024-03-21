@@ -31,7 +31,6 @@ protected:
     
 public:
     USBZSettingsButton();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool SettingIsDirty() const;
     

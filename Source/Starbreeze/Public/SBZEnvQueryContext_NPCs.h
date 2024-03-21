@@ -8,6 +8,5 @@ class USBZEnvQueryContext_NPCs : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_NPCs();
-
 };
 

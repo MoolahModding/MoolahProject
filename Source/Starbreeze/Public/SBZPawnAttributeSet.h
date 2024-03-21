@@ -57,9 +57,8 @@ protected:
     
 public:
     USBZPawnAttributeSet();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_Health(const FGameplayAttributeData& OldHealth);

@@ -39,7 +39,6 @@ public:
     bool bWasClientRecentlyKicked;
     
     USBZKickingManager();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void KickPlayer(const UObject* WorldContextObject, FUniqueNetIdRepl PlayerIdToKick, ESBZKickingMode ModeKick);
     

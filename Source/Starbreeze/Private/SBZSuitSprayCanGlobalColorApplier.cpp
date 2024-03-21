@@ -3,4 +3,3 @@
 USBZSuitSprayCanGlobalColorApplier::USBZSuitSprayCanGlobalColorApplier() {
 }
 
-

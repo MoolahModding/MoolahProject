@@ -7,7 +7,6 @@ UCLASS(Abstract, Blueprintable)
 class ASBZSmokeGrenade : public ASBZGasGrenade {
     GENERATED_BODY()
 public:
-    ASBZSmokeGrenade(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSmokeGrenade();
 };
 

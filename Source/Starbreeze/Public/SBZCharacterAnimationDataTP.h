@@ -205,6 +205,5 @@ public:
     bool bCanDoHipsZBlending;
     
     USBZCharacterAnimationDataTP();
-
 };
 

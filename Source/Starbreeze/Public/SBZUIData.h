@@ -20,7 +20,6 @@ protected:
     
 public:
     USBZUIData();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TSoftObjectPtr<UPD3SecurityCompanyDataAsset> GetSecurityCompanyData(ESBZSecurityCompany InSecurityCompany) const;
     

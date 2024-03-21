@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/NetSerialization.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSpawnedCarryData.generated.h"
 
 class AActor;
-class UClass;
 
 USTRUCT(BlueprintType)
 struct FSBZSpawnedCarryData {
@@ -18,7 +18,7 @@ public:
     FVector_NetQuantize Location;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* ActorClass;
+    TSubclassOf<AActor> ActorClass;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint32 NetID;

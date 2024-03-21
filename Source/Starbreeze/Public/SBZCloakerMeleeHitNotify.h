@@ -8,6 +8,5 @@ class USBZCloakerMeleeHitNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZCloakerMeleeHitNotify();
-
 };
 

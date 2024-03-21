@@ -11,8 +11,7 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZChatInGame : public AInfo {
     GENERATED_BODY()
 public:
-    ASBZChatInGame(const FObjectInitializer& ObjectInitializer);
-
+    ASBZChatInGame();
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerChatMessageReceived(int32 PlayerId, const FSBZPlayerChatEvent& PlayerChatEvent);

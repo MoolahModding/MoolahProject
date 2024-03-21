@@ -6,4 +6,3 @@ USBZSplineComponent::USBZSplineComponent() {
     this->SplineType = ESBZSplineType::Forward;
 }
 
-

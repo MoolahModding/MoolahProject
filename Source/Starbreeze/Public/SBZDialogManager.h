@@ -22,11 +22,10 @@ private:
     
 public:
     USBZDialogManager();
-
     UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
     void Multicast_PlayDialog(const USBZDialogDataAsset* DialogDataAsset, const TArray<AActor*>& Performers, AActor* DialogInstigator);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -1,35 +1,14 @@
 #include "SBZMainMenuWidget.h"
 
-USBZMainMenuWidget::USBZMainMenuWidget() {
-    this->Widget_LoadoutCustomization = NULL;
-    this->Widget_WeaponCustomization = NULL;
-    this->Widget_WeaponCustomizationTemp = NULL;
-    this->Widget_WeaponInventory = NULL;
-    this->Widget_ItemInventory = NULL;
-    this->Widget_SkillsSelection = NULL;
-    this->Widget_WeaponProgression = NULL;
-    this->Widget_MaskCustomization = NULL;
-    this->Widget_WeaponModifiers = NULL;
-    this->Widget_SuitCustomization = NULL;
-    this->Widget_SuitCosmeticCustomization = NULL;
-    this->Widget_BlackMarketInspect = NULL;
-    this->Widget_Cosmetic = NULL;
-    this->Widget_HeistInspect = NULL;
-    this->Widget_FullscreenVideo = NULL;
-    this->Widget_MainMenuNavbar = NULL;
-    this->CosmeticItemButtonClass = NULL;
-    this->CosmeticItemButtonClass = NULL;
-    this->CrossplayPopupWidgetClass = NULL;
-    this->CrossplayPopupWidgetClass = NULL;
-    this->TutorialPopupWidgetClass = NULL;
-    this->TutorialPopupWidgetClass = NULL;
-    this->PopUpBody = NULL;
-    this->VendorTypeToOpen = ESBZBlackMarketVendorType::None;
-}
-
 void USBZMainMenuWidget::ShowTutorialPopup() {
 }
 
+void USBZMainMenuWidget::ShowTelemetryPopup() {
+}
+
+
+void USBZMainMenuWidget::ShowGameSensePopup() {
+}
 
 void USBZMainMenuWidget::ShowCrossplayPopup() {
 }
@@ -42,6 +21,12 @@ void USBZMainMenuWidget::RequestRemoveBackgroundBlur() {
 
 
 void USBZMainMenuWidget::OnTutorialPopUpClosed(FName ClosingActionName) {
+}
+
+void USBZMainMenuWidget::OnTelemetryPopUpClosed(FName ClosingActionName) {
+}
+
+void USBZMainMenuWidget::OnGameSensePopUpClosed(FName ClosingActionName) {
 }
 
 void USBZMainMenuWidget::OnCrossplayPopUpClosed(FName ClosingActionName) {
@@ -116,4 +101,27 @@ bool USBZMainMenuWidget::CanInspectInventoryItem(USBZInventoryBaseData* InspectD
 }
 
 
+USBZMainMenuWidget::USBZMainMenuWidget() {
+    this->Widget_LoadoutCustomization = NULL;
+    this->Widget_WeaponCustomization = NULL;
+    this->Widget_WeaponCustomizationTemp = NULL;
+    this->Widget_WeaponInventory = NULL;
+    this->Widget_ItemInventory = NULL;
+    this->Widget_SkillsSelection = NULL;
+    this->Widget_WeaponProgression = NULL;
+    this->Widget_MaskCustomization = NULL;
+    this->Widget_WeaponModifiers = NULL;
+    this->Widget_SuitCustomization = NULL;
+    this->Widget_SuitCosmeticCustomization = NULL;
+    this->Widget_BlackMarketInspect = NULL;
+    this->Widget_Cosmetic = NULL;
+    this->Widget_HeistInspect = NULL;
+    this->Widget_FullscreenVideo = NULL;
+    this->Widget_MainMenuNavbar = NULL;
+    this->CosmeticItemButtonClass = NULL;
+    this->CrossplayPopupWidgetClass = NULL;
+    this->TutorialPopupWidgetClass = NULL;
+    this->PopUpBody = NULL;
+    this->VendorTypeToOpen = ESBZBlackMarketVendorType::None;
+}
 

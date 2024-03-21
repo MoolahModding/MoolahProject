@@ -7,11 +7,11 @@
 #include "SBZLaserPattern.h"
 #include "SBZLaserPointConnection.h"
 #include "SBZOnLaserGridTriggeredDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZLaserGrid.generated.h"
 
 class UAkAudioEvent;
 class UBoxComponent;
-class UClass;
 class UPrimitiveComponent;
 class USBZAmbientSoundComponent;
 class USBZLaser;
@@ -25,7 +25,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LaserComponentClass;
+    TSubclassOf<USBZLaser> LaserComponentClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZLaserPointConnection> LaserConnectionArray;
@@ -65,10 +65,9 @@ private:
     bool bIsEnabled;
     
 public:
-    ASBZLaserGrid(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLaserGrid();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StopCyclingPatterns();
     

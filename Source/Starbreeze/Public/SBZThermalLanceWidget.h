@@ -27,7 +27,6 @@ protected:
     
 public:
     USBZThermalLanceWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnThermalLanceSet();

@@ -16,7 +16,6 @@ protected:
     
 public:
     USBZBuiltInAnimMontagesHandler();
-
     UFUNCTION(BlueprintCallable)
     void Update(float DeltaSeconds);
     

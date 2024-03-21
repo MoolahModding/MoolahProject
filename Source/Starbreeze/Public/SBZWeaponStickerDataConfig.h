@@ -11,6 +11,5 @@ public:
     int8 StickerPositionIndex;
     
     USBZWeaponStickerDataConfig();
-
 };
 

@@ -4,12 +4,13 @@
 #include "GameplayTagContainer.h"
 #include "ESBZModularMeshSpawnStep.h"
 #include "SBZBoneAnimContraint.h"
+#include "Templates/SubclassOf.h"
 #include "SBZModularMeshData.generated.h"
 
-class UClass;
 class USBZModularPartDataAsset;
 class USBZModularPartSlotBase;
 class USkeletalMesh;
+class USkeletalMeshComponent;
 
 USTRUCT(BlueprintType)
 struct FSBZModularMeshData {
@@ -19,7 +20,7 @@ public:
     TSoftObjectPtr<USkeletalMesh> SkeletalMesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SkeletalMeshClass;
+    TSubclassOf<USkeletalMeshComponent> SkeletalMeshClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZModularPartSlotBase* SpawnSlot;

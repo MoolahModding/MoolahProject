@@ -3,4 +3,3 @@
 USBZListenerManager::USBZListenerManager() {
 }
 
-

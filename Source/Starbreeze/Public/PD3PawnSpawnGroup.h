@@ -27,8 +27,7 @@ protected:
     FGameplayTagContainer AllowedPawnTypeContainer;
     
 public:
-    APD3PawnSpawnGroup(const FObjectInitializer& ObjectInitializer);
-
+    APD3PawnSpawnGroup();
     UFUNCTION(BlueprintCallable)
     void SetEnabledForCivilians(bool bInIsEnabledForCivilians);
     

@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZMainMenuInventoryWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void NativeOnLoadoutSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);

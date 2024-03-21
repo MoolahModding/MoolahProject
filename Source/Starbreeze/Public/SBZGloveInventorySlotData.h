@@ -13,6 +13,5 @@ public:
     USBZModularPartSlotBase* GloveBaseSlot;
     
     USBZGloveInventorySlotData();
-
 };
 

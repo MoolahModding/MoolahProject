@@ -6,7 +6,7 @@
 #include "SBZModularMeshData.h"
 #include "SBZWeaponCharmData.generated.h"
 
-class UClass;
+class ASBZWeaponCharm;
 
 UCLASS(Blueprintable)
 class USBZWeaponCharmData : public USBZCosmeticsDataAsset, public ISBZModularMeshContainer {
@@ -19,14 +19,13 @@ public:
     FName AttachmentBoneName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> WeaponCharmClass;
+    TSoftClassPtr<ASBZWeaponCharm> WeaponCharmClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform AttachmentOffset;
     
     USBZWeaponCharmData();
-
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

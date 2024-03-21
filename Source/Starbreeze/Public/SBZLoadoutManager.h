@@ -20,7 +20,6 @@ public:
     FOnPlayerLoadoutConfigChanged OnLocalPlayerLoadoutChanged;
     
     USBZLoadoutManager();
-
     UFUNCTION(BlueprintCallable)
     void SetLoadoutAtIndex(int32 LoadoutIndex, const FSBZPlayerLoadoutConfig& InLoadoutConfig);
     

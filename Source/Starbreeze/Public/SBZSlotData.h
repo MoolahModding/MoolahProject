@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "ESBZPlatform.h"
 #include "ESBZSlotStatus.h"
 #include "PD3PlayerLoadout.h"
@@ -69,6 +70,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bStayAsParty;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZFirstPartyPlatform FirstPartyPlatform;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZPlatform Platform;

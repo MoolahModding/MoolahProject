@@ -14,7 +14,6 @@ class STARBREEZE_API USBZGameRecordsManager : public UObject {
     GENERATED_BODY()
 public:
     USBZGameRecordsManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZTitleData GetTitleData();
     

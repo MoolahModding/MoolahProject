@@ -89,7 +89,6 @@ private:
     
 public:
     USBZTrafficManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnExitedActionPhase();

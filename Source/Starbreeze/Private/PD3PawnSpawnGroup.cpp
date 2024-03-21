@@ -1,10 +1,5 @@
 #include "PD3PawnSpawnGroup.h"
 
-APD3PawnSpawnGroup::APD3PawnSpawnGroup(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bIsEnabledForAssault = true;
-    this->bIsEnabledForCivilians = false;
-}
-
 void APD3PawnSpawnGroup::SetEnabledForCivilians(bool bInIsEnabledForCivilians) {
 }
 
@@ -17,4 +12,8 @@ void APD3PawnSpawnGroup::OnSpawnFinished(const FSBZPawnSpawnRequestHandle& Handl
 void APD3PawnSpawnGroup::OnSpawnDie(APawn* Pawn) {
 }
 
+APD3PawnSpawnGroup::APD3PawnSpawnGroup() {
+    this->bIsEnabledForAssault = true;
+    this->bIsEnabledForCivilians = false;
+}
 

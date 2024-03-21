@@ -16,6 +16,5 @@ public:
     AActor* To;
     
     USBZArrowComponent();
-
 };
 

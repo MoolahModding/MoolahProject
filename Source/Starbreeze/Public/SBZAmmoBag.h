@@ -15,7 +15,6 @@ protected:
     uint8 NumberOfGrenadesPerCharge;
     
 public:
-    ASBZAmmoBag(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAmmoBag();
 };
 

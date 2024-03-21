@@ -4,25 +4,6 @@
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZKeypad::ASBZKeypad(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->GuessedCode = 0;
-    this->Inputs = 0;
-    this->KeypadInteractableComponentArray.AddDefaulted(12);
-    this->BaseKeypadMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BaseKeypadMesh"));
-    this->BaseKeypadMesh->SetupAttachment(RootComponent);
-    this->CodeWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("CodeWidget"));
-    this->CodeWidget->SetupAttachment(BaseKeypadMesh);
-    this->LanternCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("LanternCapsule"));
-    this->LanternCapsule->SetupAttachment(RootComponent);
-    this->bIsInteractable = false;
-    this->bHasHighlights = false;
-    this->bRandomizeAtBeginPlay = false;
-    this->IncorrectCodeWaitTime = 20.00f;
-    this->ButtonSoundEvent = NULL;
-    this->Code = 3;
-    this->Seed = -1;
-}
-
 void ASBZKeypad::SetInteractionEnabled(bool bEnabled) {
 }
 
@@ -71,4 +52,19 @@ void ASBZKeypad::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
     DOREPLIFETIME(ASBZKeypad, bHasHighlights);
 }
 
+ASBZKeypad::ASBZKeypad() {
+    this->GuessedCode = 0;
+    this->Inputs = 0;
+    this->KeypadInteractableComponentArray.AddDefaulted(12);
+    this->BaseKeypadMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BaseKeypadMesh"));
+    this->CodeWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("CodeWidget"));
+    this->LanternCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("LanternCapsule"));
+    this->bIsInteractable = false;
+    this->bHasHighlights = false;
+    this->bRandomizeAtBeginPlay = false;
+    this->IncorrectCodeWaitTime = 20.00f;
+    this->ButtonSoundEvent = NULL;
+    this->Code = 3;
+    this->Seed = -1;
+}
 

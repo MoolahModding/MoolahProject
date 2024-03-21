@@ -3,4 +3,3 @@
 USBZSafeHouseBaseWidget::USBZSafeHouseBaseWidget() {
 }
 
-

@@ -3,4 +3,3 @@
 USBZInteractWeaponBagRequirement::USBZInteractWeaponBagRequirement() {
 }
 
-

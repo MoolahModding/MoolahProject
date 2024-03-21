@@ -1,8 +1,5 @@
 #include "SBZPartyManager.h"
 
-USBZPartyManager::USBZPartyManager() {
-}
-
 void USBZPartyManager::SetLobbyType(ESBZOnlineJoinType InLobbyType) {
 }
 
@@ -42,4 +39,6 @@ ESBZOnlineJoinType USBZPartyManager::GetLobbyType() const {
     return ESBZOnlineJoinType::Debug;
 }
 
+USBZPartyManager::USBZPartyManager() {
+}
 

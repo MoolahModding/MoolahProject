@@ -9,4 +9,3 @@ USBZCharacterMantlingComponent::USBZCharacterMantlingComponent() {
     this->OwnerCharacterMovementComponent = NULL;
 }
 
-

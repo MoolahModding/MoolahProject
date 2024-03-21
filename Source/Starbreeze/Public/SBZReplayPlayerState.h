@@ -7,11 +7,6 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZReplayPlayerState : public ASBZPlayerState {
     GENERATED_BODY()
 public:
-    ASBZReplayPlayerState(const FObjectInitializer& ObjectInitializer);
-
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
-    {
-        return AbilitySystem;
-    }
+    ASBZReplayPlayerState(const class FObjectInitializer& ObjectInitializer);
 };
 

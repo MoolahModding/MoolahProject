@@ -24,7 +24,6 @@ protected:
     
 public:
     USBZVotingManager();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void HandlePlayableLevelInitialized(UWorld* World);

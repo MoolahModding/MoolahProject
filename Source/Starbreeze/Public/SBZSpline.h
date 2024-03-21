@@ -29,8 +29,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZSplineComponent* SplineComponent;
     
-    ASBZSpline(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSpline();
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ASBZSpline*> GetOutputSplines() const;
     

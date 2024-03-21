@@ -13,6 +13,5 @@ public:
     TArray<USBZWeaponWearAndTearData*> WeaponWearAndTearArray;
     
     USBZWeaponWearAndTearDatabase();
-
 };
 

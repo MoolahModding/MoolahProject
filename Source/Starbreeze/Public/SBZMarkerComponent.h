@@ -38,9 +38,8 @@ private:
     
 public:
     USBZMarkerComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_MarkerState();

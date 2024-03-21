@@ -8,6 +8,5 @@ class USBZActivateReplenishHealthEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZActivateReplenishHealthEffect();
-
 };
 

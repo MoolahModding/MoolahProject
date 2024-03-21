@@ -34,8 +34,7 @@ protected:
     bool bIsBeforeOtherContainer;
     
 public:
-    ASBZItemContainer(const FObjectInitializer& ObjectInitializer);
-
+    ASBZItemContainer();
     UFUNCTION(BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     

@@ -20,8 +20,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName LobbyCameraName;
     
-    ASBZMainMenuCameraManager(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMainMenuCameraManager();
     UFUNCTION(BlueprintCallable)
     void SwitchToDefaultCamera();
     

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "Engine/EngineTypes.h"
 #include "Curves/CurveFloat.h"
 #include "Engine/NetSerialization.h"
 #include "GameplayTagContainer.h"
@@ -11,9 +12,12 @@
 #include "SBZCharacter.h"
 #include "SBZControlsReference.h"
 #include "SBZDetectionData.h"
+#include "SBZEquippableInspectInterface.h"
 #include "SBZLastAttackerData.h"
 #include "SBZLocalPlayerFeedbackParameters.h"
 #include "SBZLockCameraData.h"
+#include "SBZPlayerInEscapeChangedEvent.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlayerCharacter.generated.h"
 
 class AActor;
@@ -21,7 +25,8 @@ class ASBZAICharacter;
 class ASBZCuttingTool;
 class ASBZPlayerState;
 class ASBZTool;
-class UClass;
+class ASBZZiplineMotor;
+class UCameraModifier;
 class UNiagaraComponent;
 class UObject;
 class USBZAIVisualDetectionComponent;
@@ -35,6 +40,7 @@ class USBZFirstPersonCameraAttachment;
 class USBZFloorHeightCameraSmoother;
 class USBZHeightTransitionCameraModifier;
 class USBZInteractorComponent;
+class USBZLocalPlayerFeedback;
 class USBZMarkerDataAsset;
 class USBZMiniGameComponent;
 class USBZOutlineAsset;
@@ -52,7 +58,7 @@ class USBZVoiceCommentDataAsset;
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
-class STARBREEZE_API ASBZPlayerCharacter : public ASBZCharacter, public ISBZAIVisualDetectionGeneratorInterface {
+class STARBREEZE_API ASBZPlayerCharacter : public ASBZCharacter, public ISBZAIVisualDetectionGeneratorInterface, public ISBZEquippableInspectInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -159,61 +165,64 @@ protected:
     float CarryTiltDegrees;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WhizzbyActorClass;
+    float CarryAdditionalTiltDegrees;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<AActor> WhizzbyActorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* WhizzbyActor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LandedFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LandedFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* JumpedFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> JumpedFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ArmorDepletedFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ArmorDepletedFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ArmorReplenishedFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ArmorReplenishedFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ArmorDamageFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ArmorDamageFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DodgeDepletedFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> DodgeDepletedFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DodgeReplenishedFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> DodgeReplenishedFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DodgeDamageFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> DodgeDamageFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HealthDamageFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> HealthDamageFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubduedDamageFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> SubduedDamageFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefeatFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> DefeatFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SlideFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> SlideFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HumanShieldReachSlotFeedBack;
+    TSubclassOf<USBZLocalPlayerFeedback> HumanShieldReachSlotFeedBack;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TraverseFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> TraverseFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* RunFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> RunFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FVector_NetQuantize DesiredAcceleration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> CameraModifiers;
+    TArray<TSubclassOf<UCameraModifier>> CameraModifiers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZVoiceCommentDataAsset* RevivedComment;
@@ -270,7 +279,7 @@ protected:
     USBZBaseWeaponData* UnequippedWeaponData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FPZiplineMotorClass;
+    TSubclassOf<ASBZZiplineMotor> FPZiplineMotorClass;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -420,6 +429,9 @@ private:
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NavLocationSaveInterval;
     
+    UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float NavigationZAxisLocationOffset;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZToolData*> ModifiedToolDataArray;
     
@@ -453,6 +465,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZMiniGameComponent* MiniGameComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZMiniGameComponent* CurrentMiniGameComponent;
+    
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<TWeakObjectPtr<ASBZAICharacter>> IntimidateCiviliansWithinRangeArray;
     
@@ -474,11 +489,22 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinLandingSlideWalkToRunLerp;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* LastCuttableActor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* LastHackedActor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FHitResult ClientUpdateLandHitResult;
+    
 public:
-    ASBZPlayerCharacter(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerCharacter(const class FObjectInitializer& ObjectInitializer);
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
+    UFUNCTION(BlueprintCallable)
+    bool StartCurrentEquippableInspect();
+    
     UFUNCTION(BlueprintCallable)
     bool SetCameraFeedbackIntensity(int32 CameraFeedbackID, float Intensity);
     
@@ -545,6 +571,9 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnPlayersInEscapeChanged(const FSBZPlayerInEscapeChangedEvent& PlayerInEscapeChangedEventData);
+    
+    UFUNCTION(BlueprintCallable)
     void OnOwnMiniGameStateChanged(EPD3MiniGameState OldState, EPD3MiniGameState NewState, bool bInIsLocallyControlled);
     
     UFUNCTION(BlueprintCallable)
@@ -595,6 +624,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZDetectionData> GetDetectionData() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    USBZMiniGameComponent* GetCurrentMiniGameComponent() const;
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     bool GetArmorAttributes(const UObject* WorldContextObject, float& Armor, float& MaxArmor);
     
@@ -631,12 +663,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 ApplyCameraFeedback(UPARAM(Ref) FSBZLocalPlayerFeedbackParameters& Parameters);
     
-
+    
     // Fix for true pure virtual functions not being implemented
-
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
-    {
-        return AbilitySystem;
-    }
 };
 

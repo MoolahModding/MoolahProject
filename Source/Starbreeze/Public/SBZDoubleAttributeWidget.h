@@ -17,7 +17,6 @@ protected:
     
 public:
     USBZDoubleAttributeWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup(float PrimaryValue, float SecondaryValue);

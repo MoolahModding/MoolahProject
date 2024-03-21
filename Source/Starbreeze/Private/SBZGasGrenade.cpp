@@ -1,20 +1,7 @@
 #include "SBZGasGrenade.h"
 #include "Components/SphereComponent.h"
-#include "ESBZThrowableState.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZGasVolumeComponent.h"
-
-ASBZGasGrenade::ASBZGasGrenade(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->NiagaraParticleUpdateInterval = 0.50f;
-    this->UpdateOverlapsInterval = 0.25f;
-    this->UpdateRemainingLifeTimeInterval = 0.25f;
-    this->RootCollision = CreateDefaultSubobject<USphereComponent>(TEXT("RootComponent"));
-    this->GasCollision = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-    this->GasComponent = CreateDefaultSubobject<USBZGasVolumeComponent>(TEXT("SBZGasVolumeComponent"));
-    this->ThrowableState = ESBZThrowableState::None;
-    this->RootComponent = RootCollision;
-    this->Tags.AddDefaulted(1);
-}
 
 void ASBZGasGrenade::OnRep_GasExplosionData() {
 }
@@ -34,4 +21,12 @@ void ASBZGasGrenade::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     DOREPLIFETIME(ASBZGasGrenade, GasExplosionRepData);
 }
 
+ASBZGasGrenade::ASBZGasGrenade() {
+    this->NiagaraParticleUpdateInterval = 0.50f;
+    this->UpdateOverlapsInterval = 0.25f;
+    this->UpdateRemainingLifeTimeInterval = 0.25f;
+    this->RootCollision = CreateDefaultSubobject<USphereComponent>(TEXT("RootComponent"));
+    this->GasCollision = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
+    this->GasComponent = CreateDefaultSubobject<USBZGasVolumeComponent>(TEXT("SBZGasVolumeComponent"));
+}
 

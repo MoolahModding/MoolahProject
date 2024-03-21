@@ -17,7 +17,6 @@ private:
     
 public:
     USBZBTTask_DozerTaunt();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnMontageEnded(UAnimMontage* Montage, bool bIsInterrupted, UBehaviorTreeComponent* OwnerComp);

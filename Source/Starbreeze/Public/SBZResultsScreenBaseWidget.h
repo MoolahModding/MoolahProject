@@ -8,7 +8,6 @@ class USBZResultsScreenBaseWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZResultsScreenBaseWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartExpireTimerUpdated(float InNewTime);

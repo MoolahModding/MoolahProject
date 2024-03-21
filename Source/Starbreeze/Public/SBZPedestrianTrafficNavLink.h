@@ -37,8 +37,7 @@ protected:
     TArray<ASBZAIBaseCharacter*> CrossingCharacters;
     
 public:
-    ASBZPedestrianTrafficNavLink(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPedestrianTrafficNavLink();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetTrafficAllowed(bool bAllowed);
     

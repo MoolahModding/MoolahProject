@@ -15,10 +15,9 @@ protected:
     FSBZPartyData PartyState;
     
 public:
-    ASBZPartyBeaconClient(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPartyBeaconClient();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerNotifyLeftLobby(const FUniqueNetIdRepl& ClientId);

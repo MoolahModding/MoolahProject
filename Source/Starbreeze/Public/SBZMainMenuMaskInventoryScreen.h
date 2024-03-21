@@ -5,12 +5,13 @@
 #include "SBZButtonControlReference.h"
 #include "SBZInventorySlotStoreItem.h"
 #include "SBZMenuStackInventoryBaseScreen.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuMaskInventoryScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBaseInventoryItemVisualsWidget;
 class USBZCosmeticsPartSlot;
+class USBZInventoryDefaultButton;
 class USBZMainMenuInventoryMaskSlotButton;
 class USBZMaskData;
 class USBZMenuButton;
@@ -21,7 +22,7 @@ class USBZMainMenuMaskInventoryScreen : public USBZMenuStackInventoryBaseScreen 
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MaskSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventoryMaskSlotButton> MaskSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_MaskSlotButtons;
@@ -30,10 +31,10 @@ protected:
     USBZMenuButton* Button_BuySlots;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZMenuButton* Button_DefaultMask;
+    USBZInventoryDefaultButton* Button_DefaultMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DiscardMaskPopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> DiscardMaskPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText DiscardMaskPopUpHeader;
@@ -68,11 +69,15 @@ private:
     
 public:
     USBZMainMenuMaskInventoryScreen();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardMaskInSlot(int32 InMaskIndex);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void RefreshWidgetVisuals();
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryBuyMaskSlot();
     

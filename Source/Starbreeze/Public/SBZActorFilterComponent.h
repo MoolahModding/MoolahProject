@@ -55,7 +55,6 @@ public:
     FSBZFilterAllDesiredCountsDynamicDelegate FiltersAllHaveDesiredCountsChanged;
     
     USBZActorFilterComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetPrimitiveComponentEnableCollision(bool bEnabled);
     

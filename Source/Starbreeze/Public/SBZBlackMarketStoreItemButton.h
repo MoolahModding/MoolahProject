@@ -18,7 +18,6 @@ protected:
     
 public:
     USBZBlackMarketStoreItemButton();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerStoreItemDataIntialized();

@@ -44,7 +44,6 @@ protected:
     
 public:
     USBZLifeActionComponent();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void OnSlotStart(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);

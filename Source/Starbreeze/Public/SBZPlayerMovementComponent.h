@@ -70,7 +70,6 @@ protected:
     
 public:
     USBZPlayerMovementComponent();
-
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_SetWantToSprint(bool bInWantToSprint);

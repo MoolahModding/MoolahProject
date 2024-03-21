@@ -5,4 +5,3 @@ USBZAIUtilityDecider_FollowOrder::USBZAIUtilityDecider_FollowOrder() {
     this->NewOrder = NULL;
 }
 
-

@@ -8,6 +8,5 @@ class USBZAIUtilityScorer_EnemyHasHumanShield : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_EnemyHasHumanShield();
-
 };
 

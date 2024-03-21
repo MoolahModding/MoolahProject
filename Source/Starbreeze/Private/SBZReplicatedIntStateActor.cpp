@@ -1,15 +1,6 @@
 #include "SBZReplicatedIntStateActor.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZReplicatedIntStateActor::ASBZReplicatedIntStateActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->State = 0;
-    this->bClientDelayStateFromServer = false;
-    this->ClientStateDelay = 0.20f;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZReplicatedIntStateActor::SetState(int32 NewState, bool bDoCosmetics) {
 }
 
@@ -35,4 +26,9 @@ void ASBZReplicatedIntStateActor::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(ASBZReplicatedIntStateActor, State);
 }
 
+ASBZReplicatedIntStateActor::ASBZReplicatedIntStateActor() {
+    this->State = 0;
+    this->bClientDelayStateFromServer = false;
+    this->ClientStateDelay = 0.20f;
+}
 

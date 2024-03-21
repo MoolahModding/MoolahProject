@@ -1,12 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "SBZBagHandle.h"
 #include "SBZCarriedBag.generated.h"
 
 class ASBZCharacter;
 class USBZBaseInteractableComponent;
-class USBZInteractableComponent;
+class USBZInteractableCarriedBagComponent;
 class USBZInteractorComponent;
 class USBZOutlineAsset;
 class USkeletalMeshComponent;
@@ -27,20 +30,22 @@ protected:
     USBZOutlineAsset* AIBagOutlineAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZInteractableComponent* InteractableComponent;
+    USBZInteractableCarriedBagComponent* InteractableComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZBagHandle BagHandle;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector LocationOffsetScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRotator RotationOffsetScale;
+    
 public:
-    ASBZCarriedBag(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCarriedBag();
 private:
     UFUNCTION(BlueprintCallable)
-    void HandleServerComplete(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
-    
-    UFUNCTION(BlueprintCallable)
-    void HandlePredictedEnd(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
+    void OnInteractionComplete(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -48,6 +53,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_AttachmentComplete(USkeletalMeshComponent* ParentSkeletalMeshComponent);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_AdjustAttachment(int32 Index, int32 NewCount, const FTransform& NewStrapTransformOffset);
     
 };
 

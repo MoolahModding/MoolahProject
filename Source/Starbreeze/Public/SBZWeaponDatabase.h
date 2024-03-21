@@ -13,6 +13,5 @@ public:
     TArray<USBZBaseWeaponData*> Weapons;
     
     USBZWeaponDatabase();
-
 };
 

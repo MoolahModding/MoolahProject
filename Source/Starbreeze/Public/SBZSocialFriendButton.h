@@ -29,7 +29,6 @@ protected:
     
 public:
     USBZSocialFriendButton();
-
     UFUNCTION(BlueprintCallable)
     void UnblockPlayerAction();
     

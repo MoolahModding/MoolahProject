@@ -12,7 +12,6 @@ class USBZPreplanningAssetManager : public UObject {
     GENERATED_BODY()
 public:
     USBZPreplanningAssetManager();
-
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPreplanningAssetManager* GetPreplanningAssetManager(UObject* WorldContextObject);
     

@@ -8,6 +8,5 @@ class USBZMaskSprayCanGlobalColorApplier : public USBZMaskSprayCanApplier {
     GENERATED_BODY()
 public:
     USBZMaskSprayCanGlobalColorApplier();
-
 };
 

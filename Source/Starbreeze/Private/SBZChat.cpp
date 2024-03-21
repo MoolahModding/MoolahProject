@@ -1,12 +1,19 @@
 #include "SBZChat.h"
 
-USBZChat::USBZChat() {
-}
-
 void USBZChat::SendSystemChatMessage(UObject* WorldContextObject, const FString& Message) {
 }
 
+void USBZChat::SendSessionMessage(const FSBZChatMessage& InMessage) {
+}
+
 void USBZChat::SendChatMessage(FSBZChatMessage ChatMessage) {
+}
+
+void USBZChat::OnSessionMessageReceived(const FAccelByteModelsChatNotif& Result) {
+}
+
+bool USBZChat::IsMuted(FUniqueNetIdRepl UniqueNetId) {
+    return false;
 }
 
 TArray<FSBZWhisperInfo> USBZChat::GetWhisperOptions() {
@@ -17,4 +24,10 @@ bool USBZChat::GetNextWhisperOption(const FUniqueNetIdRepl& CurrentWhisper, FUni
     return false;
 }
 
+USBZChat* USBZChat::GetChat(UObject* WorldContextObject) {
+    return NULL;
+}
+
+USBZChat::USBZChat() {
+}
 

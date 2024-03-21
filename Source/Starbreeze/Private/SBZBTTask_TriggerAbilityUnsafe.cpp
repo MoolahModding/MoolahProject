@@ -4,4 +4,3 @@ USBZBTTask_TriggerAbilityUnsafe::USBZBTTask_TriggerAbilityUnsafe() {
     this->AbilityInput = ESBZAbilityInput::None;
 }
 
-

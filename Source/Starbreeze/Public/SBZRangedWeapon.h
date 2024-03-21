@@ -4,6 +4,7 @@
 #include "SBZRangedWeapon.generated.h"
 
 class UAkAudioEvent;
+class UMeshComponent;
 class UNiagaraComponent;
 class UNiagaraSystem;
 class UStaticMesh;
@@ -70,8 +71,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AmmoInMagazineRTPC;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UMeshComponent*> ChamberMeshArray;
+    
 public:
-    ASBZRangedWeapon(const FObjectInitializer& ObjectInitializer);
-
+    ASBZRangedWeapon();
 };
 

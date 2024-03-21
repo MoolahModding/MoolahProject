@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "SBZMenuStackWidget.h"
 #include "SBZPartyMember.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSocialPartyButtonContainer.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZMenuButton;
 class USBZSocialPartyMemberButton;
@@ -21,11 +21,10 @@ protected:
     TMap<FString, USBZSocialPartyMemberButton*> PartyMembers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PartyMemberButtonWidgetClass;
+    TSubclassOf<USBZSocialPartyMemberButton> PartyMemberButtonWidgetClass;
     
 public:
     USBZSocialPartyButtonContainer();
-
     UFUNCTION(BlueprintCallable)
     void RequestPartyLeave();
     

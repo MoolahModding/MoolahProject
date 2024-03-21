@@ -9,7 +9,6 @@ class STARBREEZE_API USBZPlatformUserManager : public UObject {
     GENERATED_BODY()
 public:
     USBZPlatformUserManager();
-
 private:
     UFUNCTION(BlueprintCallable)
     void OnPopUpClosedConfirmChanges(FName ActionName);

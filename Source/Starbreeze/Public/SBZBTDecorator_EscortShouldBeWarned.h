@@ -8,6 +8,5 @@ class USBZBTDecorator_EscortShouldBeWarned : public USBZBTDecorator_TargetIsNear
     GENERATED_BODY()
 public:
     USBZBTDecorator_EscortShouldBeWarned();
-
 };
 

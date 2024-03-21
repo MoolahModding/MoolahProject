@@ -23,7 +23,6 @@ protected:
     
 public:
     UPD3SegmentedPercentWidget();
-
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTraumaRatioChanged(float StartOffset, float EndOffset);
