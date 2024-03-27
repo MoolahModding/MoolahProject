@@ -26,13 +26,13 @@ public:
     void SetActive(bool bIsActive);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnEffectValueChanged(int32 InNewEffectValue);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCooldownProgressChanged(float InNewProgress);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCharacterEffectInitialized(FSBZCharacterEffectRuntime InCharacterEffectRuntime);
     
 public:

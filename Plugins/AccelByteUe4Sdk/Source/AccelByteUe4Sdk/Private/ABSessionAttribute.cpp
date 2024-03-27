@@ -1,8 +1,5 @@
 #include "ABSessionAttribute.h"
 
-UABSessionAttribute::UABSessionAttribute() {
-}
-
 FString UABSessionAttribute::SetSessionAttribute(const FSetSessionAttributeRequest& Request, FDSetSessionAttributeResponse OnResponse, FDErrorHandler OnError) {
     return TEXT("");
 }
@@ -15,4 +12,6 @@ FString UABSessionAttribute::GetAllSessionAttribute(FDGetAllSessionAttributeResp
     return TEXT("");
 }
 
+UABSessionAttribute::UABSessionAttribute() {
+}
 

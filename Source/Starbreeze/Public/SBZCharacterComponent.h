@@ -17,7 +17,7 @@ private:
 public:
     USBZCharacterComponent();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnSkeletalMeshLoaded(USkeletalMesh* NewSkeletalMesh);
     
 };

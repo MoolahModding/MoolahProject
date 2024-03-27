@@ -46,10 +46,6 @@ USBZSkillLine* USBZSkillManager::GetPlayerSkillLine(const FName& AccelByteSkuNo)
     return NULL;
 }
 
-int32 USBZSkillManager::GetMaxSkillPoints() const {
-    return 0;
-}
-
 float USBZSkillManager::GetMaxProgressLevel(const USBZSkillLineData* SkillLine) const {
     return 0.0f;
 }

@@ -44,35 +44,35 @@ private:
 public:
     USBZObjectiveWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnObjectiveUpdated();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnObjectiveRemoved();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnObjectiveInitialized(ASBZObjective* ObjectiveInit, bool bIsSubObjective);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnObjectiveActivated();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveUpdated(ASBZObjective* NewObjectiveUpdated);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveFailed(ASBZObjective* NewObjectiveFailed);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveDisabled(ASBZObjective* NewObjectiveDisabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveCompleted(ASBZObjective* NewObjectiveCompleted);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveActivated(ASBZObjective* NewObjectiveActivated);
     
 };

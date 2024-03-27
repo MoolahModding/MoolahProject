@@ -26,10 +26,10 @@ public:
     void SetSenseConfig(ESBZSenseConfig ConfigID);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTransporterBrutalCarrySkillPerceptionInfoUpdated(const FActorPerceptionUpdateInfo& UpdateInfo);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTargetPerception(AActor* Actor, FAIStimulus Stimulus);
     
 };

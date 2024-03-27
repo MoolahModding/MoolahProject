@@ -72,31 +72,31 @@ public:
     void SelectButton();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnSelectionInputPressed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnAlternativeSelectionInputPressed();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DisabledButtonSelected();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DisabledButtonAlternativeSelected();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonSelected();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonHoveredChanged(bool bInIsHovered);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonFocusedChanged(bool bInHasFocus);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonDisabledChanged(bool bInIsDisabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonAlternativeSelected();
     
 public:

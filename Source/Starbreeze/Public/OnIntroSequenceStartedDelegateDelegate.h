@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnIntroSequenceStartedDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnIntroSequenceStartedDelegate);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnIntroSequenceStartedDelegate);
 

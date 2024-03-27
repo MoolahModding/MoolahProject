@@ -3,5 +3,5 @@
 #include "AccelByteModelsUGCChannelResponse.h"
 #include "DModelsUGCChannelResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCChannelResponse, FAccelByteModelsUGCChannelResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCChannelResponse, FAccelByteModelsUGCChannelResponse, Response);
 

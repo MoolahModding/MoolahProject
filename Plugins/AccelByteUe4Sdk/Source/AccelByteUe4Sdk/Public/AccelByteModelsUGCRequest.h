@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "JsonObjectWrapper.h"
+#include "AccelByteModelsUGCPreviewMetadata.h"
 #include "AccelByteModelsUGCRequest.generated.h"
 
 USTRUCT(BlueprintType)
@@ -30,6 +31,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FJsonObjectWrapper CustomAttributes;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FAccelByteModelsUGCPreviewMetadata PreviewMetadata;
     
     FAccelByteModelsUGCRequest();
 };

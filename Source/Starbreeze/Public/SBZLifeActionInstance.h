@@ -35,25 +35,25 @@ public:
     UFUNCTION(BlueprintCallable)
     void StartDialog();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsSlotFree(const FGameplayTag& InTag) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FGameplayTag GetTag() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZLifeActionState GetState() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZLifeActionSlot* GetSlotWithTag(const FGameplayTag& InTag) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZLifeActionSlot* GetReservedSlot(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool ContainsSlot(const USBZLifeActionSlot* InSlot) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool AreAllNeededSlotsReady() const;
     
 };

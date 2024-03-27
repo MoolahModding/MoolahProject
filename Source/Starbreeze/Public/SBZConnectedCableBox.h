@@ -71,22 +71,22 @@ public:
     void SetCorrectColorIndex(const int32 InCorrectColorIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_InteractionStates();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_FailCounter();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_DoorOpen();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentSequenceIndex();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDoorInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCableInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 public:
@@ -94,22 +94,22 @@ public:
     void EnableInteraction(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateModelNumber(const FText& ModelNumberText);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateInputsMade(int32 InputsMade);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateFailCounter(int32 NumberOfFails);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OpenDoor(bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnComplete(bool bWasSuccess);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_FlipSwitch(int32 Index, bool bDoCosmetics, bool bReset);
     
 };

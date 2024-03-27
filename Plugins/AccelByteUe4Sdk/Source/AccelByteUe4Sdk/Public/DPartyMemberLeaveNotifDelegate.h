@@ -3,5 +3,5 @@
 #include "AccelByteModelsLeavePartyNotice.h"
 #include "DPartyMemberLeaveNotifDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyMemberLeaveNotif, FAccelByteModelsLeavePartyNotice, Notif);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyMemberLeaveNotif, FAccelByteModelsLeavePartyNotice, Notif);
 

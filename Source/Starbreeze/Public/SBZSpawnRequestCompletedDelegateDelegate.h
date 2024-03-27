@@ -4,5 +4,5 @@
 
 class APawn;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSpawnRequestCompletedDelegate, APawn*, SpawnedPawn);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSpawnRequestCompletedDelegate, APawn*, SpawnedPawn);
 

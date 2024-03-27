@@ -19,10 +19,10 @@ protected:
 public:
     USBZShoutoutWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnShoutoutReleased();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnShoutoutPressed();
     
 };

@@ -25,13 +25,13 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetCosmeticPartSlot(const USBZCosmeticsPartSlot* InCosmeticPartSlot);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ItemInSlotChanged(const USBZInventoryBaseData* InItemBaseData);
     
     UFUNCTION(BlueprintCallable)
     void InitializeButton(const USBZCosmeticsPartSlot* InCosmeticPartSlot, const USBZInventoryBaseData* InItemBaseData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void CosmeticPartSlotChanged(const USBZCosmeticsPartSlot* InCosmeticPartSlot);
     
 };

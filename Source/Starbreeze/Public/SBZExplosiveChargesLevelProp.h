@@ -35,13 +35,13 @@ public:
     void SetEnabled(bool bInIsEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsExploded();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsEnabled();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEnabled(bool bInIsEnabled);
     
     UFUNCTION(BlueprintCallable)
@@ -50,7 +50,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void DecrementPlacedExplosiveCount();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_EnabledChanged(bool bEnabled, bool bDoCosmetics);
     
 };

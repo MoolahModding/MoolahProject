@@ -23,23 +23,22 @@ public:
     USoundWaveProcedural* VoiceCaptureSoundWaveProcedural;
     
     UMicrophoneSpeakComponent();
-
     UFUNCTION(BlueprintCallable)
     bool startSpeaking(bool _shouldHearMyOwnVoice, bool isGlobal, int32 radioChannel, bool useRange, float maxRange);
     
     UFUNCTION(BlueprintCallable)
     void SetVoiceVolume(float volume);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void setAttenuationAssetPath(bool enableAttenuation, const FString& _pathToAttenuationAsset);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
+    UFUNCTION(NetMulticast, Unreliable)
     void RPCServerBroadcastVoiceData(const TArray<uint8>& data, int32 sampleRate, int32 numchannels, int32 PCMSize);
     
-    UFUNCTION(BlueprintCallable, Client, Unreliable)
+    UFUNCTION(Client, Unreliable)
     void RPCReceiveVoiceFromServer(UMicrophoneSpeakComponent* compToOutputVoice, const TArray<uint8>& dataEncoded, int32 sampleRate, int32 numchannels, int32 PCMSize);
     
-    UFUNCTION(BlueprintCallable, Server, Unreliable)
+    UFUNCTION(Server, Unreliable)
     void RPCClientTransmitVoiceData(const TArray<uint8>& data, int32 sampleRate, int32 numchannels, int32 PCMSize, bool _isGlobal, int32 _radioChannel, bool _useRange, float _maxRange);
     
     UFUNCTION(BlueprintCallable)

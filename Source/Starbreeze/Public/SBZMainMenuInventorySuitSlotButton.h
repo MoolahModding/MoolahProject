@@ -24,26 +24,26 @@ public:
     void SetActiveSuitSlot(bool bIsActiveSuitSlot);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSuitSlotInitialized();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPresetSuitSlot() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeSuitSlot(int32 InSuitSlotIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetSuitSlotIndex() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZSuitConfig GetSuitInSlotConfig() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZSuitData* GetSuitInSlot() const;
     
 };

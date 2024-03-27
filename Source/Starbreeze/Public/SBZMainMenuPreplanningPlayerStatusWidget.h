@@ -55,15 +55,15 @@ public:
     UFUNCTION(BlueprintCallable)
     void OpenPlayerProfile();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnLobbyPlayerStatusUpdated();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanOpenPlayerProfile();
     
 };

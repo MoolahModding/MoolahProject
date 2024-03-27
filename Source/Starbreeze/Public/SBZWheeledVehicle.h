@@ -139,44 +139,44 @@ public:
     void SetDoorState(ESBZVehicleDoorType DoorType, ESBZVehicleDoorState DoorState);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSwitchSplineDirectionCallback(ASBZSpline* Spline);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStoppedCallback();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSplineLeftCallback(ASBZSpline* Spline);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSplineEnteredCallback(ASBZSpline* Spline, bool bPathEntered, bool bTeleportToPathStart);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSplineEndReachedCallback(ASBZSpline* Spline);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_Seed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_RepMove();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_DoorStatesPerType();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPathEndReachedCallback();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBeginStopCallback();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetDoorState(ESBZVehicleDoorType DoorType, ESBZVehicleDoorState DoorState);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZVehicleSplineFollowingComponent* GetVehicleSplineFollowingComponent() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZVehicleDoorState GetDoorState(ESBZVehicleDoorType DoorType) const;
     
     

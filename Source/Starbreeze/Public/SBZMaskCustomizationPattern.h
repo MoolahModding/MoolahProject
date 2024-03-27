@@ -63,7 +63,7 @@ protected:
 public:
     USBZMaskCustomizationPattern();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SprayCanSelectorButtonSelected(USBZMenuButton* SelectedButton);
     
 public:
@@ -80,10 +80,10 @@ public:
     void IncrementSprayCanSlotIndex(int32 InDelta);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CosmeticPanelDefaultButtonSelected();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CosmeticPanelButtonSelected(USBZMainMenuCosmeticItemButton* SelectedButton);
     
 };

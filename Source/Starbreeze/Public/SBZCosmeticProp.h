@@ -17,10 +17,10 @@ protected:
     
 public:
     ASBZCosmeticProp();
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnReceiveCPDs(const TArray<FSBZAnimationSpawnedActorCPD>& CPDs);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnDropped();
     
     

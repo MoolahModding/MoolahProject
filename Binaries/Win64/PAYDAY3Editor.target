@@ -220,6 +220,14 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Media/MfMedia/Binaries/Win64/UE4Editor-MfMediaEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Media/MfMedia/Binaries/Win64/UE4Editor-MfMediaFactory.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/FX/Niagara/Binaries/Win64/UE4Editor-NiagaraCore.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -952,18 +960,6 @@
 			"Type": "DynamicLibrary"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMedia.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMediaEditor.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMediaFactory.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/MeshPainting/Binaries/Win64/UE4Editor-MeshPaintEditorMode.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -1142,14 +1138,6 @@
 		{
 			"Path": "$(EngineDir)/Plugins/XGEController/Binaries/Win64/UE4Editor-XGEController.dll",
 			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-PAYDAY3.dll",
-			"Type": "DynamicLibrary"
-		},
-		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-PAYDAY3.pdb",
-			"Type": "SymbolFile"
 		},
 		{
 			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-SBZWorldRuntime.dll",
@@ -2768,6 +2756,10 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Media/MfMedia/Binaries/Win64/UE4Editor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/FX/Niagara/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
@@ -3148,10 +3140,6 @@
 			"Type": "RequiredResource"
 		},
 		{
-			"Path": "$(EngineDir)/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor.modules",
-			"Type": "RequiredResource"
-		},
-		{
 			"Path": "$(EngineDir)/Plugins/MeshPainting/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
@@ -3403,6 +3391,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Editor/EditorScriptingUtilities/EditorScriptingUtilities.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Media/MfMedia/MfMedia.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -3823,10 +3815,6 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Media/MediaPlayerEditor/MediaPlayerEditor.uplugin",
-			"Type": "UFS"
-		},
-		{
-			"Path": "$(EngineDir)/Plugins/Media/WmfMedia/WmfMedia.uplugin",
 			"Type": "UFS"
 		},
 		{

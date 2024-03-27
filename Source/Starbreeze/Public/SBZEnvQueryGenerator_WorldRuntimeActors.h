@@ -9,7 +9,7 @@ class USBZEnvQueryGenerator_WorldRuntimeActors : public UEnvQueryGenerator {
 public:
 protected:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint16 ActorSetting;
+    uint32 ActorSetting;
     
 public:
     USBZEnvQueryGenerator_WorldRuntimeActors();

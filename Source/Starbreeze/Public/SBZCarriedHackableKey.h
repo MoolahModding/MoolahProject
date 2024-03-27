@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Engine/EngineTypes.h"
 #include "GameplayTagContainer.h"
 #include "SBZCarriedHackableKeyDelegateDelegate.h"
 #include "SBZCarriedStaticInteractionActor.h"
@@ -50,22 +51,25 @@ protected:
 public:
     ASBZCarriedHackableKey();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION()
+    void OnHackerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnHackComplete();
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnPlayerInRangeChecked(const bool bInRange, const bool bWasInRange, const float Progress);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnHackStarted(bool bIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnHackComplete();
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnHackAborted();
     
 };

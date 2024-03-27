@@ -115,23 +115,23 @@ public:
     void SetProgress(int32 NewProgress);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_State();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_Progress();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnStateChanged(ESBZObjectiveState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnProgressChanged(int32 NewProgress);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsActive() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContext"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContext"))
     static TArray<ASBZObjective*> GetActiveInGroup(UObject* WorldContext, ESBZObjectiveGroup Group);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

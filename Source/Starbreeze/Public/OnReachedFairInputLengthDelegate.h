@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnReachedFairInputLengthDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReachedFairInputLength);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReachedFairInputLength);
 

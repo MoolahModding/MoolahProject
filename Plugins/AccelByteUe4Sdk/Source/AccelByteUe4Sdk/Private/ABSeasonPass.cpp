@@ -1,8 +1,5 @@
 #include "ABSeasonPass.h"
 
-UABSeasonPass::UABSeasonPass() {
-}
-
 void UABSeasonPass::GetUserSeason(const FString& SeasonId, const FDModelsUserSeasonInfo& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -18,4 +15,6 @@ void UABSeasonPass::ClaimRewards(const FAccelByteModelsSeasonClaimRewardRequest&
 void UABSeasonPass::BulkClaimRewards(const FDModelsSeasonClaimRewardResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
+UABSeasonPass::UABSeasonPass() {
+}
 

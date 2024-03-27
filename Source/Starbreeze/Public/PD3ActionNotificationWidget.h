@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZControlsReference.h"
-#include "SBZDamageEvent.h"
 #include "SBZHUDNotificationData.h"
 #include "SBZPawnWidget.h"
 #include "SBZReviveEvent.h"
 #include "PD3ActionNotificationWidget.generated.h"
 
+class ASBZCharacter;
 class UTextBlock;
 class UWidgetAnimation;
 
@@ -36,19 +36,19 @@ protected:
 public:
     UPD3ActionNotificationWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRevive(const FSBZReviveEvent& ReviveEventData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNotificationAdded(const FSBZHUDNotificationData& InNotificationAdded);
     
 private:
-    UFUNCTION(BlueprintCallable)
-    void HandleTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
+    UFUNCTION()
+    void OnAICharacterKilled(ASBZCharacter* Character);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DisplayNotification(const FSBZHUDNotificationData& InNotification);
     
 public:

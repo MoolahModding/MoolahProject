@@ -127,6 +127,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "MfMedia",
+			"Enabled": true
+		},
+		{
 			"Name": "Niagara",
 			"Enabled": true
 		},
@@ -287,6 +291,10 @@
 		},
 		{
 			"Name": "WebMMoviePlayer",
+			"Enabled": false
+		},
+		{
+			"Name": "WmfMedia",
 			"Enabled": false
 		}
 	],

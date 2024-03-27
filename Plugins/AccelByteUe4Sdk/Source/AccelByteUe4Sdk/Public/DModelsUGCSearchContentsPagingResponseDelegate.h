@@ -3,5 +3,5 @@
 #include "AccelByteModelsUGCSearchContentsPagingResponse.h"
 #include "DModelsUGCSearchContentsPagingResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCSearchContentsPagingResponse, FAccelByteModelsUGCSearchContentsPagingResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCSearchContentsPagingResponse, FAccelByteModelsUGCSearchContentsPagingResponse, Response);
 

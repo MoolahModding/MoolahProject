@@ -43,9 +43,6 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCrimeNetHeistButton*> ActiveHeistButtons;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bShowStoryModeButtons;
-    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 ActiveHeistCollectionIndex;
@@ -75,35 +72,35 @@ protected:
     void SetActiveHeistCollection(int32 NewIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RefreshCollections();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistCollectionChanged(const FSBZHeistCollectionWithOwnership& ActiveHeistCollection);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistButtonNavigation(EUINavigation ButtonNavigation);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistMapIconClicked(USBZMainMenuCrimeNetHeistMapIcon* InSelectedHeistMapIcon);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistButtonHovered(USBZMainMenuCrimeNetHeistMapIcon* MapIcon, bool bIsHovered);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistButtonFocused(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:

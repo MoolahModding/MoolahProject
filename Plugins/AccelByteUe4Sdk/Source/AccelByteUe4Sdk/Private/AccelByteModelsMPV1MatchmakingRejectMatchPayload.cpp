@@ -1,0 +1,5 @@
+#include "AccelByteModelsMPV1MatchmakingRejectMatchPayload.h"
+
+FAccelByteModelsMPV1MatchmakingRejectMatchPayload::FAccelByteModelsMPV1MatchmakingRejectMatchPayload() {
+}
+

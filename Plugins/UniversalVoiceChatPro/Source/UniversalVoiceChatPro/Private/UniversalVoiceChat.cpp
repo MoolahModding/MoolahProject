@@ -1,8 +1,5 @@
 #include "UniversalVoiceChat.h"
 
-UUniversalVoiceChat::UUniversalVoiceChat() {
-}
-
 bool UUniversalVoiceChat::VoiceChatWasInitAudioVoiceChatQuality() {
     return false;
 }
@@ -53,4 +50,6 @@ bool UUniversalVoiceChat::VoiceChatAddChannel(int32 channelToAdd) {
     return false;
 }
 
+UUniversalVoiceChat::UUniversalVoiceChat() {
+}
 

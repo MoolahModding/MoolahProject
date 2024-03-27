@@ -32,13 +32,13 @@ private:
     
 public:
     USBZStoreManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZStoreManager* GetStoreManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetMaxPriceProgressionLevel(const FString& PriceProgressionGroup);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetInfamyLevelItemUnlockCount(int32 InfamyLevel) const;
     
 };

@@ -1,5 +1,8 @@
 #include "SBZStateMachineStateABPreMatch.h"
 
+void USBZStateMachineStateABPreMatch::OnPlayerReadyStatusUpdated(bool bIsReady) {
+}
+
 void USBZStateMachineStateABPreMatch::HandleReceivedPlayerReadyAck() {
 }
 

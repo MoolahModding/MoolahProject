@@ -177,6 +177,9 @@ void USBZCheatManager::SetDrawTransformEnabled(bool bIsEnabled) {
 void USBZCheatManager::SetDrawTransform(float X, float Y, float Z, float Yaw, float Pitch, float Roll, float ScaleX, float ScaleY, float ScaleZ) {
 }
 
+void USBZCheatManager::SetDownedCount(int32 Count, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetDifficulty(ESBZDifficulty Difficulty) {
 }
 
@@ -421,6 +424,9 @@ void USBZCheatManager::DamagePlayer(float Damage, ESBZDamageWeight DamageWeight,
 }
 
 void USBZCheatManager::DamageCharacter(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::DamageAllCrewAI(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::CuffPlayer(int32 PlayerIndex) {

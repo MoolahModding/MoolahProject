@@ -29,10 +29,10 @@ protected:
 public:
     USBZPingWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPingValueChanged(const int32 PingValue);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPingQualityChanged(const EPingQuality PingQuality);
     
 };

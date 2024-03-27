@@ -18,13 +18,13 @@ protected:
 public:
     USBZDoubleAttributeWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSetup(float PrimaryValue, float SecondaryValue);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSecondaryAttributeUpdate(float NewValue, float OldValue);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPrimaryAttributeUpdate(float NewValue, float OldValue);
     
 };

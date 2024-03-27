@@ -142,6 +142,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoftObjectPath TutorialObjectPath;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLoginScreenInfoPopupWidget> LoadoutChangePopupWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupHeaderText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupDescriptionText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupListText;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCosmeticItemButton*> CosmeticButtonPool;
     
@@ -179,16 +191,19 @@ public:
     void RemoveBackgroundBlur();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTutorialPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTelemetryPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
+    void OnLoadoutChangePopupClosed(FName ClosingActionName);
+    
+    UFUNCTION()
     void OnGameSensePopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCrossplayPopUpClosed(FName ClosingActionName);
     
 public:

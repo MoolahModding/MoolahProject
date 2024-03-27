@@ -33,22 +33,22 @@ private:
 public:
     USBZStateMachineStateMatchmaking();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleSessionBecomeOutdated();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerCountChanged();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleMatchInfoUpdated();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLostConnectionToPartyHost(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLostConnectionToHost(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void FireMatchAcceptUnlock();
     
 };

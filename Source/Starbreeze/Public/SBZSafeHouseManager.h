@@ -34,7 +34,7 @@ public:
     void TravelToSafeHouse();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
@@ -42,7 +42,7 @@ public:
     static USBZSafeHouseManager* Get(const UObject* WorldContextObject);
     
 private:
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugExitSafeHouse();
     
     

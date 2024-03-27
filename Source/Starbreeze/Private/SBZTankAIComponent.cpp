@@ -1,6 +1,6 @@
 #include "SBZTankAIComponent.h"
 
-void USBZTankAIComponent::OnFiringTagChanged(const FGameplayTag InTag, int32 TagCount) {
+void USBZTankAIComponent::OnAttackTagChanged(const FGameplayTag InTag, int32 TagCount) {
 }
 
 USBZTankAIComponent::USBZTankAIComponent() {

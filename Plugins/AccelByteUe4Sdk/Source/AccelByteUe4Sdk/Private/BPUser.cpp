@@ -1,8 +1,5 @@
 #include "BPUser.h"
 
-UBPUser::UBPUser() {
-}
-
 void UBPUser::Verify(const FString& VerificationCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -12,7 +9,19 @@ void UBPUser::UpgradeAndVerify(const FString& Username, const FString& Password,
 void UBPUser::Upgrade(const FString& Username, const FString& Password, const FDUserDataHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
+void UBPUser::UnlinkOtherPlatformWithCustomErrorHandler(EAccelBytePlatformType PlatformType, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError) {
+}
+
+void UBPUser::UnlinkOtherPlatformId(const FString& PlatformId, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError) {
+}
+
 void UBPUser::UnlinkOtherPlatform(EAccelBytePlatformType PlatformType, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
+}
+
+void UBPUser::UnlinkAllOtherPlatformId(const FString& PlatformId, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError) {
+}
+
+void UBPUser::UnlinkAllOtherPlatform(EAccelBytePlatformType PlatformType, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError) {
 }
 
 void UBPUser::SendVerificationCode(const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
@@ -54,4 +63,6 @@ void UBPUser::GetPlatformLinks(const FDPlatformLinksHandler& OnSuccess, const FD
 void UBPUser::ForgetAllCredentials() {
 }
 
+UBPUser::UBPUser() {
+}
 

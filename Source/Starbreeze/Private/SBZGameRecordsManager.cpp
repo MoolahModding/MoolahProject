@@ -8,6 +8,10 @@ FSBZNewsFeedList USBZGameRecordsManager::GetNewsFeed() {
     return FSBZNewsFeedList{};
 }
 
+TArray<ESBZMetaEventType> USBZGameRecordsManager::GetMetaEventsDataRunning() const {
+    return TArray<ESBZMetaEventType>();
+}
+
 TArray<FSBZMetaEventData> USBZGameRecordsManager::GetMetaEventsData() const {
     return TArray<FSBZMetaEventData>();
 }

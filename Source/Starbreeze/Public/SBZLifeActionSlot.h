@@ -155,97 +155,97 @@ public:
     void StartDialog();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMontageBlendOut(UAnimMontage* Montage, bool bInterrupted);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEnterAnimationShouldEnd();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDesiredDurationReached();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCharacterAnimEvent(const FGameplayTag& EventTag, bool bActive);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool MustBeOccupied() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnSlotStart(ASBZCharacter* InCharacter);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnSlotFreed(ASBZCharacter* InCharacter);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsUsingAnExitAnimation() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsUsingAnEnterAnimation() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsReservedBy(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsReadyToStart() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPlayingExitMontage(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPlayingEnterMontage(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPlayingActionMontage(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsFree() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FGameplayTag GetTag() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZLifeActionState GetState() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UAnimMontage* GetPlayingActionMontage() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FTransform GetMoveToTransform() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FRotator GetMoveToRotation() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FVector GetMoveToLocation() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetCurrentReservationID() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UAnimMontage* GetCurrentExitMontage(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UAnimMontage* GetCurrentEnterMontage(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UAnimMontage* GetCurrentActionMontage(const ASBZCharacter* InCharacter) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ASBZCharacter* GetCharacter() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetAcceptableRadius() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetAcceptableAngle() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanBeReservedBy(const ASBZCharacter* InCharacter, const FSBZLifeActionRequest& Request, bool bLogErrors) const;
     
 };

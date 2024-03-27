@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnPartyCreatedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPartyCreated);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPartyCreated);
 

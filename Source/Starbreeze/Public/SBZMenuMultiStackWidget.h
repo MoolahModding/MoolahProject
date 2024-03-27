@@ -18,27 +18,27 @@ protected:
 public:
     USBZMenuMultiStackWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRemovedFromStack();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnLostStackFocused();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnGainedStackFocused(const FName& PreviousValue);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAddedToStack();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FName> GetStackValues() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FName GetActiveStackValue() const;
     
 };

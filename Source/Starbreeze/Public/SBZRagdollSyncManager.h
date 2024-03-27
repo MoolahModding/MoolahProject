@@ -18,11 +18,11 @@ public:
     USBZRagdollSyncManager();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_RagdollSyncData(const TArray<FSBZRagdollSyncData>& InRagdollSyncData);
     
 };

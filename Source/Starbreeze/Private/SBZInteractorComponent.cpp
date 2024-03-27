@@ -65,6 +65,7 @@ USBZInteractorComponent::USBZInteractorComponent() {
     this->ModeIndex = 0;
     this->ModeRaw = 255;
     this->bIsInteractionSignalRequired = false;
+    this->bIsScreenInteraction = false;
     this->ScreenInteractDistance = 1000.00f;
     this->MinScreenInteractDegrees = 30.00f;
     this->MinScreenInteractDot = 0.87f;

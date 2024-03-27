@@ -8,9 +8,12 @@ FAccelByteModelsItemInfoV2::FAccelByteModelsItemInfoV2() {
     this->Status = EAccelByteItemStatus::NONE;
     this->Listable = false;
     this->Purchasable = false;
+    this->bSectionExclusive = false;
     this->ItemType = EAccelByteItemType::NONE;
     this->MaxCountPerUser = 0;
     this->MaxCount = 0;
     this->DisplayOrder = 0;
+    this->bSellable = false;
+    this->Sellable = false;
 }
 

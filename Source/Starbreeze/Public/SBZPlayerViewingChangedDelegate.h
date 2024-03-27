@@ -4,5 +4,5 @@
 
 class ASBZSecurityCamera;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZPlayerViewingChanged, ASBZSecurityCamera*, Camera, bool, bIsViewTarget, bool, bIsLocalPlayer);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZPlayerViewingChanged, ASBZSecurityCamera*, Camera, bool, bIsViewTarget, bool, bIsLocalPlayer);
 

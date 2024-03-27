@@ -36,18 +36,18 @@ public:
     bool RemoveFeedback(int32 RemoveID);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnExitedActionPhase();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPlayerCameraFeedbackComponent* GetLocalCameraFeedbackComponent(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)
     bool FadeOutFeedback(int32 RemoveID, bool bIsAutoRemoved);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CooldownTimerDelegate(TSubclassOf<USBZLocalPlayerFeedback> FeedbackClass);
     
 public:

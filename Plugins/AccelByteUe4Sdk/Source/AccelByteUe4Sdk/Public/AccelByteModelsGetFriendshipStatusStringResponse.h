@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString friendshipStatus;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString FriendId;
+    
     ACCELBYTEUE4SDK_API FAccelByteModelsGetFriendshipStatusStringResponse();
 };
 

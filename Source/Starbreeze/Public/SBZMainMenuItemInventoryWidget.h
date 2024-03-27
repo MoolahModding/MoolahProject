@@ -34,21 +34,21 @@ private:
 public:
     USBZMainMenuItemInventoryWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotButtonSelected(USBZMenuButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemSlotButtonSelected(USBZMenuButton* SelectedButton);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZInventoryBaseData* GetActiveItem() const;
     
     UFUNCTION(BlueprintCallable)

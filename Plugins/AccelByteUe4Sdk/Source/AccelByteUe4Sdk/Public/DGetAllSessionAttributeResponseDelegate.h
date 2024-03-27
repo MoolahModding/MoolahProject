@@ -3,5 +3,5 @@
 #include "AccelByteModelsGetAllSessionAttributesResponse.h"
 #include "DGetAllSessionAttributeResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDGetAllSessionAttributeResponse, FAccelByteModelsGetAllSessionAttributesResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDGetAllSessionAttributeResponse, FAccelByteModelsGetAllSessionAttributesResponse, Response);
 

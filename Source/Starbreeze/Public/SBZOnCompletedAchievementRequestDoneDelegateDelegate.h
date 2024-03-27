@@ -3,5 +3,5 @@
 #include "SBZChallengeData.h"
 #include "SBZOnCompletedAchievementRequestDoneDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnCompletedAchievementRequestDoneDelegate, const FSBZChallengeData&, ChallengeData);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnCompletedAchievementRequestDoneDelegate, const FSBZChallengeData&, ChallengeData);
 

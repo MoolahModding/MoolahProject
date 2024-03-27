@@ -3,5 +3,5 @@
 #include "SBZPlayerStateRemovedEvent.h"
 #include "OnPlayerStateRemovedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPlayerStateRemoved, const FSBZPlayerStateRemovedEvent&, PlayerStateRemovedEventData);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPlayerStateRemoved, const FSBZPlayerStateRemovedEvent&, PlayerStateRemovedEventData);
 

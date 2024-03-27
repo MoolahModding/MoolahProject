@@ -54,22 +54,22 @@ protected:
     
 public:
     USBZDynamicPhysicsAudioComponent();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdateRollingVelocity(float Value);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdateImpactVelocity(float Value);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void StopRollingSound();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayRollingSound(float Value);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayImpactSound(float Value);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDisable();
     
 };

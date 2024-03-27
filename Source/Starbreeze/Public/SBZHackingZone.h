@@ -29,25 +29,25 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ZoneEnabled();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetZoneEnabled(bool bInEnabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnOverlapEnd(bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnOverlapBegin(bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_EnabledStateChanged(bool bNewState, bool bDoCosmetics);
     
 };

@@ -1,11 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/EngineTypes.h"
 #include "ESBZWidgetZOrdering.h"
 #include "SBZAnimatedInteractionInterface.h"
 #include "SBZOnMiniGameInteractionDelegate.h"
 #include "SBZMiniGameComponent.generated.h"
 
+class AActor;
 class APlayerController;
 class ASBZCharacter;
 class ASBZPlayerState;
@@ -123,11 +125,16 @@ protected:
     UFUNCTION(BlueprintCallable)
     void PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+public:
+    UFUNCTION()
+    void OnPlayerStateEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
+protected:
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ActivateMiniGame(ASBZCharacter* Character);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPD3MiniGameWidgetBase* GetSpawnedWidget() const;
     
     UFUNCTION(BlueprintCallable)

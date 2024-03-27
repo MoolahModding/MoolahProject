@@ -41,13 +41,13 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerClaimCombinedBagInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_UpdateCombinedBagsCount(int32 NewCount);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnCombinedBagCountUpdated(int32 Count);
     
 };

@@ -10,6 +10,9 @@ void ASBZVotingReplicatedProxy::Server_NotifySendVoteInitiate_Implementation(ESB
 void ASBZVotingReplicatedProxy::Server_NotifySendVoteAnswer_Implementation(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer) {
 }
 
+void ASBZVotingReplicatedProxy::Server_NotifyClientDisconnected_Implementation(FUniqueNetIdRepl PlayerId) {
+}
+
 void ASBZVotingReplicatedProxy::MulticastReceiveVoteRecall_Implementation(FUniqueNetIdRepl PlayerId) {
 }
 
@@ -20,6 +23,9 @@ void ASBZVotingReplicatedProxy::MulticastReceiveVoteAnswer_Implementation(FUniqu
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveLocalizedChatMessage_Implementation(const FString& FormatLocaleKey, const TArray<FString>& ExportedArgsNames, const TArray<FString>& ExportedArgsStrings, const TArray<FString>& ArgsToLocalizeNames, const TArray<FString>& ArgsToLocalizeLocaleKeys) {
+}
+
+void ASBZVotingReplicatedProxy::MulticastReceiveClientDisconnected_Implementation(FUniqueNetIdRepl PlayerId) {
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveChatMessage_Implementation(const FString& Message) {

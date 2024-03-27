@@ -42,10 +42,10 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool SetAndDriveAerialVehicleRoute(UObject* WorldContextObject, ASBZAerialVehicle* Vehicle, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FTransform GetTrafficSplineGroundTransform(UObject* WorldContextObject, ASBZTrafficSpline* Spline, ESBZTrafficNodeType TransformType);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZTrafficManager* GetTrafficManager(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))

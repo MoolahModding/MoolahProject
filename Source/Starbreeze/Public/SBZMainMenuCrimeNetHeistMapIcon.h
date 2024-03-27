@@ -23,20 +23,20 @@ protected:
     
 public:
     USBZMainMenuCrimeNetHeistMapIcon();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SetSelected(bool bInIsSelected);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistDataInitialized();
     
     UFUNCTION(BlueprintCallable)
     void InitializeHeistData(const UPD3HeistDataAsset* InHeistData);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPD3HeistDataAsset* GetHeistData() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonHoveredChanged(bool bInIsHovered);
     
 };

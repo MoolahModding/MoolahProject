@@ -22,20 +22,20 @@ public:
     void SetItemCount(int32 InItemCount);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemCountChanged(int32 InItemCount);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCosmeticItemDataInitialized();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsDefaultItem() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeCosmeticItem(const USBZCosmeticsDataAsset* InCosmeticItemData, bool bInIsDefault);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZCosmeticsDataAsset* GetCosmeticItemData() const;
     
 };

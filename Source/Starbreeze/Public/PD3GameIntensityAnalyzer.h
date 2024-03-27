@@ -65,6 +65,9 @@ private:
     float GlitchStrengthModifier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GlitchMinimumDotModifier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName GlitchStrengthParameterName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -85,21 +88,21 @@ public:
     void RemoveGlitchEffectSourceActor(AActor* Actor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnExitedActionPhase();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleSuspenseValueChanged(uint8 NewValue);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleProgressionIndexChanged();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPD3GameIntensityAnalyzer* GetGameIntensityAnalyzer(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

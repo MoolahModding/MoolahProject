@@ -88,40 +88,40 @@ public:
     UFUNCTION(BlueprintCallable)
     void RegisterCoverPointVisibilityCheck(ASBZCharacter* Caller, ASBZCoverPoint* CoverPoint, const TArray<AActor*>& Enemies, uint8 Score);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void RateTargetLocation(const AActor* Observer, const FVector& StartLocation, const FVector& TargetLocation, const float MaxRelevantDist, const float EnemyExcluderRadius, const float RejectingHeightDiffBetweenNodeAndTarget, uint8& OutVisibilityScore, uint8& OutDistanceScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsNodeVisibleFromLocation(const FSBZAIVisibilityLeafNode& LeafNode, const FVector& Location, const FVector& ObserverLocation, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsNodeVisibleFromActor(const FSBZAIVisibilityLeafNode& LeafNode, const FVector& Location, const AActor* ActorObserver, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsNodeSafeFromLocation(const FSBZAIVisibilityLeafNode& LeafNode, const FVector& Location, const FVector& ObserverLocation, uint8& OutSafeStances, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsNodeSafeFromActor(const FSBZAIVisibilityLeafNode& LeafNode, const FVector& Location, const AActor* ActorObserver, uint8& OutSafeStances, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsLocationVisibleFromLocation(const FVector& Location, const FVector& ObserverLocation, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsLocationSafeFromLocation(const FVector& Location, const FVector& ObserverLocation, uint8& OutSafeStances, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsAIVisibilityRelevantSafeFromAIVisibility(const TScriptInterface<ISBZAIVisibilityRelevant> AIVisibilityRelevant, const TScriptInterface<ISBZAIVisibilityRelevant> ObserverAIVisibilityRelevant, uint8& OutSafeStances, FVector& OutAdjustedLocation, uint8& OutScore) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasVisibilityData() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZAIVisibilityLeafNode GetAiVisibilityNode(const FVector& Location) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static ASBZAIVisibilityManager* GetAIVisibilityManager(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     bool DebugLocation(const UObject* WorldContextObject, const FVector& Location, const bool bDrawAzymuts) const;
     
 };

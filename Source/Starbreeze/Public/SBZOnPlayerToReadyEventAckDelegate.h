@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnPlayerToReadyEventAckDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPlayerToReadyEventAck);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPlayerToReadyEventAck);
 

@@ -27,37 +27,37 @@ private:
 public:
     USBZStateMachineStateDsActionPhase();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerStartTravel(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleMissionResultReady(const FSBZEndMissionResultData& MissionResultData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleMissionEnd(const int32 OutroVariation);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerId, const FString& DisplayName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AutoReadyTimeout();
     
 };

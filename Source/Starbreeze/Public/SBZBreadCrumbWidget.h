@@ -29,7 +29,7 @@ private:
 public:
     USBZBreadCrumbWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent);
     
 };

@@ -26,7 +26,7 @@ private:
     
 public:
     USBZAISquad();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMemberKilled(APawn* KilledMember);
     
 };

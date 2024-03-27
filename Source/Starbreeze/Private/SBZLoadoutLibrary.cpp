@@ -21,10 +21,22 @@ FSBZWeaponInventorySlot USBZLoadoutLibrary::GetWeaponConfigSlot(const UObject* W
     return FSBZWeaponInventorySlot{};
 }
 
+USBZInventoryBaseData* USBZLoadoutLibrary::GetSuitData(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+USBZInventoryBaseData* USBZLoadoutLibrary::GetMaskData(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 void USBZLoadoutLibrary::GetInventorySuitSlotAt(const UObject* WorldContextObject, FSBZSuitInventorySlot& OutSuitInventorySlot, int32 SuitSlotIndex, bool& IsValidIndex) {
 }
 
 void USBZLoadoutLibrary::GetInventoryGloveSlotAt(const UObject* WorldContextObject, FSBZGloveInventorySlot& OutGloveInventorySlot, int32 GloveSlotIndex, bool& IsValidIndex) {
+}
+
+USBZInventoryBaseData* USBZLoadoutLibrary::GetGloveData(const UObject* WorldContextObject) {
+    return NULL;
 }
 
 int32 USBZLoadoutLibrary::GetActivePlayerLoadoutIndex(const UObject* WorldContextObject) {

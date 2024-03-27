@@ -6,7 +6,7 @@ bool ASBZPlayerControllerBase::Server_SetLoadout_Validate(const FPD3PlayerLoadou
     return true;
 }
 
-void ASBZPlayerControllerBase::Server_SetAccelByteSessionInformation_Implementation(const FString& InAccelByteUserId, const FString& InSessionId) {
+void ASBZPlayerControllerBase::Server_SetAccelByteSessionInformation_Implementation(const FString& InAccelByteUserId, const FString& InSessionId, const ESBZFirstPartyPlatform FirstPartyPlatform) {
 }
 
 ASBZPlayerControllerBase::ASBZPlayerControllerBase() {

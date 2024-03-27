@@ -16,6 +16,9 @@ void ASBZModifiableTimer::ResetTimer(bool bStartTimer) {
 void ASBZModifiableTimer::PauseTimer() {
 }
 
+void ASBZModifiableTimer::OnSabotaged(bool bNewSabotagedState) {
+}
+
 void ASBZModifiableTimer::OnRep_TimerState() {
 }
 
@@ -37,7 +40,23 @@ void ASBZModifiableTimer::Multicast_ResetTimerAndStart_Implementation() {
 void ASBZModifiableTimer::Multicast_ResetTimerAndPause_Implementation() {
 }
 
+float ASBZModifiableTimer::GetTimerSpeed() const {
+    return 0.0f;
+}
+
 float ASBZModifiableTimer::GetTimeRemaining() const {
+    return 0.0f;
+}
+
+float ASBZModifiableTimer::GetTimeElapsed() const {
+    return 0.0f;
+}
+
+float ASBZModifiableTimer::GetProgressMade() const {
+    return 0.0f;
+}
+
+float ASBZModifiableTimer::GetDuration() const {
     return 0.0f;
 }
 
@@ -63,6 +82,7 @@ ASBZModifiableTimer::ASBZModifiableTimer() {
     this->TimeElapsed = 0.00f;
     this->CurrentSpeed = 1.00f;
     this->CurrentTimerState = ESBZTimerState::Inactive;
+    this->SabotagePoint = NULL;
     this->NextProgressionToPostIndex = 0;
 }
 

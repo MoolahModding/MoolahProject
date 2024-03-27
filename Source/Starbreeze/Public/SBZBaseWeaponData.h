@@ -142,7 +142,7 @@ public:
     TMap<USBZWeaponPatternAreaData*, FSBZWeaponPatternAreaDefinition> PatternAreas;
     
     USBZBaseWeaponData();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetNbStickerPlacements() const;
     
 };

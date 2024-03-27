@@ -46,9 +46,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsAnyRequiredBuffTypeEnough;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CooldownSeconds;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, EditFixedSize, meta=(AllowPrivateAccess=true))
     TArray<FSBZSkillFloatValue> FloatArray;
     
@@ -56,8 +53,5 @@ public:
     TArray<FSBZSkillIntValue> IntArray;
     
     USBZSkillData();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FText GetFormattedDescriptionText() const;
-    
 };
 

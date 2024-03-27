@@ -26,6 +26,9 @@ void USBZMainMenuWidget::OnTutorialPopUpClosed(FName ClosingActionName) {
 void USBZMainMenuWidget::OnTelemetryPopUpClosed(FName ClosingActionName) {
 }
 
+void USBZMainMenuWidget::OnLoadoutChangePopupClosed(FName ClosingActionName) {
+}
+
 void USBZMainMenuWidget::OnGameSensePopUpClosed(FName ClosingActionName) {
 }
 
@@ -122,6 +125,10 @@ USBZMainMenuWidget::USBZMainMenuWidget() {
     this->CrossplayPopupWidgetClass = NULL;
     this->TutorialPopupWidgetClass = NULL;
     this->PopUpBody = NULL;
+    this->LoadoutChangePopupWidgetClass = NULL;
+    this->LoadoutChangePopupHeaderText = FText::FromString(TEXT("WARNING"));
+    this->LoadoutChangePopupDescriptionText = FText::FromString(TEXT("Skill changes caused the following skills to unequip:\n"));
+    this->LoadoutChangePopupListText = FText::FromString(TEXT("{PreviousMessage}\n* {NewMessage}"));
     this->VendorTypeToOpen = ESBZBlackMarketVendorType::None;
 }
 

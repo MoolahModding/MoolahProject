@@ -44,17 +44,17 @@ protected:
 public:
     ASBZCarriedBag();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionComplete(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnDegradationChanged(const int32 DegredationLevel);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_AttachmentComplete(USkeletalMeshComponent* ParentSkeletalMeshComponent);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_AdjustAttachment(int32 Index, int32 NewCount, const FTransform& NewStrapTransformOffset);
     
 };

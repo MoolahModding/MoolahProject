@@ -58,7 +58,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemovePart(const USBZModularPartSlotBase* Slot);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSpawned();
     
 };

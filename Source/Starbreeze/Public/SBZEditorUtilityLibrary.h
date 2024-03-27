@@ -18,7 +18,7 @@ public:
     UFUNCTION(BlueprintCallable)
     static bool IsSbzLevelScriptActor(UWorld* World);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetEditorInstanceID(const UObject* WorldContextObject);
     
 };

@@ -41,6 +41,5 @@ public:
     UABServerStatistic* ServerStatistic;
     
     UServerApiClient();
-
 };
 

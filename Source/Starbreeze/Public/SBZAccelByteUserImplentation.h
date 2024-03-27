@@ -9,7 +9,7 @@ class USBZAccelByteUserImplentation : public USBZAccelByteUser {
 public:
     USBZAccelByteUserImplentation();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlatformUserChanged(int32 OldUserIndex);
     
 };

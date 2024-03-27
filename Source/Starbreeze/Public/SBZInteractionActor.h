@@ -23,10 +23,10 @@ public:
     
     ASBZInteractionActor();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleServerComplete(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleAckComplete(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 };

@@ -25,7 +25,7 @@ public:
     static USBZWaitStateMachineStateCallbackProxy* WaitGameStateMachineState(UObject* NewWorldContextObject, const TEnumAsByte<ESBZGameStateMachineState>& StateToWait);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStateEntered(FName StateName);
     
 };

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "Engine/EngineTypes.h"
+#include "GameFramework/OnlineReplStructs.h"
 #include "SBZOnlineSlotsHost.generated.h"
 
 class ASBZOnlineSlotsSync;
@@ -36,5 +37,8 @@ private:
     
 public:
     USBZOnlineSlotsHost();
+    UFUNCTION()
+    void IndividualReadyTimerTimeout(FUniqueNetIdRepl PlayerId);
+    
 };
 

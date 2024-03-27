@@ -21,7 +21,7 @@ private:
 public:
     USBZStateMachineStateWaitMainMenu();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleP2PSessionDestroyed(FName SessionName, bool bResult);
     
 };

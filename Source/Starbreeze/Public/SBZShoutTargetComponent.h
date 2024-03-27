@@ -90,7 +90,7 @@ public:
     UFUNCTION(BlueprintCallable)
     static void MakeComponentShoutTargetable(UPrimitiveComponent* Component);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsEnabled() const;
     
 };

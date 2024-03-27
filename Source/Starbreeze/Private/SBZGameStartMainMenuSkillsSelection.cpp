@@ -17,10 +17,6 @@ bool USBZGameStartMainMenuSkillsSelection::CustomizeSkillsForPlayerLoadoutIndex(
     return false;
 }
 
-bool USBZGameStartMainMenuSkillsSelection::CustomizeSkillsForPlayerLoadout(const FSBZPlayerLoadoutConfig& InLoadoutToConfig) {
-    return false;
-}
-
 USBZGameStartMainMenuSkillsSelection::USBZGameStartMainMenuSkillsSelection() {
     this->AlternativeSelectionInput = TEXT("UI_TertiaryInteraction");
     this->AlternativeSelectionHoldDuration = 0.50f;

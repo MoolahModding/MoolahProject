@@ -20,7 +20,7 @@ protected:
 public:
     ASBZECMJammer();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnJammerEffectEnded();
     
 };

@@ -95,13 +95,13 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ServerStartExplosionTimer();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DebugServerStartExplosionTimer();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnExplosion(bool bDoCosmetics);
     
     

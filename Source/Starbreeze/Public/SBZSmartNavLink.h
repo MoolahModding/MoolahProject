@@ -71,10 +71,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetLinkEnabled(bool bInLinkEnabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsLinkEnabled() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TSubclassOf<UNavArea> GetNavArea() const;
     
     

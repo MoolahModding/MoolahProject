@@ -10,7 +10,6 @@ class UABUtilities : public UObject {
     GENERATED_BODY()
 public:
     UABUtilities();
-
     UFUNCTION(BlueprintCallable)
     static bool GetJsonValueAsString(const FJsonObjectWrapper& ObjectWrapper, const FString& Key, FString& OutString);
     
@@ -30,16 +29,16 @@ public:
     static FString DateTimeToString(const FDateTime& DateTime);
     
     UFUNCTION(BlueprintCallable)
-    static void AddOrReplaceJsonStringValue(FJsonObjectWrapper& ObjectWrapper, const FString& Key, const FString& Value);
+    static void AddOrReplaceJsonStringValue(UPARAM(Ref) FJsonObjectWrapper& ObjectWrapper, const FString& Key, const FString& Value);
     
     UFUNCTION(BlueprintCallable)
-    static void AddOrReplaceJsonNumberValue(FJsonObjectWrapper& ObjectWrapper, const FString& Key, float Value);
+    static void AddOrReplaceJsonNumberValue(UPARAM(Ref) FJsonObjectWrapper& ObjectWrapper, const FString& Key, float Value);
     
     UFUNCTION(BlueprintCallable)
-    static void AddOrReplaceJsonBoolValue(FJsonObjectWrapper& ObjectWrapper, const FString& Key, bool Value);
+    static void AddOrReplaceJsonBoolValue(UPARAM(Ref) FJsonObjectWrapper& ObjectWrapper, const FString& Key, bool Value);
     
     UFUNCTION(BlueprintCallable)
-    static void AddOrReplaceJsonArrayValue(FJsonObjectWrapper& ObjectWrapper, const FString& Key, const TArray<FString>& Value);
+    static void AddOrReplaceJsonArrayValue(UPARAM(Ref) FJsonObjectWrapper& ObjectWrapper, const FString& Key, const TArray<FString>& Value);
     
 };
 

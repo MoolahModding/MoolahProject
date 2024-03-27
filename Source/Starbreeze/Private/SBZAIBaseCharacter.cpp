@@ -50,7 +50,7 @@ void ASBZAIBaseCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(ASBZAIBaseCharacter, AgentId);
 }
 
-ASBZAIBaseCharacter::ASBZAIBaseCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAIBaseCharacter::ASBZAIBaseCharacter() {
     this->CombatUtilityData = NULL;
     this->NavFilters[0] = NULL;
     this->NavFilters[1] = NULL;
@@ -86,5 +86,6 @@ ASBZAIBaseCharacter::ASBZAIBaseCharacter(const class FObjectInitializer& ObjectI
     this->bCanDoEvades = true;
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->AdditiveBaseEyeHeightTickRate = 0.10f;
+    this->CivilianNearRange = 250.00f;
 }
 

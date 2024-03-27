@@ -41,6 +41,7 @@ void USBZOutlineComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 USBZOutlineComponent::USBZOutlineComponent() {
     this->DefaultAsset = NULL;
     this->InteractableFocusAsset = NULL;
+    this->bIsHiddenManagedByInteractable = true;
     this->ActiveAsset = NULL;
     this->ActiveReplicated = NULL;
     this->bIsReplicatedHidden = false;

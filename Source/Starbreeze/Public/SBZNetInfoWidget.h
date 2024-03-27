@@ -14,10 +14,10 @@ protected:
 public:
     USBZNetInfoWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnValidPlayerState();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnServerRegionChanged();
     
 };

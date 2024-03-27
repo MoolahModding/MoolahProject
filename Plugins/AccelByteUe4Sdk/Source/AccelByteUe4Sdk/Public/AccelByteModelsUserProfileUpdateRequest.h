@@ -35,10 +35,10 @@ public:
     FString ZipCode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FString, FJsonObjectWrapper> PrivateCustomAttributes;
+    FJsonObjectWrapper PrivateCustomAttributes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FString, FJsonObjectWrapper> CustomAttributes;
+    FJsonObjectWrapper CustomAttributes;
     
     FAccelByteModelsUserProfileUpdateRequest();
 };

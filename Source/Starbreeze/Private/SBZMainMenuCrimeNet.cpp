@@ -44,7 +44,6 @@ USBZMainMenuCrimeNet::USBZMainMenuCrimeNet() {
     this->HeistMapIconClass = NULL;
     this->CanvasPanel_HeistMapIcons = NULL;
     this->SelectedHeistButton = NULL;
-    this->bShowStoryModeButtons = true;
     this->ActiveHeistCollectionIndex = -1;
 }
 

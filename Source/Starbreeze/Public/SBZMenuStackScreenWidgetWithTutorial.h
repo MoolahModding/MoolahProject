@@ -37,18 +37,18 @@ protected:
     UFUNCTION(BlueprintCallable)
     void ToggleShowingTutorial();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTutorialHidden();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTutorialDisplayed();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTutorialButtonSelected(USBZMenuMouseButton* Button);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsShowingTutorial() const;
     
 };

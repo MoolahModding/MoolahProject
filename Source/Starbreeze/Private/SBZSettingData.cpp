@@ -3,7 +3,7 @@
 FSBZSettingData::FSBZSettingData() {
     this->bHasPlaystationSpecificSettingNameLocalized = false;
     this->bHasXBoxSpecificSettingNameLocalized = false;
-    this->ControlType = ESBZControlType::Toggle;
+    this->ControlType = ESBZControlType::ActionClick;
     this->bApplyChangeImmediately = false;
     this->bAskChangeConfirmation = false;
     this->bCanResetToDefault = false;

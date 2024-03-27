@@ -12,16 +12,16 @@ class USBZInteractionWidget : public USBZPlayerStatePawnWidgetBase {
 public:
     USBZInteractionWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayerIsInteracting(const USBZPlayerInteractorComponent* Interactor, bool bIsInteracting);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNewInteractionCollection(const USBZPlayerInteractorComponent* Interactor, const FSBZInteractDisplayDataCollection& NewInteractionCollection);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCasingChanged(bool bIsCasing);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAISeenPlayer(bool bIsSeenByAI);
     
 };

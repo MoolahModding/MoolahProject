@@ -83,7 +83,7 @@ protected:
 public:
     ASBZSeasonalEventItemExploding();
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
     

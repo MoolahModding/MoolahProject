@@ -30,10 +30,10 @@ public:
     USBZSplineComponent* SplineComponent;
     
     ASBZSpline();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<ASBZSpline*> GetOutputSplines() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<ASBZSpline*> GetInputSplines() const;
     
 };

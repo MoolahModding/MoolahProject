@@ -255,6 +255,9 @@ void USBZCheatManagerMainMenu::ApplyAsset(const FString& ItemSku) {
 void USBZCheatManagerMainMenu::AddUniquePartToWeaponConfig(uint32 SlotIndex, const FString& SlotName, const FString& WeaponPartName) {
 }
 
+void USBZCheatManagerMainMenu::AddOwnedDLCAndPopulateEntitlementDisabledArray(const FString& DLCNameCommaList) {
+}
+
 USBZCheatManagerMainMenu::USBZCheatManagerMainMenu() {
     this->MenuInputComponent = NULL;
     this->SelectedMaskSprayCanData[0] = NULL;

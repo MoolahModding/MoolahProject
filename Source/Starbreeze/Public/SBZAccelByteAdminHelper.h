@@ -31,7 +31,7 @@ private:
     
 public:
     USBZAccelByteAdminHelper();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CheckLogoutDone(const FString& Email, const FString& Username, const FString& Password);
     
 };

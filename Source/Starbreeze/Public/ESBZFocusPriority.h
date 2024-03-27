@@ -7,6 +7,6 @@ enum class ESBZFocusPriority : uint8 {
     AI = 0x3,
     Attack,
     Override,
-    None = 0
+    Default = 0
 };
 

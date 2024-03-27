@@ -32,22 +32,22 @@ protected:
     UFUNCTION(BlueprintCallable)
     void TryBuyWeapon(const FSBZWeaponStoreItem& WeaponStoreItem);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponStoreItemsUpdated(const TMap<FGuid, FSBZWeaponStoreItem>& InWeaponStoreMap);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponPresetStoreItemsUpdated(const TMap<FGuid, FSBZWeaponPresetStoreItem>& InWeaponPresetStoreMap);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnBuyWeaponPresetDone(bool bWasSuccess);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnBuyWeaponDone(bool bWasSuccess);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnBuyWeaponPresetDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnBuyWeaponDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
 };

@@ -3,5 +3,5 @@
 #include "AccelByteModelsPartyInviteResponse.h"
 #include "DPartyInviteResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyInviteResponse, FAccelByteModelsPartyInviteResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyInviteResponse, FAccelByteModelsPartyInviteResponse, Response);
 

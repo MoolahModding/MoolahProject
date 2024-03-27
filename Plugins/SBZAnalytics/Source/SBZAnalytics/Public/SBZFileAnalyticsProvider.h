@@ -8,6 +8,5 @@ class SBZANALYTICS_API USBZFileAnalyticsProvider : public USBZAnalyticsProvider 
     GENERATED_BODY()
 public:
     USBZFileAnalyticsProvider();
-
 };
 

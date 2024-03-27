@@ -1,0 +1,5 @@
+#include "AccelByteModelsListOutgoingFriendsWithTimeResponse.h"
+
+FAccelByteModelsListOutgoingFriendsWithTimeResponse::FAccelByteModelsListOutgoingFriendsWithTimeResponse() {
+}
+

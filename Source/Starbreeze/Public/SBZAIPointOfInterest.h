@@ -35,10 +35,10 @@ private:
     
 public:
     ASBZAIPointOfInterest();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOwnerDestroyed(AActor* DestroyedActor);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnInteracted(AActor* ActionInstigator, const FGameplayTag& InteractionTag);
     
     

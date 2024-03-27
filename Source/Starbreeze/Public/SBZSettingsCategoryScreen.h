@@ -8,13 +8,16 @@ class UPanelWidget;
 class USBZMenuButton;
 class USBZSettingHelperPanel;
 class USBZSettingsButton;
-class USBZSettingsButtonDLSSSRModeChoice;
+class USBZSettingsButtonActionClick;
+class USBZSettingsButtonAntiAliasingModeChoice;
 class USBZSettingsButtonGamepadBinding;
 class USBZSettingsButtonKeyboardBinding;
 class USBZSettingsButtonMultipleChoice;
 class USBZSettingsButtonResolutionChoice;
 class USBZSettingsButtonSlider;
 class USBZSettingsButtonTwoChoice;
+class USBZSettingsButtonUpscalerChoice;
+class USBZSettingsButtonUpscalingModeChoice;
 class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -32,6 +35,9 @@ protected:
     TSubclassOf<UTextBlock> SettingsGroupTitleClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSettingsButtonActionClick> SettingsButtonClassActionClick;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZSettingsButtonTwoChoice> SettingsButtonClassTwoChoice;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -41,7 +47,13 @@ protected:
     TSubclassOf<USBZSettingsButtonResolutionChoice> SettingsButtonClassResolutionChoice;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZSettingsButtonDLSSSRModeChoice> SettingsButtonClassDLSSSRModeChoice;
+    TSubclassOf<USBZSettingsButtonAntiAliasingModeChoice> SettingsButtonClassAntiAliasingModeChoice;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSettingsButtonUpscalerChoice> SettingsButtonClassUpscalerChoice;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSettingsButtonUpscalingModeChoice> SettingsButtonClassUpscalingModeChoice;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZSettingsButtonSlider> SettingsButtonClassSlider;
@@ -55,7 +67,7 @@ protected:
 public:
     USBZSettingsCategoryScreen();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SettingsCategoryInitialized();
     
 public:
@@ -63,14 +75,14 @@ public:
     void ResetSettingsCategory(const FName& SettingsCategoryName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSettingsButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSettingsButtonChanged(USBZSettingsButton* SettingsButton);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsSettingsCategoryDirty(const FName& SettingsCategoryName) const;
     
     UFUNCTION(BlueprintCallable)

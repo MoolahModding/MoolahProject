@@ -38,7 +38,7 @@ public:
     void UpdateAgilityTrajectory();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SpawnedPawnOrderPushed(ASBZAIController* Controller, USBZAIOrder* Order);
     
     

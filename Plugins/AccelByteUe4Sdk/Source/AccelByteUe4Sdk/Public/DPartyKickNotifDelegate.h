@@ -3,5 +3,5 @@
 #include "AccelByteModelsGotKickedFromPartyNotice.h"
 #include "DPartyKickNotifDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyKickNotif, FAccelByteModelsGotKickedFromPartyNotice, Notif);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyKickNotif, FAccelByteModelsGotKickedFromPartyNotice, Notif);
 

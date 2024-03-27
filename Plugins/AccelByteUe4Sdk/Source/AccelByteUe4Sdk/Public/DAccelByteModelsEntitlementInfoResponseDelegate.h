@@ -3,5 +3,5 @@
 #include "AccelByteModelsEntitlementInfo.h"
 #include "DAccelByteModelsEntitlementInfoResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsEntitlementInfoResponse, FAccelByteModelsEntitlementInfo, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsEntitlementInfoResponse, FAccelByteModelsEntitlementInfo, Response);
 

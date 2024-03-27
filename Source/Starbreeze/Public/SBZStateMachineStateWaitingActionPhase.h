@@ -26,28 +26,28 @@ protected:
 public:
     USBZStateMachineStateWaitingActionPhase();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void TravelToHostTimeout();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerControllerReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleNetworkError(ESBZOnlineCode Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleJoinedHost(UWorld* NewWorld);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleBeaconNetworkError(ESBZOnlineCode Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DelayedNetworkBeaconError();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ConsumePreplanningAssets();
     
 };

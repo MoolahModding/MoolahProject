@@ -37,13 +37,13 @@ protected:
 public:
     ASBZSeasonalEventItemBase();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnItemPickedUp(bool bIsPositiveEffect);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnItemPickedUp(bool bIsPositiveEffect);
     
 };

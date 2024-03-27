@@ -4,5 +4,5 @@
 
 class USBZBagType;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSecuredBagVisualizeBagAddedSignature, const USBZBagType*, BagType);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSecuredBagVisualizeBagAddedSignature, const USBZBagType*, BagType);
 

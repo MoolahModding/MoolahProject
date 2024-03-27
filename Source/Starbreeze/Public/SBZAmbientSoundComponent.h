@@ -62,10 +62,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetAudioEvent(UAkAudioEvent* InAkAudioEvent);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsAmbientSoundComponentEnabled() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetAttenuation() const;
     
     UFUNCTION(BlueprintCallable)

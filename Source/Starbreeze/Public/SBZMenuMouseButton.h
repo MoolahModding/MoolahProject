@@ -20,10 +20,10 @@ public:
     void SelectButton();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonSelected();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ButtonHoveredChanged(bool bInIsHovered);
     
 };

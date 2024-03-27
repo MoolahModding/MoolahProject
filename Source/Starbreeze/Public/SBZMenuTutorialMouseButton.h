@@ -16,10 +16,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetTutorialShowing(bool bInIsShowing);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnShowingTutorialChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsShowingTutorial() const;
     
 };

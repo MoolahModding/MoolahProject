@@ -16,7 +16,7 @@ protected:
     
 public:
     USBZInternetStatusWidget();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetNetworkLostConnectionVisibility(ESBZServiceStatus ServiceStatus);
     
 };

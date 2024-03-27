@@ -21,44 +21,44 @@ protected:
 public:
     USBZStateMachineStateLobby();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void WaitPlayersTickSeconds();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void WaitGameTickSeconds();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void TryUpdateWaitPlayersTimer();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void StartWaitPlayersTimer();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void StartWaitGameTimer();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void StartWaitForServerPlayerReadyAck();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ResetWaitPlayersTimer();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ReceivedHostUpdate();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMissionEnd();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleWaitActionPhaseReceived();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLostConnectionToPartyHost(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLostConnectionToHost(ESBZOnlineCode ErrorCode);
     
 };

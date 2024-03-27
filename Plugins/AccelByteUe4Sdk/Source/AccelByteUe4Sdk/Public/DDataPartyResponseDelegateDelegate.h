@@ -3,5 +3,5 @@
 #include "AccelByteModelsDataPartyResponse.h"
 #include "DDataPartyResponseDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDDataPartyResponseDelegate, FAccelByteModelsDataPartyResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDDataPartyResponseDelegate, FAccelByteModelsDataPartyResponse, Response);
 

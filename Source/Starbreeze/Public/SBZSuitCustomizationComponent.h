@@ -26,7 +26,7 @@ public:
     void SetMeshComponent(USkeletalMeshComponent* InMeshCompoenent);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnSkeletalMeshLoaded();
     
 };

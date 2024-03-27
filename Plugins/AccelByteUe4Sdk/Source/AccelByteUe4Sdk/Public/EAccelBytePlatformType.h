@@ -24,6 +24,7 @@ enum class EAccelBytePlatformType : uint8 {
     Nintendo,
     SnapChat,
     EAOrigin,
+    PS4Web,
     Unset = 0xFF,
 };
 

@@ -35,7 +35,7 @@ private:
 public:
     USBZHUDDamageTakenIndicatorContainerWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
     
 };

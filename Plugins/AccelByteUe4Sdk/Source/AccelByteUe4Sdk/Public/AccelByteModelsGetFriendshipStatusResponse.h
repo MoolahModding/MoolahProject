@@ -11,6 +11,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ERelationshipStatusCode friendshipStatus;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString FriendId;
+    
     FAccelByteModelsGetFriendshipStatusResponse();
 };
 

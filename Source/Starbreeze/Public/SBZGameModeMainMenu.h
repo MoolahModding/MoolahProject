@@ -11,9 +11,9 @@ public:
     ASBZGameModeMainMenu(const class FObjectInitializer& ObjectInitializer);
     UFUNCTION(BlueprintCallable)
     void SetMainMenuState(ESBZMainMenuState NewState);
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZMainMenuState GetMainMenuState() const;
-    
+
 };
 

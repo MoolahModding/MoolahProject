@@ -6,5 +6,5 @@
 class APawn;
 class ASBZPawnSpawnBase;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_ThreeParams(FSBZPawnSpawnDynamicDelegate, FSBZPawnSpawnRequestHandle, RequestHandle, APawn*, Pawn, ASBZPawnSpawnBase*, Spawner);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_ThreeParams(FSBZPawnSpawnDynamicDelegate, FSBZPawnSpawnRequestHandle, RequestHandle, APawn*, Pawn, ASBZPawnSpawnBase*, Spawner);
 

@@ -28,13 +28,13 @@ protected:
 public:
     USBZThermalLanceWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnThermalLanceSet();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZBreachingEquipmentState NewState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnRefuelingNeeded(bool bIsFuelingNeeded);
     
 };

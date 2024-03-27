@@ -1,8 +1,5 @@
 #include "ABServerDSM.h"
 
-UABServerDSM::UABServerDSM() {
-}
-
 void UABServerDSM::SetServerType(UEnumServerType Type) {
 }
 
@@ -40,4 +37,6 @@ void UABServerDSM::DeregisterLocalServerFromDSM(const FString& ServerName, FDHan
 void UABServerDSM::ConfigureAutoShutdown(int32 TickSeconds, int32 CountdownStart) {
 }
 
+UABServerDSM::UABServerDSM() {
+}
 

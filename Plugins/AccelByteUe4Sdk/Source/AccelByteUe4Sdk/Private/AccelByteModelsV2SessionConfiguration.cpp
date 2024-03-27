@@ -8,5 +8,7 @@ FAccelByteModelsV2SessionConfiguration::FAccelByteModelsV2SessionConfiguration()
     this->InactiveTimeout = 0;
     this->InviteTimeout = 0;
     this->TextChat = false;
+    this->Persistent = false;
+    this->AutoJoin = false;
 }
 

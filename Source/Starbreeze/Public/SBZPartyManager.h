@@ -83,7 +83,7 @@ protected:
 public:
     USBZPartyManager();
     UFUNCTION(BlueprintCallable)
-    void SetLobbyType(ESBZOnlineJoinType InLobbyType);
+    void SetLobbyType(ESBZOnlineJoinType InLobbyType, bool bIsSaved);
     
     UFUNCTION(BlueprintCallable)
     FString SendPublicMessage(const FString& Message);
@@ -97,19 +97,19 @@ public:
     UFUNCTION(BlueprintCallable)
     FString SendJoinPublicChatChannel();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsMatchmakingRequestedByPartyLeader() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetPartyPlayersNumber() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPartyManager* GetPartyManager(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZPartyMember GetPartyLeader() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZOnlineJoinType GetLobbyType() const;
     
 };

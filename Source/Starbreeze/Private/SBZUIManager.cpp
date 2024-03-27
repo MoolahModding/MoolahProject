@@ -237,6 +237,7 @@ USBZUIManager::USBZUIManager() {
     this->BlackBackgroundWidgetClass = NULL;
     this->ActiveMenuWidget = NULL;
     this->ActiveLoginScreenWidget = NULL;
+    this->ActivePSOCompilationScreenWidget = NULL;
     this->LastFocusedWidget = NULL;
     this->LastUIStackUpdate = 0.00f;
     this->bSetFocusOnUnlock = false;

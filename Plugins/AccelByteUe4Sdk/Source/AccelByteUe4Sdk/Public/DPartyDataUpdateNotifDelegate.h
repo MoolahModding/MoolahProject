@@ -3,5 +3,5 @@
 #include "AccelByteModelsPartyDataNotif.h"
 #include "DPartyDataUpdateNotifDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyDataUpdateNotif, FAccelByteModelsPartyDataNotif, Notif);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyDataUpdateNotif, FAccelByteModelsPartyDataNotif, Notif);
 

@@ -61,22 +61,22 @@ public:
     void SetServerDamageEnabled(const TScriptInterface<IAbilitySystemInterface>& AbilitySystemScriptInterface, bool bIsEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnVolumeEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnVolumeCollisionChanged(UPrimitiveComponent* ChangedComponent);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnVolumeBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsCollisionEnabled();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CollisionEnabled(bool bIsEnabled);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintImplementableEvent)
     void BP_OnVolumeEnabledChanged(bool bIsEnabled);
     
     

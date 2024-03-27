@@ -1,8 +1,5 @@
 #include "AccelByteBlueprintsGameProfile.h"
 
-UAccelByteBlueprintsGameProfile::UAccelByteBlueprintsGameProfile() {
-}
-
 void UAccelByteBlueprintsGameProfile::UpdateGameProfileAttribute(const FString& ProfileId, const FAccelByteModelsGameProfileAttribute& Attribute, const UAccelByteBlueprintsGameProfile::FUpdateGameProfileAttributeSuccess& OnSuccess, const UAccelByteBlueprintsGameProfile::FBlueprintErrorHandler& OnError) {
 }
 
@@ -27,4 +24,6 @@ void UAccelByteBlueprintsGameProfile::CreateGameProfile(const FAccelByteModelsGa
 void UAccelByteBlueprintsGameProfile::BatchGetPublicGameProfiles(TArray<FString> UserIds, const UAccelByteBlueprintsGameProfile::FBatchGetPublicGameProfilesSuccess& OnSuccess, const UAccelByteBlueprintsGameProfile::FBlueprintErrorHandler& OnError) {
 }
 
+UAccelByteBlueprintsGameProfile::UAccelByteBlueprintsGameProfile() {
+}
 

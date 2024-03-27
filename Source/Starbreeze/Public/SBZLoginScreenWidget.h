@@ -41,19 +41,19 @@ protected:
     
 public:
     USBZLoginScreenWidget();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ShowLoginFailedMessage();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWebPageClosed(const FString& InFinalWebURL);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCreateAccountWindowClosed(const FString& InLastURL);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCreateAccountBrowserSelected(USBZMenuButton* InSelectedButton);
     
 };

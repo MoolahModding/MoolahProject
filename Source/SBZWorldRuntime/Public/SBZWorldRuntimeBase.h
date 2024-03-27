@@ -14,7 +14,7 @@ public:
     TSubclassOf<USBZWorldRuntimeBase> WorldRuntimeClass;
     
     USBZWorldRuntimeBase();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWorldRuntimeBase* GetWorldRuntime(const UObject* WorldContextObject);
     
 };

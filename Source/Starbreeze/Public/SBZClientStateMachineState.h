@@ -10,7 +10,7 @@ class STARBREEZE_API USBZClientStateMachineState : public USBZCommonStateMachine
 public:
     USBZClientStateMachineState();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnNetworkStatusChanged(ESBZServiceStatus ServiceStatus);
     
 };

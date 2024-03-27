@@ -59,41 +59,41 @@ protected:
 public:
     USBZCharacterMovementComponent();
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_StopZipline(const bool bWasCancelled);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_StopSlide();
     
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_StartZipline(ASBZZipline* InZipline, const bool bIsMovingZiplineForward, const float InTimeOnZipline);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_StartTraversal(const FSBZMinimalAgilityTraversalTrajectory& MinimalTrajectory);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_StartSlide(const FVector& InSlideDirection, const FVector& InEndSlideLocation);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NetMulticast_StopTraversal();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NetMulticast_StopSlide();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NetMulticast_StartTraversal(const FSBZMinimalAgilityTraversalTrajectory& MinimalTrajectory);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NetMulticast_StartSlide(const FVector& InSlideDirection, const FVector& InEndSlideLocation);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopZipline(const bool bWasCancelled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StartZipline(ASBZZipline* InZipline, const bool bIsMovingZiplineForward, const float InTimeOnZipline);
     
 };

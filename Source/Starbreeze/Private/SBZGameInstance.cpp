@@ -46,6 +46,7 @@ USBZGameInstance::USBZGameInstance() {
     this->SoundEnvironmentManagerClass = NULL;
     this->ChallengeManagerClass = NULL;
     this->ChallengeCategoryManagerClass = NULL;
+    this->ServerStatusManagerClass = NULL;
     this->UIManagerClass = NULL;
     this->GlobalItemDatabaseClass = NULL;
     this->GlobalQuickStartItemDatabaseClass = NULL;
@@ -70,6 +71,7 @@ USBZGameInstance::USBZGameInstance() {
     this->AccelByteUser = NULL;
     this->ChallengeManager = NULL;
     this->ChallengeCategoryManager = NULL;
+    this->ServerStatusManager = NULL;
     this->UIManager = NULL;
     this->AnalyticsManager = NULL;
     this->WorldLoader = NULL;

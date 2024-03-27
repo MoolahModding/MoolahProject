@@ -37,13 +37,13 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetBodyMesh(USkeletalMesh* BodySkeletalMesh);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZCustomizableSuitMeshComponent* GetSuitMeshComponent() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USkeletalMeshComponent* GetGlovesMeshComponent() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USkeletalMeshComponent* GetBodyMeshComponent() const;
     
     UFUNCTION(BlueprintCallable)

@@ -8,25 +8,25 @@ class USBZPartyManagerAB : public USBZPartyManager {
     GENERATED_BODY()
 public:
     USBZPartyManagerAB();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyLeaderStoppedMatchmaking();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyLeaderStartedMatchmaking();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyLeaderMatchJoin();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyLeaderMatchFound();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEnteredGameStart();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void JoinPartyAfterLeave(const FString& Code);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void InvitePopUpCallback(FName ActionName);
     
 };

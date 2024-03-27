@@ -53,10 +53,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetRoomName(const FText& InRoomName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZRoomType GetRoomType() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetRoomName() const;
     
     

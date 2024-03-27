@@ -3,7 +3,7 @@
 void USBZAnalyticsManager::SendSyncDLC(const bool bIsSyncDLCSuccessful, const FString& SyncDLCFailureMessage) {
 }
 
-void USBZAnalyticsManager::SendNotOwningHeistDetected(const ESBZNotOwningHeistPolicyType NotOwningHeistAction, const bool bIsActionSuccessful, const FString& Description, const FString& AdditionalInformation) {
+void USBZAnalyticsManager::SendNotOwningHeistDetected(const FString& AccelByteUserId, const ESBZNotOwningHeistPolicyType NotOwningHeistAction, const bool bIsActionSuccessful, const FString& Description, const FString& AdditionalInformation) {
 }
 
 void USBZAnalyticsManager::SendInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience) {

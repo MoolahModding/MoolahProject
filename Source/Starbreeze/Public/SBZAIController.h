@@ -103,23 +103,23 @@ public:
     USBZAIAction* PushAction(TSubclassOf<USBZAIAction> ActionClass, AActor* TargetActor);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOrderCompleted(USBZAIOrder* Order, APawn* OrderPawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEnemyKilled(APawn* KilledPawn);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionCompleted(USBZAIAction* Action, AActor* Actor, bool bSuccess);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionCanceled(USBZAIAction* Action);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     APawn* GetCurrentEnemy() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnCurrentEnemyAssigned();
     
     

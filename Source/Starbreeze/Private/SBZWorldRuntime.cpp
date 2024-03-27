@@ -17,6 +17,7 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllAliveAICrewCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllAliveAICrewCharacters"));
     this->AllAliveAICharacters = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAICharacters"));
     this->AllAliveAIGuards = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAIGuards"));
+    this->AllAliveAIStreetCops = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAIStreetCops"));
     this->AllAliveAIDrones = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAIDrones"));
     this->AllRagdollCarryCharacters = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllRagdollCarryCharacters"));
     this->AllLevelScriptActors = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllLevelScriptActors"));

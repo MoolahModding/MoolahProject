@@ -4,7 +4,16 @@
 void ASBZBeaconActionPhaseClient::ServerVoteStayAsParty_Implementation() {
 }
 
+void ASBZBeaconActionPhaseClient::ServerTogglePlayerReady_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+}
+
 void ASBZBeaconActionPhaseClient::ServerSetSlotStatus_Implementation(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status) {
+}
+
+void ASBZBeaconActionPhaseClient::ServerSetPlayerUnready_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+}
+
+void ASBZBeaconActionPhaseClient::ServerSetPlayerReady_Implementation(const FUniqueNetIdRepl& InPlayerId) {
 }
 
 void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZFirstPartyPlatform& FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
@@ -49,7 +58,16 @@ void ASBZBeaconActionPhaseClient::ServerNotifyStartTravel_Implementation(const F
 void ASBZBeaconActionPhaseClient::ServerAddPreplanningAsset_Implementation(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku) {
 }
 
+void ASBZBeaconActionPhaseClient::SendTogglePlayerReady() {
+}
+
 void ASBZBeaconActionPhaseClient::SendPreplanningAssets() {
+}
+
+void ASBZBeaconActionPhaseClient::SendPlayerUnready() {
+}
+
+void ASBZBeaconActionPhaseClient::SendPlayerReady() {
 }
 
 void ASBZBeaconActionPhaseClient::SendActiveLoadout(const FUniqueNetIdRepl& InPlayerId) {
@@ -104,6 +122,9 @@ void ASBZBeaconActionPhaseClient::ClientPreMatchLobbyStatusUpdated_Implementatio
 }
 
 void ASBZBeaconActionPhaseClient::ClientPlayerToReadyAck_Implementation() {
+}
+
+void ASBZBeaconActionPhaseClient::ClientPlayerReadyAck_Implementation(bool bIsReady) {
 }
 
 void ASBZBeaconActionPhaseClient::ClientJoinPartyByCode_Implementation(const FString& PartyCode) {

@@ -2,5 +2,6 @@
 
 USBZGasGrenadeData::USBZGasGrenadeData() {
     this->DropDamageModifierCurve = NULL;
+    this->bIsDroppedConvertedToFragGrenade = false;
 }
 

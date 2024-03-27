@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnActionChangedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnActionChanged);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnActionChanged);
 

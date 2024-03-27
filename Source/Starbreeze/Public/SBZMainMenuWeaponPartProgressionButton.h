@@ -24,7 +24,7 @@ private:
 public:
     USBZMainMenuWeaponPartProgressionButton();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void WeaponPartProgressionInitialized(const FSBZWeaponPartProgressionCurrent& InWeaponPartProgression);
     
 public:
@@ -35,30 +35,30 @@ public:
     void SetEquipped(bool bInIsEquipped);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnEquippedChanged(bool bInIsEquipped);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsDefaultButton() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeWeaponPartProgression(const FSBZWeaponPartProgressionCurrent& InWeaponPartProgression);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZWeaponPartProgressionCurrent GetWeaponPartProgression() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZWeaponPartDataAsset* GetWeaponPart() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetUnlockLevel() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZWeaponPartApplyStatus GetPartApplyStatus() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DefaultButtonSet();
     
 };

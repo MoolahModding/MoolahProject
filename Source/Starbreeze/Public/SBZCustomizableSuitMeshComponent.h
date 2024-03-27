@@ -32,7 +32,7 @@ public:
     void SetSuitConfig(const FSBZSuitConfig& Config);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnSkeletalMeshLoaded();
     
 };

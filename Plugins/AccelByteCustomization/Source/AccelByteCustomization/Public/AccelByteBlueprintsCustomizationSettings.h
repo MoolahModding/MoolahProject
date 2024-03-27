@@ -8,7 +8,6 @@ class UAccelByteBlueprintsCustomizationSettings : public UBlueprintFunctionLibra
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsCustomizationSettings();
-
     UFUNCTION(BlueprintCallable)
     static void SetChallengeServerUrl(const FString& ChallengeServerUrl);
     

@@ -14,7 +14,7 @@ void ASBZSpawnCloset::BindRoomVolumeOverlaps() {
 
 ASBZSpawnCloset::ASBZSpawnCloset() {
     this->bStayOpenDuringStealth = false;
-    this->CivilianDespawnDelay = 1.00f;
+    this->ReactionDelay = 1.00f;
     this->NumberOfBlockingActors = 0;
     this->bActorsInVolume = false;
     this->bIsStealth = false;

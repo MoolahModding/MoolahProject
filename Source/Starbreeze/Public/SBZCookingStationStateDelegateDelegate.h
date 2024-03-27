@@ -3,5 +3,5 @@
 #include "ESBZCookingState.h"
 #include "SBZCookingStationStateDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZCookingStationStateDelegate, ESBZCookingState, OldState, ESBZCookingState, NewState);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZCookingStationStateDelegate, ESBZCookingState, OldState, ESBZCookingState, NewState);
 

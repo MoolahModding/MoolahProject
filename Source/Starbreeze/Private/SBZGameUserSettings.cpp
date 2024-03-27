@@ -12,7 +12,13 @@ void USBZGameUserSettings::SetVideoToDefaults() {
 void USBZGameUserSettings::SetUserInterfaceToDefaults() {
 }
 
-void USBZGameUserSettings::SetUpscalingMode(int32 Mode) {
+void USBZGameUserSettings::SetUpscalingSharpness(float Sharpness) {
+}
+
+void USBZGameUserSettings::SetUpscalingMode(ESBZUpscalingMode Mode) {
+}
+
+void USBZGameUserSettings::SetUpscaler(ESBZUpscaler Type) {
 }
 
 void USBZGameUserSettings::SetTelemetryEnabled(bool bIsEnabled) {
@@ -28,6 +34,9 @@ void USBZGameUserSettings::SetSubtitlesSize(int32 Value) {
 }
 
 void USBZGameUserSettings::SetSubtitlesEnabled(bool bEnable) {
+}
+
+void USBZGameUserSettings::SetStoryVideoButtonsEnabled(bool bInEnable) {
 }
 
 void USBZGameUserSettings::SetSFXVolume(float Volume) {
@@ -135,9 +144,6 @@ void USBZGameUserSettings::SetFPSDisplayEnabled(bool bEnable) {
 void USBZGameUserSettings::SetForceFeedbackEnabled(bool bEnable) {
 }
 
-void USBZGameUserSettings::SetDLSSSRMode(int32 Mode) {
-}
-
 void USBZGameUserSettings::SetDepthOfFieldEnabled(bool bEnable) {
 }
 
@@ -199,6 +205,10 @@ void USBZGameUserSettings::SetAntiAliasingMode(int32 Mode) {
 }
 
 bool USBZGameUserSettings::IsSwitchWeaponAutomaticallyEnabled() const {
+    return false;
+}
+
+bool USBZGameUserSettings::IsStoryVideoButtonsEnabled() {
     return false;
 }
 
@@ -270,8 +280,16 @@ float USBZGameUserSettings::GetVoIPVolume() const {
     return 0.0f;
 }
 
-int32 USBZGameUserSettings::GetUpscalingMode() {
-    return 0;
+float USBZGameUserSettings::GetUpscalingSharpness() const {
+    return 0.0f;
+}
+
+ESBZUpscalingMode USBZGameUserSettings::GetUpscalingMode() const {
+    return ESBZUpscalingMode::None;
+}
+
+ESBZUpscaler USBZGameUserSettings::GetUpscaler() const {
+    return ESBZUpscaler::None;
 }
 
 bool USBZGameUserSettings::GetTelemetryEnabled() const {
@@ -362,10 +380,6 @@ int32 USBZGameUserSettings::GetGamepadBindingsPreset() const {
     return 0;
 }
 
-int32 USBZGameUserSettings::GetDLSSSRMode() {
-    return 0;
-}
-
 FSBZCrosshairSettings USBZGameUserSettings::GetCrosshairSettings() {
     return FSBZCrosshairSettings{};
 }
@@ -422,7 +436,7 @@ float USBZGameUserSettings::GetBrightness() const {
     return 0.0f;
 }
 
-int32 USBZGameUserSettings::GetAntiAliasingMode() {
+int32 USBZGameUserSettings::GetAntiAliasingMode() const {
     return 0;
 }
 
@@ -446,7 +460,7 @@ bool USBZGameUserSettings::AreHitIndicatorsEnabled() const {
 }
 
 USBZGameUserSettings::USBZGameUserSettings() {
-    this->SBZVersion = 1;
+    this->SBZVersion = 2;
     this->CameraVerticalFoV = 90;
     this->Brightness = 1.00f;
     this->Contrast = 1.00f;
@@ -455,9 +469,10 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->ColorBlindStrength = 0.50f;
     this->bUseMotionBlur = true;
     this->bUseDepthOfField = false;
-    this->AntiAliasingMode = 0;
-    this->UpscalingMode = 0;
-    this->DLSSSRMode = 4;
+    this->AntiAliasingMode = 4;
+    this->UpscalingMode = ESBZUpscalingMode::None;
+    this->UpscalingSharpness = 0.05f;
+    this->Upscaler = ESBZUpscaler::Unreal;
     this->CapsuleShadowQuality = 3;
     this->bUseOutlines = true;
     this->bUseSubtitles = true;
@@ -471,8 +486,11 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->MaxCrosshairsScale = 48.00f;
     this->bUseHitIndicators = true;
     this->HitIndicatorScale = 32.00f;
+    this->bEnableStoryVideoButtons = false;
+    this->LobbyType = ESBZOnlineJoinType::Private;
+    this->MatchmakingDifficulty = ESBZDifficulty::VeryHard;
     this->MasterVolume = 11.94f;
-    this->MusicVolume = 75.00f;
+    this->MusicVolume = 15.00f;
     this->VOVolume = 100.00f;
     this->SFXVolume = 100.00f;
     this->VoipVolume = 100.00f;
@@ -480,6 +498,11 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->bUseContractorAudioBriefing = false;
     this->MouseSensitivityMultiplier = 1.00f;
     this->bUseMouseSmoothing = true;
+    this->bIsGamepadLookSensitivityCurveEnabled = true;
+    this->GamepadLookAccelerationMultiplier = 3.00f;
+    this->GamepadLookAccelerationTime = 0.25f;
+    this->bIsGamepadAimAssistEnabled = true;
+    this->GamepadAimAssistStrength = 1.00f;
     this->GamepadHorizontalSensitivity = 1.00f;
     this->GamepadVerticalSensitivity = 1.00f;
     this->bUseInvertedYAxis = false;
@@ -488,6 +511,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->bUseHoldToRun = true;
     this->bUseHoldToCrouch = false;
     this->bUseHoldToTarget = true;
+    this->bIsHoldToSlide = false;
     this->bUseSwitchWeaponAutomatically = true;
     this->bIsChatDisabled = false;
     this->bIsCrossplayDisabled = false;
@@ -498,6 +522,16 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->GamepadBindingsPreset = 0;
     this->PopupsShownBitmask = 2;
     this->bIsPristine = false;
+    this->AdapterName = TEXT("NVIDIA GeForce RTX 3060");
+    this->CPUPerfIndex = 228.93f;
+    this->GPUPerfIndex = 276.45f;
+    this->OptimalViewDistanceQuality = 2;
+    this->OptimalShadowQuality = 2;
+    this->OptimalOptimalPostProcessQuality = 2;
+    this->OptimalTextureQuality = 2;
+    this->OptimalEffectsQuality = 2;
+    this->OptimalFoliageQuality = 2;
+    this->OptimalShadingQuality = 2;
     this->GameInstance = NULL;
 }
 

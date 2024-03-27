@@ -4,5 +4,5 @@
 
 class ASBZSeasonalEventItemBase;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSeasonalEventItemPickedUp, ASBZSeasonalEventItemBase*, SeasonalEventItem);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSeasonalEventItemPickedUp, ASBZSeasonalEventItemBase*, SeasonalEventItem);
 

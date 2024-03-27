@@ -57,11 +57,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetGlovesOnMannequin(const USBZGloveData* GloveData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCustomizationActorLoadingChanged(bool bIsLoading);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     bool CanInspectItem(USBZInventoryBaseData* InInspectData);
     
 };

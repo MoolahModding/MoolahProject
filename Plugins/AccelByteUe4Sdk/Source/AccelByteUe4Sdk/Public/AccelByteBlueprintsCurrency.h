@@ -13,7 +13,6 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsCurrency();
-
     UFUNCTION(BlueprintCallable)
     static void GetCurrencyList(const FString& Namespace, const UAccelByteBlueprintsCurrency::FGetCurrencyListSuccess& OnSuccess, const UAccelByteBlueprintsCurrency::FBlueprintErrorHandler& OnError, EAccelByteCurrencyType CurrencyType);
     

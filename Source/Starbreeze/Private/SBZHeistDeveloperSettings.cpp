@@ -13,6 +13,6 @@ TArray<FSBZHeistDataLevelPair> USBZHeistDeveloperSettings::GetAllHeistData() {
 }
 
 USBZHeistDeveloperSettings::USBZHeistDeveloperSettings() {
-    this->HeistLevelPairArray.AddDefaulted(18);
+    this->HeistLevelPairArray.AddDefaulted(20);
 }
 

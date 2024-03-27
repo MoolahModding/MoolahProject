@@ -15,10 +15,10 @@ public:
     USBZGamepadBindingsPresetsConfig* GamepadBindingsPresetsConfig;
     
     USBZGamepadBindingsManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZGamepadBindingsManager* GetGamepadBindingsManager(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FText> GetBindingNamesLocalized(const FKey& InKey);
     
 };

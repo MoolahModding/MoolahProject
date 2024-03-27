@@ -40,6 +40,9 @@ void ASBZPlayerState::OnRuntimeScramblerExpired(AActor* InRuntimeActor) {
 void ASBZPlayerState::OnRuntimeRoutedPingExpired(AActor* InRuntimeActor) {
 }
 
+void ASBZPlayerState::OnRuntimeActorEndPlay(AActor* RuntimeActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
 void ASBZPlayerState::OnRuntimeActorDestroyed(AActor* InRuntimeActor) {
 }
 
@@ -94,7 +97,7 @@ void ASBZPlayerState::OnRep_CustodyCharacterClass() {
 void ASBZPlayerState::OnRep_AccelByteUserName() {
 }
 
-void ASBZPlayerState::OnRep_AccelByteUserId() {
+void ASBZPlayerState::OnRep_AccelByteUserId(const FString& OldAccelByteUserId) {
 }
 
 void ASBZPlayerState::OnRep_AccelByteDisplayName() {

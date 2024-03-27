@@ -20,6 +20,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UCurveFloat* DropDamageModifierCurve;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsDroppedConvertedToFragGrenade;
+    
     USBZGasGrenadeData();
 };
 

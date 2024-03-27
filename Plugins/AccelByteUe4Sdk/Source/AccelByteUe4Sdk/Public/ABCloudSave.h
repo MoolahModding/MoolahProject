@@ -8,6 +8,8 @@
 #include "DModelsGameRecordDelegate.h"
 #include "DModelsListGameRecordsDelegate.h"
 #include "DModelsListUserRecordsDelegate.h"
+#include "DModelsPaginatedBulkGetPublicUserRecordKeysResponseDelegate.h"
+#include "DModelsReplaceUserRecordResponseDelegate.h"
 #include "DModelsUserRecordDelegate.h"
 #include "DPayloadJsonObjectDelegate.h"
 #include "ABCloudSave.generated.h"
@@ -17,12 +19,17 @@ class UABCloudSave : public UObject {
     GENERATED_BODY()
 public:
     UABCloudSave();
-
     UFUNCTION(BlueprintCallable)
     void SaveUserRecord(const FString& Key, FJsonObjectWrapper RecordRequest, bool IsPublic, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
     
     UFUNCTION(BlueprintCallable)
     void SaveGameRecord(const FString& Key, FJsonObjectWrapper RecordRequest, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void ReplaceUserRecordCheckLatestWithResponse(const FString& Key, FDateTime LastUpdated, FJsonObjectWrapper RecordRequest, const FDModelsReplaceUserRecordResponse& OnSuccess, const FDErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void ReplaceUserRecordCheckLatestRetryWithResponse(int32 TryAttempt, const FString& Key, FJsonObjectWrapper RecordRequest, const FDPayloadJsonObject& PayloadModifier, const FDModelsReplaceUserRecordResponse& OnSuccess, const FDErrorHandler& OnError);
     
     UFUNCTION(BlueprintCallable)
     void ReplaceUserRecordCheckLatestRetry(int32 TryAttempt, const FString& Key, FJsonObjectWrapper RecordRequest, const FDPayloadJsonObject& PayloadModifier, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
@@ -59,6 +66,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void BulkGetUserRecords(const TArray<FString>& Keys, const FDModelsListUserRecords& OnSuccess, const FDErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void BulkGetOtherPlayerPublicRecords(const FString& UserId, const TArray<FString>& Keys, const FDModelsListUserRecords& OnSuccess, const FDErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void BulkGetOtherPlayerPublicRecordKeys(const FString& UserId, const FDModelsPaginatedBulkGetPublicUserRecordKeysResponse& OnSuccess, const FDErrorHandler& OnError, const int32& Offset, const int32& Limit);
     
     UFUNCTION(BlueprintCallable)
     void BulkGetGameRecords(const TArray<FString>& Keys, const FDModelsListGameRecords& OnSuccess, const FDErrorHandler& OnError);

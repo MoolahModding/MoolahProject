@@ -53,6 +53,7 @@ UPD3GameIntensityAnalyzer::UPD3GameIntensityAnalyzer() {
     this->HUDGlitchMaterial = NULL;
     this->GlitchTickInterval = 0.50f;
     this->GlitchStrengthModifier = 1.00f;
+    this->GlitchMinimumDotModifier = 0.10f;
     this->GlitchStrengthParameterName = TEXT("OffsetDistortion_1");
     this->GlitchTextureParameterName = TEXT("UIGlitch");
     this->HUDGlitchDynamicMaterialInstance = NULL;

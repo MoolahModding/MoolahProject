@@ -28,14 +28,14 @@ public:
     void SetLocalState(int32 NewState, bool bDoCosmetics);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnStateChanged(int32 OldState, int32 NewState, bool bDoCosmetics);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_State(int32 OldState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(int32 NewState);
     
 public:

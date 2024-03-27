@@ -72,39 +72,39 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetNewEquippedButton(USBZMainMenuWeaponPartProgressionButton* InEquippedWeaponProgressionButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SetDefaultFocus();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendPurchaseAttemptEvent(const bool bIsAcceptPressed);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWeaponPartProgressionButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWeaponPartProgressionButtonFocusedChanged(USBZMenuButton* InButton, bool bIsFocused);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponPartButtonSelected(const USBZMainMenuWeaponPartProgressionButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponPartButtonEquipped(const USBZMainMenuWeaponPartProgressionButton* EquippedButton);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnScreenInitialized();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPurchaseItemPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPayForAttachItemDone(const ESBZMetaRequestResult BuyWeaponResult, const FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void NewWeaponPartFocused(const USBZMainMenuWeaponPartProgressionButton* NewFocusedButton);
     
 public:
@@ -116,7 +116,7 @@ protected:
     void GetWeaponSlotInfo(ESBZEquippableLoadoutSlot& OutEquippableSlot, int32& OutWeaponSlotIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZWeaponPartSlot* GetCurrentWeaponPartSlot() const;
     
 protected:

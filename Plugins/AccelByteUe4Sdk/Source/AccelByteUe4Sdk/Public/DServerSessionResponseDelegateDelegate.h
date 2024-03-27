@@ -3,5 +3,5 @@
 #include "AccelByteModelsServerSessionResponse.h"
 #include "DServerSessionResponseDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDServerSessionResponseDelegate, FAccelByteModelsServerSessionResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDServerSessionResponseDelegate, FAccelByteModelsServerSessionResponse, Response);
 

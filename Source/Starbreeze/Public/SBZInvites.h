@@ -16,10 +16,10 @@ public:
     
     USBZInvites();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStateEnteredPlayTogether(FName StateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStateEnteredInvite(FName StateName);
     
 };

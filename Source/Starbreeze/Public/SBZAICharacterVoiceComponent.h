@@ -13,13 +13,13 @@ class USBZAICharacterVoiceComponent : public USBZCharacterVoiceComponent {
 public:
     USBZAICharacterVoiceComponent();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleOnHostageStateChanged(uint8 HostageState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleHumanShieldChanged(ASBZAICharacter* Victim, ASBZCharacter* Instigator, bool bHumanShield);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleAIBehaviorCategoryChanged(ESBZAIBehaviorCategory OldCategory, ESBZAIBehaviorCategory NewCategory);
     
 };

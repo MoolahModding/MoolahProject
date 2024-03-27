@@ -25,7 +25,7 @@ protected:
     bool bStayOpenDuringStealth;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CivilianDespawnDelay;
+    float ReactionDelay;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 NumberOfBlockingActors;
@@ -42,16 +42,16 @@ protected:
 public:
     ASBZSpawnCloset();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRoomVolumeEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRoomVolumeBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistGoneLoud();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BindRoomVolumeOverlaps();
     
 };

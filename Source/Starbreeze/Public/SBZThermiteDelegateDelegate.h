@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZThermiteDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZThermiteDelegate);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZThermiteDelegate);
 

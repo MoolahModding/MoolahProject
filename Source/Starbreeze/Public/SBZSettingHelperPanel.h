@@ -16,7 +16,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetSettingCategoryName(const FName& InSettingCategoryName);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void RefreshPanelState();
     
 };

@@ -6,5 +6,6 @@ USBZDialogDataAsset::USBZDialogDataAsset() {
     this->bSkipFirstDelay = true;
     this->bIsDeadAllowed = false;
     this->bIsHumanShieldVictimAllowed = false;
+    this->bIsHostageAllowed = false;
 }
 

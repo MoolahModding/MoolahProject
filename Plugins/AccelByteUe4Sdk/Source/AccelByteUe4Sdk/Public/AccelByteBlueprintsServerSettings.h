@@ -9,9 +9,8 @@ class UAccelByteBlueprintsServerSettings : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsServerSettings();
-
     UFUNCTION(BlueprintCallable)
-    static void SetWatchdogServerUrl(const FString& WatchdogServerUrl);
+    static void SetUGCServerUrl(const FString& UGCServerUrl);
     
     UFUNCTION(BlueprintCallable)
     static void SetStatisticServerUrl(const FString& StatisticServerUrl);
@@ -21,6 +20,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void SetSessionBrowserServerUrl(const FString& SessionBrowserServerUrl);
+    
+    UFUNCTION(BlueprintCallable)
+    static void SetSendPredefinedEvent(bool bEnabled);
     
     UFUNCTION(BlueprintCallable)
     static void SetSeasonPassServerUrl(const FString& SessionPassServerUrl);
@@ -53,6 +55,9 @@ public:
     static void SetIamServerUrl(const FString& IamServerUrl);
     
     UFUNCTION(BlueprintCallable)
+    void SetGDPRServerUrl(const FString& GDPRServerUrl);
+    
+    UFUNCTION(BlueprintCallable)
     static void SetGameTelemetryServerUrl(const FString& GameTelemetryServerUrl);
     
     UFUNCTION(BlueprintCallable)
@@ -74,13 +79,19 @@ public:
     static void SetChatServerUrl(const FString& ChatServerUrl);
     
     UFUNCTION(BlueprintCallable)
+    static void SetAMSServerWatchdogUrl(const FString& AMSServerUrl);
+    
+    UFUNCTION(BlueprintCallable)
     static void SetAchievementServerUrl(const FString& AchievementServerUrl);
     
     UFUNCTION(BlueprintCallable)
     static void ResetSettings(const ESettingsEnvironment Environment);
     
     UFUNCTION(BlueprintCallable)
-    static FString GetWatchdogServerUrl();
+    static bool IsSendPredefinedEvent();
+    
+    UFUNCTION(BlueprintCallable)
+    static FString GetUGCServerUrl();
     
     UFUNCTION(BlueprintCallable)
     static FString GetStatisticServerUrl();
@@ -122,6 +133,9 @@ public:
     static FString GetIamServerUrl();
     
     UFUNCTION(BlueprintCallable)
+    static FString GetGDPRServerUrl();
+    
+    UFUNCTION(BlueprintCallable)
     static FString GetGameTelemetryServerUrl();
     
     UFUNCTION(BlueprintCallable)
@@ -141,6 +155,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static FString GetChatServerUrl();
+    
+    UFUNCTION(BlueprintCallable)
+    static FString GetAMSServerWatchdogUrl();
     
     UFUNCTION(BlueprintCallable)
     static FString GetAchievementServerUrl();

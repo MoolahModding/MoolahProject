@@ -26,10 +26,10 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CrewState();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCrewStateDestroyed(AActor* DestroyedActor);
     
 };

@@ -16,7 +16,6 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsReward();
-
     UFUNCTION(BlueprintCallable)
     static void QueryRewards(const FString& EventTopic, int32 Offset, int32 Limit, const EAccelByteRewardListSortBy& SortBy, const UAccelByteBlueprintsReward::FQueryRewardsSuccess& OnSuccess, const UAccelByteBlueprintsReward::FBlueprintErrorHandler& OnError);
     

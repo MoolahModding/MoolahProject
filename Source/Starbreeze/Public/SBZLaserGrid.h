@@ -48,6 +48,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* LaserAudioEvent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* LaserShutdownAudioEvent;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<USBZLaser*> CachedLaserArray;
@@ -78,10 +81,10 @@ public:
     void SetEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentPatternIndex();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 public:
@@ -89,13 +92,13 @@ public:
     void NextPattern();
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_NextPattern();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BlockingActorEntered(UPrimitiveComponent* OverlappedComp, AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 };

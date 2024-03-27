@@ -19,7 +19,7 @@ protected:
 public:
     USBZAIOrder_ActionInteract();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLASlotStarted(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
 };

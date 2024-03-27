@@ -26,13 +26,13 @@ protected:
 public:
     ASBZPlaceableToolBase();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnParentActorEndPlay(AActor* OldAttachParentActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlledInteractor);
     
 };

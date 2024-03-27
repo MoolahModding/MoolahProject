@@ -27,16 +27,16 @@ protected:
 public:
     ASBZAudioScreen();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAudioEventComplete(EAkCallbackType Type, UAkCallbackInfo* CallbackInfo);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnReactorStateChanged(ESBZEventReactorState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_Deactivate();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_Activate();
     
     

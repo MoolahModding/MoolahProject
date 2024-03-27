@@ -17,10 +17,10 @@ protected:
 public:
     ASBZAmbientSound();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleDeactivateSoundComponent(UActorComponent* Component);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleActivateSoundComponent(UActorComponent* Component, bool bReset);
     
 };

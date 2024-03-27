@@ -79,52 +79,52 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RandomizeCode();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsInteractable();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_GuessedCode();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLanternCapsuleEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLanternCapsuleBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnKeypadPressed(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnFocusChanged(const USBZBaseInteractableComponent* InteractableComp, bool bInNewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleOnInteractKeypadE();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleOnInteractKeypadC();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_UpdateHighlights(const TArray<int32>& GeneratedCode);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnKeypadPressed(const int32 KeyIndexPressed);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnKeypadFocusChanged(const int32 KeyIndex, bool bInNewState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnGuessedCodeChanged(const FText& GuessedCodeText);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_HandleLanternOverlapEnd(const TArray<AActor*>& PlayerAttachedActors);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_HandleLanternOverlapBegin(const TArray<AActor*>& PlayerAttachedActors, USkeletalMeshComponent* PlayerMesh, FName SocketToAttach, FTransform SpawnTransform);
     
 };

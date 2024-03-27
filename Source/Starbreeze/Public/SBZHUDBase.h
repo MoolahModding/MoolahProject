@@ -9,7 +9,7 @@ class ASBZHUDBase : public AHUD {
 public:
     ASBZHUDBase();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DelayedHudInitizalize();
     
 };

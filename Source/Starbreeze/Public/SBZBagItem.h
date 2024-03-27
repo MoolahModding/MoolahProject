@@ -66,7 +66,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsMovingOnZiplineForward;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BagId, meta=(AllowPrivateAccess=true))
     int32 BagId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -85,23 +85,26 @@ public:
     ASBZBagItem();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly)
     bool SecureBag(bool bDestroyOnSecured);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentZipline();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
+    void OnRep_BagId();
+    
+    UFUNCTION()
     void OnPickup(USBZBaseInteractableComponent* NewInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetZipline(ASBZZipline* Zipline, const float InTimeOnZipline, const bool bInIsMovingForward);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnZiplineAttachmentChanged(bool bIsAttached);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnDegradationChanged(const int32 DegredationLevel);
     
     

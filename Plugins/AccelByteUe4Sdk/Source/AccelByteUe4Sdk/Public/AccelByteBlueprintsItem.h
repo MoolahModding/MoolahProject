@@ -19,7 +19,6 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsItem();
-
     UFUNCTION(BlueprintCallable)
     static void SearchItem(const FString& Language, const FString& Keyword, int32 Page, int32 Size, const FString& Region, const UAccelByteBlueprintsItem::FSearchItemSuccess& OnSuccess, const UAccelByteBlueprintsItem::FBlueprintErrorHandler& OnError);
     

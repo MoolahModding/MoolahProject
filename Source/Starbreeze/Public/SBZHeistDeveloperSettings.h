@@ -17,13 +17,13 @@ protected:
     
 public:
     USBZHeistDeveloperSettings();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static UPD3HeistDataAsset* GetHeistDataFromLevelShortName(const FString& ShortName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static UPD3HeistDataAsset* GetHeistDataFromLevelPath(FSoftObjectPath LevelPath);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static TArray<FSBZHeistDataLevelPair> GetAllHeistData();
     
 };

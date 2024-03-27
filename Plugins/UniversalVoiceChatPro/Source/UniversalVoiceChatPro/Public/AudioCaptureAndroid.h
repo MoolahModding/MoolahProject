@@ -10,17 +10,16 @@ class UNIVERSALVOICECHATPRO_API UAudioCaptureAndroid : public UBlueprintFunction
     GENERATED_BODY()
 public:
     UAudioCaptureAndroid();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     static void AndroidMicrophoneStop(UMicrophoneSpeakComponent* callbackComp);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     static bool AndroidMicrophoneStart(UMicrophoneSpeakComponent* callbackComp, int32 sampleRateToUse);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     static bool AndroidHasPermission();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     static void AndroidAskPermission();
     
 };

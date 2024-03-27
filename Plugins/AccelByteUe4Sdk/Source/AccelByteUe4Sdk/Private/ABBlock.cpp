@@ -1,8 +1,5 @@
 #include "ABBlock.h"
 
-UABBlock::UABBlock() {
-}
-
 void UABBlock::UnblockPlayer(const FUnblockPlayerRequest& Request, FDUnblockPlayerResponse OnResponse, FDErrorHandler OnError) {
 }
 
@@ -21,4 +18,6 @@ void UABBlock::GetListOfBlockedUsers(FDListOfBlockedUserResponse OnResponse, FDE
 void UABBlock::BlockPlayer(const FBlockPlayerRequest& Request, FDBlockPlayerResponse OnResponse, FDErrorHandler OnError) {
 }
 
+UABBlock::UABBlock() {
+}
 

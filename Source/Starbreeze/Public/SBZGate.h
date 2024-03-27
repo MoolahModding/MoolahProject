@@ -204,40 +204,40 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnStateDone();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnStateChanged(ESBZGateState OldState, ESBZGateState NewState, bool bIsInitialStateChange);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_State(ESBZGateState OldState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZGateState InState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnUnlockingLinkMoveStarted();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnUnlockingLinkMoveEnded();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnAddIgnoreMoveActor(APawn* InPawn);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator);
     
 protected:
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool IsOpenForwardFromLocation(const FVector& Location) const;
     
 public:
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool IsOpenForwardFromDirection(const FVector& Direction) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ASBZAkAcousticPortal* GetPortalObject() const;
     
     UFUNCTION(BlueprintCallable)

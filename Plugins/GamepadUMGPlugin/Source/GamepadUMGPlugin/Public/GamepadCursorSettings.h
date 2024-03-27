@@ -44,6 +44,5 @@ private:
     
 public:
     UGamepadCursorSettings();
-
 };
 

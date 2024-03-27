@@ -95,35 +95,35 @@ public:
     void RemoveAppliedPreplanningAsset();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUserSwitchDuringInvite();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPopUpClosedIsNotPartyLeader(FName ActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyHostEnteredMatchmaking();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyHostEnteredMainMenu();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPartyHostEnteredLobby();
     
 public:
     UFUNCTION(BlueprintCallable)
     bool isPreMatchAsyncLoadingDone();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsMatchmakingInProgress() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasStartedOutro() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZOnlineSessionPhase GetSessionPhase() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString GetCurrentStateNameString();
     
     UFUNCTION(BlueprintCallable)

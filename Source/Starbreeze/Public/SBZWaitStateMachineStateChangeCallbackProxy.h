@@ -24,7 +24,7 @@ public:
     static USBZWaitStateMachineStateChangeCallbackProxy* WaitGameStateMachineStateChange(UObject* NewWorldContextObject);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStateEntered(FName StateName);
     
 };

@@ -10,6 +10,9 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int64 Version;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIncludeEmptyTeams;
+    
     FAccelByteModelsV2GameSessionUpdateRequest();
 };
 

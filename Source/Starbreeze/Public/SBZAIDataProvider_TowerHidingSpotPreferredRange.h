@@ -10,6 +10,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FloatValue;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float AdditionalDistance;
+    
+public:
     USBZAIDataProvider_TowerHidingSpotPreferredRange();
 };
 

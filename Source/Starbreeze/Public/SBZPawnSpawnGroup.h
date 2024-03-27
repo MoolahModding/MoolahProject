@@ -27,7 +27,7 @@ protected:
 public:
     ASBZPawnSpawnGroup();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPawnSpawnDestroyed(AActor* DestroyedActor);
     
     

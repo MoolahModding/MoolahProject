@@ -110,7 +110,7 @@ public:
     void RegisterWithPerceptionSystem();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
     

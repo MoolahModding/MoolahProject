@@ -10,7 +10,6 @@
 #include "GameplayTagContainer.h"
 #include "ESBZAIVisibilityNodeComputationFrequency.h"
 #include "ESBZRuntimeState.h"
-#include "SBZAbilitySystemComponent.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZAutoAimInterface.h"
 #include "SBZEquippableConfig.h"
@@ -19,6 +18,7 @@
 #include "SBZFactionIdHelper.h"
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "SBZMarkableInterface.h"
 #include "SBZPawnInterface.h"
 #include "SBZPawnLifetime.h"
 #include "SBZProjectileInterface.h"
@@ -49,7 +49,7 @@ class USBZShoutTargetComponent;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable)
-class ASBZAIDrone : public ACharacter, public ISBZPawnInterface, public IAbilitySystemInterface, public IGenericTeamAgentInterface, public ISBZPawnLifetime, public ISBZProjectileInterface, public ISBZTypeInterface, public ISBZAIVisibilityRelevant, public ISBZRoomVolumeInterface, public IGameplayTagAssetInterface, public ISBZRuntimeInterface, public ISBZExplosive, public ISBZHurtReactionDataInterface, public ISBZVoiceComponentInterface, public ISBZAutoAimInterface {
+class ASBZAIDrone : public ACharacter, public ISBZPawnInterface, public IAbilitySystemInterface, public IGenericTeamAgentInterface, public ISBZPawnLifetime, public ISBZProjectileInterface, public ISBZTypeInterface, public ISBZAIVisibilityRelevant, public ISBZRoomVolumeInterface, public IGameplayTagAssetInterface, public ISBZRuntimeInterface, public ISBZExplosive, public ISBZHurtReactionDataInterface, public ISBZVoiceComponentInterface, public ISBZAutoAimInterface, public ISBZMarkableInterface {
     GENERATED_BODY()
 public:
 protected:
@@ -69,7 +69,7 @@ protected:
     TArray<ASBZEquippable*> EquippableArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZAbilitySystemComponent* AbilitySystemComponent;
+    UAbilitySystemComponent* AbilitySystemComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAICharacterAbilityData* AbilityData;
@@ -149,55 +149,58 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     AActor* CurrentTarget;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString StatisticsMarkDrone;
+    
 public:
-    ASBZAIDrone(const class FObjectInitializer& ObjectInitializer);
+    ASBZAIDrone();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRuntimeStateRemoved(ESBZRuntimeState AppliedState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRuntimeStateApplied(ESBZRuntimeState AppliedState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_RuntimeState();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPredictedAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetRuntimed(ESBZRuntimeState InRuntimeState);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetCurrentTarget(AActor* NewTarget);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_RemoveRuntime(ESBZRuntimeState InRuntimeToRemove);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnKill();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnKill_Client();
     
     UFUNCTION(BlueprintCallable)
@@ -222,5 +225,6 @@ public:
     {
         return AbilitySystemComponent;
     }
+    
 };
 

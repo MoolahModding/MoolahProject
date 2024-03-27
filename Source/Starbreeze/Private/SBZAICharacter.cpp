@@ -125,7 +125,7 @@ void ASBZAICharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZAICharacter, VariationCategory);
 }
 
-ASBZAICharacter::ASBZAICharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAICharacter::ASBZAICharacter() {
     this->BulletMagnetismSocketName = TEXT("Head");
     this->StickyAimSocketNameArray.AddDefaulted(1);
     this->DownOnGroundEyeHeight = -32.00f;
@@ -149,6 +149,7 @@ ASBZAICharacter::ASBZAICharacter(const class FObjectInitializer& ObjectInitializ
     this->bShouldTelegraphAttack = false;
     this->PreferredCoverDist = 200.00f;
     this->TradeOutline = NULL;
+    this->ReleasedOutline = NULL;
     this->ObjectiveOutline = NULL;
     this->ObjectiveMarker = NULL;
     this->StartRoomLabel = ESBZRoomLabel::OutsideHeistArea;
@@ -180,13 +181,13 @@ ASBZAICharacter::ASBZAICharacter(const class FObjectInitializer& ObjectInitializ
     this->bIsInDownOnGroundPose = false;
     this->bIsPagerSnatched = false;
     this->bIsScramblerSignalScanSkillActive = false;
+    this->bHasGuardBehavior = false;
     this->PagerData = NULL;
     this->PagerTriggeredCount = 0;
     this->PagerSnatchedInteractor = NULL;
     this->NavQueryFilterOverride = NULL;
     this->ValidTargetDefeatStates = 7;
     this->bCanShootDownedIfFired = true;
-    this->CivilianNearRange = 250.00f;
     this->HackedGameplayEffectClass = NULL;
     this->AttachedLoot = NULL;
     this->CurrentLifeActionTriggerVolume = NULL;

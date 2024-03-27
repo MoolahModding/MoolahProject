@@ -38,14 +38,14 @@ public:
     ASBZTrafficLights();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void UpdatePool(ESBZTrafficLightStatus Status, const TArray<UStaticMeshComponent*>& Pool, const TArray<USBZAmbientSoundComponent*>& PedestrianSoundEmitters);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void Rep_ActivePoolStateIndex();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetActivePool(int32 NewActivePoolIndex);
     
 };

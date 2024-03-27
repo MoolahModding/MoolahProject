@@ -60,41 +60,41 @@ protected:
     UFUNCTION(BlueprintCallable)
     void TryBuyItemSlots();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotButtonSelected(USBZMenuButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponInSlotDiscarded(bool bIsWeaponDiscarded);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponConfigSlotCountChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSlotStoreItemSet(FSBZInventorySlotStoreItem InSlotStoreItem);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnBuyWeaponConfigSlotDone(bool bWasSuccess);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponSlotButtonSelected(USBZMenuButton* SelectedButton);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnBuyWeaponConfigSlotDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetSlotPrice() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetActiveWeaponSlotIndex() const;
     
 public:
@@ -106,11 +106,11 @@ protected:
     bool DiscardWeaponInSlot(int32 SlotIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DiscardItemDone(ESBZMetaRequestResult BuyItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanDiscardWeaponIndex(int32 IndexToDiscard) const;
     
 };

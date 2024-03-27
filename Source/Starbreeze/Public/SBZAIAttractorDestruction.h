@@ -4,14 +4,16 @@
 #include "GameFramework/Actor.h"
 #include "GameplayTagContainer.h"
 #include "SBZAIAttractorInterface.h"
+#include "SBZAgilityObstacleInterface.h"
 #include "SBZAIAttractorDestruction.generated.h"
 
 class APawn;
+class ASBZAIBaseCharacter;
 class USBZAIAttractorComponent;
 class USBZPropDamageComponent;
 
 UCLASS(Blueprintable)
-class ASBZAIAttractorDestruction : public AActor, public ISBZAIAttractorInterface, public IAISightTargetInterface {
+class ASBZAIAttractorDestruction : public AActor, public ISBZAIAttractorInterface, public IAISightTargetInterface, public ISBZAgilityObstacleInterface {
     GENERATED_BODY()
 public:
 protected:
@@ -29,6 +31,9 @@ protected:
     
 public:
     ASBZAIAttractorDestruction();
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator);
+    
     
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

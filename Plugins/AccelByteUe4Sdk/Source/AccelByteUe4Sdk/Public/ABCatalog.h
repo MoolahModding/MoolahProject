@@ -17,7 +17,6 @@ class UABCatalog : public UObject {
     GENERATED_BODY()
 public:
     UABCatalog();
-
     UFUNCTION(BlueprintCallable)
     void SearchItem(const FString& Language, const FString& Keyword, const int32& Offset, const int32& Limit, const FString& Region, FDModelsItemPagingSlicedResultResponse OnSuccess, FDErrorHandler OnError);
     

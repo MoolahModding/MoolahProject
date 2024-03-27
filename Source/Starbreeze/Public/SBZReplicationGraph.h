@@ -39,10 +39,10 @@ protected:
     
 public:
     USBZReplicationGraph();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorDependencyRemoved(AActor* Master, AActor* Slave);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorDependencyAdded(AActor* Master, AActor* Slave);
     
 };

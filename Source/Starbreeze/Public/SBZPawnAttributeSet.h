@@ -39,6 +39,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData DealtDamageMultiplier;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OverHeal, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData OverHeal;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData OverHealMax;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDamageType* LastDamageTypeCDO;
@@ -60,16 +66,22 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
+    void OnRep_OverHeal(const FGameplayAttributeData& OldOverHeal);
+    
+    UFUNCTION()
     void OnRep_Health(const FGameplayAttributeData& OldHealth);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_Armor(const FGameplayAttributeData& OldArmor);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_SetOverHeal(float NewCurrentValue);
+    
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetHealth(float NewCurrentValue);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetArmor(float NewCurrentValue);
     
 };

@@ -11,10 +11,10 @@ class USBZResultScreenPlayerListWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZResultScreenPlayerListWidget();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSetup(const TArray<ASBZPlayerState*>& PlayerStateArray, const TArray<ASBZAICrewState*>& AICrewStateArray);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSanitizeDisplayNamesComplete(const TMap<int32, FString>& PlayerIdToAccelByteDisplayNameMap);
     
 };

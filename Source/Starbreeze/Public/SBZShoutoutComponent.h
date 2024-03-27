@@ -86,22 +86,22 @@ public:
     void SetMarkLimit(int32 NewLimit);
     
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_Shoutout(AActor* Actor, ESBZShoutActionType Action, USBZShoutTargetComponent* Target);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SendPing(const FVector& Location);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPingComplete();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ShoutoutWithoutTarget(ESBZShoutActionType Action);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_Shoutout(AActor* Actor, ESBZShoutActionType Action, USBZShoutTargetComponent* Target);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SendPing(const FVector& Location);
     
 public:

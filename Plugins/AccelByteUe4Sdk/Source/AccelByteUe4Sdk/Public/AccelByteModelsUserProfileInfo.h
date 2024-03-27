@@ -41,7 +41,7 @@ public:
     FString Timezone;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FString, FJsonObjectWrapper> CustomAttributes;
+    FJsonObjectWrapper CustomAttributes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString ZipCode;
@@ -50,7 +50,7 @@ public:
     FString PublicId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FString, FJsonObjectWrapper> PrivateCustomAttributes;
+    FJsonObjectWrapper PrivateCustomAttributes;
     
     FAccelByteModelsUserProfileInfo();
 };

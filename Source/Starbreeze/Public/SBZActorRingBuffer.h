@@ -12,7 +12,7 @@ class USBZActorRingBuffer : public USBZObjectRingBuffer {
 public:
     USBZActorRingBuffer();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 };

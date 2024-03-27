@@ -28,5 +28,6 @@ enum class ESBZOnlineCode : uint8 {
     SessionIsFull,
     SessionDoesNotExist,
     ReturnToIIS,
+    UserHasChanged,
 };
 

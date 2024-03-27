@@ -3,5 +3,5 @@
 #include "ArrayModelsBulkStatItemOperationResultResponse.h"
 #include "DArrayModelsBulkStatItemOperationResultResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDArrayModelsBulkStatItemOperationResultResponse, FArrayModelsBulkStatItemOperationResultResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDArrayModelsBulkStatItemOperationResultResponse, FArrayModelsBulkStatItemOperationResultResponse, Response);
 

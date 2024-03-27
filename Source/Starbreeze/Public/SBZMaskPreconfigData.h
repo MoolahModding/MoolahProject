@@ -14,7 +14,7 @@ protected:
     
 public:
     USBZMaskPreconfigData();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZMaskConfig GetMaskConfig() const;
     
 };

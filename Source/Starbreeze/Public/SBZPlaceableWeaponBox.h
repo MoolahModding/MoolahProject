@@ -19,7 +19,7 @@ public:
     void SetActiveState(bool bActive);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionEnabledStateChange(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);
     
 };

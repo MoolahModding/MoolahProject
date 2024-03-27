@@ -1,0 +1,5 @@
+#include "AccelByteModelsChatV2GroupChatModeratorBannedUserPayload.h"
+
+FAccelByteModelsChatV2GroupChatModeratorBannedUserPayload::FAccelByteModelsChatV2GroupChatModeratorBannedUserPayload() {
+}
+

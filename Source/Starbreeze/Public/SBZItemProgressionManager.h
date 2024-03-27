@@ -20,7 +20,7 @@ private:
     
 public:
     USBZItemProgressionManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZItemProgressionManager* GetItemProgressionManager(const UObject* WorldContextObject);
     
 };

@@ -23,9 +23,6 @@ void ASBZPocketDrill::OnAdjustInteraction(USBZBaseInteractableComponent* Interac
 void ASBZPocketDrill::OnActivationComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled) {
 }
 
-void ASBZPocketDrill::Multicast_SetEnabled_Implementation(bool bInIsEnabled) {
-}
-
 void ASBZPocketDrill::Multicast_ReduceDuration_Implementation() {
 }
 

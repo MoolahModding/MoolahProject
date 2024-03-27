@@ -68,6 +68,9 @@ public:
     float TauntTimeFiredThreshold[4];
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MeleeFireTimeAddition;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PreferredHidingRange;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -100,10 +103,10 @@ private:
     
 public:
     USBZAIConfig();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZCoverShootingPoints> GetShootingPoints() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static USBZAIConfig* Get();
     
 };

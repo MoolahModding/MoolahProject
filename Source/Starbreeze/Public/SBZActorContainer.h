@@ -12,7 +12,7 @@ class USBZActorContainer : public USBZObjectContainer {
 public:
     USBZActorContainer();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 };

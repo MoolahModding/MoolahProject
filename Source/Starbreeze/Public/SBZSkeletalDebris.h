@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "SBZBaseDebris.h"
 #include "SBZSkeletalDebris.generated.h"
 
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
-class ASBZSkeletalDebris : public AActor {
+class ASBZSkeletalDebris : public ASBZBaseDebris {
     GENERATED_BODY()
 public:
 protected:

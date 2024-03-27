@@ -70,6 +70,9 @@ void ASBZSecurityCamera::Multicast_SetRuntimeExplosionInstigator_Implementation(
 void ASBZSecurityCamera::Multicast_SetRuntimed_Implementation(ESBZRuntimeState InRuntimeState) {
 }
 
+void ASBZSecurityCamera::Multicast_SetECMDisabled_Implementation(bool bInIsDisabled) {
+}
+
 void ASBZSecurityCamera::Multicast_RuntimeExpired_Implementation(ESBZRuntimeState InRuntimeState) {
 }
 
@@ -91,6 +94,10 @@ void ASBZSecurityCamera::Multicast_EndViewTarget_Implementation(int32 PlayerId) 
 void ASBZSecurityCamera::Multicast_BecomeViewTarget_Implementation(int32 PlayerId) {
 }
 
+uint8 ASBZSecurityCamera::GetRuntimeState() const {
+    return 0;
+}
+
 ESBZCameraState ASBZSecurityCamera::GetCameraState() const {
     return ESBZCameraState::Enabled;
 }
@@ -110,6 +117,7 @@ void ASBZSecurityCamera::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(ASBZSecurityCamera, CameraTargetRotation);
     DOREPLIFETIME(ASBZSecurityCamera, CameraCurrentRotation);
     DOREPLIFETIME(ASBZSecurityCamera, RoughDetection);
+    DOREPLIFETIME(ASBZSecurityCamera, bIsECMDisabled);
     DOREPLIFETIME(ASBZSecurityCamera, ViewTargetPlayerStateIdArray);
 }
 
@@ -138,7 +146,7 @@ ASBZSecurityCamera::ASBZSecurityCamera() {
     this->WaitTime = 6.00f;
     this->SightRadius = 1500.00f;
     this->PeripheralVisionAngleDegrees = 45.00f;
-    this->InvestigateEscalation = NULL;
+    this->InvestigateEscalation = EPD3DispatchCallerReason::GenericSearch;
     this->RuntimeState = 0;
     this->CameraState = ESBZCameraState::Enabled;
     this->CameraSetting = ESBZCameraOptions::Still;
@@ -184,6 +192,7 @@ ASBZSecurityCamera::ASBZSecurityCamera() {
     this->CurrentPOIDetection = 0.00f;
     this->LastDetection = 0.00f;
     this->CurrentDetection = 0.00f;
+    this->bIsECMDisabled = false;
     this->SoundState = ESBZCameraSoundState::None;
     this->StatisticsMarkCamera = TEXT("mark-camera");
     this->CurrentRoom = NULL;

@@ -1,8 +1,5 @@
 #include "ABSessionBrowser.h"
 
-UABSessionBrowser::UABSessionBrowser() {
-}
-
 void UABSessionBrowser::UpdateGameSettingsByJsonObject(const FString& SessionId, FJsonObjectWrapper Settings, const FDModelsSessionBrowserDataResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -63,4 +60,6 @@ void UABSessionBrowser::CreateGameSessionPublic(const FString& GameMode, const F
 void UABSessionBrowser::CreateGameSessionPrivate(const FString& GameMode, const FString& GameMapName, const FString& GameVersion, int32 BotCount, int32 MaxPlayer, int32 MaxSpectator, const FString& Password, FJsonObjectWrapper OtherSettings, const FDModelsSessionBrowserDataResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
+UABSessionBrowser::UABSessionBrowser() {
+}
 

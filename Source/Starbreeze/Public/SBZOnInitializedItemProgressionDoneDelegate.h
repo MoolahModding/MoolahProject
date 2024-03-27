@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnInitializedItemProgressionDoneDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnInitializedItemProgressionDone);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnInitializedItemProgressionDone);
 

@@ -31,10 +31,11 @@ USBZBaseInteractableComponent::USBZBaseInteractableComponent() {
     this->bIsSignalInteract = false;
     this->bOverrideScreenInteractDistance = false;
     this->bOverrideScreenInteractAngle = false;
+    this->bOverrideScreenInteractPendingDelay = false;
+    this->bIsRequirementsCheckedEveryTick = false;
     this->ScreenInteractDistance = 1000.00f;
     this->MinScreenInteractDegrees = 30.00f;
     this->MinScreenInteractDot = 0.87f;
-    this->bOverrideScreenInteractPendingDelay = false;
     this->PendingOnScreenDelay = 0.00f;
     this->OnStart2DAudioEvent = NULL;
     this->OnStart3DAudioEvent = NULL;

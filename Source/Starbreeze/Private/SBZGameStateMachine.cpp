@@ -15,7 +15,7 @@ void USBZGameStateMachine::SetMatchmakingLevelIdx(int32 InLevelIdx) {
 void USBZGameStateMachine::SetMatchmakingDifficultyIdx(uint8 InDifficultyIdx) {
 }
 
-void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty) {
+void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty, bool bIsSaved) {
 }
 
 void USBZGameStateMachine::SetIsMatchmakingQuickMatch(bool bInIsQuickMatch) {

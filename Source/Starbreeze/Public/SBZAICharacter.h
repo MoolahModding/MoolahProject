@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
-//CROSS-MODULE INCLUDE V2: -ModuleName=CoreUObject -ObjectName=Int32Interval -FallbackName=Int32Interval
-//CROSS-MODULE INCLUDE V2: -ModuleName=CoreUObject -ObjectName=Vector -FallbackName=Vector
-//CROSS-MODULE INCLUDE V2: -ModuleName=GameplayTags -ObjectName=GameplayTagContainer -FallbackName=GameplayTagContainer
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "GameplayTagContainer.h"
 #include "ESBZAIBehaviorCategory.h"
 #include "ESBZAICharacterVariationCategory.h"
 #include "ESBZInteractionAction.h"
@@ -155,6 +155,9 @@ protected:
     USBZOutlineAsset* TradeOutline;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZOutlineAsset* ReleasedOutline;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* ObjectiveOutline;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -261,6 +264,9 @@ private:
     uint8 bIsScramblerSignalScanSkillActive: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bHasGuardBehavior: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZPagerData* PagerData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -277,9 +283,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanShootDownedIfFired;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CivilianNearRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UGameplayEffect> HackedGameplayEffectClass;
@@ -312,14 +315,14 @@ private:
     TSet<uint32> CQCSpecialistSoftAssetsDoneSet;
     
 public:
-    ASBZAICharacter(const class FObjectInitializer& ObjectInitializer);
+    ASBZAICharacter();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     ASBZCarriedStaticInteractionActor* SpawnLootOnCharacter(TSubclassOf<ASBZCarriedStaticInteractionActor> ClassTOSpawn);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetStartRoomLabel();
     
 public:
@@ -327,100 +330,100 @@ public:
     void RemoveMarkerFromAsObjective();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_VariationCategory();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_TelegraphAttack();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsSurrendered();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_HostageState(uint8 OldHostageState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_BehaviorCategory();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_AsObjectiveState();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPredictedEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPredictedAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnNegotiationTradeTypeChanged(ESBZNegotiationTradeType OldType, ESBZNegotiationTradeType NewType);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAttachedLootTaken(USBZBaseInteractableComponent* BaseInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlledInteractor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckRejectedPredictedInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_Surrender();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopRoomScanning(ESBZRoomScanningType RoomScanningType);
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetVariationCategory(ESBZAICharacterVariationCategory Category);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetInCover(bool bInIsInCover);
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetHacked(float Duration);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetBehaviorCategory(ESBZAIBehaviorCategory RepCategory);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetAsObjectiveState(uint8 NewAsObjectiveState);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_RoomScanning(ESBZRoomScanningType RoomScanningType, int32 AnimationIndex);
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HostageState(uint8 InHostageState);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_DropAttachedLoot();
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
@@ -429,7 +432,7 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DisableAsObjective();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnTagReactionPlayed();
     
     

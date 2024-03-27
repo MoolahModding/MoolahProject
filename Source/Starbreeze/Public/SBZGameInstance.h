@@ -39,6 +39,7 @@ class USBZPreplanningAssetManager;
 class USBZReplayManager;
 class USBZSafeHouseManager;
 class USBZSaveManager;
+class USBZServerStatusManager;
 class USBZSettingsMenuManager;
 class USBZSkillManager;
 class USBZSoundEnvironmentManager;
@@ -89,6 +90,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZChallengeCategoryManager> ChallengeCategoryManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZServerStatusManager> ServerStatusManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZUIManager> UIManagerClass;
@@ -164,6 +168,9 @@ private:
     USBZChallengeCategoryManager* ChallengeCategoryManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZServerStatusManager* ServerStatusManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZUIManager* UIManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -234,34 +241,34 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetDifficulty(ESBZDifficulty InDifficulty);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFindReplaysComplete(const TArray<FSBZReplayInfo>& Replays);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateEntered(FName StateName);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZSaveManager* GetSaveManager() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZReplayManager* GetReplayManager() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZPlatformUserManager* GetPlatformUserManager() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZGlobalItemDatabase* GetGlobalItemDatabase() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZDifficulty GetDifficulty() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FString GetBuiltFromChangelist();
     
 protected:
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DisplayVersion();
     
 };

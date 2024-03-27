@@ -8,7 +8,6 @@ class UAccelByteBlueprintsServerCredentials : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsServerCredentials();
-
     UFUNCTION(BlueprintCallable)
     static FString GetMatchId();
     

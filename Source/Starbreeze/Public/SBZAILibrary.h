@@ -35,28 +35,28 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     static USBZAIAction* PushAction(UObject* Owner, const USBZAIActionData* Data);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FVector PlayerCenterOfMass(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)
     static void MakeNoise(AActor* NoiseGenerator, float Range, float Lifetime, const FGameplayTag& Tag, AActor* NoiseInstigator, ASBZRoomVolume* Room);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     static bool IsLocationSafeFromNeighbours(const ASBZAIBaseCharacter* Character, const FVector& Location, float MaxImpactTime, float DiameterInflation);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetNavAreaSmallestSideSqSize(const UObject* WorldContextObject, FVector CharacterLocation, float SearchRange, float WallAdditiveLength);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     static float FindDistance2DToWallAlongDir(const ASBZCharacter* Character, float MaxDistance, const FVector Direction, TSubclassOf<UNavigationQueryFilter> FilterClass, const bool bProjectStartLocation);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool DetectNavBottleNeckAndRelocate(const UObject* WorldContextObject, const FVector& BlockingCharacterLocation, const FVector& BlockedCharacterDirection, float& OutBottleNeckSqSize2D, FVector& OutRelocationPosition, float CharacterRadius, float BottleNeckSize);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     static USBZAIOrder_MoveTo* CreateAIOrderMoveTo(TSubclassOf<USBZAIOrder_MoveTo> OrderClass, FVector Location, ASBZAIController* AIController);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     static USBZAIOrder* CreateAIOrder(TSubclassOf<USBZAIOrder> OrderClass, ASBZAIController* AIController);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

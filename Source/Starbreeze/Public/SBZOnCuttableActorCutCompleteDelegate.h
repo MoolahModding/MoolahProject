@@ -4,5 +4,5 @@
 
 class ASBZCuttableActor;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnCuttableActorCutComplete, ASBZCuttableActor*, CuttableActor);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnCuttableActorCutComplete, ASBZCuttableActor*, CuttableActor);
 

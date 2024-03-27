@@ -3,5 +3,5 @@
 #include "AccelByteModelsUserSeasonInfo.h"
 #include "DModelsUserSeasonInfoDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUserSeasonInfo, FAccelByteModelsUserSeasonInfo, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUserSeasonInfo, FAccelByteModelsUserSeasonInfo, Response);
 

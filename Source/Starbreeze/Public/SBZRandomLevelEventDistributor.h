@@ -40,7 +40,7 @@ protected:
 public:
     ASBZRandomLevelEventDistributor();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHackComplete(const int32 EventIndex);
     
 };

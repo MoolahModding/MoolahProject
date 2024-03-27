@@ -12,7 +12,6 @@ class UABServerMatchmaking : public UObject {
     GENERATED_BODY()
 public:
     UABServerMatchmaking();
-
     UFUNCTION(BlueprintCallable)
     void RemoveUserFromSession(const FString& ChannelName, const FString& MatchId, const FString& UserId, const FAccelByteModelsMatchmakingResult& OptionalBody, FDHandler OnSuccess, FDErrorHandler OnError);
     

@@ -4,5 +4,5 @@
 
 class USBZMainMenuCosmeticItemButton;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCosmeticButtonSelected, USBZMainMenuCosmeticItemButton*, CosmeticButton);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCosmeticButtonSelected, USBZMainMenuCosmeticItemButton*, CosmeticButton);
 

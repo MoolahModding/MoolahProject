@@ -1,0 +1,5 @@
+#include "AccelByteModelsDSBackfillProposalReceivedPayload.h"
+
+FAccelByteModelsDSBackfillProposalReceivedPayload::FAccelByteModelsDSBackfillProposalReceivedPayload() {
+}
+

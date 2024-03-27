@@ -1,0 +1,5 @@
+#include "AccelByteModelsStatCycleItemGetCycleItemsPayload.h"
+
+FAccelByteModelsStatCycleItemGetCycleItemsPayload::FAccelByteModelsStatCycleItemGetCycleItemsPayload() {
+}
+

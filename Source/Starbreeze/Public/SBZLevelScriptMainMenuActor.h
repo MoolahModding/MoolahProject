@@ -26,16 +26,16 @@ public:
     ASBZMainMenuCameraManager* MainMenuCameraManager;
     
     ASBZLevelScriptMainMenuActor();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PostInitializeComponents();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLobbyUpdate(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLeft();
     
 };

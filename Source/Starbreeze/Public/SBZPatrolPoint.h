@@ -28,7 +28,7 @@ protected:
     
 public:
     ASBZPatrolPoint();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsTestingPoint() const;
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

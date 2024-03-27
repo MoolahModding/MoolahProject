@@ -1,4 +1,5 @@
 #include "SBZCharacterVoiceComponent.h"
+#include "AkComponent.h"
 
 void USBZCharacterVoiceComponent::StopTalking() {
 }
@@ -42,6 +43,12 @@ void USBZCharacterVoiceComponent::Multicast_SaySystemComment_ServerInstigated_Im
 void USBZCharacterVoiceComponent::Multicast_SaySystemComment_Implementation(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority) {
 }
 
+void USBZCharacterVoiceComponent::HandleAudioComponentDeactivated(UActorComponent* Component) {
+}
+
+void USBZCharacterVoiceComponent::HandleAudioComponentActivated(UActorComponent* Component, bool bReset) {
+}
+
 void USBZCharacterVoiceComponent::CallRecieved(const FSBZPlayerCallEvent& CallEventData) {
 }
 
@@ -53,6 +60,7 @@ USBZCharacterVoiceComponent::USBZCharacterVoiceComponent() {
     this->DialogAnimDataCollection = NULL;
     this->RemoveLipSyncPrefix = TEXT("LPS_");
     this->SBZCharacterOwner = NULL;
+    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->PerformsInDialog = NULL;
 }
 

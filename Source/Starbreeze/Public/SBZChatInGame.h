@@ -13,26 +13,26 @@ class STARBREEZE_API ASBZChatInGame : public AInfo {
 public:
     ASBZChatInGame();
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ServerChatMessageReceived(int32 PlayerId, const FSBZPlayerChatEvent& PlayerChatEvent);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ServerCallMessageReceived(APlayerState* PlayerState, uint8 CallIndex);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendChatMessageToServer(const FSBZPlayerChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendCallMessageToServer(const FSBZPlayerCallEvent& CallEventData);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastChatMessageReceived(int32 PlayerId, const FSBZPlayerChatEvent& PlayerChatEvent);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastCallMessageReceived(APlayerState* PlayerState, uint8 CallIndex);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void ClientSubscribeToChatMessages();
     
 };

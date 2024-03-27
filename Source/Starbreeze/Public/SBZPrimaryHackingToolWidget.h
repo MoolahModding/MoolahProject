@@ -9,28 +9,28 @@ class USBZPrimaryHackingToolWidget : public USBZPrimaryToolWidget {
     GENERATED_BODY()
 public:
     USBZPrimaryHackingToolWidget();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackinToolEquipped(bool bHasUpgrade02);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncStarted();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncProgressChanged(float TimeRemaining);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncNoAmmo(int32 InCost, int32 InCurrent);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncCompleted(bool bAlreadyHacked);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncAborted(bool bInAlreadySynched);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingDistanceToTarget(float MaxDistance, float CurrentDistance);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasTag(const FGameplayTag& Tag) const;
     
 };

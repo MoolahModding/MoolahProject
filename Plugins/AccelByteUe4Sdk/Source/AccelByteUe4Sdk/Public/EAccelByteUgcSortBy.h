@@ -8,5 +8,6 @@ enum class EAccelByteUgcSortBy : uint8 {
     DOWNLOAD,
     LIKE,
     DATE,
+    UPDATED_TIME,
 };
 

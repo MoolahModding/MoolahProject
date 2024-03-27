@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZMissionGameMode.h"
-#include "Templates/Subclassof.h"
 #include "PD3HeistGameMode.generated.h"
 
 class AActor;
@@ -56,7 +55,7 @@ private:
     
 public:
     APD3HeistGameMode(const class FObjectInitializer& ObjectInitializer);
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZNegotiationManager* GetNegotiationManager() const;
     
 };

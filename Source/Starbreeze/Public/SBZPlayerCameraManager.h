@@ -104,7 +104,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 LockCamera(const FSBZLockCameraData& Data);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsCameraLocked() const;
     
     UFUNCTION(BlueprintCallable)

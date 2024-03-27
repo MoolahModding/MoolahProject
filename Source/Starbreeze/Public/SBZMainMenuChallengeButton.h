@@ -22,7 +22,7 @@ protected:
 public:
     USBZMainMenuChallengeButton();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ChallengeInititalized(const FSBZChallengeData& ChallengeData);
     
 };

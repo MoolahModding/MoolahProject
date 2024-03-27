@@ -10,7 +10,7 @@ class USBZBanPlayerManager : public UObject {
     GENERATED_BODY()
 public:
     USBZBanPlayerManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZBanPlayerManager* GetBanPlayerManager(const UObject* WorldContextObject);
     
 };

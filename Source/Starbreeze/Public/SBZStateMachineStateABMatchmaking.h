@@ -20,7 +20,7 @@ private:
 public:
     USBZStateMachineStateABMatchmaking();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleBeaconDisconnect();
     
 };

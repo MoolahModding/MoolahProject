@@ -1,0 +1,5 @@
+#include "AccelByteModelsUGCAddDownloadContentCountResponseV2.h"
+
+FAccelByteModelsUGCAddDownloadContentCountResponseV2::FAccelByteModelsUGCAddDownloadContentCountResponseV2() {
+}
+

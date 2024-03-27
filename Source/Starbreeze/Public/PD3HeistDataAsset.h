@@ -110,13 +110,13 @@ public:
     TArray<USBZStatisticCriteriaData*> StatisticCriteriaDataArray;
     
     UPD3HeistDataAsset();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetHeistTimeShort() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString GetHeistReferenceText() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetEstimatedPayout(ESBZDifficulty Diffculty, int32& OutMin, int32& OutMax) const;
     
 };

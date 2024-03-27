@@ -17,7 +17,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void InitializeRealMoneyStoreItem(const FSBZPayDayCreditStoreItem& InRealMoneyStoreItem);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZPayDayCreditStoreItem GetRealMoneyStoreItem();
     
 };

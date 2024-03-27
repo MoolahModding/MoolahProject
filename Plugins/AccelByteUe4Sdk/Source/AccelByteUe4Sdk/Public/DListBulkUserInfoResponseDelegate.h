@@ -3,5 +3,5 @@
 #include "ListBulkUserInfo.h"
 #include "DListBulkUserInfoResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDListBulkUserInfoResponse, FListBulkUserInfo, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDListBulkUserInfoResponse, FListBulkUserInfo, Response);
 

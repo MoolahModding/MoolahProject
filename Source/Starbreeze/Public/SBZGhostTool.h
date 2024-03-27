@@ -24,7 +24,7 @@ protected:
     
 public:
     ASBZGhostTool();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnGhostToolStateChanged(ESBZPlacementState NewPlacementState);
     
 };

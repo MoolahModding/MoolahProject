@@ -4,5 +4,5 @@
 
 class ASBZDrillEx;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZDrillCompleteEx, ASBZDrillEx*, Drill);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZDrillCompleteEx, ASBZDrillEx*, Drill);
 

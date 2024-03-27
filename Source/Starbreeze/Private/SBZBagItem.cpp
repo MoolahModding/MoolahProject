@@ -14,6 +14,9 @@ bool ASBZBagItem::SecureBag(bool bDestroyOnSecured) {
 void ASBZBagItem::OnRep_CurrentZipline() {
 }
 
+void ASBZBagItem::OnRep_BagId() {
+}
+
 void ASBZBagItem::OnPickup(USBZBaseInteractableComponent* NewInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled) {
 }
 

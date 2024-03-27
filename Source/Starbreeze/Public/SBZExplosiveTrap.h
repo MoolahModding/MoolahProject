@@ -47,13 +47,13 @@ protected:
 public:
     ASBZExplosiveTrap();
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CriticalDamageNoParams();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CriticalDamage(const FVector ImpactLocation, const FVector ImpactNormal);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnCriticalDamage();
     
 };

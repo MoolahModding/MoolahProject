@@ -35,249 +35,249 @@ protected:
     
 public:
     USBZCheatManagerBase();
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void VoteRestartLevel();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void UnselectSocket(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void UnselectComponent(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void Unselect(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleMuteMusic();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleInGameCheatMenu();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleDrawDebugSpread();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleCVar(const FString& CVar, int32 First, int32 Second);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SimulateLobbyConnectSuccess();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SimulateLobbyCloseConnection();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPaused(bool bIsPaused);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetNetEmulationType(ESBZDebugNetEmulationType Type, ESBZDebugNetEmulationTarget Target);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetListenerEnabled(bool bIsEnabled);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInputTypeOverride(int32 Override);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInfamyLevelExperience(int32 Level, int32 Experience);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInfamyLevel(int32 Amount, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInfamyExperience(int32 Amount, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetDebugEarnedExperiencePoints(int32 EarnedExperiencePoints);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetCulture(const FString& Name);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetCameraMode(const FName& CameraMode, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAudioRTPCValue(const FName& Name, float Value, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ServerCommand(const FString& Command, bool bIsExecutedOnAll, bool bIsLocallyControlledOnly, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectSocketName(const FName& Name, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectSocketIndex(int32 Index, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectParentSocket(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectParentActor(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectLast(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectComponentName(const FName& Name, int32 DepthStencil, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectComponentIndex(int32 Index, int32 DepthStencil, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectComponentClass(const FName& ClassName, int32 DepthStencil, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectChild(int32 Index, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectActorName(const FName& Name, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectActorClass(const FName& ClassName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SaveProgressionSaveGame();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ResetSettingsSaveGame();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ResetProgressionSaveGame();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ResetMyAccount(const FString& Password);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RequestSwitchUser();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RequestGameError(ESBZGameMachineStateError State, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RemoveCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintWarning(const FString& Text, bool bIsDecodingNeeded) const;
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintVersion();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintTargetAbilitySystem(bool bIsLocallyControlledOnly, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintStuckInfo();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintSelectionHierarchy(bool bIsChildActorIncluded, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintSelection(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintLog(const FString& Text, bool bIsDecodingNeeded) const;
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintInputEnabledBothCurrent();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintInputEnabled(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintError(const FString& Text, bool bIsDecodingNeeded) const;
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintAbilitySystemBothCurrent();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintAbilitySystem(int32 PlayerIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 public:
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void LoadProgressionSaveGame();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void FetchAllVendorItems(int32 MaxCount);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void FakeInvite(const FString& UserId, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ExecF(const FString& File);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpWeaponPresetAssets();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAssetDatabase();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllPlayerStatistics(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllPlayersInfamyAndPlatform();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllPlayersAccelByteDisplayName();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpActiveLoadout();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DisconnectServer(bool bIsGraceful);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DisconnectPlayer(bool bIsLocallyDisconnected, bool bIsGraceful, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DisableTimeouts();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DeleteProgressionSaveGame();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DeleteMyAccount();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugVoteRecall();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugVotePositive();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugVoteNegative();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugVoteInit();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugIncrementPlayerStat(const FString& StatCode, int32 Increment);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugChallengeRecords(const FString& Tag, const FString& Status, int32 Offset, int32 Limit);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void CompleteChallenge(int32 Count, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ClearFriends();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ChangeStatCode(const FString& StatCode, int32 Count, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void AddCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
     
 };

@@ -41,29 +41,29 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetPreplanningSelectionEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPreplanningSelectionEnabledChanged(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPrePlanningItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPreplanningAssetRemovedByPlayer(const FUniqueNetIdRepl& PlayerID);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPreplanningAssetDeclinedByServer();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPreplanningAssetAddedByPlayer(const FUniqueNetIdRepl& PlayerID, const USBZPreplanningAssetData* PreplanningAsset);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativePreplanningAssetRemovedByPlayer(const FUniqueNetIdRepl& PlayerID);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativePreplanningAssetAddedByPlayer(const FUniqueNetIdRepl& PlayerID, const FString& AssetSku);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnPrePlanningItemButtonSelected(USBZMenuButton* InButton);
     
 };

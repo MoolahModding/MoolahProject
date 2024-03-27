@@ -14,7 +14,7 @@ private:
     
 public:
     ASBZAirNavigation();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void GenerateNavigationData();
     
 };

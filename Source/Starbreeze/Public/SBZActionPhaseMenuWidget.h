@@ -26,7 +26,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void ToggleShowMenu();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnMenuShown(bool bIsShown);
     
 };

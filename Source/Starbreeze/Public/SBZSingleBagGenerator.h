@@ -46,24 +46,24 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ShouldUseSecondaryType();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ChangeToSecondaryType();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bEnabled);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleInteraction(USBZBaseInteractableComponent* Comp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ChangeToSecondaryType();
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnChangedToSecondaryType(bool bDoCosmetics);
     
     

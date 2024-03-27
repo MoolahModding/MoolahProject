@@ -12,7 +12,7 @@ public:
     FSBZWeaponSettingData Settings;
     
     USBZWeaponSettings();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FSBZWeaponSettingData Get();
     
 };

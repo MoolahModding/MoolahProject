@@ -41,6 +41,7 @@ ASBZLaserGrid::ASBZLaserGrid() {
     this->bShouldUsePatterns = false;
     this->PatternCyclingTime = 15.00f;
     this->LaserAudioEvent = NULL;
+    this->LaserShutdownAudioEvent = NULL;
     this->CurrentPatternIndex = -2;
     this->bIsEnabled = true;
 }

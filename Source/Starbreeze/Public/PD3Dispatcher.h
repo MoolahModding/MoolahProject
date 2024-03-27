@@ -23,11 +23,11 @@ private:
 public:
     UPD3Dispatcher();
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
+    UFUNCTION(NetMulticast, Unreliable)
     void Multicast_CallDispatcherByAsset(const USBZActionNotificationAsset* CallerReason);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPD3Dispatcher* GetDispatcher(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

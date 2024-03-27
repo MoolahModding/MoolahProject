@@ -4,10 +4,13 @@
 void USBZSimplePhysicsCorrector::SetVelocity(FVector Vel) {
 }
 
-void USBZSimplePhysicsCorrector::MulticastSyncState_Implementation(FSBZSimplePhysicsState State) {
+void USBZSimplePhysicsCorrector::Multicast_SyncState_Implementation(const FSBZSimplePhysicsState& State) {
 }
 
-void USBZSimplePhysicsCorrector::MulticastInvalidateState_Implementation() {
+void USBZSimplePhysicsCorrector::Multicast_InvalidateState_Implementation() {
+}
+
+void USBZSimplePhysicsCorrector::Multicast_ForceTeleport_Implementation(const FSBZSimplePhysicsState& State) {
 }
 
 void USBZSimplePhysicsCorrector::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

@@ -3,5 +3,5 @@
 #include "ESBZLootProcessorState.h"
 #include "SBZOnLootProcessorStateChangedDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnLootProcessorStateChangedDelegate, ESBZLootProcessorState, NewState);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnLootProcessorStateChangedDelegate, ESBZLootProcessorState, NewState);
 

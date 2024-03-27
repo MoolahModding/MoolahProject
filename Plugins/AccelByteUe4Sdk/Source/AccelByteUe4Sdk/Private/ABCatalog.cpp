@@ -1,8 +1,5 @@
 #include "ABCatalog.h"
 
-UABCatalog::UABCatalog() {
-}
-
 void UABCatalog::SearchItem(const FString& Language, const FString& Keyword, const int32& Offset, const int32& Limit, const FString& Region, FDModelsItemPagingSlicedResultResponse OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -30,4 +27,6 @@ void UABCatalog::GetChildCategories(const FString& CategoryPath, const FString& 
 void UABCatalog::GetCategory(const FString& CategoryPath, const FString& Language, FDModelsCategoryInfoResponse OnSuccess, FDErrorHandler OnError) {
 }
 
+UABCatalog::UABCatalog() {
+}
 

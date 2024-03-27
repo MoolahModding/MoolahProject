@@ -22,27 +22,27 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetEmpty();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSecurityCompanyAssetStartedLoad();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSecurityCompanyAssetLoaded();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnEmptySet();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnAssetLoaded();
     
 public:
     UFUNCTION(BlueprintCallable)
     void InitializeSecurityCompany(const ESBZSecurityCompany InSecurityCompany);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZSecurityCompany GetSecurityCompanyEnum() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPD3SecurityCompanyDataAsset* GetSecurityCompany() const;
     
 };

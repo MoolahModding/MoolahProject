@@ -1,0 +1,5 @@
+#include "AccelByteModelsGlobalStatItemGetItemByCodePayload.h"
+
+FAccelByteModelsGlobalStatItemGetItemByCodePayload::FAccelByteModelsGlobalStatItemGetItemByCodePayload() {
+}
+

@@ -31,7 +31,7 @@ protected:
 public:
     USBZBTTask_AirMoveTo();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPathCompleted(FSBZAirPathQueryResult Result, AAIController* AIController);
     
 };

@@ -9,6 +9,9 @@ void USBZPartyManagerABV2::InvitePopUpCallbackV2(FName ActionName) {
 void USBZPartyManagerABV2::HandlePlatformUserChanged(int32 OldUserIndex) {
 }
 
+void USBZPartyManagerABV2::HandleNotLoggedInEntered() {
+}
+
 USBZPartyManagerABV2::USBZPartyManagerABV2() {
 }
 

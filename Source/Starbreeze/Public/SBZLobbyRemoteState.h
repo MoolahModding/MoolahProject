@@ -33,20 +33,20 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_LobbyTimeout();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_LobbyInfo();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateChanged(FName NewState);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void BroadcastWaitGameTimerStarted();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void BroadcastRemotePlayerAcceptedMatch();
     
 };

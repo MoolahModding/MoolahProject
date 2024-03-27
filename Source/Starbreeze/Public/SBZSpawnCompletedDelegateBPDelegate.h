@@ -5,5 +5,5 @@
 
 class USBZVehicleSpawnComponent;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZSpawnCompletedDelegateBP, USBZVehicleSpawnComponent*, VehicleSpawnComponent, ESBZVehicleSpawnResult, Result);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZSpawnCompletedDelegateBP, USBZVehicleSpawnComponent*, VehicleSpawnComponent, ESBZVehicleSpawnResult, Result);
 

@@ -10,7 +10,6 @@
 #include "SBZDamageTracker.h"
 #include "SBZMeleeComponent.h"
 #include "SBZOutlineComponent.h"
-#include "SBZSkeletalMeshComponentBudgeted.h"
 #include "SBZZiplineAudioController.h"
 
 void ASBZCharacter::SetStance(ESBZCharacterStance InStance) {
@@ -250,7 +249,7 @@ void ASBZCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZCharacter, Seed);
 }
 
-ASBZCharacter::ASBZCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0"))) {
+ASBZCharacter::ASBZCharacter() {
     this->MarkedVoiceComment = NULL;
     this->MarkedOutline = NULL;
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
@@ -365,6 +364,7 @@ ASBZCharacter::ASBZCharacter(const class FObjectInitializer& ObjectInitializer) 
     this->CarryActorSocketName = TEXT("Spine");
     this->PhysicsAssetWhenCarried = NULL;
     this->PhysicsAssetWhenNotCarried = NULL;
+    this->AnimClassWhenCarriedDead = NULL;
     this->HumanShieldInstigatorState = ESBZHumanShieldInstigatorState::None;
     this->HumanShieldInstigatorAcceptableRadius = 5.00f;
     this->MeleeComment = NULL;

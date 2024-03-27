@@ -11,10 +11,10 @@ class USBZCharacterManager : public UObject {
     GENERATED_BODY()
 public:
     USBZCharacterManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetPreferredCharacters(TArray<FSBZCharacterSlotData>& PreferredCharacterIndexArrayOut);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZCharacterManager* GetCharacterManager(const UObject* WorldContextObject);
     
 };

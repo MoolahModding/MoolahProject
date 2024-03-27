@@ -68,8 +68,8 @@ private:
 public:
     USBZTankAIComponent();
 private:
-    UFUNCTION(BlueprintCallable)
-    void OnFiringTagChanged(const FGameplayTag InTag, int32 TagCount);
+    UFUNCTION()
+    void OnAttackTagChanged(const FGameplayTag InTag, int32 TagCount);
     
 };
 

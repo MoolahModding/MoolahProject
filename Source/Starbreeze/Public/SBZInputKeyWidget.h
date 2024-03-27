@@ -26,10 +26,10 @@ public:
     void SetInverted(bool bInInverted);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnKeyNameChanged(const FString& NewActionKeyName);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnKeyIconChanged(UPaperSprite* NewActionKeyIcon);
     
 };

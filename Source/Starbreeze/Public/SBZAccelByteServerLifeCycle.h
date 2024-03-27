@@ -35,7 +35,7 @@ private:
 public:
     USBZAccelByteServerLifeCycle();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnNetDriverTearDown();
     
 };

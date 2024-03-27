@@ -69,16 +69,16 @@ private:
 public:
     ASBZAITaserMine();
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnWalkedOnTarget(AActor* OtherActor);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnWalkedOn();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DamageRejected();
     
     

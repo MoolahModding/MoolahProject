@@ -19,12 +19,13 @@ void ASBZSoundEnvironment::OnDebugLoggingPortal(ASBZAkAcousticPortal* TargetPort
 void ASBZSoundEnvironment::Activate() {
 }
 
-ASBZSoundEnvironment::ASBZSoundEnvironment(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UBrushComponent>(TEXT("BrushComponent0"))) {
+ASBZSoundEnvironment::ASBZSoundEnvironment() {
     this->LateReverbComponent = CreateDefaultSubobject<UAkLateReverbComponent>(TEXT("AkLateReverbComponent"));
     this->RoomComponent = CreateDefaultSubobject<UAkRoomComponent>(TEXT("UAkRoomComponent"));
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->SoundEnvironmentManager = NULL;
     this->bDebugEnabled = false;
     this->DebugTimer = 5.00f;
+    this->BrushComponentPointer = CreateDefaultSubobject<UBrushComponent>(TEXT("BrushComponentPointer"));
 }
 

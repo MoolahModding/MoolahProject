@@ -1,0 +1,5 @@
+#include "AccelByteModelsPaginatedBulkGetPlayerRecordSizeResponse.h"
+
+FAccelByteModelsPaginatedBulkGetPlayerRecordSizeResponse::FAccelByteModelsPaginatedBulkGetPlayerRecordSizeResponse() {
+}
+

@@ -11,6 +11,9 @@
 #include "SBZRecoilComponent.h"
 #include "SBZShoutoutComponent.h"
 
+void ASBZPlayerCharacter::StartEmote(const FText& EmoteText) {
+}
+
 bool ASBZPlayerCharacter::StartCurrentEquippableInspect() {
     return false;
 }
@@ -161,6 +164,12 @@ void ASBZPlayerCharacter::Client_SetDetector_Implementation(uint8 Index, AActor*
 void ASBZPlayerCharacter::Client_SetDetectionData_Implementation(uint32 PackedData) {
 }
 
+void ASBZPlayerCharacter::Client_PlayOverHealRestoredEffect_Implementation() {
+}
+
+void ASBZPlayerCharacter::Client_PlayOverHealGainedEffect_Implementation() {
+}
+
 void ASBZPlayerCharacter::Client_PickupAmmo_Implementation(uint32 ID) {
 }
 
@@ -176,7 +185,7 @@ void ASBZPlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(ASBZPlayerCharacter, DefeatTime);
 }
 
-ASBZPlayerCharacter::ASBZPlayerCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZPlayerCharacter::ASBZPlayerCharacter() {
     this->VisualDetectionMultiplierSprinting = 1.00f;
     this->VisualDetectionMultiplierCrouched = 0.33f;
     this->VisualDetectionMultiplierStanding = 1.00f;
@@ -227,6 +236,9 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const class FObjectInitializer& ObjectI
     this->HumanShieldReachSlotFeedBack = NULL;
     this->TraverseFeedback = NULL;
     this->RunFeedback = NULL;
+    this->OverHealDamageFeedback = NULL;
+    this->OverHealGainedFeedback = NULL;
+    this->OverHealRestoredFeedback = NULL;
     this->RevivedComment = NULL;
     this->UncuffedComment = NULL;
     this->StealthMaskOnComment = NULL;
@@ -245,6 +257,7 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const class FObjectInitializer& ObjectI
     this->EscortCircleEffect = CreateDefaultSubobject<UNiagaraComponent>(TEXT("NiagaraComponent"));
     this->UnequippedWeaponData = NULL;
     this->FPZiplineMotorClass = NULL;
+    this->EmoteData = NULL;
     this->PlayerAbilitySystem = NULL;
     this->OnTopBaseFOV = 55.00f;
     this->VisualDetectionData.AddDefaulted(4);
@@ -277,9 +290,9 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const class FObjectInitializer& ObjectI
     this->BleedOutPitchDegrees = 35.00f;
     this->ReviveTiltSpeed = 200.00f;
     this->RequestOverkillWeaponAnimationTime = 1.50f;
+    this->FirstAidKitOverHealAmount = 0.50f;
     this->FallingStartHeight = 0.00f;
     this->bHasTriggeredCoupDeGraceSkill = false;
-    this->CurrentFollower = NULL;
     this->MiniGameDetectionMultiplier = 1.00f;
     this->CuttingToolDetectionMultiplier = 0.50f;
     this->GadgetDetectionMultiplier = 0.25f;

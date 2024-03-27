@@ -87,19 +87,19 @@ protected:
 public:
     ASBZMicroCamera();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAICharacterKilled(APawn* InAIPawn);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetArmed();
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OverloadMicroCamera();
     
     

@@ -50,13 +50,16 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 RandomIndex;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseOnlyOneLocation;
+    
 public:
     ASBZSpawnLocationHandler();
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void TriggerSpawnManually();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerImportantLootPickedUp(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 };

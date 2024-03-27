@@ -46,10 +46,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float AntiCheatMaxProximityRange;
     
-    APlayerVoiceChatActor(const FObjectInitializer& ObjectInitializer);
-
+    APlayerVoiceChatActor();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable)
     void ServerSetMaxProximityRange(float _maxProximityRange);
     
@@ -68,31 +67,31 @@ public:
     UFUNCTION(BlueprintCallable)
     void ServerAddChannel(int32 channelToAdd);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
+    UFUNCTION(NetMulticast, Unreliable)
     void RPCServerUpdatePosAudioComp(FVector worldPos);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void RPCClientSetMicrophoneVolume(float volume);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void RPCClientAskRemoveChannel(int32 channelToRemove);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void RPCClientAskAddChannel(int32 channelToAdd);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RepNotifyVoiceVolume();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RepNotifyMicComp();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RepNotifyAttenuationAsset();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void muteAudio(bool isMute);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DelegateEndPlayOwner(AActor* act, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 };

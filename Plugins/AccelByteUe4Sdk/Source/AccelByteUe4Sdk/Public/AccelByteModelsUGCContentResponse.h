@@ -81,6 +81,9 @@ public:
     FString UserId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FDateTime UpdatedTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FJsonObjectWrapper CustomAttributes;
     
     FAccelByteModelsUGCContentResponse();

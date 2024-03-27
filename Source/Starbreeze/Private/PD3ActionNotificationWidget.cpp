@@ -4,7 +4,7 @@ void UPD3ActionNotificationWidget::OnRevive(const FSBZReviveEvent& ReviveEventDa
 }
 
 
-void UPD3ActionNotificationWidget::HandleTakenDamageEvent(const FSBZDamageEvent& DamageEventData) {
+void UPD3ActionNotificationWidget::OnAICharacterKilled(ASBZCharacter* Character) {
 }
 
 

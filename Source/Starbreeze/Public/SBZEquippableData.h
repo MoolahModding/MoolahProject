@@ -47,6 +47,18 @@ public:
     UAnimSequenceBase* DefaultLeftGripTPPose;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineRightGripFPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineLeftGripFPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineRightGripTPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineLeftGripTPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZEquippableFamily EquippableFamily;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

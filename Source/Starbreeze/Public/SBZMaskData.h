@@ -11,7 +11,7 @@ class USBZMaskPatternData;
 class USBZMaskVFXData;
 
 UCLASS(Blueprintable)
-class USBZMaskData : public USBZInventoryBaseData {
+class STARBREEZE_API USBZMaskData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

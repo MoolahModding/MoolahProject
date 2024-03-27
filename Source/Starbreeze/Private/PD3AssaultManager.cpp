@@ -21,9 +21,6 @@ void UPD3AssaultManager::OnPlayersAliveChanged(const TArray<UObject*>& Players) 
 void UPD3AssaultManager::OnPawnSpawned(USBZSpawnManager* SpawnManager, APawn* Pawn) {
 }
 
-void UPD3AssaultManager::OnPawnKilled(APawn* Pawn) {
-}
-
 void UPD3AssaultManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
 }
 

@@ -43,7 +43,7 @@ protected:
 public:
     ASBZHiddenStaticInteractionCollection();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnKeyItemInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
     

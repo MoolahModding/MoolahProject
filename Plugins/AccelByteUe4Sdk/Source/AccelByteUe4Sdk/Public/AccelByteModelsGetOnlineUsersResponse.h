@@ -26,10 +26,10 @@ public:
     TArray<FString> activity;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FString> platform;
+    TArray<FString> lastSeenAt;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FString> lastSeenAt;
+    TArray<FString> Platform;
     
     FAccelByteModelsGetOnlineUsersResponse();
 };

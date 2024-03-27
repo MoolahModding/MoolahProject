@@ -32,11 +32,11 @@ protected:
 public:
     USBZControlsReferenceWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeDisplayControlsReference(const FSBZControlsReference& InControlsReference);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void HideControlsReference();
     
 public:
@@ -44,7 +44,7 @@ public:
     void HideActiveControlsReference();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DisplayControlsReference(const FSBZControlsReference& InControlsReference);
     
 public:

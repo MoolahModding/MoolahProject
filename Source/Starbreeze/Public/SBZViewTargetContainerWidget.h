@@ -51,11 +51,11 @@ private:
 public:
     USBZViewTargetContainerWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnViewTargetChanged(ASBZPlayerController* InPlayerController, const TScriptInterface<ISBZViewTargetCollectionInterface>& InViewTargetCollection);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void IsSecurityCamera(bool bIsSecurityCamera);
     
 };

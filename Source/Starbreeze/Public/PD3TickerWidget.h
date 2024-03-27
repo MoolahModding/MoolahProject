@@ -31,11 +31,11 @@ protected:
 public:
     UPD3TickerWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void OnTickerModeChanged(const FText& Text, const FLinearColor& TextColor, const FLinearColor& BackgroundColor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

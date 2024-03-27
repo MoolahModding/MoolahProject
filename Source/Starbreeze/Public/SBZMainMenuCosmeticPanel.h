@@ -44,13 +44,13 @@ public:
     void ReleaseButtons();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnCosmeticItemButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnCosmeticItemButtonHoverChanged(USBZMenuButton* InButton, bool bIsHovered);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnCosmeticItemButtonFocusedChanged(USBZMenuButton* InButton, bool bIsFocused);
     
 public:

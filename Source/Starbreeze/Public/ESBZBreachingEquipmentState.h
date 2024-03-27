@@ -5,7 +5,7 @@
 UENUM(BlueprintType)
 enum class ESBZBreachingEquipmentState : uint8 {
     HeatingUp,
-    Drilling,
+    Running,
     NotAssembled,
     Off,
     NeedsAdjusting,

@@ -3,5 +3,5 @@
 #include "AccelByteModelsUGCUpdateLikeStatusToContentResponse.h"
 #include "DModelsUGCUpdateLikeStatusToContentResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCUpdateLikeStatusToContentResponse, FAccelByteModelsUGCUpdateLikeStatusToContentResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCUpdateLikeStatusToContentResponse, FAccelByteModelsUGCUpdateLikeStatusToContentResponse, Response);
 

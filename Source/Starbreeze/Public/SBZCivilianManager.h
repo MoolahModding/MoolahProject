@@ -28,23 +28,20 @@ protected:
 public:
     USBZCivilianManager();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void StopStaying();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPawnSpawned(USBZSpawnManager* SpawnManager, APawn* Pawn);
     
-    UFUNCTION(BlueprintCallable)
-    void OnPawnKilled(APawn* Pawn);
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool IsAllowedToFlee(ASBZAIController* AIController);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZCivilianManager* Get(const UObject* WorldContextObject);
     
 };

@@ -16,6 +16,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPD3AttributePercentWidget* Widget_ArmorGauge;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPD3AttributePercentWidget* Widget_OverHealGauge;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPD3AttributePercentWidget* Widget_HealthTraumaGauge;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaskOffOpacity;
     
@@ -25,10 +31,10 @@ protected:
 public:
     UPD3HUDPlayerCombinedHealthWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void Setup();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnReplenishArmorChanged(bool bIsReplenishingArmor);
     
 };

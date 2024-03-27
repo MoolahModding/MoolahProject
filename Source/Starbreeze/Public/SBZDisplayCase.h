@@ -128,37 +128,37 @@ public:
     void SetDisplayCaseLarmed(bool bInIsLarmed);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState(ESBZDisplayCaseState OldState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPropDamageHits(UActorComponent* HitComponent, int32 Hits, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLockpickStateChanged(EPD3MiniGameState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHackingStateChanged(EPD3MiniGameState NewState);
     
     UFUNCTION(BlueprintCallable)
     void OnDoorTimelineDone();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZDisplayCaseState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetIsLocked(bool bInIsLocked);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetIsLarmed(bool bInIsLarmed);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZDisplayCaseState OldState, ESBZDisplayCaseState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnGlassBroken(bool bDoCosmetics);
     
     

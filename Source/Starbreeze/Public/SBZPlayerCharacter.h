@@ -12,6 +12,7 @@
 #include "SBZCharacter.h"
 #include "SBZControlsReference.h"
 #include "SBZDetectionData.h"
+#include "SBZEmoteInterface.h"
 #include "SBZEquippableInspectInterface.h"
 #include "SBZLastAttackerData.h"
 #include "SBZLocalPlayerFeedbackParameters.h"
@@ -36,6 +37,7 @@ class USBZBaseWeaponData;
 class USBZCharacterComponent;
 class USBZCustomizableSuitMeshComponent;
 class USBZDialogDataAsset;
+class USBZEmoteData;
 class USBZFirstPersonCameraAttachment;
 class USBZFloorHeightCameraSmoother;
 class USBZHeightTransitionCameraModifier;
@@ -58,7 +60,7 @@ class USBZVoiceCommentDataAsset;
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
-class STARBREEZE_API ASBZPlayerCharacter : public ASBZCharacter, public ISBZAIVisualDetectionGeneratorInterface, public ISBZEquippableInspectInterface {
+class STARBREEZE_API ASBZPlayerCharacter : public ASBZCharacter, public ISBZAIVisualDetectionGeneratorInterface, public ISBZEquippableInspectInterface, public ISBZEmoteInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -218,6 +220,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> RunFeedback;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> OverHealDamageFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> OverHealGainedFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> OverHealRestoredFeedback;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FVector_NetQuantize DesiredAcceleration;
     
@@ -280,6 +291,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<ASBZZiplineMotor> FPZiplineMotorClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZEmoteData* EmoteData;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -397,6 +411,9 @@ private:
     float RequestOverkillWeaponAnimationTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FirstAidKitOverHealAmount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve FallDamageCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -409,7 +426,7 @@ private:
     bool bHasTriggeredCoupDeGraceSkill;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AActor* CurrentFollower;
+    TArray<AActor*> CurrentFollowersArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MiniGameDetectionMultiplier;
@@ -499,8 +516,11 @@ private:
     FHitResult ClientUpdateLandHitResult;
     
 public:
-    ASBZPlayerCharacter(const class FObjectInitializer& ObjectInitializer);
+    ASBZPlayerCharacter();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    
+    UFUNCTION(BlueprintCallable)
+    void StartEmote(const FText& EmoteText);
     
     UFUNCTION(BlueprintCallable)
     bool StartCurrentEquippableInspect();
@@ -508,29 +528,29 @@ public:
     UFUNCTION(BlueprintCallable)
     bool SetCameraFeedbackIntensity(int32 CameraFeedbackID, float Intensity);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ServerStartEquipOverkillWeapon();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetPhoneInteractionFlow(bool bInPhoneInteractionFlow);
     
     UFUNCTION(Reliable, Server)
     void Server_PickupAmmo(uint32 ID, bool bIsSimulatedPickup);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_OnMaskInputAbilityComplete();
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_HackingSyncSucceeded(UObject* InHackable);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_HackingSyncStarted(UObject* InHackable);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_HackingSyncCompleted(UObject* InHackable, bool bInSyncedOnEquipped);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_HackingSyncAborted(UObject* InHackable, bool bInIsSynchedAlready);
     
 public:
@@ -538,93 +558,93 @@ public:
     bool RemoveCameraFeedback(int32 RemoveID);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUpdateDefeatTime();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUndoToolPlaceableAmmoChange(const int32 InPlaceableIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUndoToolAmmoChange(const int32 InPlaceableIndex, const int32 InCost);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUndoThrowableAmmoChange(const int32 InThrowableIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUndoPlaceableAmmoChange(const int32 InPlaceableIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_DefeatTime();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerStateDestroyed(AActor* DestroyedActor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayersInEscapeChanged(const FSBZPlayerInEscapeChangedEvent& PlayerInEscapeChangedEventData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOwnMiniGameStateChanged(EPD3MiniGameState OldState, EPD3MiniGameState NewState, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDefeatTimerDone();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetDefeatTime(float InDefeatTime);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReviveInteractionStarted(float EndTime);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResumeDefeatTime(float InDefeatTime);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PlayRequestOverkillAnimation();
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PauseDefeatTime();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HackingSyncSucceeded(UObject* InHackable);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HackingSyncStarted(UObject* InHackable);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HackingSyncCompleted(UObject* InHackable, bool bInSyncedOnEquipped);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HackingSyncAborted(UObject* InHackable, bool bInIsSynchedAlready);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_AbortPhoneInteraction(bool bWasCompleted);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsSeenByAI() const;
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     bool GetHealthAttributes(const UObject* WorldContextObject, float& Health, float& MaxHealth);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZDetectionData> GetDetectionData() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZMiniGameComponent* GetCurrentMiniGameComponent() const;
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -634,26 +654,32 @@ public:
     bool FadeOutCameraFeedback(int32 RemoveID, bool bIsAutoRemoved);
     
 private:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_Teleport(const FVector& Location, const float Yaw);
     
 protected:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_SetObserved(bool bObserved);
     
 public:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_SetEscortCircleAttachment(AActor* EscortCircleHolder);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_SetEscortCircleActive(const bool bActive, AActor* EscortInstigator);
     
 protected:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_SetDetector(uint8 Index, AActor* Detector);
     
     UFUNCTION(Client, Reliable)
     void Client_SetDetectionData(uint32 PackedData);
+    
+    UFUNCTION(Client, Unreliable)
+    void Client_PlayOverHealRestoredEffect();
+    
+    UFUNCTION(Client, Unreliable)
+    void Client_PlayOverHealGainedEffect();
     
 private:
     UFUNCTION(Client, Reliable)

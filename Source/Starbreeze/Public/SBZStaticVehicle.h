@@ -48,7 +48,7 @@ protected:
 public:
     ASBZStaticVehicle();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void TryActivateAlarm();
     
 private:

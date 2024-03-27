@@ -55,24 +55,24 @@ private:
     void SpawnCompleted(ESBZVehicleSpawnResult Result);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWheeledStarted(ASBZWheeledVehicle* Vehicle, ASBZSpline* Spline);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWheeledReachedPathEnd(ASBZWheeledVehicle* Vehicle);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPawnSpawned(APD3PawnSpawnGroup* InSpawnGroup, ASBZPawnSpawnBase* Spawner, APawn* Pawn);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAerialStarted(ASBZAerialVehicle* Vehicle, ASBZSpline* Spline);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAerialReachedPathEnd(ASBZAerialVehicle* Vehicle);
     
 };

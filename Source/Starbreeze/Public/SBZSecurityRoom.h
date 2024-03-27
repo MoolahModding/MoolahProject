@@ -29,10 +29,10 @@ protected:
 public:
     ASBZSecurityRoom();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayableLevelInitialized(UWorld* World);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCameraDestroyed(AActor* DestroyedActor);
     
     

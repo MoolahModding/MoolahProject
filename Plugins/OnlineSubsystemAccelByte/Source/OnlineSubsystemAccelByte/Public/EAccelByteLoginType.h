@@ -14,6 +14,7 @@ enum class EAccelByteLoginType : uint8 {
     Steam,
     EOS,
     ExchangeCode,
+    PublisherCode,
     RefreshToken,
     CachedToken,
 };

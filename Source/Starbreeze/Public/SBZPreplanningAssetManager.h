@@ -12,16 +12,16 @@ class USBZPreplanningAssetManager : public UObject {
     GENERATED_BODY()
 public:
     USBZPreplanningAssetManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPreplanningAssetManager* GetPreplanningAssetManager(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZPreplanningAssetData* GetAssetBySku(const FString& InAssetSku) const;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ConsumeUserEntitlementSuccess(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ConsumeUserEntitlementError(ESBZMetaRequestResult Result);
     
 };

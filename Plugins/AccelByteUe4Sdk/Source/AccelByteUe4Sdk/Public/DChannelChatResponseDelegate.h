@@ -3,5 +3,5 @@
 #include "AccelByteModelsChannelMessageResponse.h"
 #include "DChannelChatResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDChannelChatResponse, FAccelByteModelsChannelMessageResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDChannelChatResponse, FAccelByteModelsChannelMessageResponse, Response);
 

@@ -38,16 +38,16 @@ public:
     void SetVolumeEnabled(bool bEnabled);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnFiltersAllHaveDesiredCountsChanged(bool bState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnFilterHasDesiredCountChanged(FName Identifer, bool bState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnFilteredActorEndOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnFilteredActorBeginOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
 };

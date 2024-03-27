@@ -48,10 +48,10 @@ private:
 public:
     USBZHUDChatWidget();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void VotingMessageReceived(const FSBZVotingChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SystemMessageReceived(const FSBZSystemChatEvent& ChatEventData);
     
 public:
@@ -59,50 +59,50 @@ public:
     void SetChatActive(bool bSetActive);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void PlayerMessageReceived(const FSBZPlayerChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void PingReceived(const FSBZPlayerPingEvent& PingEventData);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTextCommited(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayerStateRemoved(const FSBZPlayerStateRemovedEvent& PlayerStateRemovedData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayerJoinedTheHeist(const FText& JoinedPlayerName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerDefeatStateChangedInternal(const FSBZPlayerDefeatStateChangedData& InData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayerDefeatStateChanged(const FSBZPlayerDefeatStateChangedData& InData);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMessageReceived(const FSBZPlayerChatEvent& ChatEventData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChatFocusChanged(bool bHasFocus);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChatDisabledChanged(bool bIsDisabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAICrewDefeatStateChanged(const FSBZAICrewDefeatStateChangedData& InData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void KeyItemCountChanged(const FSBZKeyItemCountChangedEvent& KeyItemCountChangedEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void CrewAIMessageReceived(const FSBZAICrewChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void CallReceived(const FSBZPlayerCallEvent& CallEventData);
     
 };

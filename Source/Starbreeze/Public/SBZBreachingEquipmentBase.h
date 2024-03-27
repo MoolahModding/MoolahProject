@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Perception/AISightTargetInterface.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagAssetInterface.h"
@@ -105,22 +106,28 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
+    void UpdateMarker(USBZMarkerDataAsset* MarkerAsset, const FVector MarkerLocation);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetState(ESBZBreachingEquipmentState NewState, bool bDoCosmetics);
+    
+    UFUNCTION()
     void OnRep_CurrentState(ESBZBreachingEquipmentState OldState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZBreachingEquipmentState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEstimatedCompleteTime(float InEstimatedCompleteTime);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetProgressMade() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZBreachingEquipmentState GetCurrentState() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZBreachingEquipmentState OldState, ESBZBreachingEquipmentState NewState, bool bDoCosmetics);
     
     

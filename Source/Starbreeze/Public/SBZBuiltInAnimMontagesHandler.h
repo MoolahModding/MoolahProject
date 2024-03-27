@@ -28,10 +28,10 @@ public:
     UFUNCTION(BlueprintCallable)
     float PlayAnimMontage(const USBZBuiltInAnimMontage* AnimMontage);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasAnyActiveAnimation() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZBuiltInAnimMontageInstance> GetActiveAnimMontageInstances() const;
     
 };

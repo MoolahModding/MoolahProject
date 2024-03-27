@@ -71,10 +71,10 @@ protected:
 public:
     USBZPlayerMovementComponent();
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_SetWantToSprint(bool bInWantToSprint);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetWantToSprint(bool bInWantToSprint);
     
 };

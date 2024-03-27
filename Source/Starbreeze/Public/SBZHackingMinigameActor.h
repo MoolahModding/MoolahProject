@@ -30,10 +30,10 @@ protected:
 public:
     ASBZHackingMinigameActor();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHackingStateChanged(AActor* InOwner, ESBZHackingState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnEnabledStateChanged(bool bEnabled, bool bDoCosmetics);
     
     

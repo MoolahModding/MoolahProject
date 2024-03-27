@@ -104,45 +104,45 @@ protected:
     void UpdateActiveVendor(int32 NewActiveVendorIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void TryBuyItem(FSBZStoreItemUIData StoreItemUIData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendPurchaseAttemptEvent(const bool bIsAcceptPressed);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnVendorItemButtonSelected(USBZMenuButton* InButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorChanged(const FSBZBlackMarketUIVendorData& NewVendor);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTransactionProgressChanged(bool bInIsTransactionInProgress, bool bIsTransactionSuccessful);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRefreshCurrentVendor();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPurchaseItemPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuyRealMoneyItemCompleted(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuyItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnVendorButtonSelected(USBZMenuButton* InButton);
     
 public:
@@ -153,10 +153,10 @@ public:
     void GoToNextVendor();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZBlackMarketCategoryWidget* GetFirstCategoryWidget();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZBlackMarketVendorButton* GetActiveVendorButton() const;
     
 };

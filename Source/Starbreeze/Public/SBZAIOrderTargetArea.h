@@ -40,14 +40,14 @@ private:
 public:
     ASBZAIOrderTargetArea();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdateCoverPoints();
     
 public:
     UFUNCTION(BlueprintCallable)
     void SetEnabled(bool bEnable);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsEnabled() const;
     
     

@@ -2,7 +2,7 @@
 
 USBZGameplayAbility::USBZGameplayAbility() {
     this->bCancelAbilitiesOnFailedActivation = false;
-    this->bIsInputToggledOnActivationOnly = false;
+    this->bIsCancelToggleOnInputPressed = false;
     this->bIsCancelOnInputReleased = false;
     this->QueuePriority = 0;
     this->InputPriority = 0;

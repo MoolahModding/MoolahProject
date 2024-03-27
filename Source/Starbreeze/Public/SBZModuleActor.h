@@ -51,19 +51,19 @@ public:
     void SetEnabled(bool bInEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerHackingStateChanged(EPD3MiniGameState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCuttingComplete(ASBZCuttableActor* CuttableActor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZModuleActorState NewState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZModuleActorState NewState, bool bDoCosmetics);
     
 };

@@ -1,0 +1,5 @@
+#include "AccelByteModelsV2GameSessionLeaderPromotionRequest.h"
+
+FAccelByteModelsV2GameSessionLeaderPromotionRequest::FAccelByteModelsV2GameSessionLeaderPromotionRequest() {
+}
+

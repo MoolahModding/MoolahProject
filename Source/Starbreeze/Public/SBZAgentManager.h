@@ -23,19 +23,19 @@ public:
     UFUNCTION(Reliable, Server, WithValidation)
     void ServerReliableRPC(uint64 ClientId, const TArray<uint8>& Data);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void HandshakeRPC(const FString& Challenge);
     
     UFUNCTION(Client, Reliable)
     void HandshakeReplyRPC(const FString& Challenge, uint64 PrivateId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleNavDataRegistered(ANavigationData* NavData);
     
-    UFUNCTION(BlueprintCallable, Client, Unreliable)
+    UFUNCTION(Client, Unreliable)
     void ClientUnreliableRPC(const TArray<uint8>& Data);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void ClientReliableRPC(const TArray<uint8>& Data);
     
     UFUNCTION(Reliable, Server, WithValidation)

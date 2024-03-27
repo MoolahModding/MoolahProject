@@ -4,6 +4,9 @@
 void ASBZCarriedHackableKey::OnInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState) {
 }
 
+void ASBZCarriedHackableKey::OnHackerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
 void ASBZCarriedHackableKey::Multicast_OnHackComplete_Implementation() {
 }
 

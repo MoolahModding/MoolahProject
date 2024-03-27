@@ -61,29 +61,26 @@ public:
     void RequestVehicleSpawn(USBZAssaultVehicleSpawnerData* VehicleData, ASBZSpline* EnterSpline, ASBZSpline* ExitSpline);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayersAliveChanged(const TArray<UObject*>& Players);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPawnSpawned(USBZSpawnManager* SpawnManager, APawn* Pawn);
     
-    UFUNCTION(BlueprintCallable)
-    void OnPawnKilled(APawn* Pawn);
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDamageTakenEvent(const FSBZDamageEvent& DamageEventdata);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsAssaultActive() const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPD3AssaultManager* Get(const UObject* WorldContextObject);
     
 };

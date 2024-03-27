@@ -42,7 +42,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void PressControlsReferenceAction();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInputAction(const FName ActionName);
     
 public:

@@ -9,7 +9,7 @@ class USBZMainMenuBaseWidget : public USBZWidgetBase {
 public:
     USBZMainMenuBaseWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DestroyWidget();
     
 };

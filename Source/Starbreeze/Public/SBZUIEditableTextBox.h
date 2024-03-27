@@ -20,7 +20,7 @@ private:
     
 public:
     USBZUIEditableTextBox();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsEmptyOrConsistsOfWhitespaces(const FString& InString) const;
     
 };

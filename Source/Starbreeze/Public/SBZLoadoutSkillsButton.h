@@ -19,7 +19,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void NativeInitializeSkills(const TArray<USBZSkillData*>& SkillList);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void InitializeSkills(int32 EquippedSkillCount);
     
 };

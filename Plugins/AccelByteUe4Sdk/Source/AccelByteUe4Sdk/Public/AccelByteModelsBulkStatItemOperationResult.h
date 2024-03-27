@@ -15,6 +15,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool Success;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString UserId;
+    
     FAccelByteModelsBulkStatItemOperationResult();
 };
 

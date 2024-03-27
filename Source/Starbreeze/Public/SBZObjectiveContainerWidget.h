@@ -26,17 +26,17 @@ protected:
 public:
     USBZObjectiveContainerWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnObjectiveRemoved(UObject* ObjectiveUObject);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnObjectiveAdded(UObject* ObjectiveUObject);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveRemove(ASBZObjective* Objective);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveAdded(ASBZObjective* Objective);
     
 };

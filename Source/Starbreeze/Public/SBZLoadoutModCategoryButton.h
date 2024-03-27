@@ -20,11 +20,11 @@ protected:
     
 public:
     USBZLoadoutModCategoryButton();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetSelectedCallback(FOnCategoryButtonSelected SelectedCallback);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponModCategoryDataIntialized();
     
 public:

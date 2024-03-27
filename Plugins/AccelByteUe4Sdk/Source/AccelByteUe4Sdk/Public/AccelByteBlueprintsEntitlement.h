@@ -14,7 +14,6 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsEntitlement();
-
     UFUNCTION(BlueprintCallable)
     static void QueryUserEntitlementsMany(const FString& EntitlementName, const TArray<FString>& ItemIds, int32 Page, int32 Size, const UAccelByteBlueprintsEntitlement::FQueryUserEntitlementSuccess& OnSuccess, const UAccelByteBlueprintsEntitlement::FBlueprintErrorHandler& OnError, EAccelByteEntitlementClass EntitlementClass, EAccelByteAppType AppType);
     

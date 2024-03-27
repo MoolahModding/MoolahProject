@@ -16,7 +16,7 @@ protected:
 public:
     USBZStateMachineStateDsLoading();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DestinationMapLoaded(UWorld* NewWorld);
     
 };

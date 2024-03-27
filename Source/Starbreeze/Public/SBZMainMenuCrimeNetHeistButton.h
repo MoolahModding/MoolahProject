@@ -29,7 +29,7 @@ protected:
     
 public:
     USBZMainMenuCrimeNetHeistButton();
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistDataInitialized();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -38,10 +38,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void InitializeHeistDataFromSoftObjectPath(const FSoftObjectPath& InHeistSoftObjectPath);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSoftObjectPath GetHeistLevelPath() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPD3HeistDataAsset* GetHeistData() const;
     
 };

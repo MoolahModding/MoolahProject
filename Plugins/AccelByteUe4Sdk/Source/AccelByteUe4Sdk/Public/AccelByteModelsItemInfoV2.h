@@ -5,7 +5,9 @@
 #include "AccelByteModelItemOptionBoxConfig.h"
 #include "AccelByteModelItemPurchaseCondition.h"
 #include "AccelByteModelsItemImage.h"
+#include "AccelByteModelsItemLootBoxConfig.h"
 #include "AccelByteModelsItemRecurring.h"
+#include "AccelByteModelsItemSaleConfig.h"
 #include "EAccelByteEntitlementType.h"
 #include "EAccelByteItemStatus.h"
 #include "EAccelByteItemType.h"
@@ -71,6 +73,9 @@ public:
     bool Purchasable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSectionExclusive;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EAccelByteItemType ItemType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -132,6 +137,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAccelByteModelItemOptionBoxConfig OptionBoxConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FAccelByteModelsItemLootBoxConfig LootBoxConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSellable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool Sellable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FAccelByteModelsItemSaleConfig SaleConfig;
     
     FAccelByteModelsItemInfoV2();
 };

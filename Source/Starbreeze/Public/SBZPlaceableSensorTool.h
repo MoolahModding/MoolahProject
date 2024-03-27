@@ -32,7 +32,7 @@ protected:
     
 public:
     ASBZPlaceableSensorTool();
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SensorAmmoDepleted();
     
 };

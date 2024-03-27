@@ -46,14 +46,14 @@ public:
     void RemoveSlot(const USBZModularPartSlotBase* Slot);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ModuleMeshLoadingDone();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZEquippableConfig GetWeaponModMap() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZBaseWeaponData* GetWeaponData() const;
     
     UFUNCTION(BlueprintCallable)

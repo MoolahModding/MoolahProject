@@ -22,13 +22,13 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnToggleSocialScreenPressed();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnToggleSocialScreenInputChanged(FName NewToggleSocialSceenAction);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnOpenSocialScreen();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCloseSocialScreen();
     
 };

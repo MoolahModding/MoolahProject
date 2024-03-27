@@ -6,6 +6,7 @@
 #include "DBooleanResponseDelegate.h"
 #include "DBulkPlatformUserIdResponseDelegate.h"
 #include "DCountryInfoResponseDelegate.h"
+#include "DCustomErrorHandlerDelegate.h"
 #include "DErrorHandlerDelegate.h"
 #include "DHandlerDelegate.h"
 #include "DListBulkUserInfoResponseDelegate.h"
@@ -25,7 +26,6 @@ class UABUser : public UObject {
     GENERATED_BODY()
 public:
     UABUser();
-
     UFUNCTION(BlueprintCallable)
     void Verify(const FString& VerificationCode, FDHandler OnSuccess, FDErrorHandler OnError);
     
@@ -45,7 +45,22 @@ public:
     void UpdateEmail(FUpdateEmailRequest UpdateEmailRequest, FDHandler OnSuccess, FDErrorHandler OnError);
     
     UFUNCTION(BlueprintCallable)
+    void UnlinkOtherPlatformWithCustomErrorHandler(EAccelBytePlatformType PlatformType, FDHandler OnSuccess, FDCustomErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnlinkOtherPlatformId(const FString& PlatformId, FDHandler OnSuccess, FDCustomErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
     void UnlinkOtherPlatform(EAccelBytePlatformType PlatformType, FDHandler OnSuccess, FDErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnlinkAllOtherPlatformId(const FString& PlatformId, FDHandler OnSuccess, FDCustomErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void UnlinkAllOtherPlatform(EAccelBytePlatformType PlatformType, FDHandler OnSuccess, FDCustomErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void TryRelogin(const FString& PlatformUserID, FDHandler OnSuccess, FDErrorHandler OnError);
     
     UFUNCTION(BlueprintCallable)
     void SendVerificationCode(FDHandler OnSuccess, FDErrorHandler OnError);
@@ -97,6 +112,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void LoginWithDeviceId(FDHandler OnSuccess, FDErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void LoginByExchangeCodeForToken(const FString& Code, FDHandler OnSuccess, FDErrorHandler OnError);
     
     UFUNCTION(BlueprintCallable)
     void LinkOtherPlatform(EAccelBytePlatformType PlatformType, const FString& Ticket, FDHandler OnSuccess, FDAccountLinkConflictErrorJsonResponse OnError);

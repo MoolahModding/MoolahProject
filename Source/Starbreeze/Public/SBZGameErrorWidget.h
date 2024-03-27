@@ -17,17 +17,17 @@ private:
 public:
     USBZGameErrorWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetInternetConnected(ESBZServiceStatus ServiceStatus);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetErrorText() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetErrorHeader() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZMenuButton* GetButton_ReturnToMainMenu() const;
     
 };

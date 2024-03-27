@@ -62,7 +62,7 @@ public:
     void SetLinkEnabled(bool bInLinkEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSmartLinkReached(AActor* MovingActor, const FVector& DestinationPoint);
     
 };

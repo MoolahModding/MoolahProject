@@ -5,5 +5,5 @@
 class ASBZInteractionActor;
 class USBZInteractorComponent;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZActorOnInteraction, ASBZInteractionActor*, Interactable, USBZInteractorComponent*, Interactor);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZActorOnInteraction, ASBZInteractionActor*, Interactable, USBZInteractorComponent*, Interactor);
 

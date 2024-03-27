@@ -26,7 +26,7 @@ private:
 public:
     ASBZPlayerTriggeredVoiceVolume();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleDialogEnded(ESBZDialogEndedReason Reason);
     
 };

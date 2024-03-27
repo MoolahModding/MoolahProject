@@ -38,27 +38,27 @@ private:
 public:
     USBZMainMenuItemInventoryScreen();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotScreenDisplayed();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotButtonSelected(USBZMenuButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemSlotButtonSelected(USBZMenuButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZInventoryBaseData* GetActiveItem() const;
     
     UFUNCTION(BlueprintCallable)

@@ -12,6 +12,9 @@ void USBZMiniGameComponent::PlaySoundOnNative(UAkAudioEvent* AudioEvent) {
 void USBZMiniGameComponent::PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent) {
 }
 
+void USBZMiniGameComponent::OnPlayerStateEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
 void USBZMiniGameComponent::Multicast_ActivateMiniGame_Implementation(ASBZCharacter* Character) {
 }
 

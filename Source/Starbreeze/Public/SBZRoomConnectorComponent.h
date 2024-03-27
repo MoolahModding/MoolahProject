@@ -21,10 +21,10 @@ private:
 public:
     USBZRoomConnectorComponent();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     FVector GetRoomBLocation() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     FVector GetRoomALocation() const;
     
     

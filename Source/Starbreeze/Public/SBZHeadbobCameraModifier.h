@@ -24,10 +24,10 @@ private:
 public:
     USBZHeadbobCameraModifier();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleEquippableArrayChanged(ASBZCharacter* Character);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleCurrentEquippableIndexChanged(ASBZCharacter* Character, int32 CurrentEquippableIndex, bool bIsOnlyDataChanged);
     
 };

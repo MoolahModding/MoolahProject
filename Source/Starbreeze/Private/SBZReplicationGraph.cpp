@@ -12,6 +12,6 @@ USBZReplicationGraph::USBZReplicationGraph() {
     this->AlwaysRelevantNode = NULL;
     this->DynamicSpatialFrequencyNode = NULL;
     this->IntialFrameReplicationNode = NULL;
-    this->ConfigRepClasses.AddDefaulted(84);
+    this->ConfigRepClasses.AddDefaulted(85);
 }
 

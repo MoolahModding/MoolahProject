@@ -1,0 +1,5 @@
+#include "AccelByteModelsMPV2GameSessionLeaderPromotedPayload.h"
+
+FAccelByteModelsMPV2GameSessionLeaderPromotedPayload::FAccelByteModelsMPV2GameSessionLeaderPromotedPayload() {
+}
+

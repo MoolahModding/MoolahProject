@@ -29,19 +29,19 @@ private:
     
 public:
     USBZAnalyticsManager();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendSyncDLC(const bool bIsSyncDLCSuccessful, const FString& SyncDLCFailureMessage);
     
-    UFUNCTION(BlueprintCallable)
-    void SendNotOwningHeistDetected(const ESBZNotOwningHeistPolicyType NotOwningHeistAction, const bool bIsActionSuccessful, const FString& Description, const FString& AdditionalInformation);
+    UFUNCTION()
+    void SendNotOwningHeistDetected(const FString& AccelByteUserId, const ESBZNotOwningHeistPolicyType NotOwningHeistAction, const bool bIsActionSuccessful, const FString& Description, const FString& AdditionalInformation);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendCheaterDetected(const ESBZCheaterPolicyType AntiCheatAction, const bool bIsCheatActionSuccessful, const FString& CheatTypeString, const FString& AdditionalInformation);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendChallengeCompleted(const FSBZChallengeData& ChallengeData);
     
 };

@@ -42,7 +42,7 @@ void ASBZAICrewCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(ASBZAICrewCharacter, DefeatTime);
 }
 
-ASBZAICrewCharacter::ASBZAICrewCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAICrewCharacter::ASBZAICrewCharacter() {
     this->EquipmentData = NULL;
     this->HealthReplenishEffectClass = USBZActivateReplenishHealthEffect::StaticClass();
     this->CallComment = NULL;

@@ -85,20 +85,20 @@ protected:
 public:
     USBZAIObjectiveComponent();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOrderCompleted(USBZAIOrder* Order, APawn* Owner, TEnumAsByte<EBTNodeResult::Type> OrderResult);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractStateChanged(const USBZBaseInteractableComponent* Interactable, bool bEnabled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCollisionChanged(UPrimitiveComponent* ActorPrimitive);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ASBZRoomVolume* GetLastKnownRoom() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ASBZRoomVolume* GetCurrentRoom_Implementation() const;
     
     

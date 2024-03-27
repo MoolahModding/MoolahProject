@@ -11,6 +11,5 @@ public:
     FString ViewId;
     
     UGridlyDataTable();
-
 };
 

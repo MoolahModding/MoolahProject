@@ -10,7 +10,7 @@ class STARBREEZE_API ASBZVantagePoint : public AActor {
     GENERATED_BODY()
 public:
     ASBZVantagePoint();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOccupantKilled(APawn* Pawn);
     
 };

@@ -45,23 +45,23 @@ private:
 public:
     USBZMainMenuInventoryCharacterPreferenceScreen();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void UpdateCharacterSlotButtonControlsReference(ESBZCharacterPreferenceButtonSelectionAction SelectionAction);
     
     UFUNCTION(BlueprintCallable)
     void NativeOnClearPreferredCharactersInputPressed();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnCharacterPreferenceUpdated();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnActiveCharacterSlotIndexChanged(int32 NewIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeCharacterSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeCharacterSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:

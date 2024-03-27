@@ -41,19 +41,19 @@ private:
 public:
     USBZStateMachineStateDsResult();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartTimerFinsihed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartLevelTimeExpired();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartAcceptTimerFinsihed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartAccepted(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DestinationMapLoaded(UWorld* NewWorld);
     
 };

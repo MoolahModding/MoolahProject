@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "JsonObjectWrapper.h"
 #include "AccelByteModelsUserPoint.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,6 +12,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString userId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool hidden;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FJsonObjectWrapper additionalData;
     
     FAccelByteModelsUserPoint();
 };

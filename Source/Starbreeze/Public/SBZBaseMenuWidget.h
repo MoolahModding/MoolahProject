@@ -17,10 +17,10 @@ protected:
 public:
     USBZBaseMenuWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActiveControlsReferenceChanged(const FSBZControlsReference& InControlsReference);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HideControlsReference();
     
 };

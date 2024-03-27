@@ -52,6 +52,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZCharacterEffectDataAsset* TankLastManStandingBlockingGUIEffectData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZCharacterEffectDataAsset* AmmoSpecialistHighGrainGUIEffectData;
+    
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint32 BuffGUIEffectHandleArray[3];
     
@@ -60,6 +63,9 @@ private:
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint32 TankLastManStandingBlockingGUIEffectHandle;
+    
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint32 AmmoSpecialistHighGrainGUIEffectHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnSkillTankLastManStandingImmuneTimeChanged, meta=(AllowPrivateAccess=true))
     float SkillTankLastManStandingImmuneTime;
@@ -70,84 +76,82 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, float> SkillCooldownSecondsMap;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsAmmoSpecialistHighGrainSkillActive;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bCanTriggerCoupDeGraceSkill;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsAmmoSpecialistHighGrainDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float AmmoSpecialistHighGrainDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverHealDegradationTickInterval;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverHealDamagePauseTimer;
     
 public:
     USBZPlayerAbilitySystemComponent();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetSpeedBuffTime(const FGameplayTag& SkillTag, float Time);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetMitigationBuffTime(const FGameplayTag& SkillTag, float Time);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetDamageBuffTime(const FGameplayTag& SkillTag, float Time);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_ResetSpeedBuffTime();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_ResetMitigationBuffTime();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_ResetDamageBuffTime();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_DeactivateAmmoSpecialistHighGrainSkill();
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSkillTankLastManStandingImmuneTimeChanged();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSkillTankLastManStandingBlockingChanged();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_BuffTimeArray();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_UnblockSkillTankLastManStanding();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetSpeedBuffTime(float Time);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetSkillTankLastManStandingImmuneTime(float ImmuneTime);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetMitigationBuffTime(float Time);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetDamageBuffTime(float Time);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResetSpeedBuffTime();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResetMitigationBuffTime();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResetDamageBuffTime();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_MarkedForDeath(const TArray<ASBZAIBaseCharacter*>& AICharacters);
     
-private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_DeactivateAmmoSpecialistHighGrainSkill();
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_ActivateAmmoSpecialistHighGrainSkill();
-    
-public:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RejectBuffTime(ESBZPlayerAbilityBuffType Type);
     
 };

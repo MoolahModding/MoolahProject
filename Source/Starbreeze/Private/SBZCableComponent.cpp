@@ -3,6 +3,9 @@
 void USBZCableComponent::UpdateSegmentCount(const float InCableLength, const float SegmentLength, const int32 MaxSegmentCount) {
 }
 
+void USBZCableComponent::SetWindData(const FSBZWindData& WindData) {
+}
+
 void USBZCableComponent::ResetCollisionPlanes() {
 }
 
@@ -19,7 +22,6 @@ void USBZCableComponent::AddCollisionPlane(const FSBZCableCollisionPlane& Collis
 }
 
 USBZCableComponent::USBZCableComponent() {
-    this->WindSource = NULL;
     this->bAffectedByWind = false;
     this->WindScale = 1.00f;
     this->WindGustFrequency = 1.00f;

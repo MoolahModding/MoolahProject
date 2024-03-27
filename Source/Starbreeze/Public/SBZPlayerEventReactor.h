@@ -48,19 +48,19 @@ public:
     void SetState(ESBZEventReactorState NewState);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerDefeatStateChanged(const FSBZPlayerDefeatStateChangedData& DefeatStateData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnECMJammerCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZEventReactorState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PlayAudioReaction(const int32 AudioScreenIndex, ESBZReactionType ReactionType);
     
 };

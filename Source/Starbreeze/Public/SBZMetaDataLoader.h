@@ -9,7 +9,7 @@ class USBZMetaDataLoader : public UObject {
 public:
     USBZMetaDataLoader();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRetryGetUserEntitlements();
     
 };

@@ -18,19 +18,19 @@ protected:
 public:
     USBZStateMachineStateWaitingActionPhaseHost();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PostLoadTransitionMap(UWorld* NewWorld);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerRegister(APlayerState* ChangedPlayerState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerControllerReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerAckReceived(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DestinationMapLoaded(UWorld* NewWorld);
     
 };

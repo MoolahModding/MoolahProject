@@ -21,10 +21,10 @@ protected:
 public:
     USBZAIOrder_Rescue();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTargetKilled(APawn* KilledPawn);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTargetHostageStateChanged(uint8 NewHostageState);
     
 };

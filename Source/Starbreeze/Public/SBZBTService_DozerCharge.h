@@ -33,10 +33,10 @@ private:
 public:
     USBZBTService_DozerCharge();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void TickChargeMeleeCheck();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMontageEnded(UAnimMontage* Montage, bool bIsInterrupted);
     
 };

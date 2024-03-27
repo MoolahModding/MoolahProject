@@ -23,7 +23,7 @@ public:
     UStaticMeshComponent* GlowMesh;
     
     ASBZPhoneTool();
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ToggleScreenMode(ESBZPhoneScreenState NewScreenState);
     
     

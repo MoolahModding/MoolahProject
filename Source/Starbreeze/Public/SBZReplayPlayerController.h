@@ -19,7 +19,7 @@ private:
     
 public:
     ASBZReplayPlayerController();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZReplayManager* GetReplayManager() const;
     
 };

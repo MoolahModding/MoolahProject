@@ -5,5 +5,5 @@
 class AActor;
 class ASBZWheeledVehicle;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZWheeledVehicleOnEndObstacle, ASBZWheeledVehicle*, Vehicle, AActor*, Actor);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZWheeledVehicleOnEndObstacle, ASBZWheeledVehicle*, Vehicle, AActor*, Actor);
 

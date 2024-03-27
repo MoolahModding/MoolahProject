@@ -10,6 +10,7 @@
 #include "SBZSmallTalkManager.h"
 #include "SBZStateMachineSharedState.h"
 #include "SBZVehicleManager.h"
+#include "SBZWindManager.h"
 
 void ASBZMissionState::ServerPostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData) {
 }
@@ -56,6 +57,9 @@ void ASBZMissionState::OnRep_Difficulty() {
 void ASBZMissionState::OnBlackScreenStarted() {
 }
 
+void ASBZMissionState::OnAmmoSpecialistHighGrainSkillTimeChanged(float OldTime) {
+}
+
 void ASBZMissionState::OnActionPhaseStarted() {
 }
 
@@ -75,6 +79,12 @@ void ASBZMissionState::Multicast_SetEscapeVolumeData_Implementation(const uint8 
 }
 
 void ASBZMissionState::Multicast_SetEscapeTimeLeft_Implementation(const int32 NewTime) {
+}
+
+void ASBZMissionState::Multicast_OnAmmoSpecialistHighGrainSkillDeactivated_Implementation() {
+}
+
+void ASBZMissionState::Multicast_OnAmmoSpecialistHighGrainSkillActivated_Implementation() {
 }
 
 void ASBZMissionState::Multicast_MissionResult_Implementation(const FSBZEndMissionResultData& InMissionResultData) {
@@ -175,11 +185,12 @@ void ASBZMissionState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
     DOREPLIFETIME(ASBZMissionState, PlayersRequiredInEscapeVolume);
     DOREPLIFETIME(ASBZMissionState, EscapeTimeLeft);
     DOREPLIFETIME(ASBZMissionState, PreplanningAssets);
+    DOREPLIFETIME(ASBZMissionState, AmmoSpecialistHighGrainSkillTime);
 }
 
 ASBZMissionState::ASBZMissionState() {
     this->RandomSeed = -1;
-    this->ServerChangelist = 650196;
+    this->ServerChangelist = 674638;
     this->Difficulty = ESBZDifficulty::Default;
     this->PredictionTimeOutSeconds = 1.00f;
     this->ServerUnblockAbilityEarlierSeconds = 0.25f;
@@ -193,6 +204,7 @@ ASBZMissionState::ASBZMissionState() {
     this->LifeActionManager = CreateDefaultSubobject<USBZLifeActionManager>(TEXT("SBZLifeActionManager"));
     this->ActorPoolManager = CreateDefaultSubobject<USBZActorPoolManager>(TEXT("SBZActorPoolManager"));
     this->SmallTalkManager = CreateDefaultSubobject<USBZSmallTalkManager>(TEXT("SBZSmallTalkManager"));
+    this->WindManager = CreateDefaultSubobject<USBZWindManager>(TEXT("SBZWindManager"));
     this->StateMachineSharedState = CreateDefaultSubobject<USBZStateMachineSharedState>(TEXT("SBZStateMachineSharedState"));
     this->bPlayerFriendlyFire = false;
     this->PlayersInEscapeVolume = 0;
@@ -205,5 +217,7 @@ ASBZMissionState::ASBZMissionState() {
     this->OverkillWeaponCooldown = 45.00f;
     this->CurrentHeistData = NULL;
     this->TutorialPlayerCharacterData = NULL;
+    this->bIsAmmoSpecialistHighGrainSkillActive = false;
+    this->AmmoSpecialistHighGrainSkillTime = -1.00f;
 }
 

@@ -3,5 +3,5 @@
 #include "ListAccelByteModelsUserRecord.h"
 #include "DModelsListUserRecordsDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsListUserRecords, FListAccelByteModelsUserRecord, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsListUserRecords, FListAccelByteModelsUserRecord, Response);
 

@@ -29,6 +29,9 @@ public:
     bool bIsHumanShieldVictimAllowed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHostageAllowed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZVoiceSwitchPerPerformer> VoiceSwitchesPerPerformer;
     
     USBZDialogDataAsset();

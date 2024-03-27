@@ -1,0 +1,5 @@
+#include "AccelByteModelsPlayerBinaryRecordGetRecordsByQueryPayload.h"
+
+FAccelByteModelsPlayerBinaryRecordGetRecordsByQueryPayload::FAccelByteModelsPlayerBinaryRecordGetRecordsByQueryPayload() {
+}
+

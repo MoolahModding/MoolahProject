@@ -23,7 +23,7 @@ public:
     void SetChoiceIndex(int32 InChoiceIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OptionNamesChanged();
     
 };

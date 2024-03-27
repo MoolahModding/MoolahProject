@@ -4,5 +4,5 @@
 
 class ASBZEquippable;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZEquippableOnUnequipped, const ASBZEquippable*, Equippable);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZEquippableOnUnequipped, const ASBZEquippable*, Equippable);
 

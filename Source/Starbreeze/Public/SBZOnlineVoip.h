@@ -14,17 +14,17 @@ public:
     void SetCaptureDevice(const FString& DeviceName);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStateEntered(FName NewState);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString GetSelectedCaptureDevice();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZOnlineVoip* GetSBZOnlineVoip(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FString> GetCaptureDevices();
     
     UFUNCTION(BlueprintCallable)

@@ -26,13 +26,13 @@ public:
     UFUNCTION(BlueprintCallable)
     ESBZMetaRequestResult SetActiveLoadoutIndex(int32 ActiveLoadoutIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZPlayerLoadoutConfig> GetPlayerLoadouts();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZLoadoutManager* GetLoadoutManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetActiveLoadoutIndex() const;
     
 };

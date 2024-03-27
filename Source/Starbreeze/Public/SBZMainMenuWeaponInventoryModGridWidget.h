@@ -26,7 +26,7 @@ public:
     void InitializeGridWithMaskSlot(int32 InMaskSlotIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DisplayGrid();
     
 };

@@ -22,10 +22,10 @@ public:
     void SetCharacterToDisplay(const USBZPlayerCharacterData* InCharacterData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnEmptySet();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCharacterDataChanged(const USBZPlayerCharacterData* InCharacterData);
     
 };

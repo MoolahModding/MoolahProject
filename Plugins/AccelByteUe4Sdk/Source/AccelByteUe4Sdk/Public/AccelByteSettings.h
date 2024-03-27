@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "EHttpCacheType.h"
 #include "AccelByteSettings.generated.h"
 
 UCLASS(Blueprintable, Config=Engine, DefaultConfig)
@@ -112,7 +113,15 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableHttpCache;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EHttpCacheType HttpCacheType;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSendPredefinedEvent;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bServerUseAMS;
+    
     UAccelByteSettings();
-
 };
 

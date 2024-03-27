@@ -17,7 +17,7 @@ public:
     void NativeDefaultEquipped(bool bEquipped);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DefaultEquipped(bool bEquipped);
     
 };

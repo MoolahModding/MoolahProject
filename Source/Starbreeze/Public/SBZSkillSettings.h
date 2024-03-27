@@ -12,7 +12,7 @@ public:
     FSBZSkillSettingData Settings;
     
     USBZSkillSettings();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FSBZSkillSettingData Get();
     
 };

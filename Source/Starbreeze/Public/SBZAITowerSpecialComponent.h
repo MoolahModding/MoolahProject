@@ -35,20 +35,20 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_RefractorShield(ASBZAIRefractorShield* OldRefractorShield);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsGlitchEffectActive();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHideOrderCompleted(USBZAIOrder* Order, APawn* Owner, TEnumAsByte<EBTNodeResult::Type> NodeResult);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_RetractShield();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ActivateGlitchEffect(bool bIsEffectActive);
     
 };

@@ -10,7 +10,7 @@ class USBZInstantLootManager : public UObject {
     GENERATED_BODY()
 public:
     USBZInstantLootManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZInstantLootManager* GetInstantLootManager(UObject* WorldContextObject);
     
 };

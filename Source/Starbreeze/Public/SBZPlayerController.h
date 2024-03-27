@@ -87,28 +87,28 @@ public:
     bool SetCameraFeedbackIntensity(int32 CameraFeedbackID, float Intensity);
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_UnsetViewTargetCollection();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetViewTargetCollection(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetCurrentViewTargetIndex(int32 InViewTargetIndex);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetCurrentSpectateTargetPlayerID(int32 InID);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_RestartRequested(FUniqueNetIdRepl PlayerID);
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_RestartLevel();
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_DebugTeleportTo(const FVector& Location, const float Yaw);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -118,31 +118,31 @@ public:
     bool RemoveCameraFeedback(int32 CameraFeedbackID);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerCameraManagerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TScriptInterface<ISBZViewTargetCollectionInterface> GetViewTargetCollection() const;
     
     UFUNCTION(BlueprintCallable)
     bool FadeOutCameraFeedback(int32 CameraFeedbackID, bool bIsAutoRemoved);
     
 private:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_UnsetViewTargetCollection();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_SetViewTargetCollection(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RestartTimeExpired();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RestartInitiate(float SecondsRemaining);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RestartAccepted(const FUniqueNetIdRepl& PlayerID);
     
     UFUNCTION(BlueprintCallable)

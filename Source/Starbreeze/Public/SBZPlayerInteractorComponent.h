@@ -53,19 +53,19 @@ protected:
     
 public:
     USBZPlayerInteractorComponent();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool ShowInteractWidget() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsCurrentInstant() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZBaseInteractableComponent* GetSelectedInteraction() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FSBZInteractModeDisplayData GetModeDisplayData(const FSBZInteractDisplayDataCollection& Collection, bool bIsInstant, bool& bOutIsFront);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanInteract() const;
     
 };

@@ -3,5 +3,5 @@
 #include "AccelByteModelsPartyDataNotif.h"
 #include "DPartyGetStorageResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyGetStorageResponse, FAccelByteModelsPartyDataNotif, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyGetStorageResponse, FAccelByteModelsPartyDataNotif, Response);
 

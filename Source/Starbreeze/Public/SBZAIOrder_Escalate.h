@@ -3,7 +3,6 @@
 #include "SBZAIOrder.h"
 #include "SBZAIOrder_Escalate.generated.h"
 
-class APawn;
 class USBZActionNotificationAsset;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew)
@@ -20,13 +19,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZActionNotificationAsset* EscalationReason;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    APawn* LastPawn;
-    
 public:
     USBZAIOrder_Escalate();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 };

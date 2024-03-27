@@ -22,7 +22,7 @@ public:
     FSBZOnPlayerDisconnectedEvent OnPlayerDisconnectedEvent;
     
     ASBZBeaconActionPhaseHost();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerCountChanged(APlayerState* PlayerState);
     
 };

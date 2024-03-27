@@ -1,0 +1,5 @@
+#include "AccelByteModelsChatV2PersonalTopicCreatedPayload.h"
+
+FAccelByteModelsChatV2PersonalTopicCreatedPayload::FAccelByteModelsChatV2PersonalTopicCreatedPayload() {
+}
+

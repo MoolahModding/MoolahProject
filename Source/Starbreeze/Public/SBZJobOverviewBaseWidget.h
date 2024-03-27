@@ -22,15 +22,15 @@ protected:
 public:
     USBZJobOverviewBaseWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerReadyStatusUpdated(const TArray<FSBZPlayerReadyInfo>& PlayerReadyStatus);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void IntroSequenceStarted();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleIntroSequenceStarted();
     
 };

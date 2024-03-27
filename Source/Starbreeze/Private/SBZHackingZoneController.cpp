@@ -6,9 +6,6 @@
 void ASBZHackingZoneController::SetInteractionEnabled(bool bEnabled) {
 }
 
-void ASBZHackingZoneController::OnSabotaged(bool bNewSabotagedState) {
-}
-
 void ASBZHackingZoneController::OnHeistGoneLoud() {
 }
 
@@ -18,12 +15,10 @@ void ASBZHackingZoneController::OnAckCompleteInteraction(USBZBaseInteractableCom
 void ASBZHackingZoneController::DisableHackingZones() {
 }
 
-
 ASBZHackingZoneController::ASBZHackingZoneController() {
     this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
     this->InteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
-    this->SabotagePoint = NULL;
     this->NumberOfZonesActiveAtOnce = 2;
     this->bSkipRandomization = false;
     this->SingleLocationDuration = 15.00f;
@@ -31,6 +26,5 @@ ASBZHackingZoneController::ASBZHackingZoneController() {
     this->LoudOptions = ESBZLoudOptions::Continue;
     this->Seed = -1;
     this->NumberOfZonesOccupied = 0;
-    this->bIsSabotaged = false;
 }
 

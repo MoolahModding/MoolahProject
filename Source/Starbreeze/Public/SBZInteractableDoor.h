@@ -25,7 +25,7 @@ protected:
 public:
     ASBZInteractableDoor();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleBreachPropDamageHits(UActorComponent* PoolComponent, int32 Hits, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
 };

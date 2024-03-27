@@ -42,19 +42,19 @@ public:
     UFUNCTION(BlueprintCallable)
     void SendMessage(const FSBZChatMessage& InMessage);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnNewMessageReceived(const FSBZChatMessage& InChatMessage);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnMessageReceivedEvent(const FSBZChatMessage& ChatMessage);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString GetUserId();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString GetUserDisplayName();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString CreateTimestamp() const;
     
 };

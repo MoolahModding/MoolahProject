@@ -36,11 +36,11 @@ private:
 public:
     USBZMainMenuWeaponProgressionScreen();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWeaponPartProgressionButtonFocusedChanged(USBZMenuButton* InButton, bool bIsFocused);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void FocusedWeaponPartChanged(const USBZWeaponPartDataAsset* FocusedWeaponPart);
     
 public:

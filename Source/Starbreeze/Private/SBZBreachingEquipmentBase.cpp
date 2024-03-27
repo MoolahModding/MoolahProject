@@ -7,6 +7,12 @@
 #include "SBZLifeActionSlot.h"
 #include "SBZOutlineComponent.h"
 
+void ASBZBreachingEquipmentBase::UpdateMarker(USBZMarkerDataAsset* MarkerAsset, const FVector MarkerLocation) {
+}
+
+void ASBZBreachingEquipmentBase::SetState(ESBZBreachingEquipmentState NewState, bool bDoCosmetics) {
+}
+
 void ASBZBreachingEquipmentBase::OnRep_CurrentState(ESBZBreachingEquipmentState OldState) {
 }
 

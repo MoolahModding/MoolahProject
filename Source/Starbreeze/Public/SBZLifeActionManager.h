@@ -42,41 +42,41 @@ public:
     USBZLifeActionSlot* ReserveAction(ASBZCharacter* Character, const FSBZLifeActionRequest& Request);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSlotReserved(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSlotExited(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSlotEntered(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
 public:
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool IsCharacterPlayingAction(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool IsCharacterPendingAction(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     USBZLifeActionComponent* GetLifeActionComponentForCharacter(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     USBZLifeActionSlot* GetClosestLifeActionMatchingTagAny(const FVector Location, const FGameplayTag& LifeActionSlotTag) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     ASBZCharacter* GetCharacterForActionSlot(const USBZLifeActionComponent* LifeActionComponent, const FGameplayTag& LifeActionSlotTag, const USBZLifeActionInstance* LifeActionInstance) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     FTransform GetActionSlotTransformForCharacter(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     USBZLifeActionSlot* GetActionSlotForCharacter(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZLifeActionManager* Get(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

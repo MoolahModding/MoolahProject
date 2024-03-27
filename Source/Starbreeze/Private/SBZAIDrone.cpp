@@ -56,7 +56,7 @@ void ASBZAIDrone::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
     DOREPLIFETIME(ASBZAIDrone, CurrentTarget);
 }
 
-ASBZAIDrone::ASBZAIDrone(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZAIDrone::ASBZAIDrone() {
     this->AttributeSet = CreateDefaultSubobject<USBZAIDroneAttributeSet>(TEXT("SBZAIDroneAttributeSet"));
     this->DestroyedEffect = NULL;
     this->DestroyedEvent = NULL;
@@ -80,5 +80,6 @@ ASBZAIDrone::ASBZAIDrone(const class FObjectInitializer& ObjectInitializer) : Su
     this->FireWeaponComment = NULL;
     this->ExplosionInstigator = NULL;
     this->CurrentTarget = NULL;
+    this->StatisticsMarkDrone = TEXT("mark-drone");
 }
 

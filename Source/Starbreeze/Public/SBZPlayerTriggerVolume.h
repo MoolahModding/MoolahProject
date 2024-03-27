@@ -39,10 +39,10 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     int32 GetCurrentNumOverlappingPlayers() const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool AreAllPlayerPawnsInside() const;
     
 };

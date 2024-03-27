@@ -18,7 +18,7 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(bool bInState);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool GetState() const;
     
 };

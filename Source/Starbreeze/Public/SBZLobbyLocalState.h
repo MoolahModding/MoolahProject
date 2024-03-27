@@ -27,13 +27,13 @@ protected:
 public:
     USBZLobbyLocalState();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendInfoToServer();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateLeft(FName StateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateEnter(FName StateName);
     
 public:

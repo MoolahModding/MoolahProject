@@ -13,5 +13,6 @@ ASBZSpawnLocationHandler::ASBZSpawnLocationHandler() {
     this->HackableEmailIndex = -1;
     this->ImportantItem = NULL;
     this->RandomIndex = -1;
+    this->bUseOnlyOneLocation = false;
 }
 

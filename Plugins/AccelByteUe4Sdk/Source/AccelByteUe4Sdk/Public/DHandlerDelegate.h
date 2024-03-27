@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "DHandlerDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE(FDHandler);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE(FDHandler);
 

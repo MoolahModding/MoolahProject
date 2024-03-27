@@ -112,32 +112,32 @@ public:
     UFUNCTION(BlueprintCallable)
     void RefreshFriends();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPartyPanelRefreshComplete();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPartyButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFriendButtonsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFriendButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetPlatformName() const;
     
     UFUNCTION(BlueprintCallable)
     int32 GetPartyMembersNum();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZPartyMember> GetPartyMembers() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildPartyMembersList();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AddPartyMember(FSBZPartyMember NewMember);
     
 };

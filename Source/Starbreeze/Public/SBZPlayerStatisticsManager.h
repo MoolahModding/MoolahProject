@@ -27,10 +27,10 @@ private:
     
 public:
     USBZPlayerStatisticsManager();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPlayerStatisticsManager* GetPlayerStatisticsManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZLevelTimesStruct> GetHeistBestTimes(FSoftObjectPath LevelPath);
     
     

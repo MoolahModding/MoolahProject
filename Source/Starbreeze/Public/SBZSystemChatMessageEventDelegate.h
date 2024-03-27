@@ -3,5 +3,5 @@
 #include "SBZSystemChatEvent.h"
 #include "SBZSystemChatMessageEventDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSystemChatMessageEvent, const FSBZSystemChatEvent&, ChatEventData);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSystemChatMessageEvent, const FSBZSystemChatEvent&, ChatEventData);
 

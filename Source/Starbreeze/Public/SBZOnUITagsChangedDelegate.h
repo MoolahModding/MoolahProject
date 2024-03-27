@@ -3,5 +3,5 @@
 #include "GameplayTagContainer.h"
 #include "SBZOnUITagsChangedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnUITagsChanged, const FGameplayTagContainer&, UITagContainer);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnUITagsChanged, const FGameplayTagContainer&, UITagContainer);
 

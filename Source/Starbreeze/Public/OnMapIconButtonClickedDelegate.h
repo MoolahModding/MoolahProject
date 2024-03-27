@@ -4,5 +4,5 @@
 
 class USBZMainMenuCrimeNetHeistMapIcon;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMapIconButtonClicked, USBZMainMenuCrimeNetHeistMapIcon*, MapIcon);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMapIconButtonClicked, USBZMainMenuCrimeNetHeistMapIcon*, MapIcon);
 

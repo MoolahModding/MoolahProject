@@ -31,23 +31,23 @@ public:
     UFUNCTION(BlueprintCallable)
     void RefreshPanel();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPartyButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPanelRefreshComplete();
     
     UFUNCTION(BlueprintCallable)
     int32 GetPartyMembersNum();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZPartyMember> GetPartyMembers() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildPartyMembersList();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AddPartyMember(FSBZPartyMember NewMember);
     
 };

@@ -1,0 +1,5 @@
+#include "AccelByteModelsGroupPredefinedRuleDeletedPayload.h"
+
+FAccelByteModelsGroupPredefinedRuleDeletedPayload::FAccelByteModelsGroupPredefinedRuleDeletedPayload() {
+}
+

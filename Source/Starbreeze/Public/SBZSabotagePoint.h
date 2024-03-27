@@ -69,10 +69,10 @@ public:
     bool SetEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* Interactable, bool bNewState);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

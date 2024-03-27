@@ -37,27 +37,27 @@ public:
     void SetActiveTab(const FName& InTabName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTabbedForward();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTabbedBackward();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInstallStateChanged(bool NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnForwardInputPressed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBackwardInputPressed();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasStackFocus() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZNavButtonParameters> GetNavigationParameters() const;
     
 };

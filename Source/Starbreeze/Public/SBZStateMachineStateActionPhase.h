@@ -26,35 +26,35 @@ private:
     
 public:
     USBZStateMachineStateActionPhase();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateChanged(ASBZPlayerController* PlayerController, const FName& OldStateName, const FName& NewStateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleMissionEnd(const int32 OutroVariation);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerId, const FString& DisplayName);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BlackScreenDoneTimeout();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AutoReadyTimeout();
     
 };

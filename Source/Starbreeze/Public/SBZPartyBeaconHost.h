@@ -46,31 +46,31 @@ private:
     
 public:
     ASBZPartyBeaconHost();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NotifyClientLeftLobby(const FUniqueNetIdRepl& PartyMemberId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NotifyClientFailedConnectionToLobby(const FUniqueNetIdRepl& PartyMemberNetId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NotifyClientConnectedToLobby(const FUniqueNetIdRepl& PartyMemberNetId);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePartyTravelTimeout();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePartyLeaveLobbyTimeout();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void FirePartyUpdated(APlayerState* ChangedPlayerState);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BroadcastPartyTravelled(ESBZOnlineCode Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BroadcastPartyLeftLobby(ESBZOnlineCode Result);
     
 };

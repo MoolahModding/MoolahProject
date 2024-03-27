@@ -41,36 +41,36 @@ protected:
     
 public:
     USBZParty();
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdatePartyState(const FSBZPartyData& InPartyState);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void JoinPartyComplete(const ESBZOnlineCode& Result);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HostPartySession(const FSBZOnlineSessionParams& Params);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HostPartyComplete(const ESBZOnlineCode& Result);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLostConnectionToPartyHost();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateLeft(FName StateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateEnter(FName StateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     FSBZPartyData GetPartyData() const;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CancelPartyRestore();
     
 };

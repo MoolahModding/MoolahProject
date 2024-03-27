@@ -32,10 +32,10 @@ public:
     FString DateOfBirth;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FString, FJsonObjectWrapper> CustomAttributes;
+    FJsonObjectWrapper CustomAttributes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FString, FJsonObjectWrapper> PrivateCustomAttributes;
+    FJsonObjectWrapper PrivateCustomAttributes;
     
     FAccelByteModelsUserProfileCreateRequest();
 };

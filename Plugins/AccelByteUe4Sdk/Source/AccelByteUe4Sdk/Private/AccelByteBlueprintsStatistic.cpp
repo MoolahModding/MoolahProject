@@ -1,8 +1,5 @@
 #include "AccelByteBlueprintsStatistic.h"
 
-UAccelByteBlueprintsStatistic::UAccelByteBlueprintsStatistic() {
-}
-
 void UAccelByteBlueprintsStatistic::IncrementUserStatItems(const TArray<FAccelByteModelsBulkStatItemInc>& Data, const UAccelByteBlueprintsStatistic::FBulkAddUserStatItemValueSuccess& OnSuccess, const UAccelByteBlueprintsStatistic::FBlueprintErrorHandler& OnError) {
 }
 
@@ -18,4 +15,6 @@ void UAccelByteBlueprintsStatistic::GetAllUserStatItems(const UAccelByteBlueprin
 void UAccelByteBlueprintsStatistic::CreateUserStatItems(const TArray<FString>& StatCodes, const UAccelByteBlueprintsStatistic::FCreateUserStatItemsSuccess& OnSuccess, const UAccelByteBlueprintsStatistic::FBlueprintErrorHandler& OnError) {
 }
 
+UAccelByteBlueprintsStatistic::UAccelByteBlueprintsStatistic() {
+}
 

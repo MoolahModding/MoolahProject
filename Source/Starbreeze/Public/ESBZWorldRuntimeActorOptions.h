@@ -20,6 +20,7 @@ enum class ESBZWorldRuntimeActorOptions : uint8 {
     AllArmedGrenades,
     AllHostages,
     AllTowerHideLifeActions,
+    AllAliveAICrewCharacters,
     MAX,
 };
 

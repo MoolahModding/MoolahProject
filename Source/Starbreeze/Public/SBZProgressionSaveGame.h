@@ -1,11 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZEquippableLoadoutSlot.h"
 #include "SBZGloveInventorySlot.h"
 #include "SBZMaskInventorySlot.h"
+#include "SBZPlayerCosmeticsConfig.h"
 #include "SBZProgressionSaveGameData.h"
 #include "SBZProgressionSaveGameInterface.h"
 #include "SBZSaveGame.h"
 #include "SBZSuitInventorySlot.h"
+#include "SBZWeaponInventorySlot.h"
 #include "SBZProgressionSaveGame.generated.h"
 
 UCLASS(Blueprintable)
@@ -18,13 +21,28 @@ protected:
     
 public:
     USBZProgressionSaveGame();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
+    TArray<FSBZWeaponInventorySlot> GetWeaponInventorySlotArray(ESBZEquippableLoadoutSlot EquippableSlot) const;
+    
+    UFUNCTION(BlueprintPure)
+    TArray<FSBZSuitInventorySlot> GetUncheckedSuitInventorySlotArray() const;
+    
+    UFUNCTION(BlueprintPure)
+    TArray<FSBZMaskInventorySlot> GetUncheckedMaskInventorySlotArray() const;
+    
+    UFUNCTION(BlueprintPure)
+    TArray<FSBZGloveInventorySlot> GetUncheckedGloveInventorySlotArray() const;
+    
+    UFUNCTION(BlueprintPure)
     TArray<FSBZSuitInventorySlot> GetSuitInventorySlotArray() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
+    FSBZPlayerCosmeticsConfig GetPlayerCosmeticsConfigArrayForPlatform();
+    
+    UFUNCTION(BlueprintPure)
     TArray<FSBZMaskInventorySlot> GetMaskInventorySlotArray() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZGloveInventorySlot> GetGloveInventorySlotArray() const;
     
     

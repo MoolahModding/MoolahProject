@@ -213,38 +213,38 @@ public:
     void SetLocalClientReady(bool bIsClientReady);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnNetworkStatus(ESBZServiceStatus ServiceStatus);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsLocalClientReady() const;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleOnlinePlatformError(ESBZOnlineSessionRequestType RequestType);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZLobbyCharacterInfoUi> GetUiLobbyInfo() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetPlayersCount();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetPartyMembersCount();
     
     UFUNCTION(BlueprintCallable)
     void GetMenuEvent(const FString& EventName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FString GetMatchmakingRegion() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZLobbyLocalState* GetLobbyState();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetFoundPlayersCount();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZMissionInfo GetBeaconMissionInfo();
     
 };

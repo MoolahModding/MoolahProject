@@ -17,7 +17,6 @@ class UABBlock : public UObject {
     GENERATED_BODY()
 public:
     UABBlock();
-
     UFUNCTION(BlueprintCallable)
     void UnblockPlayer(const FUnblockPlayerRequest& Request, FDUnblockPlayerResponse OnResponse, FDErrorHandler OnError);
     

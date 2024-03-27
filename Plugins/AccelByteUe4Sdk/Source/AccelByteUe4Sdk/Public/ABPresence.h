@@ -15,7 +15,6 @@ class UABPresence : public UObject {
     GENERATED_BODY()
 public:
     UABPresence();
-
     UFUNCTION(BlueprintCallable)
     void SetPresenceStatus(const FAccelBytePresenceStatus& Request, FDOnSetUserPresence OnResponse, FDErrorHandler OnError);
     

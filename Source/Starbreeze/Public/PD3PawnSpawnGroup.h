@@ -35,11 +35,8 @@ public:
     void SetEnabledForAssault(bool bInIsEnabledForAssault);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSpawnFinished(const FSBZPawnSpawnRequestHandle& Handle, APawn* Pawn, ASBZPawnSpawnBase* Spawner);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnSpawnDie(APawn* Pawn);
     
 };
 

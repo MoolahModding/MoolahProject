@@ -1,0 +1,5 @@
+#include "AccelByteModelsPlayerBinaryRecordGetRecordPayload.h"
+
+FAccelByteModelsPlayerBinaryRecordGetRecordPayload::FAccelByteModelsPlayerBinaryRecordGetRecordPayload() {
+}
+

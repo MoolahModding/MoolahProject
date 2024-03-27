@@ -142,7 +142,7 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     bool VisionPredicate(const AActor* Viewer) const;
     
 public:
@@ -156,28 +156,28 @@ public:
     void ResetHackableActor(const float InDuration, bool bKeepCustomMessage, ESBZHackableActorState ResetState);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ProgressData();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_DisplayTextIndex();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState(ESBZHackableActorState OldState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* InInteractableComponent, bool bInNewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetUpdateFrequency(float NewUpdateFrequency);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZHackableActorState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResetHackableActor(bool bKeepCustomMessage);
     
 public:
@@ -185,25 +185,25 @@ public:
     void InterruptHacking(ESBZHackableActorInterruptReason InReason);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_UpdateProgressBar(int32 ProgressDone);
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateCustomSuccessText(const FText& SucessText);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnUnlocked();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZHackableActorState OldState, ESBZHackableActorState NewState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnHackingStarted(const FText& ProcessText);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_GainedAccess();
     
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_DisplayTextIndexChanged(const int32 NewIndex);
     
 public:

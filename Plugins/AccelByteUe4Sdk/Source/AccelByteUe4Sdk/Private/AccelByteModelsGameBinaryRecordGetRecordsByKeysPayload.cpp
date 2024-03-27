@@ -1,0 +1,5 @@
+#include "AccelByteModelsGameBinaryRecordGetRecordsByKeysPayload.h"
+
+FAccelByteModelsGameBinaryRecordGetRecordsByKeysPayload::FAccelByteModelsGameBinaryRecordGetRecordsByKeysPayload() {
+}
+

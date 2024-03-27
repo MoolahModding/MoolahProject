@@ -48,7 +48,7 @@ public:
     void SetChallengeData(const FSBZChallengeData& InChallengeData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChallengeDataUpdated(const FSBZChallengeData& InChallengeData);
     
 };

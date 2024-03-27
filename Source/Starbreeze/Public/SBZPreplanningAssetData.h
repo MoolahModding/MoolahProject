@@ -14,7 +14,7 @@ public:
     TArray<FGameplayTag> Tags;
     
     USBZPreplanningAssetData();
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(meta=(WorldContext="WorldContextObject"))
     void ApplyPreplanningAsset(UObject* WorldContextObject) const;
     
 };

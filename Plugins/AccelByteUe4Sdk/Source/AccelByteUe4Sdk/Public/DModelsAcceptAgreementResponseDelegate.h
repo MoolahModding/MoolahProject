@@ -3,5 +3,5 @@
 #include "AccelByteModelsAcceptAgreementResponse.h"
 #include "DModelsAcceptAgreementResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsAcceptAgreementResponse, FAccelByteModelsAcceptAgreementResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsAcceptAgreementResponse, FAccelByteModelsAcceptAgreementResponse, Response);
 

@@ -25,6 +25,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString UserID;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString ExtensionCategory;
+    
     FAccelByteModelsReportingSubmitDataBase();
 };
 

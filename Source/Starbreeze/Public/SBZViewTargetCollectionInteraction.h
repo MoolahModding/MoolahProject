@@ -24,7 +24,7 @@ public:
     void SetViewTargetCollection(AActor* InActor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
 };

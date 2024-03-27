@@ -29,10 +29,10 @@ public:
     void SetOptionOneName(const FText& InOptionOneName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OptionTwoNameChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OptionOneNameChanged();
     
 };

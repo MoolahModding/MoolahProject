@@ -7,9 +7,6 @@ FSBZPawnSpawnRequestHandle ASBZPawnSpawnPredefined::SpawnPredefined() {
     return FSBZPawnSpawnRequestHandle{};
 }
 
-void ASBZPawnSpawnPredefined::OnSpawnedPawnKilled(APawn* Pawn) {
-}
-
 ASBZPawnSpawnPredefined::ASBZPawnSpawnPredefined() {
     this->bSpawnOnBeginPlay = false;
     this->bOverrideSpawningMethod = false;

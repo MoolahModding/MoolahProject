@@ -27,10 +27,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void ReturnActor(AActor* Actor, float Delay);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnExitedActionPhase();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorDestroyed(AActor* DestroyedActor);
     
     UFUNCTION(BlueprintCallable)
@@ -39,7 +39,7 @@ public:
     UFUNCTION(BlueprintCallable)
     AActor* GetActor(UWorld* World, TSubclassOf<AActor> ActorClass);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZActorPoolManager* Get(const UObject* WorldContextObject);
     
 };

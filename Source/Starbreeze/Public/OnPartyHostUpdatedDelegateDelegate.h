@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnPartyHostUpdatedDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPartyHostUpdatedDelegate);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPartyHostUpdatedDelegate);
 

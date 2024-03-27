@@ -26,33 +26,33 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdatePlayerName(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdatePlatform(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdateInfamyLevel(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UniqueIdUpdated(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SyncSlotsData();
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_SlotsData();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRemovePlayerState(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnGameModeInitialized(AGameModeBase* GameMode);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAddPlayerState(APlayerState* PlayerState);
     
 };

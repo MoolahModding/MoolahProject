@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "JsonObjectWrapper.h"
 #include "AccelByteModelsUserStatItemInfo.generated.h"
 
 USTRUCT(BlueprintType)
@@ -29,6 +30,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Value;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FJsonObjectWrapper AdditionalData;
     
     FAccelByteModelsUserStatItemInfo();
 };

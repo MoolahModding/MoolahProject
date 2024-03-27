@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "AccelByteModelsCreditSummary.h"
 #include "AccelByteModelsEntitlementSummary.h"
+#include "AccelByteModelsSubscriptionSummary.h"
 #include "AccelByteModelsFulfillmentResult.generated.h"
 
 USTRUCT(BlueprintType)
@@ -19,6 +20,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FAccelByteModelsCreditSummary> CreditSummaries;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FAccelByteModelsSubscriptionSummary> SubscriptionSummaries;
     
     FAccelByteModelsFulfillmentResult();
 };

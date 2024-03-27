@@ -1,0 +1,5 @@
+#include "AccelByteModelsMPV1MatchmakingReadyConsentPayload.h"
+
+FAccelByteModelsMPV1MatchmakingReadyConsentPayload::FAccelByteModelsMPV1MatchmakingReadyConsentPayload() {
+}
+

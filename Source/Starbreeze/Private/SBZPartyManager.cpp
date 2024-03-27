@@ -1,6 +1,6 @@
 #include "SBZPartyManager.h"
 
-void USBZPartyManager::SetLobbyType(ESBZOnlineJoinType InLobbyType) {
+void USBZPartyManager::SetLobbyType(ESBZOnlineJoinType InLobbyType, bool bIsSaved) {
 }
 
 FString USBZPartyManager::SendPublicMessage(const FString& Message) {

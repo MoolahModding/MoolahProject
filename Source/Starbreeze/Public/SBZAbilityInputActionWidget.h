@@ -33,11 +33,11 @@ private:
 public:
     USBZAbilityInputActionWidget();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerStateDestroyed(AActor* DestroyedActor);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnActivateAbilityStateChanged(bool bInCanActivate);
     
 };

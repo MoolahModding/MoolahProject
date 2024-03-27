@@ -39,22 +39,22 @@ public:
     void SetActiveIndex(int32 NewActiveIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnPreferredCharacterSlotButtonSelected(USBZCharacterPreferenceCharacterSlotButton* SelectedPreferredCharacterSlotButton);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsActiveSlotEmpty() const;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void InitializeCharacterDisplays();
     
 public:
     UFUNCTION(BlueprintCallable)
     void IncrementActiveIndex();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetActiveIndex() const;
     
     UFUNCTION(BlueprintCallable)

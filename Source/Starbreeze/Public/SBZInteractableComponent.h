@@ -4,6 +4,7 @@
 #include "SBZAnimatedInteractionInterface.h"
 #include "SBZBaseInteractableComponent.h"
 #include "SBZInteractableAudioData.h"
+#include "SBZInteractableLocalizedAnimatedInteractionData.h"
 #include "SBZOnInteractableStateChangedDelegateDelegate.h"
 #include "SBZOnInteractionDelegate.h"
 #include "SBZSharedKeyItemTagChangedEvent.h"
@@ -85,6 +86,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bLocalEnabled: 1;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZInteractableLocalizedAnimatedInteractionData> LocalizedAnimatedInteractionDatas;
+    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bPredictLocalEnd: 1;
@@ -122,23 +126,23 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetDefaultsForTimed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetDefaultsForInstant();
     
     UFUNCTION(BlueprintCallable)
     void Play3DSound(UAkAudioEvent* AudioEvent);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSharedKeyItemTagChanged(const FSBZSharedKeyItemTagChangedEvent& SharedKeyItemTagChangedEventData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_InteractionEnabled(bool bOldInteractionEnabled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetInteractionEnabled(bool bEnabled);
     
     

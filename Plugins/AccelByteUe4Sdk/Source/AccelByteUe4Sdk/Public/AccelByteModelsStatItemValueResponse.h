@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "JsonObjectWrapper.h"
 #include "AccelByteModelsStatItemValueResponse.generated.h"
 
 USTRUCT(BlueprintType)
@@ -30,6 +31,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString UserId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FJsonObjectWrapper AdditionalData;
     
     FAccelByteModelsStatItemValueResponse();
 };

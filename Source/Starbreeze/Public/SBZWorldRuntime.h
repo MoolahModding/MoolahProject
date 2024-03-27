@@ -38,6 +38,9 @@ public:
     USBZActorContainer* AllAliveAIGuards;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZActorContainer* AllAliveAIStreetCops;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZActorContainer* AllAliveAIDrones;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -145,7 +148,7 @@ private:
     
 public:
     USBZWorldRuntime();
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWorldRuntime* Get(const UObject* WorldContextObject);
     
 };

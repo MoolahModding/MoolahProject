@@ -20,10 +20,10 @@ protected:
     
 public:
     USBZUIData();
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TSoftObjectPtr<UPD3SecurityCompanyDataAsset> GetSecurityCompanyData(ESBZSecurityCompany InSecurityCompany) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetDifficultyText(ESBZDifficulty InDifficulty, FText& OutDifficultyText, bool& bHasText) const;
     
 };

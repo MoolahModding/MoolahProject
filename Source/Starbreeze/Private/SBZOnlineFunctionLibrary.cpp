@@ -271,7 +271,7 @@ ESBZFirstPartyPlatform USBZOnlineFunctionLibrary::GetFirstPartyPlatform() {
     return ESBZFirstPartyPlatform::Unknown;
 }
 
-int32 USBZOnlineFunctionLibrary::GetDifficultyIdxArgument() {
+uint8 USBZOnlineFunctionLibrary::GetDifficultyIdxArgument() {
     return 0;
 }
 
