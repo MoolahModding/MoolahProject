@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Templates/SubclassOf.h"
 #include "SBZActorFilterDefinition.generated.h"
 
-class UClass;
+class AActor;
 
 USTRUCT(BlueprintType)
 struct FSBZActorFilterDefinition {
@@ -13,7 +14,7 @@ public:
     FName Identifier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActorClass;
+    TSubclassOf<AActor> ActorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FInt32Range DesiredCountRange;

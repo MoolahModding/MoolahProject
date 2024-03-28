@@ -22,7 +22,6 @@ protected:
     
 public:
     USBZSettingsButtonSlider();
-
     UFUNCTION(BlueprintCallable)
     void SetSliderValue(float InNewValue);
     
@@ -36,13 +35,13 @@ public:
     void SetIncrementValue(float NewIncrementValue);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void MinSliderValueChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void MaxSliderValueChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void IncrementSliderValueChanged();
     
 };

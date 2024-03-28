@@ -4,4 +4,3 @@ USBZEnvQueryTest_SmallestNearbyBottleNeckSize::USBZEnvQueryTest_SmallestNearbyBo
     this->DistanceToCheck = 250.00f;
 }
 
-

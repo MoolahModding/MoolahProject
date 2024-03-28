@@ -14,6 +14,5 @@ protected:
     
 public:
     USBZBTTask_GetNextPatrolPoint();
-
 };
 

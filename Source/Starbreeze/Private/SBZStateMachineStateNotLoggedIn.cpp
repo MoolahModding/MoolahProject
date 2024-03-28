@@ -5,4 +5,3 @@ USBZStateMachineStateNotLoggedIn::USBZStateMachineStateNotLoggedIn() {
     this->LoginBadRequestErrorCount = 0;
 }
 
-

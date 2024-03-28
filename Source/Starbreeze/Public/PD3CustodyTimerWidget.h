@@ -22,6 +22,5 @@ private:
     
 public:
     UPD3CustodyTimerWidget();
-
 };
 

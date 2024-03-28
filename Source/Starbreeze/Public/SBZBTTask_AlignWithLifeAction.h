@@ -20,6 +20,5 @@ protected:
     
 public:
     USBZBTTask_AlignWithLifeAction();
-
 };
 

@@ -10,15 +10,14 @@ class STARBREEZE_API USBZStateMachineStateWaitingActionPhaseDropIn : public USBZ
     GENERATED_BODY()
 public:
     USBZStateMachineStateWaitingActionPhaseDropIn();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerControllerReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleJoinedHost(UWorld* NewWorld);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateReady();
     
 };

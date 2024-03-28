@@ -5,8 +5,5 @@ USBZBTDecorator_ShowMarker::USBZBTDecorator_ShowMarker() {
     this->bShouldChangeDependantOnState = false;
     this->NewMarkerStateThreshold = EPD3HeistState::Assault;
     this->StateDependantMarker = ESBZMarkerState::None;
-    this->FlowAbortMode = EBTFlowAbortMode::Self;
-    this->NodeName = TEXT("Show Marker");
 }
-
 

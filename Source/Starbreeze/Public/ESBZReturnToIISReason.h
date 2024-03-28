@@ -9,6 +9,7 @@ enum class ESBZReturnToIISReason : uint8 {
     LoggedOut,
     SwitchedUser,
     LostConnectionToTheInternet,
+    InvalidLoadout,
     LoggedOutAmbiguously,
 };
 

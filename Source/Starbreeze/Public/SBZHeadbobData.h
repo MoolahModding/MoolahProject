@@ -57,6 +57,5 @@ public:
     USBZTargetingHeadbobData* TargetingData;
     
     USBZHeadbobData();
-
 };
 

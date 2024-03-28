@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnVehicleEscortChangedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnVehicleEscortChanged, bool, bIsMoving);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnVehicleEscortChanged, bool, bIsMoving);
 

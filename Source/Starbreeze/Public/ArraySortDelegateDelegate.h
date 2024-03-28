@@ -4,5 +4,5 @@
 
 class UObject;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_RetVal_TwoParams(bool, FArraySortDelegate, UObject*, ObjectA, UObject*, ObjectB);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_RetVal_TwoParams(bool, FArraySortDelegate, UObject*, ObjectA, UObject*, ObjectB);
 

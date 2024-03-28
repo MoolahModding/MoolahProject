@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "Templates/SubclassOf.h"
 #include "SBZCharacterAbilityData.generated.h"
 
-class UClass;
+class USBZGameplayAbility;
 
 UCLASS(Blueprintable)
 class USBZCharacterAbilityData : public UDataAsset {
@@ -22,9 +23,8 @@ public:
     float InitialDealtDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> AbilityArray;
+    TArray<TSubclassOf<USBZGameplayAbility>> AbilityArray;
     
     USBZCharacterAbilityData();
-
 };
 

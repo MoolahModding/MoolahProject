@@ -20,6 +20,5 @@ public:
     USBZVoiceCommentDataAsset* CallComment;
     
     USBZPingCallAsset();
-
 };
 

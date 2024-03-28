@@ -37,15 +37,14 @@ private:
     
 public:
     USBZReticleWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCrossHairVisibilityChanged(bool bIsVisible);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCrosshairSettingsChanged(const FSBZCrosshairSettings& CrosshairSettings);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCrossHairScaleChanged(float CurrentSpread);
     
 };

@@ -1,14 +1,5 @@
 #include "SBZMainMenuItemInventoryWidget.h"
 
-USBZMainMenuItemInventoryWidget::USBZMainMenuItemInventoryWidget() {
-    this->ItemSlotButtonClass = NULL;
-    this->ItemSlotButtonClass = NULL;
-    this->Panel_ItemSlotButtons = NULL;
-    this->ItemSlotType = ESBZItemLoadoutSlot::Armour;
-    this->SelectedItemButton = NULL;
-    this->StackValue = TEXT("Default__SBZMainMenuItemInventoryWidget");
-}
-
 
 
 
@@ -23,4 +14,10 @@ bool USBZMainMenuItemInventoryWidget::DisplayItemSlotScreen(ESBZItemLoadoutSlot 
     return false;
 }
 
+USBZMainMenuItemInventoryWidget::USBZMainMenuItemInventoryWidget() {
+    this->ItemSlotButtonClass = NULL;
+    this->Panel_ItemSlotButtons = NULL;
+    this->ItemSlotType = ESBZItemLoadoutSlot::Armour;
+    this->SelectedItemButton = NULL;
+}
 

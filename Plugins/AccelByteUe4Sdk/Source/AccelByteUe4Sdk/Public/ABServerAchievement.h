@@ -10,7 +10,6 @@ class UABServerAchievement : public UObject {
     GENERATED_BODY()
 public:
     UABServerAchievement();
-
     UFUNCTION(BlueprintCallable)
     void UnlockAchievement(const FString& UserId, const FString& AchievementCode, FDHandler OnSuccess, FDErrorHandler OnError);
     

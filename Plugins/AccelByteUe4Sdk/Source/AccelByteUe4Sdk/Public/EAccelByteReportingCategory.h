@@ -7,5 +7,6 @@ enum class EAccelByteReportingCategory : uint8 {
     UGC,
     USER,
     CHAT,
+    EXTENSION,
 };
 

@@ -1,12 +1,5 @@
 #include "SBZBlackMarketPaydayStoreScreen.h"
 
-USBZBlackMarketPaydayStoreScreen::USBZBlackMarketPaydayStoreScreen() {
-    this->Panel_ItemList = NULL;
-    this->RealMoneyStoreItemButtonClass = NULL;
-    this->RealMoneyStoreItemButtonClass = NULL;
-    this->StackValue = TEXT("Default__SBZBlackMarketPaydayStoreScreen");
-}
-
 
 
 
@@ -16,4 +9,8 @@ void USBZBlackMarketPaydayStoreScreen::OnRealMoneyItemButtonSelected(USBZMenuBut
 void USBZBlackMarketPaydayStoreScreen::OnBuyRealMoneyItemPurchaseCompleted(ESBZMetaRequestResult Result) {
 }
 
+USBZBlackMarketPaydayStoreScreen::USBZBlackMarketPaydayStoreScreen() {
+    this->Panel_ItemList = NULL;
+    this->RealMoneyStoreItemButtonClass = NULL;
+}
 

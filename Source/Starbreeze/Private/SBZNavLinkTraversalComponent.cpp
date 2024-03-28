@@ -4,4 +4,3 @@ USBZNavLinkTraversalComponent::USBZNavLinkTraversalComponent() {
     this->QueryParams = NULL;
 }
 
-

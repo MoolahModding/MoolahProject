@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnActionPhaseStartedDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnActionPhaseStartedDelegate);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnActionPhaseStartedDelegate);
 

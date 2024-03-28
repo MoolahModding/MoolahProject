@@ -19,7 +19,6 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsOrder();
-
     UFUNCTION(BlueprintCallable)
     static void GetUserOrders(int32 Page, int32 Size, const UAccelByteBlueprintsOrder::FGetUserOrdersSuccess& OnSuccess, const UAccelByteBlueprintsOrder::FBlueprintErrorHandler& OnError);
     

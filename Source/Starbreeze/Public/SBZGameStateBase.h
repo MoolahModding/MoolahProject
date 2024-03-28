@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZGameStateBase : public AGameStateBase {
     GENERATED_BODY()
 public:
-    ASBZGameStateBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGameStateBase();
 };
 

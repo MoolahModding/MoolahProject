@@ -13,6 +13,5 @@ private:
     
 public:
     USBZEnvQueryTest_SmallestNearbyBottleNeckSize();
-
 };
 

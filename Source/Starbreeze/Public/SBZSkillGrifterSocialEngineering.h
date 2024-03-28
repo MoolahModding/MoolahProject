@@ -8,6 +8,5 @@ class USBZSkillGrifterSocialEngineering : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGrifterSocialEngineering();
-
 };
 

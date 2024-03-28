@@ -1,7 +1,6 @@
 #include "SBZThermalScopeWeapon.h"
 
-ASBZThermalScopeWeapon::ASBZThermalScopeWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZThermalScopeWeapon::ASBZThermalScopeWeapon() {
     this->TargetSocketName = TEXT("UpperBodyAttachment");
 }
-
 

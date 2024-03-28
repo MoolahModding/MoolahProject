@@ -5,4 +5,3 @@ USBZVoiceCommentNotify::USBZVoiceCommentNotify() {
     this->VoicePriority = ESBZVoicePriority::MediumPriority;
 }
 
-

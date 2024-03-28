@@ -11,19 +11,18 @@ class USBZRewardWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZRewardWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnChallengeCompleted(const FSBZChallengeData& ChallengeData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void InfamyExperinceChanged(int32 PreviousInfamyExperince, int32 CurrentInfamyExperience, int32 SkillPointsEarned);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ChallengeCompleted(const FSBZChallengeData& ChallengeData);
     
 };

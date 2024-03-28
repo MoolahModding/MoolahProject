@@ -43,24 +43,23 @@ protected:
     TArray<FSBZGasGrenadeTarget> TargetArray;
     
 public:
-    ASBZGasGrenade(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGasGrenade();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_GasExplosionData();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bIsSweep, const FHitResult& SweepHitResult);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosionLocation(const FVector_NetQuantize& Location);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

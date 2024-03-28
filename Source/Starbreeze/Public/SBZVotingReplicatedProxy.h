@@ -16,39 +16,44 @@ private:
     uint8 bDummy: 1;
     
 public:
-    ASBZVotingReplicatedProxy(const FObjectInitializer& ObjectInitializer);
-
+    ASBZVotingReplicatedProxy();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    
+    UFUNCTION(Reliable, Server)
     void Server_NotifySendVoteRecall(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_NotifySendVoteInitiate(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, bool bVotePositive);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_NotifySendVoteAnswer(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer);
     
+    UFUNCTION(Reliable, Server)
+    void Server_NotifyClientDisconnected(FUniqueNetIdRepl PlayerId);
+    
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastReceiveVoteRecall(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastReceiveVoteInitiate(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, FDateTime TimeStarted, const TArray<FUniqueNetIdRepl>& PlayersPending);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastReceiveVoteAnswer(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastReceiveLocalizedChatMessage(const FString& FormatLocaleKey, const TArray<FString>& ExportedArgsNames, const TArray<FString>& ExportedArgsStrings, const TArray<FString>& ArgsToLocalizeNames, const TArray<FString>& ArgsToLocalizeLocaleKeys);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
+    void MulticastReceiveClientDisconnected(FUniqueNetIdRepl PlayerId);
+    
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastReceiveChatMessage(const FString& Message);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastExecuteAction();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void MulticastClearCurrentVote();
     
 };

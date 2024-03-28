@@ -8,6 +8,5 @@ class USBZSkillGunslingerFinisher : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGunslingerFinisher();
-
 };
 

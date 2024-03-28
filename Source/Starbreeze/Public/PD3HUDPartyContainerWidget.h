@@ -1,9 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "PD3HUDPartyContainerWidget.generated.h"
 
-class UClass;
+class UPD3HUDAICrewStatusWidget;
+class UPD3HUDPlayerStatusWidget;
 class UPD3KeyItemContainer;
 class UPanelWidget;
 
@@ -13,10 +15,10 @@ class UPD3HUDPartyContainerWidget : public USBZWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PartyClientWidgetClass;
+    TSubclassOf<UPD3HUDPlayerStatusWidget> PartyClientWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PartyAICrewWidgetClass;
+    TSubclassOf<UPD3HUDAICrewStatusWidget> PartyAICrewWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPD3KeyItemContainer* Widget_SharedKeyItemContainer;
@@ -29,6 +31,5 @@ protected:
     
 public:
     UPD3HUDPartyContainerWidget();
-
 };
 

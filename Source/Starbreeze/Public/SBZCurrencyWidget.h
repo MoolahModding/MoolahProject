@@ -26,7 +26,6 @@ protected:
     
 public:
     USBZCurrencyWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void SetCurrencyValue(int32 InValue);
@@ -34,13 +33,13 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetCurrencyType(ESBZCurrencyCode InCurrencyType);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCurrencyValueChanged(int32 NewValue, bool bIsInitial);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCurrencyTypeChanged(ESBZCurrencyCode InCurrencyType, bool bIsInitial);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAffordedChanged(bool bInIsAfforded, bool bIsInitial);
     
 };

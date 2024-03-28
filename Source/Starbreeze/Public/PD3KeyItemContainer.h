@@ -4,9 +4,9 @@
 #include "SBZOnKeyItemCountChangedDelegateDelegate.h"
 #include "SBZPlayerStateWidgetBase.h"
 #include "SBZSharedKeyItemTagChangedEvent.h"
+#include "Templates/SubclassOf.h"
 #include "PD3KeyItemContainer.generated.h"
 
-class UClass;
 class UPD3HUDKeyItemWidget;
 class UPanelWidget;
 
@@ -25,7 +25,7 @@ protected:
     bool bIsShared;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* KeyItemWidgetClass;
+    TSubclassOf<UPD3HUDKeyItemWidget> KeyItemWidgetClass;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnKeyItemCountChangedDelegate OnKeyItemCountChangedDelegate;
@@ -36,12 +36,11 @@ private:
     
 public:
     UPD3KeyItemContainer();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSharedKeyItemCountChanged(const FSBZSharedKeyItemTagChangedEvent& SharedKeyItemTagChangedEventData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnKeyItemCountChanged(const FSBZKeyItemCountChangedEvent& KeyItemCountChangedEventData);
     
 };

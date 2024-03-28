@@ -8,6 +8,5 @@ class USBZSkillDemolitionistOvercooked : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillDemolitionistOvercooked();
-
 };
 

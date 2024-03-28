@@ -16,33 +16,32 @@ protected:
     
 public:
     USBZPartyClient();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void ServerNotifyLeftLobby(const FUniqueNetIdRepl& ClientId);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void ServerNotifyJoinedLobby(const FUniqueNetIdRepl& ClientId);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void ServerNotifyFailedToJoinLobby(const FUniqueNetIdRepl& ClientId);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void ServerLogin(const FSBZPartyMemberInfo& Client);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_PartyState();
     
 public:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void LeaveLobby();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void ConnectToLobby(const FString& InLobbyNetId);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void ClientLoginAck(const FUniqueNetIdRepl& InNetId, bool bWasSuccessful);
     
 };

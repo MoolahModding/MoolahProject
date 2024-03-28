@@ -12,6 +12,5 @@ public:
     FSBZReactionData Reaction;
     
     USBZReactionDataComponent();
-
 };
 

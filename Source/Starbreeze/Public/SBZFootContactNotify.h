@@ -25,6 +25,5 @@ private:
     
 public:
     USBZFootContactNotify();
-
 };
 

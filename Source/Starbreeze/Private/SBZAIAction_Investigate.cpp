@@ -6,4 +6,3 @@ USBZAIAction_Investigate::USBZAIAction_Investigate() {
     this->EscalationReason = NULL;
 }
 
-

@@ -3,9 +3,10 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataAsset.h"
 #include "SBZLockCameraData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZTasedData.generated.h"
 
-class UClass;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class USBZTasedData : public UDataAsset {
@@ -30,18 +31,17 @@ public:
     FFloatInterval UncontrolledShootingCooldownTimeInterval;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TasedCameraShakeFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> TasedCameraShakeFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TasedGentlyCameraShakeFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> TasedGentlyCameraShakeFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TasedUncontrolledCameraShakeFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> TasedUncontrolledCameraShakeFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZLockCameraData LockCameraData;
     
     USBZTasedData();
-
 };
 

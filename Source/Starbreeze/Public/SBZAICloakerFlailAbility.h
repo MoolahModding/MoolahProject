@@ -8,6 +8,5 @@ class USBZAICloakerFlailAbility : public USBZMeleeAbility {
     GENERATED_BODY()
 public:
     USBZAICloakerFlailAbility();
-
 };
 

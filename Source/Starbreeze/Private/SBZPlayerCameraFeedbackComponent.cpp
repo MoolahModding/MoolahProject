@@ -1,8 +1,5 @@
 #include "SBZPlayerCameraFeedbackComponent.h"
-
-USBZPlayerCameraFeedbackComponent::USBZPlayerCameraFeedbackComponent() {
-    this->PlayerCameraOwner = NULL;
-}
+#include "Templates/SubclassOf.h"
 
 bool USBZPlayerCameraFeedbackComponent::SetFeedbackIntensity(int32 FeedbackID, float InIntensity) {
     return false;
@@ -23,11 +20,14 @@ bool USBZPlayerCameraFeedbackComponent::FadeOutFeedback(int32 RemoveID, bool bIs
     return false;
 }
 
-void USBZPlayerCameraFeedbackComponent::CooldownTimerDelegate(UClass* FeedbackClass) {
+void USBZPlayerCameraFeedbackComponent::CooldownTimerDelegate(TSubclassOf<USBZLocalPlayerFeedback> FeedbackClass) {
 }
 
 int32 USBZPlayerCameraFeedbackComponent::AddFeedback(FSBZLocalPlayerFeedbackParameters& Parameters) {
     return 0;
 }
 
+USBZPlayerCameraFeedbackComponent::USBZPlayerCameraFeedbackComponent() {
+    this->PlayerCameraOwner = NULL;
+}
 

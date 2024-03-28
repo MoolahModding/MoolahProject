@@ -3,9 +3,9 @@
 #include "UObject/Object.h"
 #include "GameplayTagContainer.h"
 #include "EPD3HeistState.h"
-#include "PD3SpawnSquad.h"
 #include "PD3VehicleSpawnRequest.h"
 #include "SBZDamageEvent.h"
+#include "Templates/SubclassOf.h"
 #include "PD3AssaultManager.generated.h"
 
 class APD3PawnSpawnGroup;
@@ -13,6 +13,7 @@ class APawn;
 class ASBZSpline;
 class UPD3AssaultManager;
 class UPD3AssaultSettings;
+class USBZAISquadOrder;
 class USBZAssaultVehicleSpawnerData;
 class USBZSpawnManager;
 
@@ -25,10 +26,10 @@ private:
     UPD3AssaultSettings* Settings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSet<APD3PawnSpawnGroup*> SpawnGroupSet;
+    TArray<TSubclassOf<USBZAISquadOrder>> CachedSpawnOrders;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FPD3SpawnSquad CloakerSquad;
+    TSet<APD3PawnSpawnGroup*> SpawnGroupSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer CountedTypes;
@@ -44,7 +45,6 @@ private:
     
 public:
     UPD3AssaultManager();
-
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StartEndlessAssault();
     
@@ -61,29 +61,26 @@ public:
     void RequestVehicleSpawn(USBZAssaultVehicleSpawnerData* VehicleData, ASBZSpline* EnterSpline, ASBZSpline* ExitSpline);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayersAliveChanged(const TArray<UObject*>& Players);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPawnSpawned(USBZSpawnManager* SpawnManager, APawn* Pawn);
     
-    UFUNCTION(BlueprintCallable)
-    void OnPawnKilled(APawn* Pawn);
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
-    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime);
+    UFUNCTION()
+    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDamageTakenEvent(const FSBZDamageEvent& DamageEventdata);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsAssaultActive() const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPD3AssaultManager* Get(const UObject* WorldContextObject);
     
 };

@@ -5,12 +5,13 @@
 #include "SBZButtonControlReference.h"
 #include "SBZInventorySlotStoreItem.h"
 #include "SBZMenuStackInventoryBaseScreen.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuMaskInventoryScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBaseInventoryItemVisualsWidget;
 class USBZCosmeticsPartSlot;
+class USBZInventoryDefaultButton;
 class USBZMainMenuInventoryMaskSlotButton;
 class USBZMaskData;
 class USBZMenuButton;
@@ -21,7 +22,7 @@ class USBZMainMenuMaskInventoryScreen : public USBZMenuStackInventoryBaseScreen 
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MaskSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventoryMaskSlotButton> MaskSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_MaskSlotButtons;
@@ -30,10 +31,10 @@ protected:
     USBZMenuButton* Button_BuySlots;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZMenuButton* Button_DefaultMask;
+    USBZInventoryDefaultButton* Button_DefaultMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DiscardMaskPopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> DiscardMaskPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText DiscardMaskPopUpHeader;
@@ -68,66 +69,70 @@ private:
     
 public:
     USBZMainMenuMaskInventoryScreen();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardMaskInSlot(int32 InMaskIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+private:
+    UFUNCTION()
+    void RefreshWidgetVisuals();
+    
+protected:
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTryBuyMaskSlot();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSlotPurchaseComplete(bool bWasSuccessful);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSlotPriceChanged(const FSBZInventorySlotStoreItem& Item);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnShowBuySlotPopUpClosed(FName InActionName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemDiscarded(bool bWasSuccessful);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEditButtonPressed(int32 MaskSlotIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDiscardMaskPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnMaskSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnMaskSlotButtonAltSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnMaskDefaultButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnDefaultSet(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeMaskSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void MaskSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DiscardItemDone(ESBZMetaRequestResult DiscardItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanDiscardMaskInSlot(int32 InMaskIndex) const;
     
 };

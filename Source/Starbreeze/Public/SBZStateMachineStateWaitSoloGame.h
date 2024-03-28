@@ -15,9 +15,8 @@ private:
     
 public:
     USBZStateMachineStateWaitSoloGame();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerSpawnDelay();
     
 };

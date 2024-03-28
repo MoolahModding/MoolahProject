@@ -17,9 +17,8 @@ private:
     
 public:
     USBZBTTask_SabotageAnimation();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMontageEnded(UAnimMontage* Montage, bool bIsInterrupted, UBehaviorTreeComponent* OwnerComp);
     
 };

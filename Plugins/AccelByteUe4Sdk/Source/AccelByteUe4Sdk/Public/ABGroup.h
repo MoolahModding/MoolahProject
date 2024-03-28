@@ -50,7 +50,6 @@ class UABGroup : public UObject {
     GENERATED_BODY()
 public:
     UABGroup();
-
     UFUNCTION(BlueprintCallable)
     void UpdateV2GroupPredefinedRule(const FString& GroupId, const EAccelByteAllowedAction& AllowedAction, const FAccelByteModelsUpdateGroupPredefinedRuleRequest& RequestContent, const FUpdateGroupPredefinedRuleSuccess& OnSuccess, const FDErrorHandler& OnError);
     

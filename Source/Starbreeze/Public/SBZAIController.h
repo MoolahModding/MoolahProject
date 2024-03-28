@@ -11,12 +11,12 @@
 #include "SBZGateNavAgentInterface.h"
 #include "SBZOnPawnKilledDelegate.h"
 #include "SBZPathFocusHandler.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIController.generated.h"
 
 class AActor;
 class APawn;
 class UBlackboardData;
-class UClass;
 class USBZAIAction;
 class USBZAIOrder;
 class USBZAIUtilityComponent;
@@ -73,7 +73,16 @@ protected:
     float MinDistFromTraversalNavLinkToFocus;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SameRoomTargetFocusDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FocusOnLastVisibleLocationDuration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> DisabledReasonArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName LastDisabledReason;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -86,35 +95,34 @@ private:
     uint8 HeistStateAlert;
     
 public:
-    ASBZAIController(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAIController();
     UFUNCTION(BlueprintCallable)
     bool PushOrder(USBZAIOrder* Order, ESBZAIOrderMode Mode);
     
     UFUNCTION(BlueprintCallable)
-    USBZAIAction* PushAction(UClass* ActionClass, AActor* TargetActor);
+    USBZAIAction* PushAction(TSubclassOf<USBZAIAction> ActionClass, AActor* TargetActor);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOrderCompleted(USBZAIOrder* Order, APawn* OrderPawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEnemyKilled(APawn* KilledPawn);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionCompleted(USBZAIAction* Action, AActor* Actor, bool bSuccess);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionCanceled(USBZAIAction* Action);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     APawn* GetCurrentEnemy() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnCurrentEnemyAssigned();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

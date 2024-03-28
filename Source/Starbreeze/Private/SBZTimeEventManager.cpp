@@ -1,8 +1,5 @@
 #include "SBZTimeEventManager.h"
 
-USBZTimeEventManager::USBZTimeEventManager() {
-}
-
 void USBZTimeEventManager::RequestTimeEventCheck() {
 }
 
@@ -14,4 +11,6 @@ USBZTimeEventManager* USBZTimeEventManager::Get(const UObject* WorldContextObjec
     return NULL;
 }
 
+USBZTimeEventManager::USBZTimeEventManager() {
+}
 

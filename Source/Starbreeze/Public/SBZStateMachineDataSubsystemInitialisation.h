@@ -12,6 +12,5 @@ public:
     ESBZReturnToSubsystemInitialisationReason ReturnReason;
     
     USBZStateMachineDataSubsystemInitialisation();
-
 };
 

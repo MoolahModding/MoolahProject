@@ -22,6 +22,5 @@ public:
     float MinimumProgress;
     
     USBZDrillMaterial();
-
 };
 

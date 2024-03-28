@@ -16,8 +16,7 @@ protected:
     
 public:
     USBZMainMenuInventoryItemWidget();
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void InitializeItem(const USBZInventoryBaseData* InInventoryItemData);
     
 };

@@ -8,6 +8,5 @@ class USBZPitchLookCameraModifier : public USBZPlayerCameraModifier {
     GENERATED_BODY()
 public:
     USBZPitchLookCameraModifier();
-
 };
 

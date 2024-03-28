@@ -22,11 +22,10 @@ private:
     
 public:
     USBZMarkerManager();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ReplicatedMarkers();
     
 private:

@@ -8,6 +8,5 @@ class USBZUnblockHandleEquipmentAbilityNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZUnblockHandleEquipmentAbilityNotify();
-
 };
 

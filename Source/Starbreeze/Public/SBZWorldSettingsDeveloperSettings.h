@@ -25,6 +25,5 @@ public:
     TSoftObjectPtr<USBZLifeActionSettings> DefaultLifeActionSettings;
     
     USBZWorldSettingsDeveloperSettings();
-
 };
 

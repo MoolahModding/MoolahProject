@@ -8,6 +8,5 @@ class USBZChamberAttachmentOffsetState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZChamberAttachmentOffsetState();
-
 };
 

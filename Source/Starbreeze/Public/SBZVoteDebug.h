@@ -8,6 +8,5 @@ class USBZVoteDebug : public USBZVote {
     GENERATED_BODY()
 public:
     USBZVoteDebug();
-
 };
 

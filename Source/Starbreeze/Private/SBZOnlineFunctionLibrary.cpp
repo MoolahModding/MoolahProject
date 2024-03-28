@@ -1,8 +1,5 @@
 #include "SBZOnlineFunctionLibrary.h"
 
-USBZOnlineFunctionLibrary::USBZOnlineFunctionLibrary() {
-}
-
 void USBZOnlineFunctionLibrary::UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
 }
 
@@ -215,11 +212,11 @@ UTexture2D* USBZOnlineFunctionLibrary::GetPlayerAvatar(UObject* WorldContextObje
 }
 
 ESBZPlatform USBZOnlineFunctionLibrary::GetPlatformFromAccelbytePlatformId(const FString& AccelbytePlatformId) {
-    return ESBZPlatform::Windows;
+    return ESBZPlatform::Unknown;
 }
 
 ESBZPlatform USBZOnlineFunctionLibrary::GetPlatform() {
-    return ESBZPlatform::Windows;
+    return ESBZPlatform::Unknown;
 }
 
 FSoftObjectPath USBZOnlineFunctionLibrary::GetPathNameFromLevelIdx(const UObject* WorldContextObject, int32 LevelIdx) {
@@ -270,7 +267,11 @@ int32 USBZOnlineFunctionLibrary::GetFoundPlayersCount(UObject* WorldContextObjec
     return 0;
 }
 
-int32 USBZOnlineFunctionLibrary::GetDifficultyIdxArgument() {
+ESBZFirstPartyPlatform USBZOnlineFunctionLibrary::GetFirstPartyPlatform() {
+    return ESBZFirstPartyPlatform::Unknown;
+}
+
+uint8 USBZOnlineFunctionLibrary::GetDifficultyIdxArgument() {
     return 0;
 }
 
@@ -296,6 +297,14 @@ void USBZOnlineFunctionLibrary::GetBeaconMissionInfo(UObject* WorldContextObject
 void USBZOnlineFunctionLibrary::GetAllPlayersUniqueNetIds(UObject* WorldContextObject, TArray<FUniqueNetIdRepl>& OutParam) {
 }
 
+EAccelBytePlatformType USBZOnlineFunctionLibrary::GetAccelbytePlatformTypeFromFirstPartyPlatformType(ESBZFirstPartyPlatform FirstPartyPlatform) {
+    return EAccelBytePlatformType::Steam;
+}
+
+EAccelBytePlatformType USBZOnlineFunctionLibrary::GetAccelBytePlatformType() {
+    return EAccelBytePlatformType::Steam;
+}
+
 FString USBZOnlineFunctionLibrary::GetAccelByteLinkedAccountsUrl() {
     return TEXT("");
 }
@@ -316,4 +325,6 @@ void USBZOnlineFunctionLibrary::ActivateProfileOverlay(UObject* WorldContextObje
 void USBZOnlineFunctionLibrary::ActivatePartyInviteOverlay(UObject* WorldContextObject) {
 }
 
+USBZOnlineFunctionLibrary::USBZOnlineFunctionLibrary() {
+}
 

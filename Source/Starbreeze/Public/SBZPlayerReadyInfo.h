@@ -3,6 +3,7 @@
 #include "Engine/NetSerialization.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "EPlayerReadyStatusValue.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "ESBZPlatform.h"
 #include "SBZPlayerReadyInfo.generated.h"
 
@@ -33,6 +34,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZPlatform Platform;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZFirstPartyPlatform FirstPartyPlatform;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InfamyLevel;

@@ -2,11 +2,13 @@
 #include "CoreMinimal.h"
 #include "Curves/CurveFloat.h"
 #include "SBZThrowableData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGrenadeData.generated.h"
 
 class UAkAudioEvent;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Abstract, Blueprintable)
 class USBZGrenadeData : public USBZThrowableData {
@@ -40,18 +42,17 @@ public:
     UNiagaraSystem* DropDetonationEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PlayerFeedbackCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TacticianDiscombobulateEffectClass;
+    TSubclassOf<UGameplayEffect> TacticianDiscombobulateEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FName, float> TacticianDiscombobulateEffectValueMap;
     
     USBZGrenadeData();
-
 };
 

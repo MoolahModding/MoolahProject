@@ -35,7 +35,6 @@ protected:
     FSBZMaskConfig MaskConfig;
     
 public:
-    ASBZMask(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMask();
 };
 

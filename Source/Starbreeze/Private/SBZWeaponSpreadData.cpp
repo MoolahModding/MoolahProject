@@ -12,8 +12,5 @@ USBZWeaponSpreadData::USBZWeaponSpreadData() {
     this->SpreadRecoveryMode = ESBZWeaponSpreadRecoveryMode::ResetTime;
     this->DeviationHipFireMultiplier = 1.50f;
     this->DeviationTargetingFireMultiplier = 1.00f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZWeaponSpreadData::StaticClass();
 }
-
 

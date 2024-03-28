@@ -89,36 +89,35 @@ private:
     
 public:
     USBZTrafficManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnExitedActionPhase();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEnteredActionPhase(UWorld* World);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleVehicleStopped(ASBZWheeledVehicle* Vehicle);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleVehicleEndObstacle(ASBZWheeledVehicle* Vehicle, AActor* Actor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleVehicleBeginObstacle(ASBZWheeledVehicle* Vehicle, AActor* Actor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleSwatVanArrived(ASBZWheeledVehicle* Vehicle);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleFirstResponderArrived(ASBZWheeledVehicle* Vehicle);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleEscapeVanArrived(ASBZWheeledVehicle* Vehicle);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleCivilianArrived(ASBZWheeledVehicle* Vehicle);
     
 };

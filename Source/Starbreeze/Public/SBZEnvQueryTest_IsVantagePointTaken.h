@@ -8,6 +8,5 @@ class USBZEnvQueryTest_IsVantagePointTaken : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsVantagePointTaken();
-
 };
 

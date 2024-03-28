@@ -3,9 +3,10 @@
 #include "UObject/NoExportTypes.h"
 #include "SBZAgilityAnimationQueryFilter.h"
 #include "SBZAgilityMontage.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAgilityAnimationQueryParam.generated.h"
 
-class UClass;
+class UNavAreaBase;
 
 USTRUCT(BlueprintType)
 struct FSBZAgilityAnimationQueryParam {
@@ -24,7 +25,7 @@ public:
     FFloatInterval AlignmentAngle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* AreaClass;
+    TSubclassOf<UNavAreaBase> AreaClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZAgilityAnimationQueryFilter> AnimationFilters;

@@ -8,6 +8,5 @@ class USBZListenerManager : public UObject {
     GENERATED_BODY()
 public:
     USBZListenerManager();
-
 };
 

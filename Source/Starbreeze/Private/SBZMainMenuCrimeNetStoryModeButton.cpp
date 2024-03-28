@@ -4,4 +4,3 @@ USBZMainMenuCrimeNetStoryModeButton::USBZMainMenuCrimeNetStoryModeButton() {
     this->bIsIntroVideo = false;
 }
 
-

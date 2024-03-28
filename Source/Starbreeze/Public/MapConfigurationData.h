@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZCashRewardModifier.h"
+#include "SBZInfamyPointPayout.h"
 #include "SBZInstantLootValues.h"
 #include "SBZLootValueArray.h"
 #include "SBZPerformanceBonusArray.h"
@@ -55,6 +56,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FString, FSBZPlayerStatisticArray> StealthLevelCompletedStatistics;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZInfamyPointPayout> InfamyPointPayoutArray;
     
     STARBREEZE_API FMapConfigurationData();
 };

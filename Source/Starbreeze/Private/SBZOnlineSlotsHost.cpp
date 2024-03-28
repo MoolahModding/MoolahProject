@@ -1,5 +1,8 @@
 #include "SBZOnlineSlotsHost.h"
 
+void USBZOnlineSlotsHost::IndividualReadyTimerTimeout(FUniqueNetIdRepl PlayerId) {
+}
+
 USBZOnlineSlotsHost::USBZOnlineSlotsHost() {
     this->SlotsSync = NULL;
     this->PreMatchLongReadyTimeLimit = 300.00f;
@@ -7,5 +10,4 @@ USBZOnlineSlotsHost::USBZOnlineSlotsHost() {
     this->PreTravelTimeLimit = 5.00f;
     this->OnlineSession = NULL;
 }
-
 

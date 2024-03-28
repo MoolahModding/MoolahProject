@@ -8,6 +8,5 @@ class USBZBTTask_ObjectiveInteractionBreakGlass : public USBZBTTask_ObjectiveInt
     GENERATED_BODY()
 public:
     USBZBTTask_ObjectiveInteractionBreakGlass();
-
 };
 

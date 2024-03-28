@@ -63,6 +63,5 @@ public:
     bool bExportTextTypeAsPath;
     
     UGridlyGameSettings();
-
 };
 

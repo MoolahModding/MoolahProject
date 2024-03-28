@@ -6,6 +6,5 @@ FSBZAgilityTrajectory::FSBZAgilityTrajectory() {
     this->ForcedMontage = NULL;
     this->bRecomputeEndUsingAnimation = false;
     this->AreaClass = NULL;
-    this->AreaClass = NULL;
 }
 

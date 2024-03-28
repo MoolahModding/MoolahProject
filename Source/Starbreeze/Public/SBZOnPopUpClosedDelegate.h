@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnPopUpClosedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPopUpClosed);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPopUpClosed);
 

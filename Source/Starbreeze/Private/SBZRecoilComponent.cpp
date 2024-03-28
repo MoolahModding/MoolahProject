@@ -6,4 +6,3 @@ USBZRecoilComponent::USBZRecoilComponent() {
     this->CurrentRecoilData = NULL;
 }
 
-

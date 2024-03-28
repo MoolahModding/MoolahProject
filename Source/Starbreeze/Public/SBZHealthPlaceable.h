@@ -12,10 +12,12 @@ protected:
     float HealthGainedPerCharge;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float DownsGainedPerCharge;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowPartialCharges;
     
 public:
-    ASBZHealthPlaceable(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHealthPlaceable();
 };
 

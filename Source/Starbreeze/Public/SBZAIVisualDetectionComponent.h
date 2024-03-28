@@ -52,24 +52,23 @@ private:
     
 public:
     USBZAIVisualDetectionComponent();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTargetIllegalAction(AActor* Target);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLifetimeChanged(APawn* TargetPawn);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHostageStateChanged(uint8 HostageState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleOnNewPawn(APawn* Pawn);
     
 };

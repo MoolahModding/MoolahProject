@@ -60,8 +60,7 @@ protected:
     ASBZBagRespawnPoint* BagTeleportPoint;
     
 public:
-    ASBZBagTriggerVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBagTriggerVolume();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     
@@ -75,7 +74,7 @@ public:
     bool FilterBag(ASBZBagItem* BagItem, FSBZBagHandle BagHandle);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     bool CheckCustomBagFilter(ASBZBagItem* BagItem, FSBZBagHandle BagHandle);
     
 };

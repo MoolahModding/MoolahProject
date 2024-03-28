@@ -46,6 +46,5 @@ protected:
     
 public:
     USBZTacticalNavigationQueryFilter();
-
 };
 

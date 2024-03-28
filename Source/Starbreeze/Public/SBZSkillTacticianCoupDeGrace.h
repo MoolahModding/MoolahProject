@@ -8,6 +8,5 @@ class USBZSkillTacticianCoupDeGrace : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTacticianCoupDeGrace();
-
 };
 

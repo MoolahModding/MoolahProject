@@ -5,4 +5,3 @@ USBZSkillsMenuButton::USBZSkillsMenuButton() {
     this->SkillType = ESBZSkillType::None;
 }
 
-

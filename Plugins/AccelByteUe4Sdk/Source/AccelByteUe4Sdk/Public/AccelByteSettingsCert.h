@@ -8,6 +8,5 @@ class ACCELBYTEUE4SDK_API UAccelByteSettingsCert : public UAccelByteSettings {
     GENERATED_BODY()
 public:
     UAccelByteSettingsCert();
-
 };
 

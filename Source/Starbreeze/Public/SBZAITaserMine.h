@@ -5,13 +5,14 @@
 #include "SBZExplosive.h"
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAITaserMine.generated.h"
 
 class AActor;
 class ASBZSmallCosmeticDestruction;
 class UAkAudioEvent;
 class UAkComponent;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
 class USphereComponent;
 
@@ -33,10 +34,10 @@ private:
     UNiagaraSystem* DestroyedEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DestroyedMesh;
+    TSubclassOf<ASBZSmallCosmeticDestruction> DestroyedMesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TasedEffect;
+    TSubclassOf<UGameplayEffect> TasedEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USphereComponent* OverlapSphere;
@@ -66,22 +67,21 @@ private:
     ASBZSmallCosmeticDestruction* Spawned;
     
 public:
-    ASBZAITaserMine(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAITaserMine();
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnWalkedOnTarget(AActor* OtherActor);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnWalkedOn();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DamageRejected();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

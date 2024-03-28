@@ -8,6 +8,5 @@ class STARBREEZE_API USBZAllowPhoneDialogNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZAllowPhoneDialogNotifyState();
-
 };
 

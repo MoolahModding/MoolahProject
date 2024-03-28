@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnSlotReservationCompleteDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSlotReservationComplete);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSlotReservationComplete);
 

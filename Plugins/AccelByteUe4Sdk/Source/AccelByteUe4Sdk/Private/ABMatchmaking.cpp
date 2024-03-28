@@ -1,8 +1,5 @@
 #include "ABMatchmaking.h"
 
-UABMatchmaking::UABMatchmaking() {
-}
-
 void UABMatchmaking::StartMatchmaking(const FStartMatchmakingRequest& Request, FDStartMatchmakingResponse OnResponse, FDErrorHandler OnError) {
 }
 
@@ -30,4 +27,6 @@ void UABMatchmaking::SetOnDs(FDDsNotif OnNotif) {
 void UABMatchmaking::CancelMatchmaking(const FCancelMatchmakingRequest& Request, FDCancelMatchmakingResponse OnResponse, FDErrorHandler OnError) {
 }
 
+UABMatchmaking::UABMatchmaking() {
+}
 

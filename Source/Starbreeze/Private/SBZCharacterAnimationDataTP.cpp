@@ -55,8 +55,5 @@ USBZCharacterAnimationDataTP::USBZCharacterAnimationDataTP() {
     this->SlopeWarpingAlpha = 1.00f;
     this->WrinkleAlpha = 1.00f;
     this->bCanDoHipsZBlending = true;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZCharacterAnimationDataTP::StaticClass();
 }
-
 

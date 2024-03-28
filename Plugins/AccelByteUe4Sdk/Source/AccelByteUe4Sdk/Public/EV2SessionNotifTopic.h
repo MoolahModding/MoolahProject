@@ -18,6 +18,8 @@ enum class EV2SessionNotifTopic : uint8 {
     OnDSStatusChanged,
     OnPartyUpdated,
     OnGameSessionUpdated,
+    OnSessionStorageChanged,
+    OnSessionEnded,
     OnSessionNativePlatformSynced,
 };
 

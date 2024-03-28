@@ -8,6 +8,5 @@ class USBZBlockTagReactionNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZBlockTagReactionNotifyState();
-
 };
 

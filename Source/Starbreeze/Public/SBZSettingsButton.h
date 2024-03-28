@@ -31,15 +31,14 @@ protected:
     
 public:
     USBZSettingsButton();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool SettingIsDirty() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool SettingHasDefaultValue() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SettingChanged();
     
 public:
@@ -59,11 +58,11 @@ public:
     void SetCanResetSetting(bool InCanResetSetting);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SelectionNameChanged();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanResetSetting() const;
     
 };

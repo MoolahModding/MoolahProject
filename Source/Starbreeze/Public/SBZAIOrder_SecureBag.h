@@ -23,9 +23,8 @@ protected:
     
 public:
     USBZAIOrder_SecureBag();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive);
     
 };

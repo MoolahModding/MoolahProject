@@ -3,7 +3,5 @@
 USBZBTService_AmbushBarks::USBZBTService_AmbushBarks() {
     this->AmbushComment = NULL;
     this->VoicePriority = ESBZVoicePriority::MediumPriority;
-    this->NodeName = TEXT("AmbushBarks");
 }
-
 

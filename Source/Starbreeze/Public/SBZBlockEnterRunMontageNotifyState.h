@@ -8,6 +8,5 @@ class USBZBlockEnterRunMontageNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZBlockEnterRunMontageNotifyState();
-
 };
 

@@ -3,7 +3,9 @@
 #include "SBZMenuStackWidget.h"
 #include "SBZLoginScreenWidget.generated.h"
 
+class UImage;
 class USBZMenuButton;
+class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZLoginScreenWidget : public USBZMenuStackWidget {
@@ -31,22 +33,27 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZMenuButton* Button_CreateAccountWebBrowser;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UTextBlock* Text_PlatformName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UImage* Image_PlatformSprite;
+    
 public:
     USBZLoginScreenWidget();
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ShowLoginFailedMessage();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnWebPageClosed(const FString& InFinalWebURL);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCreateAccountWindowClosed(const FString& InLastURL);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCreateAccountBrowserSelected(USBZMenuButton* InSelectedButton);
     
 };

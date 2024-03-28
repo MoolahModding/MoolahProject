@@ -3,5 +3,5 @@
 #include "AccelByteModelsMemberRequestGroupResponse.h"
 #include "CancelJoinGroupRequestSuccessDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FCancelJoinGroupRequestSuccess, const FAccelByteModelsMemberRequestGroupResponse&, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FCancelJoinGroupRequestSuccess, const FAccelByteModelsMemberRequestGroupResponse&, Response);
 

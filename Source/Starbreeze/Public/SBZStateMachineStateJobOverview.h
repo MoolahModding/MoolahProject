@@ -21,74 +21,73 @@ private:
     
 public:
     USBZStateMachineStateJobOverview();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void WaitForRandomizedRooms();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UnregisterClient(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void StartIntroSequence();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ReadyPlayer(const FUniqueNetIdRepl& PlayerId);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RandomizedRoomLoadingComplete(ASBZLevelScriptActor* SubLevel);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerStartTravel(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerBeginPlayState(ASBZPlayerController* PlayerController);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAllPlayersReady(EBlackScreenTransitionType BlackScreenTransitionType);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NetworkDisconnected();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void MoveToActionPhase();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void IntroSequenceTimedOut();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void EndIntroSequence();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void EnableReadyButton();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerIdm, const FString& DisplayName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ClientDisconnected(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AutoReadyTimeout();
     
 };

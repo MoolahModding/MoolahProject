@@ -41,4 +41,3 @@ USBZPlayerAnimationFPP::USBZPlayerAnimationFPP() {
     this->CurrentTraverseMontage = NULL;
 }
 
-

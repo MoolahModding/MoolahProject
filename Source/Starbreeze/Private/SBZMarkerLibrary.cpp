@@ -1,8 +1,5 @@
 #include "SBZMarkerLibrary.h"
 
-USBZMarkerLibrary::USBZMarkerLibrary() {
-}
-
 void USBZMarkerLibrary::RemoveReplicatedMarker(UObject* WorldContextObject, int32 ID) {
 }
 
@@ -17,4 +14,6 @@ int32 USBZMarkerLibrary::AddLocalMarker(UObject* WorldContextObject, USBZMarkerD
     return 0;
 }
 
+USBZMarkerLibrary::USBZMarkerLibrary() {
+}
 

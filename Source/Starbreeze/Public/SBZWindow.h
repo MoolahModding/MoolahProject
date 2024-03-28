@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZWindow : public ASBZGate {
     GENERATED_BODY()
 public:
-    ASBZWindow(const FObjectInitializer& ObjectInitializer);
-
+    ASBZWindow();
 };
 

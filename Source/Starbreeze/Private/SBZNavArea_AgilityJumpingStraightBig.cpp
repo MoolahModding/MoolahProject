@@ -3,4 +3,3 @@
 USBZNavArea_AgilityJumpingStraightBig::USBZNavArea_AgilityJumpingStraightBig() {
 }
 
-

@@ -5,7 +5,5 @@ USBZBTTask_Arrest::USBZBTTask_Arrest() {
     this->AllowedDistance = 100.00f;
     this->AllowedStates = 1;
     this->BBTypeToArrest = ESBZArrestType::Criminal;
-    this->NodeName = TEXT("Arrest");
 }
-
 

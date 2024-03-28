@@ -6,4 +6,3 @@ USBZAIUtilityScorer_Timer::USBZAIUtilityScorer_Timer() {
     this->Timer = 1.00f;
 }
 
-

@@ -8,6 +8,5 @@ class USBZBTService_UpdateShoutDownTime : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_UpdateShoutDownTime();
-
 };
 

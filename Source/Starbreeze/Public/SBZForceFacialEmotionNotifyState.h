@@ -12,6 +12,5 @@ public:
     ESBZFacialEmotion FacialEmotion;
     
     USBZForceFacialEmotionNotifyState();
-
 };
 

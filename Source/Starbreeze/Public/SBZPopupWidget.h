@@ -37,25 +37,24 @@ protected:
     
 public:
     USBZPopupWidget();
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnDisplayPopUp();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionPressed(FName ActionName);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsShowing() const;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HidePopUpWidget(FName ActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AdvanceCountdown();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

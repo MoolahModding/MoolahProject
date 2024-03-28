@@ -1,16 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZCablePointAttachment.h"
+#include "Templates/SubclassOf.h"
 #include "SBZRappellingRopeSettings.generated.h"
 
-class UClass;
+class ASBZRappellingRope;
 
 USTRUCT(BlueprintType)
 struct FSBZRappellingRopeSettings {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* RappellingRopeClassToSpawn;
+    TSubclassOf<ASBZRappellingRope> RappellingRopeClassToSpawn;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DespawnDelay;

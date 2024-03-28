@@ -4,6 +4,7 @@
 #include "SBZClientStateMachineState.h"
 #include "SBZStateMachineStateJobOverviewDropIn.generated.h"
 
+class ASBZMissionState;
 class ASBZPlayerController;
 class USBZJobOverviewBaseWidget;
 
@@ -15,19 +16,21 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZJobOverviewBaseWidget* JobOverviewWidget;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZMissionState* MissionState;
+    
 public:
     USBZStateMachineStateJobOverviewDropIn();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHandleBeginPlayState(ASBZPlayerController* PlayerController);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NetworkDisconnected();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void EnableReadyButton();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ClientShowBlackScreen(EBlackScreenTransitionType BlackScreenTransitionType);
     
 };

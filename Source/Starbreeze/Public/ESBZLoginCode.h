@@ -11,5 +11,6 @@ enum class ESBZLoginCode : uint8 {
     LoginWrongCreds,
     LoginLinkingTokenNotFound,
     LoginLinkingDiffNAccount,
+    LoginPlayerBanned,
 };
 

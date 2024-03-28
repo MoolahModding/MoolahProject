@@ -1,13 +1,13 @@
 #include "SBZLevelLibrary.h"
-
-USBZLevelLibrary::USBZLevelLibrary() {
-}
+#include "Templates/SubclassOf.h"
 
 ULevel* USBZLevelLibrary::GetLevel(AActor* InActor) {
     return NULL;
 }
 
-void USBZLevelLibrary::GetAllActorsOfClassInLevel(ULevel* Level, UClass* ActorClass, TArray<AActor*>& OutActors) {
+void USBZLevelLibrary::GetAllActorsOfClassInLevel(ULevel* Level, TSubclassOf<AActor> ActorClass, TArray<AActor*>& OutActors) {
 }
 
+USBZLevelLibrary::USBZLevelLibrary() {
+}
 

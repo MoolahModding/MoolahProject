@@ -5,7 +5,5 @@ USBZBTTask_CoverInFear::USBZBTTask_CoverInFear() {
     this->DistFromEnemyToForceCrouch = 100.00f;
     this->CrouchBySoundRadius = 150.00f;
     this->BulletDetectionRadius = 200.00f;
-    this->NodeName = TEXT("Cover In Fear");
 }
-
 

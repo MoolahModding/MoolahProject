@@ -17,6 +17,8 @@ class UAkAudioEvent;
 class UNiagaraSystem;
 class USBZCharacterVoiceComponent;
 class USBZDialogDataAsset;
+class USBZOutlineAsset;
+class USBZOutlineComponent;
 class USBZPropDamageComponent;
 class USBZVoiceCommentDataAsset;
 class UStaticMesh;
@@ -102,32 +104,40 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsFBIActive, meta=(AllowPrivateAccess=true))
     bool bIsFBIActive;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZOutlineComponent* ECMOutlineComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZOutlineAsset* ECMOutlineAsset;
+    
 public:
-    ASBZAIFBIVan(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAIFBIVan();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnVanArrived(ASBZWheeledVehicle* Vehicle, ASBZSpline* Spline);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTakeDamage(const FSBZDamageEvent& DamageEventData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsFBIActive();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPropDamaged(UActorComponent* PoolComponent, float Health, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayersInEscapeChanged(const FSBZPlayerInEscapeChangedEvent& PlayerInEscapeChangedEventData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerDefeated(ASBZPlayerState* InPlayerState, EPD3DefeatState OldDefeatState, EPD3DefeatState NewDefeatState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
+    
+    UFUNCTION()
+    void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 };
 

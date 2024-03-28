@@ -3,10 +3,11 @@
 #include "ESBZMetaRequestResult.h"
 #include "SBZMenuStackScreenWidget.h"
 #include "SBZPayDayCreditStoreItem.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBlackMarketPaydayStoreScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
+class USBZBlackMarketStoreRealMoneyItemButton;
 class USBZMenuButton;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -18,28 +19,27 @@ protected:
     UPanelWidget* Panel_ItemList;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* RealMoneyStoreItemButtonClass;
+    TSubclassOf<USBZBlackMarketStoreRealMoneyItemButton> RealMoneyStoreItemButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FString, FSBZPayDayCreditStoreItem> PaydayCreditStoreItems;
     
 public:
     USBZBlackMarketPaydayStoreScreen();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRealMoneyPurchaseWindowClosed(bool IsSuccess);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRealMoneyItemsInitialized();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRealMoneyItemButtonSelected(USBZMenuButton* InButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuyRealMoneyItemPurchaseCompleted(ESBZMetaRequestResult Result);
     
 };

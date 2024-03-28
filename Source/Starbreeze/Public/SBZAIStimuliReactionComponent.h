@@ -29,9 +29,8 @@ protected:
     
 public:
     USBZAIStimuliReactionComponent();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStimuli(AActor* Actor, FAIStimulus Stimulus);
     
 };

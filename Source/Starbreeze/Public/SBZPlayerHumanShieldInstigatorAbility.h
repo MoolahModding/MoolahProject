@@ -8,6 +8,5 @@ class USBZPlayerHumanShieldInstigatorAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZPlayerHumanShieldInstigatorAbility();
-
 };
 

@@ -3,11 +3,12 @@
 #include "EChallengeStatusEnum.h"
 #include "SBZChallengeData.h"
 #include "SBZMenuStackScreenWidgetWithTutorial.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuChallengesWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZChallengeCategoryData;
+class USBZMainMenuBaseChallengeButton;
 class USBZMenuButton;
 class USBZWidgetBase;
 
@@ -23,7 +24,7 @@ protected:
     USBZWidgetBase* Widget_Loading;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChallengeButtonClass;
+    TSubclassOf<USBZMainMenuBaseChallengeButton> ChallengeButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ChallengesDisplayedPerPage;
@@ -43,9 +44,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 PageCurrent;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZMainMenuBaseChallengeButton*> ChallengeButtons;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZMainMenuBaseChallengeButton* FocusedChallengeButton;
+    
 public:
     USBZMainMenuChallengesWidget();
-
     UFUNCTION(BlueprintCallable)
     void ToggleFilterStatus(EChallengeStatusEnum Status, bool ForceSingleOrNone);
     
@@ -62,16 +69,16 @@ public:
     void PrevPage();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPagesChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNewChallengedFocused(const FSBZChallengeData& InChallengeData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFilterStatusesChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFilterCategoryChanged();
     
 public:
@@ -79,7 +86,7 @@ public:
     void NextPage();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnChallengeButtonFocusedChanged(USBZMenuButton* InCategoryButton, bool bIsFocused);
     
 public:

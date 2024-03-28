@@ -13,6 +13,5 @@ public:
     TSoftObjectPtr<USkeletalMesh> SkeletalMesh;
     
     USBZSuitPresetData();
-
 };
 

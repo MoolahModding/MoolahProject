@@ -4,4 +4,3 @@ USBZReloadStateChangeNotify::USBZReloadStateChangeNotify() {
     this->TargetState = ESBZReloadState::StartCycle;
 }
 
-

@@ -7,4 +7,3 @@ USBZWwiseMotionManagerComponent::USBZWwiseMotionManagerComponent() {
     this->WwiseMotionBusName = TEXT("Wwise_Motion_AD");
 }
 
-

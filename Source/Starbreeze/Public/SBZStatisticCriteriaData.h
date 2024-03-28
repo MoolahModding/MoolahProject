@@ -24,6 +24,5 @@ public:
     FString StatisticCode;
     
     USBZStatisticCriteriaData();
-
 };
 

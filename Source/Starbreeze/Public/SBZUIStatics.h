@@ -17,7 +17,6 @@ class USBZUIStatics : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZUIStatics();
-
     UFUNCTION(BlueprintCallable)
     static void Stop2DSound(UPARAM(Ref) int32& SoundID);
     
@@ -34,36 +33,36 @@ public:
     static void PrintSubtitle(const UObject* WorldContextObject, const FString& StringToPrint, FLinearColor Colour, float TimeToDisplay);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static int32 Play2DSound(const UObject* WorldContextObject, UAkAudioEvent* AudioEvent);
+    static int32 Play2DSound(const UObject* WorldContextObject, const UAkAudioEvent* AudioEvent);
     
     UFUNCTION(BlueprintCallable)
     static void LogUiVerbose(const FString& LogText);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static bool IsWidgetActuallyVisible(UWidget* Widget);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static bool IsInputTypeController();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static int32 GetWidgetZOrderValue(ESBZWidgetZOrdering ZOrder);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZUIManager* GetUIManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static uint8 GetMaxDifficultyCount();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString GetMapName(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FSlateFontInfo GetGlobalFont(UObject* WorldContextObject, FName FontName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FLinearColor GetGlobalColor(UObject* WorldContextObject, FName ColorName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetCurrentProgressionSaveGameVersion(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)
@@ -75,7 +74,7 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void DisplayHUDNotification(const UObject* WorldContextObject, const FSBZHUDNotificationData& HUDNotification);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FText ClampText(const FText& InText, int32 MaxCharacters, bool bAddElipses);
     
 };

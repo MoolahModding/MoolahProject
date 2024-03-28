@@ -13,6 +13,5 @@ private:
     
 public:
     USBZBTService_ShoveNearbyEnemies();
-
 };
 

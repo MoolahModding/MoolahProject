@@ -1,15 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Templates/SubclassOf.h"
 #include "SBZVehicleArrayElement.generated.h"
 
-class UClass;
+class ASBZWheeledVehicle;
 
 USTRUCT(BlueprintType)
 struct FSBZVehicleArrayElement {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* Vehicle;
+    TSubclassOf<ASBZWheeledVehicle> Vehicle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Weight;

@@ -4,5 +4,5 @@
 
 class UObject;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDropElementDelegate, UObject*, DroppedElement);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FDropElementDelegate, UObject*, DroppedElement);
 

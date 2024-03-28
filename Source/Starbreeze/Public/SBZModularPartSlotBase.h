@@ -2,20 +2,21 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
+#include "Templates/SubclassOf.h"
 #include "SBZModularPartSlotBase.generated.h"
 
-class UClass;
 class USBZModularPartApplier;
+class USBZModularPartDataAsset;
 
 UCLASS(Blueprintable, Const)
 class STARBREEZE_API USBZModularPartSlotBase : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ModularPartClass;
+    TSubclassOf<USBZModularPartDataAsset> ModularPartClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ApplierClass;
+    TSubclassOf<USBZModularPartApplier> ApplierClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ApplierPriority;
@@ -32,11 +33,10 @@ protected:
     
 public:
     USBZModularPartSlotBase();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetDisplayName(FText& OutDisplayName, bool& OutHasText) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZModularPartApplier* GetApplierInstance() const;
     
 };

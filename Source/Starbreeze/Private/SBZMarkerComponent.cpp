@@ -1,6 +1,18 @@
 #include "SBZMarkerComponent.h"
 #include "Net/UnrealNetwork.h"
 
+void USBZMarkerComponent::OnRep_MarkerState() {
+}
+
+void USBZMarkerComponent::Multicast_SetMarkerState_Implementation(ESBZMarkerState RepMarkerState) {
+}
+
+void USBZMarkerComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(USBZMarkerComponent, MarkerState);
+}
+
 USBZMarkerComponent::USBZMarkerComponent() {
     this->MarkerAssets[0] = NULL;
     this->MarkerAssets[1] = NULL;
@@ -24,19 +36,5 @@ USBZMarkerComponent::USBZMarkerComponent() {
     this->MarkerPriority[9] = 0;
     this->MarkerState = ESBZMarkerState::None;
     this->AttachComponent = NULL;
-    
 }
-
-void USBZMarkerComponent::OnRep_MarkerState() {
-}
-
-void USBZMarkerComponent::Multicast_SetMarkerState_Implementation(ESBZMarkerState RepMarkerState) {
-}
-
-void USBZMarkerComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(USBZMarkerComponent, MarkerState);
-}
-
 

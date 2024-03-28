@@ -1,5 +1,14 @@
 #include "SBZPlayerMovementComponent.h"
 
+void USBZPlayerMovementComponent::Server_SetWantToSprint_Implementation(bool bInWantToSprint) {
+}
+bool USBZPlayerMovementComponent::Server_SetWantToSprint_Validate(bool bInWantToSprint) {
+    return true;
+}
+
+void USBZPlayerMovementComponent::Multicast_SetWantToSprint_Implementation(bool bInWantToSprint) {
+}
+
 USBZPlayerMovementComponent::USBZPlayerMovementComponent() {
     this->bAutoComputeTrajectory = false;
     this->AutoComputeTrajectoryInterval = 0.35f;
@@ -17,16 +26,5 @@ USBZPlayerMovementComponent::USBZPlayerMovementComponent() {
     this->MinLoadoutTierIndex = 1;
     this->SkillSprintModifier = 0.00f;
     this->SkillWalkHumanShieldModifier = 0.00f;
-    /*this->bSkipImpulseFromPhysicsInteraction = true;*/
 }
-
-void USBZPlayerMovementComponent::Server_SetWantToSprint_Implementation(bool bInWantToSprint) {
-}
-bool USBZPlayerMovementComponent::Server_SetWantToSprint_Validate(bool bInWantToSprint) {
-    return true;
-}
-
-void USBZPlayerMovementComponent::Multicast_SetWantToSprint_Implementation(bool bInWantToSprint) {
-}
-
 

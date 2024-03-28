@@ -1,9 +1,5 @@
 #include "SBZCharacterEffectWidget.h"
 
-USBZCharacterEffectWidget::USBZCharacterEffectWidget() {
-    this->BuffDataAsset = NULL;
-}
-
 void USBZCharacterEffectWidget::SetProgress(float InNewProgress) {
 }
 
@@ -19,4 +15,7 @@ void USBZCharacterEffectWidget::SetActive(bool bIsActive) {
 void USBZCharacterEffectWidget::InitializeCharacterEffect(FSBZCharacterEffectRuntime& InCharacterEffectRuntime) {
 }
 
+USBZCharacterEffectWidget::USBZCharacterEffectWidget() {
+    this->BuffDataAsset = NULL;
+}
 

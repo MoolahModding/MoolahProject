@@ -13,7 +13,6 @@ class UABSeasonPass : public UObject {
     GENERATED_BODY()
 public:
     UABSeasonPass();
-
     UFUNCTION(BlueprintCallable)
     void GetUserSeason(const FString& SeasonId, const FDModelsUserSeasonInfo& OnSuccess, const FDErrorHandler& OnError);
     

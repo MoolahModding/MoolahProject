@@ -3,9 +3,9 @@
 #include "Layout/Margin.h"
 #include "OnPreferredCharacterSlotIndexChangedDelegate.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuInventoryCharacterPreferenceDisplay.generated.h"
 
-class UClass;
 class UHorizontalBox;
 class USBZCharacterPreferenceCharacterSlotButton;
 
@@ -21,7 +21,7 @@ protected:
     UHorizontalBox* HorizontalBox_CharacterDisplays;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CharacterDisplayWidgetClass;
+    TSubclassOf<USBZCharacterPreferenceCharacterSlotButton> CharacterDisplayWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMargin CharacterDisplayPanelPadding;
@@ -35,27 +35,26 @@ private:
     
 public:
     USBZMainMenuInventoryCharacterPreferenceDisplay();
-
     UFUNCTION(BlueprintCallable)
     void SetActiveIndex(int32 NewActiveIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnPreferredCharacterSlotButtonSelected(USBZCharacterPreferenceCharacterSlotButton* SelectedPreferredCharacterSlotButton);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsActiveSlotEmpty() const;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void InitializeCharacterDisplays();
     
 public:
     UFUNCTION(BlueprintCallable)
     void IncrementActiveIndex();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetActiveIndex() const;
     
     UFUNCTION(BlueprintCallable)

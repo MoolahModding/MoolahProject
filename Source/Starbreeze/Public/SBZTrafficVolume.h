@@ -15,7 +15,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 TrafficLightIndex;
     
-    ASBZTrafficVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZTrafficVolume();
 };
 

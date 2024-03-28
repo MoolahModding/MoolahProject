@@ -1,8 +1,5 @@
 #include "SBZSpawnManagerFunctionLibrary.h"
 
-USBZSpawnManagerFunctionLibrary::USBZSpawnManagerFunctionLibrary() {
-}
-
 void USBZSpawnManagerFunctionLibrary::WaitForPawnRequest(const UObject* WorldContextObject, FSBZPawnSpawnRequestHandle Handle, FLatentActionInfo LatentInfo) {
 }
 
@@ -49,4 +46,6 @@ FSBZActorSpawnRequest USBZSpawnManagerFunctionLibrary::GetActorRequest(const FSB
     return FSBZActorSpawnRequest{};
 }
 
+USBZSpawnManagerFunctionLibrary::USBZSpawnManagerFunctionLibrary() {
+}
 

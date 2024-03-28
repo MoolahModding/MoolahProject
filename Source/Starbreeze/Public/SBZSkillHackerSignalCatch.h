@@ -8,6 +8,5 @@ class USBZSkillHackerSignalCatch : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillHackerSignalCatch();
-
 };
 

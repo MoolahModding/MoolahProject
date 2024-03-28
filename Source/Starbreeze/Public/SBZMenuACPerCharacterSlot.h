@@ -3,14 +3,14 @@
 #include "SBZMenuACSlots.h"
 #include "SBZMenuACPerCharacterSlot.generated.h"
 
-class UClass;
+class ASBZPlayerCharacter;
 
 USTRUCT(BlueprintType)
 struct FSBZMenuACPerCharacterSlot {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftClassPtr<UClass>, FSBZMenuACSlots> Slots;
+    TMap<TSoftClassPtr<ASBZPlayerCharacter>, FSBZMenuACSlots> Slots;
     
     STARBREEZE_API FSBZMenuACPerCharacterSlot();
 };

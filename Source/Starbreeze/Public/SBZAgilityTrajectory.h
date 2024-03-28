@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "ESBZAgilityType.h"
 #include "SBZAgilityTrajectoryPoint.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAgilityTrajectory.generated.h"
 
 class UAnimMontage;
-class UClass;
+class UNavAreaBase;
 
 USTRUCT(BlueprintType)
 struct FSBZAgilityTrajectory {
@@ -28,7 +29,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* AreaClass;
+    TSubclassOf<UNavAreaBase> AreaClass;
     
 public:
     STARBREEZE_API FSBZAgilityTrajectory();

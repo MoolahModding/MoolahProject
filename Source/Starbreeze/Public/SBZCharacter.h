@@ -19,7 +19,6 @@
 #include "ESBZHumanShieldInstigatorState.h"
 #include "ESBZHurtReactionType.h"
 #include "ESBZReloadState.h"
-#include "SBZAbilitySystemComponent.h"
 #include "SBZAIVisibilityLeafNode.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZAgilityTraversalTrajectory.h"
@@ -27,6 +26,7 @@
 #include "SBZBoneDamageMultiplier.h"
 #include "SBZCharacterAnimEventActiveDelegateDelegate.h"
 #include "SBZCharacterMeshScaleData.h"
+#include "SBZDropCharacterSound.h"
 #include "SBZEquippableConfig.h"
 #include "SBZEquippableRuntime.h"
 #include "SBZHumanShieldSlotParameters.h"
@@ -43,6 +43,7 @@
 #include "SBZTypeInterface.h"
 #include "SBZVoiceComponentInterface.h"
 #include "SBZZiplinerInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZCharacter.generated.h"
 
 class AActor;
@@ -58,8 +59,9 @@ class ASBZZipline;
 class ASBZZiplineMotor;
 class UAkAudioEvent;
 class UAkComponent;
+class UAnimInstance;
 class UAnimMontage;
-class UClass;
+class UAnimSequence;
 class UDamageType;
 class UPaperSprite;
 class UPhysicalMaterial;
@@ -130,7 +132,7 @@ public:
     USBZZiplineAudioController* ZiplineAudioController;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ZiplineMotorClass;
+    TSubclassOf<ASBZZiplineMotor> ZiplineMotorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZZiplineMotor* CurrentZiplineMotor;
@@ -155,13 +157,16 @@ protected:
     USBZEventReactionComponent* EventReactionComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AActor* CurrentBagActor;
+    TArray<AActor*> BagActorArray;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentBag, meta=(AllowPrivateAccess=true))
-    FSBZBagHandle CurrentBag;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BagHandleArray, meta=(AllowPrivateAccess=true))
+    TArray<FSBZBagHandle> BagHandleArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZCarryType* CurrentCarriedType;
+    int32 MaxCarryBagCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZCarryType*> CurrentCarryTypeArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FSBZReplicatedMontage ReplicatedMontage;
@@ -201,6 +206,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsCarriedDropAnimation: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsDropAndCarryScope;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsCarryChangedUsingInteraction;
@@ -248,7 +256,7 @@ protected:
     uint8 RemoteViewYaw;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    USBZAbilitySystemComponent* AbilitySystem;
+    UAbilitySystemComponent* AbilitySystem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZEquippableConfig> EquippableConfigArray;
@@ -293,7 +301,7 @@ protected:
     FName EquippableAttachementSocketName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LinkedAnimationClass;
+    TSubclassOf<UAnimInstance> LinkedAnimationClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZBaseCharacterAnimationCollection* AnimationCollection;
@@ -401,6 +409,12 @@ protected:
     UAkAudioEvent* LandSoundEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZDropCharacterSound VictimDropCharacterSound;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZDropCharacterSound InstigatorDropCharacterSound;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinInteractionDurationToUnequip;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentThrowableIndex, meta=(AllowPrivateAccess=true))
@@ -438,6 +452,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UPhysicsAsset* PhysicsAssetWhenNotCarried;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UAnimInstance> AnimClassWhenCarriedDead;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_HumanShieldInstigatorState, meta=(AllowPrivateAccess=true))
     ESBZHumanShieldInstigatorState HumanShieldInstigatorState;
@@ -478,6 +495,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDialogBodyGesturesData* DialogBodyGesturesData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UAnimSequence* ForcedFacialAnimaton;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText CharacterName;
     
@@ -486,6 +506,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPaperSprite* DisplayIcon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer HitImmunityGrantingTags;
     
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -537,18 +560,17 @@ private:
     TArray<ASBZGrenadeProjectile*> ReplicatedGrenadeProjectileArray;
     
 public:
-    ASBZCharacter(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCharacter();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable)
     void SetStance(ESBZCharacterStance InStance);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_WantsToTranferBagFrom(ASBZCharacter* FromCharacter);
+    UFUNCTION(Reliable, Server)
+    void Server_TransferBagFrom(ASBZCharacter* ToCharacter);
     
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetEquipStateAndIndex(uint8 InEquipStateAndIndex);
     
     UFUNCTION(Reliable, Server)
@@ -557,158 +579,157 @@ protected:
     UFUNCTION(Reliable, Server)
     void Server_OnPickupCarryActorFailed(uint32 NetID);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_HumanShieldInstigatorSlotReached();
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveLooseGameplayTag(const FGameplayTag& GameplayTag, int32 Count);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnStopZipline(const ASBZZipline* Zipline, bool bIsMovingZiplineForward);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnStopTraversal(const FSBZAgilityTraversalTrajectory& Trajectory);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnStopSlide();
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnStartZipline(const ASBZZipline* Zipline, bool bIsMovingZiplineForward);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnStartTraversal(const FSBZAgilityTraversalTrajectory& Trajectory);
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     void OnStartSlide();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnReplicatedEquippableDestroyedOnClient(AActor* InEquippableActor);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_Stance(ESBZCharacterStance InStance);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_Seed();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ReplicatedReloadState(const FSBZReplicatedReloadState& OldReplicatedReloadState);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_RandomMeshScaleEnabled();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsAlive();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_HumanShieldInstigatorState();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_EquipStateAndIndex();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentThrowableIndex(int32 OldThrowableIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentPlaceableIndex(int32 OldPlaceableIndex);
     
-public:
-    UFUNCTION(BlueprintCallable)
-    void OnRep_CurrentBag();
+    UFUNCTION()
+    void OnRep_BagHandleArray(const TArray<FSBZBagHandle>& OldBagHandleArray);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEquipStateTimerDone();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCharacterMontageInstanceEnded(int32 AnimMontageInstanceID, bool bInterrupted);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SwitchMontageSection(UAnimMontage* Montage, const FName& SectionName);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopTargeting();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopRecoil(bool bWasCancelled);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopOverrideMaxWalkSpeed();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopMontage(UAnimMontage* Montage, bool bAllowExitSectionSwitch);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StartTargeting();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SnapVictimOntoInstigator(const FVector& SnapLocation, const ASBZCharacter* HSInstigator);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetStance(ESBZCharacterStance NewStance);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetReloadState(const FSBZReplicatedReloadState& InReplicatedReloadState);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetMontageNextSection(UAnimMontage* Montage, const FName& NextSectionName);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetMarked(bool bIsMarked);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEquipStateAndIndex(uint8 InEquipStateAndIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEnableRandomMeshScale(bool bInEnableRandomMeshScale);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetCurrentThrowableIndex(int32 NewThrowableIndex);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetCurrentPlaceableIndex(int32 NewPlaceableIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetActiveGadget(int32 NewIndex);
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PredictedRagdollDenied(int32 HurtReactionIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PlayMontageMoveTo(UAnimMontage* Montage, const TArray<FTransform>& TargetTransforms, bool bDisableAutoBlendOut);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PlayMontageMoveMulti(FName MontageName, const TArray<FTransform>& TargetTransforms);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PlayMontageMove(FName MontageName, const FVector& EndMoveToWorldPosition, float PlayRate);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_PlayMontage(UAnimMontage* Montage, bool bPlayOnDedicatedServer, bool bStopAllActiveMontages);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OverrideMaxWalkSpeed(float MaxWalkSpeed);
     
 protected:
@@ -718,46 +739,49 @@ protected:
     UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnPickupCarryActor(uint32 NetID);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnKill();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_HumanShieldInstigatorSlotReached();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ExplodedInHand(int32 Index);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_EnableThrowState();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_DisableThrowState();
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CancelMelee();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ApplyHurtReaction(const FSBZHurtReactionPrediction& HurtReactionPrediction);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ActivateMelee();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser);
     
-    UFUNCTION(BlueprintCallable)
-    bool GiveBag(FSBZBagHandle Bag);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetSeed() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ASBZRoomVolume* GetLastKnownRoom() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
+    USBZCarryType* GetLastCurrentCarryType() const;
+    
+    UFUNCTION(BlueprintPure)
+    FSBZBagHandle GetLastBagHandle() const;
+    
+    UFUNCTION(BlueprintPure)
     ASBZRoomVolume* GetCurrentRoom_Implementation() const;
     
     UFUNCTION(Client, Reliable)
@@ -768,16 +792,19 @@ protected:
     void Client_OnPickupCarryActorFailed(uint32 NetID);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnKill();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void AddLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void AddLooseGameplayTag(const FGameplayTag& GameplayTag, int32 Count);
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);
@@ -790,11 +817,10 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-
+    
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
     {
         return AbilitySystem;
     }
-    
 };
 

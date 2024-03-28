@@ -1,13 +1,6 @@
 #include "SBZOnlineSlotsSync.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZOnlineSlotsSync::ASBZOnlineSlotsSync(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->OnlineSession = NULL;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZOnlineSlotsSync::UpdatePlayerName(ASBZPlayerState* InPlayerState) {
 }
 
@@ -41,4 +34,7 @@ void ASBZOnlineSlotsSync::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(ASBZOnlineSlotsSync, SlotsData);
 }
 
+ASBZOnlineSlotsSync::ASBZOnlineSlotsSync() {
+    this->OnlineSession = NULL;
+}
 

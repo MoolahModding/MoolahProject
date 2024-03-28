@@ -1,10 +1,5 @@
 #include "SBZStateMachineStateWaitingActionPhase.h"
 
-USBZStateMachineStateWaitingActionPhase::USBZStateMachineStateWaitingActionPhase() {
-    this->LoadingScreen = NULL;
-    this->WaitingActionPhaseData = NULL;
-}
-
 void USBZStateMachineStateWaitingActionPhase::TravelToHostTimeout() {
 }
 
@@ -29,4 +24,8 @@ void USBZStateMachineStateWaitingActionPhase::DelayedNetworkBeaconError() {
 void USBZStateMachineStateWaitingActionPhase::ConsumePreplanningAssets() {
 }
 
+USBZStateMachineStateWaitingActionPhase::USBZStateMachineStateWaitingActionPhase() {
+    this->LoadingScreen = NULL;
+    this->WaitingActionPhaseData = NULL;
+}
 

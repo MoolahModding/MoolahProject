@@ -8,6 +8,5 @@ class USBZLocalPlayer : public ULocalPlayer {
     GENERATED_BODY()
 public:
     USBZLocalPlayer();
-
 };
 

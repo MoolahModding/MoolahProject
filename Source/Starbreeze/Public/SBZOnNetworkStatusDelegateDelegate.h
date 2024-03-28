@@ -3,5 +3,5 @@
 #include "ESBZServiceStatus.h"
 #include "SBZOnNetworkStatusDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnNetworkStatusDelegate, ESBZServiceStatus, ZServiceStatus);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnNetworkStatusDelegate, ESBZServiceStatus, ZServiceStatus);
 

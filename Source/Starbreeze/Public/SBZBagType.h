@@ -3,9 +3,12 @@
 #include "GameplayTagContainer.h"
 #include "SBZCarryType.h"
 #include "SBZGameplayEffectData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBagType.generated.h"
 
-class UClass;
+class AActor;
+class ASBZBagItem;
+class ASBZCarriedBag;
 
 UCLASS(Blueprintable)
 class USBZBagType : public USBZCarryType {
@@ -18,13 +21,13 @@ public:
     float ThrowSpeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WorldItem;
+    TSubclassOf<ASBZBagItem> WorldItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* BackItem;
+    TSubclassOf<ASBZCarriedBag> BackItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SecuredItem;
+    TSubclassOf<AActor> SecuredItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer Tags;
@@ -51,6 +54,5 @@ public:
     float WeightTierOffset;
     
     USBZBagType();
-
 };
 

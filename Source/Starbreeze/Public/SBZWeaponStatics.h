@@ -8,6 +8,5 @@ class USBZWeaponStatics : public UObject {
     GENERATED_BODY()
 public:
     USBZWeaponStatics();
-
 };
 

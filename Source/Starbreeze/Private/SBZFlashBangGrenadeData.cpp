@@ -8,9 +8,5 @@ USBZFlashBangGrenadeData::USBZFlashBangGrenadeData() {
     this->FriendlyPlayerFlashTimeScale = 0.25f;
     this->FlashPlayerFalloffExponent = 1.00f;
     this->GameplayEffectClass = NULL;
-    this->GameplayEffectClass = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZFlashBangGrenadeData::StaticClass();
 }
-
 

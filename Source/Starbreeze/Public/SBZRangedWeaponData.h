@@ -1,9 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZBaseWeaponData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZRangedWeaponData.generated.h"
 
-class UClass;
+class ASBZPlaceableWeapon;
+class USBZLocalPlayerFeedback;
 class USBZRecoilData;
 class USBZWeaponAimAssistDataAsset;
 class USBZWeaponDOFData;
@@ -76,7 +78,7 @@ public:
     USBZWeaponAimAssistDataAsset* TargetingAimAssistDataFiring;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* OnFireWeaponFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> OnFireWeaponFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NormalMagnification;
@@ -85,7 +87,7 @@ public:
     USBZWeaponDOFData* DOFData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponBoxClass;
+    TSubclassOf<ASBZPlaceableWeapon> WeaponBoxClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SprintEnterPlayRate;
@@ -112,6 +114,5 @@ public:
     USBZWeaponMagazineData* CachedMagazineData;
     
     USBZRangedWeaponData();
-
 };
 

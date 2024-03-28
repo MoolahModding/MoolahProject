@@ -3,9 +3,10 @@
 #include "Engine/TriggerVolume.h"
 #include "SBZBooleanStateDynamicDelegateDelegate.h"
 #include "SBZPawnDynamicDelegateDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlayerTriggerVolume.generated.h"
 
-class UClass;
+class APawn;
 
 UCLASS(Blueprintable, MinimalAPI)
 class ASBZPlayerTriggerVolume : public ATriggerVolume {
@@ -13,7 +14,7 @@ class ASBZPlayerTriggerVolume : public ATriggerVolume {
 public:
 protected:
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlayerPawnParentClass;
+    TSubclassOf<APawn> PlayerPawnParentClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bShouldStartEnabled: 1;
@@ -34,15 +35,14 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZBooleanStateDynamicDelegate OverlappingAllPlayerPawnsChanged;
     
-    ASBZPlayerTriggerVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerTriggerVolume();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     int32 GetCurrentNumOverlappingPlayers() const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool AreAllPlayerPawnsInside() const;
     
 };

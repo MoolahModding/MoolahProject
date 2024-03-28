@@ -20,6 +20,5 @@ public:
     USBZObjectContainer* DroppedElementContainer;
     
     USBZObjectRingBuffer();
-
 };
 

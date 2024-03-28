@@ -34,13 +34,12 @@ protected:
     bool bIsBeforeOtherContainer;
     
 public:
-    ASBZItemContainer(const FObjectInitializer& ObjectInitializer);
-
+    ASBZItemContainer();
     UFUNCTION(BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 };

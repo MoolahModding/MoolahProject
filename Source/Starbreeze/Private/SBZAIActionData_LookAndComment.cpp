@@ -4,4 +4,3 @@ USBZAIActionData_LookAndComment::USBZAIActionData_LookAndComment() {
     this->VoiceComment = NULL;
 }
 
-

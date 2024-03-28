@@ -1,12 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "SBZBagHandle.h"
 #include "SBZCarriedBag.generated.h"
 
 class ASBZCharacter;
 class USBZBaseInteractableComponent;
-class USBZInteractableComponent;
+class USBZInteractableCarriedBagComponent;
 class USBZInteractorComponent;
 class USBZOutlineAsset;
 class USkeletalMeshComponent;
@@ -27,27 +30,32 @@ protected:
     USBZOutlineAsset* AIBagOutlineAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZInteractableComponent* InteractableComponent;
+    USBZInteractableCarriedBagComponent* InteractableComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZBagHandle BagHandle;
     
-public:
-    ASBZCarriedBag(const FObjectInitializer& ObjectInitializer);
-
-private:
-    UFUNCTION(BlueprintCallable)
-    void HandleServerComplete(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector LocationOffsetScale;
     
-    UFUNCTION(BlueprintCallable)
-    void HandlePredictedEnd(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRotator RotationOffsetScale;
+    
+public:
+    ASBZCarriedBag();
+private:
+    UFUNCTION()
+    void OnInteractionComplete(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnDegradationChanged(const int32 DegredationLevel);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_AttachmentComplete(USkeletalMeshComponent* ParentSkeletalMeshComponent);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void BP_AdjustAttachment(int32 Index, int32 NewCount, const FTransform& NewStrapTransformOffset);
     
 };
 

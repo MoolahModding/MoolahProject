@@ -5,4 +5,3 @@ USBZWorldEventSectionSwitchNotify::USBZWorldEventSectionSwitchNotify() {
     this->EventData = NULL;
 }
 
-

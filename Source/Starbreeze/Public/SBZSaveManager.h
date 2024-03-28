@@ -20,17 +20,16 @@ private:
     
 public:
     USBZSaveManager();
-
     UFUNCTION(BlueprintCallable)
     void UpdateLoadoutInLobby();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZProgressionSaveGame* GetProgressionSaveGame() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZSaveManager* Get(const UObject* WorldContextObject);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

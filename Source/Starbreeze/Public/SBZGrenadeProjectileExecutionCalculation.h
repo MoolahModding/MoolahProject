@@ -8,6 +8,5 @@ class USBZGrenadeProjectileExecutionCalculation : public UGameplayEffectExecutio
     GENERATED_BODY()
 public:
     USBZGrenadeProjectileExecutionCalculation();
-
 };
 

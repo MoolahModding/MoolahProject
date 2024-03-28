@@ -31,6 +31,5 @@ protected:
     
 public:
     USBZEnableAgilityIKNotifyState();
-
 };
 

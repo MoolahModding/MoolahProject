@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "EHttpCacheType.h"
 #include "ESettingsEnvironment.h"
 #include "AccelByteBlueprintsSettings.generated.h"
 
@@ -9,7 +10,6 @@ class ACCELBYTEUE4SDK_API UAccelByteBlueprintsSettings : public UBlueprintFuncti
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsSettings();
-
     UFUNCTION(BlueprintCallable)
     static void SetUGCServerUrl(const FString& UGCServerUrl);
     
@@ -24,6 +24,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void SetSessionBrowserServerUrl(const FString& SessionBrowserServerUrl);
+    
+    UFUNCTION(BlueprintCallable)
+    static void SetServerUseAMS(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
     static void SetServerQosLatencyPollIntervalSecs(const float& QosServerLatencyPollIntervalSecs);
@@ -65,7 +68,13 @@ public:
     static void SetIamServerUrl(const FString& IamServerUrl);
     
     UFUNCTION(BlueprintCallable)
+    static void SetHttpCacheType(EHttpCacheType Type);
+    
+    UFUNCTION(BlueprintCallable)
     static void SetGroupServerUrl(const FString& GroupServerUrl);
+    
+    UFUNCTION(BlueprintCallable)
+    static void SetGDPRServerUrl(const FString& GDPRServerUrl);
     
     UFUNCTION(BlueprintCallable)
     static void SetGameTelemetryServerUrl(const FString& GameTelemetryServerUrl);
@@ -99,6 +108,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void ResetSettings(const ESettingsEnvironment Environment);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool IsServerUseAMS();
+    
+    UFUNCTION(BlueprintCallable)
+    static bool IsSendPredefinedEvent();
     
     UFUNCTION(BlueprintCallable)
     static bool IsHttpCacheEnabled();
@@ -155,10 +170,16 @@ public:
     static FString GetIamServerUrl();
     
     UFUNCTION(BlueprintCallable)
+    static EHttpCacheType GetHttpCacheType();
+    
+    UFUNCTION(BlueprintCallable)
     static FString GetHeartBeatData();
     
     UFUNCTION(BlueprintCallable)
     static FString GetGroupServerUrl();
+    
+    UFUNCTION(BlueprintCallable)
+    static FString GetGDPRServerUrl();
     
     UFUNCTION(BlueprintCallable)
     static FString GetGameTelemetryServerUrl();

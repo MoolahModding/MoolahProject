@@ -28,18 +28,26 @@ private:
     
 public:
     USBZCheatManagerMainMenu();
-
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void WriteAchievement(const FString& AchievementId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void UseDefaultSuit();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void UseDefaultMask();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void UnlockCharacterForTutorial();
+    
+    UFUNCTION(Exec)
+    void SyncDLC();
+    
+    UFUNCTION(Exec)
+    void SimulateProgressivePriceResetEveryMinute();
+    
+    UFUNCTION(Exec)
+    void SimulateForeground();
     
     UFUNCTION(Exec)
     void SetSecondaryWeaponLoadout(uint32 LoadoutIndex, uint32 ConfigSlotIndex);
@@ -53,67 +61,73 @@ public:
     UFUNCTION(Exec)
     void SetEquippiedMaskInventoryIndex(uint32 ConfigSlotIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetCheatAllowAttachAllWeaponParts(bool bIsSetCheatAllowAttachAllWeaponParts);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetActiveLoadoutIndex(int32 ActiveLoadoutIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SendPartyMessage(const FString& Message);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void SendLobbyMessage(const FString& Message);
+    
+    UFUNCTION(Exec)
     void SelectCharacterIntoSlot(int32 SelectedCharacterIndex, int32 SlotIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SelectCharacterIntoFirstAvailableSlot(int32 SelectedCharacterIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ResetPriceProgression();
     
     UFUNCTION(Exec)
     void RemoveWeaponPartConfig(uint32 SlotIndex, const FString& SlotName);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RemoveWeaponDummyPattern(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RemoveWeaponDummyCharm(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RemoveCharacterFromSelectedSlot(int32 SlotIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RemoveAsset();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void QueryAchivements();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PurchaseRealMoneyItems(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PurchaseItem(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void LockCharacterForTutorial();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void LoadWeaponExperienceToLevelTable(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void JoinPartyByCode(const FString& Code);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GetWeaponProgressionForBarrelSlot(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void GetUserEntitlementsForAllItems();
+    
+    UFUNCTION(Exec)
     void GetPartyCode();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GetCosmeticsForWeapon(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GamepadOpenInGameCheatMenu(FKey Key);
     
     UFUNCTION(Exec)
@@ -122,134 +136,155 @@ public:
     UFUNCTION(Exec)
     void EmptyPrimaryWeaponLoadout(uint32 LoadoutIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpWeaponWeaponPartProgressionArray(const FString& ItemIdSku, const FString& EntitlementId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpWeaponSlotToWeaponPartMap(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpSteamItems();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpSelectablePlayerCharacters();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void DumpRecommendedChallenges();
+    
+    UFUNCTION(Exec)
+    void DumpReceipts() const;
+    
+    UFUNCTION(Exec)
     void DumpRealMoneyStoreItems();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpPreferredCharacters();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpPlayerSkills();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpPlayerSkillPoints();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void DumpOwnedHeists();
+    
+    UFUNCTION(Exec)
     void DumpNextResetTime();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpItemsProgressions();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpInventoryItems();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void DumpGetProgressInfo();
+    
+    UFUNCTION(Exec)
+    void DumpEntitlementSkuFromDLCButNotOwnedArray() const;
+    
+    UFUNCTION(Exec)
+    void DumpDLCRewards() const;
+    
+    UFUNCTION(Exec)
+    void DumpCurrentRenownLevel();
+    
+    UFUNCTION(Exec)
     void DumpCosmeticsInventoryItemsForWeaponPatternSlot();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpCosmeticsInventoryItems();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpCharacterInventory();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpBestLevelTimes();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpBaseWeaponProgressionLevel(const FString& ItemSku);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpBaseWeaponProgressionInfo(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAvavilableWeaponParts(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAttachedWeaponPartsForAllInventorySlots();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllWeaponPresets();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllVendorItems();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllSuitInventorySlots();
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void DumpAllPlayerStatistics();
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllMaskInventorySlots();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllItemProgressionLevels();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DumpAllGloveInventorySlots();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DiscardItem(const FString& EntitlementId, const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugAllItemsResearched(bool bIsDebugAllItemsResearched);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ConsumeUserEntitlement(const FString& EntitlementId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ClearPreferredCharacters();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ClearAllAchievements();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void CanEquipDummyPatternToWeapon(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuySecondaryWeaponConfigSlot(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuySecondaryWeapon(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuyPrimaryWeaponConfigSlot(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuyPrimaryWeapon(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuyLoadoutSlot(const FString& ItemId);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuyItemAccelByteRequest(const FString& ItemId, const FString& ItemSku, int32 Price, int32 DiscountedPrice, int32 Quantity, const FString& AccelByteCurrencyCode);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void BuyItem(const FString& ItemSku);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ApplyWeaponDummyPattern(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ApplyWeaponDummyCharm(const FString& WeaponEntitlementIdString);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ApplyAsset(const FString& ItemSku);
     
     UFUNCTION(Exec)
     void AddUniquePartToWeaponConfig(uint32 SlotIndex, const FString& SlotName, const FString& WeaponPartName);
+    
+    UFUNCTION(Exec)
+    void AddOwnedDLCAndPopulateEntitlementDisabledArray(const FString& DLCNameCommaList);
     
 };
 

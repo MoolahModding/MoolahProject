@@ -6,9 +6,10 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZSkillFloatValue.h"
 #include "SBZSkillIntValue.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSkillData.generated.h"
 
-class UClass;
+class UGameplayEffect;
 class UPaperSprite;
 
 UCLASS(Blueprintable)
@@ -25,10 +26,10 @@ public:
     bool bIsEquippedTagGranted;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlayerEffect;
+    TSubclassOf<UGameplayEffect> PlayerEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CrewEffect;
+    TSubclassOf<UGameplayEffect> CrewEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTag Category;
@@ -45,9 +46,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsAnyRequiredBuffTypeEnough;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float CooldownSeconds;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, EditFixedSize, meta=(AllowPrivateAccess=true))
     TArray<FSBZSkillFloatValue> FloatArray;
     
@@ -55,9 +53,5 @@ public:
     TArray<FSBZSkillIntValue> IntArray;
     
     USBZSkillData();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FText GetFormattedDescriptionText() const;
-    
 };
 

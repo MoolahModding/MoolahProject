@@ -3,4 +3,3 @@
 USBZModularPartApplierWeaponPatternBase::USBZModularPartApplierWeaponPatternBase() {
 }
 
-

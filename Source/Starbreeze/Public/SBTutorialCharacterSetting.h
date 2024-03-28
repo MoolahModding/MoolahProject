@@ -15,11 +15,10 @@ public:
     FString CharacterSku;
     
     USBTutorialCharacterSetting();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FString GetTutorialPlayerSku();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static FGuid GetTutorialPlayerGuid();
     
 };

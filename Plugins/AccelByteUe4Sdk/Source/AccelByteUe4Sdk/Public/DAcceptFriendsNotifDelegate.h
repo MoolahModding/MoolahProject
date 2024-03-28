@@ -3,5 +3,5 @@
 #include "AccelByteModelsAcceptFriendsNotif.h"
 #include "DAcceptFriendsNotifDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDAcceptFriendsNotif, FAccelByteModelsAcceptFriendsNotif, Notif);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDAcceptFriendsNotif, FAccelByteModelsAcceptFriendsNotif, Notif);
 

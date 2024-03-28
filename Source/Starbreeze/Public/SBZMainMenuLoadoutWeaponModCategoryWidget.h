@@ -3,9 +3,9 @@
 #include "ESBZEquippableLoadoutSlot.h"
 #include "SBZEquippableConfig.h"
 #include "SBZMenuStackScreenWidgetWithTutorial.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuLoadoutWeaponModCategoryWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZLoadoutModCategoryButton;
 class USBZMenuButton;
@@ -17,7 +17,7 @@ class USBZMainMenuLoadoutWeaponModCategoryWidget : public USBZMenuStackScreenWid
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ButtonClass;
+    TSubclassOf<USBZLoadoutModCategoryButton> ButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 ObjectPoolAmount;
@@ -36,14 +36,13 @@ protected:
     
 public:
     USBZMainMenuLoadoutWeaponModCategoryWidget();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCategoryButtonSelected(const USBZModularPartSlotBase* ModSlot);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCategoryButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     USBZLoadoutModCategoryButton* GetAvailibleButton(int32 Index);
     
     UFUNCTION(BlueprintCallable)

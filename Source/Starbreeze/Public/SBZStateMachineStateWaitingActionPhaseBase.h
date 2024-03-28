@@ -19,27 +19,26 @@ protected:
     
 public:
     USBZStateMachineStateWaitingActionPhaseBase();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleTransitionGameModeReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleNetworkError(ESBZOnlineCode Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleCinematicStopped();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleCinematicStarted();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleBeaconNetworkError(ESBZOnlineCode Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DelayedNetworkBeaconError();
     
 };

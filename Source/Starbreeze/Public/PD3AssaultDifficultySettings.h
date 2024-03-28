@@ -1,12 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "PD3AssaulSustainPhaseSettings.h"
 #include "PD3AssaultProgressionSettings.h"
 #include "PD3AssaultWaitPhaseSettings.h"
 #include "SBZSquadLimits.h"
 #include "PD3AssaultDifficultySettings.generated.h"
 
-class UClass;
+class USBZAISquadOrder;
 
 USTRUCT(BlueprintType)
 struct FPD3AssaultDifficultySettings {
@@ -28,7 +29,10 @@ public:
     TArray<FPD3AssaulSustainPhaseSettings> SustainPhaseDurationProgressionArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftClassPtr<UClass>, FSBZSquadLimits> SquadLimits;
+    TMap<TSoftClassPtr<USBZAISquadOrder>, FSBZSquadLimits> SquadLimits;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayTag, int32> TypeLimits;
     
     STARBREEZE_API FPD3AssaultDifficultySettings();
 };

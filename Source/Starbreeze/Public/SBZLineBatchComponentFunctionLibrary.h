@@ -18,7 +18,6 @@ class USBZLineBatchComponentFunctionLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZLineBatchComponentFunctionLibrary();
-
     UFUNCTION(BlueprintCallable)
     static void Flush(ULineBatchComponent* LineBatcher);
     

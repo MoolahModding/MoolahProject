@@ -1,8 +1,5 @@
 #include "ABOrder.h"
 
-UABOrder::UABOrder() {
-}
-
 void UABOrder::GetUserOrders(const int32& Page, const int32& Size, FDAccelByteModelsPagedOrderInfoResponse OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -18,4 +15,6 @@ void UABOrder::CreateNewOrder(const FAccelByteModelsOrderCreate& OrderCreateRequ
 void UABOrder::CancelOrder(const FString& OrderNo, FDAccelByteModelsOrderInfoResponse OnSuccess, FDErrorHandler OnError) {
 }
 
+UABOrder::UABOrder() {
+}
 

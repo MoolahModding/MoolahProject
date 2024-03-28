@@ -3,5 +3,5 @@
 #include "AccelByteModelsPaginatedPublicTag.h"
 #include "DModelsPaginatedPublicTagResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedPublicTagResponse, FAccelByteModelsPaginatedPublicTag, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedPublicTagResponse, FAccelByteModelsPaginatedPublicTag, Response);
 

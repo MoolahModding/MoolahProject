@@ -11,6 +11,7 @@ public class AccelByteCustomization : ModuleRules {
             "Core",
             "CoreUObject",
             "Engine",
+            "JsonUtilities",
         });
     }
 }

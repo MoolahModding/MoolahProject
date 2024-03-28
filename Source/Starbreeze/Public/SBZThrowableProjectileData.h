@@ -8,6 +8,5 @@ class USBZThrowableProjectileData : public USBZThrowableData {
     GENERATED_BODY()
 public:
     USBZThrowableProjectileData();
-
 };
 

@@ -4,4 +4,3 @@ USBZPawnWidget::USBZPawnWidget() {
     this->PlayerCharacter = NULL;
 }
 
-

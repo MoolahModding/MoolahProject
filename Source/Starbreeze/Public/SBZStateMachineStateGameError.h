@@ -13,7 +13,7 @@ class STARBREEZE_API USBZStateMachineStateGameError : public USBZClientStateMach
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZStateMachineDataGameError* ErrorData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -24,9 +24,8 @@ private:
     
 public:
     USBZStateMachineStateGameError();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SetNetworkConnected(ESBZServiceStatus ServiceStatus);
     
 };

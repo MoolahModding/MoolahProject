@@ -4,7 +4,13 @@
 #include "SBZAbilitySystemComponent.h"
 #include "SBZOutlineComponent.h"
 
-ASBZArmedPawn::ASBZArmedPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+void ASBZArmedPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(ASBZArmedPawn, TeamId);
+}
+
+ASBZArmedPawn::ASBZArmedPawn(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->AbilitySystemComponent = CreateDefaultSubobject<USBZAbilitySystemComponent>(TEXT("SBZAbilitySystemComponent"));
     this->AbilityData = NULL;
     this->AIVisibilityNodeComputationFrequency = ESBZAIVisibilityNodeComputationFrequency::Automatic;
@@ -12,11 +18,4 @@ ASBZArmedPawn::ASBZArmedPawn(const FObjectInitializer& ObjectInitializer) : Supe
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
     this->RangedWeapon = NULL;
 }
-
-void ASBZArmedPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(ASBZArmedPawn, TeamId);
-}
-
 

@@ -1,8 +1,5 @@
 #include "SBZSettingsFunctionsVideo.h"
 
-USBZSettingsFunctionsVideo::USBZSettingsFunctionsVideo() {
-}
-
 void USBZSettingsFunctionsVideo::SetWindowMode(UObject* WorldContextObject, int32 Value) {
 }
 
@@ -12,7 +9,13 @@ void USBZSettingsFunctionsVideo::SetVSyncEnabled(UObject* WorldContextObject, bo
 void USBZSettingsFunctionsVideo::SetViewDistanceQuality(UObject* WorldContextObject, int32 Value) {
 }
 
-void USBZSettingsFunctionsVideo::SetUpscalingMode(UObject* WorldContextObject, int32 Mode) {
+void USBZSettingsFunctionsVideo::SetUpscalingSharpness(UObject* WorldContextObject, float Sharpness) {
+}
+
+void USBZSettingsFunctionsVideo::SetUpscalingMode(UObject* WorldContextObject, ESBZUpscalingMode Mode) {
+}
+
+void USBZSettingsFunctionsVideo::SetUpscaler(UObject* WorldContextObject, ESBZUpscaler Mode) {
 }
 
 void USBZSettingsFunctionsVideo::SetTextureQuality(UObject* WorldContextObject, int32 Value) {
@@ -24,10 +27,16 @@ void USBZSettingsFunctionsVideo::SetShadowQuality(UObject* WorldContextObject, i
 void USBZSettingsFunctionsVideo::SetResolution(UObject* WorldContextObject, FIntPoint Resolution) {
 }
 
+void USBZSettingsFunctionsVideo::SetRecommendedQuality(UObject* WorldContextObject) {
+}
+
 void USBZSettingsFunctionsVideo::SetPostProcessingQuality(UObject* WorldContextObject, int32 Value) {
 }
 
 void USBZSettingsFunctionsVideo::SetMotionBlurEnabled(UObject* WorldContextObject, bool bEnabled) {
+}
+
+void USBZSettingsFunctionsVideo::SetMaterialsQuality(UObject* WorldContextObject, int32 Value) {
 }
 
 void USBZSettingsFunctionsVideo::SetGamma(UObject* WorldContextObject, float Gamma) {
@@ -40,9 +49,6 @@ void USBZSettingsFunctionsVideo::SetFoliageQuality(UObject* WorldContextObject, 
 }
 
 void USBZSettingsFunctionsVideo::SetEffectsQuality(UObject* WorldContextObject, int32 Value) {
-}
-
-void USBZSettingsFunctionsVideo::SetDLSSSRMode(UObject* WorldContextObject, int32 Mode) {
 }
 
 void USBZSettingsFunctionsVideo::SetDepthOfFieldEnabled(UObject* WorldContextObject, bool bEnabled) {
@@ -98,8 +104,16 @@ int32 USBZSettingsFunctionsVideo::GetViewDistanceQuality(UObject* WorldContextOb
     return 0;
 }
 
-int32 USBZSettingsFunctionsVideo::GetUpscalingMode(UObject* WorldContextObject) {
-    return 0;
+float USBZSettingsFunctionsVideo::GetUpscalingSharpness(UObject* WorldContextObject) {
+    return 0.0f;
+}
+
+ESBZUpscalingMode USBZSettingsFunctionsVideo::GetUpscalingMode(UObject* WorldContextObject) {
+    return ESBZUpscalingMode::None;
+}
+
+ESBZUpscaler USBZSettingsFunctionsVideo::GetUpscaler(UObject* WorldContextObject) {
+    return ESBZUpscaler::None;
 }
 
 int32 USBZSettingsFunctionsVideo::GetTextureQuality(UObject* WorldContextObject) {
@@ -115,6 +129,10 @@ FIntPoint USBZSettingsFunctionsVideo::GetResolution(UObject* WorldContextObject)
 }
 
 int32 USBZSettingsFunctionsVideo::GetPostProcessingQuality(UObject* WorldContextObject) {
+    return 0;
+}
+
+int32 USBZSettingsFunctionsVideo::GetMaterialsQuality(UObject* WorldContextObject) {
     return 0;
 }
 
@@ -134,10 +152,6 @@ int32 USBZSettingsFunctionsVideo::GetEffectsQuality(UObject* WorldContextObject)
     return 0;
 }
 
-int32 USBZSettingsFunctionsVideo::GetDLSSSRMode(UObject* WorldContextObject) {
-    return 0;
-}
-
 int32 USBZSettingsFunctionsVideo::GetDefaultWindowMode(UObject* WorldContextObject) {
     return 0;
 }
@@ -146,8 +160,16 @@ int32 USBZSettingsFunctionsVideo::GetDefaultViewDistanceQuality(UObject* WorldCo
     return 0;
 }
 
-int32 USBZSettingsFunctionsVideo::GetDefaultUpscalingMode(UObject* WorldContextObject) {
-    return 0;
+float USBZSettingsFunctionsVideo::GetDefaultUpscalingSharpness(UObject* WorldContextObject) {
+    return 0.0f;
+}
+
+ESBZUpscalingMode USBZSettingsFunctionsVideo::GetDefaultUpscalingMode(UObject* WorldContextObject) {
+    return ESBZUpscalingMode::None;
+}
+
+ESBZUpscaler USBZSettingsFunctionsVideo::GetDefaultUpscaler(UObject* WorldContextObject) {
+    return ESBZUpscaler::None;
 }
 
 int32 USBZSettingsFunctionsVideo::GetDefaultTextureQuality(UObject* WorldContextObject) {
@@ -166,6 +188,10 @@ int32 USBZSettingsFunctionsVideo::GetDefaultPostProcessingQuality(UObject* World
     return 0;
 }
 
+int32 USBZSettingsFunctionsVideo::GetDefaultMaterialsQuality(UObject* WorldContextObject) {
+    return 0;
+}
+
 float USBZSettingsFunctionsVideo::GetDefaultGamma(UObject* WorldContextObject) {
     return 0.0f;
 }
@@ -179,10 +205,6 @@ int32 USBZSettingsFunctionsVideo::GetDefaultFoliageQuality(UObject* WorldContext
 }
 
 int32 USBZSettingsFunctionsVideo::GetDefaultEffectsQuality(UObject* WorldContextObject) {
-    return 0;
-}
-
-int32 USBZSettingsFunctionsVideo::GetDefaultDLSSSRMode(UObject* WorldContextObject) {
     return 0;
 }
 
@@ -226,11 +248,11 @@ float USBZSettingsFunctionsVideo::GetCameraVerticalFieldOfView(UObject* WorldCon
     return 0.0f;
 }
 
-bool USBZSettingsFunctionsVideo::GetButtonVisibilityUpscalingMode(UObject* WorldContextObject) {
+bool USBZSettingsFunctionsVideo::GetButtonVisibilityUpscalingSharpness(UObject* WorldContextObject) {
     return false;
 }
 
-bool USBZSettingsFunctionsVideo::GetButtonVisibilityDLSSRMode(UObject* WorldContextObject) {
+bool USBZSettingsFunctionsVideo::GetButtonVisibilityUpscalingMode(UObject* WorldContextObject) {
     return false;
 }
 
@@ -242,4 +264,6 @@ int32 USBZSettingsFunctionsVideo::GetAntiAliasingMode(UObject* WorldContextObjec
     return 0;
 }
 
+USBZSettingsFunctionsVideo::USBZSettingsFunctionsVideo() {
+}
 

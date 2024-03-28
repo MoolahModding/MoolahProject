@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZMaskInventorySlot> MaskConfigSlots;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZMaskInventorySlot> CheckedMaskConfigSlots;
+    
     STARBREEZE_API FSBZMaskConfigInventorySaveData();
 };
 

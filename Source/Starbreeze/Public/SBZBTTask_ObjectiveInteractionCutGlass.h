@@ -8,6 +8,5 @@ class USBZBTTask_ObjectiveInteractionCutGlass : public USBZBTTask_ObjectiveInter
     GENERATED_BODY()
 public:
     USBZBTTask_ObjectiveInteractionCutGlass();
-
 };
 

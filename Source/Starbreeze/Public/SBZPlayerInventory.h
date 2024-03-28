@@ -49,6 +49,5 @@ public:
     TMap<FGuid, FSBZPlayerCharacterInventoryItem> PlayerCharacterInventoryItemMap;
     
     USBZPlayerInventory();
-
 };
 

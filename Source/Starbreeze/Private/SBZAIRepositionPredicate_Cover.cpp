@@ -3,4 +3,3 @@
 USBZAIRepositionPredicate_Cover::USBZAIRepositionPredicate_Cover() {
 }
 
-

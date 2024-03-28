@@ -8,6 +8,5 @@ class USBZPawnSpawnEditorMeshComponent : public UPrimitiveComponent {
     GENERATED_BODY()
 public:
     USBZPawnSpawnEditorMeshComponent();
-
 };
 

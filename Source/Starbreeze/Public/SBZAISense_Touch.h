@@ -14,6 +14,5 @@ private:
     
 public:
     USBZAISense_Touch();
-
 };
 

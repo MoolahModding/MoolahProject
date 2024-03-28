@@ -17,12 +17,16 @@ private:
     
 public:
     USBZMainMenuBaseChallengeButton();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChallengeDataInititalized(const FSBZChallengeData& InChallengeData);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+public:
+    UFUNCTION(BlueprintCallable)
+    void InitializeChallengeData(const FSBZChallengeData& InChallengeData);
+    
+protected:
+    UFUNCTION(BlueprintPure)
     static FVector2D GetPaperSpriteSourceSize(UPaperSprite* Sprite);
     
 };

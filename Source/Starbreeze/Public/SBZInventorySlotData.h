@@ -8,6 +8,5 @@ class USBZInventorySlotData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZInventorySlotData();
-
 };
 

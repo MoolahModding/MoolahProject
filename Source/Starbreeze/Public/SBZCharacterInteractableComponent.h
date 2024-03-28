@@ -8,6 +8,5 @@ class USBZCharacterInteractableComponent : public USBZInteractableComponent {
     GENERATED_BODY()
 public:
     USBZCharacterInteractableComponent();
-
 };
 

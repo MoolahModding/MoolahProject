@@ -8,6 +8,5 @@ class USBZMaskPartConfig : public USBZModularPartConfig {
     GENERATED_BODY()
 public:
     USBZMaskPartConfig();
-
 };
 

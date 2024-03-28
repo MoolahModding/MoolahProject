@@ -8,6 +8,5 @@ class USBZAIUtilityScorer_IsOnStreet : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_IsOnStreet();
-
 };
 

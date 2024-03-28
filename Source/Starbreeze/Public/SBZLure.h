@@ -84,33 +84,32 @@ private:
     bool bIsPlayingEffects;
     
 public:
-    ASBZLure(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLure();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsPlayingEffects(bool bWasPlayingEffects);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnClientCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnActiveStateChanged(bool bIsActive, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_StopEffects();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void MakeLureNoise();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

@@ -21,15 +21,14 @@ protected:
     bool bForceShowTrueCode;
     
 public:
-    ASBZCodeNote(const FObjectInitializer& ObjectInitializer);
-
+    ASBZCodeNote();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CodeToShow();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -10,63 +10,62 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZJobOverviewSync : public AInfo {
     GENERATED_BODY()
 public:
-    ASBZJobOverviewSync(const FObjectInitializer& ObjectInitializer);
-
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    ASBZJobOverviewSync();
+    UFUNCTION(NetMulticast, Reliable)
     void UpdateReadyClientStatusReceived(const FSBZPlayersReadyStatusStateArray& PlayersReadyStatus);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdateReadyClientStatus();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ServerSetPlayerJobOverviewReady(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ServerPlayerReadyToEnterActionPhaseReceived(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendServerPlayerReadyToEnterActionPhase(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SendPlayerJobOverviewReady(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NotifyClientProceedToActionPhase();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NotifyClientMissionEnd();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NotifyClientCurrentReadyTimeoutTimeSinglePlayerReceived(const FUniqueNetIdRepl& PlayerId, int32 ReadyTimeoutTime);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NotifyClientCurrentReadyTimeoutTimeSinglePlayer(const FUniqueNetIdRepl& PlayerId, int32 ReadyTimeoutTime);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NotifyClientCurrentReadyTimeoutTimeReceived(int32 ReadyTimeoutTime);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NotifyClientCurrentReadyTimeoutTime(int32 ReadyTimeoutTime);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void NotifyActionPhaseReady();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void ClientWaitsForReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ClientWaitsForReady();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void ClientMoveToBlackScreenSinglePlayerReceived(const FUniqueNetIdRepl& PlayerId, EBlackScreenTransitionType BlackScreenTransitionType);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ClientMoveToBlackScreenSinglePlayer(const FUniqueNetIdRepl& PlayerId, EBlackScreenTransitionType BlackScreenTransitionType);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void ClientMoveToBlackScreenReceived(EBlackScreenTransitionType BlackScreenTransitionType);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void ClientMoveToBlackScreen(EBlackScreenTransitionType BlackScreenTransitionType);
     
 };

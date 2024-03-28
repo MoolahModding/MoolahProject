@@ -4,4 +4,3 @@ USBZWidgetCreditsImage::USBZWidgetCreditsImage() {
     this->ImageWidget = NULL;
 }
 
-

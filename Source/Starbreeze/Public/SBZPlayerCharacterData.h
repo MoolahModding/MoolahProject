@@ -4,7 +4,7 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZPlayerCharacterData.generated.h"
 
-class UClass;
+class ASBZPlayerCharacter;
 class USBZGloveData;
 class USBZMaskData;
 class USBZPlayerMenuAnimationCollection;
@@ -16,7 +16,7 @@ class STARBREEZE_API USBZPlayerCharacterData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> CharacterClass;
+    TSoftClassPtr<ASBZPlayerCharacter> CharacterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMaskData* DefaultMaskData;
@@ -48,6 +48,5 @@ protected:
     
 public:
     USBZPlayerCharacterData();
-
 };
 

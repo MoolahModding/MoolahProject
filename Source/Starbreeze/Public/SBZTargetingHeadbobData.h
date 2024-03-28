@@ -22,6 +22,5 @@ public:
     float BreathingAmplitude;
     
     USBZTargetingHeadbobData();
-
 };
 

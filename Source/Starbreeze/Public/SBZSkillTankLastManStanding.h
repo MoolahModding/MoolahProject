@@ -8,6 +8,5 @@ class USBZSkillTankLastManStanding : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTankLastManStanding();
-
 };
 

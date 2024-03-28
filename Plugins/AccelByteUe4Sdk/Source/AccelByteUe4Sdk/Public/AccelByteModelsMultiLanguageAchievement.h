@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "JsonObjectWrapper.h"
 #include "AccelByteModelsAchievementIcon.h"
 #include "AccelByteModelsMultiLanguageAchievement.generated.h"
 
@@ -38,6 +39,9 @@ public:
     bool Incremental;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool Global;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float GoalValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -48,6 +52,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString UpdatedAt;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FJsonObjectWrapper CustomAttributes;
     
     FAccelByteModelsMultiLanguageAchievement();
 };

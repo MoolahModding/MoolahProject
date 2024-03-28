@@ -8,6 +8,5 @@ class USBZItemBundleData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZItemBundleData();
-
 };
 

@@ -1,8 +1,5 @@
 #include "SBZAchievementManager.h"
 
-USBZAchievementManager::USBZAchievementManager() {
-}
-
 void USBZAchievementManager::OnInitializedChallengeRecordsCacheDone() {
 }
 
@@ -22,4 +19,6 @@ void USBZAchievementManager::CompleteAchievements(const TArray<FName>& Achieveme
 void USBZAchievementManager::CompleteAchievement(const FName& AchievementId) {
 }
 
+USBZAchievementManager::USBZAchievementManager() {
+}
 

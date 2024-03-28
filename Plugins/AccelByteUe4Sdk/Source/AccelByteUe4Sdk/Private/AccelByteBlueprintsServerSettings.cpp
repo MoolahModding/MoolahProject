@@ -1,9 +1,6 @@
 #include "AccelByteBlueprintsServerSettings.h"
 
-UAccelByteBlueprintsServerSettings::UAccelByteBlueprintsServerSettings() {
-}
-
-void UAccelByteBlueprintsServerSettings::SetWatchdogServerUrl(const FString& WatchdogServerUrl) {
+void UAccelByteBlueprintsServerSettings::SetUGCServerUrl(const FString& UGCServerUrl) {
 }
 
 void UAccelByteBlueprintsServerSettings::SetStatisticServerUrl(const FString& StatisticServerUrl) {
@@ -13,6 +10,9 @@ void UAccelByteBlueprintsServerSettings::SetSessionServerUrl(const FString& Sess
 }
 
 void UAccelByteBlueprintsServerSettings::SetSessionBrowserServerUrl(const FString& SessionBrowserServerUrl) {
+}
+
+void UAccelByteBlueprintsServerSettings::SetSendPredefinedEvent(bool bEnabled) {
 }
 
 void UAccelByteBlueprintsServerSettings::SetSeasonPassServerUrl(const FString& SessionPassServerUrl) {
@@ -45,6 +45,9 @@ void UAccelByteBlueprintsServerSettings::SetLobbyServerUrl(const FString& LobbyS
 void UAccelByteBlueprintsServerSettings::SetIamServerUrl(const FString& IamServerUrl) {
 }
 
+void UAccelByteBlueprintsServerSettings::SetGDPRServerUrl(const FString& GDPRServerUrl) {
+}
+
 void UAccelByteBlueprintsServerSettings::SetGameTelemetryServerUrl(const FString& GameTelemetryServerUrl) {
 }
 
@@ -66,13 +69,20 @@ void UAccelByteBlueprintsServerSettings::SetClientId(const FString& ClientId) {
 void UAccelByteBlueprintsServerSettings::SetChatServerUrl(const FString& ChatServerUrl) {
 }
 
+void UAccelByteBlueprintsServerSettings::SetAMSServerWatchdogUrl(const FString& AMSServerUrl) {
+}
+
 void UAccelByteBlueprintsServerSettings::SetAchievementServerUrl(const FString& AchievementServerUrl) {
 }
 
 void UAccelByteBlueprintsServerSettings::ResetSettings(const ESettingsEnvironment Environment) {
 }
 
-FString UAccelByteBlueprintsServerSettings::GetWatchdogServerUrl() {
+bool UAccelByteBlueprintsServerSettings::IsSendPredefinedEvent() {
+    return false;
+}
+
+FString UAccelByteBlueprintsServerSettings::GetUGCServerUrl() {
     return TEXT("");
 }
 
@@ -128,6 +138,10 @@ FString UAccelByteBlueprintsServerSettings::GetIamServerUrl() {
     return TEXT("");
 }
 
+FString UAccelByteBlueprintsServerSettings::GetGDPRServerUrl() {
+    return TEXT("");
+}
+
 FString UAccelByteBlueprintsServerSettings::GetGameTelemetryServerUrl() {
     return TEXT("");
 }
@@ -156,8 +170,14 @@ FString UAccelByteBlueprintsServerSettings::GetChatServerUrl() {
     return TEXT("");
 }
 
+FString UAccelByteBlueprintsServerSettings::GetAMSServerWatchdogUrl() {
+    return TEXT("");
+}
+
 FString UAccelByteBlueprintsServerSettings::GetAchievementServerUrl() {
     return TEXT("");
 }
 
+UAccelByteBlueprintsServerSettings::UAccelByteBlueprintsServerSettings() {
+}
 

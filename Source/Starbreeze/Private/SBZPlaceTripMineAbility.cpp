@@ -3,4 +3,3 @@
 USBZPlaceTripMineAbility::USBZPlaceTripMineAbility() {
 }
 
-

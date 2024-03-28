@@ -27,7 +27,6 @@ private:
     
 public:
     UGridlyTask_ImportDataTableFromGridly();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UGridlyTask_ImportDataTableFromGridly* ImportDataTableFromGridly(const UObject* WorldContextObject, UGridlyDataTable* NewGridlyDataTable);
     

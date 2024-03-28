@@ -5,7 +5,7 @@
 #include "ESBZEquippableFamily.h"
 #include "SBZLifeActionPreviewData.generated.h"
 
-class UClass;
+class ASBZEquippable;
 class USBZBaseCharacterAnimationCollection;
 class USkeletalMesh;
 
@@ -26,9 +26,8 @@ public:
     ESBZEquippableFamily PreviewEquippableFamily;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> PreviewEquippableClass;
+    TSoftClassPtr<ASBZEquippable> PreviewEquippableClass;
     
     USBZLifeActionPreviewData();
-
 };
 

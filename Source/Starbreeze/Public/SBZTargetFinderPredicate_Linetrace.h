@@ -13,6 +13,5 @@ protected:
     
 public:
     USBZTargetFinderPredicate_Linetrace();
-
 };
 

@@ -20,6 +20,5 @@ public:
     FSBZControlsReference ControlsReference;
     
     USBZCarryType();
-
 };
 

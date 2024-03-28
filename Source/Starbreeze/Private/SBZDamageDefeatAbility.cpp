@@ -3,4 +3,3 @@
 USBZDamageDefeatAbility::USBZDamageDefeatAbility() {
 }
 
-

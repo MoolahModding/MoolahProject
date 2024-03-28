@@ -88,8 +88,7 @@ private:
     USBZAudioRaycasting* AudioRaycasting;
     
 public:
-    ASBZPlayerCameraManager(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerCameraManager();
     UFUNCTION(BlueprintCallable)
     void UnlockCamera(int32& InOutId);
     
@@ -105,7 +104,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 LockCamera(const FSBZLockCameraData& Data);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsCameraLocked() const;
     
     UFUNCTION(BlueprintCallable)

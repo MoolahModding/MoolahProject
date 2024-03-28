@@ -3,4 +3,3 @@
 USBZThrowableImpactConfig::USBZThrowableImpactConfig() {
 }
 
-

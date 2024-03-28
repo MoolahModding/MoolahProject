@@ -8,6 +8,5 @@ class USBZSuitMaterialData : public USBZCosmeticsDataAsset {
     GENERATED_BODY()
 public:
     USBZSuitMaterialData();
-
 };
 

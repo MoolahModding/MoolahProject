@@ -21,6 +21,5 @@ public:
     FLinearColor DefaultCharacterEffectColor;
     
     USBZCharacterEffectDataAsset();
-
 };
 

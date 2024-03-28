@@ -5,7 +5,5 @@ USBZControlsReferenceAxisWidget::USBZControlsReferenceAxisWidget() {
     this->Panel_AxisInputLists = NULL;
     this->MaxAxisInputsDisplayed = 2;
     this->AxisInputWidgetClass = NULL;
-    this->AxisInputWidgetClass = NULL;
 }
-
 

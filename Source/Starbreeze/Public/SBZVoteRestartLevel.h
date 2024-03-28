@@ -8,6 +8,5 @@ class USBZVoteRestartLevel : public USBZVote {
     GENERATED_BODY()
 public:
     USBZVoteRestartLevel();
-
 };
 

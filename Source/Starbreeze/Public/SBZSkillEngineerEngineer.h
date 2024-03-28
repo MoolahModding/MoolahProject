@@ -8,6 +8,5 @@ class USBZSkillEngineerEngineer : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEngineerEngineer();
-
 };
 

@@ -1,13 +1,5 @@
 #include "SBZCheatManager.h"
 
-USBZCheatManager::USBZCheatManager() {
-    this->MenuInputComponent = NULL;
-    this->SelectedWeaponPartSlot = NULL;
-    this->SelectedWeaponPart = NULL;
-    this->SelectedWeaponCosmeticsPartSlot = NULL;
-    this->SelectedWeaponCosmeticsPart = NULL;
-}
-
 void USBZCheatManager::ViewTarget(int32 PlayerIndex) {
 }
 
@@ -44,7 +36,7 @@ void USBZCheatManager::SurrenderTarget(int32 PlayerIndex) {
 void USBZCheatManager::SubduePlayer(int32 PlayerIndex) {
 }
 
-void USBZCheatManager::StartEndlessAssault() {
+void USBZCheatManager::StartEndlessAssault(bool bForceStartAssault) {
 }
 
 void USBZCheatManager::SpawnFBI() {
@@ -90,9 +82,6 @@ void USBZCheatManager::SetSharedTagCount(const FName& Tag, int32 Count) {
 }
 
 void USBZCheatManager::SetRegisterRewardPrints(bool bIsRegistered) {
-}
-
-void USBZCheatManager::SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetPlayerName(const FString& Name, int32 PlayerIndex) {
@@ -155,15 +144,6 @@ void USBZCheatManager::SetInteractorModeIndex(int32 ModeIndex, int32 PlayerIndex
 void USBZCheatManager::SetInfiniteAmmo(bool bHasInifinteAmmo, int32 PlayerIndex) {
 }
 
-void USBZCheatManager::SetInfamyLevelExperience(int32 Level, int32 Experience) {
-}
-
-void USBZCheatManager::SetInfamyLevel(int32 Amount, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::SetInfamyExperience(int32 Amount, int32 PlayerIndex) {
-}
-
 void USBZCheatManager::SetInaudiblePlayer(bool bIsInaudible, int32 PlayerIndex) {
 }
 
@@ -197,10 +177,10 @@ void USBZCheatManager::SetDrawTransformEnabled(bool bIsEnabled) {
 void USBZCheatManager::SetDrawTransform(float X, float Y, float Z, float Yaw, float Pitch, float Roll, float ScaleX, float ScaleY, float ScaleZ) {
 }
 
-void USBZCheatManager::SetDifficulty(ESBZDifficulty Difficulty) {
+void USBZCheatManager::SetDownedCount(int32 Count, int32 PlayerIndex) {
 }
 
-void USBZCheatManager::SetCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex) {
+void USBZCheatManager::SetDifficulty(ESBZDifficulty Difficulty) {
 }
 
 void USBZCheatManager::SetCrouchedTarget(bool bIsCrouched, int32 PlayerIndex) {
@@ -224,6 +204,12 @@ void USBZCheatManager::SetAllSkills(bool bIsAcquired, int32 PlayerIndex) {
 void USBZCheatManager::SetAddMissionFailedTimeout(float AddTimeout) {
 }
 
+void USBZCheatManager::SendSessionMessage(const FString& Message) {
+}
+
+void USBZCheatManager::SelectDebugActorTarget(bool bIsSelectedInEditor, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SecureBag(int32 Count, const FName& AssetName) {
 }
 
@@ -234,6 +220,9 @@ void USBZCheatManager::ReviveTarget(int32 PlayerIndex) {
 }
 
 void USBZCheatManager::RevivePlayer(int32 PlayerIndex) {
+}
+
+void USBZCheatManager::ReviveCrewAI(int32 CrewAIIndex) {
 }
 
 void USBZCheatManager::ResetCVars() {
@@ -251,7 +240,7 @@ void USBZCheatManager::RequestMissionEnd(ESBZEndMissionResult Result, int32 Outr
 void USBZCheatManager::ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked) {
 }
 
-void USBZCheatManager::RemoveCurrency(ESBZCurrencyCode Type, int32 Amount) {
+void USBZCheatManager::RefreshPlayerAbilityBuffAll(int32 PlayerIndex) {
 }
 
 void USBZCheatManager::RefreshPlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, int32 PlayerIndex) {
@@ -263,13 +252,13 @@ void USBZCheatManager::RebuildAssetLookup() {
 void USBZCheatManager::PrintWorldInfo(int32 PlayerIndex) {
 }
 
-void USBZCheatManager::PrintTargetTagChanges(bool bIsPrintEnabled, const FName& Tag, int32 PlayerIndex) {
+void USBZCheatManager::PrintTargetTagChanges(bool bIsPrintEnabled, const FName& Tag, bool bIsStackTrace, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::PrintTarget(int32 PlayerIndex) {
 }
 
-void USBZCheatManager::PrintTagChanges(bool bIsPrintEnabled, const FName& Tag, int32 PlayerIndex) {
+void USBZCheatManager::PrintTagChanges(bool bIsPrintEnabled, const FName& Tag, bool bIsStackTrace, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::PrintServerWorldInfo(int32 PlayerIndex) {
@@ -305,10 +294,13 @@ void USBZCheatManager::PerceptionOnAllAI(bool bShouldHavePerception) {
 void USBZCheatManager::OverlapSphere(TEnumAsByte<ECollisionChannel> CollisionChannel, const FName& Profile, bool bIsObjectType, bool bIsComplex, float Distance, int32 MaxHitCount, float Radius, float DrawDuration, bool bIsDrawPersistent) {
 }
 
+void USBZCheatManager::MoveDebugActorTarget(ESBZAIOrderMode OrderMode, const FName& MoveOrderAssetName, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::LogSceneComponents() {
 }
 
-void USBZCheatManager::LobotomizeCrewAI() {
+void USBZCheatManager::LobotomizeAllCrewAI() {
 }
 
 void USBZCheatManager::LobotomizeAllAI() {
@@ -321,6 +313,9 @@ void USBZCheatManager::KillTarget(int32 PlayerIndex) {
 }
 
 void USBZCheatManager::KillPlayer(int32 PlayerIndex) {
+}
+
+void USBZCheatManager::KillAllCrewAI() {
 }
 
 void USBZCheatManager::KillAllAI() {
@@ -353,9 +348,6 @@ void USBZCheatManager::InputActionTarget(const FName& ActionName, TEnumAsByte<EI
 void USBZCheatManager::InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
 }
 
-void USBZCheatManager::GrantUserEntitlement(const FString& AccelByteItemIdString, const FString& AccelByteItemSku, int32 PlayerIndex) {
-}
-
 void USBZCheatManager::GrabInstantLoot() {
 }
 
@@ -374,7 +366,13 @@ void USBZCheatManager::GiveAmmo(int32 Amount, int32 WeaponIndex, int32 PlayerInd
 void USBZCheatManager::GamepadOpenInGameCheatMenu(FKey Key) {
 }
 
+void USBZCheatManager::GainPlayerAbilityBuffAll(bool bIsRefreshAllowed, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::GainPlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, bool bIsRefreshAllowed, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::FulfillUserItem(const FString& AccelByteItemIdString, const FString& AccelByteItemSku, FString& ItemNamespace, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::FindClassReferences(const FName& ClassName, bool bIsSubClassesIncluded, bool bIsBlueprintsIncluded, bool bIsAssetsLoaded) {
@@ -384,15 +382,6 @@ void USBZCheatManager::FindBlocker(bool bIsComplex, float TraceDistance, float T
 }
 
 void USBZCheatManager::EquipOverkillWeapon(int32 PlayerIndex) {
-}
-
-void USBZCheatManager::DumpAllPlayerStatistics(int32 PlayerIndex) {
-}
-
-void USBZCheatManager::DumpAllPlayersInfamyAndPlatform() {
-}
-
-void USBZCheatManager::DumpAllPlayersAccelByteDisplayName() {
 }
 
 void USBZCheatManager::DestroyTargetAI(int32 PlayerIndex) {
@@ -408,6 +397,9 @@ void USBZCheatManager::DefeatTarget(int32 PlayerIndex) {
 }
 
 void USBZCheatManager::DefeatPlayer(bool bIsDirectIntoCustody, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::DefeatCrewAI(int32 CrewAIIndex) {
 }
 
 void USBZCheatManager::DebugVehicleSplineData() {
@@ -434,13 +426,16 @@ void USBZCheatManager::DamagePlayer(float Damage, ESBZDamageWeight DamageWeight,
 void USBZCheatManager::DamageCharacter(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::DamageAllCrewAI(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::CuffPlayer(int32 PlayerIndex) {
 }
 
-void USBZCheatManager::ConsumePlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, int32 PlayerIndex) {
+void USBZCheatManager::ConsumePlayerAbilityBuffAll(int32 PlayerIndex) {
 }
 
-void USBZCheatManager::ChangeStatCode(const FString& StatCode, int32 Count, int32 PlayerIndex) {
+void USBZCheatManager::ConsumePlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::ChangeAssaultDrama(float Amount) {
@@ -452,7 +447,11 @@ void USBZCheatManager::CallDispatcher(EPD3DispatchCaller Caller, EPD3DispatchCal
 void USBZCheatManager::ApplyGameplayEffectTarget(const FName& AssetName, float Duration, const FString& NameMagnitudeString, int32 PlayerIndex) {
 }
 
-void USBZCheatManager::AddCurrency(ESBZCurrencyCode Type, int32 Amount) {
+USBZCheatManager::USBZCheatManager() {
+    this->MenuInputComponent = NULL;
+    this->SelectedWeaponPartSlot = NULL;
+    this->SelectedWeaponPart = NULL;
+    this->SelectedWeaponCosmeticsPartSlot = NULL;
+    this->SelectedWeaponCosmeticsPart = NULL;
 }
-
 

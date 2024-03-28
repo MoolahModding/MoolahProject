@@ -1,0 +1,7 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "AccelByteModelsUGCGetPaginatedContentDownloaderResponseV2.h"
+#include "DModelsUGCGetPaginatedContentDownloaderResponseDelegate.generated.h"
+
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCGetPaginatedContentDownloaderResponse, FAccelByteModelsUGCGetPaginatedContentDownloaderResponseV2, Response);
+

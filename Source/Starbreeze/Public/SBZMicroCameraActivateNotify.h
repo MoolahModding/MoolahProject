@@ -8,6 +8,5 @@ class USBZMicroCameraActivateNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZMicroCameraActivateNotify();
-
 };
 

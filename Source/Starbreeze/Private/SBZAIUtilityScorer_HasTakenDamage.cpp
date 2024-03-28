@@ -5,4 +5,3 @@ USBZAIUtilityScorer_HasTakenDamage::USBZAIUtilityScorer_HasTakenDamage() {
     this->MaxDamage = 50.00f;
 }
 
-

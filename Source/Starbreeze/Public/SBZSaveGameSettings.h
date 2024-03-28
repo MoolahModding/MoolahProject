@@ -3,16 +3,15 @@
 #include "SBZDeveloperSettings.h"
 #include "SBZSaveGameSettings.generated.h"
 
-class UClass;
+class USBZProgressionSaveGame;
 
 UCLASS(Blueprintable)
 class USBZSaveGameSettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> DefaultProgressionSaveGame;
+    TSoftClassPtr<USBZProgressionSaveGame> DefaultProgressionSaveGame;
     
     USBZSaveGameSettings();
-
 };
 

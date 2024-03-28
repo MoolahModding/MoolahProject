@@ -4,5 +4,5 @@
 
 class APlayerController;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnlineShowLoginUIResult, APlayerController*, PlayerController);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnlineShowLoginUIResult, APlayerController*, PlayerController);
 

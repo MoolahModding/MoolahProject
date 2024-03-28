@@ -3,4 +3,3 @@
 USBZMockAnalyticsProvider::USBZMockAnalyticsProvider() {
 }
 
-

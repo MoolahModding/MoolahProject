@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnRestartLevelStartedDelegateDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRestartLevelStartedDelegate);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRestartLevelStartedDelegate);
 

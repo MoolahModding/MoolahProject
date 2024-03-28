@@ -4,5 +4,5 @@
 
 class ASBZLevelScriptActor;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZRandomizedRoomLoadingComplete, ASBZLevelScriptActor*, LevelScriptActor);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZRandomizedRoomLoadingComplete, ASBZLevelScriptActor*, LevelScriptActor);
 

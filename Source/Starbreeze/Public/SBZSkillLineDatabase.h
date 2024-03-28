@@ -13,6 +13,5 @@ public:
     TArray<USBZSkillLineData*> SkillLineArray;
     
     USBZSkillLineDatabase();
-
 };
 

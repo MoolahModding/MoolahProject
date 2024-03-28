@@ -21,6 +21,5 @@ private:
     
 public:
     USBZBTDecorator_TargetIsNear();
-
 };
 

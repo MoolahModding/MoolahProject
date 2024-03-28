@@ -22,8 +22,7 @@ private:
     
 public:
     USBZNavLinkManager();
-
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZNavLinkManager* Get(const UObject* WorldContextObject);
     
 };

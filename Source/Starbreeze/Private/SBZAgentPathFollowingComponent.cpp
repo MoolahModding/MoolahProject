@@ -14,7 +14,5 @@ USBZAgentPathFollowingComponent::USBZAgentPathFollowingComponent() {
     this->MinDistFromLifeActionSlotToAlign = 50.00f;
     this->CurTrafficNavLink = NULL;
     this->CachedCurrentNavAreaClass = NULL;
-    this->CachedCurrentNavAreaClass = NULL;
 }
-
 

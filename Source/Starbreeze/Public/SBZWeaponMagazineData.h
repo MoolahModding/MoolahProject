@@ -31,6 +31,5 @@ public:
     ESBZWeaponAmmoVisibilityType AmmoVisibilityType;
     
     USBZWeaponMagazineData();
-
 };
 

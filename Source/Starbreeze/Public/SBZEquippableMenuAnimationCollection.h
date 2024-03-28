@@ -13,6 +13,5 @@ public:
     TMap<ESBZMainMenuAnimationName, FSBZMenuACEquippablePerCharacterSlot> EquippablePerCharacterSlots;
     
     USBZEquippableMenuAnimationCollection();
-
 };
 

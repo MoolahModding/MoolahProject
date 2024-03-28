@@ -8,6 +8,5 @@ class USBZCrowdManager : public UCrowdManager {
     GENERATED_BODY()
 public:
     USBZCrowdManager();
-
 };
 

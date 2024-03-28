@@ -4,4 +4,3 @@ USBZDescendState::USBZDescendState() {
     this->StateMachine = NULL;
 }
 
-

@@ -4,4 +4,3 @@ USBZAIUtilityScorer_TimeSinceTimestamp::USBZAIUtilityScorer_TimeSinceTimestamp()
     this->MaxScoreTime = 1.00f;
 }
 
-

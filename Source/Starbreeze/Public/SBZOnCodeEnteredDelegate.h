@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnCodeEnteredDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnCodeEntered);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnCodeEntered);
 

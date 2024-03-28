@@ -1,18 +1,5 @@
 #include "SBZMainMenuWeaponInventoryWidget.h"
 
-USBZMainMenuWeaponInventoryWidget::USBZMainMenuWeaponInventoryWidget() {
-    this->WeaponSlotButtonClass = NULL;
-    this->WeaponSlotButtonClass = NULL;
-    this->Panel_WeaponSlotButtons = NULL;
-    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
-    this->ActiveWeaponSlots = 0;
-    this->WeaponSlotCount = 0;
-    this->ActiveWeaponSlotIndex = -1;
-    this->LoadoutSlotIndex = -1;
-    this->ActiveLoadoutActiveWeaponSlotIndex = -1;
-    this->StackValue = TEXT("Default__SBZMainMenuWeaponInventoryWidget");
-}
-
 void USBZMainMenuWeaponInventoryWidget::UpdateWeaponSlotButtons() {
 }
 
@@ -58,4 +45,14 @@ bool USBZMainMenuWeaponInventoryWidget::CanDiscardWeaponIndex(int32 IndexToDisca
     return false;
 }
 
+USBZMainMenuWeaponInventoryWidget::USBZMainMenuWeaponInventoryWidget() {
+    this->WeaponSlotButtonClass = NULL;
+    this->Panel_WeaponSlotButtons = NULL;
+    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
+    this->ActiveWeaponSlots = 0;
+    this->WeaponSlotCount = 0;
+    this->ActiveWeaponSlotIndex = -1;
+    this->LoadoutSlotIndex = -1;
+    this->ActiveLoadoutActiveWeaponSlotIndex = -1;
+}
 

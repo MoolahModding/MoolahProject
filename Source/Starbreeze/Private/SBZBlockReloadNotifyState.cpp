@@ -3,4 +3,3 @@
 USBZBlockReloadNotifyState::USBZBlockReloadNotifyState() {
 }
 
-

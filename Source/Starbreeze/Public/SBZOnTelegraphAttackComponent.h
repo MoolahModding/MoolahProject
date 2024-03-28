@@ -20,12 +20,11 @@ protected:
     
 public:
     USBZOnTelegraphAttackComponent();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUnequip(const ASBZEquippable* Equippable);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTelegraphAttackChanged(ASBZAICharacter* Character, bool bActivated);
     
 };

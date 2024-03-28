@@ -8,6 +8,9 @@ class USBZMetaDataLoader : public UObject {
     GENERATED_BODY()
 public:
     USBZMetaDataLoader();
-
+protected:
+    UFUNCTION()
+    void OnRetryGetUserEntitlements();
+    
 };
 

@@ -11,6 +11,5 @@ public:
     int32 TargetLevelIdx;
     
     USBZStateMachineDataWaitActionPhase();
-
 };
 

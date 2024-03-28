@@ -33,11 +33,10 @@ private:
     
 public:
     UDEPRECATED_SBZAlertnessDataComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_AlertState();
     
     UFUNCTION(NetMulticast, Reliable)

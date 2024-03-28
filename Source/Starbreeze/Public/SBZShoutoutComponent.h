@@ -4,11 +4,12 @@
 #include "Components/ActorComponent.h"
 #include "GameplayTagContainer.h"
 #include "ESBZShoutActionType.h"
+#include "Templates/SubclassOf.h"
 #include "SBZShoutoutComponent.generated.h"
 
 class AActor;
 class UAbilitySystemComponent;
-class UClass;
+class USBZAIAction;
 class USBZMarkerDataAsset;
 class USBZOutlineAsset;
 class USBZShoutTargetComponent;
@@ -68,7 +69,7 @@ protected:
     float PingTimer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CopSurrenderAction;
+    TSubclassOf<USBZAIAction> CopSurrenderAction;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 PingIndex;
@@ -81,27 +82,26 @@ protected:
     
 public:
     USBZShoutoutComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetMarkLimit(int32 NewLimit);
     
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_Shoutout(AActor* Actor, ESBZShoutActionType Action, USBZShoutTargetComponent* Target);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SendPing(const FVector& Location);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPingComplete();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ShoutoutWithoutTarget(ESBZShoutActionType Action);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_Shoutout(AActor* Actor, ESBZShoutActionType Action, USBZShoutTargetComponent* Target);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SendPing(const FVector& Location);
     
 public:

@@ -1,11 +1,5 @@
 #include "SBZCharacterPreferenceCharacterSlotButton.h"
 
-USBZCharacterPreferenceCharacterSlotButton::USBZCharacterPreferenceCharacterSlotButton() {
-    this->bIsLocked = false;
-    this->ItemIndex = -1;
-    this->CharacterInSlot = NULL;
-}
-
 void USBZCharacterPreferenceCharacterSlotButton::SetLocked(bool bInIsLocked) {
 }
 
@@ -43,4 +37,9 @@ int32 USBZCharacterPreferenceCharacterSlotButton::GetDisplayIndex() const {
     return 0;
 }
 
+USBZCharacterPreferenceCharacterSlotButton::USBZCharacterPreferenceCharacterSlotButton() {
+    this->bIsLocked = false;
+    this->ItemIndex = -1;
+    this->CharacterInSlot = NULL;
+}
 

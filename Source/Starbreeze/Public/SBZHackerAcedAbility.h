@@ -8,6 +8,5 @@ class USBZHackerAcedAbility : public USBZHackerBaseAbility {
     GENERATED_BODY()
 public:
     USBZHackerAcedAbility();
-
 };
 

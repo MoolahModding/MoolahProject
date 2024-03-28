@@ -4,4 +4,3 @@ USBZAICrewCharacterInteractableComponent::USBZAICrewCharacterInteractableCompone
     this->ModeArray.AddDefaulted(2);
 }
 
-

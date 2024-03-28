@@ -37,13 +37,12 @@ protected:
     TArray<ASBZAIBaseCharacter*> CrossingCharacters;
     
 public:
-    ASBZPedestrianTrafficNavLink(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPedestrianTrafficNavLink();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetTrafficAllowed(bool bAllowed);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

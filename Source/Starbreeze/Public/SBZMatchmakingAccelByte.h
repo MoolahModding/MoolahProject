@@ -8,6 +8,5 @@ class USBZMatchmakingAccelByte : public USBZMatchmaking {
     GENERATED_BODY()
 public:
     USBZMatchmakingAccelByte();
-
 };
 

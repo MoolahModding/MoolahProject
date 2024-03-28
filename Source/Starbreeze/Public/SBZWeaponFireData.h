@@ -9,7 +9,7 @@
 #include "SBZWeaponBaseAttackData.h"
 #include "SBZWeaponFireData.generated.h"
 
-class UClass;
+class ASBZGrenadeProjectile;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZWeaponFireData : public USBZWeaponBaseAttackData {
@@ -52,7 +52,7 @@ public:
     ESBZWeaponAmmoVisibilityType AmmoVisibilityType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> GrenadeProjectileClass;
+    TSoftClassPtr<ASBZGrenadeProjectile> GrenadeProjectileClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetrationProjectile;
@@ -99,11 +99,10 @@ protected:
     
 public:
     USBZWeaponFireData();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetProjectilesPerFiredRound() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetCriticalMultipliersOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutMultiplierArray) const;
     
 };

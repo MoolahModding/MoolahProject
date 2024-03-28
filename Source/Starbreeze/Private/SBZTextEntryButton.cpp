@@ -1,11 +1,5 @@
 #include "SBZTextEntryButton.h"
 
-USBZTextEntryButton::USBZTextEntryButton() {
-    this->EditableText_TextInput = NULL;
-    this->bSanitizeInputText = true;
-    this->Cursor = EMouseCursor::TextEditBeam;
-}
-
 void USBZTextEntryButton::SetInputText(const FText& InText) {
 }
 
@@ -17,4 +11,8 @@ FText USBZTextEntryButton::GetCurrentText() const {
 }
 
 
+USBZTextEntryButton::USBZTextEntryButton() {
+    this->EditableText_TextInput = NULL;
+    this->bSanitizeInputText = true;
+}
 

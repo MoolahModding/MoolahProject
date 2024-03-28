@@ -3,7 +3,7 @@
 USBZVariationEditComponent::USBZVariationEditComponent() {
     this->VariationSet = NULL;
     this->CurrentVariationIdx = -1;
-    this->bIsEditorOnly = true;
+    this->SkeletalMeshComponent = NULL;
+    this->StaticMeshComponent = NULL;
 }
-
 

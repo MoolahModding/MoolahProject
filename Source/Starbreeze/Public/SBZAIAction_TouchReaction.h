@@ -36,6 +36,5 @@ protected:
     
 public:
     USBZAIAction_TouchReaction();
-
 };
 

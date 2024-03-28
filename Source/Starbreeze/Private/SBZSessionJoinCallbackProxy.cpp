@@ -1,10 +1,10 @@
 #include "SBZSessionJoinCallbackProxy.h"
 
-USBZSessionJoinCallbackProxy::USBZSessionJoinCallbackProxy() {
-}
-
-USBZSessionJoinCallbackProxy* USBZSessionJoinCallbackProxy::SessionJoin(UObject* WorldContextObject, const FSBZOnlineSearchResult& InSessionToJoin) {
+USBZSessionJoinCallbackProxy* USBZSessionJoinCallbackProxy::SessionJoin(UObject* NewWorldContextObject, const FSBZOnlineSearchResult& InSessionToJoin) {
     return NULL;
 }
 
+USBZSessionJoinCallbackProxy::USBZSessionJoinCallbackProxy() {
+    this->WorldContextObject = NULL;
+}
 

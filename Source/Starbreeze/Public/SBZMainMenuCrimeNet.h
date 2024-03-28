@@ -2,12 +2,12 @@
 #include "CoreMinimal.h"
 #include "Types/SlateEnums.h"
 #include "Layout/Margin.h"
-#include "SBZHeistCollection.h"
+#include "SBZHeistCollectionWithOwnership.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuCrimeNet.generated.h"
 
 class UCanvasPanel;
-class UClass;
 class UHorizontalBox;
 class USBZMainMenuCrimeNetHeistButton;
 class USBZMainMenuCrimeNetHeistMapIcon;
@@ -20,10 +20,10 @@ class USBZMainMenuCrimeNet : public USBZMenuStackScreenWidget {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HeistButtonClass;
+    TSubclassOf<USBZMainMenuCrimeNetHeistButton> HeistButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* StoryModeButtonClass;
+    TSubclassOf<USBZMainMenuCrimeNetStoryModeButton> StoryModeButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UHorizontalBox* HorizontalBox_HeistButtons;
@@ -32,7 +32,7 @@ protected:
     FMargin HeistButtonPadding;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HeistMapIconClass;
+    TSubclassOf<USBZMainMenuCrimeNetHeistMapIcon> HeistMapIconClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCanvasPanel* CanvasPanel_HeistMapIcons;
@@ -40,15 +40,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZMainMenuCrimeNetHeistButton* SelectedHeistButton;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bShowStoryModeButtons;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZMainMenuCrimeNetHeistButton*> ActiveHeistButtons;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 ActiveHeistCollectionIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FSBZHeistCollection> HeistCollections;
+    TArray<FSBZHeistCollectionWithOwnership> HeistCollections;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCrimeNetHeistButton*> HeistButtonPool;
@@ -61,39 +61,46 @@ private:
     
 public:
     USBZMainMenuCrimeNet();
-
 protected:
+    UFUNCTION(BlueprintCallable)
+    void UpdateHeistCollection();
+    
     UFUNCTION(BlueprintCallable)
     bool ToggleStoryModeFilter();
     
     UFUNCTION(BlueprintCallable)
     void SetActiveHeistCollection(int32 NewIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnHeistCollectionChanged(const FSBZHeistCollection& ActiveHeistCollection);
+private:
+    UFUNCTION()
+    void RefreshCollections();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+protected:
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnHeistCollectionChanged(const FSBZHeistCollectionWithOwnership& ActiveHeistCollection);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistButtonNavigation(EUINavigation ButtonNavigation);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistMapIconClicked(USBZMainMenuCrimeNetHeistMapIcon* InSelectedHeistMapIcon);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistButtonHovered(USBZMainMenuCrimeNetHeistMapIcon* MapIcon, bool bIsHovered);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnHeistButtonFocused(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:

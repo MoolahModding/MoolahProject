@@ -16,7 +16,6 @@ class UABAgreement : public UObject {
     GENERATED_BODY()
 public:
     UABAgreement();
-
     UFUNCTION(BlueprintCallable)
     void QueryLegalEligibilities(const FString& Namespace, const FDArrayModelsRetrieveUserEligibilitiesResponse& OnSuccess, const FDErrorHandler& OnError);
     

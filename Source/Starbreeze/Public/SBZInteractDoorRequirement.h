@@ -8,6 +8,5 @@ class USBZInteractDoorRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractDoorRequirement();
-
 };
 

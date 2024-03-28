@@ -35,7 +35,6 @@ public:
     FOnIsSelectingKeyChanged OnIsSelectingKeyChanged;
     
     USBZInputKeySelector();
-
     UFUNCTION(BlueprintCallable)
     void SetSelectedKey(const FInputChord& InSelectedKey);
     

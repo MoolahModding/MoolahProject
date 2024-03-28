@@ -3,4 +3,3 @@
 USBZTargetFinderPredicate::USBZTargetFinderPredicate() {
 }
 
-

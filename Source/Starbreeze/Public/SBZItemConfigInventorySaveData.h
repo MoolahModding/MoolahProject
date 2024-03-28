@@ -14,7 +14,10 @@ public:
     TArray<FSBZWeaponInventorySlot> SecondaryWeaponConfigSlots;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FSBZWeaponInventorySlot> OverkillWeaponConfigSlots;
+    TArray<FSBZWeaponInventorySlot> CheckedPrimaryWeaponConfigSlots;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZWeaponInventorySlot> CheckedSecondaryWeaponConfigSlots;
     
     STARBREEZE_API FSBZItemConfigInventorySaveData();
 };

@@ -3,5 +3,5 @@
 #include "AccelByteModelsFulfillmentResult.h"
 #include "DAccelByteModelsFulfillmentResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsFulfillmentResponse, FAccelByteModelsFulfillmentResult, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsFulfillmentResponse, FAccelByteModelsFulfillmentResult, Response);
 

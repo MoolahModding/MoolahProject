@@ -1,29 +1,6 @@
 #include "SBZPlayerAttributeSet.h"
 #include "Net/UnrealNetwork.h"
 
-USBZPlayerAttributeSet::USBZPlayerAttributeSet() {
-    this->PrimaryEquippableAmmoInventoryServer = -1.00f;
-    this->SecondaryEquippableAmmoInventoryServer = -1.00f;
-    this->TertiaryEquippableAmmoInventoryServer = -1.00f;
-    this->PrimaryEquippableAmmoLoadedServer = -1.00f;
-    this->SecondaryEquippableAmmoLoadedServer = -1.00f;
-    this->TertiaryEquippableAmmoLoadedServer = -1.00f;
-    this->PrimaryThrowableAmmoInventoryServer = -1.00f;
-    this->SecondaryThrowableAmmoInventoryServer = -1.00f;
-    this->TertiaryThrowableAmmoInventoryServer = -1.00f;
-    this->PrimaryPlaceableAmmoInventoryServer = -1.00f;
-    this->SecondaryPlaceableAmmoInventoryServer = -1.00f;
-    this->TertiaryPlaceableAmmoInventoryServer = -1.00f;
-    this->PrimaryToolPlaceableAmmoInventoryServer = -1.00f;
-    this->SecondaryToolPlaceableAmmoInventoryServer = -1.00f;
-    this->TertiaryToolPlaceableAmmoInventoryServer = -1.00f;
-    this->PrimaryToolAmmoInventoryServer = -1.00f;
-    this->SecondaryToolAmmoInventoryServer = -1.00f;
-    this->TertiaryToolAmmoInventoryServer = -1.00f;
-    this->ArmorData = NULL;
-    this->AbilityData = NULL;
-}
-
 void USBZPlayerAttributeSet::OnRep_TertiaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData) {
 }
 
@@ -76,6 +53,9 @@ void USBZPlayerAttributeSet::OnRep_PrimaryEquippableAmmoLoaded(const FGameplayAt
 }
 
 void USBZPlayerAttributeSet::OnRep_PrimaryEquippableAmmoInventory(const FGameplayAttributeData& OldData) {
+}
+
+void USBZPlayerAttributeSet::OnRep_HealthTrauma(const FGameplayAttributeData& OldArmorTrauma) {
 }
 
 void USBZPlayerAttributeSet::OnRep_DownedCount(const FGameplayAttributeData& OldDownedCount) {
@@ -144,6 +124,9 @@ void USBZPlayerAttributeSet::Multicast_SetPrimaryEquippableAmmoLoaded_Implementa
 void USBZPlayerAttributeSet::Multicast_SetPrimaryEquippableAmmoInventory_Implementation(float NewCurrentValue) {
 }
 
+void USBZPlayerAttributeSet::Multicast_SetHealthTrauma_Implementation(float NewCurrentValue) {
+}
+
 void USBZPlayerAttributeSet::Multicast_SetDownedCount_Implementation(float NewCurrentValue) {
 }
 
@@ -181,6 +164,29 @@ void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(USBZPlayerAttributeSet, Dodge);
     DOREPLIFETIME(USBZPlayerAttributeSet, ArmorChunkCount);
     DOREPLIFETIME(USBZPlayerAttributeSet, ArmorTrauma);
+    DOREPLIFETIME(USBZPlayerAttributeSet, HealthTrauma);
 }
 
+USBZPlayerAttributeSet::USBZPlayerAttributeSet() {
+    this->PrimaryEquippableAmmoInventoryServer = -1.00f;
+    this->SecondaryEquippableAmmoInventoryServer = -1.00f;
+    this->TertiaryEquippableAmmoInventoryServer = -1.00f;
+    this->PrimaryEquippableAmmoLoadedServer = -1.00f;
+    this->SecondaryEquippableAmmoLoadedServer = -1.00f;
+    this->TertiaryEquippableAmmoLoadedServer = -1.00f;
+    this->PrimaryThrowableAmmoInventoryServer = -1.00f;
+    this->SecondaryThrowableAmmoInventoryServer = -1.00f;
+    this->TertiaryThrowableAmmoInventoryServer = -1.00f;
+    this->PrimaryPlaceableAmmoInventoryServer = -1.00f;
+    this->SecondaryPlaceableAmmoInventoryServer = -1.00f;
+    this->TertiaryPlaceableAmmoInventoryServer = -1.00f;
+    this->PrimaryToolPlaceableAmmoInventoryServer = -1.00f;
+    this->SecondaryToolPlaceableAmmoInventoryServer = -1.00f;
+    this->TertiaryToolPlaceableAmmoInventoryServer = -1.00f;
+    this->PrimaryToolAmmoInventoryServer = -1.00f;
+    this->SecondaryToolAmmoInventoryServer = -1.00f;
+    this->TertiaryToolAmmoInventoryServer = -1.00f;
+    this->ArmorData = NULL;
+    this->AbilityData = NULL;
+}
 

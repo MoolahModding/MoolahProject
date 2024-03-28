@@ -19,6 +19,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<USBZModularPartSlotBase*, FSBZMaskPartConfigGroup> ModDataMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SprayCanTextureSize;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ColorIndexTextureSize;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform SpawnTransform;
@@ -27,7 +33,15 @@ protected:
     ASBZMask* SpawnedMask;
     
 public:
-    ASBZStandaloneMaskDisplayDebug(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStandaloneMaskDisplayDebug();
+    UFUNCTION(BlueprintCallable)
+    void UpdateSprayCanTextureSizePlus();
+    
+    UFUNCTION(BlueprintCallable)
+    void UpdateSprayCanTextureSizeMinus();
+    
+    UFUNCTION(BlueprintCallable)
+    void ToggleMaskStrapVisibility();
+    
 };
 

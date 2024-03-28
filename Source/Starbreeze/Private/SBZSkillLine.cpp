@@ -8,4 +8,3 @@ USBZSkillLine::USBZSkillLine() {
     this->SkillLineData = NULL;
 }
 
-

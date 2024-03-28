@@ -1,33 +1,5 @@
 #include "SBZObjective.h"
-#include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
-
-ASBZObjective::ASBZObjective(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->DisplayOrder = 0;
-    this->bIsOptional = false;
-    this->bUIUseProgressBar = false;
-    this->bUIReverseTimer = false;
-    this->ProgressTextOption = ESBZProgressTextDisplayOption::ShowFraction;
-    this->ObjectiveGroup = ESBZObjectiveGroup::None;
-    this->ParentObjective = NULL;
-    this->bProgressWhileInactive = true;
-    this->bCompleteWhenInactiveFromProgress = true;
-    this->bAutoActiveOnParent = true;
-    this->SubobjectiveSetting = ESBZSubobjectiveComplete::CompleteOnAll;
-    this->State = ESBZObjectiveState::None;
-    this->Progress = 0;
-    this->MaxProgress = 1;
-    this->MaxProgressPerDifficulty[0] = -1;
-    this->MaxProgressPerDifficulty[1] = -1;
-    this->MaxProgressPerDifficulty[2] = -1;
-    this->MaxProgressPerDifficulty[3] = -1;
-    this->StartTimeSeconds = 0.00f;
-    this->MarkerAsset = NULL;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
-}
 
 void ASBZObjective::SetProgress(int32 NewProgress) {
 }
@@ -74,4 +46,26 @@ void ASBZObjective::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZObjective, Progress);
 }
 
+ASBZObjective::ASBZObjective() {
+    this->DisplayOrder = 0;
+    this->bIsOptional = false;
+    this->bUIUseProgressBar = false;
+    this->bUIReverseTimer = false;
+    this->ProgressTextOption = ESBZProgressTextDisplayOption::ShowFraction;
+    this->ObjectiveGroup = ESBZObjectiveGroup::None;
+    this->ParentObjective = NULL;
+    this->bProgressWhileInactive = true;
+    this->bCompleteWhenInactiveFromProgress = true;
+    this->bAutoActiveOnParent = true;
+    this->SubobjectiveSetting = ESBZSubobjectiveComplete::CompleteOnAll;
+    this->State = ESBZObjectiveState::None;
+    this->Progress = 0;
+    this->MaxProgress = 1;
+    this->MaxProgressPerDifficulty[0] = -1;
+    this->MaxProgressPerDifficulty[1] = -1;
+    this->MaxProgressPerDifficulty[2] = -1;
+    this->MaxProgressPerDifficulty[3] = -1;
+    this->StartTimeSeconds = 0.00f;
+    this->MarkerAsset = NULL;
+}
 

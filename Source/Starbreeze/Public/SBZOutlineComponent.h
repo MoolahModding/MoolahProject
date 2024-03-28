@@ -27,8 +27,14 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* InteractableFocusAsset;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHiddenManagedByInteractable;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<UMeshComponent*> Meshes;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZOutlineAsset* ActiveAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ActiveReplicated, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* ActiveReplicated;
@@ -38,9 +44,8 @@ private:
     
 public:
     USBZOutlineComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetReplicatedHidden(bool bInIsReplicatedHidden);
     
@@ -51,24 +56,24 @@ public:
     void RemoveMesh(UMeshComponent* Mesh, bool bRemoveFromSelectorsIfUninitialized);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_IsReplicatedHidden();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ActiveReplicated();
     
 private:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetReplicatedHidden(bool bInIsReplicatedHidden);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetActiveReplicated(USBZOutlineAsset* NewActiveReplicated);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleInteractionFocusChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInFocus);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bEnabled);
     
 public:

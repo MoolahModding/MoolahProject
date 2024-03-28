@@ -1,5 +1,8 @@
 #include "SBZSmallTalkManager.h"
 
+void USBZSmallTalkManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
+}
+
 USBZSmallTalkManager::USBZSmallTalkManager() {
     this->MaxIterationPerTick = 30;
     this->MaxSearchDistance = 1500.00f;
@@ -10,8 +13,4 @@ USBZSmallTalkManager::USBZSmallTalkManager() {
     this->MaxConcurrentSolo = 2;
     this->MaxConcurrentConversation = 20;
 }
-
-void USBZSmallTalkManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
-}
-
 

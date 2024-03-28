@@ -5,8 +5,5 @@ USBZAICrewCharacterAbilityData::USBZAICrewCharacterAbilityData() {
     this->DefeatDownedDuration = 20.00f;
     this->DefeatCuffedDuration = 30.00f;
     this->ReviveHealth = 50.00f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZAICrewCharacterAbilityData::StaticClass();
 }
-
 

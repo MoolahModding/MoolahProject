@@ -8,6 +8,5 @@ class USBZAIShoveAbility : public USBZMeleeAbility {
     GENERATED_BODY()
 public:
     USBZAIShoveAbility();
-
 };
 

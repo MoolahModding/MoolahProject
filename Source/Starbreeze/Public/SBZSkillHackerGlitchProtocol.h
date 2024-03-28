@@ -8,6 +8,5 @@ class USBZSkillHackerGlitchProtocol : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillHackerGlitchProtocol();
-
 };
 

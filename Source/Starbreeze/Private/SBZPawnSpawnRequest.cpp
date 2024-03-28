@@ -5,6 +5,5 @@ FSBZPawnSpawnRequest::FSBZPawnSpawnRequest() {
     this->Action = NULL;
     this->Significance = ESBZSpawnSignificance::Low;
     this->GameplayEffectClass = NULL;
-    this->GameplayEffectClass = NULL;
 }
 

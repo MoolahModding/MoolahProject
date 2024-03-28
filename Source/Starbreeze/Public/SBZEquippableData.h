@@ -4,12 +4,14 @@
 #include "UObject/NoExportTypes.h"
 #include "ESBZEquippableFamily.h"
 #include "SBZInventoryBaseData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEquippableData.generated.h"
 
+class ASBZEquippable;
 class UAnimSequenceBase;
-class UClass;
 class USBZEquippableAnimationCollection;
 class USBZEquippableMenuAnimationCollection;
+class USBZGameplayAbility;
 class USBZPlayerAnimationCollectionFPP;
 class USBZTagReactionAsset;
 
@@ -18,13 +20,13 @@ class STARBREEZE_API USBZEquippableData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> EquippableClass;
+    TSoftClassPtr<ASBZEquippable> EquippableClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZTagReactionAsset> TagReactionAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> EquippedAbilityClassArray;
+    TArray<TSubclassOf<USBZGameplayAbility>> EquippedAbilityClassArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAnimSequenceBase* EquippableDefaultIdleFPPose;
@@ -43,6 +45,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAnimSequenceBase* DefaultLeftGripTPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineRightGripFPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineLeftGripFPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineRightGripTPPose;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* TriggerDisciplineLeftGripTPPose;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZEquippableFamily EquippableFamily;
@@ -83,6 +97,5 @@ protected:
     
 public:
     USBZEquippableData();
-
 };
 

@@ -8,6 +8,5 @@ class USBZAISenseConfig_Team : public UAISenseConfig {
     GENERATED_BODY()
 public:
     USBZAISenseConfig_Team();
-
 };
 

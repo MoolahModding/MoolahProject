@@ -3,4 +3,3 @@
 USBZAIDroneAttributeSet::USBZAIDroneAttributeSet() {
 }
 
-

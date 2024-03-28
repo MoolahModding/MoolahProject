@@ -8,6 +8,5 @@ class USBZEnvQueryContext_SquadOrderTargetConnectorPosition : public UEnvQueryCo
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_SquadOrderTargetConnectorPosition();
-
 };
 

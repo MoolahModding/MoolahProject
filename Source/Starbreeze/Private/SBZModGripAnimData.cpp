@@ -6,8 +6,9 @@ USBZModGripAnimData::USBZModGripAnimData() {
     this->OverrideLeftGripFPPose = NULL;
     this->OverrideRightGripTPPose = NULL;
     this->OverrideLeftGripTPPose = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZModGripAnimData::StaticClass();
+    this->OverrideTriggerDisciplineRightGripFPPose = NULL;
+    this->OverrideTriggerDisciplineLeftGripFPPose = NULL;
+    this->OverrideTriggerDisciplineRightGripTPPose = NULL;
+    this->OverrideTriggerDisciplineLeftGripTPPose = NULL;
 }
-
 

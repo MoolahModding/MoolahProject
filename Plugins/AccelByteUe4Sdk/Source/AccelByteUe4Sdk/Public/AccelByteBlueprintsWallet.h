@@ -14,7 +14,6 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsWallet();
-
     UFUNCTION(BlueprintCallable)
     static void GetWalletInfoByCurrencyCodeV2(const FString& CurrencyCode, const UAccelByteBlueprintsWallet::FGetWalletInfoResponseSuccess& OnSuccess, const UAccelByteBlueprintsWallet::FBlueprintErrorHandler& OnError);
     

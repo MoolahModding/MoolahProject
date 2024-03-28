@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZSettingsButtonTwoChoice();
-
     UFUNCTION(BlueprintCallable)
     void SetToggleValue(bool bIsToggled);
     
@@ -30,10 +29,10 @@ public:
     void SetOptionOneName(const FText& InOptionOneName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OptionTwoNameChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OptionOneNameChanged();
     
 };

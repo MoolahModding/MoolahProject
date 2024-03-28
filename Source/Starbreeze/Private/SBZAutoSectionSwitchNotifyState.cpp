@@ -3,4 +3,3 @@
 USBZAutoSectionSwitchNotifyState::USBZAutoSectionSwitchNotifyState() {
 }
 
-

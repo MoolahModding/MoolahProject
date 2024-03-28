@@ -5,4 +5,3 @@ USBZStateMachineStateBackendError::USBZStateMachineStateBackendError() {
     this->BackendErrorWidget = NULL;
 }
 
-

@@ -7,6 +7,7 @@
 
 class AActor;
 class UObject;
+class USBZBagManager;
 class USBZBagType;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -19,9 +20,8 @@ protected:
     
 public:
     USBZBagManager();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool TryRemoveClaim(FSBZBagHandle Handle, AActor* Actor);
     
@@ -32,30 +32,33 @@ public:
     bool RemoveClaim(FSBZBagHandle Handle, AActor* Actor);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SecureBag(const int32 BagId, const bool bClearClaim);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_RemoveClaim(const int32 BagId);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_RemoveBag(const int32 BagId);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_CreateBagArray(const int32 FirstBagId, const USBZBagType* BagType, const int32 NumberOfBags);
+    
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateBag(const int32 BagId, const USBZBagType* BagType);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ClaimBag(const int32 BagId, AActor* Actor);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsValidHandle(const FSBZBagHandle& Handle) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZBagPersistentData GetValidBagData(FSBZBagHandle Handle) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static USBZBagManager* Get(UObject* WorldContextObject);
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZBagManager* Get(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     FSBZBagHandle CreateBag(const USBZBagType* BagType);

@@ -16,31 +16,30 @@ private:
     
 public:
     USBZGameplayManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartLevelStarted();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayableLevelInitialized(UWorld* World);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOutroSequenceStarted(const int32 OutroVariation);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnIntroSequenceStarted();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBlackScreenStarted();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionPhaseStarted();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActionPhaseExited();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZGameplayManager* Get(const UObject* WorldContextObject);
     
 };

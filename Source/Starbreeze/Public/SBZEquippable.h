@@ -2,13 +2,14 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "SBZEquippableConfig.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEquippable.generated.h"
 
 class UAkAudioEvent;
 class UAkComponent;
 class UAkRtpc;
-class UClass;
 class UMeshComponent;
+class USBZLocalPlayerFeedback;
 class USBZModGripAnimData;
 
 UCLASS(Abstract, Blueprintable)
@@ -16,7 +17,7 @@ class STARBREEZE_API ASBZEquippable : public AActor {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalDamageFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalDamageFeedback;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -56,12 +57,11 @@ protected:
     FName EquipmentState;
     
 public:
-    ASBZEquippable(const FObjectInitializer& ObjectInitializer);
-
+    ASBZEquippable();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_EquippableIndex();
     
 };

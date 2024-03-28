@@ -8,6 +8,5 @@ class USBZSkillManipulatorSilverTongue : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillManipulatorSilverTongue();
-
 };
 

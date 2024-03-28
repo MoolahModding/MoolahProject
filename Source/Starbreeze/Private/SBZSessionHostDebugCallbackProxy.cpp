@@ -1,10 +1,10 @@
 #include "SBZSessionHostDebugCallbackProxy.h"
 
-USBZSessionHostDebugCallbackProxy::USBZSessionHostDebugCallbackProxy() {
-}
-
-USBZSessionHostDebugCallbackProxy* USBZSessionHostDebugCallbackProxy::SessionHostDebug(UObject* WorldContextObject) {
+USBZSessionHostDebugCallbackProxy* USBZSessionHostDebugCallbackProxy::SessionHostDebug(UObject* NewWorldContextObject) {
     return NULL;
 }
 
+USBZSessionHostDebugCallbackProxy::USBZSessionHostDebugCallbackProxy() {
+    this->WorldContextObject = NULL;
+}
 

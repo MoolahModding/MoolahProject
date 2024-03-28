@@ -8,6 +8,5 @@ class USBZEnvQueryContext_AIObjectiveMoveToPosition : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_AIObjectiveMoveToPosition();
-
 };
 

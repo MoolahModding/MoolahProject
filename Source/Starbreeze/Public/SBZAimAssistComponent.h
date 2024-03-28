@@ -29,6 +29,5 @@ private:
     
 public:
     USBZAimAssistComponent();
-
 };
 

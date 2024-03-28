@@ -8,6 +8,5 @@ class USBZAICloakerMeleeEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZAICloakerMeleeEffect();
-
 };
 

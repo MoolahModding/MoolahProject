@@ -14,7 +14,6 @@ private:
     USBZPersistentWorldDamageZoneComponent* Zone;
     
 public:
-    ASBZPersistentWorldDamageZone(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPersistentWorldDamageZone();
 };
 

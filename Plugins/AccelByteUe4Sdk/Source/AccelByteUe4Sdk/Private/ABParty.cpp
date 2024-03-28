@@ -1,9 +1,12 @@
 #include "ABParty.h"
 
-UABParty::UABParty() {
+void UABParty::WritePartyStorage(const FWritePartyStorageRequest& Request, FDPartyWriteDataResponse OnResponse, FDErrorHandler OnError) {
 }
 
-void UABParty::WritePartyStorage(const FWritePartyStorageRequest& Request, FDPartyWriteDataResponse OnResponse, FDErrorHandler OnError) {
+void UABParty::SetPartySizeLimit(const FString& PartyId, const int32 Limit, const FDHandler& OnSuccess, FDErrorHandler OnError) {
+}
+
+void UABParty::SetOnPartyUpdate(FDPartyUpdateNotif OnNotif) {
 }
 
 void UABParty::SetOnPartyReject(FDPartyRejectNotif OnNotif) {
@@ -81,4 +84,6 @@ void UABParty::GetPartyData(const FGetPartyDataRequest& Request, FDPartyGetDataR
 void UABParty::CreateParty(FDPartyCreateResponse OnResponse, FDErrorHandler OnError) {
 }
 
+UABParty::UABParty() {
+}
 

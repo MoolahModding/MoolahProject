@@ -2,13 +2,6 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "SBZCustomizableSuitMeshComponent.h"
 
-USBZModularCharacterComponent::USBZModularCharacterComponent() {
-    this->SuitCapsuleShadowingData = NULL;
-    this->SuitMeshComponent = CreateDefaultSubobject<USBZCustomizableSuitMeshComponent>(TEXT("SuitSkeletalMesh"));
-    this->GlovesMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GlovesSkeletalMesh"));
-    this->BodyMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BodySkeletalMesh"));
-}
-
 void USBZModularCharacterComponent::SetSuitMesh(USkeletalMesh* SuitSkeletalMesh) {
 }
 
@@ -33,4 +26,10 @@ USkeletalMeshComponent* USBZModularCharacterComponent::GetBodyMeshComponent() co
 void USBZModularCharacterComponent::AddToOutline(USBZOutlineComponent* OutlineComponent) {
 }
 
+USBZModularCharacterComponent::USBZModularCharacterComponent(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->SuitCapsuleShadowingData = NULL;
+    this->SuitMeshComponent = CreateDefaultSubobject<USBZCustomizableSuitMeshComponent>(TEXT("SuitSkeletalMesh"));
+    this->GlovesMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GlovesSkeletalMesh"));
+    this->BodyMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BodySkeletalMesh"));
+}
 

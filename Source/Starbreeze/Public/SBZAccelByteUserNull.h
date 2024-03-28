@@ -8,6 +8,5 @@ class USBZAccelByteUserNull : public USBZAccelByteUser {
     GENERATED_BODY()
 public:
     USBZAccelByteUserNull();
-
 };
 

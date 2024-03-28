@@ -38,26 +38,25 @@ protected:
     ESBZDecorativeSmokeState SmokeState;
     
 public:
-    ASBZDecorativeSmokeGrenade(const FObjectInitializer& ObjectInitializer);
-
+    ASBZDecorativeSmokeGrenade();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSpawned();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_SmokeState();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHitGround();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateSmokeCloud();
     
 };

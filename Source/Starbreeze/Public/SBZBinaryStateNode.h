@@ -14,12 +14,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bState;
     
-    ASBZBinaryStateNode(const FObjectInitializer& ObjectInitializer);
-
+    ASBZBinaryStateNode();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(bool bInState);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
     bool GetState() const;
     
 };

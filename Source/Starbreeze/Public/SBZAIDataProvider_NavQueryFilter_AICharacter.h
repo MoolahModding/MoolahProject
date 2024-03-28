@@ -1,18 +1,18 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "DataProviders/AIDataProvider.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIDataProvider_NavQueryFilter_AICharacter.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable, CollapseCategories, EditInlineNew)
 class USBZAIDataProvider_NavQueryFilter_AICharacter : public UAIDataProvider {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* NQFClass;
+    TSubclassOf<UNavigationQueryFilter> NQFClass;
     
     USBZAIDataProvider_NavQueryFilter_AICharacter();
-
 };
 

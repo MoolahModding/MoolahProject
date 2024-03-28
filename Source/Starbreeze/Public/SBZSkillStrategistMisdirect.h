@@ -8,6 +8,5 @@ class USBZSkillStrategistMisdirect : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillStrategistMisdirect();
-
 };
 

@@ -2,6 +2,5 @@
 
 FSBZAIRepositionType::FSBZAIRepositionType() {
     this->Predicate = NULL;
-    this->Predicate = NULL;
 }
 

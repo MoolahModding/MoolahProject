@@ -8,6 +8,5 @@ class USBZAISenseConfig_Touch : public UAISenseConfig {
     GENERATED_BODY()
 public:
     USBZAISenseConfig_Touch();
-
 };
 

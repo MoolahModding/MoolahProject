@@ -1,20 +1,9 @@
 #include "SBZMainMenuGloveInventoryScreen.h"
 
-USBZMainMenuGloveInventoryScreen::USBZMainMenuGloveInventoryScreen() {
-    this->GloveSlotButtonClass = NULL;
-    this->GloveSlotButtonClass = NULL;
-    this->Panel_GloveSlotButtons = NULL;
-    this->Button_BuySlots = NULL;
-    this->Button_DefaultGlove = NULL;
-    this->DiscardGlovePopUpBodyWidgetClass = NULL;
-    this->DiscardGlovePopUpBodyWidgetClass = NULL;
-    this->GloveIndexToDiscard = -1;
-    this->DiscardGlovePopUpBody = NULL;
-    this->ActiveGloveSlotButton = NULL;
-    this->StackValue = TEXT("Default__SBZMainMenuGloveInventoryScreen");
+void USBZMainMenuGloveInventoryScreen::TryDiscardGloveInSlot(int32 InGloveIndex) {
 }
 
-void USBZMainMenuGloveInventoryScreen::TryDiscardGloveInSlot(int32 InGloveIndex) {
+void USBZMainMenuGloveInventoryScreen::RefreshWidgetVisuals() {
 }
 
 
@@ -53,4 +42,14 @@ bool USBZMainMenuGloveInventoryScreen::CanDiscardGloveInSlot(int32 IndexToDiscar
     return false;
 }
 
+USBZMainMenuGloveInventoryScreen::USBZMainMenuGloveInventoryScreen() {
+    this->GloveSlotButtonClass = NULL;
+    this->Panel_GloveSlotButtons = NULL;
+    this->Button_BuySlots = NULL;
+    this->Button_DefaultGlove = NULL;
+    this->DiscardGlovePopUpBodyWidgetClass = NULL;
+    this->GloveIndexToDiscard = -1;
+    this->DiscardGlovePopUpBody = NULL;
+    this->ActiveGloveSlotButton = NULL;
+}
 

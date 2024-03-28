@@ -39,36 +39,32 @@ private:
     
 public:
     USBZGameStartMainMenuSkillsSelection();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnDescriptionScrollAxisChanged(float Value);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAlternativeSelectionReleased();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAlternativeSelectionPressed();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAlternativeHoldDurationComplete();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnAlternativeSelectionReleased();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnAlternativeSelectionPressed();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
 public:
     UFUNCTION(BlueprintCallable)
     bool CustomizeSkillsForPlayerLoadoutIndex(int32 InLoadoutIndex);
-    
-    UFUNCTION(BlueprintCallable)
-    bool CustomizeSkillsForPlayerLoadout(const FSBZPlayerLoadoutConfig& InLoadoutToConfig);
     
 };
 

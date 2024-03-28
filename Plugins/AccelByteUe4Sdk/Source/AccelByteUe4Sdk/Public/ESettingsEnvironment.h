@@ -7,6 +7,9 @@ enum class ESettingsEnvironment : uint8 {
     Development,
     Certification,
     Production,
+    Sandbox,
+    Integration,
+    QA,
     Default,
 };
 

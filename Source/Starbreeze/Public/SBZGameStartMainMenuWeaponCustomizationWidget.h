@@ -21,11 +21,10 @@ protected:
     
 public:
     USBZGameStartMainMenuWeaponCustomizationWidget();
-
     UFUNCTION(BlueprintCallable)
     void UpdateEquippableConfig(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetCurrentWeaponSlotData(ESBZEquippableLoadoutSlot& OutEquippableSlot, int32& OutWeaponSlotIndex);
     
     UFUNCTION(BlueprintCallable)

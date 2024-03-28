@@ -1,9 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "Templates/SubclassOf.h"
 #include "SBZModularPartApplier.generated.h"
 
-class UClass;
 class USBZModularPartConfig;
 class USBZModularPartDataAsset;
 
@@ -12,14 +12,13 @@ class USBZModularPartApplier : public UObject {
     GENERATED_BODY()
 public:
     USBZModularPartApplier();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool NeedConfig() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<UClass*> GetExpectedParts(const USBZModularPartDataAsset* PartAsset) const;
+    UFUNCTION(BlueprintPure)
+    TArray<TSubclassOf<USBZModularPartDataAsset>> GetExpectedParts(const USBZModularPartDataAsset* PartAsset) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool DoesConfigNeedParts() const;
     
     UFUNCTION(BlueprintCallable)

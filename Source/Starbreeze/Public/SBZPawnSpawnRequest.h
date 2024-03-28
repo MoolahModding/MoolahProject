@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZSpawnSignificance.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPawnSpawnRequest.generated.h"
 
 class ASBZPawnSpawnBase;
-class UClass;
+class UGameplayEffect;
 class USBZAIAction;
 class USBZPawnSpawnRequestData;
 
@@ -25,7 +26,7 @@ public:
     ESBZSpawnSignificance Significance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GameplayEffectClass;
+    TSubclassOf<UGameplayEffect> GameplayEffectClass;
     
     STARBREEZE_API FSBZPawnSpawnRequest();
 };

@@ -4,4 +4,3 @@ USBZAIUtilityScorer_CanEquipAtIndex::USBZAIUtilityScorer_CanEquipAtIndex() {
     this->Index = 0;
 }
 
-

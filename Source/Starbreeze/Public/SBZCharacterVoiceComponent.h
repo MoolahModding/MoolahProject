@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AkComponent.h"
 #include "UObject/NoExportTypes.h"
+#include "Components/ActorComponent.h"
 #include "ESBZVoiceGruntType.h"
 #include "ESBZVoicePriority.h"
 #include "SBZAIAlertnessComment.h"
@@ -15,13 +15,14 @@
 class ASBZCharacter;
 class UAkAudioBank;
 class UAkAudioEvent;
+class UAkComponent;
 class UAkRtpc;
 class USBZDialogAnimDataCollection;
 class USBZDialogDataAsset;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class USBZCharacterVoiceComponent : public UAkComponent {
+class USBZCharacterVoiceComponent : public UActorComponent {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -88,16 +89,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZCharacter* SBZCharacterOwner;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UAkComponent* AudioComponent;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDialogDataAsset* PerformsInDialog;
     
 public:
     USBZCharacterVoiceComponent();
-
     UFUNCTION(BlueprintCallable)
     void StopTalking();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_SaySystemComment(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority, bool bServerInstigated);
     
     UFUNCTION(BlueprintCallable)
@@ -127,14 +130,20 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnDeath();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SaySystemComment_ServerInstigated(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SaySystemComment(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
+    void HandleAudioComponentDeactivated(UActorComponent* Component);
+    
+    UFUNCTION()
+    void HandleAudioComponentActivated(UActorComponent* Component, bool bReset);
+    
+    UFUNCTION()
     void CallRecieved(const FSBZPlayerCallEvent& CallEventData);
     
 };

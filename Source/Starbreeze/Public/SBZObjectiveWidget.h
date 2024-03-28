@@ -1,13 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZObjectiveWidget.generated.h"
 
 class ASBZObjective;
-class UClass;
 class UPanelWidget;
 class UProgressBar;
 class URichTextBlock;
+class USBZObjectiveWidget;
 class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -16,7 +17,7 @@ class USBZObjectiveWidget : public USBZWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubObjectiveWidgetClass;
+    TSubclassOf<USBZObjectiveWidget> SubObjectiveWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     URichTextBlock* Text_Objective;
@@ -42,37 +43,36 @@ private:
     
 public:
     USBZObjectiveWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnObjectiveUpdated();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnObjectiveRemoved();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnObjectiveInitialized(ASBZObjective* ObjectiveInit, bool bIsSubObjective);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnObjectiveActivated();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveUpdated(ASBZObjective* NewObjectiveUpdated);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveFailed(ASBZObjective* NewObjectiveFailed);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveDisabled(ASBZObjective* NewObjectiveDisabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveCompleted(ASBZObjective* NewObjectiveCompleted);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void ObjectiveActivated(ASBZObjective* NewObjectiveActivated);
     
 };

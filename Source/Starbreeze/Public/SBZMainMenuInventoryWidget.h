@@ -17,13 +17,12 @@ protected:
     
 public:
     USBZMainMenuInventoryWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnLoadoutSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void LoadoutSlotStorePurchased(bool bWasSuccessful);
     
 };

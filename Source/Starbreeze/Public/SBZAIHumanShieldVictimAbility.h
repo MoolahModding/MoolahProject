@@ -8,6 +8,5 @@ class USBZAIHumanShieldVictimAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZAIHumanShieldVictimAbility();
-
 };
 

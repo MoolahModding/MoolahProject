@@ -8,6 +8,5 @@ class USBZWheeledVehicleAnimation : public USBZVehicleAnimation {
     GENERATED_BODY()
 public:
     USBZWheeledVehicleAnimation();
-
 };
 

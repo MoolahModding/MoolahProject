@@ -3,12 +3,13 @@
 #include "UObject/Object.h"
 #include "GameplayTagContainer.h"
 #include "EPD3HeistState.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAISquadManager.generated.h"
 
 class APawn;
-class UClass;
 class USBZAISquad;
 class USBZAISquadManager;
+class USBZAISquadOrder;
 
 UCLASS(Blueprintable, DefaultToInstanced, EditInlineNew, Within=PD3HeistGameMode)
 class USBZAISquadManager : public UObject {
@@ -16,10 +17,10 @@ class USBZAISquadManager : public UObject {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> SpawnOrders;
+    TArray<TSubclassOf<USBZAISquadOrder>> SpawnOrders;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> RuntimeOrders;
+    TArray<TSubclassOf<USBZAISquadOrder>> RuntimeOrders;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer MemberTypeBlacklist;
@@ -29,11 +30,10 @@ protected:
     
 public:
     USBZAISquadManager();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZAISquadManager* Get(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

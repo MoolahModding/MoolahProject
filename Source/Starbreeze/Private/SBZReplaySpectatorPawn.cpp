@@ -1,7 +1,6 @@
 #include "SBZReplaySpectatorPawn.h"
 
-ASBZReplaySpectatorPawn::ASBZReplaySpectatorPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZReplaySpectatorPawn::ASBZReplaySpectatorPawn() {
     this->SpectatorView = ESBZReplaySpectatorView::FirstPersonView;
 }
-
 

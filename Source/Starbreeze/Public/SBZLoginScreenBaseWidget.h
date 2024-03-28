@@ -81,18 +81,11 @@ protected:
     
 public:
     USBZLoginScreenBaseWidget();
-
     UFUNCTION(BlueprintCallable)
     void WidgetReady();
     
     UFUNCTION(BlueprintCallable)
-    void ShowTelemetryPopup();
-    
-    UFUNCTION(BlueprintCallable)
     void ShowPrivacyPolicyPopup();
-    
-    UFUNCTION(BlueprintCallable)
-    void ShowGameSensePopup();
     
     UFUNCTION(BlueprintCallable)
     void ShowEULAPopup();
@@ -100,59 +93,47 @@ public:
     UFUNCTION(BlueprintCallable)
     void ShowEpilepsyWarningPopup();
     
-    UFUNCTION(BlueprintCallable)
-    void ShowCrossplayPopup();
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SetLoginPanelsVisibility(ESlateVisibility InVisibility);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SetLoadingPanelVisibility(ESlateVisibility InVisibility);
     
     UFUNCTION(BlueprintCallable)
     void SetLoadingCanvasPanelVisibility(ESlateVisibility InVisibility);
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    void OnTelemetryPopUpClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPrivacyPopUpClosed(FName ClosingActionName);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPrivacyPolicyChoice(FName ClosingActionName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnLoginError(const FText& ErrorMessage);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnInitializeDone();
     
 protected:
-    UFUNCTION(BlueprintCallable)
-    void OnGameSensePopUpClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEULAPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEpilepsyPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
-    void OnCrossplayPopUpClosed(FName ClosingActionName);
-    
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void InitializeLoginMenu();
     
     UFUNCTION(BlueprintCallable)
     void InitializeDone();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UCanvasPanel* GetLoadingCanvasPanel();
     
 };

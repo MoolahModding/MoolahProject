@@ -3,5 +3,5 @@
 #include "SBZUIStackChangedEvent.h"
 #include "SBZOnUIStackStateChangedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnUIStackStateChanged, FSBZUIStackChangedEvent, StackEvent);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnUIStackStateChanged, FSBZUIStackChangedEvent, StackEvent);
 

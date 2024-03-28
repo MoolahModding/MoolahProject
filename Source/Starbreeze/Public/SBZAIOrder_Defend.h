@@ -8,6 +8,5 @@ class USBZAIOrder_Defend : public USBZAIOrder_TacticalMoveTo {
     GENERATED_BODY()
 public:
     USBZAIOrder_Defend();
-
 };
 

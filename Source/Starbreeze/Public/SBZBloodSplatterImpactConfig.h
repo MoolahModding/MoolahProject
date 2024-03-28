@@ -8,6 +8,5 @@ class USBZBloodSplatterImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZBloodSplatterImpactConfig();
-
 };
 

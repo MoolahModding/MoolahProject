@@ -18,6 +18,6 @@ enum class EPD3DispatchCallerReason : uint8 {
     UnlockedGate,
     Sabotage,
     MAX,
-    Default = GenericAlarm,
+    Default = GenericAlarm
 };
 

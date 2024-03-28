@@ -4,4 +4,3 @@ USBZStateMachineStateWaitFirstGameStart::USBZStateMachineStateWaitFirstGameStart
     this->MetaDataLoader = NULL;
 }
 
-

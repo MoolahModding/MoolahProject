@@ -19,6 +19,5 @@ protected:
     
 public:
     USBZAIUtilityScorer_Timer();
-
 };
 

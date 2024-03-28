@@ -1,10 +1,6 @@
 #include "SBZMarkerManager.h"
 #include "Net/UnrealNetwork.h"
 
-USBZMarkerManager::USBZMarkerManager() {
-    
-}
-
 void USBZMarkerManager::OnRep_ReplicatedMarkers() {
 }
 
@@ -20,4 +16,6 @@ void USBZMarkerManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(USBZMarkerManager, ReplicatedMarkers);
 }
 
+USBZMarkerManager::USBZMarkerManager() {
+}
 

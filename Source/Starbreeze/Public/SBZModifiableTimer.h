@@ -1,10 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "ESBZTimerState.h"
 #include "SBZProgressionReachedDelegateDelegate.h"
 #include "SBZTimedObjectiveInterface.h"
 #include "SBZTimerDelegateDelegate.h"
 #include "SBZModifiableTimer.generated.h"
+
+class ASBZSabotagePoint;
 
 UCLASS(Blueprintable)
 class ASBZModifiableTimer : public AActor, public ISBZTimedObjectiveInterface {
@@ -32,17 +35,19 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float CurrentSpeed;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsRunning, meta=(AllowPrivateAccess=true))
-    bool bIsRunning;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TimerState, meta=(AllowPrivateAccess=true))
+    ESBZTimerState CurrentTimerState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ASBZSabotagePoint* SabotagePoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NextProgressionToPostIndex;
     
 public:
-    ASBZModifiableTimer(const FObjectInitializer& ObjectInitializer);
-
+    ASBZModifiableTimer();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StartTimer();
     
@@ -58,37 +63,65 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void PauseTimer();
     
-    UFUNCTION(BlueprintCallable)
-    void OnRep_IsRunning();
+protected:
+    UFUNCTION()
+    void OnSabotaged(bool bNewSabotagedState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_StartTimer();
+public:
+    UFUNCTION()
+    void OnRep_TimerState();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_SetTimerState(ESBZTimerState NewState);
+    
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetTimerSpeed(float NewSpeed);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetTimeElapsed(float NewTimeElapsed);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetDuration(float NewDuration);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResetTimerAndStart();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ResetTimerAndPause();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_PauseTimer();
+    UFUNCTION(BlueprintPure)
+    float GetTimerSpeed() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetTimeRemaining() const;
     
+    UFUNCTION(BlueprintPure)
+    float GetTimeElapsed() const;
+    
+    UFUNCTION(BlueprintPure)
+    float GetProgressMade() const;
+    
+    UFUNCTION(BlueprintPure)
+    float GetDuration() const;
+    
+protected:
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_TimerSpeedChanged(float NewSpeed);
+    
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_TimeElapsedChanged(float NewTimeElapsed);
+    
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_OnStateChanged(ESBZTimerState NewState, ESBZTimerState OldState, bool bDoCosmetics);
+    
+    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_DurationChanged(float NewDuration);
+    
+public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void AddTimeElapsed(float TimeToAdd);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

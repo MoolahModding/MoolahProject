@@ -12,7 +12,6 @@ class UNIVERSALVOICECHATPRO_API UUniversalVoiceChat : public UBlueprintFunctionL
     GENERATED_BODY()
 public:
     UUniversalVoiceChat();
-
     UFUNCTION(BlueprintCallable)
     static bool VoiceChatWasInitAudioVoiceChatQuality();
     

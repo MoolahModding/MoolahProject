@@ -12,6 +12,5 @@ public:
     FPD3PawnVariationArray PawnTypeArray;
     
     UPD3PawnVariation();
-
 };
 

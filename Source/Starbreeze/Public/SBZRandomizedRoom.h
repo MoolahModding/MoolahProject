@@ -26,7 +26,6 @@ protected:
     TArray<AActor*> PreviewActors;
     
 public:
-    ASBZRandomizedRoom(const FObjectInitializer& ObjectInitializer);
-
+    ASBZRandomizedRoom();
 };
 

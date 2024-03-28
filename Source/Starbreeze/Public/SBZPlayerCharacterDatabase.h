@@ -13,6 +13,5 @@ public:
     TArray<USBZPlayerCharacterData*> PlayerCharacterArray;
     
     USBZPlayerCharacterDatabase();
-
 };
 

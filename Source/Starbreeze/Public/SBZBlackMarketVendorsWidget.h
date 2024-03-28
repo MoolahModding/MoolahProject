@@ -8,9 +8,9 @@
 #include "SBZMenuStackScreenWidgetWithTutorial.h"
 #include "SBZStoreItemUIData.h"
 #include "SBZUIPopupData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBlackMarketVendorsWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBlackMarketCategoryWidget;
 class USBZBlackMarketConfirmationPopupBody;
@@ -20,6 +20,7 @@ class USBZControlsReferenceActionWidget;
 class USBZInventoryBaseData;
 class USBZLocalNavBar;
 class USBZMenuButton;
+class USBZWidgetBase;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZBlackMarketVendorsWidget : public USBZMenuStackScreenWidgetWithTutorial {
@@ -33,13 +34,13 @@ protected:
     USBZLocalNavBar* Navbar_Vendors;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CategoryButtonClass;
+    TSubclassOf<USBZBlackMarketCategoryWidget> CategoryButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* StoreItemButtonClass;
+    TSubclassOf<USBZBlackMarketStoreItemButton> StoreItemButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GoldStoreItemButtonClass;
+    TSubclassOf<USBZBlackMarketStoreItemButton> GoldStoreItemButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZActionControlReference PaydayStoreControlsReferenceAction;
@@ -51,7 +52,7 @@ protected:
     USBZControlsReferenceActionWidget* ControlsRefActionWidget_PaydayStore;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* VendorButtonClass;
+    TSubclassOf<USBZBlackMarketVendorButton> VendorButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsTransactionInProgress;
@@ -76,10 +77,10 @@ private:
     TArray<USBZBlackMarketStoreItemButton*> GoldStoreItemButtonPool;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PurchaseItemPopUpBodyWidgetClass;
+    TSubclassOf<USBZBlackMarketConfirmationPopupBody> PurchaseItemPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PurchaseItemSlotPopUpBodyWidgetClass;
+    TSubclassOf<USBZWidgetBase> PurchaseItemSlotPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText PurchaseItemPopUpHeader;
@@ -98,48 +99,50 @@ private:
     
 public:
     USBZBlackMarketVendorsWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void UpdateActiveVendor(int32 NewActiveVendorIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void TryBuyItem(FSBZStoreItemUIData StoreItemUIData);
     
-    UFUNCTION(BlueprintCallable)
-    void SendPurchaseAttemptEvent(bool bIsAcceptPressed);
+    UFUNCTION()
+    void SendPurchaseAttemptEvent(const bool bIsAcceptPressed);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnVendorItemButtonSelected(USBZMenuButton* InButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorChanged(const FSBZBlackMarketUIVendorData& NewVendor);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnVendorButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTransactionProgressChanged(bool bInIsTransactionInProgress, bool bIsTransactionSuccessful);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
+    void OnRefreshCurrentVendor();
+    
+    UFUNCTION()
     void OnPurchaseItemPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuyRealMoneyItemCompleted(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuyItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnVendorButtonSelected(USBZMenuButton* InButton);
     
 public:
@@ -150,10 +153,10 @@ public:
     void GoToNextVendor();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZBlackMarketCategoryWidget* GetFirstCategoryWidget();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZBlackMarketVendorButton* GetActiveVendorButton() const;
     
 };

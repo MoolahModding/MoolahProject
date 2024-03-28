@@ -3,19 +3,6 @@
 #include "SBZInteractableComponent.h"
 #include "SBZOutlineComponent.h"
 
-ASBZDrill::ASBZDrill(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->State = ESBZDrillState::None;
-    this->EndTime = -1.00f;
-    this->TimeLeft = 10.00f;
-    this->Duration = 10.00f;
-    this->UnjamInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("UnjamInteraction"));
-    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("OutlineComponent"));
-    this->OutlineAsset = NULL;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 bool ASBZDrill::UnjamDrill() {
     return false;
 }
@@ -51,4 +38,13 @@ void ASBZDrill::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetim
     DOREPLIFETIME(ASBZDrill, TimeLeft);
 }
 
+ASBZDrill::ASBZDrill() {
+    this->State = ESBZDrillState::None;
+    this->EndTime = -1.00f;
+    this->TimeLeft = 10.00f;
+    this->Duration = 10.00f;
+    this->UnjamInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("UnjamInteraction"));
+    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("OutlineComponent"));
+    this->OutlineAsset = NULL;
+}
 

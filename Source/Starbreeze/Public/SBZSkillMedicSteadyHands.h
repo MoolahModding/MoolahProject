@@ -8,6 +8,5 @@ class USBZSkillMedicSteadyHands : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMedicSteadyHands();
-
 };
 

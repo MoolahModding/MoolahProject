@@ -6,6 +6,7 @@
 #include "DErrorHandlerDelegate.h"
 #include "DJoinDefaultChannelChatResponseDelegate.h"
 #include "DMessageNotifDelegate.h"
+#include "DPartyChatNotifDelegate.h"
 #include "DPartyChatResponseDelegate.h"
 #include "DPersonalChatNotifDelegate.h"
 #include "DPersonalChatResponseDelegate.h"
@@ -19,9 +20,11 @@ class UABMessage : public UObject {
     GENERATED_BODY()
 public:
     UABMessage();
-
     UFUNCTION(BlueprintCallable)
     void SetPrivateMessageNotifDelegate(FDPersonalChatNotif OnNotif);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOnPartyChatNotification(FDPartyChatNotif OnPartyChatNotif);
     
     UFUNCTION(BlueprintCallable)
     void SetMessageNotifDelegate(FDMessageNotif OnNotif);

@@ -8,13 +8,12 @@ UCLASS(Abstract, Blueprintable, NonTransient)
 class ASBZGameModeMainMenu : public ASBZGameModeBase {
     GENERATED_BODY()
 public:
-    ASBZGameModeMainMenu(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGameModeMainMenu(const class FObjectInitializer& ObjectInitializer);
     UFUNCTION(BlueprintCallable)
     void SetMainMenuState(ESBZMainMenuState NewState);
-    
+
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZMainMenuState GetMainMenuState() const;
-    
+
 };
 

@@ -5,9 +5,9 @@
 #include "ESBZMetaRequestResult.h"
 #include "OnActiveWeaponSlotChangedDelegate.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponSlotInventoryWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBlackMarketStoreItemButton;
 class USBZInventoryBaseData;
@@ -23,7 +23,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponSlotButtonClass;
+    TSubclassOf<USBZMainMenuLoadoutWeaponSlotButton> WeaponSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_WeaponSlotButtons;
@@ -52,12 +52,11 @@ private:
     
 public:
     USBZMainMenuWeaponSlotInventoryWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void WeaponSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void WeaponSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
     
 public:
@@ -65,17 +64,17 @@ public:
     void UpdateActiveWeaponSlotIndex(int32 InNewIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotScreenDisplayed();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponInSlotDiscarded(bool bIsWeaponDiscarded);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
 public:
@@ -87,11 +86,11 @@ protected:
     bool DiscardWeaponInSlot(int32 SlotIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DiscardItemDone(ESBZMetaRequestResult BuyItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanDiscardWeaponIndex(int32 IndexToDiscard) const;
     
 };

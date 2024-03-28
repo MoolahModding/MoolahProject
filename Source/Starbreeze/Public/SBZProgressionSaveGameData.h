@@ -6,8 +6,9 @@
 #include "SBZItemConfigInventorySaveData.h"
 #include "SBZMaskConfigInventorySaveData.h"
 #include "SBZPlayerCosmeticsConfig.h"
-#include "SBZPlayerLoadoutConfig.h"
+#include "SBZPlayerLoadoutConfigArray.h"
 #include "SBZSuitConfigInventorySaveData.h"
+#include "SBZWeaponPartAttachmentData.h"
 #include "SBZProgressionSaveGameData.generated.h"
 
 class USBZPlayerCharacterData;
@@ -20,13 +21,19 @@ public:
     FPD3PlayerLoadout Loadout;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 ActiveLoadoutIndex;
+    TArray<int32> ActiveLoadoutIndexPlatformArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FSBZPlayerLoadoutConfig> PlayerLoadoutConfigArray;
+    FSBZPlayerLoadoutConfigArray PlayerLoadoutConfigArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZPlayerLoadoutConfigArray> PlayerLoadoutConfigPerPlatformArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZPlayerCosmeticsConfig PlayerCosmeticsConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZPlayerCosmeticsConfig> PlayerCosmeticsConfigPerPlatformArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZPlayerCharacterData*> PlayerPreferredCharacterArray;
@@ -57,6 +64,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 StoryProgression;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<int32> StoryProgressionArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZWeaponPartAttachmentData WeaponPartAttachmentData;
     
     FSBZProgressionSaveGameData();
 };

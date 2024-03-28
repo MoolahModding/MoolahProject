@@ -22,12 +22,11 @@ protected:
     
 public:
     USBZAIOrder_FirstResponder();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

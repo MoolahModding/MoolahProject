@@ -14,12 +14,11 @@ public:
     TMap<ESBZFireTokenType, int32> TokenLimits;
     
     UDEPRECATED_SBZFirePermissionManager();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTargetRemoved(UObject* Obj);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTargetAdded(UObject* Obj);
     
 };

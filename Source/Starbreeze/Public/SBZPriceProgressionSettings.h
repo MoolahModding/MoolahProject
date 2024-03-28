@@ -11,8 +11,7 @@ public:
     TArray<FString> WeeklyResetPriceGroups;
     
     USBZPriceProgressionSettings();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static TArray<FString> GetWeeklyResetPriceGroupSettings();
     
 };

@@ -3,4 +3,3 @@
 USBZAIUtilityScorer_DistanceToActor::USBZAIUtilityScorer_DistanceToActor() {
 }
 
-

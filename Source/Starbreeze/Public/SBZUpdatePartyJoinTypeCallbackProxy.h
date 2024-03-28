@@ -15,10 +15,14 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnOnlineSessionEventDelegate OnSuccess;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     USBZUpdatePartyJoinTypeCallbackProxy();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static USBZUpdatePartyJoinTypeCallbackProxy* UpdatePartyJoinType(UObject* WorldContextObject, ESBZOnlineJoinType InNewJoinType);
+    static USBZUpdatePartyJoinTypeCallbackProxy* UpdatePartyJoinType(UObject* NewWorldContextObject, ESBZOnlineJoinType InNewJoinType);
     
 };
 

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "DErrorHandlerDelegate.h"
+#include "DHandlerDelegate.h"
 #include "DInfoPartyResponseDelegate.h"
 #include "DLeavePartyResponseDelegate.h"
 #include "DPartyCreateResponseDelegate.h"
@@ -26,6 +27,7 @@
 #include "DPartyPromoteLeaderResponseDelegate.h"
 #include "DPartyRejectNotifDelegate.h"
 #include "DPartyRejectResponseDelegate.h"
+#include "DPartyUpdateNotifDelegate.h"
 #include "DPartyWriteDataResponseDelegate.h"
 #include "GetPartyDataRequest.h"
 #include "GetPartyStorageRequest.h"
@@ -43,9 +45,14 @@ class UABParty : public UObject {
     GENERATED_BODY()
 public:
     UABParty();
-
     UFUNCTION(BlueprintCallable)
     void WritePartyStorage(const FWritePartyStorageRequest& Request, FDPartyWriteDataResponse OnResponse, FDErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetPartySizeLimit(const FString& PartyId, const int32 Limit, const FDHandler& OnSuccess, FDErrorHandler OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOnPartyUpdate(FDPartyUpdateNotif OnNotif);
     
     UFUNCTION(BlueprintCallable)
     void SetOnPartyReject(FDPartyRejectNotif OnNotif);

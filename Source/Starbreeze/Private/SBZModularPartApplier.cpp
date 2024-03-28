@@ -1,14 +1,12 @@
 #include "SBZModularPartApplier.h"
-
-USBZModularPartApplier::USBZModularPartApplier() {
-}
+#include "Templates/SubclassOf.h"
 
 bool USBZModularPartApplier::NeedConfig() const {
     return false;
 }
 
-TArray<UClass*> USBZModularPartApplier::GetExpectedParts(const USBZModularPartDataAsset* PartAsset) const {
-    return TArray<UClass*>();
+TArray<TSubclassOf<USBZModularPartDataAsset>> USBZModularPartApplier::GetExpectedParts(const USBZModularPartDataAsset* PartAsset) const {
+    return TArray<TSubclassOf<USBZModularPartDataAsset>>();
 }
 
 bool USBZModularPartApplier::DoesConfigNeedParts() const {
@@ -19,4 +17,6 @@ USBZModularPartConfig* USBZModularPartApplier::CreateNewConfig() {
     return NULL;
 }
 
+USBZModularPartApplier::USBZModularPartApplier() {
+}
 

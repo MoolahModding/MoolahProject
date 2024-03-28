@@ -8,6 +8,5 @@ class USBZApplyMarkedTagEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZApplyMarkedTagEffect();
-
 };
 

@@ -8,6 +8,5 @@ class USBZSkillEngineerDualSentries : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEngineerDualSentries();
-
 };
 

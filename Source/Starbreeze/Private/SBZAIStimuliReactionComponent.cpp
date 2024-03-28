@@ -1,5 +1,8 @@
 #include "SBZAIStimuliReactionComponent.h"
 
+void USBZAIStimuliReactionComponent::HandleStimuli(AActor* Actor, FAIStimulus Stimulus) {
+}
+
 USBZAIStimuliReactionComponent::USBZAIStimuliReactionComponent() {
     this->EscalationOrder = NULL;
     this->ReasonAssets[0] = NULL;
@@ -16,8 +19,4 @@ USBZAIStimuliReactionComponent::USBZAIStimuliReactionComponent() {
     this->ReasonAssets[11] = NULL;
     this->ReasonAssets[12] = NULL;
 }
-
-void USBZAIStimuliReactionComponent::HandleStimuli(AActor* Actor, FAIStimulus Stimulus) {
-}
-
 

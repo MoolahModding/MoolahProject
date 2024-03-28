@@ -1,8 +1,5 @@
 #include "AudioCaptureAndroid.h"
 
-UAudioCaptureAndroid::UAudioCaptureAndroid() {
-}
-
 void UAudioCaptureAndroid::AndroidMicrophoneStop(UMicrophoneSpeakComponent* callbackComp) {
 }
 
@@ -17,4 +14,6 @@ bool UAudioCaptureAndroid::AndroidHasPermission() {
 void UAudioCaptureAndroid::AndroidAskPermission() {
 }
 
+UAudioCaptureAndroid::UAudioCaptureAndroid() {
+}
 

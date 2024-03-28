@@ -23,6 +23,5 @@ protected:
     
 public:
     USBZBTTask_TriggerAbilitySafe();
-
 };
 

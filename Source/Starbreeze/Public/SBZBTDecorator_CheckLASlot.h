@@ -8,6 +8,5 @@ class USBZBTDecorator_CheckLASlot : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_CheckLASlot();
-
 };
 

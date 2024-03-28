@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Components/SlateWrapperTypes.h"
 #include "SBZWidgetBase.h"
 #include "SBZAxisInputWidget.generated.h"
 
@@ -19,9 +20,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZInputKeyWidget* SecondaryKeyWidget;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESlateVisibility SecondaryKeyDisableVisibility;
+    
 public:
     USBZAxisInputWidget();
-
     UFUNCTION(BlueprintCallable)
     void SetAxis(FName InAxisName);
     

@@ -13,6 +13,5 @@ protected:
     
 public:
     USBZAIUtilityScorer_CoverSafeness();
-
 };
 

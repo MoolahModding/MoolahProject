@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "PD3PlayerLoadout.h"
 #include "SBZPlayerControllerBase.generated.h"
 
@@ -15,15 +16,14 @@ protected:
     ASBZPlayerState* SBZPlayerState;
     
 public:
-    ASBZPlayerControllerBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerControllerBase();
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_SetLoadout(const FPD3PlayerLoadout& Loadout);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_SetAccelByteSessionInformation(const FString& InAccelByteUserId, const FString& InSessionId);
+    UFUNCTION(Reliable, Server)
+    void Server_SetAccelByteSessionInformation(const FString& InAccelByteUserId, const FString& InSessionId, const ESBZFirstPartyPlatform FirstPartyPlatform);
     
 };
 

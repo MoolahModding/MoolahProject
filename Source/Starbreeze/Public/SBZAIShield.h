@@ -68,15 +68,14 @@ private:
     
 public:
     USBZAIShield();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ShieldBreak();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ShieldBreak();
     
 };

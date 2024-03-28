@@ -24,6 +24,5 @@ protected:
     
 public:
     USBZLifeActionDialogPlayer();
-
 };
 

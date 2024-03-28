@@ -3,17 +3,6 @@
 #include "SBZInteractableComponent.h"
 #include "SBZOutlineComponent.h"
 
-ASBZSingleBagGenerator::ASBZSingleBagGenerator(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->BagType = NULL;
-    this->SecondaryBagType = NULL;
-    this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("Interactable"));
-    this->Outline = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
-    this->bIsSecondaryTypeUsed = false;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZSingleBagGenerator::SetInteractionEnabled(bool bEnabled) {
 }
 
@@ -42,4 +31,11 @@ void ASBZSingleBagGenerator::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(ASBZSingleBagGenerator, bIsSecondaryTypeUsed);
 }
 
+ASBZSingleBagGenerator::ASBZSingleBagGenerator() {
+    this->BagType = NULL;
+    this->SecondaryBagType = NULL;
+    this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("Interactable"));
+    this->Outline = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
+    this->bIsSecondaryTypeUsed = false;
+}
 

@@ -17,4 +17,3 @@ UGridlyGameSettings::UGridlyGameSettings() {
     this->bExportTextTypeAsPath = true;
 }
 
-

@@ -3,4 +3,3 @@
 USBZNavArea_AgilityVaulting::USBZNavArea_AgilityVaulting() {
 }
 
-

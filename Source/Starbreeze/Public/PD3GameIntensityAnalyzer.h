@@ -4,12 +4,17 @@
 #include "UObject/Object.h"
 #include "GameplayTagContainer.h"
 #include "EPD3HeistState.h"
+#include "Templates/SubclassOf.h"
 #include "PD3GameIntensityAnalyzer.generated.h"
 
+class AActor;
 class UAkStateValue;
 class UAkSwitchValue;
-class UClass;
+class UMaterialInstanceDynamic;
+class UMaterialInterface;
 class UPD3GameIntensityAnalyzer;
+class URetainerBox;
+class USBZAIOrder;
 class USBZDialogDataAsset;
 
 UCLASS(Blueprintable, DefaultToInstanced)
@@ -48,24 +53,63 @@ private:
     TMap<FGameplayTag, USBZDialogDataAsset*> ThreatDialog;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<UClass*, USBZDialogDataAsset*> SquadDialog;
+    TMap<TSubclassOf<USBZAIOrder>, USBZDialogDataAsset*> SquadDialog;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UMaterialInterface* HUDGlitchMaterial;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GlitchTickInterval;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GlitchStrengthModifier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GlitchMinimumDotModifier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName GlitchStrengthParameterName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName GlitchTextureParameterName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<AActor*, float> GlitchEffectSourceMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<URetainerBox*> GlitchRetainerBoxArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UMaterialInstanceDynamic* HUDGlitchDynamicMaterialInstance;
     
 public:
     UPD3GameIntensityAnalyzer();
-
-protected:
     UFUNCTION(BlueprintCallable)
+    void RemoveGlitchEffectSourceActor(AActor* Actor);
+    
+private:
+    UFUNCTION()
+    void OnExitedActionPhase();
+    
+protected:
+    UFUNCTION()
     void HandleSuspenseValueChanged(uint8 NewValue);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleProgressionIndexChanged();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPD3GameIntensityAnalyzer* GetGameIntensityAnalyzer(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable)
+    void AddGlitchRetainerBox(URetainerBox* RetainerBox);
+    
+    UFUNCTION(BlueprintCallable)
+    void AddGlitchEffectSourceActor(AActor* Actor, float Range);
     
 };
 

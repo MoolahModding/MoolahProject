@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZWorldRuntimeBase.h"
+#include "SBZActiveGlobalCommentPermissionArray.h"
 #include "SBZWorldRuntime.generated.h"
 
 class ASBZDebugDrawingManager;
@@ -11,6 +12,7 @@ class USBZImpactManager;
 class USBZObjectContainer;
 class USBZObservableActorContainer;
 class USBZSignificanceManager;
+class USBZVoiceCommentDataAsset;
 class USBZWorldRuntime;
 
 UCLASS(Blueprintable, NonTransient, Config=Starbreeze)
@@ -34,6 +36,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZActorContainer* AllAliveAIGuards;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZActorContainer* AllAliveAIStreetCops;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZActorContainer* AllAliveAIDrones;
@@ -134,9 +139,16 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZObjectContainer* AllCrewAILifeActionComponents;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZObjectContainer* AllAITowerHideLifeActionObjects;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<USBZVoiceCommentDataAsset*, FSBZActiveGlobalCommentPermissionArray> GlobalCommentCooldown;
+    
+public:
     USBZWorldRuntime();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWorldRuntime* Get(const UObject* WorldContextObject);
     
 };

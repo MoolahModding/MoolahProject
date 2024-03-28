@@ -28,21 +28,20 @@ protected:
     
 public:
     USBZActionPhaseBaseWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStackLockChanged(bool bIsStackLocked);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnControllerStateChanged(ASBZPlayerController* PlayerController, const FName& OldStateName, const FName& NewStateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActiveControlsReferenceChanged(const FSBZControlsReference& InControlsReference);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HideControlsReference();
     
 };

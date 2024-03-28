@@ -3,5 +3,5 @@
 #include "AccelByteModelsRematchmakingNotice.h"
 #include "DRematchmakingNotifDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDRematchmakingNotif, FAccelByteModelsRematchmakingNotice, Notif);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDRematchmakingNotif, FAccelByteModelsRematchmakingNotice, Notif);
 

@@ -29,6 +29,5 @@ protected:
     
 public:
     USBZAIScorer();
-
 };
 

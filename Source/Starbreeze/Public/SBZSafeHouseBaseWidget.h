@@ -8,6 +8,5 @@ class USBZSafeHouseBaseWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZSafeHouseBaseWidget();
-
 };
 

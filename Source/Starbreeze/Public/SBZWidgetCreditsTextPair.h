@@ -16,6 +16,5 @@ public:
     UTextBlock* TextSecondWidget;
     
     USBZWidgetCreditsTextPair();
-
 };
 

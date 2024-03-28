@@ -20,12 +20,11 @@ private:
     
 public:
     USBZVehicleManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnExitedActionPhase();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnEnteredActionPhase(UWorld* World);
     
 };

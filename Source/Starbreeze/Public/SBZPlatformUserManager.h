@@ -8,13 +8,17 @@ UCLASS(Blueprintable)
 class STARBREEZE_API USBZPlatformUserManager : public UObject {
     GENERATED_BODY()
 public:
-    USBZPlatformUserManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UObject*> ObjectsHoldingBackReturnToIIS;
+    
+public:
+    USBZPlatformUserManager();
+private:
+    UFUNCTION()
     void OnPopUpClosedConfirmChanges(FName ActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleUIStackChanged(FSBZUIStackChangedEvent Event);
     
 };

@@ -4,4 +4,3 @@ USBZDialogBodyGesturesNotifyState::USBZDialogBodyGesturesNotifyState() {
     this->DialogBodyGesturesData = NULL;
 }
 
-

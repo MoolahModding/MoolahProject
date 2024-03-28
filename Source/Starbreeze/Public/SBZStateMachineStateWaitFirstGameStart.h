@@ -15,6 +15,5 @@ private:
     
 public:
     USBZStateMachineStateWaitFirstGameStart();
-
 };
 

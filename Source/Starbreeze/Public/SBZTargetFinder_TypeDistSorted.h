@@ -21,6 +21,5 @@ protected:
     
 public:
     USBZTargetFinder_TypeDistSorted();
-
 };
 

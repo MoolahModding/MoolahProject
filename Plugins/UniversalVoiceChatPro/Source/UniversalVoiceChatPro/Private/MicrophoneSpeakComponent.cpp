@@ -1,11 +1,5 @@
 #include "MicrophoneSpeakComponent.h"
 
-UMicrophoneSpeakComponent::UMicrophoneSpeakComponent() {
-    this->VoiceCaptureAudioComponent = NULL;
-    this->VoiceCaptureSoundWaveProcedural = NULL;
-    this->bAutoActivate = true;
-}
-
 bool UMicrophoneSpeakComponent::startSpeaking(bool _shouldHearMyOwnVoice, bool isGlobal, int32 radioChannel, bool useRange, float maxRange) {
     return false;
 }
@@ -42,4 +36,8 @@ bool UMicrophoneSpeakComponent::initAudioResources(int32 voiceSampleRate, int32 
 void UMicrophoneSpeakComponent::endSpeaking() {
 }
 
+UMicrophoneSpeakComponent::UMicrophoneSpeakComponent() {
+    this->VoiceCaptureAudioComponent = NULL;
+    this->VoiceCaptureSoundWaveProcedural = NULL;
+}
 

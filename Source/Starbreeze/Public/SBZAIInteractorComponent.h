@@ -8,6 +8,5 @@ class USBZAIInteractorComponent : public USBZInteractorComponent {
     GENERATED_BODY()
 public:
     USBZAIInteractorComponent();
-
 };
 

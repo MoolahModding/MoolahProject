@@ -8,6 +8,5 @@ class USBZNavArea_AgilityClimbOverHigh : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityClimbOverHigh();
-
 };
 

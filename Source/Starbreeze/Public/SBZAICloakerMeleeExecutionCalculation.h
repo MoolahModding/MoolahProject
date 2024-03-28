@@ -8,6 +8,5 @@ class USBZAICloakerMeleeExecutionCalculation : public UGameplayEffectExecutionCa
     GENERATED_BODY()
 public:
     USBZAICloakerMeleeExecutionCalculation();
-
 };
 

@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "SBZDamageEvent.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZHUDDamageTakenIndicatorContainerWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZHUDDamageTakenIndicatorWidget;
 
@@ -14,7 +14,7 @@ class USBZHUDDamageTakenIndicatorContainerWidget : public USBZWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageTakenWidgetClass;
+    TSubclassOf<USBZHUDDamageTakenIndicatorWidget> DamageTakenWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NumberOfDamageIndicators;
@@ -34,9 +34,8 @@ private:
     
 public:
     USBZHUDDamageTakenIndicatorContainerWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
     
 };

@@ -8,6 +8,5 @@ class USBZThrowableKnifeExecutionCalculation : public UGameplayEffectExecutionCa
     GENERATED_BODY()
 public:
     USBZThrowableKnifeExecutionCalculation();
-
 };
 

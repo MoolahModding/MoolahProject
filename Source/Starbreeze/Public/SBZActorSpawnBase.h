@@ -22,7 +22,6 @@ protected:
     int32 NextSpawnTransformIndex;
     
 public:
-    ASBZActorSpawnBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZActorSpawnBase();
 };
 

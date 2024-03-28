@@ -31,9 +31,8 @@ protected:
     FSBZOnSensorAmmoDepleted OnSensorAmmoDepleted;
     
 public:
-    ASBZPlaceableSensorTool(const FObjectInitializer& ObjectInitializer);
-
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    ASBZPlaceableSensorTool();
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SensorAmmoDepleted();
     
 };

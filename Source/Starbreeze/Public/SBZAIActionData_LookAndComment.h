@@ -17,6 +17,5 @@ public:
     USBZVoiceCommentDataAsset* VoiceComment;
     
     USBZAIActionData_LookAndComment();
-
 };
 

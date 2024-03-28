@@ -16,6 +16,5 @@ public:
     TMap<FString, FSBZWeaponProgressionStats> ItemProgressionLevelMap;
     
     USBZPlayerStatisticsData();
-
 };
 

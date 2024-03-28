@@ -8,6 +8,5 @@ class USBZAIOrder_DropOfBag : public USBZAIOrder {
     GENERATED_BODY()
 public:
     USBZAIOrder_DropOfBag();
-
 };
 

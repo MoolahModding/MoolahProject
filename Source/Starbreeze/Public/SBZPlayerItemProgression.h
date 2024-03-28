@@ -24,6 +24,5 @@ public:
     TArray<FSBZPlayerItemInfo> ThrowableInventoryItemArray;
     
     USBZPlayerItemProgression();
-
 };
 

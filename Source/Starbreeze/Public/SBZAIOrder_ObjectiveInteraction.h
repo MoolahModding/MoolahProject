@@ -8,6 +8,5 @@ class USBZAIOrder_ObjectiveInteraction : public USBZAIOrder {
     GENERATED_BODY()
 public:
     USBZAIOrder_ObjectiveInteraction();
-
 };
 

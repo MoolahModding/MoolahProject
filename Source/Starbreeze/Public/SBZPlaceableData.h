@@ -5,14 +5,14 @@
 #include "SBZEquippableData.h"
 #include "SBZPlaceableData.generated.h"
 
-class UClass;
+class AActor;
 
 UCLASS(Abstract, Blueprintable)
 class USBZPlaceableData : public USBZEquippableData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> GhostActorClass;
+    TSoftClassPtr<AActor> GhostActorClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 AmmoInventoryMax;
@@ -54,6 +54,5 @@ public:
     FString StatisticsDeployString;
     
     USBZPlaceableData();
-
 };
 

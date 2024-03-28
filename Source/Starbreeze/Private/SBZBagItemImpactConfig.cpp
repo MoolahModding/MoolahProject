@@ -3,4 +3,3 @@
 USBZBagItemImpactConfig::USBZBagItemImpactConfig() {
 }
 
-

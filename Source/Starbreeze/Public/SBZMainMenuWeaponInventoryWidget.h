@@ -5,9 +5,9 @@
 #include "ESBZMetaRequestResult.h"
 #include "SBZInventorySlotStoreItem.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponInventoryWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZMainMenuLoadoutWeaponSlotButton;
 class USBZMenuButton;
@@ -18,7 +18,7 @@ class USBZMainMenuWeaponInventoryWidget : public USBZMenuStackScreenWidget {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponSlotButtonClass;
+    TSubclassOf<USBZMainMenuLoadoutWeaponSlotButton> WeaponSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_WeaponSlotButtons;
@@ -50,7 +50,6 @@ private:
     
 public:
     USBZMainMenuWeaponInventoryWidget();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void UpdateWeaponSlotButtons();
@@ -61,41 +60,41 @@ protected:
     UFUNCTION(BlueprintCallable)
     void TryBuyItemSlots();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotButtonSelected(USBZMenuButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponInSlotDiscarded(bool bIsWeaponDiscarded);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponConfigSlotCountChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSlotStoreItemSet(FSBZInventorySlotStoreItem InSlotStoreItem);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnBuyWeaponConfigSlotDone(bool bWasSuccess);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponSlotButtonSelected(USBZMenuButton* SelectedButton);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnBuyWeaponConfigSlotDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetSlotPrice() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetActiveWeaponSlotIndex() const;
     
 public:
@@ -107,11 +106,11 @@ protected:
     bool DiscardWeaponInSlot(int32 SlotIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DiscardItemDone(ESBZMetaRequestResult BuyItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanDiscardWeaponIndex(int32 IndexToDiscard) const;
     
 };

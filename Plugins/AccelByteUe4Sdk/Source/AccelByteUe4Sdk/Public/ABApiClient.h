@@ -117,6 +117,5 @@ public:
     UABGroup* Group;
     
     UABApiClient();
-
 };
 

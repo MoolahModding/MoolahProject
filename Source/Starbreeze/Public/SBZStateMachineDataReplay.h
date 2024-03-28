@@ -12,6 +12,5 @@ public:
     FSBZReplayInfo Params;
     
     USBZStateMachineDataReplay();
-
 };
 

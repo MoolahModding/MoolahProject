@@ -3,4 +3,3 @@
 USBZToolInvisibleNotify::USBZToolInvisibleNotify() {
 }
 
-

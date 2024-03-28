@@ -4,4 +4,3 @@ USBZAIUtilityScorer_HeistState::USBZAIUtilityScorer_HeistState() {
     this->AllowedStates = 0;
 }
 
-

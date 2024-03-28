@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESBZStoreItemUICategory.h"
+#include "ESBZStoreItemDefaultUICategory.h"
 #include "SBZWidgetBase.h"
 #include "SBZBlackMarketCategoryWidget.generated.h"
 
@@ -14,12 +14,11 @@ public:
     UWrapBox* Panel_ButtonList;
     
     USBZBlackMarketCategoryWidget();
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SetStoreCategoryName(const FText& InCategoryName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static FText GetCategoryStringTextFromCategoryEnum(ESBZStoreItemUICategory InCategory);
+    UFUNCTION(BlueprintPure)
+    static FText GetCategoryStringTextFromCategoryEnum(ESBZStoreItemDefaultUICategory InCategory);
     
 };
 

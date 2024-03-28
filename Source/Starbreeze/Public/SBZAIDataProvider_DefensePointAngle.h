@@ -11,6 +11,5 @@ public:
     float FloatValue;
     
     USBZAIDataProvider_DefensePointAngle();
-
 };
 

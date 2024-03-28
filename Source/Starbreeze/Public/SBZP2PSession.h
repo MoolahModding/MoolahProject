@@ -18,8 +18,7 @@ public:
     FSBZOnSessionJoinStarted OnSessionJoinStarted;
     
     USBZP2PSession();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLevelLoaded(UWorld* InWorld);
     
 };

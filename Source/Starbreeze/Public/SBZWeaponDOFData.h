@@ -21,6 +21,5 @@ public:
     FSBZCameraDOF TopPassTargetingDOF;
     
     USBZWeaponDOFData();
-
 };
 

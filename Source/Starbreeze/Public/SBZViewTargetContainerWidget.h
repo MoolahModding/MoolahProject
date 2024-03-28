@@ -3,12 +3,12 @@
 #include "SBZActionControlReference.h"
 #include "SBZControlsReference.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZViewTargetContainerWidget.generated.h"
 
 class ASBZPlayerController;
 class ISBZViewTargetCollectionInterface;
 class USBZViewTargetCollectionInterface;
-class UClass;
 class UPanelWidget;
 class USBZViewTargetWidget;
 
@@ -18,7 +18,7 @@ class USBZViewTargetContainerWidget : public USBZWidgetBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ViewTargetWidgetClass;
+    TSubclassOf<USBZViewTargetWidget> ViewTargetWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_ViewTargetWidgets;
@@ -50,13 +50,12 @@ private:
     
 public:
     USBZViewTargetContainerWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnViewTargetChanged(ASBZPlayerController* InPlayerController, const TScriptInterface<ISBZViewTargetCollectionInterface>& InViewTargetCollection);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void IsSecurityCamera(bool bIsSecurityCamera);
     
 };

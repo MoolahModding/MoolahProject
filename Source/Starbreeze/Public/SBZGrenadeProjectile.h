@@ -10,15 +10,18 @@
 #include "SBZExplosive.h"
 #include "SBZExplosivePhysicsEffectData.h"
 #include "SBZProjectileInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGrenadeProjectile.generated.h"
 
 class ASBZCharacter;
 class UAkAudioEvent;
-class UClass;
+class UGameplayEffect;
 class UMeshComponent;
 class UNiagaraSystem;
 class UPrimitiveComponent;
 class UProjectileMovementComponent;
+class USBZDamageType;
+class USBZLocalPlayerFeedback;
 class USBZMarkerDataAsset;
 class USBZRangedWeaponData;
 class USBZWeaponFireData;
@@ -69,13 +72,13 @@ protected:
     UNiagaraSystem* DetonationEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageGameplayEffectClass;
+    TSubclassOf<UGameplayEffect> DamageGameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DamageTypeClass;
+    TSubclassOf<USBZDamageType> DamageTypeClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PlayerFeedbackCurve;
@@ -109,50 +112,46 @@ private:
     FSBZExplosivePhysicsEffectData PostDamagePhysicsEffectData;
     
 public:
-    ASBZGrenadeProjectile(const FObjectInitializer& ObjectInitializer);
-
+    ASBZGrenadeProjectile();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_EquippableIndex();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnProjectileStopped(const FHitResult& InHitResult);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnProjectileBounce(const FHitResult& InHitResult, const FVector& ImpactVelocity);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnProjectileBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOwnerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFired();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCollisionComponentHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetGrenadeProjectileVelocity(const FVector_NetQuantizeNormal& ProjectileDirection);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEquippableIndex(int32 InIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_DestroyBreakable(const FHitResult& InBreakableHitResult);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_CollisionExplosion();
     
-
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -3,4 +3,3 @@
 USBZReactionPredicate_HasNoEnemy::USBZReactionPredicate_HasNoEnemy() {
 }
 
-

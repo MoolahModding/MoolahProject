@@ -8,6 +8,5 @@ class USBZAIUtilityScorer_Healthiness : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_Healthiness();
-
 };
 

@@ -8,6 +8,5 @@ class USBZDisableAgentGravityNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZDisableAgentGravityNotifyState();
-
 };
 

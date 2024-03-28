@@ -20,7 +20,6 @@ private:
     
 public:
     USBZOnlineGetNewsFeedCallbackProxy();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZOnlineGetNewsFeedCallbackProxy* RequestNewsFeed(UObject* NewWorldContextObject);
     

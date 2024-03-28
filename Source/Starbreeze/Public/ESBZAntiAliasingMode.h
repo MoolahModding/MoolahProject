@@ -8,6 +8,7 @@ enum class ESBZAntiAliasingMode : uint8 {
     FXAA,
     Performance,
     Quality,
+    DLAA,
     Invalid = 0xFF,
 };
 

@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "ESBZItemLoadoutSlot.h"
 #include "SBZMenuStackScreenWidget.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuItemInventoryWidget.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZInventoryBaseData;
 class USBZMainMenuInventoryItemSlotButton;
@@ -16,7 +16,7 @@ class USBZMainMenuItemInventoryWidget : public USBZMenuStackScreenWidget {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ItemSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventoryItemSlotButton> ItemSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_ItemSlotButtons;
@@ -33,23 +33,22 @@ private:
     
 public:
     USBZMainMenuItemInventoryWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotButtonSelected(USBZMenuButton* SelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemSlotButtonSelected(USBZMenuButton* SelectedButton);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZInventoryBaseData* GetActiveItem() const;
     
     UFUNCTION(BlueprintCallable)

@@ -1,14 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Engine/EngineTypes.h"
 #include "ESBZDisplayCaseState.h"
 #include "ESBZGateState.h"
 #include "SBZGameplayAbility.h"
 #include "SBZCuttingToolAbility.generated.h"
 
+class AActor;
 class ASBZDisplayCase;
 class ASBZGate;
 class ASBZInteractableGate;
 class ASBZPlayerCharacter;
+class USBZCuttableComponent;
 
 UCLASS(Blueprintable)
 class USBZCuttingToolAbility : public USBZGameplayAbility {
@@ -24,6 +27,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZPlayerCharacter* OwnerCharacter;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZCuttableComponent* CurrentCuttableComponent;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NoiseGenerationInterval;
     
@@ -32,13 +38,15 @@ private:
     
 public:
     USBZCuttingToolAbility();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnGateStateChanged(ASBZGate* Gate, ESBZGateState OldState, ESBZGateState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDisplayCaseStateChanged(ESBZDisplayCaseState NewState);
+    
+    UFUNCTION()
+    void OnCuttableActorEndPlay(AActor* OldAttachParentActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 };
 

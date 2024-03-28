@@ -8,9 +8,8 @@ class USBZMainMenuCrimeNetStackWidget : public USBZMenuStackWidget {
     GENERATED_BODY()
 public:
     USBZMainMenuCrimeNetStackWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnStateLeft(FName StateName);
     
 };

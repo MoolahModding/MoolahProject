@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "SBZChallengeData.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuChallengeScreenDescriptionPanel.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZMainMenuChallengeStatDisplay;
 class USBZMainMenuItemRewardDisplay;
@@ -21,10 +21,10 @@ protected:
     UPanelWidget* Panel_ItemRewards;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChallengeStatWidgetClass;
+    TSubclassOf<USBZMainMenuChallengeStatDisplay> ChallengeStatWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ItemRewardWidgetClass;
+    TSubclassOf<USBZMainMenuItemRewardDisplay> ItemRewardWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxStatWidgetsDisplayed;
@@ -41,7 +41,6 @@ private:
     
 public:
     USBZMainMenuChallengeScreenDescriptionPanel();
-
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetEmpty();
     
@@ -49,7 +48,7 @@ public:
     void SetChallengeData(const FSBZChallengeData& InChallengeData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChallengeDataUpdated(const FSBZChallengeData& InChallengeData);
     
 };

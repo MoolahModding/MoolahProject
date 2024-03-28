@@ -19,7 +19,6 @@ public:
     int32 RadioPlayingChance;
     
     USBZAmbientSoundRadioComponent();
-
     UFUNCTION(BlueprintCallable)
     void PlayRadioSoundRand(bool bValue);
     

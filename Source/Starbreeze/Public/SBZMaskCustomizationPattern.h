@@ -3,9 +3,9 @@
 #include "Layout/Margin.h"
 #include "EBSZPatternMenuMode.h"
 #include "SBZMaskCustomizationSlotScreenBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMaskCustomizationPattern.generated.h"
 
-class UClass;
 class UHorizontalBox;
 class USBZCosmeticsDataAsset;
 class USBZCosmeticsPartSlot;
@@ -40,7 +40,7 @@ protected:
     TArray<USBZCosmeticsDataAsset*> ReturnSprayCanArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SprayCanSelectorButtonClass;
+    TSubclassOf<USBZMainMenuCosmeticItemButton> SprayCanSelectorButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FMargin SprayCanSelectorButtonMargin;
@@ -62,9 +62,8 @@ protected:
     
 public:
     USBZMaskCustomizationPattern();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void SprayCanSelectorButtonSelected(USBZMenuButton* SelectedButton);
     
 public:
@@ -81,10 +80,10 @@ public:
     void IncrementSprayCanSlotIndex(int32 InDelta);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CosmeticPanelDefaultButtonSelected();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CosmeticPanelButtonSelected(USBZMainMenuCosmeticItemButton* SelectedButton);
     
 };

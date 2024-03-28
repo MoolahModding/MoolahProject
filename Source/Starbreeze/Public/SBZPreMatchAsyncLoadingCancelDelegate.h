@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZPreMatchAsyncLoadingCancelDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZPreMatchAsyncLoadingCancel);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZPreMatchAsyncLoadingCancel);
 

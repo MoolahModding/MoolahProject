@@ -8,6 +8,5 @@ class USBZSkillGrifterGrifter : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGrifterGrifter();
-
 };
 

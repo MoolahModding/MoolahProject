@@ -8,6 +8,5 @@ class USBZNavArea_AgilityJumpingStraightSmall : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityJumpingStraightSmall();
-
 };
 

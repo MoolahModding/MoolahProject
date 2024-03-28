@@ -12,7 +12,8 @@ FSBZSlotData::FSBZSlotData() {
     this->bTraveling = false;
     this->bHasLoadoutData = false;
     this->bStayAsParty = false;
-    this->Platform = ESBZPlatform::Windows;
+    this->FirstPartyPlatform = ESBZFirstPartyPlatform::Unknown;
+    this->Platform = ESBZPlatform::Unknown;
     this->InfamyLevel = 0;
     this->bCrossPlayEnabled = false;
 }

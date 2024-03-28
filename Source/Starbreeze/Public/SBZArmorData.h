@@ -1,10 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "SBZArmorDamageScaleOverrideData.h"
 #include "SBZInventoryBaseData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZArmorData.generated.h"
 
-class UClass;
+class UGameplayEffect;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class USBZArmorData : public USBZInventoryBaseData {
@@ -12,13 +15,33 @@ class USBZArmorData : public USBZInventoryBaseData {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> GameplayEffectArray;
+    TArray<TSubclassOf<UGameplayEffect>> GameplayEffectArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZArmorDamageScaleOverrideData> ArmorDamageScaleOverrideDataArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bOverrideArmorColor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FLinearColor OverridenBackgroundColor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FLinearColor OverridenMainColor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FLinearColor OverridenLaggingColor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FLinearColor OverridenTraumaColor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString ArmorDescriptionStatColorName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<USBZLocalPlayerFeedback> ArmorDamageFeedback;
+    
 public:
     USBZArmorData();
-
 };
 

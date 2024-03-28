@@ -10,7 +10,6 @@
 #include "SBZPawnSpawnPredefined.generated.h"
 
 class AActor;
-class APawn;
 
 UCLASS(Blueprintable)
 class ASBZPawnSpawnPredefined : public ASBZPawnSpawnBase {
@@ -42,17 +41,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZPawnSpawnRequest PredefinedPawnRequest;
     
-    ASBZPawnSpawnPredefined(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPawnSpawnPredefined();
     UFUNCTION(BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo"))
     void SpawnPredefinedLatent(FLatentActionInfo LatentInfo);
     
     UFUNCTION(BlueprintCallable)
     FSBZPawnSpawnRequestHandle SpawnPredefined();
-    
-private:
-    UFUNCTION(BlueprintCallable)
-    void OnSpawnedPawnKilled(APawn* Pawn);
     
 };
 

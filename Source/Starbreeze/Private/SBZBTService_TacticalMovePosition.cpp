@@ -5,7 +5,5 @@ USBZBTService_TacticalMovePosition::USBZBTService_TacticalMovePosition() {
     this->AIController = NULL;
     this->TargetEnemy = NULL;
     this->TargetEnemyRoom = NULL;
-    this->NodeName = TEXT("TacticalMovePosition");
 }
-
 

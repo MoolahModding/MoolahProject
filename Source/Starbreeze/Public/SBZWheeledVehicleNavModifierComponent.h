@@ -8,6 +8,5 @@ class USBZWheeledVehicleNavModifierComponent : public UNavModifierComponent {
     GENERATED_BODY()
 public:
     USBZWheeledVehicleNavModifierComponent();
-
 };
 

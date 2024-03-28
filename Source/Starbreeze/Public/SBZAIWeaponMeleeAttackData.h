@@ -18,6 +18,5 @@ public:
     float DamageInterval[4];
     
     USBZAIWeaponMeleeAttackData();
-
 };
 

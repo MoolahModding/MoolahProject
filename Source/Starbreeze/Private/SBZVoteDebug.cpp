@@ -3,4 +3,3 @@
 USBZVoteDebug::USBZVoteDebug() {
 }
 
-

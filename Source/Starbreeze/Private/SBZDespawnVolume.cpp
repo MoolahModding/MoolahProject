@@ -1,8 +1,6 @@
 #include "SBZDespawnVolume.h"
 
-ASBZDespawnVolume::ASBZDespawnVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZDespawnVolume::ASBZDespawnVolume() {
     this->Room = NULL;
-    this->bNetLoadOnClient = false;
 }
-
 

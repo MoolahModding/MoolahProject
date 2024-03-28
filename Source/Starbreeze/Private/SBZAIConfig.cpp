@@ -1,5 +1,13 @@
 #include "SBZAIConfig.h"
 
+TArray<FSBZCoverShootingPoints> USBZAIConfig::GetShootingPoints() const {
+    return TArray<FSBZCoverShootingPoints>();
+}
+
+USBZAIConfig* USBZAIConfig::Get() {
+    return NULL;
+}
+
 USBZAIConfig::USBZAIConfig() {
     this->bTimeSliceDecidersLoop = true;
     this->DecidersLoopTimeSlicingBudget = 0.00f;
@@ -19,17 +27,11 @@ USBZAIConfig::USBZAIConfig() {
     this->TauntTimeFiredThreshold[1] = 8.00f;
     this->TauntTimeFiredThreshold[2] = 8.00f;
     this->TauntTimeFiredThreshold[3] = 8.00f;
+    this->MeleeFireTimeAddition = 1.00f;
+    this->PreferredHidingRange = 3000.00f;
+    this->GlitchEffectRange = 2000.00f;
     this->SurrenderGracePeriod = 1.50f;
     this->GoDownDistanceDelayRange = 1000.00f;
     this->EscortCircleSize = 300.00f;
 }
-
-TArray<FSBZCoverShootingPoints> USBZAIConfig::GetShootingPoints() const {
-    return TArray<FSBZCoverShootingPoints>();
-}
-
-USBZAIConfig* USBZAIConfig::Get() {
-    return NULL;
-}
-
 

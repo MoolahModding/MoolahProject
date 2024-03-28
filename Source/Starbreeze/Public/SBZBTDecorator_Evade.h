@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTDecorator.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTDecorator_Evade.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZBTDecorator_Evade : public UBTDecorator {
@@ -11,7 +12,7 @@ class STARBREEZE_API USBZBTDecorator_Evade : public UBTDecorator {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FilterClass;
+    TSubclassOf<UNavigationQueryFilter> FilterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanTriggerSlowEvade;
@@ -24,6 +25,5 @@ protected:
     
 public:
     USBZBTDecorator_Evade();
-
 };
 

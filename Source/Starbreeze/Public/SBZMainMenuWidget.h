@@ -9,9 +9,9 @@
 #include "SBZBaseMenuWidget.h"
 #include "SBZButtonControlReference.h"
 #include "SBZUIPopupData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWidget.generated.h"
 
-class UClass;
 class UPD3HeistDataAsset;
 class USBZBlackMarketInspectWidget;
 class USBZCosmeticsPartSlot;
@@ -19,6 +19,7 @@ class USBZFullscreenVideoWidget;
 class USBZGameStartMainMenuSkillsSelection;
 class USBZGameStartMainMenuWeaponCustomizationWidget;
 class USBZInventoryBaseData;
+class USBZLoginScreenInfoPopupWidget;
 class USBZMainMenuCosmetic;
 class USBZMainMenuCosmeticItemButton;
 class USBZMainMenuCrimeNetHeistInspectScreen;
@@ -90,14 +91,14 @@ protected:
     USBZMenuNavBar* Widget_MainMenuNavbar;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CosmeticItemButtonClass;
+    TSubclassOf<USBZMainMenuCosmeticItemButton> CosmeticItemButtonClass;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CrossplayPopupWidgetClass;
+    TSubclassOf<USBZLoginScreenInfoPopupWidget> CrossplayPopupWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TutorialPopupWidgetClass;
+    TSubclassOf<USBZWidgetBase> TutorialPopupWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText TutorialPopupHeaderText;
@@ -120,6 +121,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZButtonControlReference PopUpOptOutAction;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText TelemetryHeaderText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText TelemetryBodyText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText GameSenseHeaderText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText GameSenseBodyText;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZUIPopupData PopUpData;
     
@@ -129,6 +142,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoftObjectPath TutorialObjectPath;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLoginScreenInfoPopupWidget> LoadoutChangePopupWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupHeaderText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupDescriptionText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupListText;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCosmeticItemButton*> CosmeticButtonPool;
     
@@ -137,16 +162,21 @@ private:
     
 public:
     USBZMainMenuWidget();
-
 private:
     UFUNCTION(BlueprintCallable)
     void ShowTutorialPopup();
+    
+    UFUNCTION(BlueprintCallable)
+    void ShowTelemetryPopup();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ShowMainMenuFunction();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void ShowGameSensePopup();
+    
     UFUNCTION(BlueprintCallable)
     void ShowCrossplayPopup();
     
@@ -161,10 +191,19 @@ public:
     void RemoveBackgroundBlur();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTutorialPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
+    void OnTelemetryPopUpClosed(FName ClosingActionName);
+    
+    UFUNCTION()
+    void OnLoadoutChangePopupClosed(FName ClosingActionName);
+    
+    UFUNCTION()
+    void OnGameSensePopUpClosed(FName ClosingActionName);
+    
+    UFUNCTION()
     void OnCrossplayPopUpClosed(FName ClosingActionName);
     
 public:

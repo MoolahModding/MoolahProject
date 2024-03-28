@@ -27,6 +27,5 @@ private:
     
 public:
     USBZReplayFilePlayer();
-
 };
 

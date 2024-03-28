@@ -56,36 +56,35 @@ public:
     FOnItemButtonSelected PlaceableButtonSelected;
     
     USBZMainMenuLoadoutDisplayWidget();
-
     UFUNCTION(BlueprintCallable)
     void UpdateLoadoutConfigFromIndex(int32 InLoadoutIndex);
     
     UFUNCTION(BlueprintCallable)
     void UpdateLoadoutConfig(const FSBZPlayerLoadoutConfig& PlayerLoadoutConfig);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNewConfigUpdated(const FSBZPlayerLoadoutConfig& PlayerLoadoutConfig);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLocalLoadoutChanged(const FSBZPlayerLoadoutConfig& InPlayerLoadout, int32 ModifiedPlayerLoadoutIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponButtonSelected(USBZMenuButton* InButtonSelected);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnOverkillWeaponButtonSelected(USBZMenuButton* InButtonSelected);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemToolButtonSelected(USBZMenuButton* InButtonSelected);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemThrowableButtonSelected(USBZMenuButton* InButtonSelected);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemPlaceableButtonSelected(USBZMenuButton* InButtonSelected);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnItemArmourButtonSelected(USBZMenuButton* InButtonSelected);
     
 };

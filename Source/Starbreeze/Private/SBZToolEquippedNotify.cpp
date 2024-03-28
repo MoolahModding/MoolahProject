@@ -3,4 +3,3 @@
 USBZToolEquippedNotify::USBZToolEquippedNotify() {
 }
 
-

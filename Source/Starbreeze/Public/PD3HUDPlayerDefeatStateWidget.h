@@ -9,9 +9,8 @@ class UPD3HUDPlayerDefeatStateWidget : public USBZCrewStateWidget {
     GENERATED_BODY()
 public:
     UPD3HUDPlayerDefeatStateWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnDefeatStateChanged(EPD3DefeatState OldState, EPD3DefeatState NewState);
     
 };

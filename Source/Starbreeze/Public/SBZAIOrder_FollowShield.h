@@ -16,6 +16,5 @@ private:
     
 public:
     USBZAIOrder_FollowShield();
-
 };
 

@@ -8,6 +8,5 @@ class USBZFragGrenadeExecutionCalculation : public UGameplayEffectExecutionCalcu
     GENERATED_BODY()
 public:
     USBZFragGrenadeExecutionCalculation();
-
 };
 

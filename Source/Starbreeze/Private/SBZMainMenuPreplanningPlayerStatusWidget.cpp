@@ -1,5 +1,19 @@
 #include "SBZMainMenuPreplanningPlayerStatusWidget.h"
 
+void USBZMainMenuPreplanningPlayerStatusWidget::SetEmpty() {
+}
+
+void USBZMainMenuPreplanningPlayerStatusWidget::OpenPlayerProfile() {
+}
+
+
+void USBZMainMenuPreplanningPlayerStatusWidget::OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray) {
+}
+
+bool USBZMainMenuPreplanningPlayerStatusWidget::CanOpenPlayerProfile() {
+    return false;
+}
+
 USBZMainMenuPreplanningPlayerStatusWidget::USBZMainMenuPreplanningPlayerStatusWidget() {
     this->PlayerIndex = -1;
     this->Widget_PrimaryWeaponVisuals = NULL;
@@ -13,12 +27,4 @@ USBZMainMenuPreplanningPlayerStatusWidget::USBZMainMenuPreplanningPlayerStatusWi
     this->Placeable = NULL;
     this->Throwable = NULL;
 }
-
-void USBZMainMenuPreplanningPlayerStatusWidget::SetEmpty() {
-}
-
-
-void USBZMainMenuPreplanningPlayerStatusWidget::OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray) {
-}
-
 

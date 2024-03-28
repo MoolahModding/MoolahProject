@@ -19,24 +19,23 @@ protected:
     
 public:
     USBZStateMachineStateResult();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartTimeExpired();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartCountdownTimerUpdated();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartCountdownTimerStarted(float TimeRemainingUntilRestart);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartAcceptTimerUpdated();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRestartAccepted(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnExpireRestartTimerUpdate();
     
 };

@@ -1,0 +1,7 @@
+#pragma once
+#include "CoreMinimal.h"
+#include "AccelByteModelsPaginatedGlobalAchievementContributors.h"
+#include "DModelsPaginatedGlobalAchievementContributorsResponseDelegate.generated.h"
+
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedGlobalAchievementContributorsResponse, FAccelByteModelsPaginatedGlobalAchievementContributors, Response);
+

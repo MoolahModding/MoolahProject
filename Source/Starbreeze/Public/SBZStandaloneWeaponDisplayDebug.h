@@ -22,8 +22,7 @@ protected:
     TArray<FSBZDebugModularConfigItem> ModData;
     
 public:
-    ASBZStandaloneWeaponDisplayDebug(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStandaloneWeaponDisplayDebug();
 protected:
     UFUNCTION(BlueprintCallable)
     void Setup();

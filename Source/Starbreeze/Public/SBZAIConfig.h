@@ -6,11 +6,14 @@
 #include "EPD3ThreatLevel.h"
 #include "SBZAIConfigDPSData.h"
 #include "SBZAIConfigEvade.h"
+#include "SBZAirPathConfig.h"
 #include "SBZCoverShootingPoints.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIConfig.generated.h"
 
-class UClass;
+class USBZAIAction;
 class USBZAIConfig;
+class USBZAIOrder;
 
 UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
 class STARBREEZE_API USBZAIConfig : public UObject {
@@ -65,6 +68,15 @@ public:
     float TauntTimeFiredThreshold[4];
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MeleeFireTimeAddition;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PreferredHidingRange;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float GlitchEffectRange;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SurrenderGracePeriod;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -76,23 +88,25 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float EscortCircleSize;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZAirPathConfig AirPathConfig;
+    
 private:
     UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZAIConfigDPSData DPS[4];
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FName, UClass*> ActionClasses;
+    TMap<FName, TSubclassOf<USBZAIAction>> ActionClasses;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FName, UClass*> OrderClasses;
+    TMap<FName, TSubclassOf<USBZAIOrder>> OrderClasses;
     
 public:
     USBZAIConfig();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZCoverShootingPoints> GetShootingPoints() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static USBZAIConfig* Get();
     
 };

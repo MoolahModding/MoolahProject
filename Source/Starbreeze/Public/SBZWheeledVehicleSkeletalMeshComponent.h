@@ -8,6 +8,5 @@ class USBZWheeledVehicleSkeletalMeshComponent : public USkeletalMeshComponent {
     GENERATED_BODY()
 public:
     USBZWheeledVehicleSkeletalMeshComponent();
-
 };
 

@@ -8,6 +8,5 @@ class USBZPlayerRunExitAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZPlayerRunExitAbility();
-
 };
 

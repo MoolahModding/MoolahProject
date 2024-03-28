@@ -34,8 +34,7 @@ protected:
     
 public:
     USBZVolumeManager();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZVolumeManager* GetVolumeManager(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

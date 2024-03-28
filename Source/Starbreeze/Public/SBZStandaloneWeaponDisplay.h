@@ -3,10 +3,10 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "SBZEquippableConfig.h"
+#include "Templates/SubclassOf.h"
 #include "SBZStandaloneWeaponDisplay.generated.h"
 
 class ASBZWeapon;
-class UClass;
 class USBZBaseWeaponData;
 class USBZEquippablePartConfig;
 class USBZEquippablePartDataAsset;
@@ -33,7 +33,7 @@ protected:
     ASBZWeapon* SpawnedWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PivotPointToSpawn;
+    TSubclassOf<AActor> PivotPointToSpawn;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bForceWithoutPivotPoint;
@@ -41,9 +41,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FOVMultiplier;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* SpawnedPivotPoint;
+    
 public:
-    ASBZStandaloneWeaponDisplay(const FObjectInitializer& ObjectInitializer);
-
+    ASBZStandaloneWeaponDisplay();
     UFUNCTION(BlueprintCallable)
     void SetupWeaponData(const USBZBaseWeaponData* InWeaponData);
     
@@ -56,7 +58,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemovePart(const USBZModularPartSlotBase* Slot);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSpawned();
     
 };

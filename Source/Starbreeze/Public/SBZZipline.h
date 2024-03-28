@@ -78,10 +78,9 @@ protected:
     float HalfExtentSizeToAdd;
     
 public:
-    ASBZZipline(const FObjectInitializer& ObjectInitializer);
-
+    ASBZZipline();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetZiplineEnabled(bool bEnabled);
     
@@ -89,22 +88,22 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnZiplineEnabledCallback();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnZiplineBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ZiplineEnabled();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnNavLinkReached(AActor* MovingActor, const FVector& DestinationPoint);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ZiplineEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnZiplineEnabledChanged(bool bEnabled, bool bDoCosmetics);
     
 };

@@ -1,0 +1,5 @@
+#include "AccelByteModelsDSMemberChangedNotifReceivedPayload.h"
+
+FAccelByteModelsDSMemberChangedNotifReceivedPayload::FAccelByteModelsDSMemberChangedNotifReceivedPayload() {
+}
+

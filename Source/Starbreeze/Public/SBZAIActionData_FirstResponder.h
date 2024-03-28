@@ -8,6 +8,5 @@ class USBZAIActionData_FirstResponder : public USBZAIActionData {
     GENERATED_BODY()
 public:
     USBZAIActionData_FirstResponder();
-
 };
 

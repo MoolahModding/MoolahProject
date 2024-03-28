@@ -20,53 +20,52 @@ private:
     
 public:
     USBZStateMachineStateDsWaitingForPlayers();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UnregisterClient(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerStartTravel(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerReadyReceived(const FUniqueNetIdRepl& ReadyPlayerId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayersReadyTimerComplete();
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void IntroSequenceTimeout();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void EndIntroSequence();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerId, const FString& DisplayName);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void CleanState();
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BlackScreenDoneTimeout();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AutoReadyTimeout();
     
 };

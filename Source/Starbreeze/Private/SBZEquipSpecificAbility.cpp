@@ -4,4 +4,3 @@ USBZEquipSpecificAbility::USBZEquipSpecificAbility() {
     this->TargetEquippableIndex = -1;
 }
 
-

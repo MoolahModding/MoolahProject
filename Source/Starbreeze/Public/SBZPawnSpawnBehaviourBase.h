@@ -8,6 +8,5 @@ class USBZPawnSpawnBehaviourBase : public UObject {
     GENERATED_BODY()
 public:
     USBZPawnSpawnBehaviourBase();
-
 };
 

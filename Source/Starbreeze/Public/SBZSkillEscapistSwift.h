@@ -8,6 +8,5 @@ class USBZSkillEscapistSwift : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEscapistSwift();
-
 };
 

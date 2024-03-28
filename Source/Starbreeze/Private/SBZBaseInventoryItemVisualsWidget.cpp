@@ -1,11 +1,5 @@
 #include "SBZBaseInventoryItemVisualsWidget.h"
 
-USBZBaseInventoryItemVisualsWidget::USBZBaseInventoryItemVisualsWidget() {
-    this->Item = NULL;
-    this->ItemSprite = NULL;
-    this->LastItemSprite = NULL;
-}
-
 
 void USBZBaseInventoryItemVisualsWidget::SetEmpty() {
 }
@@ -19,4 +13,9 @@ void USBZBaseInventoryItemVisualsWidget::InitializeItem(const USBZInventoryBaseD
 }
 
 
+USBZBaseInventoryItemVisualsWidget::USBZBaseInventoryItemVisualsWidget() {
+    this->Item = NULL;
+    this->ItemSprite = NULL;
+    this->LastItemSprite = NULL;
+}
 

@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnPrivilegeBlockedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPrivilegeBlocked);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPrivilegeBlocked);
 

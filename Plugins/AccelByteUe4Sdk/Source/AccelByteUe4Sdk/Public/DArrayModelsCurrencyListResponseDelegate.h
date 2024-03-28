@@ -3,5 +3,5 @@
 #include "ArrayModelsCurrencyList.h"
 #include "DArrayModelsCurrencyListResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDArrayModelsCurrencyListResponse, FArrayModelsCurrencyList, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDArrayModelsCurrencyListResponse, FArrayModelsCurrencyList, Response);
 

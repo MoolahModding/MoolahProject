@@ -13,6 +13,5 @@ public:
     TArray<USBZPlaceableData*> Placeables;
     
     USBZPlaceableDatabase();
-
 };
 

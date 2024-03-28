@@ -5,7 +5,6 @@
 #include "EPD3HeistState.h"
 #include "SBZNegotiationManager.generated.h"
 
-class APawn;
 class USBZNegotiationSettings;
 
 UCLASS(Blueprintable, Within=PD3HeistGameMode)
@@ -21,12 +20,8 @@ private:
     
 public:
     USBZNegotiationManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
-    void OnPawnKilledDuringNegotiation(APawn* DeadPawn);
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

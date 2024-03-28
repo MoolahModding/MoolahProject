@@ -7,9 +7,9 @@ UAccelByteServerSettings::UAccelByteServerSettings() {
     this->Namespace = TEXT("pd3");
     this->PublisherNamespace = TEXT("starbreeze");
     this->RedirectURI = TEXT("http://127.0.0.1");
-    this->BaseUrl = TEXT("https://nebula.starbreeze.com");
+    this->BaseUrl = TEXT("https://development.starbreeze.accelbyte.io");
     this->QosPingTimeout = 0.60f;
-    this->WatchdogHeartbeatInterval = 15;
+    this->AMSHeartbeatInterval = 15;
+    this->bSendPredefinedEvent = false;
 }
-
 

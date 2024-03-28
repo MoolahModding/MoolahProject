@@ -1,30 +1,4 @@
 #include "SBZPlayerController.h"
-#include "SBZCheatManager.h"
-#include "SBZPlayerCameraManager.h"
-
-ASBZPlayerController::ASBZPlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->DefeatCameraFeedbackClass = NULL;
-    this->DefeatCameraFeedbackClass = NULL;
-    this->MinDefeatCameraFeedbackIntensity = 0.30f;
-    this->TasedCameraFeedbackClass = NULL;
-    this->TasedCameraFeedbackClass = NULL;
-    this->SubduedCameraFeedbackClass = NULL;
-    this->SubduedCameraFeedbackClass = NULL;
-    this->HealthDamageCameraFeedbackClass = NULL;
-    this->HealthDamageCameraFeedbackClass = NULL;
-    this->HealthDamageCameraFeedbackThreshold = 0.33f;
-    this->ViewTargetCameraFeedbackClass = NULL;
-    this->ViewTargetCameraFeedbackClass = NULL;
-    this->DestroyedViewTargetCameraFeedbackClass = NULL;
-    this->DestroyedViewTargetCameraFeedbackClass = NULL;
-    this->ChangedViewTargetCameraFeedbackClass = NULL;
-    this->ChangedViewTargetCameraFeedbackClass = NULL;
-    this->CurrentSpectateTargetPlayerID = 0;
-    this->AppliedDefeatState = EPD3DefeatState::None;
-    this->PlayerCameraManagerClass = ASBZPlayerCameraManager::StaticClass();
-    this->CheatClass = USBZCheatManager::StaticClass();
-    this->ClickEventKeys.AddDefaulted(1);
-}
 
 void ASBZPlayerController::SetViewTargetCollection(const TScriptInterface<ISBZViewTargetCollectionInterface>& InViewTargetCollection, int32 Offset) {
 }
@@ -94,4 +68,17 @@ int32 ASBZPlayerController::ApplyCameraFeedback(FSBZLocalPlayerFeedbackParameter
     return 0;
 }
 
+ASBZPlayerController::ASBZPlayerController() {
+    this->DefeatCameraFeedbackClass = NULL;
+    this->MinDefeatCameraFeedbackIntensity = 0.30f;
+    this->TasedCameraFeedbackClass = NULL;
+    this->SubduedCameraFeedbackClass = NULL;
+    this->HealthDamageCameraFeedbackClass = NULL;
+    this->HealthDamageCameraFeedbackThreshold = 0.33f;
+    this->ViewTargetCameraFeedbackClass = NULL;
+    this->DestroyedViewTargetCameraFeedbackClass = NULL;
+    this->ChangedViewTargetCameraFeedbackClass = NULL;
+    this->CurrentSpectateTargetPlayerID = 0;
+    this->AppliedDefeatState = EPD3DefeatState::None;
+}
 

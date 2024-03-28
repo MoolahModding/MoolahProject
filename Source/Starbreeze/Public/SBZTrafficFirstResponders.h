@@ -1,16 +1,17 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZVehicleArrayElement.h"
+#include "Templates/SubclassOf.h"
 #include "SBZTrafficFirstResponders.generated.h"
 
-class UClass;
+class ASBZWheeledVehicle;
 
 USTRUCT(BlueprintType)
 struct FSBZTrafficFirstResponders {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<UClass*> VehicleArray;
+    TArray<TSubclassOf<ASBZWheeledVehicle>> VehicleArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZVehicleArrayElement> WeightedVehicleArray;

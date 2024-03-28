@@ -10,14 +10,13 @@ class STARBREEZE_API USBZTimeEventManager : public UObject {
     GENERATED_BODY()
 public:
     USBZTimeEventManager();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RequestTimeEventCheck();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetNextResetTime();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZTimeEventManager* Get(const UObject* WorldContextObject);
     
 };

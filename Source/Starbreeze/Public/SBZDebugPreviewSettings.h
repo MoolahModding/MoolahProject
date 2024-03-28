@@ -6,6 +6,7 @@
 class USBZLifeActionPreviewData;
 class USBZPedestrianTrafficNavLinkPreviewData;
 class USkeletalMesh;
+class UTexture2D;
 
 UCLASS(Blueprintable, Config=EditorPerProjectUserSettings)
 class USBZDebugPreviewSettings : public UDeveloperSettings {
@@ -20,7 +21,9 @@ public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USkeletalMesh> AgilitySkeletalPreview;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FString, TSoftObjectPtr<UTexture2D>> LifeActionsIcons;
+    
     USBZDebugPreviewSettings();
-
 };
 

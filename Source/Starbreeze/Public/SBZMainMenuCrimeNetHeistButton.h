@@ -22,21 +22,26 @@ protected:
     UPD3HeistDataAsset* HeistData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 HeistCollectionIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 HeistIndex;
     
 public:
     USBZMainMenuCrimeNetHeistButton();
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistDataInitialized();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnFocusChanged(bool bIsFocused);
     
     UFUNCTION(BlueprintCallable)
     void InitializeHeistDataFromSoftObjectPath(const FSoftObjectPath& InHeistSoftObjectPath);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSoftObjectPath GetHeistLevelPath() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPD3HeistDataAsset* GetHeistData() const;
     
 };

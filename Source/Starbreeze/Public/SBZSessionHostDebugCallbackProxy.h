@@ -14,10 +14,14 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnOnlineSessionEventDelegate OnComplete;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     USBZSessionHostDebugCallbackProxy();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static USBZSessionHostDebugCallbackProxy* SessionHostDebug(UObject* WorldContextObject);
+    static USBZSessionHostDebugCallbackProxy* SessionHostDebug(UObject* NewWorldContextObject);
     
 };
 

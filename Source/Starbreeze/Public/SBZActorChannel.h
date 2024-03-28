@@ -8,6 +8,5 @@ class STARBREEZE_API USBZActorChannel : public UActorChannel {
     GENERATED_BODY()
 public:
     USBZActorChannel();
-
 };
 

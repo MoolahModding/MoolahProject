@@ -1,6 +1,12 @@
 #include "SBZAkAcousticPortal.h"
 
-ASBZAkAcousticPortal::ASBZAkAcousticPortal(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+void ASBZAkAcousticPortal::OnDebugLogging() {
+}
+
+void ASBZAkAcousticPortal::OnActivateTick(bool bTick) {
+}
+
+ASBZAkAcousticPortal::ASBZAkAcousticPortal(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->FrontSoundEnvironment = NULL;
     this->BackSoundEnvironment = NULL;
     this->ConnectedGate = NULL;
@@ -9,11 +15,4 @@ ASBZAkAcousticPortal::ASBZAkAcousticPortal(const FObjectInitializer& ObjectIniti
     this->StateCloseDelay = 0.00f;
     this->bAllowStateChange = true;
 }
-
-void ASBZAkAcousticPortal::OnDebugLogging() {
-}
-
-void ASBZAkAcousticPortal::OnActivateTick(bool bTick) {
-}
-
 

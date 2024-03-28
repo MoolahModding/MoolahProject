@@ -39,7 +39,6 @@ public:
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bDrawSpawnLocationGenerationDebugShapes;
     
-    ASBZActorSpawnRegionBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZActorSpawnRegionBase();
 };
 

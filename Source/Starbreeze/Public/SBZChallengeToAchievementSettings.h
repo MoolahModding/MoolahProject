@@ -14,11 +14,10 @@ public:
     TArray<FName> AchievementObjectiveStatCodeArray;
     
     USBZChallengeToAchievementSettings();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static TMap<FName, FName> GetChallengeToAchievementSettings();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     static TArray<FName> GetAchievementObjectiveStatCodeArray();
     
 };

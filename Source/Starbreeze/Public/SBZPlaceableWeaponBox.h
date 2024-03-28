@@ -14,13 +14,12 @@ private:
     bool bIsActive;
     
 public:
-    ASBZPlaceableWeaponBox(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlaceableWeaponBox();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetActiveState(bool bActive);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionEnabledStateChange(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);
     
 };

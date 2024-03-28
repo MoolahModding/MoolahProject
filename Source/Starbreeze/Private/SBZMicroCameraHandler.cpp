@@ -1,7 +1,6 @@
 #include "SBZMicroCameraHandler.h"
 
-ASBZMicroCameraHandler::ASBZMicroCameraHandler(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZMicroCameraHandler::ASBZMicroCameraHandler() {
     this->MiniGameWidget = NULL;
 }
-
 

@@ -3,4 +3,3 @@
 USBZMantlingImpactConfig::USBZMantlingImpactConfig() {
 }
 
-

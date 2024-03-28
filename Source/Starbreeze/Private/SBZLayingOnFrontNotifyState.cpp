@@ -3,4 +3,3 @@
 USBZLayingOnFrontNotifyState::USBZLayingOnFrontNotifyState() {
 }
 
-

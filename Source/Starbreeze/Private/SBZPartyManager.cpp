@@ -1,9 +1,6 @@
 #include "SBZPartyManager.h"
 
-USBZPartyManager::USBZPartyManager() {
-}
-
-void USBZPartyManager::SetLobbyType(ESBZOnlineJoinType InLobbyType) {
+void USBZPartyManager::SetLobbyType(ESBZOnlineJoinType InLobbyType, bool bIsSaved) {
 }
 
 FString USBZPartyManager::SendPublicMessage(const FString& Message) {
@@ -42,4 +39,6 @@ ESBZOnlineJoinType USBZPartyManager::GetLobbyType() const {
     return ESBZOnlineJoinType::Debug;
 }
 
+USBZPartyManager::USBZPartyManager() {
+}
 

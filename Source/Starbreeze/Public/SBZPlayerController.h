@@ -11,14 +11,15 @@
 #include "SBZLocalPlayerFeedbackParameters.h"
 #include "SBZLockCameraData.h"
 #include "SBZPlayerControllerBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlayerController.generated.h"
 
 class AActor;
 class ISBZViewTargetCollectionInterface;
 class USBZViewTargetCollectionInterface;
 class UAnimMontage;
-class UClass;
 class UObject;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API ASBZPlayerController : public ASBZPlayerControllerBase, public IGenericTeamAgentInterface, public ISBZDamageInstigatorInterface {
@@ -30,25 +31,25 @@ protected:
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefeatCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> DefeatCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MinDefeatCameraFeedbackIntensity;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TasedCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> TasedCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubduedCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> SubduedCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HealthDamageCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> HealthDamageCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HealthDamageCameraFeedbackThreshold;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGameplayTag, UClass*> TagFeedbackClassMap;
+    TMap<FGameplayTag, TSubclassOf<USBZLocalPlayerFeedback>> TagFeedbackClassMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, int32> TagFeedbackIDMap;
@@ -57,13 +58,13 @@ private:
     TMap<FGameplayTag, int32> FadedOutTagFeedbackIDMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ViewTargetCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> ViewTargetCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DestroyedViewTargetCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> DestroyedViewTargetCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ChangedViewTargetCameraFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> ChangedViewTargetCameraFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TScriptInterface<ISBZViewTargetCollectionInterface> ViewTargetCollection;
@@ -78,8 +79,7 @@ private:
     EPD3DefeatState AppliedDefeatState;
     
 public:
-    ASBZPlayerController(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerController();
     UFUNCTION(BlueprintCallable)
     void SetViewTargetCollection(const TScriptInterface<ISBZViewTargetCollectionInterface>& InViewTargetCollection, int32 Offset);
     
@@ -87,28 +87,28 @@ public:
     bool SetCameraFeedbackIntensity(int32 CameraFeedbackID, float Intensity);
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_UnsetViewTargetCollection();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetViewTargetCollection(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetCurrentViewTargetIndex(int32 InViewTargetIndex);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetCurrentSpectateTargetPlayerID(int32 InID);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    UFUNCTION(Reliable, Server, WithValidation)
     void Server_RestartRequested(FUniqueNetIdRepl PlayerID);
     
 private:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_RestartLevel();
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_DebugTeleportTo(const FVector& Location, const float Yaw);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -118,37 +118,37 @@ public:
     bool RemoveCameraFeedback(int32 CameraFeedbackID);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerCameraManagerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TScriptInterface<ISBZViewTargetCollectionInterface> GetViewTargetCollection() const;
     
     UFUNCTION(BlueprintCallable)
     bool FadeOutCameraFeedback(int32 CameraFeedbackID, bool bIsAutoRemoved);
     
 private:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_UnsetViewTargetCollection();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_SetViewTargetCollection(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RestartTimeExpired();
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RestartInitiate(float SecondsRemaining);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
+    UFUNCTION(Client, Reliable)
     void Client_RestartAccepted(const FUniqueNetIdRepl& PlayerID);
     
     UFUNCTION(BlueprintCallable)
     int32 ApplyCameraFeedback(UPARAM(Ref) FSBZLocalPlayerFeedbackParameters& Parameters);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

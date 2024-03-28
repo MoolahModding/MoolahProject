@@ -3,15 +3,15 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZMaskPresetData.generated.h"
 
+class ASBZMask;
 class UAnimMontage;
-class UClass;
 
 UCLASS(Blueprintable)
 class USBZMaskPresetData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> MaskClass;
+    TSoftClassPtr<ASBZMask> MaskClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UAnimMontage> EquipAnimationCharacterFP;
@@ -26,6 +26,5 @@ public:
     TSoftObjectPtr<UAnimMontage> EquipAnimationTP;
     
     USBZMaskPresetData();
-
 };
 

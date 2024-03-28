@@ -8,6 +8,5 @@ class USBZSentryExplosionExecutionCalculation : public UGameplayEffectExecutionC
     GENERATED_BODY()
 public:
     USBZSentryExplosionExecutionCalculation();
-
 };
 

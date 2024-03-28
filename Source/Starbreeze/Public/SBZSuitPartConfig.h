@@ -12,6 +12,5 @@ public:
     ESBZSuitPart SuitPart;
     
     USBZSuitPartConfig();
-
 };
 

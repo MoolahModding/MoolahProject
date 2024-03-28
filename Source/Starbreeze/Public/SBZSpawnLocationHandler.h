@@ -4,10 +4,11 @@
 #include "SBZOnLocationSelectedEventDelegate.h"
 #include "SBZSpawnLocation.h"
 #include "SBZSpawnLocationHandlerDelegateDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSpawnLocationHandler.generated.h"
 
 class ASBZHackableActor;
-class UClass;
+class ASBZInteractionActor;
 class USBZBaseInteractableComponent;
 class USBZInteractorComponent;
 
@@ -41,22 +42,24 @@ protected:
     int32 HackableEmailIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ImportantItem;
+    TSubclassOf<ASBZInteractionActor> ImportantItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<UClass*, int32> RandomLootToSpawnMap;
+    TMap<TSubclassOf<AActor>, int32> RandomLootToSpawnMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 RandomIndex;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseOnlyOneLocation;
+    
 public:
-    ASBZSpawnLocationHandler(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSpawnLocationHandler();
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void TriggerSpawnManually();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerImportantLootPickedUp(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 };

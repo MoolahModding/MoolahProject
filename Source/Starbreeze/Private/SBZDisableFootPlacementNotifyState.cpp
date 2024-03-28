@@ -3,4 +3,3 @@
 USBZDisableFootPlacementNotifyState::USBZDisableFootPlacementNotifyState() {
 }
 
-

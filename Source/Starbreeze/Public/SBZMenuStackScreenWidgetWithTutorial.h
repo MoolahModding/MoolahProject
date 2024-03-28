@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESBZTutorialType.h"
+#include "ESBZPopupType.h"
 #include "SBZMenuStackScreenWidget.h"
 #include "SBZMenuStackScreenWidgetWithTutorial.generated.h"
 
@@ -26,30 +26,29 @@ protected:
     USBZMenuTutorialMouseButton* Button_ToggleHelp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ESBZTutorialType TutorialType;
+    ESBZPopupType PopupType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsTutorialShowing;
     
 public:
     USBZMenuStackScreenWidgetWithTutorial();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void ToggleShowingTutorial();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTutorialHidden();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTutorialDisplayed();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTutorialButtonSelected(USBZMenuMouseButton* Button);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsShowingTutorial() const;
     
 };

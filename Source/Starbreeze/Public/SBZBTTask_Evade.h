@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTTask_Evade.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable)
 class USBZBTTask_Evade : public UBTTaskNode {
@@ -11,7 +12,7 @@ class USBZBTTask_Evade : public UBTTaskNode {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FilterClass;
+    TSubclassOf<UNavigationQueryFilter> FilterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NeededTimeSinceFireToEvade;
@@ -33,6 +34,5 @@ private:
     
 public:
     USBZBTTask_Evade();
-
 };
 

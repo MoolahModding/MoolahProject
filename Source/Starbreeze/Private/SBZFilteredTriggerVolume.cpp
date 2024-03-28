@@ -1,12 +1,6 @@
 #include "SBZFilteredTriggerVolume.h"
 #include "SBZActorFilterComponent.h"
 
-ASBZFilteredTriggerVolume::ASBZFilteredTriggerVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->ActorFilterComponent = CreateDefaultSubobject<USBZActorFilterComponent>(TEXT("ActorFilterComponent"));
-    this->bShouldStartEnabled = true;
-    this->bNetLoadOnClient = false;
-}
-
 void ASBZFilteredTriggerVolume::SetVolumeEnabled(bool bEnabled) {
 }
 
@@ -22,4 +16,8 @@ void ASBZFilteredTriggerVolume::OnFilteredActorEndOverlapping(FName Identifier, 
 void ASBZFilteredTriggerVolume::OnFilteredActorBeginOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors) {
 }
 
+ASBZFilteredTriggerVolume::ASBZFilteredTriggerVolume() {
+    this->ActorFilterComponent = CreateDefaultSubobject<USBZActorFilterComponent>(TEXT("ActorFilterComponent"));
+    this->bShouldStartEnabled = true;
+}
 

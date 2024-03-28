@@ -13,6 +13,5 @@ public:
     USBZDialogBodyGesturesData* DialogBodyGesturesData;
     
     USBZDialogBodyGesturesNotifyState();
-
 };
 

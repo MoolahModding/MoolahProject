@@ -8,9 +8,8 @@ class USBZAccelByteUserImplentation : public USBZAccelByteUser {
     GENERATED_BODY()
 public:
     USBZAccelByteUserImplentation();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandlePlatformUserChanged(int32 OldUserIndex);
     
 };

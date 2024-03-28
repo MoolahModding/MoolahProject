@@ -12,6 +12,5 @@ public:
     FSBZNegotiationDifficultySettings DifficultySettingsArray[4];
     
     USBZNegotiationSettings();
-
 };
 

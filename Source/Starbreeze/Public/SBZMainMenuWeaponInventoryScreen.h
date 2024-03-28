@@ -5,9 +5,9 @@
 #include "ESBZMetaRequestResult.h"
 #include "SBZButtonControlReference.h"
 #include "SBZMenuStackInventoryBaseScreen.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuWeaponInventoryScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBaseInventoryItemVisualsWidget;
 class USBZBlackMarketStoreItemButton;
@@ -21,7 +21,7 @@ class USBZMainMenuWeaponInventoryScreen : public USBZMenuStackInventoryBaseScree
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponSlotButtonClass;
+    TSubclassOf<USBZMainMenuLoadoutWeaponSlotButton> WeaponSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_WeaponSlotButtons;
@@ -48,7 +48,7 @@ protected:
     USBZBlackMarketStoreItemButton* Button_WeaponSlotStoreItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DiscardWeaponPopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> DiscardWeaponPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText DiscardWeaponPopUpHeader;
@@ -71,13 +71,16 @@ private:
     
 public:
     USBZMainMenuWeaponInventoryScreen();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void WeaponSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void WeaponSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
+    
+private:
+    UFUNCTION()
+    void UpdateWeaponSlotButtons();
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -87,48 +90,48 @@ protected:
     UFUNCTION(BlueprintCallable)
     bool TryDiscardWeaponInIndex(int32 SlotIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void TryBuyWeaponSlot(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponSlotScreenDisplayed();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnWeaponInSlotDiscarded(bool bIsWeaponDiscarded);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTryBuyWeaponSlot();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnShowBuySlotPopUpClosed(FName InActionName);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNewSlotPurchased();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDiscardWeaponPopUpClosed(FName ClosingActionName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnBuyWeaponSlotTransactionFailed(ESBZMetaRequestResult Result);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuyWeaponSlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnActiveWeaponChanged();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponSlotStoreItemTransactionComplete(ESBZMetaRequestResult MetaResult, const USBZInventoryBaseData* InventoryItemData);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnWeaponSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
 public:
@@ -136,11 +139,11 @@ public:
     bool DisplayWeaponInventoryScreen(int32 InLoadoutIndex, ESBZEquippableLoadoutSlot InEquippableSlot);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DiscardItemDone(ESBZMetaRequestResult BuyItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanDiscardWeaponIndex(int32 InWeaponIndex) const;
     
 };

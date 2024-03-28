@@ -9,6 +9,9 @@ UCLASS(Blueprintable, EditInlineNew)
 class USBZMainMenuPrePlaningLoadoutSelection : public USBZMenuButton {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldUseActionBindings;
+    
 protected:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnPlayerLoadoutConfigChanged OnFocusedPlayerLoadoutConfigChanged;
@@ -19,34 +22,58 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsValidLoadout;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName MoveForwardActionName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName MoveBackwardActionName;
+    
 public:
     USBZMainMenuPrePlaningLoadoutSelection();
-
+    UFUNCTION(BlueprintCallable)
+    void UnbindGamepadActions();
+    
     UFUNCTION(BlueprintCallable)
     void SetFocusedPlayerLoadoutIndex(int32 NewFocusedPlayerLoadoutIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLocalLoadoutUpdated(const FSBZPlayerLoadoutConfig& InPlayerLoadout, int32 ModifiedPlayerLoadoutIndex);
     
-    UFUNCTION(BlueprintCallable)
+protected:
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnLoadoutIncrement();
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnLoadoutDecrement();
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnInputTypeChangedToGamepad(bool bIsGamepad);
+    
+private:
+    UFUNCTION()
     void NativeOnFocusedPlayerLoadoutConfigChanged(const FSBZPlayerLoadoutConfig& NewPlayerLoadout);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsFocusedPlayerLoadoutValid() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetFocusedPlayerLoadoutIndex() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void FocusedPlayerLoadoutConfigChanged(const FSBZPlayerLoadoutConfig& NewPlayerLoadout);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+public:
+    UFUNCTION(BlueprintCallable)
+    void BindGamepadActions();
+    
+protected:
+    UFUNCTION(BlueprintImplementableEvent)
     void ActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
     
 };

@@ -3,6 +3,7 @@
 #include "Engine/EngineTypes.h"
 #include "ESBZToolState.h"
 #include "SBZEquippable.h"
+#include "Templates/SubclassOf.h"
 #include "SBZTool.generated.h"
 
 class AActor;
@@ -11,7 +12,7 @@ class ASBZCharacter;
 class ASBZPlayerController;
 class UAkAudioEvent;
 class UAkRtpc;
-class UClass;
+class USBZLocalPlayerFeedback;
 class USBZToolData;
 class USBZToolSkeletalMeshComponent;
 
@@ -78,58 +79,57 @@ protected:
     ASBZPlayerController* ActiveUsingPlayerController;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* EquipPlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> EquipPlayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActivePlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ActivePlayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ActiveUsingPlayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> ActiveUsingPlayerFeedback;
     
 public:
-    ASBZTool(const FObjectInitializer& ObjectInitializer);
-
+    ASBZTool();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void StopAllSounds();
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetToolState(ESBZToolState NewToolState);
     
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetEquippedAnimationFullyPlayed(bool bInIsEquippedAnimationReady);
     
 public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_CallReady();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_ToolState(ESBZToolState OldToolState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInstigatorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCanceled();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnActivatedUsing();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnActivatedIdle();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnActivated();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetToolState(ESBZToolState NewToolState);
     
 };

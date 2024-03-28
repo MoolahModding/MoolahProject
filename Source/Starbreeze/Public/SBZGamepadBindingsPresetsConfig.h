@@ -12,6 +12,5 @@ public:
     TArray<FSBZGamepadBindingsPreset> GamepadBindingsPresets;
     
     USBZGamepadBindingsPresetsConfig();
-
 };
 

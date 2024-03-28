@@ -25,18 +25,17 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZMainMenuCameraManager* MainMenuCameraManager;
     
-    ASBZLevelScriptMainMenuActor(const FObjectInitializer& ObjectInitializer);
-
-    UFUNCTION(BlueprintCallable)
+    ASBZLevelScriptMainMenuActor();
+    UFUNCTION()
     void PostInitializeComponents();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLobbyUpdate(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLeft();
     
 };

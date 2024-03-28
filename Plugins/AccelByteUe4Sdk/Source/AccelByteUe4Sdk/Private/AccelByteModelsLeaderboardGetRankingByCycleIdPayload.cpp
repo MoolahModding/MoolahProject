@@ -1,0 +1,5 @@
+#include "AccelByteModelsLeaderboardGetRankingByCycleIdPayload.h"
+
+FAccelByteModelsLeaderboardGetRankingByCycleIdPayload::FAccelByteModelsLeaderboardGetRankingByCycleIdPayload() {
+}
+

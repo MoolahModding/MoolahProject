@@ -15,13 +15,12 @@ protected:
     USBZAmbientSoundComponent* AmbientSoundComponent;
     
 public:
-    ASBZAmbientSound(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAmbientSound();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleDeactivateSoundComponent(UActorComponent* Component);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleActivateSoundComponent(UActorComponent* Component, bool bReset);
     
 };

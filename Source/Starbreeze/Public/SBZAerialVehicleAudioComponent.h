@@ -52,7 +52,6 @@ protected:
     
 public:
     USBZAerialVehicleAudioComponent();
-
     UFUNCTION(BlueprintCallable)
     void StopEngineSound();
     

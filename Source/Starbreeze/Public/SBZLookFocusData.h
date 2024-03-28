@@ -12,6 +12,5 @@ public:
     FSBZLookFocusParameters LookFocusParameters;
     
     USBZLookFocusData();
-
 };
 

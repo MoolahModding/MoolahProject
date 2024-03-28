@@ -8,6 +8,5 @@ class USBZNavArea_AgilityMantling : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityMantling();
-
 };
 

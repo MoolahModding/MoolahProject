@@ -14,7 +14,6 @@ protected:
     UCapsuleComponent* CapsuleCollision;
     
 public:
-    ASBZFlashBangGrenade(const FObjectInitializer& ObjectInitializer);
-
+    ASBZFlashBangGrenade();
 };
 

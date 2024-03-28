@@ -43,6 +43,5 @@ private:
     
 public:
     USBZAIUtilityComponent();
-
 };
 

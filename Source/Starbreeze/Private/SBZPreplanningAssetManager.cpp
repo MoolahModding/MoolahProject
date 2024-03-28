@@ -1,8 +1,5 @@
 #include "SBZPreplanningAssetManager.h"
 
-USBZPreplanningAssetManager::USBZPreplanningAssetManager() {
-}
-
 USBZPreplanningAssetManager* USBZPreplanningAssetManager::GetPreplanningAssetManager(UObject* WorldContextObject) {
     return NULL;
 }
@@ -17,4 +14,6 @@ void USBZPreplanningAssetManager::ConsumeUserEntitlementSuccess(ESBZMetaRequestR
 void USBZPreplanningAssetManager::ConsumeUserEntitlementError(ESBZMetaRequestResult Result) {
 }
 
+USBZPreplanningAssetManager::USBZPreplanningAssetManager() {
+}
 

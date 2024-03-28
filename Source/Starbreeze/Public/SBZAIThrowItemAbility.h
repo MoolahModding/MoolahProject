@@ -8,6 +8,5 @@ class USBZAIThrowItemAbility : public USBZThrowItemAbility {
     GENERATED_BODY()
 public:
     USBZAIThrowItemAbility();
-
 };
 

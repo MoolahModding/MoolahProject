@@ -8,6 +8,5 @@ class STARBREEZE_API USBZDialogBodyGestureEndNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZDialogBodyGestureEndNotify();
-
 };
 

@@ -18,6 +18,5 @@ protected:
     
 public:
     USBZAIUtilityScorer_CanAnticipateExplosion();
-
 };
 

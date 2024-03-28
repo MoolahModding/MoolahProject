@@ -5,6 +5,7 @@
 
 class ASBZCharacter;
 class UAkAudioEvent;
+class UAkComponent;
 class UCharacterMovementComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -13,9 +14,6 @@ class USBZCharacterSlidingComponent : public UActorComponent {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* OverrideSoundEvent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UAkAudioEvent* OverrideStopSoundEvent;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -30,8 +28,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UCharacterMovementComponent* OwnerCharacterMovementComponent;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UAkComponent* LastUsedAkComponent;
+    
 public:
     USBZCharacterSlidingComponent();
-
 };
 

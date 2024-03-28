@@ -1,10 +1,10 @@
 #include "SBZShowLoginUICallbackProxy.h"
 
-USBZShowLoginUICallbackProxy::USBZShowLoginUICallbackProxy() {
-}
-
-USBZShowLoginUICallbackProxy* USBZShowLoginUICallbackProxy::SBZShowExternalLoginUI(UObject* WorldContextObject, APlayerController* InPlayerController) {
+USBZShowLoginUICallbackProxy* USBZShowLoginUICallbackProxy::SBZShowExternalLoginUI(UObject* NewWorldContextObject, APlayerController* InPlayerController) {
     return NULL;
 }
 
+USBZShowLoginUICallbackProxy::USBZShowLoginUICallbackProxy() {
+    this->WorldContextObject = NULL;
+}
 

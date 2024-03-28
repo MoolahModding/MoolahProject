@@ -3,4 +3,3 @@
 USBZEnvQueryTest_IsProtectPointAssignable::USBZEnvQueryTest_IsProtectPointAssignable() {
 }
 
-

@@ -46,46 +46,51 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float NiagaraEffectVisibilityTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool bIsCuttingBlocked;
+    
 public:
     USBZCuttableComponent();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_InitialCutAngle();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CuttableState();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CutProgressData();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCutCompleted();
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_SetCuttingBlocked(bool bInIsBlocked);
+    
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetCuttableState(ESBZCuttableState NewCuttableState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateLineCut(FSBZCutProgressData NewCutProgressData);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateInitialCutAngle(float InCutAngle);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateInitialCut(FSBZCutProgressData NewCutProgressData);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateCut(FSBZCutProgressData NewCutProgressData);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZCuttableType GetCuttableType() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZCuttableState GetCuttableState() const;
     
 };

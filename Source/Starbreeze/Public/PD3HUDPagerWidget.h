@@ -9,16 +9,15 @@ class UPD3HUDPagerWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     UPD3HUDPagerWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChangedEvent(EPD3HeistState OldState, EPD3HeistState NewState);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistStateChanged(EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAnswerPagerValueChanged(int32 AnswerPagerValue, int32 MaxAnswerPagerValue);
     
 };

@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnTextButtonSubmittedTextDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTextButtonSubmittedText, FText, Text);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTextButtonSubmittedText, FText, Text);
 

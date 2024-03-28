@@ -8,6 +8,5 @@ class USBZDamageTracker : public UObject {
     GENERATED_BODY()
 public:
     USBZDamageTracker();
-
 };
 

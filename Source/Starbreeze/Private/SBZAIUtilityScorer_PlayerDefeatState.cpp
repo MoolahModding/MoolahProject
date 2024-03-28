@@ -4,4 +4,3 @@ USBZAIUtilityScorer_PlayerDefeatState::USBZAIUtilityScorer_PlayerDefeatState() {
     this->States = 0;
 }
 
-

@@ -42,6 +42,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZStatisticCriteriaData* SpecOps;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZStatisticCriteriaData* NoBagOnGround;
+    
     STARBREEZE_API FSBZStatisticCriteriaDataCollection();
 };
 

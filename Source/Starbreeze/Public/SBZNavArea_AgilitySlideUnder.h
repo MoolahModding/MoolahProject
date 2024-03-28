@@ -8,6 +8,5 @@ class USBZNavArea_AgilitySlideUnder : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilitySlideUnder();
-
 };
 

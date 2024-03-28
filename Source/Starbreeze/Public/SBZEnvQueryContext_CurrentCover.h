@@ -8,6 +8,5 @@ class USBZEnvQueryContext_CurrentCover : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_CurrentCover();
-
 };
 

@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class ASBZActorSpawnVolume : public ASBZActorSpawnRegionBase {
     GENERATED_BODY()
 public:
-    ASBZActorSpawnVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZActorSpawnVolume();
 };
 

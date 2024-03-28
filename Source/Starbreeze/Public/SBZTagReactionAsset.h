@@ -13,6 +13,5 @@ public:
     TMap<FGameplayTag, FSBZTagReaction> Map;
     
     USBZTagReactionAsset();
-
 };
 

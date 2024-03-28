@@ -8,6 +8,5 @@ class USBZSkillSharpshooterLongShot : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillSharpshooterLongShot();
-
 };
 

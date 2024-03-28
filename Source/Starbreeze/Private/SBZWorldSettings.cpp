@@ -1,6 +1,6 @@
 #include "SBZWorldSettings.h"
 
-ASBZWorldSettings::ASBZWorldSettings(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZWorldSettings::ASBZWorldSettings() {
     this->SurfaceTypesConfig = NULL;
     this->MusicEvent = NULL;
     this->StopMusicEvent = NULL;
@@ -22,5 +22,4 @@ ASBZWorldSettings::ASBZWorldSettings(const FObjectInitializer& ObjectInitializer
     this->LifeActionSettings = NULL;
     this->SoloPlayerLoadoutOverride = NULL;
 }
-
 

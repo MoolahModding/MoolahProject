@@ -24,6 +24,5 @@ public:
     TArray<USBZAIUtilityDecider*> Deciders;
     
     USBZAIUtilityData();
-
 };
 

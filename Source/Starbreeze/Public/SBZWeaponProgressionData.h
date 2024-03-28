@@ -12,6 +12,5 @@ public:
     FSBZWeaponPartProgressionArray WeaponPartProgressionArray;
     
     USBZWeaponProgressionData();
-
 };
 

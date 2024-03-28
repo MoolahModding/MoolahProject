@@ -1,10 +1,10 @@
 #include "SBZSessionUpdateListCallbackProxy.h"
 
-USBZSessionUpdateListCallbackProxy::USBZSessionUpdateListCallbackProxy() {
-}
-
-USBZSessionUpdateListCallbackProxy* USBZSessionUpdateListCallbackProxy::SessionUpdateList(UObject* WorldContextObject, const FSBZOnlineSessionParams& InSearchParams) {
+USBZSessionUpdateListCallbackProxy* USBZSessionUpdateListCallbackProxy::SessionUpdateList(UObject* NewWorldContextObject, const FSBZOnlineSessionParams& InSearchParams) {
     return NULL;
 }
 
+USBZSessionUpdateListCallbackProxy::USBZSessionUpdateListCallbackProxy() {
+    this->WorldContextObject = NULL;
+}
 

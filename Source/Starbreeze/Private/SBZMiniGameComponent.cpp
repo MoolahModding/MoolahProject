@@ -1,5 +1,30 @@
 #include "SBZMiniGameComponent.h"
 
+void USBZMiniGameComponent::SetAudioPerspective(UAkComponent* AkComponent, UAkRtpc* Rtpc, bool bIsLocallyControlled) {
+}
+
+void USBZMiniGameComponent::ServerAbortMiniGame() {
+}
+
+void USBZMiniGameComponent::PlaySoundOnNative(UAkAudioEvent* AudioEvent) {
+}
+
+void USBZMiniGameComponent::PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent) {
+}
+
+void USBZMiniGameComponent::OnPlayerStateEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
+void USBZMiniGameComponent::Multicast_ActivateMiniGame_Implementation(ASBZCharacter* Character) {
+}
+
+UPD3MiniGameWidgetBase* USBZMiniGameComponent::GetSpawnedWidget() const {
+    return NULL;
+}
+
+void USBZMiniGameComponent::ActivateMiniGame(ASBZCharacter* Character, bool bIsLocallyControlled, bool bIsReplicated) {
+}
+
 USBZMiniGameComponent::USBZMiniGameComponent() {
     this->Data = NULL;
     this->AudioComponent = NULL;
@@ -27,23 +52,4 @@ USBZMiniGameComponent::USBZMiniGameComponent() {
     this->RootComponent = NULL;
     this->ActiveLocallyController = NULL;
 }
-
-void USBZMiniGameComponent::SetAudioPerspective(UAkComponent* AkComponent, UAkRtpc* Rtpc, bool bIsLocallyControlled) {
-}
-
-void USBZMiniGameComponent::ServerAbortMiniGame() {
-}
-
-void USBZMiniGameComponent::PlaySoundOnNative(UAkAudioEvent* AudioEvent) {
-}
-
-void USBZMiniGameComponent::PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent) {
-}
-
-void USBZMiniGameComponent::Multicast_ActivateMiniGame_Implementation(ASBZCharacter* Character) {
-}
-
-void USBZMiniGameComponent::ActivateMiniGame(ASBZCharacter* Character, bool bIsLocallyControlled, bool bIsReplicated) {
-}
-
 

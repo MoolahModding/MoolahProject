@@ -7,4 +7,3 @@ USBZModularMeshComponent::USBZModularMeshComponent() {
     this->bMeshReady = false;
 }
 
-

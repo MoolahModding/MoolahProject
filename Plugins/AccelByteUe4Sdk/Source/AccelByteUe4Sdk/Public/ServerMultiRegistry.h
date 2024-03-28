@@ -10,7 +10,6 @@ class UServerMultiRegistry : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UServerMultiRegistry();
-
     UFUNCTION(BlueprintCallable)
     static UServerApiClient* GetServerApiClient(const FString& Key);
     

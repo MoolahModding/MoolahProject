@@ -4,5 +4,5 @@
 
 class USBZOutlineComponent;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOutlineActivated, USBZOutlineComponent*, Outline);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOutlineActivated, USBZOutlineComponent*, Outline);
 

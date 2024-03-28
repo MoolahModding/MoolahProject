@@ -3,10 +3,12 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "ESBZCurrencyCode.h"
+#include "ESBZItemCategory.h"
 #include "ESBZItemCurrencyType.h"
 #include "ESBZItemLockReason.h"
 #include "ESBZItemRarity.h"
 #include "ESBZStoreItemPlatform.h"
+#include "SBZStoreItemUICategory.h"
 #include "SBZStoreBaseItem.generated.h"
 
 class USBZVendorData;
@@ -77,6 +79,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZItemRarity ItemRarity;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPremiumItem;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsInexhaustibleItem;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZStoreItemUICategory StoreItemUICategory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZItemCategory ItemCategory;
     
     STARBREEZE_API FSBZStoreBaseItem();
 };

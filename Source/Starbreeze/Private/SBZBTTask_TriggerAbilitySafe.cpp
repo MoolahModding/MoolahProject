@@ -7,4 +7,3 @@ USBZBTTask_TriggerAbilitySafe::USBZBTTask_TriggerAbilitySafe() {
     this->bShouldWaitForAbility = false;
 }
 
-

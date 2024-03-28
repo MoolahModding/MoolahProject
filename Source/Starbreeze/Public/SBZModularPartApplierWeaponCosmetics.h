@@ -8,6 +8,5 @@ class USBZModularPartApplierWeaponCosmetics : public USBZModularPartApplier {
     GENERATED_BODY()
 public:
     USBZModularPartApplierWeaponCosmetics();
-
 };
 

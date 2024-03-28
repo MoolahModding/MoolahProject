@@ -3,4 +3,3 @@
 USBZAIActionData_Surrender::USBZAIActionData_Surrender() {
 }
 
-

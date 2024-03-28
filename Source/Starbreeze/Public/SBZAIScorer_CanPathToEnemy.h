@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "SBZAIScorer.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIScorer_CanPathToEnemy.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZAIScorer_CanPathToEnemy : public USBZAIScorer {
@@ -12,7 +13,7 @@ class USBZAIScorer_CanPathToEnemy : public USBZAIScorer {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FilterClass;
+    TSubclassOf<UNavigationQueryFilter> FilterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AllowedDistanceFromPath;
@@ -25,6 +26,5 @@ protected:
     
 public:
     USBZAIScorer_CanPathToEnemy();
-
 };
 

@@ -1,13 +1,6 @@
 #include "SBZVotingReplicatedProxy.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZVotingReplicatedProxy::ASBZVotingReplicatedProxy(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bDummy = false;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-}
-
 void ASBZVotingReplicatedProxy::Server_NotifySendVoteRecall_Implementation(FUniqueNetIdRepl PlayerId) {
 }
 
@@ -15,6 +8,9 @@ void ASBZVotingReplicatedProxy::Server_NotifySendVoteInitiate_Implementation(ESB
 }
 
 void ASBZVotingReplicatedProxy::Server_NotifySendVoteAnswer_Implementation(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer) {
+}
+
+void ASBZVotingReplicatedProxy::Server_NotifyClientDisconnected_Implementation(FUniqueNetIdRepl PlayerId) {
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveVoteRecall_Implementation(FUniqueNetIdRepl PlayerId) {
@@ -27,6 +23,9 @@ void ASBZVotingReplicatedProxy::MulticastReceiveVoteAnswer_Implementation(FUniqu
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveLocalizedChatMessage_Implementation(const FString& FormatLocaleKey, const TArray<FString>& ExportedArgsNames, const TArray<FString>& ExportedArgsStrings, const TArray<FString>& ArgsToLocalizeNames, const TArray<FString>& ArgsToLocalizeLocaleKeys) {
+}
+
+void ASBZVotingReplicatedProxy::MulticastReceiveClientDisconnected_Implementation(FUniqueNetIdRepl PlayerId) {
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveChatMessage_Implementation(const FString& Message) {
@@ -44,4 +43,7 @@ void ASBZVotingReplicatedProxy::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(ASBZVotingReplicatedProxy, bDummy);
 }
 
+ASBZVotingReplicatedProxy::ASBZVotingReplicatedProxy() {
+    this->bDummy = false;
+}
 

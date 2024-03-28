@@ -5,4 +5,3 @@ USBZShowSpeedLoaderNotifyState::USBZShowSpeedLoaderNotifyState() {
     this->bIsPrespawned = false;
 }
 
-

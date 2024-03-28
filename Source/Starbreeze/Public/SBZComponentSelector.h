@@ -1,16 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Templates/SubclassOf.h"
 #include "SBZComponentSelector.generated.h"
 
 class UActorComponent;
-class UClass;
 
 USTRUCT(BlueprintType)
 struct STARBREEZE_API FSBZComponentSelector {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ComponentType;
+    TSubclassOf<UActorComponent> ComponentType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName ComponentName;

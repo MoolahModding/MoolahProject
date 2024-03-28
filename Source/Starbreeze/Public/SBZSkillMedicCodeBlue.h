@@ -8,6 +8,5 @@ class USBZSkillMedicCodeBlue : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMedicCodeBlue();
-
 };
 

@@ -12,19 +12,18 @@ class USBZAIOrder_FollowTarget : public USBZAIOrder {
     GENERATED_BODY()
 public:
     USBZAIOrder_FollowTarget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOwnerOrderPushed(ASBZAIController* AIController, USBZAIOrder* AIOrder);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnOwnerInteracted(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHitByPlayer();
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAIPawnKilled();
     
 };

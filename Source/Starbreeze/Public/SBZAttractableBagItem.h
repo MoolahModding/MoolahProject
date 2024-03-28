@@ -23,9 +23,8 @@ protected:
     TArray<ASBZRoomVolume*> RoomVolumes;
     
 public:
-    ASBZAttractableBagItem(const FObjectInitializer& ObjectInitializer);
-
-
+    ASBZAttractableBagItem();
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);

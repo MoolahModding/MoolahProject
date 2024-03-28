@@ -8,6 +8,5 @@ class USBZEnvQueryContext_DroneMoveToPositions : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_DroneMoveToPositions();
-
 };
 

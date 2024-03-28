@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "SBZBTService_PlaceActor.h"
+#include "Templates/SubclassOf.h"
 #include "SBZBTService_PlaceMines.generated.h"
 
-class UClass;
+class ASBZAITaserMine;
 
 UCLASS(Blueprintable)
 class USBZBTService_PlaceMines : public USBZBTService_PlaceActor {
@@ -12,7 +13,7 @@ class USBZBTService_PlaceMines : public USBZBTService_PlaceActor {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlacedMine;
+    TSubclassOf<ASBZAITaserMine> PlacedMine;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatInterval EnemyDistance;
@@ -28,6 +29,5 @@ private:
     
 public:
     USBZBTService_PlaceMines();
-
 };
 

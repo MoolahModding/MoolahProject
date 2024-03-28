@@ -7,11 +7,11 @@
 #include "SBZLaserPattern.h"
 #include "SBZLaserPointConnection.h"
 #include "SBZOnLaserGridTriggeredDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZLaserGrid.generated.h"
 
 class UAkAudioEvent;
 class UBoxComponent;
-class UClass;
 class UPrimitiveComponent;
 class USBZAmbientSoundComponent;
 class USBZLaser;
@@ -25,7 +25,7 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LaserComponentClass;
+    TSubclassOf<USBZLaser> LaserComponentClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZLaserPointConnection> LaserConnectionArray;
@@ -48,6 +48,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* LaserAudioEvent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* LaserShutdownAudioEvent;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<USBZLaser*> CachedLaserArray;
@@ -65,10 +68,9 @@ private:
     bool bIsEnabled;
     
 public:
-    ASBZLaserGrid(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLaserGrid();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StopCyclingPatterns();
     
@@ -79,10 +81,10 @@ public:
     void SetEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentPatternIndex();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 public:
@@ -90,13 +92,13 @@ public:
     void NextPattern();
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_NextPattern();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void BlockingActorEntered(UPrimitiveComponent* OverlappedComp, AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 };

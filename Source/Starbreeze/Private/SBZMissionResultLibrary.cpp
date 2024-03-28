@@ -1,6 +1,7 @@
 #include "SBZMissionResultLibrary.h"
 
-USBZMissionResultLibrary::USBZMissionResultLibrary() {
+int32 USBZMissionResultLibrary::GetTotalNumberOfSecuredBags(const FSBZEndMissionResultData& Resultdata) {
+    return 0;
 }
 
 FSBZPlayerEndMissionResultData USBZMissionResultLibrary::GetPlayerData(const FSBZEndMissionResultData& ResultData, int32 PlayerId) {
@@ -27,6 +28,10 @@ int32 USBZMissionResultLibrary::GetAllPlayersHaveKilledCount(const FSBZEndMissio
     return 0;
 }
 
+int32 USBZMissionResultLibrary::GetAllPlayersHaveCivilianKilledCount(const FSBZEndMissionResultData& ResultData) {
+    return 0;
+}
+
 float USBZMissionResultLibrary::GetAllPlayersEquippableAccuracy(const FSBZEndMissionResultData& ResultData, int32 EquippableIndex) {
     return 0.0f;
 }
@@ -43,4 +48,6 @@ int32 USBZMissionResultLibrary::GetAllPlayersBeenDefeatedCount(const FSBZEndMiss
     return 0;
 }
 
+USBZMissionResultLibrary::USBZMissionResultLibrary() {
+}
 

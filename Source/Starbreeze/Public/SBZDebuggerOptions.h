@@ -12,7 +12,6 @@ public:
     FSBZPlayerDebuggerOptions PlayerOptions;
     
     USBZDebuggerOptions();
-
     UFUNCTION(BlueprintCallable)
     static bool IsPlayerAutomaticallyInvisibleForAI();
     

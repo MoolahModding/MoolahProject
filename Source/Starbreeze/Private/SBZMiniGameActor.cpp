@@ -1,27 +1,10 @@
 #include "SBZMiniGameActor.h"
-#include "Components/SceneComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 #include "SBZMiniGameComponent.h"
 #include "SBZOutlineComponent.h"
-
-ASBZMiniGameActor::ASBZMiniGameActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bIsUnlocked = false;
-    this->bIsMiniGameIgnored = false;
-    this->MiniGameComponent = CreateDefaultSubobject<USBZMiniGameComponent>(TEXT("SBZMiniGameComponent"));
-    this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
-    this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
-    this->StaticMesh->SetupAttachment(RootComponent);
-    this->WidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetComponent"));
-    this->WidgetComponent->SetupAttachment(RootComponent);
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
-}
 
 void ASBZMiniGameActor::SetMiniGameIgnored(bool bIgnored) {
 }
@@ -55,4 +38,13 @@ void ASBZMiniGameActor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(ASBZMiniGameActor, bIsMiniGameIgnored);
 }
 
+ASBZMiniGameActor::ASBZMiniGameActor() {
+    this->bIsUnlocked = false;
+    this->bIsMiniGameIgnored = false;
+    this->MiniGameComponent = CreateDefaultSubobject<USBZMiniGameComponent>(TEXT("SBZMiniGameComponent"));
+    this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
+    this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
+    this->WidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetComponent"));
+}
 

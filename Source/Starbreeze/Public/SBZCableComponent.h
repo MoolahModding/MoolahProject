@@ -4,17 +4,13 @@
 #include "UObject/NoExportTypes.h"
 #include "SBZCableCollisionPlane.h"
 #include "SBZCablePointAttachment.h"
+#include "SBZWindData.h"
 #include "SBZCableComponent.generated.h"
-
-class AWindDirectionalSource;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZCableComponent : public UCableComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    AWindDirectionalSource* WindSource;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAffectedByWind;
     
@@ -40,9 +36,11 @@ public:
     bool bAutoComputeCableLength;
     
     USBZCableComponent();
-
     UFUNCTION(BlueprintCallable)
     void UpdateSegmentCount(const float InCableLength, const float SegmentLength, const int32 MaxSegmentCount);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetWindData(const FSBZWindData& WindData);
     
     UFUNCTION(BlueprintCallable)
     void ResetCollisionPlanes();

@@ -15,12 +15,11 @@ protected:
     
 public:
     USBZMainMenuCrimeNetHeistInspectScreen();
-
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnMatchmakingStarted();
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleMatchmakingStarted();
     
 };

@@ -35,7 +35,6 @@ protected:
     
 public:
     USBZZiplineAudioController();
-
     UFUNCTION(BlueprintCallable)
     void UpdateZiplineRtpc(float ZiplineVelocity);
     

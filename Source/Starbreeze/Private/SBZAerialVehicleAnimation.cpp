@@ -3,4 +3,3 @@
 USBZAerialVehicleAnimation::USBZAerialVehicleAnimation() {
 }
 
-

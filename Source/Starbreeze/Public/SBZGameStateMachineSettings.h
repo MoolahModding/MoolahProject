@@ -3,10 +3,22 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/DeveloperSettings.h"
+#include "SBZHeistCollection.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGameStateMachineSettings.generated.h"
 
-class UClass;
 class UObject;
+class USBZActionPhaseBaseWidget;
+class USBZBackendErrorWidget;
+class USBZGameErrorWidget;
+class USBZJobOverviewBaseWidget;
+class USBZLoadingScreen;
+class USBZLoginScreenBaseWidget;
+class USBZMainMenuWidget;
+class USBZPSOCompilationScreen;
+class USBZReplayBaseWidget;
+class USBZSafeHouseBaseWidget;
+class USBZWidgetBase;
 
 UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Game)
 class STARBREEZE_API USBZGameStateMachineSettings : public UDeveloperSettings {
@@ -46,6 +58,9 @@ public:
     FSoftClassPath LoadingScreenWidgetClassName;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSoftClassPath PSOCompilationScreenWidgetClassName;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSoftClassPath LoginScreenWidgetClassName;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -58,36 +73,42 @@ public:
     FSoftClassPath BackendErrorWidgetClassName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* LoginScreenWidgetClass;
+    TSubclassOf<USBZLoginScreenBaseWidget> LoginScreenWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* JobOverviewWidgetClass;
+    TSubclassOf<USBZPSOCompilationScreen> PSOCompilationScreenWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* ActionPhaseWidgetClass;
+    TSubclassOf<USBZJobOverviewBaseWidget> JobOverviewWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* ReplayWidgetClass;
+    TSubclassOf<USBZActionPhaseBaseWidget> ActionPhaseWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* ResultScreenWidgetClass;
+    TSubclassOf<USBZReplayBaseWidget> ReplayWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* MainMenuWidgetClass;
+    TSubclassOf<USBZWidgetBase> ResultScreenWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* GameErrorWidgetClass;
+    TSubclassOf<USBZMainMenuWidget> MainMenuWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* BackendErrorWidgetClass;
+    TSubclassOf<USBZGameErrorWidget> GameErrorWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* LoadingScreenWidgetClass;
+    TSubclassOf<USBZBackendErrorWidget> BackendErrorWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UClass* SafeHouseWidgetClass;
+    TSubclassOf<USBZLoadingScreen> LoadingScreenWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSafeHouseBaseWidget> SafeHouseWidgetClass;
     
 protected:
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZHeistCollection> HeistCollections;
+    
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSoftObjectPath> Levels;
     
@@ -105,30 +126,32 @@ protected:
     
 public:
     USBZGameStateMachineSettings();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 LevelShortNameToIdx(const UObject* WorldContextObject, const FString& ShortName);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 LevelPathToIdx(const UObject* WorldContextObject, const FSoftObjectPath& ObjectPath);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FSoftObjectPath LevelIdxToPath(const UObject* WorldContextObject, int32 LevelIdx);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsLevelIdxValid(const UObject* WorldContextObject, int32 LevelIdx);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FSoftObjectPath> GetLevelsTutorial(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FSoftObjectPath> GetLevelsFeature(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FSoftObjectPath> GetLevelsDev(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FSoftObjectPath> GetLevels(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static TArray<FSBZHeistCollection> GetHeistCollections(const UObject* WorldContextObject);
     
 };
 

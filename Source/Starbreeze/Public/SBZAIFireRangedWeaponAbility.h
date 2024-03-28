@@ -13,6 +13,5 @@ private:
     
 public:
     USBZAIFireRangedWeaponAbility();
-
 };
 

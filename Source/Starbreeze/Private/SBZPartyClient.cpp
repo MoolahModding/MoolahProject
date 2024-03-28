@@ -1,9 +1,6 @@
 #include "SBZPartyClient.h"
 #include "Net/UnrealNetwork.h"
 
-USBZPartyClient::USBZPartyClient() {
-}
-
 void USBZPartyClient::ServerNotifyLeftLobby_Implementation(const FUniqueNetIdRepl& ClientId) {
 }
 bool USBZPartyClient::ServerNotifyLeftLobby_Validate(const FUniqueNetIdRepl& ClientId) {
@@ -46,4 +43,6 @@ void USBZPartyClient::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(USBZPartyClient, PartyState);
 }
 
+USBZPartyClient::USBZPartyClient() {
+}
 

@@ -22,6 +22,5 @@ private:
     
 public:
     USBZRequestOverkillWeaponAbility();
-
 };
 

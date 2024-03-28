@@ -8,4 +8,3 @@ UPD3HUDAICrewStatusWidget::UPD3HUDAICrewStatusWidget() {
     this->AICrewState = NULL;
 }
 
-

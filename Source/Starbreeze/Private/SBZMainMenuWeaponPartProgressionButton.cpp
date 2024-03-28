@@ -1,10 +1,5 @@
 #include "SBZMainMenuWeaponPartProgressionButton.h"
 
-USBZMainMenuWeaponPartProgressionButton::USBZMainMenuWeaponPartProgressionButton() {
-    this->bIsEquipped = false;
-    this->bIsDefault = false;
-}
-
 
 void USBZMainMenuWeaponPartProgressionButton::SetIsDefaultButton() {
 }
@@ -37,4 +32,8 @@ ESBZWeaponPartApplyStatus USBZMainMenuWeaponPartProgressionButton::GetPartApplyS
 }
 
 
+USBZMainMenuWeaponPartProgressionButton::USBZMainMenuWeaponPartProgressionButton() {
+    this->bIsEquipped = false;
+    this->bIsDefault = false;
+}
 

@@ -2,9 +2,9 @@
 #include "CoreMinimal.h"
 #include "SBZMenuStackWidget.h"
 #include "SBZPartyMember.h"
+#include "Templates/SubclassOf.h"
 #include "SBZSocialFriendButtonContainer.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZMenuButton;
 class USBZSocialFriendButton;
@@ -47,7 +47,7 @@ protected:
     UPanelWidget* Panel_OfflinePlayers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FriendButtonWidgetClass;
+    TSubclassOf<USBZSocialFriendButton> FriendButtonWidgetClass;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -78,14 +78,13 @@ private:
     TArray<USBZSocialPartyMemberButton*> PartyEmptyButtonPool;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PartyMemberButtonWidgetClass;
+    TSubclassOf<USBZSocialPartyMemberButton> PartyMemberButtonWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZSocialFriendButton* CurrentlyFocusedButton;
     
 public:
     USBZSocialFriendButtonContainer();
-
     UFUNCTION(BlueprintCallable)
     void UpdatePartyMembersList();
     
@@ -113,32 +112,32 @@ public:
     UFUNCTION(BlueprintCallable)
     void RefreshFriends();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPartyPanelRefreshComplete();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPartyButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFriendButtonsUpdated();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnFriendButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetPlatformName() const;
     
     UFUNCTION(BlueprintCallable)
     int32 GetPartyMembersNum();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZPartyMember> GetPartyMembers() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildPartyMembersList();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void AddPartyMember(FSBZPartyMember NewMember);
     
 };

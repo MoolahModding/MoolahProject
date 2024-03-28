@@ -4,4 +4,3 @@ USBZSpringArmComponent::USBZSpringArmComponent() {
     this->Target = NULL;
 }
 
-

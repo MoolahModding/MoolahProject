@@ -8,6 +8,5 @@ class USBZSkillInfiltratorBladeBouncer : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillInfiltratorBladeBouncer();
-
 };
 

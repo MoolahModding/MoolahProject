@@ -8,6 +8,5 @@ class USBZGameViewportClient : public UGameViewportClient {
     GENERATED_BODY()
 public:
     USBZGameViewportClient();
-
 };
 

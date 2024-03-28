@@ -21,9 +21,8 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnPlayerDisconnectedEvent OnPlayerDisconnectedEvent;
     
-    ASBZBeaconActionPhaseHost(const FObjectInitializer& ObjectInitializer);
-
-    UFUNCTION(BlueprintCallable)
+    ASBZBeaconActionPhaseHost();
+    UFUNCTION()
     void HandlePlayerCountChanged(APlayerState* PlayerState);
     
 };

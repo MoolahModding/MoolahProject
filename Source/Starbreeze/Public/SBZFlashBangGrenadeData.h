@@ -3,9 +3,10 @@
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "SBZGrenadeData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZFlashBangGrenadeData.generated.h"
 
-class UClass;
+class UGameplayEffect;
 
 UCLASS(Blueprintable)
 class USBZFlashBangGrenadeData : public USBZGrenadeData {
@@ -30,7 +31,7 @@ public:
     float FlashPlayerFalloffExponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GameplayEffectClass;
+    TSubclassOf<UGameplayEffect> GameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTag DurationTag;
@@ -39,6 +40,5 @@ public:
     FGameplayTagContainer PawnTypesToIgnoreSkills;
     
     USBZFlashBangGrenadeData();
-
 };
 

@@ -15,6 +15,5 @@ public:
     FSBZRappellingRopeSettings ExitSettings;
     
     USBZRappellingRopeData();
-
 };
 

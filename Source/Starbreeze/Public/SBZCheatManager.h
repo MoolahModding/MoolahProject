@@ -6,8 +6,8 @@
 #include "EPD3DispatchCaller.h"
 #include "EPD3DispatchCallerReason.h"
 #include "EPD3HeistState.h"
+#include "ESBZAIOrderMode.h"
 #include "ESBZCharacterStance.h"
-#include "ESBZCurrencyCode.h"
 #include "ESBZDamageWeight.h"
 #include "ESBZDifficulty.h"
 #include "ESBZEndMissionResult.h"
@@ -46,457 +46,456 @@ private:
     
 public:
     USBZCheatManager();
-
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ViewTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ViewSelfByIndex(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void Trace(TEnumAsByte<ECollisionChannel> CollisionChannel, FName Profile, bool bIsObjectType, bool bIsComplex, float Distance, int32 MaxHitCount, float Radius, float DrawDuration, bool bIsDrawPersistent);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleInvisiblePlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleInaudiblePlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleGod(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleDebugCameraAndTeleport();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ToggleCrouchedTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ThrowItem(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void TasePlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SurrenderTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SubduePlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void StartEndlessAssault();
+    UFUNCTION(Exec)
+    void StartEndlessAssault(bool bForceStartAssault);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SpawnFBI();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SpawnAllAITypes(int32 Count, float Distance, float Offset, float Yaw, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void Spawn(const FName& AssetName, int32 Count, float Distance, int32 PlayerIndex, float Yaw);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SimulateChallengeNotificationReceived();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetToolAmmo(int32 Count, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetTool(const FName& ToolDataName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetThrowableAmmo(int32 Count, int32 ThrowableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetThrowable(const FName& ThrowableDataName, int32 ThrowableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetTargetLooseTagCount(const FName& Tag, int32 Count, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetTargetEquippableIndexTarget(int32 EquippableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetTargetEquippableIndex(int32 EquippableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetTargetCharacterStance(ESBZCharacterStance Stance, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetSkill(const FName& SkillDataName, bool bIsAcquired, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetSharedTagCount(const FName& Tag, int32 Count);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetRegisterRewardPrints(bool bIsRegistered);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPlayerName(const FString& Name, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPlayerMask(const FName& PlayerMaskName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPlayerCharacter(const FName& CharacterClassName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPlayerArmor(const FName& PlayerArmorName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPlaceableAmmo(int32 Count, int32 PlaceableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetPlaceable(const FName& PlaceableDataName, int32 PlaceableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetOverkillWeaponProgress(float InProgress, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetOptionalMilestonePassed(const FString& OptionalMilestoneName);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetMissionFailedEnabled(bool bIsEnabled);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetMilestonesPassedStealth(int32 MilestonesPassed);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetMilestonesPassedLoud(int32 MilestonesPassed);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetMilestonePassed(const FString& MilestoneName);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetMaxAICrewCountOverride(int32 MaxAICrewCount);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetMarkedTarget(bool bIsMarked, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetLooseTagCount(const FName& Tag, int32 Count, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetLastArrestedByGuard(bool bIsLastArrestedByGuard, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetJesus(bool bIsJesus, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInvisiblePlayer(bool bIsInvisible, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInteractorModeIndex(int32 ModeIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInfiniteAmmo(bool bHasInifinteAmmo, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetInfamyLevelExperience(int32 Level, int32 Experience);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetInfamyLevel(int32 Amount, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetInfamyExperience(int32 Amount, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetInaudiblePlayer(bool bIsInaudible, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetHeistState(EPD3HeistState HeistState);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetGod(bool bIsGod, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetFriendlyFireSettings(int32 Value);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetEquippedTarget(bool bIsEquipped, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetEquippableWeaponPreset(const FString& WeaponPresetGuid, int32 EquippableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetEquippablePreset(const FName& EquippableDataName, int32 EquippableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetEquippablePart(const FName& SlotDataName, const FName& PartDataName, int32 EquippableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetEquippable(const FName& EquippableDataName, int32 EquippableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetDrawTransformEnabled(bool bIsEnabled);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetDrawTransform(float X, float Y, float Z, float Yaw, float Pitch, float Roll, float ScaleX, float ScaleY, float ScaleZ);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void SetDownedCount(int32 Count, int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void SetDifficulty(ESBZDifficulty Difficulty);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetCrouchedTarget(bool bIsCrouched, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAssaultLevelProgression(float Progression);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAssaultActive(bool bIsActive);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAmmoLoaded(float NewAmmoCount, int32 WeaponIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAmmoInventory(float NewAmmoCount, int32 WeaponIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAllSkills(bool bIsAcquired, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SetAddMissionFailedTimeout(float AddTimeout);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void SendSessionMessage(const FString& Message);
+    
+    UFUNCTION(Exec)
+    void SelectDebugActorTarget(bool bIsSelectedInEditor, int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void SecureBag(int32 Count, const FName& AssetName);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void SecureAllAvailableLoot(const bool bClearClaim);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ReviveTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RevivePlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void ReviveCrewAI(int32 CrewAIIndex);
+    
+    UFUNCTION(Exec)
     void ResetCVars();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RequestMissionSuccess();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RequestMissionFail();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void RemoveCurrency(ESBZCurrencyCode Type, int32 Amount);
+    UFUNCTION(Exec)
+    void RefreshPlayerAbilityBuffAll(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RefreshPlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void RebuildAssetLookup();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintWorldInfo(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void PrintTargetTagChanges(bool bIsPrintEnabled, const FName& Tag, int32 PlayerIndex);
+    UFUNCTION(Exec)
+    void PrintTargetTagChanges(bool bIsPrintEnabled, const FName& Tag, bool bIsStackTrace, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void PrintTagChanges(bool bIsPrintEnabled, const FName& Tag, int32 PlayerIndex);
+    UFUNCTION(Exec)
+    void PrintTagChanges(bool bIsPrintEnabled, const FName& Tag, bool bIsStackTrace, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintServerWorldInfo(int32 PlayerIndex);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PrintRewardLogEvent(const FSBZEndMissionResultData& EndMissionResultData);
     
 public:
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintPlayerIDArray();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintMissionSeed();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void PrintExperienceMilestone(const ESBZMilestoneType MilestoneType, const FString& MilestoneName);
     
 public:
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintAnimNotifies(const FName& NotifyName, bool bIsOnlyMontages);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PrintAllInteractable(bool bIsTemplate);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PossessTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PossessSelf(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void PerceptionOnAllAI(bool bShouldHavePerception);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void OverlapSphere(TEnumAsByte<ECollisionChannel> CollisionChannel, const FName& Profile, bool bIsObjectType, bool bIsComplex, float Distance, int32 MaxHitCount, float Radius, float DrawDuration, bool bIsDrawPersistent);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void MoveDebugActorTarget(ESBZAIOrderMode OrderMode, const FName& MoveOrderAssetName, int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void LogSceneComponents();
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void LobotomizeCrewAI();
+    UFUNCTION(Exec)
+    void LobotomizeAllCrewAI();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void LobotomizeAllAI();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ListenToRewardLogs();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void KillTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void KillPlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void KillAllCrewAI();
+    
+    UFUNCTION(Exec)
     void KillAllAI();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InteractAITarget(ESBZInteractionAction Action, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputVectorAxisTarget(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputVectorAxisPlayer(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputKeyTarget(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputKeyPlayer(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputAxisTarget(const FName& AxisName, float InputValue, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputAxisPlayer(const FName& AxisName, float InputValue, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputActionTarget(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, bool bIsReleaseCancelingAbility, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void GrantUserEntitlement(const FString& AccelByteItemIdString, const FString& AccelByteItemSku, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GrabInstantLoot();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GiveToolAmmo(int32 Count, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GiveThrowableAmmo(int32 Count, int32 ThrowableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GivePlaceableAmmo(int32 Count, int32 PlaceableIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GiveAmmo(int32 Amount, int32 WeaponIndex, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void GamepadOpenInGameCheatMenu(FKey Key);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void GainPlayerAbilityBuffAll(bool bIsRefreshAllowed, int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void GainPlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, bool bIsRefreshAllowed, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void FulfillUserItem(const FString& AccelByteItemIdString, const FString& AccelByteItemSku, FString& ItemNamespace, int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void FindClassReferences(const FName& ClassName, bool bIsSubClassesIncluded, bool bIsBlueprintsIncluded, bool bIsAssetsLoaded);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void FindBlocker(bool bIsComplex, float TraceDistance, float TraceRadius, float OverlapDistance, float OverlapRadius, int32 MaxHitCountTrace, int32 MaxHitCountOverlap, float DrawDuration, bool bIsDrawPersistent);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void EquipOverkillWeapon(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void DumpAllPlayerStatistics(int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void DumpAllPlayersInfamyAndPlatform();
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void DumpAllPlayersAccelByteDisplayName();
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DestroyTargetAI(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DestroyAllDebris();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DestroyAllAI(bool bOnlyRagdolls);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DefeatTarget(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DefeatPlayer(bool bIsDirectIntoCustody, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void DefeatCrewAI(int32 CrewAIIndex);
+    
+    UFUNCTION(Exec)
     void DebugVehicleSplineData();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugShowSubtitle(const FString& LocID);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugCreateProjectileImpact();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugCreateFootstepImpact();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugCreateExplosionImpact();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DebugCreateBloodSplatterImpact();
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DamagePlayer(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void DamageCharacter(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void DamageAllCrewAI(float Damage, ESBZDamageWeight DamageWeight, int32 DamageWeightModifier, const FName& DamageTypeName, int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void CuffPlayer(int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
+    void ConsumePlayerAbilityBuffAll(int32 PlayerIndex);
+    
+    UFUNCTION(Exec)
     void ConsumePlayerAbilityBuff(ESBZPlayerAbilityBuffType Type, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintCallable, Exec)
-    void ChangeStatCode(const FString& StatCode, int32 Count, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ChangeAssaultDrama(float Amount);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void CallDispatcher(EPD3DispatchCaller Caller, EPD3DispatchCallerReason Reason);
     
-    UFUNCTION(BlueprintCallable, Exec)
+    UFUNCTION(Exec)
     void ApplyGameplayEffectTarget(const FName& AssetName, float Duration, const FString& NameMagnitudeString, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void AddCurrency(ESBZCurrencyCode Type, int32 Amount);
     
 };
 

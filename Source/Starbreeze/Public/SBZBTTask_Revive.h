@@ -8,6 +8,5 @@ class USBZBTTask_Revive : public UBTTask_BlackboardBase {
     GENERATED_BODY()
 public:
     USBZBTTask_Revive();
-
 };
 

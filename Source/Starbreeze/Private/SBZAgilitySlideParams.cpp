@@ -14,8 +14,5 @@ USBZAgilitySlideParams::USBZAgilitySlideParams() {
     this->DistFromEndToPlayExit = 80.00f;
     this->LocalDistFromEndToPlayExit = 10.00f;
     this->CancelingBackInputAlpha = -0.90f;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZAgilitySlideParams::StaticClass();
 }
-
 

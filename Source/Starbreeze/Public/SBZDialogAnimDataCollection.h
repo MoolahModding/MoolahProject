@@ -12,6 +12,5 @@ public:
     TMap<FString, FSBZDialogAnimData> DialogAnimDatas;
     
     USBZDialogAnimDataCollection();
-
 };
 

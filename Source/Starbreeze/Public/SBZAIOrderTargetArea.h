@@ -38,20 +38,19 @@ private:
     TArray<ASBZCoverPoint*> CachedCoverPoints;
     
 public:
-    ASBZAIOrderTargetArea(const FObjectInitializer& ObjectInitializer);
-
+    ASBZAIOrderTargetArea();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void UpdateCoverPoints();
     
 public:
     UFUNCTION(BlueprintCallable)
     void SetEnabled(bool bEnable);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsEnabled() const;
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

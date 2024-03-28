@@ -4,4 +4,3 @@ USBZAIDataProvider_PreferredCoverDistance::USBZAIDataProvider_PreferredCoverDist
     this->FloatValue = 0.00f;
 }
 
-

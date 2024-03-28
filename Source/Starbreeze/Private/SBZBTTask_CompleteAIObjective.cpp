@@ -5,7 +5,5 @@ USBZBTTask_CompleteAIObjective::USBZBTTask_CompleteAIObjective() {
     this->InteractOrders[1] = NULL;
     this->InteractOrders[2] = NULL;
     this->InteractOrders[3] = NULL;
-    this->NodeName = TEXT("CompleteAIObjective");
 }
-
 

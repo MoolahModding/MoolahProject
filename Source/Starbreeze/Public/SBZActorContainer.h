@@ -11,9 +11,8 @@ class USBZActorContainer : public USBZObjectContainer {
     GENERATED_BODY()
 public:
     USBZActorContainer();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnActorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 };

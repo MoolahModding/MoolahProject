@@ -14,13 +14,17 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnEnterGameStateDynamicDelegate OnSuccess;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     USBZWaitStateMachineStateChangeCallbackProxy();
-
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static USBZWaitStateMachineStateChangeCallbackProxy* WaitGameStateMachineStateChange(UObject* WorldContextObject);
+    static USBZWaitStateMachineStateChangeCallbackProxy* WaitGameStateMachineStateChange(UObject* NewWorldContextObject);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleStateEntered(FName StateName);
     
 };

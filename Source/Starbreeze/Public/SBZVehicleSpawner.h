@@ -14,7 +14,6 @@ private:
     USBZTrafficManager* TrafficManager;
     
 public:
-    ADEPRECATED_SBZVehicleSpawner(const FObjectInitializer& ObjectInitializer);
-
+    ADEPRECATED_SBZVehicleSpawner();
 };
 

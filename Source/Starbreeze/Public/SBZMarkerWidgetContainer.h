@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "SBZMarkerRuntime.h"
 #include "SBZWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMarkerWidgetContainer.generated.h"
 
 class UCanvasPanel;
-class UClass;
+class USBZMarkerWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZMarkerWidgetContainer : public USBZWidgetBase {
@@ -16,7 +17,7 @@ protected:
     UCanvasPanel* Root_Canvas;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MarkerWidgetClass;
+    TSubclassOf<USBZMarkerWidget> MarkerWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OffScreenRadiusPercentage;
@@ -26,9 +27,8 @@ protected:
     
 public:
     USBZMarkerWidgetContainer();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMarkerAdded(FSBZMarkerRuntime& MarkerRuntime);
     
 };

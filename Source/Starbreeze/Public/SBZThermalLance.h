@@ -75,44 +75,43 @@ private:
     UAkAudioEvent* AddCannisterEvent;
     
 public:
-    ASBZThermalLance(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThermalLance();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerRemovedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerAddedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRefuelingReached();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRanOutOfFuel();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractStateChanged(const USBZBaseInteractableComponent* Interactable, bool bEnabled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnIgnitionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDisassembled(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBoltingComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBagEntered(ASBZBagTriggerVolume* Volume, ASBZBagItem* BagItem, FSBZBagHandle BagHandle);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckRemovedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAckAddedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnBolted(int32 Amount, int32 BoltIndex);
     
 };

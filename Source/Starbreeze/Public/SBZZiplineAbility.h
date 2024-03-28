@@ -15,9 +15,8 @@ protected:
     
 public:
     USBZZiplineAbility();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void Tick(float DeltaSeconds);
     
 };

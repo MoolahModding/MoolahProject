@@ -2,11 +2,14 @@
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
 #include "GameplayTagContainer.h"
+#include "Templates/SubclassOf.h"
 #include "SBZVolumeDamageInterface.generated.h"
 
 class AActor;
-class UClass;
+class UGameplayEffect;
 class UObject;
+class USBZDamageType;
+class USBZVolumeDamageEffect;
 
 UINTERFACE(Blueprintable)
 class USBZVolumeDamageInterface : public UInterface {
@@ -16,35 +19,35 @@ class USBZVolumeDamageInterface : public UInterface {
 class ISBZVolumeDamageInterface : public IInterface {
     GENERATED_BODY()
 public:
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     bool IsVolumeDamageReady() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UClass* GetVolumeDamageType() const;
+    UFUNCTION(BlueprintNativeEvent)
+    TSubclassOf<USBZDamageType> GetVolumeDamageType() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     float GetVolumeDamageTickSeconds() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     float GetVolumeDamagePerSecond() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     AActor* GetVolumeDamageOwner(UObject* ThisObject) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UClass* GetVolumeDamageEffectClass() const;
+    UFUNCTION(BlueprintNativeEvent)
+    TSubclassOf<USBZVolumeDamageEffect> GetVolumeDamageEffectClass() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     float GetVolumeDamageArmorPenetration() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     FGameplayTagContainer GetVolumeDamageAddedTagContainer() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent)
     TMap<FName, float> GetTacticianDiscombobulateVolumeDamageEffectValueMap() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UClass* GetTacticianDiscombobulateVolumeDamageEffectClass() const;
+    UFUNCTION(BlueprintNativeEvent)
+    TSubclassOf<UGameplayEffect> GetTacticianDiscombobulateVolumeDamageEffectClass() const;
     
 };
 

@@ -8,6 +8,5 @@ class USBZEnvQueryContext_PreferredDistancePos : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_PreferredDistancePos();
-
 };
 

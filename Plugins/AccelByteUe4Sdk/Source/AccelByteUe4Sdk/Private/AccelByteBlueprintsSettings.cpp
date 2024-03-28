@@ -1,8 +1,5 @@
 #include "AccelByteBlueprintsSettings.h"
 
-UAccelByteBlueprintsSettings::UAccelByteBlueprintsSettings() {
-}
-
 void UAccelByteBlueprintsSettings::SetUGCServerUrl(const FString& UGCServerUrl) {
 }
 
@@ -16,6 +13,9 @@ void UAccelByteBlueprintsSettings::SetSessionServerUrl(const FString& SessionSer
 }
 
 void UAccelByteBlueprintsSettings::SetSessionBrowserServerUrl(const FString& SessionBrowserServerUrl) {
+}
+
+void UAccelByteBlueprintsSettings::SetServerUseAMS(bool bEnable) {
 }
 
 void UAccelByteBlueprintsSettings::SetServerQosLatencyPollIntervalSecs(const float& QosServerLatencyPollIntervalSecs) {
@@ -57,7 +57,13 @@ void UAccelByteBlueprintsSettings::SetLeaderboardServerUrl(const FString& Leader
 void UAccelByteBlueprintsSettings::SetIamServerUrl(const FString& IamServerUrl) {
 }
 
+void UAccelByteBlueprintsSettings::SetHttpCacheType(EHttpCacheType Type) {
+}
+
 void UAccelByteBlueprintsSettings::SetGroupServerUrl(const FString& GroupServerUrl) {
+}
+
+void UAccelByteBlueprintsSettings::SetGDPRServerUrl(const FString& GDPRServerUrl) {
 }
 
 void UAccelByteBlueprintsSettings::SetGameTelemetryServerUrl(const FString& GameTelemetryServerUrl) {
@@ -91,6 +97,14 @@ void UAccelByteBlueprintsSettings::SetAchievementServerUrl(const FString& CloudS
 }
 
 void UAccelByteBlueprintsSettings::ResetSettings(const ESettingsEnvironment Environment) {
+}
+
+bool UAccelByteBlueprintsSettings::IsServerUseAMS() {
+    return false;
+}
+
+bool UAccelByteBlueprintsSettings::IsSendPredefinedEvent() {
+    return false;
 }
 
 bool UAccelByteBlueprintsSettings::IsHttpCacheEnabled() {
@@ -165,11 +179,19 @@ FString UAccelByteBlueprintsSettings::GetIamServerUrl() {
     return TEXT("");
 }
 
+EHttpCacheType UAccelByteBlueprintsSettings::GetHttpCacheType() {
+    return EHttpCacheType::UNKNOWN;
+}
+
 FString UAccelByteBlueprintsSettings::GetHeartBeatData() {
     return TEXT("");
 }
 
 FString UAccelByteBlueprintsSettings::GetGroupServerUrl() {
+    return TEXT("");
+}
+
+FString UAccelByteBlueprintsSettings::GetGDPRServerUrl() {
     return TEXT("");
 }
 
@@ -217,4 +239,6 @@ FString UAccelByteBlueprintsSettings::GetAchievementServerUrl() {
     return TEXT("");
 }
 
+UAccelByteBlueprintsSettings::UAccelByteBlueprintsSettings() {
+}
 

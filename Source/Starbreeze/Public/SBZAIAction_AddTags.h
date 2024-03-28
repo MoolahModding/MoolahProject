@@ -14,6 +14,5 @@ private:
     
 public:
     USBZAIAction_AddTags();
-
 };
 

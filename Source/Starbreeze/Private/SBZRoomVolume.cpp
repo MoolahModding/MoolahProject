@@ -1,12 +1,5 @@
 #include "SBZRoomVolume.h"
 
-ASBZRoomVolume::ASBZRoomVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->Priority = 0;
-    this->RoomType = ESBZRoomType::Public;
-    this->Label = ESBZRoomLabel::OutsideHeistArea;
-    this->bGenerateOverlapEventsDuringLevelStreaming = true;
-}
-
 void ASBZRoomVolume::SetRoomType(ESBZRoomType InRoomType) {
 }
 
@@ -21,4 +14,9 @@ FText ASBZRoomVolume::GetRoomName() const {
     return FText::GetEmpty();
 }
 
+ASBZRoomVolume::ASBZRoomVolume() {
+    this->Priority = 0;
+    this->RoomType = ESBZRoomType::Public;
+    this->Label = ESBZRoomLabel::OutsideHeistArea;
+}
 

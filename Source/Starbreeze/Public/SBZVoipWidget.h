@@ -9,13 +9,12 @@ class USBZVoipWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZVoipWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayerTalkingChangedEvent(const FString& PlayerName, bool bPlayerTalking);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlayerTalkingChanged(FUniqueNetIdRepl PlayerId, bool IsTalking);
     
 };

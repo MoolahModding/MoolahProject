@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "DConnectionClosedDelegateDelegate.h"
+#include "DDisconnectNotifDelegateDelegate.h"
 #include "DErrorHandlerDelegate.h"
 #include "DHandlerDelegate.h"
 #include "DRefreshTokenResponseDelegateDelegate.h"
@@ -14,7 +16,6 @@ class UABLobby : public UObject {
     GENERATED_BODY()
 public:
     UABLobby();
-
     UFUNCTION(BlueprintCallable)
     void UnbindEvent();
     
@@ -23,6 +24,15 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetOnErrorNotification(FDErrorHandler OnErrorNotification);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOnDisconnect(const FDDisconnectNotifDelegate& OnDisconnected);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOnConnectionClosed(FDConnectionClosedDelegate OnConnectionClosed);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOnConnectFailed(const FDErrorHandler& OnConnectError);
     
     UFUNCTION(BlueprintCallable)
     void SetOnConnected(FDHandler OnConnected);

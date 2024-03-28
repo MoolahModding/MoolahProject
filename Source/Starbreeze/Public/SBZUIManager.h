@@ -27,16 +27,17 @@
 #include "SBZSideBarNotificationData.h"
 #include "SBZUIFullscreenNotificationData.h"
 #include "SBZUIPopupData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZUIManager.generated.h"
 
 class AActor;
-class UClass;
 class UPaperSprite;
 class USBZBaseMenuWidget;
 class USBZDebugWidget;
 class USBZFullScreenNotification;
 class USBZLoginScreenBaseWidget;
 class USBZLoginScreenInfoPopupWidget;
+class USBZPSOCompilationScreen;
 class USBZPopupWidget;
 class USBZSideBarNotifications;
 class USBZSubtitleWidget;
@@ -53,32 +54,32 @@ public:
     FSBZOnDisplayHUDNotification OnDisplayNotification;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PopUpWidgetClass;
+    TSubclassOf<USBZPopupWidget> PopUpWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZPopupWidget* PopUpWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* TutorialPopUpBodyWidgetClass;
+    TSubclassOf<USBZTutorialPopUpBody> TutorialPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZTutorialPopUpBody* TutorialPopUpBody;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FullscreenNotificationWidgetClass;
+    TSubclassOf<USBZFullScreenNotification> FullscreenNotificationWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZFullScreenNotification* FullscreenNotificationWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SideBarNotificationWidgetClass;
+    TSubclassOf<USBZSideBarNotifications> SideBarNotificationWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZSideBarNotifications* SideBarNotificationWidget;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* InfoPopupWidgetWidgetClass;
+    TSubclassOf<USBZLoginScreenInfoPopupWidget> InfoPopupWidgetWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZLoginScreenInfoPopupWidget* InfoPopupWidget;
@@ -91,7 +92,7 @@ public:
     FSBZOnHUDContextChanged OnHUDContextChanged;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DebugWidgetClass;
+    TSubclassOf<USBZDebugWidget> DebugWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZDebugWidget* DebugWidget;
@@ -110,7 +111,7 @@ protected:
     FGameplayTagContainer UIGameplayTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SubtitleWidgetClass;
+    TSubclassOf<USBZSubtitleWidget> SubtitleWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPaperSprite* PlatformSprite_GenericPC;
@@ -183,7 +184,7 @@ private:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* BlackBackgroundWidgetClass;
+    TSubclassOf<USBZWidgetBase> BlackBackgroundWidgetClass;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -191,6 +192,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZLoginScreenBaseWidget* ActiveLoginScreenWidget;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZPSOCompilationScreen* ActivePSOCompilationScreenWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZWidgetBase* LastFocusedWidget;
@@ -211,7 +215,6 @@ protected:
     
 public:
     USBZUIManager();
-
     UFUNCTION(BlueprintCallable)
     bool TryRemoveFromStack(const FName& StackValue);
     
@@ -242,10 +245,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void ShowEULAPopup(const FSBZOnPopUpWidgetClosed& InDelegate);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool ShouldStartInHeistSelection() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool ShouldDisplayCursor() const;
     
     UFUNCTION(BlueprintCallable)
@@ -290,95 +293,95 @@ public:
     UFUNCTION(BlueprintCallable)
     FName PopStack();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FName PeekStack() const;
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStateMachineStateExited(FName StateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnStateMachineStateEntered(FName StateName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPopupControllerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 public:
     UFUNCTION(BlueprintCallable)
     void OnHeistSelectionMenuSet();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsStackLocked() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsStackEmpty() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPopupShowing() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsGameInstallPending() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsControllerMode() const;
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void HideMenuControlsReference(const UObject* WorldContextObject);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLocalPlayerControllerReady();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleActionPhaseEntered();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FName> GetUIStack() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZUIData* GetUIData(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    UPaperSprite* GetSpriteForPlatform(ESBZPlatform InPlatform);
+    UFUNCTION(BlueprintPure)
+    UPaperSprite* GetSpriteForPlatform(ESBZPlatform InPlatform, bool bUseCurrentPlatformIconIfUnknown);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPaperSprite* GetSpriteForNebula();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZPopupWidget* GetPopUpWidget() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZBaseMenuWidget* GetMenuWidget(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetLocalizedPlayerNoName();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     USBZWidgetBase* GetLastFocusedWidget() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPaperSprite* GetKeySpriteForFKey(const FKey& InKey) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPaperSprite* GetKeySpriteEmpty() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     void GetKeysForAxisMapping(const FName& InAxisName, TArray<FKey>& ReturnList) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FKey GetKeyForActionMapping(const FName& InActionName) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZInputState GetInputMode() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     UPaperSprite* GetGamepadSprite() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZUIFullscreenNotificationData> GetFullscreenNotificationQueue() const;
     
     UFUNCTION(BlueprintCallable)
@@ -399,7 +402,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 AddControlsReference(const FSBZControlsReference& InControlsReference);
     
-
+    
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);

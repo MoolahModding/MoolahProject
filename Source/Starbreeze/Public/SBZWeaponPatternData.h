@@ -12,8 +12,7 @@ public:
     TArray<FSBZWeaponPatternDataSingleColorAreaList> AreasForEachColor;
     
     USBZWeaponPatternData();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetNbExpectedColorsInConfig() const;
     
 };

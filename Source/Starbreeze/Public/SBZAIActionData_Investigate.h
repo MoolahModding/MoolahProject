@@ -13,6 +13,5 @@ public:
     AActor* InvestigateActor;
     
     USBZAIActionData_Investigate();
-
 };
 

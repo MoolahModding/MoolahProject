@@ -3,4 +3,3 @@
 USBZBTDecorator_UtilityCriticalSection::USBZBTDecorator_UtilityCriticalSection() {
 }
 
-

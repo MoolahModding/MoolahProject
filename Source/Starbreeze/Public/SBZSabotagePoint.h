@@ -64,22 +64,21 @@ protected:
     int32 MarkerId;
     
 public:
-    ASBZSabotagePoint(const FObjectInitializer& ObjectInitializer);
-
+    ASBZSabotagePoint();
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* Interactable, bool bNewState);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void BroadcastOnSabotaged(bool bIsSabotaged);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

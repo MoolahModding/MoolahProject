@@ -7,10 +7,9 @@ UCLASS(Blueprintable, NonTransient)
 class ASBZHUDBase : public AHUD {
     GENERATED_BODY()
 public:
-    ASBZHUDBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHUDBase();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DelayedHudInitizalize();
     
 };

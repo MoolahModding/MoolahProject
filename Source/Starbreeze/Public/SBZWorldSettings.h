@@ -151,7 +151,6 @@ private:
     TArray<USBZLifeActionComponent*> LifeActionComponents;
     
 public:
-    ASBZWorldSettings(const FObjectInitializer& ObjectInitializer);
-
+    ASBZWorldSettings();
 };
 

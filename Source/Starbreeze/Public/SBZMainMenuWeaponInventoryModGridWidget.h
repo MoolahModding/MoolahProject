@@ -19,7 +19,6 @@ protected:
     
 public:
     USBZMainMenuWeaponInventoryModGridWidget();
-
     UFUNCTION(BlueprintCallable)
     void InitializeGridWithWeaponSlot(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
@@ -27,7 +26,7 @@ public:
     void InitializeGridWithMaskSlot(int32 InMaskSlotIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void DisplayGrid();
     
 };

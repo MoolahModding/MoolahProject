@@ -3,5 +3,5 @@
 #include "SBZSharedKeyItemTagChangedEvent.h"
 #include "SBZOnSharedKeyItemTagChangedDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSharedKeyItemTagChanged, const FSBZSharedKeyItemTagChangedEvent&, KeyItemCountChangedEventData);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSharedKeyItemTagChanged, const FSBZSharedKeyItemTagChangedEvent&, KeyItemCountChangedEventData);
 

@@ -5,23 +5,26 @@
 #include "SBZControlsReference.h"
 #include "SBZEquippableData.h"
 #include "SBZLockCameraData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZToolData.generated.h"
 
-class UClass;
+class ASBZGhostTool;
+class ASBZTool;
 class USBZEquippableAnimationCollection;
+class USBZGameplayAbility;
 
 UCLASS(Blueprintable)
 class USBZToolData : public USBZEquippableData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> PrimaryToolClass;
+    TSoftClassPtr<ASBZTool> PrimaryToolClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> PlaceableToolClass;
+    TSoftClassPtr<ASBZTool> PlaceableToolClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftClassPtr<UClass> GhostToolClass;
+    TSoftClassPtr<ASBZGhostTool> GhostToolClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZEquippableAnimationCollection* PrimaryToolAnimCollection;
@@ -54,10 +57,10 @@ public:
     FGameplayTag PlaceableAbilityTag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PrimaryAbilityClass;
+    TSubclassOf<USBZGameplayAbility> PrimaryAbilityClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlaceableAbilityClass;
+    TSubclassOf<USBZGameplayAbility> PlaceableAbilityClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bActivateImmediately;
@@ -102,6 +105,5 @@ public:
     TMap<FName, float> ForbiddenPlacementBones;
     
     USBZToolData();
-
 };
 

@@ -4,5 +4,5 @@
 
 class UWorld;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSessionJoined, UWorld*, InWorld);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSessionJoined, UWorld*, InWorld);
 

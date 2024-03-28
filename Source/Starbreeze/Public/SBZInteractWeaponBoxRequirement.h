@@ -8,6 +8,5 @@ class USBZInteractWeaponBoxRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractWeaponBoxRequirement();
-
 };
 

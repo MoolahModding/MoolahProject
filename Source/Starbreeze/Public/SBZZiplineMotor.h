@@ -27,7 +27,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZCableComponent* CableComponent;
     
-    ASBZZiplineMotor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZZiplineMotor();
 };
 

@@ -8,6 +8,5 @@ class USBZAIRepositionPredicate_Cover : public USBZAIRepositionPredicate {
     GENERATED_BODY()
 public:
     USBZAIRepositionPredicate_Cover();
-
 };
 

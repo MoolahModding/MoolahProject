@@ -13,6 +13,7 @@ enum class ESBZAgilityType : uint8 {
     Rappelling,
     RappellingFromHelicopter,
     SlideUnder,
+    SlideUnderFallDown,
     ClimbOver,
     ClimbOnTop,
     JumpingStraight,

@@ -2,7 +2,5 @@
 
 USBZBTTask_OccupyVantagePoint::USBZBTTask_OccupyVantagePoint() {
     this->bSetFocalPoint = false;
-    this->NodeName = TEXT("OccupyVantagePoint");
 }
-
 

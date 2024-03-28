@@ -6,15 +6,17 @@
 #include "EPD3HeistState.h"
 #include "SBZInvestigationData.h"
 #include "SBZInvestigationRequest.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAISearchManager.generated.h"
 
 class AActor;
 class APawn;
 class ASBZRoomVolume;
-class UClass;
 class USBZAIOrder;
+class USBZAIOrder_Investigate;
 class USBZAISearchManager;
 class USBZAISquad;
+class USBZAISquadOrder;
 
 UCLASS(Blueprintable, Within=PD3HeistGameMode)
 class USBZAISearchManager : public UObject {
@@ -22,13 +24,13 @@ class USBZAISearchManager : public UObject {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* InvestigateOrder;
+    TSubclassOf<USBZAIOrder_Investigate> InvestigateOrder;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 MaximumSearchSquadSize;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SearchOrder;
+    TSubclassOf<USBZAISquadOrder> SearchOrder;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatInterval CivilianEvacuateDelay;
@@ -56,22 +58,21 @@ private:
     
 public:
     USBZAISearchManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInvestigationCompleted(USBZAIOrder* Order, APawn* Pawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldHeistState, EPD3HeistState NewHeistState);
     
 public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool Investigate(const UObject* WorldContextObject, const FSBZInvestigationRequest& Request);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool HasPendingInvestigationFor(AActor* Target) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZAISearchManager* Get(const UObject* WorldContextObject);
     
 };

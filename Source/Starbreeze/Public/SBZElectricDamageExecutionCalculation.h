@@ -8,6 +8,5 @@ class USBZElectricDamageExecutionCalculation : public USBZRangedWeaponExecutionC
     GENERATED_BODY()
 public:
     USBZElectricDamageExecutionCalculation();
-
 };
 

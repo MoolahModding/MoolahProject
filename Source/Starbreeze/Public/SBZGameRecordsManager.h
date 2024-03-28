@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "ESBZMetaEventType.h"
 #include "SBZDifficultyConfiguration.h"
 #include "SBZMetaEventData.h"
 #include "SBZNewsFeedList.h"
@@ -14,20 +15,22 @@ class STARBREEZE_API USBZGameRecordsManager : public UObject {
     GENERATED_BODY()
 public:
     USBZGameRecordsManager();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZTitleData GetTitleData();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZNewsFeedList GetNewsFeed();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
+    TArray<ESBZMetaEventType> GetMetaEventsDataRunning() const;
+    
+    UFUNCTION(BlueprintPure)
     TArray<FSBZMetaEventData> GetMetaEventsData() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     TArray<FSBZDifficultyConfiguration> GetDifficultyConfiguration();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZGameRecordsManager* Get(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

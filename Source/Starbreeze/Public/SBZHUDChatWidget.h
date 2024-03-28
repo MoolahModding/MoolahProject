@@ -3,16 +3,19 @@
 #include "Types/SlateEnums.h"
 #include "SBZAICrewChatEvent.h"
 #include "SBZAICrewDefeatStateChangedData.h"
+#include "SBZDelegateHandle.h"
 #include "SBZHUDWidgetBase.h"
 #include "SBZKeyItemCountChangedEvent.h"
 #include "SBZPlayerCallEvent.h"
 #include "SBZPlayerChatEvent.h"
 #include "SBZPlayerDefeatStateChangedData.h"
 #include "SBZPlayerPingEvent.h"
+#include "SBZPlayerStateRemovedEvent.h"
 #include "SBZSystemChatEvent.h"
 #include "SBZVotingChatEvent.h"
 #include "SBZHUDChatWidget.generated.h"
 
+class ASBZPlayerState;
 class UEditableTextBox;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -35,14 +38,20 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsChatDisabled;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZPlayerDefeatStateChangedData> QueuedPlayerDefeatStateChangedDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<ASBZPlayerState*, FSBZDelegateHandle> PlayerNameChangedHandleMap;
+    
 public:
     USBZHUDChatWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void VotingMessageReceived(const FSBZVotingChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SystemMessageReceived(const FSBZSystemChatEvent& ChatEventData);
     
 public:
@@ -50,41 +59,50 @@ public:
     void SetChatActive(bool bSetActive);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void PlayerMessageReceived(const FSBZPlayerChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void PingReceived(const FSBZPlayerPingEvent& PingEventData);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTextCommited(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnPlayerStateRemoved(const FSBZPlayerStateRemovedEvent& PlayerStateRemovedData);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnPlayerJoinedTheHeist(const FText& JoinedPlayerName);
+    
+    UFUNCTION()
+    void OnPlayerDefeatStateChangedInternal(const FSBZPlayerDefeatStateChangedData& InData);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayerDefeatStateChanged(const FSBZPlayerDefeatStateChangedData& InData);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMessageReceived(const FSBZPlayerChatEvent& ChatEventData);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChatFocusChanged(bool bHasFocus);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnChatDisabledChanged(bool bIsDisabled);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAICrewDefeatStateChanged(const FSBZAICrewDefeatStateChangedData& InData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void KeyItemCountChanged(const FSBZKeyItemCountChangedEvent& KeyItemCountChangedEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void CrewAIMessageReceived(const FSBZAICrewChatEvent& ChatEventData);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void CallReceived(const FSBZPlayerCallEvent& CallEventData);
     
 };

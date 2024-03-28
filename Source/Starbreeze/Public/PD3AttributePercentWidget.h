@@ -17,15 +17,14 @@ protected:
     
 public:
     UPD3AttributePercentWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSetup(float CurrentValueSetup, float MaxValueSetup, float PercentageSetup);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnMaxAttributeUpdate(float NewValue, float OldPercentage, float NewPercentage);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCurrentAttributeUpdate(float NewValue, float OldPercentage, float NewPercentage);
     
 };

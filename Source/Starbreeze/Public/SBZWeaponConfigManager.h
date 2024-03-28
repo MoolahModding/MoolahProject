@@ -8,6 +8,5 @@ class USBZWeaponConfigManager : public UObject {
     GENERATED_BODY()
 public:
     USBZWeaponConfigManager();
-
 };
 

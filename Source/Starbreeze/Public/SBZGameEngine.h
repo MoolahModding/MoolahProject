@@ -8,6 +8,9 @@ class USBZGameEngine : public UGameEngine {
     GENERATED_BODY()
 public:
     USBZGameEngine();
-
+private:
+    UFUNCTION()
+    void OnResumingGamePopupClosed(FName ActionName);
+    
 };
 

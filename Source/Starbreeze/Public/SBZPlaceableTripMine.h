@@ -6,14 +6,16 @@
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
 #include "SBZPlaceableToolBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlaceableTripMine.generated.h"
 
 class AActor;
 class UAkAudioEvent;
 class UAkComponent;
 class UBoxComponent;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class ASBZPlaceableTripMine : public ASBZPlaceableToolBase, public ISBZExplosive, public ISBZHurtReactionDataInterface {
@@ -27,7 +29,7 @@ protected:
     AActor* ExplosionInstigator;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlaceableTripMineEffectClass;
+    TSubclassOf<UGameplayEffect> PlaceableTripMineEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* PlaceableTripMineExplodedEvent;
@@ -54,25 +56,24 @@ protected:
     FRuntimeFloatCurve PlayerFeedbackCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZHurtReactionData HurtReactionData;
     
 public:
-    ASBZPlaceableTripMine(const FObjectInitializer& ObjectInitializer);
-
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    ASBZPlaceableTripMine();
+    UFUNCTION(Reliable, Server)
     void Server_SetUnarmed();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_SetArmed();
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -22,15 +22,14 @@ protected:
     
 public:
     UPD3HUDKeyItemWidget();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnKeyItemPickedUp(USBZKeyItemData* InKeyItemData, int32 InitialCount);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnKeyItemDataCleared();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnKeyItemCountChanged(int32 InKeyItemCount);
     
 };

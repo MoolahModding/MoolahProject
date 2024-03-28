@@ -33,6 +33,9 @@ public:
     FText DescriptionText;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText ShortDescriptionText;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText TypeClassText;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -45,8 +48,10 @@ public:
     TSoftObjectPtr<UPaperSprite> InGameDisplayIcon;
     
     USBZInventoryBaseData();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
+    FText GetFormattedDescriptionText() const;
+    
+    UFUNCTION(BlueprintPure)
     void GetDisplayName(FText& OutDisplayName, bool& OutHasText) const;
     
 };

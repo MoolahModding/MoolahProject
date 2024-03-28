@@ -8,6 +8,5 @@ class USBZModularPartApplierWeaponStatics : public UObject {
     GENERATED_BODY()
 public:
     USBZModularPartApplierWeaponStatics();
-
 };
 

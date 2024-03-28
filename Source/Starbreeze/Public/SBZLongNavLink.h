@@ -4,12 +4,13 @@
 #include "UObject/NoExportTypes.h"
 #include "AI/Navigation/NavLinkDefinition.h"
 #include "SBZSmartLinkReachedSignatureDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZLongNavLink.generated.h"
 
 class AActor;
 class ASBZLongNavLinkPlatform;
 class ASBZSmartNavLink;
-class UClass;
+class UNavArea;
 
 UCLASS(Blueprintable)
 class ASBZLongNavLink : public ANavLinkProxy {
@@ -20,10 +21,10 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* NavArea;
+    TSubclassOf<UNavArea> NavArea;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PlatformNavArea;
+    TSubclassOf<UNavArea> PlatformNavArea;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TEnumAsByte<ENavLinkDirection::Type> Direction;
@@ -50,19 +51,18 @@ protected:
     TArray<ASBZLongNavLinkPlatform*> NavMeshPlatforms;
     
 public:
-    ASBZLongNavLink(const FObjectInitializer& ObjectInitializer);
-
+    ASBZLongNavLink();
     UFUNCTION(BlueprintCallable)
-    void SetPlatformNavArea(UClass* AreaClass);
+    void SetPlatformNavArea(TSubclassOf<UNavArea> AreaClass);
     
     UFUNCTION(BlueprintCallable)
-    void SetNavArea(UClass* AreaClass);
+    void SetNavArea(TSubclassOf<UNavArea> AreaClass);
     
     UFUNCTION(BlueprintCallable)
     void SetLinkEnabled(bool bInLinkEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnSmartLinkReached(AActor* MovingActor, const FVector& DestinationPoint);
     
 };

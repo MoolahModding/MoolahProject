@@ -1,8 +1,5 @@
 #include "SBZSettingsFunctionsKeyboard.h"
 
-USBZSettingsFunctionsKeyboard::USBZSettingsFunctionsKeyboard() {
-}
-
 void USBZSettingsFunctionsKeyboard::SetSecondaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale, FInputChord Binding) {
 }
 
@@ -25,4 +22,6 @@ FInputChord USBZSettingsFunctionsKeyboard::GetDefaultPrimaryKeyboardBinding(UObj
     return FInputChord{};
 }
 
+USBZSettingsFunctionsKeyboard::USBZSettingsFunctionsKeyboard() {
+}
 

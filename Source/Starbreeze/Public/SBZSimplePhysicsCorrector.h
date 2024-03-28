@@ -24,18 +24,20 @@ protected:
     
 public:
     USBZSimplePhysicsCorrector();
-
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintCallable)
     void SetVelocity(FVector Vel);
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void MulticastSyncState(FSBZSimplePhysicsState State);
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_SyncState(const FSBZSimplePhysicsState& State);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void MulticastInvalidateState();
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_InvalidateState();
+    
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_ForceTeleport(const FSBZSimplePhysicsState& State);
     
 };
 

@@ -8,6 +8,5 @@ class USBZPlaceECMJammerAbility : public USBZPlaceToolAbility {
     GENERATED_BODY()
 public:
     USBZPlaceECMJammerAbility();
-
 };
 

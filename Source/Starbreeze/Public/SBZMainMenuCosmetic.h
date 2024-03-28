@@ -39,15 +39,17 @@ protected:
     
 public:
     USBZMainMenuCosmetic();
-
 protected:
+    UFUNCTION(BlueprintImplementableEvent)
+    void RefreshOwnedItems();
+    
     UFUNCTION(BlueprintCallable)
     void PopulateStoreItems(ESBZItemCategory Category);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAddStoreItem(const USBZCosmeticsDataAsset* AssetData, const FSBZStoreBaseItem& StoreData);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsSelectButtonDown() const;
     
 public:
@@ -58,10 +60,10 @@ protected:
     UFUNCTION(BlueprintCallable)
     void Buy(const TMap<USBZCosmeticsPartSlot*, USBZModularPartDataAsset*>& InBuyDataMap);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnBuyDone(bool bIsSuccess, ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnApplyPreviewDone(bool bIsSuccess, ESBZMetaRequestResult Result);
     
     UFUNCTION(BlueprintCallable)

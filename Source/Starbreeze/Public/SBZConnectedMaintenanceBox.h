@@ -97,30 +97,29 @@ protected:
     bool bHasTriggeredSearch;
     
 public:
-    ASBZConnectedMaintenanceBox(const FObjectInitializer& ObjectInitializer);
-
+    ASBZConnectedMaintenanceBox();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState(ESBZMaintenanceBoxState OldState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CompletedCableBoxes();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCableBoxComplete(bool bSuccessful);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZMaintenanceBoxState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetNextColor();
     
 public:
@@ -128,13 +127,13 @@ public:
     void EnableCutting();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_UpdateNumberOfConnectedBoxes(const int32 NumberOfBoxes);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_UpdateColors(const TArray<int32>& SequenceArray, int32 NumberOfCompleteCables);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZMaintenanceBoxState NewState);
     
 };

@@ -1,8 +1,5 @@
 #include "ABEntitlement.h"
 
-UABEntitlement::UABEntitlement() {
-}
-
 void UABEntitlement::ValidateUserItemPurchaseCondition(const TArray<FString>& Items, FDAccelByteModelsPlatformValidateUserItemPurchaseResponse OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -57,4 +54,6 @@ void UABEntitlement::CreateDistributionReceiver(const FString& ExtUserId, const 
 void UABEntitlement::ConsumeUserEntitlement(const FString& EntitlementId, const int32& UseCount, FDAccelByteModelsEntitlementInfoResponse OnSuccess, FDErrorHandler OnError) {
 }
 
+UABEntitlement::UABEntitlement() {
+}
 

@@ -13,7 +13,6 @@ private:
     TArray<FSBZMeshZones> MeshZonesMap;
     
 public:
-    ASBZPersistentWorldDamageZoneManager(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPersistentWorldDamageZoneManager();
 };
 

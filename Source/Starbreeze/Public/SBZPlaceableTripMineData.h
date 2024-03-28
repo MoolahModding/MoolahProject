@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "SBZToolData.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPlaceableTripMineData.generated.h"
 
-class UClass;
+class UGameplayEffect;
 
 UCLASS(Blueprintable)
 class USBZPlaceableTripMineData : public USBZToolData {
@@ -20,12 +21,11 @@ public:
     float StunTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GameplayEffectClass;
+    TSubclassOf<UGameplayEffect> GameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTag DurationTag;
     
     USBZPlaceableTripMineData();
-
 };
 

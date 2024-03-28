@@ -5,11 +5,12 @@
 #include "SBZButtonControlReference.h"
 #include "SBZInventorySlotStoreItem.h"
 #include "SBZMenuStackInventoryBaseScreen.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuSuitInventoryScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZBaseInventoryItemVisualsWidget;
+class USBZInventoryDefaultButton;
 class USBZMainMenuInventorySuitSlotButton;
 class USBZMenuButton;
 
@@ -19,7 +20,7 @@ class USBZMainMenuSuitInventoryScreen : public USBZMenuStackInventoryBaseScreen 
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* SuitSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventorySuitSlotButton> SuitSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_SuitSlotButtons;
@@ -28,10 +29,10 @@ protected:
     USBZMenuButton* Button_BuySlots;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZMenuButton* Button_DefaultSuit;
+    USBZInventoryDefaultButton* Button_DefaultSuit;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DiscardSuitPopUpBodyWidgetClass;
+    TSubclassOf<USBZBaseInventoryItemVisualsWidget> DiscardSuitPopUpBodyWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText DiscardSuitPopUpHeader;
@@ -60,58 +61,62 @@ private:
     
 public:
     USBZMainMenuSuitInventoryScreen();
-
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardSuitInSlot(int32 InSuitIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void SuitSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+private:
+    UFUNCTION()
+    void RefreshWidgetVisuals();
+    
+protected:
+    UFUNCTION(BlueprintImplementableEvent)
     void OnTryBuySuitSlot();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSlotPurchaseComplete(bool bWasSuccessful);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSlotPriceChanged(const FSBZInventorySlotStoreItem& Item);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnShowBuySlotPopUpClosed(FName InActionName);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnItemDiscarded(bool bWasSuccessful);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnDiscardSuitPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeSuitSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnSuitSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnSuitDefaultButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnDefaultSet(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DiscardItemDone(ESBZMetaRequestResult DiscardItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool CanDiscardSuitInSlot(int32 IndexToDiscard) const;
     
 };

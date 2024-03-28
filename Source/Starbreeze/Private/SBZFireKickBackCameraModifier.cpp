@@ -3,4 +3,3 @@
 USBZFireKickBackCameraModifier::USBZFireKickBackCameraModifier() {
 }
 
-

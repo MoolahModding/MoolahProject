@@ -8,6 +8,5 @@ class USBZInteractWindowRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractWindowRequirement();
-
 };
 

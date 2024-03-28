@@ -22,7 +22,6 @@ class UABMatchmaking : public UObject {
     GENERATED_BODY()
 public:
     UABMatchmaking();
-
     UFUNCTION(BlueprintCallable)
     void StartMatchmaking(const FStartMatchmakingRequest& Request, FDStartMatchmakingResponse OnResponse, FDErrorHandler OnError);
     

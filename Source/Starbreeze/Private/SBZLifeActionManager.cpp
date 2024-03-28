@@ -1,8 +1,5 @@
 #include "SBZLifeActionManager.h"
 
-USBZLifeActionManager::USBZLifeActionManager() {
-}
-
 void USBZLifeActionManager::StopActionForCharacter(ASBZCharacter* Character, USBZLifeActionSlot* Slot, ESBZLifeActionStopReason StopReason) {
 }
 
@@ -62,4 +59,6 @@ bool USBZLifeActionManager::EnterActionForCharacter(ASBZCharacter* Character) {
     return false;
 }
 
+USBZLifeActionManager::USBZLifeActionManager() {
+}
 

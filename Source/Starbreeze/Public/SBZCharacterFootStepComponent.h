@@ -57,6 +57,5 @@ protected:
     
 public:
     USBZCharacterFootStepComponent();
-
 };
 

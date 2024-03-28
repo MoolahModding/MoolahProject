@@ -1,10 +1,5 @@
 #include "SBZBlackMarketVendorButton.h"
 
-USBZBlackMarketVendorButton::USBZBlackMarketVendorButton() {
-    this->VendorData = NULL;
-    this->bIsActiveVendor = false;
-}
-
 void USBZBlackMarketVendorButton::SetActiveVendor(bool bInIsActiveVendor) {
 }
 
@@ -17,4 +12,8 @@ USBZVendorData* USBZBlackMarketVendorButton::GetVendorData() const {
     return NULL;
 }
 
+USBZBlackMarketVendorButton::USBZBlackMarketVendorButton() {
+    this->VendorData = NULL;
+    this->bIsActiveVendor = false;
+}
 

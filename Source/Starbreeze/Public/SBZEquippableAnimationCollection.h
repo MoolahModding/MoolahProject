@@ -12,6 +12,5 @@ public:
     TMap<FName, FSBZAnimationContainer> AnimationContainersTP;
     
     USBZEquippableAnimationCollection();
-
 };
 

@@ -13,6 +13,5 @@ public:
     TArray<USBZWeaponStickerData*> WeaponStickerArray;
     
     USBZWeaponStickerDatabase();
-
 };
 

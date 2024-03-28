@@ -3,5 +3,5 @@
 #include "AccelByteModelsRejectConsentNotice.h"
 #include "DSetRejectConsentNotifDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDSetRejectConsentNotif, FAccelByteModelsRejectConsentNotice, Notif);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDSetRejectConsentNotif, FAccelByteModelsRejectConsentNotice, Notif);
 

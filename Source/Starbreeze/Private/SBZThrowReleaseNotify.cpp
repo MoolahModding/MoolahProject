@@ -4,4 +4,3 @@ USBZThrowReleaseNotify::USBZThrowReleaseNotify() {
     this->bUseThrowBoneTransform = false;
 }
 
-

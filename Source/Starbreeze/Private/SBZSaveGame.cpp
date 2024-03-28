@@ -5,4 +5,3 @@ USBZSaveGame::USBZSaveGame() {
     this->LatestVersion = 0;
 }
 
-

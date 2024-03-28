@@ -1,8 +1,5 @@
 #include "ABServerLobby.h"
 
-UABServerLobby::UABServerLobby() {
-}
-
 void UABServerLobby::WritePartyStorage(const FString& PartyId, FDPayloadModifier PayloadModifier, const int32& RetryAttempt, FDPartyDataNotifDelegate OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -30,4 +27,6 @@ void UABServerLobby::GetListOfBlockers(const FString& UserId, FDListBlockerRespo
 void UABServerLobby::GetListOfBlockedUsers(const FString& UserId, FDListBlockedUserResponseDelegate OnSuccess, FDErrorHandler OnError) {
 }
 
+UABServerLobby::UABServerLobby() {
+}
 

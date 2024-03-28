@@ -30,9 +30,8 @@ private:
     FVector ConnectorLocation;
     
 public:
-    ASBZRoomConnectorVolume(const FObjectInitializer& ObjectInitializer);
-
-
+    ASBZRoomConnectorVolume();
+    
     // Fix for true pure virtual functions not being implemented
 };
 

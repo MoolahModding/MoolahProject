@@ -1,14 +1,5 @@
 #include "SBZMainMenuCrimeNetTutorial.h"
 
-USBZMainMenuCrimeNetTutorial::USBZMainMenuCrimeNetTutorial() {
-    this->HeistButtonClass = NULL;
-    this->HeistButtonClass = NULL;
-    this->VerticalBox_HeistButtons = NULL;
-    this->SelectedHeistButton = NULL;
-    this->bHasDisabledButtons = false;
-    this->StackValue = TEXT("Default__SBZMainMenuCrimeNetTutorial");
-}
-
 
 
 
@@ -25,4 +16,10 @@ void USBZMainMenuCrimeNetTutorial::HandlePartyChanged() {
 }
 
 
+USBZMainMenuCrimeNetTutorial::USBZMainMenuCrimeNetTutorial() {
+    this->HeistButtonClass = NULL;
+    this->VerticalBox_HeistButtons = NULL;
+    this->SelectedHeistButton = NULL;
+    this->bHasDisabledButtons = false;
+}
 

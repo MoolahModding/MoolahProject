@@ -14,7 +14,6 @@ protected:
     
 public:
     USBZSettingsButtonGamepadBinding();
-
     UFUNCTION(BlueprintCallable)
     void SetPrimaryBinding(FInputChord InBinding);
     

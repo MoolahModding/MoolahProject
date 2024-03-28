@@ -1,8 +1,5 @@
 #include "SBZLoadoutManager.h"
 
-USBZLoadoutManager::USBZLoadoutManager() {
-}
-
 void USBZLoadoutManager::SetLoadoutAtIndex(int32 LoadoutIndex, const FSBZPlayerLoadoutConfig& InLoadoutConfig) {
 }
 
@@ -22,4 +19,6 @@ int32 USBZLoadoutManager::GetActiveLoadoutIndex() const {
     return 0;
 }
 
+USBZLoadoutManager::USBZLoadoutManager() {
+}
 

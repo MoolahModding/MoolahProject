@@ -8,6 +8,5 @@ class USBZDisableAgentBrainNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZDisableAgentBrainNotifyState();
-
 };
 

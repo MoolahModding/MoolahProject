@@ -8,6 +8,5 @@ class USBZNavArea_AgilityLadder : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityLadder();
-
 };
 

@@ -1,17 +1,22 @@
 #include "SBZBeaconActionPhaseClient.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bIsDsLobbyClient = false;
+void ASBZBeaconActionPhaseClient::ServerVoteStayAsParty_Implementation() {
 }
 
-void ASBZBeaconActionPhaseClient::ServerVoteStayAsParty_Implementation() {
+void ASBZBeaconActionPhaseClient::ServerTogglePlayerReady_Implementation(const FUniqueNetIdRepl& InPlayerId) {
 }
 
 void ASBZBeaconActionPhaseClient::ServerSetSlotStatus_Implementation(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status) {
 }
 
-void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
+void ASBZBeaconActionPhaseClient::ServerSetPlayerUnready_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+}
+
+void ASBZBeaconActionPhaseClient::ServerSetPlayerReady_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+}
+
+void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZFirstPartyPlatform& FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
 }
 
 void ASBZBeaconActionPhaseClient::ServerSetPlayerLoadingComplete_Implementation(const FUniqueNetIdRepl& InPlayerId) {
@@ -53,7 +58,16 @@ void ASBZBeaconActionPhaseClient::ServerNotifyStartTravel_Implementation(const F
 void ASBZBeaconActionPhaseClient::ServerAddPreplanningAsset_Implementation(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku) {
 }
 
+void ASBZBeaconActionPhaseClient::SendTogglePlayerReady() {
+}
+
 void ASBZBeaconActionPhaseClient::SendPreplanningAssets() {
+}
+
+void ASBZBeaconActionPhaseClient::SendPlayerUnready() {
+}
+
+void ASBZBeaconActionPhaseClient::SendPlayerReady() {
 }
 
 void ASBZBeaconActionPhaseClient::SendActiveLoadout(const FUniqueNetIdRepl& InPlayerId) {
@@ -83,7 +97,7 @@ void ASBZBeaconActionPhaseClient::ClientStartWaitingPlayersLoadingComplete_Imple
 void ASBZBeaconActionPhaseClient::ClientStartTravelAck_Implementation(const ESBZOnlineCode& Result) {
 }
 
-void ASBZBeaconActionPhaseClient::ClientSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
+void ASBZBeaconActionPhaseClient::ClientSetPlayerLoadout_Implementation(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZFirstPartyPlatform FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled) {
 }
 
 void ASBZBeaconActionPhaseClient::ClientRestartPreTravelTimer_Implementation(float PreTravelTimeLimit) {
@@ -110,6 +124,9 @@ void ASBZBeaconActionPhaseClient::ClientPreMatchLobbyStatusUpdated_Implementatio
 void ASBZBeaconActionPhaseClient::ClientPlayerToReadyAck_Implementation() {
 }
 
+void ASBZBeaconActionPhaseClient::ClientPlayerReadyAck_Implementation(bool bIsReady) {
+}
+
 void ASBZBeaconActionPhaseClient::ClientJoinPartyByCode_Implementation(const FString& PartyCode) {
 }
 
@@ -125,4 +142,7 @@ void ASBZBeaconActionPhaseClient::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(ASBZBeaconActionPhaseClient, PlayersInfo);
 }
 
+ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient() {
+    this->bIsDsLobbyClient = false;
+}
 

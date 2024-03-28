@@ -3,4 +3,3 @@
 USBZEnvQueryContext_SquadOrderTargetRoom::USBZEnvQueryContext_SquadOrderTargetRoom() {
 }
 
-

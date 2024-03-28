@@ -8,6 +8,5 @@ class USBZBTService_CrewAIStealthMarking : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_CrewAIStealthMarking();
-
 };
 

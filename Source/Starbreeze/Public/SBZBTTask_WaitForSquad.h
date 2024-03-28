@@ -8,6 +8,5 @@ class USBZBTTask_WaitForSquad : public UBTTaskNode {
     GENERATED_BODY()
 public:
     USBZBTTask_WaitForSquad();
-
 };
 

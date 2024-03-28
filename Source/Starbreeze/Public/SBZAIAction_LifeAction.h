@@ -8,6 +8,5 @@ class USBZAIAction_LifeAction : public USBZAIAction_Order {
     GENERATED_BODY()
 public:
     USBZAIAction_LifeAction();
-
 };
 

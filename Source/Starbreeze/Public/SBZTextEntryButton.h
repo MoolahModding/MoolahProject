@@ -23,20 +23,19 @@ protected:
     
 public:
     USBZTextEntryButton();
-
     UFUNCTION(BlueprintCallable)
     void SetInputText(const FText& InText);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnTextCommited(const FText& Text, TEnumAsByte<ETextCommit::Type> CommitMethod);
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetCurrentText() const;
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void EditingText(bool bInIsEditingText);
     
 };

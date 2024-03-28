@@ -6,4 +6,3 @@ USBZEquippableAnimation::USBZEquippableAnimation() {
     this->AnimationCollection = NULL;
 }
 
-

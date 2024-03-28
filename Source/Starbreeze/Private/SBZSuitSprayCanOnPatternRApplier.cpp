@@ -3,4 +3,3 @@
 USBZSuitSprayCanOnPatternRApplier::USBZSuitSprayCanOnPatternRApplier() {
 }
 
-

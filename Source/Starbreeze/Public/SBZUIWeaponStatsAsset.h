@@ -2,16 +2,17 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "SBZUIWeaponStatWeightContainer.h"
+#include "Templates/SubclassOf.h"
 #include "SBZUIWeaponStatsAsset.generated.h"
 
-class UClass;
+class USBZUIWeaponStatsBlueprint;
 
 UCLASS(Blueprintable)
 class USBZUIWeaponStatsAsset : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* WeaponStatsBlueprintClass;
+    TSubclassOf<USBZUIWeaponStatsBlueprint> WeaponStatsBlueprintClass;
     
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -19,6 +20,5 @@ private:
     
 public:
     USBZUIWeaponStatsAsset();
-
 };
 

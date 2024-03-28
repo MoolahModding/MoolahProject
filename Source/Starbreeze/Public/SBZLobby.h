@@ -45,27 +45,26 @@ private:
     
 public:
     USBZLobby();
-
 private:
-    UFUNCTION(BlueprintCallable)
-    void JoinLobbyComplete(const ESBZOnlineCode& Result);
+    UFUNCTION()
+    void JoinLobbyComplete(ESBZOnlineCode Result);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void InitLobbyHostComplete(const ESBZOnlineCode& Result);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HostMigrationSession(int32 HostId);
     
 private:
-    UFUNCTION(BlueprintCallable)
-    void HostLobbyComplete(const ESBZOnlineCode& Result);
+    UFUNCTION()
+    void HostLobbyComplete(ESBZOnlineCode Result);
     
 public:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HostLobby(const FSBZOnlineSessionParams& Params);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleLostConnectionToHost();
     
 };

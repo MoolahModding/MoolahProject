@@ -19,13 +19,12 @@ private:
     USBZInteractableComponent* Interactable;
     
 public:
-    ASBZViewTargetCollectionInteraction(const FObjectInitializer& ObjectInitializer);
-
+    ASBZViewTargetCollectionInteraction();
     UFUNCTION(BlueprintCallable)
     void SetViewTargetCollection(AActor* InActor);
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
 };

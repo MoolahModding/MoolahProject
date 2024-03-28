@@ -5,5 +5,5 @@
 
 class AActor;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZOnHackingStateChanged, AActor*, InActor, ESBZHackingState, NewState, bool, bDoCosmetics);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZOnHackingStateChanged, AActor*, InActor, ESBZHackingState, NewState, bool, bDoCosmetics);
 

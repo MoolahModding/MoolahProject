@@ -1,14 +1,5 @@
 #include "PD3AssaultManager.h"
 
-UPD3AssaultManager::UPD3AssaultManager() {
-    this->Settings = NULL;
-    this->ThrowableTypeCooldown[0] = 0.00f;
-    this->ThrowableTypeCooldown[1] = 0.00f;
-    this->ThrowableTypeCooldown[2] = 0.00f;
-    this->ThrowableTypeCooldown[3] = 0.00f;
-    this->ThrowableTypeCooldown[4] = 0.00f;
-}
-
 void UPD3AssaultManager::StartEndlessAssault() {
 }
 
@@ -30,13 +21,10 @@ void UPD3AssaultManager::OnPlayersAliveChanged(const TArray<UObject*>& Players) 
 void UPD3AssaultManager::OnPawnSpawned(USBZSpawnManager* SpawnManager, APawn* Pawn) {
 }
 
-void UPD3AssaultManager::OnPawnKilled(APawn* Pawn) {
-}
-
 void UPD3AssaultManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
 }
 
-void UPD3AssaultManager::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime) {
+void UPD3AssaultManager::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive) {
 }
 
 void UPD3AssaultManager::OnDamageTakenEvent(const FSBZDamageEvent& DamageEventdata) {
@@ -50,4 +38,12 @@ UPD3AssaultManager* UPD3AssaultManager::Get(const UObject* WorldContextObject) {
     return NULL;
 }
 
+UPD3AssaultManager::UPD3AssaultManager() {
+    this->Settings = NULL;
+    this->ThrowableTypeCooldown[0] = 0.00f;
+    this->ThrowableTypeCooldown[1] = 0.00f;
+    this->ThrowableTypeCooldown[2] = 0.00f;
+    this->ThrowableTypeCooldown[3] = 0.00f;
+    this->ThrowableTypeCooldown[4] = 0.00f;
+}
 

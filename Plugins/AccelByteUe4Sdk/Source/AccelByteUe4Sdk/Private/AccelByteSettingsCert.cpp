@@ -3,4 +3,3 @@
 UAccelByteSettingsCert::UAccelByteSettingsCert() {
 }
 
-

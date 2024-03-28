@@ -26,6 +26,8 @@ enum class ESBZOnlineCode : uint8 {
     PartyLeaderCancelledMatchmaking,
     JoinedCrossPlatformLobby,
     SessionIsFull,
+    SessionDoesNotExist,
     ReturnToIIS,
+    UserHasChanged,
 };
 

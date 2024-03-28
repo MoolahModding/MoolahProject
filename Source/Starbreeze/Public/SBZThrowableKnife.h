@@ -4,14 +4,15 @@
 #include "Engine/EngineTypes.h"
 #include "SBZKnifeProjectileTargetData.h"
 #include "SBZThrowable.h"
+#include "Templates/SubclassOf.h"
 #include "SBZThrowableKnife.generated.h"
 
 class AActor;
 class ASBZAIPointOfInterest;
 class ASBZAmmoPickup;
+class ASBZThrowableKnifePickup;
 class UAkAudioEvent;
 class UBoxComponent;
-class UClass;
 class UPrimitiveComponent;
 
 UCLASS(Abstract, Blueprintable)
@@ -29,10 +30,10 @@ protected:
     UAkAudioEvent* OverrideThrowableProjectileBounceHitEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* AmmoPickupAsset;
+    TSubclassOf<ASBZThrowableKnifePickup> AmmoPickupAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* ThrowableKnifePOIClass;
+    TSubclassOf<ASBZAIPointOfInterest> ThrowableKnifePOIClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZAIPointOfInterest* ThrowableKnifePOIInstance;
@@ -44,26 +45,28 @@ protected:
     ASBZAmmoPickup* AmmoPickup;
     
 public:
-    ASBZThrowableKnife(const FObjectInitializer& ObjectInitializer);
-
+    ASBZThrowableKnife();
 protected:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_ReplicateDamage(const FSBZKnifeProjectileTargetData& TargetData);
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_PickedUp();
     
-    UFUNCTION(BlueprintCallable, Reliable, Server)
+    UFUNCTION(Reliable, Server)
     void Server_CreateImpact(bool bInShouldBladeBounce, bool bInHasRetrieverSkill, UPrimitiveComponent* InHitComponent, const FName& InBoneName, const FVector& InRelativeLocation);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnParentActorEndPlay(AActor* OldAttachParentActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_FireKnife(const FSBZKnifeProjectileTargetData& TargetData);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_CreateImpact(bool bInShouldBladeBounce, bool bInHasRetrieverSkill);
+    
+    UFUNCTION(BlueprintPure)
+    bool HasRetrieverSkill() const;
     
 };
 

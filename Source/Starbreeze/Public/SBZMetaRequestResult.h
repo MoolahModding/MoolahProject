@@ -8,6 +8,5 @@ class USBZMetaRequestResult : public UObject {
     GENERATED_BODY()
 public:
     USBZMetaRequestResult();
-
 };
 

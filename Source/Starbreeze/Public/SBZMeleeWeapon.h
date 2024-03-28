@@ -14,7 +14,6 @@ protected:
     UAkAudioEvent* MeleeHitEvent;
     
 public:
-    ASBZMeleeWeapon(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMeleeWeapon();
 };
 

@@ -1,12 +1,15 @@
 #include "ABCloudSave.h"
 
-UABCloudSave::UABCloudSave() {
-}
-
 void UABCloudSave::SaveUserRecord(const FString& Key, FJsonObjectWrapper RecordRequest, bool IsPublic, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
 void UABCloudSave::SaveGameRecord(const FString& Key, FJsonObjectWrapper RecordRequest, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
+}
+
+void UABCloudSave::ReplaceUserRecordCheckLatestWithResponse(const FString& Key, FDateTime LastUpdated, FJsonObjectWrapper RecordRequest, const FDModelsReplaceUserRecordResponse& OnSuccess, const FDErrorHandler& OnError) {
+}
+
+void UABCloudSave::ReplaceUserRecordCheckLatestRetryWithResponse(int32 TryAttempt, const FString& Key, FJsonObjectWrapper RecordRequest, const FDPayloadJsonObject& PayloadModifier, const FDModelsReplaceUserRecordResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
 void UABCloudSave::ReplaceUserRecordCheckLatestRetry(int32 TryAttempt, const FString& Key, FJsonObjectWrapper RecordRequest, const FDPayloadJsonObject& PayloadModifier, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
@@ -45,7 +48,15 @@ void UABCloudSave::DeleteGameRecord(const FString& Key, const FDHandler& OnSucce
 void UABCloudSave::BulkGetUserRecords(const TArray<FString>& Keys, const FDModelsListUserRecords& OnSuccess, const FDErrorHandler& OnError) {
 }
 
+void UABCloudSave::BulkGetOtherPlayerPublicRecords(const FString& UserId, const TArray<FString>& Keys, const FDModelsListUserRecords& OnSuccess, const FDErrorHandler& OnError) {
+}
+
+void UABCloudSave::BulkGetOtherPlayerPublicRecordKeys(const FString& UserId, const FDModelsPaginatedBulkGetPublicUserRecordKeysResponse& OnSuccess, const FDErrorHandler& OnError, const int32& Offset, const int32& Limit) {
+}
+
 void UABCloudSave::BulkGetGameRecords(const TArray<FString>& Keys, const FDModelsListGameRecords& OnSuccess, const FDErrorHandler& OnError) {
 }
 
+UABCloudSave::UABCloudSave() {
+}
 

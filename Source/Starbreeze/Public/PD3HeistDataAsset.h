@@ -3,19 +3,20 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
-#include "Engine/DataAsset.h"
 #include "Engine/EngineTypes.h"
 #include "GameplayTagContainer.h"
 #include "ESBZDifficulty.h"
 #include "ESBZHeistComplexity.h"
+#include "SBZInventoryBaseData.h"
 #include "SBZStorymodeStruct.h"
 #include "PD3HeistDataAsset.generated.h"
 
 class UAkAudioEvent;
 class UPaperSprite;
+class USBZStatisticCriteriaData;
 
 UCLASS(Blueprintable)
-class STARBREEZE_API UPD3HeistDataAsset : public UDataAsset {
+class STARBREEZE_API UPD3HeistDataAsset : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -105,16 +106,18 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer PrePlanningTagContainer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZStatisticCriteriaData*> StatisticCriteriaDataArray;
+    
     UPD3HeistDataAsset();
-
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FText GetHeistTimeShort() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetEstimatedPayout(ESBZDifficulty Diffculty, int32& OutMin, int32& OutMax) const;
+    UFUNCTION(BlueprintPure)
+    FString GetHeistReferenceText() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetDisplayName(FText& OutDisplayName, bool& OutHasText) const;
+    UFUNCTION(BlueprintPure)
+    void GetEstimatedPayout(ESBZDifficulty Diffculty, int32& OutMin, int32& OutMax) const;
     
 };
 

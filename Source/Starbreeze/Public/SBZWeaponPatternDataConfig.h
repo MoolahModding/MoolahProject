@@ -9,10 +9,9 @@ UCLASS(Blueprintable)
 class USBZWeaponPatternDataConfig : public USBZEquippablePartConfig {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (AllowPrivateAccess = true))
     TArray<USBZSprayCanData*> PatternSprayCans;
-    
-    USBZWeaponPatternDataConfig();
 
+    USBZWeaponPatternDataConfig();
 };
 

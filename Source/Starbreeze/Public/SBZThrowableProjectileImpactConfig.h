@@ -15,6 +15,5 @@ public:
     bool bShouldDoBloodSplatter;
     
     USBZThrowableProjectileImpactConfig();
-
 };
 

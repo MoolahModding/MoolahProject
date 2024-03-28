@@ -8,6 +8,5 @@ class USBZAnalyticsProvider : public UObject {
     GENERATED_BODY()
 public:
     USBZAnalyticsProvider();
-
 };
 

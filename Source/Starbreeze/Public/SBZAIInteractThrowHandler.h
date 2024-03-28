@@ -12,8 +12,7 @@ class USBZAIInteractThrowHandler : public UObject {
     GENERATED_BODY()
 public:
     USBZAIInteractThrowHandler();
-
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnThrowBagInteractionCompleted(ASBZBagTriggerVolume* Volume, ASBZBagItem* BagItem, FSBZBagHandle BagHandle);
     
 };

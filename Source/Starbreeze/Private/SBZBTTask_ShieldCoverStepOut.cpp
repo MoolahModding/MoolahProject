@@ -6,7 +6,5 @@ USBZBTTask_ShieldCoverStepOut::USBZBTTask_ShieldCoverStepOut() {
     this->MoveSidewaysAmount = 50.00f;
     this->StepOutLeft = -100.00f;
     this->StepOutRight = 80.00f;
-    this->NodeName = TEXT("StepOutFromShield");
 }
-
 

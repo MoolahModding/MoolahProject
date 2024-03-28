@@ -9,16 +9,22 @@ class USBZMainMenuPrePlanningWidget : public USBZMenuStackWidget {
     GENERATED_BODY()
 public:
     USBZMainMenuPrePlanningWidget();
-
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnLobbyPlayerReadyStatusUpdatedEvent(bool bInReadyStatus);
+    
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnAsyncLoadingDone();
+    
+private:
+    UFUNCTION()
+    void NativeOnPlayerReadyStatusChanged(bool bInReadyStatus);
     
 public:
     UFUNCTION(BlueprintCallable)
     bool IsAsyncLoadingDone();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ESBZDifficulty GetDifficulty() const;
     
 };

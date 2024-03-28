@@ -32,7 +32,7 @@ protected:
     FGameplayTagContainer QueuedOwnerTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 bIsInputToggledOnActivationOnly: 1;
+    uint8 bIsCancelToggleOnInputPressed: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bIsCancelOnInputReleased: 1;
@@ -54,6 +54,5 @@ protected:
     
 public:
     USBZGameplayAbility();
-
 };
 

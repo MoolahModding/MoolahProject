@@ -8,6 +8,7 @@
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
 #include "SBZPlaceableToolBase.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMicroCamera.generated.h"
 
 class AActor;
@@ -15,7 +16,7 @@ class APawn;
 class UAkAudioEvent;
 class UAkComponent;
 class UBoxComponent;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
 
 UCLASS(Blueprintable)
@@ -39,7 +40,7 @@ protected:
     AActor* ExplosionInstigator;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* MicroCameraTasedEffectClass;
+    TSubclassOf<UGameplayEffect> MicroCameraTasedEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* MicroCameraExplodedEvent;
@@ -84,25 +85,24 @@ protected:
     FSBZHurtReactionData HurtReactionData;
     
 public:
-    ASBZMicroCamera(const FObjectInitializer& ObjectInitializer);
-
+    ASBZMicroCamera();
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnAICharacterKilled(APawn* InAIPawn);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetArmed();
     
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_OverloadMicroCamera();
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -7,6 +7,6 @@ enum class EPD3AmmoState : uint8 {
     Normal,
     Low,
     Critical,
-    Default = Normal,
+    Default = Normal
 };
 

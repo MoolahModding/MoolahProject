@@ -6,8 +6,5 @@ USBZActionNotificationAsset::USBZActionNotificationAsset() {
     this->AudioEvent = NULL;
     this->VoiceComment = NULL;
     this->VoicePriority = ESBZVoicePriority::MediumPriority;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZActionNotificationAsset::StaticClass();
 }
-
 

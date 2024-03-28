@@ -24,10 +24,9 @@ private:
     FSBZOnVoiceVolumeDialogEndedDelegate DialogEnded;
     
 public:
-    ASBZPlayerTriggeredVoiceVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPlayerTriggeredVoiceVolume();
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleDialogEnded(ESBZDialogEndedReason Reason);
     
 };

@@ -11,6 +11,15 @@ enum class EAccelByteItemSource : uint8 {
     ACHIEVEMENT,
     REFERRAL_BONUS,
     REDEEM_CODE,
+    REWARD,
+    GIFT,
+    DLC,
+    SELL_BACK,
+    CONSUME_ENTITLEMENT,
+    ORDER_REVOCATION,
+    PAYMENT,
+    EXPIRATION,
+    IAP_CHARGEBACK_REVERSED,
     OTHER,
 };
 

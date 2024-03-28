@@ -8,6 +8,5 @@ class USBZPhoneThumbPressedNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZPhoneThumbPressedNotify();
-
 };
 

@@ -8,6 +8,5 @@ class USBZShoveHumanShieldDamageType : public USBZMeleeDamageType {
     GENERATED_BODY()
 public:
     USBZShoveHumanShieldDamageType();
-
 };
 

@@ -8,6 +8,5 @@ class USBZAerialVehicleAnimation : public USBZVehicleAnimation {
     GENERATED_BODY()
 public:
     USBZAerialVehicleAnimation();
-
 };
 

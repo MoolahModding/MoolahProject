@@ -12,33 +12,34 @@ class USBZFriendManager : public UObject {
     GENERATED_BODY()
 public:
     USBZFriendManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnUnblockPlayerComplete(bool bResult, FSBZFriendListEntry PlayerEntry);
     
-    UFUNCTION(BlueprintCallable)
-    void OnQueryBlockedPlayersDone();
-    
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPlatformUserInitialized();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBlockPlayerComplete(bool bResult, FSBZFriendListEntry PlayerEntry);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnBlockedPlayerChanged();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPlayingOnSamePlatform(const FSBZFriendListEntry& FriendEntry) const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsCrossplayAllowed() const;
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleUIStackChanged(FSBZUIStackChangedEvent Event);
     
+private:
+    UFUNCTION()
+    void HandleStateEntered(FName StateName);
+    
+public:
     UFUNCTION(BlueprintCallable)
     TMap<FString, FSBZFriendListEntry> GetUserSearchEntries();
     
@@ -54,7 +55,7 @@ public:
     UFUNCTION(BlueprintCallable)
     TMap<FString, FSBZFriendListEntry> GetIncomingFriendRequests();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZFriendManager* GetFriendManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

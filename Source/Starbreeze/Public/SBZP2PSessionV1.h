@@ -8,6 +8,5 @@ class STARBREEZE_API USBZP2PSessionV1 : public USBZP2PSession {
     GENERATED_BODY()
 public:
     USBZP2PSessionV1();
-
 };
 

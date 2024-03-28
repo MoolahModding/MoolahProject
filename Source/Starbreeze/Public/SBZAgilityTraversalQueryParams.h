@@ -47,6 +47,5 @@ protected:
     
 public:
     USBZAgilityTraversalQueryParams();
-
 };
 

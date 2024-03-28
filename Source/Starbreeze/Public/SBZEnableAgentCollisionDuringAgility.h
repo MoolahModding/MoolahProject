@@ -8,6 +8,5 @@ class USBZEnableAgentCollisionDuringAgility : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZEnableAgentCollisionDuringAgility();
-
 };
 

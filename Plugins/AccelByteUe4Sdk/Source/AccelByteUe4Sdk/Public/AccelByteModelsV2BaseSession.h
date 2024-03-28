@@ -4,6 +4,7 @@
 #include "JsonObjectWrapper.h"
 #include "AccelByteModelsV2SessionConfiguration.h"
 #include "AccelByteModelsV2SessionUser.h"
+#include "AccelbyteModelsV2SessionStorage.h"
 #include "EAccelByteV2SessionType.h"
 #include "AccelByteModelsV2BaseSession.generated.h"
 
@@ -46,6 +47,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EAccelByteV2SessionType SessionType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FAccelbyteModelsV2SessionStorage Storage;
     
     FAccelByteModelsV2BaseSession();
 };

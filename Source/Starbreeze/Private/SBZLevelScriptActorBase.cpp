@@ -1,8 +1,5 @@
 #include "SBZLevelScriptActorBase.h"
 
-ASBZLevelScriptActorBase::ASBZLevelScriptActorBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-}
-
 bool ASBZLevelScriptActorBase::RemoteEventWithInt(FName EventName, int32 Integer) {
     return false;
 }
@@ -19,4 +16,6 @@ bool ASBZLevelScriptActorBase::RemoteEventWithActor(FName EventName, AActor* Act
     return false;
 }
 
+ASBZLevelScriptActorBase::ASBZLevelScriptActorBase() {
+}
 

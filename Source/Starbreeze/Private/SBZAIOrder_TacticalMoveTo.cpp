@@ -11,15 +11,9 @@ USBZAIOrder_TacticalMoveTo::USBZAIOrder_TacticalMoveTo() {
     this->PreStateActions[2] = NULL;
     this->PreStateActions[3] = NULL;
     this->PreStateActions[4] = NULL;
-    this->PreStateActions[0] = NULL;
-    this->PreStateActions[1] = NULL;
-    this->PreStateActions[2] = NULL;
-    this->PreStateActions[3] = NULL;
-    this->PreStateActions[4] = NULL;
     this->PrioWaitTime = 3.00f;
     this->TargetRoom = NULL;
     this->TargetEQSQuery = NULL;
     this->MaxNumTargetRoomPathFailed = 0;
 }
-
 

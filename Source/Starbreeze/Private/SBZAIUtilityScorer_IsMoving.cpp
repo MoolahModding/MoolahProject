@@ -3,4 +3,3 @@
 USBZAIUtilityScorer_IsMoving::USBZAIUtilityScorer_IsMoving() {
 }
 
-

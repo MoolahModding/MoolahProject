@@ -4,60 +4,6 @@
 #include "SBZPlayerAttributeSet.h"
 #include "SBZUICharacterEffectComponent.h"
 
-ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->ReadyStatus = EPlayerReadyStatusValue::Loading;
-    this->InfamyLevel = 1;
-    this->Platform = ESBZPlatform::Windows;
-    this->FirstPartyPlatform = ESBZFirstPartyPlatform::Steam;
-    this->ProgressionSaveGame = NULL;
-    this->AttributeSet = CreateDefaultSubobject<USBZPlayerAttributeSet>(TEXT("SBZPlayerAttributeSet"));
-    this->AbilitySystem = CreateDefaultSubobject<USBZPlayerAbilitySystemComponent>(TEXT("SBZPlayerAbilitySystemComponent"));
-    this->UICharacterEffects = CreateDefaultSubobject<USBZUICharacterEffectComponent>(TEXT("SBZUICharacterEffectComponent"));
-    this->PlayerSlotId = 0;
-    this->PlayerColors.AddDefaulted(4);
-    this->ReplicatedStartReplenishDodgeServerTime = -1.00f;
-    this->StartReplenishDodgeServerTime = -1.00f;
-    this->StartReplenishDodgeValue = -1.00f;
-    this->bIsMaskOn = false;
-    this->bIsLocallyControlled = false;
-    this->EquipStateAndIndex = 0;
-    this->CharacterClass = NULL;
-    this->CharacterClass = NULL;
-    this->bIsValidLoadout = false;
-    this->DefeatState = EPD3DefeatState::None;
-    this->MiniGameState = EPD3MiniGameState::None;
-    this->bIsNetInitialized = false;
-    this->bIsAttributeSetInitialized = false;
-    this->bIsAttributeSetInitializedOnce = false;
-    this->bIsPendingReconnectData = false;
-    this->bIsLoadoutLoaded = false;
-    this->bIsApplyingLoadout = false;
-    this->CurrentCharacterData = NULL;
-    this->PlayerMicroCamera = NULL;
-    this->bIsSaveLoadoutPending = false;
-    this->SpectateDurationArray[0] = 60.00f;
-    this->SpectateDurationArray[1] = 60.00f;
-    this->SpectateDurationArray[2] = 60.00f;
-    this->SpectateDurationArray[3] = 60.00f;
-    this->MinimumSpectateDuration = 10.00f;
-    this->SpectateTime = -1.00f;
-    this->ReducedCustodyTime = 0.00f;
-    this->SpectateDurationModification = 0.00f;
-    this->ECMGUIEffectData = NULL;
-    this->SkillTankDisengageActivatedTimeSeconds = -1.00f;
-    this->SurrenderedEnemy = NULL;
-    this->EnforcerSkillKillCount = 0;
-    this->EnforcerSkillLastKillTime = 0.00f;
-    this->EnforcerAcedSkillKillCount = 0;
-    this->OverkillWeaponProgress = 0.00f;
-    this->OverkillWeaponProgressKillIncrease = 1.00f;
-    this->OverkillWeaponProgressHeadshotAdditionalIncrease = 1.00f;
-    this->OverkillWeaponProgressObjectiveIncrease = 5.00f;
-    this->OverkillWeaponProgressSubObjectiveIncrease = 2.50f;
-    this->bIsLastArrestedByGuard = false;
-    this->bIsTargeting = false;
-}
-
 void ASBZPlayerState::Server_StopTargeting_Implementation() {
 }
 
@@ -88,7 +34,13 @@ void ASBZPlayerState::OnSpectateDurationModificationChanged(float OldDuration) {
 void ASBZPlayerState::OnRuntimeSecureLoopExpired(AActor* InRuntimeActor) {
 }
 
+void ASBZPlayerState::OnRuntimeScramblerExpired(AActor* InRuntimeActor) {
+}
+
 void ASBZPlayerState::OnRuntimeRoutedPingExpired(AActor* InRuntimeActor) {
+}
+
+void ASBZPlayerState::OnRuntimeActorEndPlay(AActor* RuntimeActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
 }
 
 void ASBZPlayerState::OnRuntimeActorDestroyed(AActor* InRuntimeActor) {
@@ -112,6 +64,9 @@ void ASBZPlayerState::OnRep_Platform() {
 void ASBZPlayerState::OnRep_OverkillWeaponProgress() {
 }
 
+void ASBZPlayerState::OnRep_OnKillNetID() {
+}
+
 void ASBZPlayerState::OnRep_MiniGameState(EPD3MiniGameState OldMiniGameState) {
 }
 
@@ -127,6 +82,9 @@ void ASBZPlayerState::OnRep_IsMaskOn() {
 void ASBZPlayerState::OnRep_InfamyLevel() {
 }
 
+void ASBZPlayerState::OnRep_FirstPartyPlatform() {
+}
+
 void ASBZPlayerState::OnRep_EquipStateAndIndex() {
 }
 
@@ -139,13 +97,13 @@ void ASBZPlayerState::OnRep_CustodyCharacterClass() {
 void ASBZPlayerState::OnRep_AccelByteUserName() {
 }
 
-void ASBZPlayerState::OnRep_AccelByteUserId() {
+void ASBZPlayerState::OnRep_AccelByteUserId(const FString& OldAccelByteUserId) {
 }
 
 void ASBZPlayerState::OnRep_AccelByteDisplayName() {
 }
 
-void ASBZPlayerState::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime) {
+void ASBZPlayerState::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive) {
 }
 
 void ASBZPlayerState::Multicast_StopTargeting_Implementation() {
@@ -164,6 +122,9 @@ void ASBZPlayerState::Multicast_SetSpectateDurationModification_Implementation(f
 }
 
 void ASBZPlayerState::Multicast_SetServerReloadState_Implementation(const FSBZReplicatedReloadState& InServerReloadState) {
+}
+
+void ASBZPlayerState::Multicast_SetPlayerSlotId_Implementation(uint8 NewSlotId) {
 }
 
 void ASBZPlayerState::Multicast_SetPlayerId_Implementation(int32 InPlayerId) {
@@ -193,7 +154,14 @@ void ASBZPlayerState::Multicast_SetAccelByteUserName_Implementation(const FStrin
 void ASBZPlayerState::Multicast_SetAccelByteUserId_Implementation(const FString& InAccelByteUserId) {
 }
 
+void ASBZPlayerState::Multicast_OnKill_Implementation(uint32 NetID) {
+}
+
 void ASBZPlayerState::Multicast_DebugConsoleCommand_Implementation(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex) {
+}
+
+bool ASBZPlayerState::IsPlayerDisplayNameReady() const {
+    return false;
 }
 
 FText ASBZPlayerState::GetPlayerDisplayName() const {
@@ -201,7 +169,7 @@ FText ASBZPlayerState::GetPlayerDisplayName() const {
 }
 
 ESBZPlatform ASBZPlayerState::GetPlatform() const {
-    return ESBZPlatform::Windows;
+    return ESBZPlatform::Unknown;
 }
 
 int32 ASBZPlayerState::GetInfamyLevel() const {
@@ -270,13 +238,72 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, ServerReloadState);
     DOREPLIFETIME(ASBZPlayerState, CustodyCharacterClass);
     DOREPLIFETIME(ASBZPlayerState, DefeatState);
+    DOREPLIFETIME(ASBZPlayerState, OnKillNetID);
     DOREPLIFETIME(ASBZPlayerState, MiniGameState);
     DOREPLIFETIME(ASBZPlayerState, PlaceableToolsArray);
     DOREPLIFETIME(ASBZPlayerState, SpectateTime);
+    DOREPLIFETIME(ASBZPlayerState, ReducedCustodyTime);
     DOREPLIFETIME(ASBZPlayerState, SpectateDurationModification);
     DOREPLIFETIME(ASBZPlayerState, OverkillWeaponProgress);
     DOREPLIFETIME(ASBZPlayerState, bIsLastArrestedByGuard);
     DOREPLIFETIME(ASBZPlayerState, bIsTargeting);
 }
 
+ASBZPlayerState::ASBZPlayerState(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ReadyStatus = EPlayerReadyStatusValue::Loading;
+    this->InfamyLevel = 1;
+    this->Platform = ESBZPlatform::Unknown;
+    this->FirstPartyPlatform = ESBZFirstPartyPlatform::Unknown;
+    this->ProgressionSaveGame = NULL;
+    this->AttributeSet = CreateDefaultSubobject<USBZPlayerAttributeSet>(TEXT("SBZPlayerAttributeSet"));
+    this->AbilitySystem = CreateDefaultSubobject<USBZPlayerAbilitySystemComponent>(TEXT("SBZPlayerAbilitySystemComponent"));
+    this->UICharacterEffects = CreateDefaultSubobject<USBZUICharacterEffectComponent>(TEXT("SBZUICharacterEffectComponent"));
+    this->PlayerSlotId = 0;
+    this->PlayerColors.AddDefaulted(4);
+    this->ReplicatedStartReplenishDodgeServerTime = -1.00f;
+    this->StartReplenishDodgeServerTime = -1.00f;
+    this->StartReplenishDodgeValue = -1.00f;
+    this->bIsMaskOn = false;
+    this->bIsLocallyControlled = false;
+    this->EquipStateAndIndex = 0;
+    this->CharacterClass = NULL;
+    this->bIsValidLoadout = false;
+    this->DefeatState = EPD3DefeatState::None;
+    this->OnKillNetID = 0;
+    this->MiniGameState = EPD3MiniGameState::None;
+    this->bIsNetInitialized = false;
+    this->bIsAttributeSetInitialized = false;
+    this->bIsAttributeSetInitializedOnce = false;
+    this->bIsPendingReconnectData = false;
+    this->bIsLoadoutLoaded = false;
+    this->bIsApplyingLoadout = false;
+    this->CurrentCharacterData = NULL;
+    this->PlayerMicroCamera = NULL;
+    this->bIsSaveLoadoutPending = false;
+    this->SpectateDurationArray[0] = 60.00f;
+    this->SpectateDurationArray[1] = 60.00f;
+    this->SpectateDurationArray[2] = 60.00f;
+    this->SpectateDurationArray[3] = 60.00f;
+    this->ReconnectDefeatedCustodyDurationReductionArray[0] = 30.00f;
+    this->ReconnectDefeatedCustodyDurationReductionArray[1] = 30.00f;
+    this->ReconnectDefeatedCustodyDurationReductionArray[2] = 30.00f;
+    this->ReconnectDefeatedCustodyDurationReductionArray[3] = 30.00f;
+    this->MinimumSpectateDuration = 10.00f;
+    this->SpectateTime = -1.00f;
+    this->ReducedCustodyTime = 0.00f;
+    this->SpectateDurationModification = 0.00f;
+    this->ECMGUIEffectData = NULL;
+    this->SkillTankDisengageActivatedTimeSeconds = -1.00f;
+    this->SurrenderedEnemy = NULL;
+    this->EnforcerSkillKillCount = 0;
+    this->EnforcerSkillLastKillTime = 0.00f;
+    this->EnforcerAcedSkillKillCount = 0;
+    this->OverkillWeaponProgress = 0.00f;
+    this->OverkillWeaponProgressKillIncrease = 1.00f;
+    this->OverkillWeaponProgressHeadshotAdditionalIncrease = 1.00f;
+    this->OverkillWeaponProgressObjectiveIncrease = 5.00f;
+    this->OverkillWeaponProgressSubObjectiveIncrease = 2.50f;
+    this->bIsLastArrestedByGuard = false;
+    this->bIsTargeting = false;
+}
 

@@ -3,4 +3,3 @@
 USBZCrouchedNotifyState::USBZCrouchedNotifyState() {
 }
 
-

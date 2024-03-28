@@ -8,9 +8,8 @@ class USBZMainMenuBaseWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuBaseWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void DestroyWidget();
     
 };

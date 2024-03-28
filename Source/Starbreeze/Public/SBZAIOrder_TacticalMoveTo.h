@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "SBZAISquadOrder.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIOrder_TacticalMoveTo.generated.h"
 
 class APawn;
@@ -9,8 +10,8 @@ class ASBZRoomVolume;
 class ISBZRoomConnectorInterface;
 class USBZRoomConnectorInterface;
 class UBehaviorTree;
-class UClass;
 class UEnvQuery;
+class USBZAIAction_Order;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZAIOrder_TacticalMoveTo : public USBZAISquadOrder {
@@ -27,7 +28,7 @@ protected:
     TArray<FGameplayTag> PrioTypes;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* PreStateActions[5];
+    TSubclassOf<USBZAIAction_Order> PreStateActions[5];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<APawn*> PrioQueue;
@@ -55,6 +56,5 @@ protected:
     
 public:
     USBZAIOrder_TacticalMoveTo();
-
 };
 

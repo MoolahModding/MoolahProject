@@ -8,6 +8,5 @@ class USBZThrowableKnifeDamageType : public USBZDamageType {
     GENERATED_BODY()
 public:
     USBZThrowableKnifeDamageType();
-
 };
 

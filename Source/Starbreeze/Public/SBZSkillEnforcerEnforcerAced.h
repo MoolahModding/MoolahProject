@@ -8,6 +8,5 @@ class USBZSkillEnforcerEnforcerAced : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEnforcerEnforcerAced();
-
 };
 

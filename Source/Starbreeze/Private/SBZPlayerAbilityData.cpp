@@ -16,13 +16,10 @@ USBZPlayerAbilityData::USBZPlayerAbilityData() {
     this->InitialArmorChunk = 100.00f;
     this->InitialArmorHardness = 1.00f;
     this->InitialArmorChunkCount = 0;
-    this->InitialArmorDamageScale = 0.50f;
+    this->InitialArmorDamageScale = 1.00f;
     this->InitialArmorTraumaScale = 0.25f;
     this->InitialLoadoutWeight = 0.00f;
     this->InitialWeightTierOffset = 0.00f;
     this->InitialMaxRuntimeCount = 0;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZPlayerAbilityData::StaticClass();
 }
-
 

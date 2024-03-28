@@ -8,8 +8,5 @@ USBZChatGameSettings::USBZChatGameSettings() {
     this->MaxMessagesBeforeBlock = 5;
     this->MessageSpamCooldown = 120.00f;
     this->MaxTotalDisplayedMessages = 100;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZChatGameSettings::StaticClass();
 }
-
 

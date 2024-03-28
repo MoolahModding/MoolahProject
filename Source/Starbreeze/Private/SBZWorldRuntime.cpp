@@ -6,6 +6,10 @@
 #include "SBZObservableActorContainer.h"
 #include "SBZSignificanceManager.h"
 
+USBZWorldRuntime* USBZWorldRuntime::Get(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 USBZWorldRuntime::USBZWorldRuntime() {
     this->AllPawns = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllPawns"));
     this->AllPlayerCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllPlayerCharacters"));
@@ -13,6 +17,7 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllAliveAICrewCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllAliveAICrewCharacters"));
     this->AllAliveAICharacters = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAICharacters"));
     this->AllAliveAIGuards = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAIGuards"));
+    this->AllAliveAIStreetCops = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAIStreetCops"));
     this->AllAliveAIDrones = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAliveAIDrones"));
     this->AllRagdollCarryCharacters = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllRagdollCarryCharacters"));
     this->AllLevelScriptActors = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllLevelScriptActors"));
@@ -46,10 +51,6 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllSensorToolOrangeActors = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllSensorToolOrangeActors"));
     this->AllScreenInteractComponents = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllScreenInteractComponents"));
     this->AllCrewAILifeActionComponents = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllCrewAILifeActionComponents"));
+    this->AllAITowerHideLifeActionObjects = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllAITowerHideLifeActionComponents"));
 }
-
-USBZWorldRuntime* USBZWorldRuntime::Get(const UObject* WorldContextObject) {
-    return NULL;
-}
-
 

@@ -1,8 +1,5 @@
 #include "SBZUIStatics.h"
 
-USBZUIStatics::USBZUIStatics() {
-}
-
 void USBZUIStatics::Stop2DSound(int32& SoundID) {
 }
 
@@ -18,7 +15,7 @@ void USBZUIStatics::SetUIInCinematicMode(const UObject* WorldContextObject) {
 void USBZUIStatics::PrintSubtitle(const UObject* WorldContextObject, const FString& StringToPrint, FLinearColor Colour, float TimeToDisplay) {
 }
 
-int32 USBZUIStatics::Play2DSound(const UObject* WorldContextObject, UAkAudioEvent* AudioEvent) {
+int32 USBZUIStatics::Play2DSound(const UObject* WorldContextObject, const UAkAudioEvent* AudioEvent) {
     return 0;
 }
 
@@ -76,4 +73,6 @@ FText USBZUIStatics::ClampText(const FText& InText, int32 MaxCharacters, bool bA
     return FText::GetEmpty();
 }
 
+USBZUIStatics::USBZUIStatics() {
+}
 

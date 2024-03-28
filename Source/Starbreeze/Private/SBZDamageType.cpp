@@ -6,4 +6,3 @@ USBZDamageType::USBZDamageType() {
     this->bIsThrowableProjectile = false;
 }
 
-

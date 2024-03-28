@@ -22,6 +22,5 @@ protected:
     
 public:
     USBZPlayerGasGrenadeData();
-
 };
 

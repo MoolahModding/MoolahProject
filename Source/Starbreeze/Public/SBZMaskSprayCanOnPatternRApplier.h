@@ -8,6 +8,5 @@ class USBZMaskSprayCanOnPatternRApplier : public USBZMaskSprayCanApplier {
     GENERATED_BODY()
 public:
     USBZMaskSprayCanOnPatternRApplier();
-
 };
 

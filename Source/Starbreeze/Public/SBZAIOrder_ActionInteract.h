@@ -6,15 +6,20 @@
 class ASBZCharacter;
 class USBZLifeActionInstance;
 class USBZLifeActionSlot;
+class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZAIOrder_ActionInteract : public USBZAIOrder_LifeAction {
     GENERATED_BODY()
 public:
-    USBZAIOrder_ActionInteract();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZVoiceCommentDataAsset* OnStartedComment;
+    
+public:
+    USBZAIOrder_ActionInteract();
+protected:
+    UFUNCTION()
     void OnLASlotStarted(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
 };

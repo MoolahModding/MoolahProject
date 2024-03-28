@@ -2,22 +2,6 @@
 #include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
 
-APlayerVoiceChatActor::APlayerVoiceChatActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->RootSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));
-    this->microphoneSpeakComponent = NULL;
-    this->ownerPlayerState = NULL;
-    this->idVoiceChat = 0;
-    this->voiceVolume = 1.00f;
-    this->ServerPerformAntiCheat = false;
-    this->AntiCheatAllowUseProximity = true;
-    this->AntiCheatAllowUseGlobal = true;
-    this->AntiCheatMaxProximityRange = 1000.00f;
-    this->bReplicates = true;
-    FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
-    *p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this) = ROLE_SimulatedProxy;
-    this->RootComponent = RootSceneComponent;
-}
-
 void APlayerVoiceChatActor::ServerSetMaxProximityRange(float _maxProximityRange) {
 }
 
@@ -74,4 +58,15 @@ void APlayerVoiceChatActor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(APlayerVoiceChatActor, pathToAttenuationAsset);
 }
 
+APlayerVoiceChatActor::APlayerVoiceChatActor() {
+    this->RootSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));
+    this->microphoneSpeakComponent = NULL;
+    this->ownerPlayerState = NULL;
+    this->idVoiceChat = 0;
+    this->voiceVolume = 1.00f;
+    this->ServerPerformAntiCheat = false;
+    this->AntiCheatAllowUseProximity = true;
+    this->AntiCheatAllowUseGlobal = true;
+    this->AntiCheatMaxProximityRange = 1000.00f;
+}
 

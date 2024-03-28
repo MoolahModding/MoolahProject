@@ -8,6 +8,5 @@ class USBZSkillAmmoSpecialistTopUp : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillAmmoSpecialistTopUp();
-
 };
 

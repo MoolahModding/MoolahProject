@@ -25,7 +25,6 @@ class UABFriends : public UObject {
     GENERATED_BODY()
 public:
     UABFriends();
-
     UFUNCTION(BlueprintCallable)
     void Unfriend(const FString& UserId, FDUnfriendResponse OnResponse, FDErrorHandler OnError);
     

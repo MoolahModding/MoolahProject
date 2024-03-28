@@ -1,9 +1,9 @@
 #include "ABMessage.h"
 
-UABMessage::UABMessage() {
+void UABMessage::SetPrivateMessageNotifDelegate(FDPersonalChatNotif OnNotif) {
 }
 
-void UABMessage::SetPrivateMessageNotifDelegate(FDPersonalChatNotif OnNotif) {
+void UABMessage::SetOnPartyChatNotification(FDPartyChatNotif OnPartyChatNotif) {
 }
 
 void UABMessage::SetMessageNotifDelegate(FDMessageNotif OnNotif) {
@@ -31,4 +31,6 @@ FString UABMessage::SendChannelMessage(const FSendChannelMessageRequest& Request
     return TEXT("");
 }
 
+UABMessage::UABMessage() {
+}
 

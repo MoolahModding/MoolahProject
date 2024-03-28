@@ -11,7 +11,7 @@ struct FSBZBundleItem : public FSBZStoreBaseItem {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ESBZItemCategory ItemCategory;
+    ESBZItemCategory BundleItemCategory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZInventoryBaseData* BundleItemData;

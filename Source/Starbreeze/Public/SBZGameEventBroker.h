@@ -19,6 +19,7 @@
 #include "SBZOnPlayerBeginPlayStateDelegate.h"
 #include "SBZOnPlayerInEscapeChangedDelegate.h"
 #include "SBZOnPlayerPingedDelegate.h"
+#include "SBZOnSeasonalEventItemPickedUpDelegate.h"
 #include "SBZOnSharedKeyItemTagChangedDelegate.h"
 #include "SBZPlayerCallEvent.h"
 #include "SBZPlayerCallMessageEventDelegate.h"
@@ -134,8 +135,10 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnFBIActivation OnFBIActivation;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnSeasonalEventItemPickedUp OnSeasonalItemPickedUp;
+    
     USBZGameEventBroker();
-
     UFUNCTION(BlueprintCallable)
     void SendChatMessage(const FSBZPlayerChatEvent& ChatEventData);
     

@@ -2,10 +2,11 @@
 #include "CoreMinimal.h"
 #include "ESBZRoomType.h"
 #include "SBZPlayerStatePawnWidgetBase.h"
+#include "Templates/SubclassOf.h"
 #include "PD3HUDRoomStatusWidget.generated.h"
 
 class ASBZRoomVolume;
-class UClass;
+class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable, EditInlineNew)
 class UPD3HUDRoomStatusWidget : public USBZPlayerStatePawnWidgetBase {
@@ -16,36 +17,35 @@ protected:
     ESBZRoomType RoomType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* InFeedbackClass;
+    TSubclassOf<USBZLocalPlayerFeedback> InFeedbackClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bHasGoneLoud;
     
 public:
     UPD3HUDRoomStatusWidget();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RoomVolumeChanged(ASBZRoomVolume* InRoomVolume);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void RoomTypeChanged(ESBZRoomType NewRoomType);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRoomTypeChanged(ESBZRoomType InRoomType);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnRoomChanged(ASBZRoomVolume* RoomVolume);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNoRoomData();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHeistGoneLoud();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleHeistGoneLoud();
     
 };

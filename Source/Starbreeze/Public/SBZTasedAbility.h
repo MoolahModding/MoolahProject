@@ -8,6 +8,5 @@ class USBZTasedAbility : public USBZDefeatAbility {
     GENERATED_BODY()
 public:
     USBZTasedAbility();
-
 };
 

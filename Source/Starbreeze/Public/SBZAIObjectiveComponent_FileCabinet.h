@@ -8,6 +8,5 @@ class STARBREEZE_API USBZAIObjectiveComponent_FileCabinet : public USBZAIObjecti
     GENERATED_BODY()
 public:
     USBZAIObjectiveComponent_FileCabinet();
-
 };
 

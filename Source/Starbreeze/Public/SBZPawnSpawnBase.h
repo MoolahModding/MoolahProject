@@ -30,7 +30,6 @@ protected:
     FVector WeightedLocation;
     
 public:
-    ASBZPawnSpawnBase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZPawnSpawnBase();
 };
 

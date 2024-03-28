@@ -1,8 +1,5 @@
 #include "ABUser.h"
 
-UABUser::UABUser() {
-}
-
 void UABUser::Verify(const FString& VerificationCode, FDHandler OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -21,7 +18,22 @@ void UABUser::UpdateUser(FUserUpdateRequest UpdateRequest, FDAccountUserDataResp
 void UABUser::UpdateEmail(FUpdateEmailRequest UpdateEmailRequest, FDHandler OnSuccess, FDErrorHandler OnError) {
 }
 
+void UABUser::UnlinkOtherPlatformWithCustomErrorHandler(EAccelBytePlatformType PlatformType, FDHandler OnSuccess, FDCustomErrorHandler OnError) {
+}
+
+void UABUser::UnlinkOtherPlatformId(const FString& PlatformId, FDHandler OnSuccess, FDCustomErrorHandler OnError) {
+}
+
 void UABUser::UnlinkOtherPlatform(EAccelBytePlatformType PlatformType, FDHandler OnSuccess, FDErrorHandler OnError) {
+}
+
+void UABUser::UnlinkAllOtherPlatformId(const FString& PlatformId, FDHandler OnSuccess, FDCustomErrorHandler OnError) {
+}
+
+void UABUser::UnlinkAllOtherPlatform(EAccelBytePlatformType PlatformType, FDHandler OnSuccess, FDCustomErrorHandler OnError) {
+}
+
+void UABUser::TryRelogin(const FString& PlatformUserID, FDHandler OnSuccess, FDErrorHandler OnError) {
 }
 
 void UABUser::SendVerificationCode(FDHandler OnSuccess, FDErrorHandler OnError) {
@@ -75,6 +87,9 @@ void UABUser::LoginWithLauncher(FDHandler OnSuccess, FDErrorHandler OnError) {
 void UABUser::LoginWithDeviceId(FDHandler OnSuccess, FDErrorHandler OnError) {
 }
 
+void UABUser::LoginByExchangeCodeForToken(const FString& Code, FDHandler OnSuccess, FDErrorHandler OnError) {
+}
+
 void UABUser::LinkOtherPlatform(EAccelBytePlatformType PlatformType, const FString& Ticket, FDHandler OnSuccess, FDAccountLinkConflictErrorJsonResponse OnError) {
 }
 
@@ -108,4 +123,6 @@ void UABUser::BulkGetUserInfo(const TArray<FString>& UserIds, FDListBulkUserInfo
 void UABUser::BulkGetUserByOtherPlatformUserIds(EAccelBytePlatformType PlatformType, const TArray<FString>& OtherPlatformUserId, FDBulkPlatformUserIdResponse OnSuccess, FDErrorHandler OnError) {
 }
 
+UABUser::UABUser() {
+}
 

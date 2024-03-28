@@ -2,13 +2,6 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "SBZModularMeshComponent.h"
 
-ASBZModularWeaponDisplay::ASBZModularWeaponDisplay(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->ModularMeshComponent = CreateDefaultSubobject<USBZModularMeshComponent>(TEXT("SBZModularMeshComponent"));
-    this->Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
-    this->WeaponData = NULL;
-    this->RootComponent = Mesh;
-}
-
 void ASBZModularWeaponDisplay::SwapModPart(const USBZModularPartSlotBase* Slot, const USBZEquippablePartDataAsset* EquippablePart) {
 }
 
@@ -38,4 +31,9 @@ USBZBaseWeaponData* ASBZModularWeaponDisplay::GetWeaponData() const {
 void ASBZModularWeaponDisplay::BuildWeapon() {
 }
 
+ASBZModularWeaponDisplay::ASBZModularWeaponDisplay() {
+    this->ModularMeshComponent = CreateDefaultSubobject<USBZModularMeshComponent>(TEXT("SBZModularMeshComponent"));
+    this->Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
+    this->WeaponData = NULL;
+}
 

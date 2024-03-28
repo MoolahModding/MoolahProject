@@ -8,6 +8,5 @@ class USBZSkillMedicExtraCharge : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMedicExtraCharge();
-
 };
 

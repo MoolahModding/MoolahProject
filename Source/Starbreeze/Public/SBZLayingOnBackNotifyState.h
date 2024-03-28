@@ -8,6 +8,5 @@ class USBZLayingOnBackNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZLayingOnBackNotifyState();
-
 };
 

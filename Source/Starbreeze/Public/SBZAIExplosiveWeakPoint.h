@@ -5,9 +5,10 @@
 #include "SBZExplosive.h"
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZAIExplosiveWeakPoint.generated.h"
 
-class UClass;
+class UGameplayEffect;
 
 UCLASS(Abstract, Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZAIExplosiveWeakPoint : public USBZAIWeakPoint, public ISBZExplosive, public ISBZHurtReactionDataInterface {
@@ -15,7 +16,7 @@ class USBZAIExplosiveWeakPoint : public USBZAIWeakPoint, public ISBZExplosive, p
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GameplayEffectClass;
+    TSubclassOf<UGameplayEffect> GameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AIExplosionRange;
@@ -28,12 +29,11 @@ protected:
     
 public:
     USBZAIExplosiveWeakPoint();
-
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

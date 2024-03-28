@@ -53,7 +53,6 @@ private:
     
 public:
     USBZAmbientSoundComponent();
-
     UFUNCTION(BlueprintCallable)
     void SetSwitchState(const UAkSwitchValue* SwitchValue, const FString& InSwitchGroup, const FString& InSwitchState);
     
@@ -63,10 +62,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetAudioEvent(UAkAudioEvent* InAkAudioEvent);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsAmbientSoundComponentEnabled() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     float GetAttenuation() const;
     
     UFUNCTION(BlueprintCallable)

@@ -1,11 +1,6 @@
 #include "SBZStateMachineSharedState.h"
 #include "Net/UnrealNetwork.h"
 
-USBZStateMachineSharedState::USBZStateMachineSharedState() {
-    this->OnlineSessionPhase = ESBZOnlineSessionPhase::Undefined;
-    
-}
-
 void USBZStateMachineSharedState::NotifyServerInActionPhase_Implementation() {
 }
 
@@ -15,4 +10,7 @@ void USBZStateMachineSharedState::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(USBZStateMachineSharedState, OnlineSessionPhase);
 }
 
+USBZStateMachineSharedState::USBZStateMachineSharedState() {
+    this->OnlineSessionPhase = ESBZOnlineSessionPhase::Undefined;
+}
 

@@ -13,6 +13,6 @@ USBZCustomizationRotateComponent::USBZCustomizationRotateComponent() {
     this->RotationRollSpeedRateStick = 1.00f;
     this->RotationRollLimitMin = 40.00f;
     this->RotationRollLimitMax = 140.00f;
+    this->FoundController = NULL;
 }
-
 

@@ -1,8 +1,5 @@
 #include "SBZGamepadBindingsManager.h"
 
-USBZGamepadBindingsManager::USBZGamepadBindingsManager() {
-}
-
 USBZGamepadBindingsManager* USBZGamepadBindingsManager::GetGamepadBindingsManager(UObject* WorldContextObject) {
     return NULL;
 }
@@ -11,4 +8,6 @@ TArray<FText> USBZGamepadBindingsManager::GetBindingNamesLocalized(const FKey& I
     return TArray<FText>();
 }
 
+USBZGamepadBindingsManager::USBZGamepadBindingsManager() {
+}
 

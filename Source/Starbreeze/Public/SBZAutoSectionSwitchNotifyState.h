@@ -11,6 +11,5 @@ public:
     FName SectionName;
     
     USBZAutoSectionSwitchNotifyState();
-
 };
 

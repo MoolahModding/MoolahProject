@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SBZBTTask_MoveTo.h"
 #include "BehaviorTree/Tasks/BTTask_RunBehavior.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 //CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=SBZPathOffset -FallbackName=SBZPathOffset
+#include "Templates/SubclassOf.h"
 #include "SBZBTTask_RunMoveToBehavior.generated.h"
 
-class UClass;
+class UNavigationQueryFilter;
 
 UCLASS(Blueprintable)
 class USBZBTTask_RunMoveToBehavior : public UBTTask_RunBehavior {
@@ -16,7 +16,7 @@ public:
     float AcceptableRadius;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* FilterClass;
+    TSubclassOf<UNavigationQueryFilter> FilterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bAllowStrafe: 1;
@@ -49,6 +49,5 @@ public:
     FSBZPathOffset PathOffset;
     
     USBZBTTask_RunMoveToBehavior();
-
 };
 

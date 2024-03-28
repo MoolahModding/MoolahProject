@@ -8,6 +8,7 @@
 #include "AccelByteModelsItemLootBoxConfig.h"
 #include "AccelByteModelsItemRecurring.h"
 #include "AccelByteModelsItemRegionDataItem.h"
+#include "AccelByteModelsItemSaleConfig.h"
 #include "EAccelByteEntitlementType.h"
 #include "EAccelByteItemStatus.h"
 #include "EAccelByteItemType.h"
@@ -71,6 +72,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool Purchasable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool SectionExclusive;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EAccelByteItemType ItemType;
@@ -151,10 +155,22 @@ public:
     bool Fresh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSellable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool Sellable;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FAccelByteModelsItemSaleConfig SaleConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FJsonObjectWrapper LocalExt;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FAccelByteModelsItemLootBoxConfig LootBoxConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool Flexible;
     
     FAccelByteModelsItemInfo();
 };

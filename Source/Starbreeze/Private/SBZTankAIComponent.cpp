@@ -1,5 +1,8 @@
 #include "SBZTankAIComponent.h"
 
+void USBZTankAIComponent::OnAttackTagChanged(const FGameplayTag InTag, int32 TagCount) {
+}
+
 USBZTankAIComponent::USBZTankAIComponent() {
     this->Armored = NULL;
     this->ArmorPopOffEvent = NULL;
@@ -7,8 +10,4 @@ USBZTankAIComponent::USBZTankAIComponent() {
     this->StaggerStateCooldown = 5.00f;
     this->HeadshotCollider = NULL;
 }
-
-void USBZTankAIComponent::OnFiringTagChanged(const FGameplayTag InTag, int32 TagCount) {
-}
-
 

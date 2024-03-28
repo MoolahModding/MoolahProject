@@ -34,6 +34,5 @@ protected:
     
 public:
     USBZCosmeticsPatternDataAsset();
-
 };
 

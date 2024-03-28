@@ -14,7 +14,6 @@ class USBZAkSoundLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZAkSoundLibrary();
-
     UFUNCTION(BlueprintCallable, BlueprintCosmetic)
     static UAkComponent* SpawnAkComponentAttached(UAkAudioEvent* AkEvent, UAkAuxBus* EarlyReflectionsBus, USceneComponent* AttachToComponent, ESBZAkPoolType PoolType, FName AttachPointName, bool AutoPost, const FString& EventName, const FString& EarlyReflectionsBusName, bool AutoDestroy);
     

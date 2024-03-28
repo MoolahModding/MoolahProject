@@ -4,4 +4,3 @@ USBZAIUtilityDecider_Escort::USBZAIUtilityDecider_Escort() {
     this->CurrentSuspect = NULL;
 }
 
-

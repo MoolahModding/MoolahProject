@@ -1,5 +1,7 @@
 #include "SBZReticleWidget.h"
-#include "Components/SlateWrapperTypes.h"
+
+
+
 
 USBZReticleWidget::USBZReticleWidget() {
     this->ProgressionCurve = NULL;
@@ -9,10 +11,5 @@ USBZReticleWidget::USBZReticleWidget() {
     this->CurrentWeapon = NULL;
     this->SpreadData = NULL;
     this->CurrentScale = 1.00f;
-    this->Visibility = ESlateVisibility::HitTestInvisible;
 }
-
-
-
-
 

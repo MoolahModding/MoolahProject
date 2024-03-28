@@ -1,12 +1,5 @@
 #include "SBZSocialPartyButtonContainer.h"
 
-USBZSocialPartyButtonContainer::USBZSocialPartyButtonContainer() {
-    this->Panel_PartyMembers = NULL;
-    this->PartyMemberButtonWidgetClass = NULL;
-    this->PartyMemberButtonWidgetClass = NULL;
-    this->StackValue = TEXT("Default__SBZSocialPartyButtonContainer");
-}
-
 void USBZSocialPartyButtonContainer::RequestPartyLeave() {
 }
 
@@ -29,4 +22,8 @@ void USBZSocialPartyButtonContainer::BuildPartyMembersList() {
 void USBZSocialPartyButtonContainer::AddPartyMember(FSBZPartyMember NewMember) {
 }
 
+USBZSocialPartyButtonContainer::USBZSocialPartyButtonContainer() {
+    this->Panel_PartyMembers = NULL;
+    this->PartyMemberButtonWidgetClass = NULL;
+}
 

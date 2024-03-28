@@ -8,6 +8,5 @@ class USBZCharacterAttributeSet : public USBZPawnAttributeSet {
     GENERATED_BODY()
 public:
     USBZCharacterAttributeSet();
-
 };
 

@@ -8,6 +8,5 @@ class USBZSuitData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZSuitData();
-
 };
 

@@ -9,6 +9,7 @@
 #include "SBZCuttableActor.h"
 #include "SBZDisplayCaseStateChangedEventDelegate.h"
 #include "SBZPropDamageContext.h"
+#include "Templates/SubclassOf.h"
 #include "SBZDisplayCase.generated.h"
 
 class AActor;
@@ -16,7 +17,6 @@ class APawn;
 class ASBZHackingMinigameActor;
 class ASBZMiniGameActor;
 class UActorComponent;
-class UClass;
 class USBZAIAttractorComponent;
 class USBZActionNotificationAsset;
 class USBZPropDamageComponent;
@@ -79,10 +79,10 @@ protected:
     UStaticMeshComponent* ShutterMesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefaultLock;
+    TSubclassOf<ASBZMiniGameActor> DefaultLock;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefaultAlarm;
+    TSubclassOf<ASBZHackingMinigameActor> DefaultAlarm;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentState, meta=(AllowPrivateAccess=true))
     ESBZDisplayCaseState CurrentState;
@@ -112,10 +112,9 @@ protected:
     AActor* AttachedLoot;
     
 public:
-    ASBZDisplayCase(const FObjectInitializer& ObjectInitializer);
-
+    ASBZDisplayCase();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetLockdownEnabled(bool bEnabled);
     
@@ -129,40 +128,40 @@ public:
     void SetDisplayCaseLarmed(bool bInIsLarmed);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState(ESBZDisplayCaseState OldState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnPropDamageHits(UActorComponent* HitComponent, int32 Hits, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLockpickStateChanged(EPD3MiniGameState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnHackingStateChanged(EPD3MiniGameState NewState);
     
     UFUNCTION(BlueprintCallable)
     void OnDoorTimelineDone();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZDisplayCaseState NewState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetIsLocked(bool bInIsLocked);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetIsLarmed(bool bInIsLarmed);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZDisplayCaseState OldState, ESBZDisplayCaseState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnGlassBroken(bool bDoCosmetics);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

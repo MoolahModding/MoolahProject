@@ -19,6 +19,5 @@ public:
     USBZOutlineAsset* MarkedOutline;
     
     USBZMicroCameraData();
-
 };
 

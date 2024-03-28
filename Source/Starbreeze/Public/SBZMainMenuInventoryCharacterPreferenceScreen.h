@@ -3,9 +3,9 @@
 #include "ESBZCharacterPreferenceButtonSelectionAction.h"
 #include "SBZCharacterSlotData.h"
 #include "SBZMenuStackScreenWidgetWithTutorial.h"
+#include "Templates/SubclassOf.h"
 #include "SBZMainMenuInventoryCharacterPreferenceScreen.generated.h"
 
-class UClass;
 class UPanelWidget;
 class USBZMainMenuCharacterDisplayPanel;
 class USBZMainMenuInventoryCharacterPreferenceDisplay;
@@ -21,7 +21,7 @@ protected:
     FName ClearCharactersInputActionName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* CharacterSlotButtonClass;
+    TSubclassOf<USBZMainMenuInventoryCharacterSlotButton> CharacterSlotButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPanelWidget* Panel_CharacterSlotButtons;
@@ -44,25 +44,24 @@ private:
     
 public:
     USBZMainMenuInventoryCharacterPreferenceScreen();
-
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void UpdateCharacterSlotButtonControlsReference(ESBZCharacterPreferenceButtonSelectionAction SelectionAction);
     
     UFUNCTION(BlueprintCallable)
     void NativeOnClearPreferredCharactersInputPressed();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnCharacterPreferenceUpdated();
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeOnActiveCharacterSlotIndexChanged(int32 NewIndex);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeCharacterSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void NativeCharacterSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:

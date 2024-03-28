@@ -7,7 +7,5 @@ USBZBTTask_FindLifeActionWithTag::USBZBTTask_FindLifeActionWithTag() {
     this->AllowedHeistStates = -1;
     this->Behavior = NULL;
     this->LifeActionAffinityData = NULL;
-    this->NodeName = TEXT("SBZ Find Life Action With tag");
 }
-
 

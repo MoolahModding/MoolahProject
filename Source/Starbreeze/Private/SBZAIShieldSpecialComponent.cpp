@@ -5,4 +5,3 @@ USBZAIShieldSpecialComponent::USBZAIShieldSpecialComponent() {
     this->SpaceBetweenSlots = 80.00f;
 }
 
-

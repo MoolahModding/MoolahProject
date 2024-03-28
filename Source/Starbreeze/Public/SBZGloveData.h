@@ -20,6 +20,5 @@ public:
     TSoftObjectPtr<UMaterialInstance> OverrideMaterial;
     
     USBZGloveData();
-
 };
 

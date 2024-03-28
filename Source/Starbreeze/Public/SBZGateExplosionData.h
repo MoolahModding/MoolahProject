@@ -3,9 +3,10 @@
 #include "UObject/NoExportTypes.h"
 #include "ESBZDamageWeight.h"
 #include "SBZExplosionBox.h"
+#include "Templates/SubclassOf.h"
 #include "SBZGateExplosionData.generated.h"
 
-class UClass;
+class UGameplayEffect;
 
 USTRUCT(BlueprintType)
 struct FSBZGateExplosionData {
@@ -24,7 +25,7 @@ public:
     FVector ForceOrigin;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* GameplayEffectClass;
+    TSubclassOf<UGameplayEffect> GameplayEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PlayerImpulse;

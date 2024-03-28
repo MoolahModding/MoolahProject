@@ -16,6 +16,5 @@ public:
     USBZSuitData* CustomizableSuit;
     
     USBZSuitDatabase();
-
 };
 

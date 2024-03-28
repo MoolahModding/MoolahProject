@@ -35,6 +35,5 @@ protected:
     
 public:
     USBZBTTask_FindLifeActionWithTag();
-
 };
 

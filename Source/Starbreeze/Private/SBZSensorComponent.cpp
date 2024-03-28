@@ -4,4 +4,3 @@ USBZSensorComponent::USBZSensorComponent() {
     this->bIsBlueMode = true;
 }
 
-

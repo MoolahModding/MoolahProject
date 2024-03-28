@@ -8,6 +8,5 @@ class USBZNavArea_SecureArea : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_SecureArea();
-
 };
 

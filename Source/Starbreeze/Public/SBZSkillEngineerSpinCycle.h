@@ -8,6 +8,5 @@ class USBZSkillEngineerSpinCycle : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEngineerSpinCycle();
-
 };
 

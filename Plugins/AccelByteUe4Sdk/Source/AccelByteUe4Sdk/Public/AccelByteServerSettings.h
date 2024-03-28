@@ -50,6 +50,9 @@ public:
     FString AchievementServerUrl;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString UGCServerUrl;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString MatchmakingServerUrl;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -80,12 +83,14 @@ public:
     FString MatchmakingV2ServerUrl;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString WatchdogServerUrl;
+    FString AMSServerWatchdogUrl;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 WatchdogHeartbeatInterval;
+    int32 AMSHeartbeatInterval;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bSendPredefinedEvent;
     
     UAccelByteServerSettings();
-
 };
 

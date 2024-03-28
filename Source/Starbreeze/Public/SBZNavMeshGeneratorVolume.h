@@ -7,7 +7,6 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZNavMeshGeneratorVolume : public AVolume {
     GENERATED_BODY()
 public:
-    ASBZNavMeshGeneratorVolume(const FObjectInitializer& ObjectInitializer);
-
+    ASBZNavMeshGeneratorVolume();
 };
 

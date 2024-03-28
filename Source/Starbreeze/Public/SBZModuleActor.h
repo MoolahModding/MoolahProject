@@ -4,12 +4,12 @@
 #include "EPD3MiniGameState.h"
 #include "ESBZModuleActorState.h"
 #include "SBZModuleActorStateChangedDelegateDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZModuleActor.generated.h"
 
 class ASBZCuttableActor;
 class ASBZGate;
 class ASBZHackingMinigameActor;
-class UClass;
 
 UCLASS(Blueprintable)
 class ASBZModuleActor : public AActor {
@@ -32,10 +32,10 @@ protected:
     bool bMustCutAllModules;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefaultCuttingModule;
+    TSubclassOf<ASBZCuttableActor> DefaultCuttingModule;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* DefaultHackingModule;
+    TSubclassOf<ASBZHackingMinigameActor> DefaultHackingModule;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZGate* ConnectedGate;
@@ -44,27 +44,26 @@ protected:
     ESBZModuleActorState CurrentState;
     
 public:
-    ASBZModuleActor(const FObjectInitializer& ObjectInitializer);
-
+    ASBZModuleActor();
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bInEnabled);
     
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerHackingStateChanged(EPD3MiniGameState NewState);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnServerCuttingComplete(ASBZCuttableActor* CuttableActor);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnRep_CurrentState();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetState(ESBZModuleActorState NewState);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZModuleActorState NewState, bool bDoCosmetics);
     
 };

@@ -34,9 +34,8 @@ protected:
     
 public:
     USBZLaserSightComponent();
-
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     FRotator ModifyWeaponRotation(const FRotator& InOutRotation);
     
 };

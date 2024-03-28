@@ -11,8 +11,5 @@ USBZWeaponTargetingData::USBZWeaponTargetingData() {
     this->TargetingRotationCurve = NULL;
     this->TargetingExitRotationCurve = NULL;
     this->HeadbobData = NULL;
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZWeaponTargetingData::StaticClass();
 }
-
 

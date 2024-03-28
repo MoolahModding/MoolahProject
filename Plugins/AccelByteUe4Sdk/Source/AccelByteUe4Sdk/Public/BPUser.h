@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "DCustomErrorHandlerDelegate.h"
 #include "DErrorHandlerDelegate.h"
 #include "DHandlerDelegate.h"
 #include "DPlatformLinksHandlerDelegate.h"
@@ -15,7 +16,6 @@ class UBPUser : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UBPUser();
-
     UFUNCTION(BlueprintCallable)
     static void Verify(const FString& VerificationCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
     
@@ -26,7 +26,19 @@ public:
     static void Upgrade(const FString& Username, const FString& Password, const FDUserDataHandler& OnSuccess, const FDErrorHandler& OnError);
     
     UFUNCTION(BlueprintCallable)
+    static void UnlinkOtherPlatformWithCustomErrorHandler(EAccelBytePlatformType PlatformType, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    static void UnlinkOtherPlatformId(const FString& PlatformId, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
     static void UnlinkOtherPlatform(EAccelBytePlatformType PlatformType, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    static void UnlinkAllOtherPlatformId(const FString& PlatformId, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError);
+    
+    UFUNCTION(BlueprintCallable)
+    static void UnlinkAllOtherPlatform(EAccelBytePlatformType PlatformType, const FDHandler& OnSuccess, const FDCustomErrorHandler& OnError);
     
     UFUNCTION(BlueprintCallable)
     static void SendVerificationCode(const FDHandler& OnSuccess, const FDErrorHandler& OnError);

@@ -3,4 +3,3 @@
 USBZTransformCameraModifier::USBZTransformCameraModifier() {
 }
 
-

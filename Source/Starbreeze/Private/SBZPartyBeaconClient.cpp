@@ -1,9 +1,6 @@
 #include "SBZPartyBeaconClient.h"
 #include "Net/UnrealNetwork.h"
 
-ASBZPartyBeaconClient::ASBZPartyBeaconClient(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-}
-
 void ASBZPartyBeaconClient::ServerNotifyLeftLobby_Implementation(const FUniqueNetIdRepl& ClientId) {
 }
 bool ASBZPartyBeaconClient::ServerNotifyLeftLobby_Validate(const FUniqueNetIdRepl& ClientId) {
@@ -46,4 +43,6 @@ void ASBZPartyBeaconClient::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(ASBZPartyBeaconClient, PartyState);
 }
 
+ASBZPartyBeaconClient::ASBZPartyBeaconClient() {
+}
 

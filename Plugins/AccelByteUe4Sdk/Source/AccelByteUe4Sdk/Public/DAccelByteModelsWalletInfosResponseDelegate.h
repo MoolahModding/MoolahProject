@@ -3,5 +3,5 @@
 #include "AccelByteModelsWalletInfoResponse.h"
 #include "DAccelByteModelsWalletInfosResponseDelegate.generated.h"
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsWalletInfosResponse, FAccelByteModelsWalletInfoResponse, Response);
+UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsWalletInfosResponse, FAccelByteModelsWalletInfoResponse, Response);
 

@@ -6,12 +6,13 @@
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
 #include "SBZTool.h"
+#include "Templates/SubclassOf.h"
 #include "SBZHackingTool.generated.h"
 
 class AActor;
 class UAkAudioEvent;
 class UAkRtpc;
-class UClass;
+class UGameplayEffect;
 class UNiagaraSystem;
 class UObject;
 
@@ -36,7 +37,7 @@ protected:
     AActor* ExplosionInstigator;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* HackingToolEMPEffectClass;
+    TSubclassOf<UGameplayEffect> HackingToolEMPEffectClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* HackingToolEMPExplodedEvent;
@@ -87,28 +88,27 @@ protected:
     FSBZHurtReactionData HurtReactionData;
     
 public:
-    ASBZHackingTool(const FObjectInitializer& ObjectInitializer);
-
+    ASBZHackingTool();
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncSucceded();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncStarted();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncCompleted();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnHackingSyncAborted();
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetCurrentHackable(AActor* InHackedDevice);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

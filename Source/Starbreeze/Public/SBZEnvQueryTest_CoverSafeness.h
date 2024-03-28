@@ -1,9 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EnvironmentQuery/EnvQueryTest.h"
+#include "Templates/SubclassOf.h"
 #include "SBZEnvQueryTest_CoverSafeness.generated.h"
 
-class UClass;
+class UEnvQueryContext;
 
 UCLASS(Blueprintable)
 class USBZEnvQueryTest_CoverSafeness : public UEnvQueryTest {
@@ -11,10 +12,9 @@ class USBZEnvQueryTest_CoverSafeness : public UEnvQueryTest {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UClass* EnemyContext;
+    TSubclassOf<UEnvQueryContext> EnemyContext;
     
 public:
     USBZEnvQueryTest_CoverSafeness();
-
 };
 

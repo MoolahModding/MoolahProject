@@ -8,6 +8,5 @@ class STARBREEZE_API USBZStateMachineDataActionPhase : public USBZStateMachineDa
     GENERATED_BODY()
 public:
     USBZStateMachineDataActionPhase();
-
 };
 

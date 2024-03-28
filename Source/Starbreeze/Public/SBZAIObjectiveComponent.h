@@ -84,23 +84,24 @@ protected:
     
 public:
     USBZAIObjectiveComponent();
-
-    UFUNCTION(BlueprintCallable)
+protected:
+    UFUNCTION()
     void OnOrderCompleted(USBZAIOrder* Order, APawn* Owner, TEnumAsByte<EBTNodeResult::Type> OrderResult);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnInteractStateChanged(const USBZBaseInteractableComponent* Interactable, bool bEnabled);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnCollisionChanged(UPrimitiveComponent* ActorPrimitive);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+public:
+    UFUNCTION(BlueprintPure)
     ASBZRoomVolume* GetLastKnownRoom() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     ASBZRoomVolume* GetCurrentRoom_Implementation() const;
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

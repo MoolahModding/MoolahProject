@@ -1,9 +1,5 @@
 #include "SBZGameStateMachine.h"
 
-USBZGameStateMachine::USBZGameStateMachine() {
-    this->StateMachine = NULL;
-}
-
 void USBZGameStateMachine::SetMatchmakingSecurityCompanies(const TArray<ESBZSecurityCompany>& InSecurityCompanies) {
 }
 
@@ -19,7 +15,7 @@ void USBZGameStateMachine::SetMatchmakingLevelIdx(int32 InLevelIdx) {
 void USBZGameStateMachine::SetMatchmakingDifficultyIdx(uint8 InDifficultyIdx) {
 }
 
-void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty) {
+void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty, bool bIsSaved) {
 }
 
 void USBZGameStateMachine::SetIsMatchmakingQuickMatch(bool bInIsQuickMatch) {
@@ -138,4 +134,7 @@ void USBZGameStateMachine::DebugOnlineTravel(const FString& LevelUrl, bool bIsAb
 void USBZGameStateMachine::AddMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany) {
 }
 
+USBZGameStateMachine::USBZGameStateMachine() {
+    this->StateMachine = NULL;
+}
 

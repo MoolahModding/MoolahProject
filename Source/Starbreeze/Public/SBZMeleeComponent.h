@@ -25,12 +25,15 @@ private:
     
 public:
     USBZMeleeComponent();
-
+private:
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_SetEnforcerSolidNetIDArray(const TArray<int32>& InEnforcerSolidNetIDArray);
+    
 protected:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    UFUNCTION(NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-
+    
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -1,0 +1,5 @@
+#include "AccelByteModelsSeasonPassBulkRewardClaimedPayload.h"
+
+FAccelByteModelsSeasonPassBulkRewardClaimedPayload::FAccelByteModelsSeasonPassBulkRewardClaimedPayload() {
+}
+

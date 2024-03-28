@@ -8,6 +8,5 @@ class USBZNavArea_ZipLinePlatform : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_ZipLinePlatform();
-
 };
 

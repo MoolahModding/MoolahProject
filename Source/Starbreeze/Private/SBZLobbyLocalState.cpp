@@ -1,8 +1,5 @@
 #include "SBZLobbyLocalState.h"
 
-USBZLobbyLocalState::USBZLobbyLocalState() {
-}
-
 void USBZLobbyLocalState::SendInfoToServer() {
 }
 
@@ -16,4 +13,6 @@ UTexture2D* USBZLobbyLocalState::GetPlayerAvatar(int32 PlayerIndex) {
     return NULL;
 }
 
+USBZLobbyLocalState::USBZLobbyLocalState() {
+}
 

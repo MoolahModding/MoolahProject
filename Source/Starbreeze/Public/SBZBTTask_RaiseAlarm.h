@@ -13,6 +13,5 @@ protected:
     
 public:
     USBZBTTask_RaiseAlarm();
-
 };
 

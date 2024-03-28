@@ -20,6 +20,5 @@ protected:
     
 public:
     USBZAIOrder_Agility();
-
 };
 

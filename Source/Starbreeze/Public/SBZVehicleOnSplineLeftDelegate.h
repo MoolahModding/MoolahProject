@@ -4,5 +4,5 @@
 
 class ASBZSpline;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZVehicleOnSplineLeft, ASBZSpline*, Spline);
+UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZVehicleOnSplineLeft, ASBZSpline*, Spline);
 

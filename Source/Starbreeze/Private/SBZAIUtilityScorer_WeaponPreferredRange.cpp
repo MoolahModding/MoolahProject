@@ -5,4 +5,3 @@ USBZAIUtilityScorer_WeaponPreferredRange::USBZAIUtilityScorer_WeaponPreferredRan
     this->AdditionalRange = 0.00f;
 }
 
-

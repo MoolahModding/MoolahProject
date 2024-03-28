@@ -8,6 +8,5 @@ class STARBREEZE_API USBZEllipsoidComponent : public UPrimitiveComponent {
     GENERATED_BODY()
 public:
     USBZEllipsoidComponent();
-
 };
 

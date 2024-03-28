@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZLobbyCharacterInfoUi.h"
-#include "SBZWidgetBase.h"
+#include "SBZMenuButton.h"
 #include "SBZMainMenuPreplanningPlayerStatusWidget.generated.h"
 
 class USBZBaseInventoryItemVisualsWidget;
@@ -10,7 +10,7 @@ class USBZThrowableData;
 class USBZToolData;
 
 UCLASS(Blueprintable, EditInlineNew)
-class USBZMainMenuPreplanningPlayerStatusWidget : public USBZWidgetBase {
+class USBZMainMenuPreplanningPlayerStatusWidget : public USBZMenuButton {
     GENERATED_BODY()
 public:
 protected:
@@ -49,16 +49,22 @@ protected:
     
 public:
     USBZMainMenuPreplanningPlayerStatusWidget();
-
     UFUNCTION(BlueprintCallable)
     void SetEmpty();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable)
+    void OpenPlayerProfile();
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnLobbyPlayerStatusUpdated();
     
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
+    
+public:
+    UFUNCTION(BlueprintPure)
+    bool CanOpenPlayerProfile();
     
 };
 

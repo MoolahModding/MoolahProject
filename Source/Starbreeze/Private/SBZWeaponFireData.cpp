@@ -1,6 +1,11 @@
 #include "SBZWeaponFireData.h"
-#include "SBZBulletDamageType.h"
-#include "SBZRangedWeaponEffect.h"
+
+int32 USBZWeaponFireData::GetProjectilesPerFiredRound() const {
+    return 0;
+}
+
+void USBZWeaponFireData::GetCriticalMultipliersOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutMultiplierArray) const {
+}
 
 USBZWeaponFireData::USBZWeaponFireData() {
     this->CriticalDamageMultiplierDistanceArray.AddDefaulted(1);
@@ -29,17 +34,5 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->bIsChamberRotatedEachFiredRound = false;
     this->bIsChamberRotatedEachReloadedRound = false;
     this->RoundsPerMinute = 600.00f;
-    this->DamageTypeClass = USBZBulletDamageType::StaticClass();
-    this->TargetEffectClass = USBZRangedWeaponEffect::StaticClass();
-    FProperty* p_NativeClass = GetClass()->FindPropertyByName("NativeClass");
-    *p_NativeClass->ContainerPtrToValuePtr<UClass*>(this) = USBZWeaponFireData::StaticClass();
 }
-
-int32 USBZWeaponFireData::GetProjectilesPerFiredRound() const {
-    return 0;
-}
-
-void USBZWeaponFireData::GetCriticalMultipliersOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutMultiplierArray) const {
-}
-
 

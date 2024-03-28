@@ -8,6 +8,5 @@ class USBZSkillSharpshooterSharpshooter : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillSharpshooterSharpshooter();
-
 };
 

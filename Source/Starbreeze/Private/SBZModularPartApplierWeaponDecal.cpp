@@ -3,4 +3,3 @@
 USBZModularPartApplierWeaponDecal::USBZModularPartApplierWeaponDecal() {
 }
 
-

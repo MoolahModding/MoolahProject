@@ -8,6 +8,5 @@ class USBZLoadoutSlotData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZLoadoutSlotData();
-
 };
 

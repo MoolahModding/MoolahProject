@@ -4,7 +4,6 @@
 #include "SBZTranslucentTimer.h"
 #include "SBZImpactManager.generated.h"
 
-class UAkComponent;
 class UDecalComponent;
 class UMaterialInterface;
 
@@ -58,17 +57,13 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<UDecalComponent*> BloodSplatterDecals;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    UAkComponent* LastSlidingEmitter;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZTranslucentTimer> TranslucentPrimitiveComponenets;
     
 public:
     USBZImpactManager();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void HandleDroppedDecalComponent(UObject* DroppedElement);
     
 };

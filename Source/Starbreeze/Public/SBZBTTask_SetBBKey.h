@@ -14,6 +14,5 @@ private:
     
 public:
     USBZBTTask_SetBBKey();
-
 };
 

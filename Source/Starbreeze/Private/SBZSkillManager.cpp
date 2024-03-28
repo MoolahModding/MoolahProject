@@ -1,8 +1,5 @@
 #include "SBZSkillManager.h"
 
-USBZSkillManager::USBZSkillManager() {
-}
-
 bool USBZSkillManager::UnequipSkills(TArray<USBZSkill*>& Skills, FSBZPlayerLoadoutConfig& PlayerLoadoutConfig) {
     return false;
 }
@@ -49,10 +46,6 @@ USBZSkillLine* USBZSkillManager::GetPlayerSkillLine(const FName& AccelByteSkuNo)
     return NULL;
 }
 
-int32 USBZSkillManager::GetMaxSkillPoints() const {
-    return 0;
-}
-
 float USBZSkillManager::GetMaxProgressLevel(const USBZSkillLineData* SkillLine) const {
     return 0.0f;
 }
@@ -69,4 +62,7 @@ bool USBZSkillManager::EquipSkill(const USBZSkill* Skill, FSBZPlayerLoadoutConfi
     return false;
 }
 
+USBZSkillManager::USBZSkillManager() {
+    this->ModifyingSkillLine = NULL;
+}
 

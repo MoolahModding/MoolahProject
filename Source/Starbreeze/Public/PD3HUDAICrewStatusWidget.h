@@ -32,6 +32,5 @@ private:
     
 public:
     UPD3HUDAICrewStatusWidget();
-
 };
 

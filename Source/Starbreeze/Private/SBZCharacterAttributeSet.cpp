@@ -3,4 +3,3 @@
 USBZCharacterAttributeSet::USBZCharacterAttributeSet() {
 }
 
-

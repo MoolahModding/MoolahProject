@@ -18,6 +18,5 @@ public:
     FSBZWeaponSwayDataStruct Target;
     
     USBZWeaponSwayData();
-
 };
 

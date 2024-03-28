@@ -3,4 +3,3 @@
 USBZElectricDamageType::USBZElectricDamageType() {
 }
 
-

@@ -75,6 +75,5 @@ protected:
     
 public:
     USBZAIArmedCharacterLinkedAnimation();
-
 };
 

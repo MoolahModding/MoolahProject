@@ -20,28 +20,27 @@ private:
     
 public:
     USBZMainMenuInventoryCharacterSlotButton();
-
     UFUNCTION(BlueprintCallable)
     void SetPreferredValueIndex(int32 InPreferredValueIndex);
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPreferredValueIndexChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnCharacterSlotInitialized();
     
 public:
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     bool IsPreferredCharacter() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeCharacterSlotData(int32 InInventoryIndex);
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     int32 GetDisplayPreferredIndex() const;
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UFUNCTION(BlueprintPure)
     FSBZCharacterInventoryData GetCharacterSlotData() const;
     
     UFUNCTION(BlueprintCallable)

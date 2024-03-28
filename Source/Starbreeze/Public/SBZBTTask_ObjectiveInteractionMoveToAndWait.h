@@ -8,6 +8,5 @@ class USBZBTTask_ObjectiveInteractionMoveToAndWait : public USBZBTTask_Objective
     GENERATED_BODY()
 public:
     USBZBTTask_ObjectiveInteractionMoveToAndWait();
-
 };
 

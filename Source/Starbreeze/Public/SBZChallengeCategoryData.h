@@ -19,6 +19,5 @@ public:
     UPaperSprite* DisplayIcon;
     
     USBZChallengeCategoryData();
-
 };
 

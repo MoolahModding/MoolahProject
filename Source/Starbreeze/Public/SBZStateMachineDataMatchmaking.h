@@ -34,6 +34,5 @@ public:
     ESBZOnlineJoinType JoinType;
     
     USBZStateMachineDataMatchmaking();
-
 };
 

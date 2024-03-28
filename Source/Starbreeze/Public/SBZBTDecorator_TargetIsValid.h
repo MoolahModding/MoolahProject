@@ -8,6 +8,5 @@ class USBZBTDecorator_TargetIsValid : public UBTDecorator_BlackboardBase {
     GENERATED_BODY()
 public:
     USBZBTDecorator_TargetIsValid();
-
 };
 

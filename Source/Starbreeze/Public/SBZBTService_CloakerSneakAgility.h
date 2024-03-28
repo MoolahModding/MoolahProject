@@ -22,9 +22,8 @@ private:
     
 public:
     USBZBTService_CloakerSneakAgility();
-
 private:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION()
     void OnMontageEnded(UAnimMontage* Montage, bool bIsInterrupted, ASBZAIController* AIController);
     
 };

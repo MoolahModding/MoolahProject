@@ -52,9 +52,11 @@ protected:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnCircularWidgetSelected OnCircularWidgetSelected;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float TimeToRememberActiveIndex;
+    
 public:
     USBZCircularInteractionWidget();
-
     UFUNCTION(BlueprintCallable)
     void UpdateNumSlices(int32 InNumSlices);
     
@@ -62,10 +64,10 @@ public:
     void SelectCurrentIndex();
     
 protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnNumSectionsChanged();
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintImplementableEvent)
     void OnIndexChanged();
     
 public:

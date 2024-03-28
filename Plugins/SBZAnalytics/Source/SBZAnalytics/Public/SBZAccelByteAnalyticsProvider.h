@@ -8,6 +8,5 @@ class SBZANALYTICS_API USBZAccelByteAnalyticsProvider : public USBZAnalyticsProv
     GENERATED_BODY()
 public:
     USBZAccelByteAnalyticsProvider();
-
 };
 

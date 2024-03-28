@@ -1,8 +1,5 @@
 #include "AccelByteBlueprintsItem.h"
 
-UAccelByteBlueprintsItem::UAccelByteBlueprintsItem() {
-}
-
 void UAccelByteBlueprintsItem::SearchItem(const FString& Language, const FString& Keyword, int32 Page, int32 Size, const FString& Region, const UAccelByteBlueprintsItem::FSearchItemSuccess& OnSuccess, const UAccelByteBlueprintsItem::FBlueprintErrorHandler& OnError) {
 }
 
@@ -15,4 +12,6 @@ void UAccelByteBlueprintsItem::GetItemById(const FString& ItemId, const FString&
 void UAccelByteBlueprintsItem::GetItemByAppId(const FString& AppId, const FString& Region, const FString& Language, const UAccelByteBlueprintsItem::FGetItemByAppIdSuccess& OnSuccess, const UAccelByteBlueprintsItem::FBlueprintErrorHandler& OnError) {
 }
 
+UAccelByteBlueprintsItem::UAccelByteBlueprintsItem() {
+}
 

@@ -8,6 +8,5 @@ class USBZToolSkeletalMeshComponent : public USkeletalMeshComponent {
     GENERATED_BODY()
 public:
     USBZToolSkeletalMeshComponent();
-
 };
 
