@@ -10,7 +10,7 @@
  ###  Prerequisites
        - EGS Launcher
        - Unreal Engine 4.27
-       - Around 50GB - 100GB of Storage Space (for Engine and Project, this doesnt Include your own Mod Files which you might make in the Future)
+       - Around 30GB of Storage Space for the Engine and Base mod files
 
  ###  Unreal Plugins
    - [Prefabricator](com.epicgames.launcher://ue/marketplace/content/39ccbbf668e84847890992df9922e355 "EGS Site for Prefabricator")
