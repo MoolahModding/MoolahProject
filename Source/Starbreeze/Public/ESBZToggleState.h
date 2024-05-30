@@ -2,10 +2,10 @@
 #include "CoreMinimal.h"
 #include "ESBZToggleState.generated.h"
 
-UENUM(BlueprintType)
-enum class ESBZToggleState : uint8 {
+UENUM()
+enum class ESBZToggleState {
     Off,
     On,
-    Invalid = 0xFF,
+    Invalid = -1,
 };
 

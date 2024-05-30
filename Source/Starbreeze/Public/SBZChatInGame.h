@@ -11,29 +11,33 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZChatInGame : public AInfo {
     GENERATED_BODY()
 public:
-    ASBZChatInGame();
+    ASBZChatInGame(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerChatMessageReceived(int32 PlayerId, const FSBZPlayerChatEvent& PlayerChatEvent);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerCallMessageReceived(APlayerState* PlayerState, uint8 CallIndex);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendChatMessageToServer(const FSBZPlayerChatEvent& ChatEventData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendCallMessageToServer(const FSBZPlayerCallEvent& CallEventData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastChatMessageReceived(int32 PlayerId, const FSBZPlayerChatEvent& PlayerChatEvent);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastCallMessageReceived(APlayerState* PlayerState, uint8 CallIndex);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ClientSubscribeToChatMessages();
+
+    UPROPERTY()
+    bool bEnableNetReadyEvent;
     
 };
 

@@ -5,3 +5,4 @@ USBZWidgetCreditsTextPair::USBZWidgetCreditsTextPair() {
     this->TextSecondWidget = NULL;
 }
 
+

@@ -1,5 +1,8 @@
 #include "SBZBlackMarketStoreItemButton.h"
 
+USBZBlackMarketStoreItemButton::USBZBlackMarketStoreItemButton() {
+}
+
 
 bool USBZBlackMarketStoreItemButton::IsTransactionInProgress() const {
     return false;
@@ -19,6 +22,4 @@ USBZInventoryBaseData* USBZBlackMarketStoreItemButton::GetItemData() const {
 void USBZBlackMarketStoreItemButton::GetItemCost(int32& Price, ESBZCurrencyCode& Currency) {
 }
 
-USBZBlackMarketStoreItemButton::USBZBlackMarketStoreItemButton() {
-}
 

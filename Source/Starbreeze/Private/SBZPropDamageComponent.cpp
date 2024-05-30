@@ -1,6 +1,9 @@
 #include "SBZPropDamageComponent.h"
 #include "Net/UnrealNetwork.h"
 
+USBZPropDamageComponent::USBZPropDamageComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void USBZPropDamageComponent::OnRep_DamagePools() {
 }
 
@@ -16,6 +19,4 @@ void USBZPropDamageComponent::GetLifetimeReplicatedProps(TArray<FLifetimePropert
     DOREPLIFETIME(USBZPropDamageComponent, DamagePools);
 }
 
-USBZPropDamageComponent::USBZPropDamageComponent() {
-}
 

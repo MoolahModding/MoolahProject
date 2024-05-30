@@ -8,5 +8,6 @@ class USBZMainMenuQuickMatch : public USBZMenuStackWidget {
     GENERATED_BODY()
 public:
     USBZMainMenuQuickMatch();
+
 };
 

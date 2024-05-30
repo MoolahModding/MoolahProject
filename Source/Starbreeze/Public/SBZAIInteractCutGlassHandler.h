@@ -17,7 +17,8 @@ public:
     USBZInteractorComponent* Interactor;
     
     USBZAIInteractCutGlassHandler();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnCutGlassInteractionCompleted();
     
 };

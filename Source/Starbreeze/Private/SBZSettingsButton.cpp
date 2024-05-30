@@ -1,5 +1,11 @@
 #include "SBZSettingsButton.h"
 
+USBZSettingsButton::USBZSettingsButton() {
+    this->bCanResetSetting = false;
+    this->bSettingIsDirty = false;
+    this->bSettingHasDefaultValue = false;
+}
+
 bool USBZSettingsButton::SettingIsDirty() const {
     return false;
 }
@@ -29,9 +35,4 @@ bool USBZSettingsButton::CanResetSetting() const {
     return false;
 }
 
-USBZSettingsButton::USBZSettingsButton() {
-    this->bCanResetSetting = false;
-    this->bSettingIsDirty = false;
-    this->bSettingHasDefaultValue = false;
-}
 

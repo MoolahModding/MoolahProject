@@ -36,12 +36,13 @@ private:
     float ExplosionChance;
     
 public:
-    USBZCosmeticDestructionComponent();
+    USBZCosmeticDestructionComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleSBZTakeRadialDamageEx(AActor* DamagedActor, float Damage, const FRadialDamageEvent& DamageEvent, AController* InstigatedBy, AActor* DamageCauser);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleSBZTakePointDamageEx(AActor* DamagedActor, float Damage, const FPointDamageEvent& DamageEvent, AController* InstigatedBy, AActor* DamageCauser);
     
 };

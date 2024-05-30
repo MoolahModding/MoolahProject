@@ -5,3 +5,4 @@ USBZAnimatedInteractionData::USBZAnimatedInteractionData() {
     this->PlayRateScaleType = ESBZAnimationScalePlayRateType::OnlyUp;
 }
 
+

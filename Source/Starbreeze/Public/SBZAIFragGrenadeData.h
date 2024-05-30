@@ -17,5 +17,6 @@ public:
     UCurveFloat* DamageModifierCurve;
     
     USBZAIFragGrenadeData();
+
 };
 

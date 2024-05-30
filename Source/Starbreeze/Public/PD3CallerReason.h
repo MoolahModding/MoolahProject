@@ -9,7 +9,7 @@ struct FPD3CallerReason {
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZActionNotificationAsset* Reason[13];
+    USBZActionNotificationAsset* Reason[16];
     
     STARBREEZE_API FPD3CallerReason();
 };

@@ -15,8 +15,9 @@ protected:
     
 public:
     USBZCrewStateWidget();
+
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsForLocalPlayerState() const;
     
 };

@@ -7,3 +7,4 @@ USBZTargetingHeadbobData::USBZTargetingHeadbobData() {
     this->BreathingAmplitude = 1.00f;
 }
 
+

@@ -9,8 +9,6 @@
 
 class AActor;
 class USBZModularMeshComponent;
-class USBZWeaponAmmoData;
-class UStaticMeshComponent;
 
 UCLASS(Abstract, Blueprintable)
 class STARBREEZE_API ASBZWeapon : public ASBZEquippable {
@@ -24,16 +22,10 @@ protected:
     USBZModularMeshComponent* ModularMeshComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FGameplayTagContainer WeaponTags;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZWeaponAnimationState AnimationState;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UStaticMeshComponent*> AmmoMeshComponentArray;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZWeaponAmmoData* CurrentAmmoData;
+    FGameplayTagContainer WeaponTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float ShaderSightOffset;
@@ -48,6 +40,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeaponCustomizationFOV;
     
-    ASBZWeapon();
+    ASBZWeapon(const FObjectInitializer& ObjectInitializer);
+
 };
 

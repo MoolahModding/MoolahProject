@@ -135,50 +135,51 @@ private:
     FName CrewAIMarkerSocketName;
     
 public:
-    ASBZAICrewCharacter();
+    ASBZAICrewCharacter(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_DefeatTime();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CrewState(ASBZAICrewState* OldCrewState);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDefeatTime(float InDefeatTime);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDefeatState(EPD3DefeatState InState);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ResumeDefeatTime(float InDefeatTime);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_PauseDefeatTime();
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MarkTarget(ASBZCharacter* Character, bool bShouldPlayPointGesture);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MarkCamera(ASBZSecurityCamera* Camera);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

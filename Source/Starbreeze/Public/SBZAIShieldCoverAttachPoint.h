@@ -18,6 +18,7 @@ private:
     TArray<ASBZAIShieldCoverAttachPoint*> BlockingCovers;
     
 public:
-    ASBZAIShieldCoverAttachPoint();
+    ASBZAIShieldCoverAttachPoint(const FObjectInitializer& ObjectInitializer);
+
 };
 

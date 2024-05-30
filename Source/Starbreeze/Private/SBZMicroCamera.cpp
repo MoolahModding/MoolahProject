@@ -2,19 +2,7 @@
 #include "AkComponent.h"
 #include "Components/BoxComponent.h"
 
-void ASBZMicroCamera::OnAICharacterKilled(APawn* InAIPawn) {
-}
-
-void ASBZMicroCamera::Multicast_SetArmed_Implementation() {
-}
-
-void ASBZMicroCamera::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
-}
-
-void ASBZMicroCamera::Multicast_OverloadMicroCamera_Implementation() {
-}
-
-ASBZMicroCamera::ASBZMicroCamera() {
+ASBZMicroCamera::ASBZMicroCamera(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RotationSpeed = 100.00f;
     this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
     this->ExplosionInstigator = NULL;
@@ -31,5 +19,20 @@ ASBZMicroCamera::ASBZMicroCamera() {
     this->ArmedEvent = NULL;
     this->OverloadSoundDuration = 1.50f;
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    this->BoxComponent->SetupAttachment(RootComponent);
+    this->AkComponent->SetupAttachment(RootComponent);
 }
+
+void ASBZMicroCamera::OnAICharacterKilled(APawn* InAIPawn) {
+}
+
+void ASBZMicroCamera::Multicast_SetArmed_Implementation() {
+}
+
+void ASBZMicroCamera::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
+}
+
+void ASBZMicroCamera::Multicast_OverloadMicroCamera_Implementation() {
+}
+
 

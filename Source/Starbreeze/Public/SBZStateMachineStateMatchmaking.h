@@ -6,7 +6,7 @@
 
 class USBZStateMachineDataMatchmaking;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateMatchmaking : public USBZClientStateMachineState {
     GENERATED_BODY()
 public:
@@ -32,23 +32,24 @@ private:
     
 public:
     USBZStateMachineStateMatchmaking();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleSessionBecomeOutdated();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerCountChanged();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleMatchInfoUpdated();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToPartyHost(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToHost(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void FireMatchAcceptUnlock();
     
 };

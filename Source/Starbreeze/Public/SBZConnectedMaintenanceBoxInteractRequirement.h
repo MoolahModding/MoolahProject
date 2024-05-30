@@ -8,5 +8,6 @@ class USBZConnectedMaintenanceBoxInteractRequirement : public USBZBaseInteractRe
     GENERATED_BODY()
 public:
     USBZConnectedMaintenanceBoxInteractRequirement();
+
 };
 

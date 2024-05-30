@@ -8,5 +8,6 @@ class USBZEnvQueryTest_IsValidTarget : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsValidTarget();
+
 };
 

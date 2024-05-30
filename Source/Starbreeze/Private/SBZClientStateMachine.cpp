@@ -1,5 +1,9 @@
 #include "SBZClientStateMachine.h"
 
+USBZClientStateMachine::USBZClientStateMachine() {
+    this->LoadingScreen = NULL;
+}
+
 void USBZClientStateMachine::RequestTravelToServer() {
 }
 
@@ -104,7 +108,4 @@ FString USBZClientStateMachine::GetCurrentStateNameString() {
 void USBZClientStateMachine::ApplyPreplanningAsset(const FString& ItemSku) {
 }
 
-USBZClientStateMachine::USBZClientStateMachine() {
-    this->LoadingScreen = NULL;
-}
 

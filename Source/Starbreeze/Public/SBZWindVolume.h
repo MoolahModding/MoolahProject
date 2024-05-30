@@ -10,10 +10,10 @@ class ASBZWindVolume : public AVolume {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta = (AllowPrivateAccess = true))
     USBZWindEmitterComponent* EmitterComponent;
-    
+
 public:
-    ASBZWindVolume();
+    ASBZWindVolume(const FObjectInitializer& ObjectInitializer);
 };
 

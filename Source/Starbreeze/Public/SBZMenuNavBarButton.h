@@ -20,13 +20,14 @@ protected:
     
 public:
     USBZMenuNavBarButton();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHovered(bool bIsHovered);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnClicked();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnButtonInitialized(const FSBZNavButtonParameters& ButtonParams);
     
 };

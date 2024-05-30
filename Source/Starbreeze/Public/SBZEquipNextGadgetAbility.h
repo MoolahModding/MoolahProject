@@ -8,5 +8,6 @@ class USBZEquipNextGadgetAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZEquipNextGadgetAbility();
+
 };
 

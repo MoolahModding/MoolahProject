@@ -8,5 +8,6 @@ class USBZTrackWeaponVelocityNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZTrackWeaponVelocityNotifyState();
+
 };
 

@@ -8,3 +8,4 @@ USBZPlayerThrowableKnifeData::USBZPlayerThrowableKnifeData() {
     this->ShatteredEffect = NULL;
 }
 
+

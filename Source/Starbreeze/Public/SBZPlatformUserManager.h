@@ -14,11 +14,12 @@ private:
     
 public:
     USBZPlatformUserManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosedConfirmChanges(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleUIStackChanged(FSBZUIStackChangedEvent Event);
     
 };

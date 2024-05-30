@@ -8,5 +8,6 @@ class STARBREEZE_API USBZDsStateMachineState : public USBZCommonStateMachineStat
     GENERATED_BODY()
 public:
     USBZDsStateMachineState();
+
 };
 

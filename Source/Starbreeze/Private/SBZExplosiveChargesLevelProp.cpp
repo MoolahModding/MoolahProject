@@ -1,6 +1,16 @@
 #include "SBZExplosiveChargesLevelProp.h"
 #include "Net/UnrealNetwork.h"
 
+ASBZExplosiveChargesLevelProp::ASBZExplosiveChargesLevelProp(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DamageDistanceArray.AddDefaulted(1);
+    this->bIsDestroyedOnExplosion = false;
+    this->NumberOfExplosivesToPlace = 1;
+    this->bCanCancelExplosiveTimer = false;
+    this->bIsExploded = false;
+    this->PlacedExplosivesCount = 0;
+    this->bIsEnabled = false;
+}
+
 void ASBZExplosiveChargesLevelProp::SetEnabled(bool bInIsEnabled) {
 }
 
@@ -24,15 +34,8 @@ void ASBZExplosiveChargesLevelProp::GetLifetimeReplicatedProps(TArray<FLifetimeP
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZExplosiveChargesLevelProp, bIsExploded);
-    DOREPLIFETIME(ASBZExplosiveChargesLevelProp, PlacedExplosives);
+    DOREPLIFETIME(ASBZExplosiveChargesLevelProp, PlacedExplosivesCount);
     DOREPLIFETIME(ASBZExplosiveChargesLevelProp, bIsEnabled);
 }
 
-ASBZExplosiveChargesLevelProp::ASBZExplosiveChargesLevelProp() {
-    this->NumberOfExplosivesToPlace = 1;
-    this->bCanCancelExplosiveTimer = false;
-    this->bIsExploded = false;
-    this->PlacedExplosives = 0;
-    this->bIsEnabled = false;
-}
 

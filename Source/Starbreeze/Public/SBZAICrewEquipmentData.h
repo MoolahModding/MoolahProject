@@ -13,5 +13,6 @@ public:
     USBZMaskData* MaskData;
     
     USBZAICrewEquipmentData();
+
 };
 

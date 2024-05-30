@@ -1,5 +1,8 @@
 #include "SBZMetaFunctionLibrary.h"
 
+USBZMetaFunctionLibrary::USBZMetaFunctionLibrary() {
+}
+
 ESBZMetaEventType USBZMetaFunctionLibrary::GetActiveMetaEventType(const UObject* WorldContextObject) {
     return ESBZMetaEventType::None;
 }
@@ -12,6 +15,4 @@ bool USBZMetaFunctionLibrary::GetActiveMetaEvent(const UObject* WorldContextObje
     return false;
 }
 
-USBZMetaFunctionLibrary::USBZMetaFunctionLibrary() {
-}
 

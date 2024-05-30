@@ -17,16 +17,17 @@ protected:
     
 public:
     USBZChallengeCategoryManager();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZChallengeCategoryManager* GetChallengeCategoryManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZChallengeCategoryData* GetChallengeCategoryForTag(const UObject* WorldContextObject, const FString& InTag);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZChallengeCategoryData* GetChallengeCategoryForChallenge(const UObject* WorldContextObject, const FSBZChallengeData& ChallengeRecord);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetChallengeCategoryData(const UObject* WorldContextObject, TArray<USBZChallengeCategoryData*>& OutCategoryList);
     
 };

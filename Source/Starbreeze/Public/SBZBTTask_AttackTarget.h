@@ -31,7 +31,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTag ContinuosFireWhileTagActive;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldStopTelegraphOnAimingDone;
+    
 public:
     USBZBTTask_AttackTarget();
+
 };
 

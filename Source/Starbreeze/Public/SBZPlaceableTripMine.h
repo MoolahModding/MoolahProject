@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Curves/CurveFloat.h"
 #include "SBZExplosionResult.h"
 #include "SBZExplosive.h"
 #include "SBZHurtReactionData.h"
@@ -15,7 +14,6 @@ class UAkComponent;
 class UBoxComponent;
 class UGameplayEffect;
 class UNiagaraSystem;
-class USBZLocalPlayerFeedback;
 
 UCLASS(Blueprintable)
 class ASBZPlaceableTripMine : public ASBZPlaceableToolBase, public ISBZExplosive, public ISBZHurtReactionDataInterface {
@@ -43,37 +41,29 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PlayerExplosionRange;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bExplosionAffectsAIOnly;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float AdditionalPlayerRange;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UAkComponent* AkComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FRuntimeFloatCurve PlayerFeedbackCurve;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZHurtReactionData HurtReactionData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZExplosionResult PendingDataExplosionResult;
+    
 public:
-    ASBZPlaceableTripMine();
-    UFUNCTION(Reliable, Server)
+    ASBZPlaceableTripMine(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetUnarmed();
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetArmed();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

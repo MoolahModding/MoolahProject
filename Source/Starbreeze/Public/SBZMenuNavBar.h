@@ -33,31 +33,32 @@ protected:
     
 public:
     USBZMenuNavBar();
+
     UFUNCTION(BlueprintCallable)
     void SetActiveTab(const FName& InTabName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTabbedForward();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTabbedBackward();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInstallStateChanged(bool NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnForwardInputPressed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBackwardInputPressed();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasStackFocus() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZNavButtonParameters> GetNavigationParameters() const;
     
 };

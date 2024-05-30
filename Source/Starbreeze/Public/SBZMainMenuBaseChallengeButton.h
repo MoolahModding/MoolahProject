@@ -17,8 +17,9 @@ private:
     
 public:
     USBZMainMenuBaseChallengeButton();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnChallengeDataInititalized(const FSBZChallengeData& InChallengeData);
     
 public:
@@ -26,7 +27,7 @@ public:
     void InitializeChallengeData(const FSBZChallengeData& InChallengeData);
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FVector2D GetPaperSpriteSourceSize(UPaperSprite* Sprite);
     
 };

@@ -15,14 +15,15 @@ private:
     TArray<FSBZRagdollInfo> Ragdolls;
     
 public:
-    USBZRagdollSyncManager();
+    USBZRagdollSyncManager(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RagdollSyncData(const TArray<FSBZRagdollSyncData>& InRagdollSyncData);
     
 };

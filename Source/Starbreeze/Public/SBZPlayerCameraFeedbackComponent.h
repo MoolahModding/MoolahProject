@@ -28,7 +28,8 @@ private:
     TMap<TSubclassOf<USBZLocalPlayerFeedback>, FTimerHandle> FeedbackFirstPlayCooldowns;
     
 public:
-    USBZPlayerCameraFeedbackComponent();
+    USBZPlayerCameraFeedbackComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     bool SetFeedbackIntensity(int32 FeedbackID, float InIntensity);
     
@@ -36,18 +37,18 @@ public:
     bool RemoveFeedback(int32 RemoveID);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnExitedActionPhase();
     
 public:
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPlayerCameraFeedbackComponent* GetLocalCameraFeedbackComponent(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)
     bool FadeOutFeedback(int32 RemoveID, bool bIsAutoRemoved);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CooldownTimerDelegate(TSubclassOf<USBZLocalPlayerFeedback> FeedbackClass);
     
 public:

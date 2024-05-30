@@ -36,13 +36,14 @@ protected:
     
 public:
     USBZDrillWidget();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnUpdateState(ESBZDrillState StateUpdated);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnUpdateBreachState(ESBZBreachingEquipmentState NewState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnProgressRateChanged(float ProgressPerSec, float HeatPerSec);
     
 };

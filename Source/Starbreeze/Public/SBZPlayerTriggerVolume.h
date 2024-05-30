@@ -35,14 +35,15 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZBooleanStateDynamicDelegate OverlappingAllPlayerPawnsChanged;
     
-    ASBZPlayerTriggerVolume();
+    ASBZPlayerTriggerVolume(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     int32 GetCurrentNumOverlappingPlayers() const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     bool AreAllPlayerPawnsInside() const;
     
 };

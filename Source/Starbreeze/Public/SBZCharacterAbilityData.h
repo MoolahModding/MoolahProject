@@ -26,5 +26,6 @@ public:
     TArray<TSubclassOf<USBZGameplayAbility>> AbilityArray;
     
     USBZCharacterAbilityData();
+
 };
 

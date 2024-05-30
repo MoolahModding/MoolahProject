@@ -36,13 +36,14 @@ protected:
     
 public:
     USBZMainMenuLoadoutWeaponModCategoryWidget();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnCategoryButtonSelected(const USBZModularPartSlotBase* ModSlot);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCategoryButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     USBZLoadoutModCategoryButton* GetAvailibleButton(int32 Index);
     
     UFUNCTION(BlueprintCallable)

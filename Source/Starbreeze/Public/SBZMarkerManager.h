@@ -21,11 +21,12 @@ private:
     TArray<FSBZMarkerRuntime> RuntimeMarkers;
     
 public:
-    USBZMarkerManager();
+    USBZMarkerManager(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ReplicatedMarkers();
     
 private:

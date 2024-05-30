@@ -20,6 +20,7 @@ private:
     TArray<ASBZAIShieldCoverAttachPoint*> CoverAttachPoints;
     
 public:
-    USBZAIShieldSpecialComponent();
+    USBZAIShieldSpecialComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

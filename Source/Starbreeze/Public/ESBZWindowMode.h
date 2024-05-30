@@ -2,11 +2,11 @@
 #include "CoreMinimal.h"
 #include "ESBZWindowMode.generated.h"
 
-UENUM(BlueprintType)
-enum class ESBZWindowMode : uint8 {
+UENUM()
+enum class ESBZWindowMode {
     FullScreen,
     Borderless,
     Windowed,
-    Invalid = 0xFF,
+    Invalid = -1,
 };
 

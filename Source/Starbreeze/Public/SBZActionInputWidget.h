@@ -34,6 +34,7 @@ protected:
     
 public:
     USBZActionInputWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetAction(FName InActionName, bool bShouldConsumeInput);
     

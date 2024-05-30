@@ -3,5 +3,5 @@
 #include "ESBZCameraState.h"
 #include "SBZ_BPOnCameraStateChangedDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZ_BPOnCameraStateChanged, ESBZCameraState, OldState, ESBZCameraState, NewState);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZ_BPOnCameraStateChanged, ESBZCameraState, OldState, ESBZCameraState, NewState);
 

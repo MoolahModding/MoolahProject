@@ -1,5 +1,35 @@
 #include "SBZLifeActionSlot.h"
 
+USBZLifeActionSlot::USBZLifeActionSlot(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bMustBeOccupied = true;
+    this->bNeedOtherSlotsReadyToBeReserved = false;
+    this->bOpenForRandomReservation = true;
+    this->bUseAcceptableRadius = true;
+    this->AcceptableRadius = 0.00f;
+    this->bUseAcceptableAngle = true;
+    this->AcceptableAngle = 0.00f;
+    this->AngleOffset = 0.00f;
+    this->bUseCoolDown = false;
+    this->CoolDown = 0.00f;
+    this->bUseRandomDuration = false;
+    this->DesiredDuration = -1.00f;
+    this->DialogPlayer = NULL;
+    this->bUseEnterAnimation = false;
+    this->bSnapEnterPointToGround = false;
+    this->bUseExitAnimation = false;
+    this->bSnapExitPointToGround = false;
+    this->bExitOnlyIfActionAnimationIsPlaying = false;
+    this->PlayingActionMontage = NULL;
+    this->PlayingEnterMontage = NULL;
+    this->PlayingExitMontage = NULL;
+    this->Character = NULL;
+    this->bIsReady = false;
+    this->State = ESBZLifeActionState::Stopped;
+    this->CurrentReservationID = -1;
+    this->CurrentMontageIndex = -1;
+    this->OwningLifeActionInstance = NULL;
+}
+
 void USBZLifeActionSlot::SwitchMontageSection(const FName& SectionName) {
 }
 
@@ -125,33 +155,4 @@ bool USBZLifeActionSlot::CanBeReservedBy(const ASBZCharacter* InCharacter, const
     return false;
 }
 
-USBZLifeActionSlot::USBZLifeActionSlot() {
-    this->bMustBeOccupied = true;
-    this->bNeedOtherSlotsReadyToBeReserved = false;
-    this->bOpenForRandomReservation = true;
-    this->bUseAcceptableRadius = true;
-    this->AcceptableRadius = 0.00f;
-    this->bUseAcceptableAngle = true;
-    this->AcceptableAngle = 0.00f;
-    this->AngleOffset = 0.00f;
-    this->bUseCoolDown = false;
-    this->CoolDown = 0.00f;
-    this->bUseRandomDuration = false;
-    this->DesiredDuration = -1.00f;
-    this->DialogPlayer = NULL;
-    this->bUseEnterAnimation = false;
-    this->bSnapEnterPointToGround = false;
-    this->bUseExitAnimation = false;
-    this->bSnapExitPointToGround = false;
-    this->bExitOnlyIfActionAnimationIsPlaying = false;
-    this->PlayingActionMontage = NULL;
-    this->PlayingEnterMontage = NULL;
-    this->PlayingExitMontage = NULL;
-    this->Character = NULL;
-    this->bIsReady = false;
-    this->State = ESBZLifeActionState::Stopped;
-    this->CurrentReservationID = -1;
-    this->CurrentMontageIndex = -1;
-    this->OwningLifeActionInstance = NULL;
-}
 

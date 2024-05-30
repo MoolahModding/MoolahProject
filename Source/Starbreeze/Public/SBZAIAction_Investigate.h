@@ -21,5 +21,6 @@ private:
     
 public:
     USBZAIAction_Investigate();
+
 };
 

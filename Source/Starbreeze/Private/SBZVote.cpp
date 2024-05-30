@@ -4,3 +4,4 @@ USBZVote::USBZVote() {
     this->VotingManager = NULL;
 }
 
+

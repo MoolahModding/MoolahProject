@@ -1,5 +1,9 @@
 #include "SBZStateMachineStateABPreMatch.h"
 
+USBZStateMachineStateABPreMatch::USBZStateMachineStateABPreMatch() {
+    this->MatchmakingData = NULL;
+}
+
 void USBZStateMachineStateABPreMatch::OnPlayerReadyStatusUpdated(bool bIsReady) {
 }
 
@@ -18,7 +22,4 @@ void USBZStateMachineStateABPreMatch::HandleBeaconDisconnect() {
 void USBZStateMachineStateABPreMatch::DelayedTravelToServer() {
 }
 
-USBZStateMachineStateABPreMatch::USBZStateMachineStateABPreMatch() {
-    this->MatchmakingData = NULL;
-}
 

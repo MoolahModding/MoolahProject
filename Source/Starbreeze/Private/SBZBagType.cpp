@@ -12,3 +12,4 @@ USBZBagType::USBZBagType() {
     this->WeightTierOffset = 1.00f;
 }
 
+

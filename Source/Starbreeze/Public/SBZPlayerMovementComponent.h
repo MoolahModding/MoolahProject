@@ -13,6 +13,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAutoComputeTrajectory;
+
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (AllowPrivateAccess = true))
+    bool bSkipImpulseFromPhysicsInteraction;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AutoComputeTrajectoryInterval;
@@ -69,12 +72,13 @@ protected:
     float SkillWalkHumanShieldModifier;
     
 public:
-    USBZPlayerMovementComponent();
+    USBZPlayerMovementComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_SetWantToSprint(bool bInWantToSprint);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetWantToSprint(bool bInWantToSprint);
     
 };

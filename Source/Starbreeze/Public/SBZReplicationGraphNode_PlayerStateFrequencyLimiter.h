@@ -8,5 +8,6 @@ class STARBREEZE_API USBZReplicationGraphNode_PlayerStateFrequencyLimiter : publ
     GENERATED_BODY()
 public:
     USBZReplicationGraphNode_PlayerStateFrequencyLimiter();
+
 };
 

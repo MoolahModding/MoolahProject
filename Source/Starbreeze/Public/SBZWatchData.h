@@ -8,5 +8,6 @@ class USBZWatchData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZWatchData();
+
 };
 

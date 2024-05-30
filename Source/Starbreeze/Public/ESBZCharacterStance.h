@@ -16,6 +16,6 @@ enum class ESBZCharacterStance : uint8 {
     DownedDefeated,
     Impaired,
     Last,
-    First = 0x0,
+    First = Neutral,
 };
 

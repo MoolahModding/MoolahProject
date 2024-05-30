@@ -4,3 +4,4 @@ USBZDrillMaterial::USBZDrillMaterial() {
     this->MinimumProgress = 10.00f;
 }
 
+

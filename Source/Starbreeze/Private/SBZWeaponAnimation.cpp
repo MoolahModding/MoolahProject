@@ -16,3 +16,4 @@ USBZWeaponAnimation::USBZWeaponAnimation() {
     this->Character = NULL;
 }
 
+

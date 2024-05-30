@@ -1,5 +1,6 @@
 #include "SBZWheeledVehicleSkeletalMeshComponent.h"
 
-USBZWheeledVehicleSkeletalMeshComponent::USBZWheeledVehicleSkeletalMeshComponent() {
+USBZWheeledVehicleSkeletalMeshComponent::USBZWheeledVehicleSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

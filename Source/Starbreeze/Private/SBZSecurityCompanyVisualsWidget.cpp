@@ -1,5 +1,10 @@
 #include "SBZSecurityCompanyVisualsWidget.h"
 
+USBZSecurityCompanyVisualsWidget::USBZSecurityCompanyVisualsWidget() {
+    this->SecurityCompanyEnum = ESBZSecurityCompany::None;
+    this->SecurityCompanyAsset = NULL;
+}
+
 void USBZSecurityCompanyVisualsWidget::SetEmpty() {
 }
 
@@ -20,8 +25,4 @@ UPD3SecurityCompanyDataAsset* USBZSecurityCompanyVisualsWidget::GetSecurityCompa
     return NULL;
 }
 
-USBZSecurityCompanyVisualsWidget::USBZSecurityCompanyVisualsWidget() {
-    this->SecurityCompanyEnum = ESBZSecurityCompany::None;
-    this->SecurityCompanyAsset = NULL;
-}
 

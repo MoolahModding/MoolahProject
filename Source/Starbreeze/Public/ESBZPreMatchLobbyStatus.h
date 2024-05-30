@@ -8,6 +8,6 @@ enum class ESBZPreMatchLobbyStatus : uint8 {
     WaitingForLoading,
     ReadyToTravel,
     MatchInProgress,
-    Default = 0x0,
+    Default = WaitingForReady,
 };
 

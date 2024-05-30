@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZTestGameState : public APD3HeistGameState {
     GENERATED_BODY()
 public:
-    ASBZTestGameState();
+    ASBZTestGameState(const FObjectInitializer& ObjectInitializer);
+
 };
 

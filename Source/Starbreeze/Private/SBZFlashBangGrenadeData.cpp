@@ -10,3 +10,4 @@ USBZFlashBangGrenadeData::USBZFlashBangGrenadeData() {
     this->GameplayEffectClass = NULL;
 }
 
+

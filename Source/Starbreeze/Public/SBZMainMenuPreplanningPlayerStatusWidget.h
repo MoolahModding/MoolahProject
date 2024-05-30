@@ -49,21 +49,22 @@ protected:
     
 public:
     USBZMainMenuPreplanningPlayerStatusWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetEmpty();
     
     UFUNCTION(BlueprintCallable)
     void OpenPlayerProfile();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLobbyPlayerStatusUpdated();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanOpenPlayerProfile();
     
 };

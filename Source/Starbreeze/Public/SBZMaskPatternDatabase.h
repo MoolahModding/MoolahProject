@@ -13,5 +13,6 @@ public:
     TArray<USBZMaskPatternData*> MaskPatternArray;
     
     USBZMaskPatternDatabase();
+
 };
 

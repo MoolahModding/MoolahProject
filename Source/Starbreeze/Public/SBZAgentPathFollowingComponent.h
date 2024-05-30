@@ -59,6 +59,7 @@ protected:
     UClass* CachedCurrentNavAreaClass;
     
 public:
-    USBZAgentPathFollowingComponent();
+    USBZAgentPathFollowingComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

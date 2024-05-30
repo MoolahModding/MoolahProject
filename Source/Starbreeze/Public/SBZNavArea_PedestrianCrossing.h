@@ -8,5 +8,6 @@ class STARBREEZE_API USBZNavArea_PedestrianCrossing : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_PedestrianCrossing();
+
 };
 

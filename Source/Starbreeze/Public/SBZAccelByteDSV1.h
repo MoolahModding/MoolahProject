@@ -3,7 +3,7 @@
 #include "SBZAccelByteDS.h"
 #include "SBZAccelByteDSV1.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class USBZAccelByteDSV1 : public USBZAccelByteDS {
     GENERATED_BODY()
 public:
@@ -22,5 +22,6 @@ private:
     
 public:
     USBZAccelByteDSV1();
+
 };
 

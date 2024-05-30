@@ -19,6 +19,7 @@ private:
     FSBZExplosivePhysicsEffectData PostDamagePhysicsEffectData;
     
 public:
-    ASBZFragGrenade();
+    ASBZFragGrenade(const FObjectInitializer& ObjectInitializer);
+
 };
 

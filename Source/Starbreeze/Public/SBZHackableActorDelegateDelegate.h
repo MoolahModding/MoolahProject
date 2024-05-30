@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZHackableActorDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZHackableActorDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZHackableActorDelegate);
 

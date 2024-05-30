@@ -6,5 +6,5 @@ class ASBZCharacter;
 class USBZLifeActionInstance;
 class USBZLifeActionSlot;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZLifeActionEventDelegate, ASBZCharacter*, Character, USBZLifeActionInstance*, ActionInstance, USBZLifeActionSlot*, ActionSlot);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZLifeActionEventDelegate, ASBZCharacter*, Character, USBZLifeActionInstance*, ActionInstance, USBZLifeActionSlot*, ActionSlot);
 

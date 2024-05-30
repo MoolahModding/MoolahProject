@@ -8,5 +8,6 @@ class USBZInteractSecurityCameraRequirement : public USBZBaseInteractRequirement
     GENERATED_BODY()
 public:
     USBZInteractSecurityCameraRequirement();
+
 };
 

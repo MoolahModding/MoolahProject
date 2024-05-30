@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTDecorator.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
 #include "GameplayTagContainer.h"
 #include "SBZBTDecorator_PawnType.generated.h"
 
@@ -10,6 +11,9 @@ class USBZBTDecorator_PawnType : public UBTDecorator {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FBlackboardKeySelector SelectedActor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInverse;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -17,5 +21,6 @@ protected:
     
 public:
     USBZBTDecorator_PawnType();
+
 };
 

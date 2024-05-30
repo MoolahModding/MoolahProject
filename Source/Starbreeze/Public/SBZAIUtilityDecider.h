@@ -47,37 +47,38 @@ protected:
     
 public:
     USBZAIUtilityDecider();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectedBP();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSelected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReselectedBP();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReselected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInitBP();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeselectedBP();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDeselected();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeactivatedBP(const TEnumAsByte<EBTNodeResult::Type>& NodeResult);
-    
+
     UFUNCTION()
     void OnDeactivated(TEnumAsByte<EBTNodeResult::Type> NodeResult);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivatedBP();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActivated();
     
 };

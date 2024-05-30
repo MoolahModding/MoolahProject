@@ -24,7 +24,8 @@ protected:
     TMap<ASBZCharacter*, int32> CarryCountMap;
     
 public:
-    ASBZWeightTriggerVolume();
+    ASBZWeightTriggerVolume(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SetVolumeEnabled(bool bIsEnabled);

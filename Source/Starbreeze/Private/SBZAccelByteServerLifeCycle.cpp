@@ -1,8 +1,5 @@
 #include "SBZAccelByteServerLifeCycle.h"
 
-void USBZAccelByteServerLifeCycle::OnNetDriverTearDown() {
-}
-
 USBZAccelByteServerLifeCycle::USBZAccelByteServerLifeCycle() {
     this->StateMachine = NULL;
     this->AccelByteDs = NULL;
@@ -12,4 +9,8 @@ USBZAccelByteServerLifeCycle::USBZAccelByteServerLifeCycle() {
     this->ShutdownTimeDsActionPhase = 1.00f;
     this->ShutdownTimeDsResult = 1.00f;
 }
+
+void USBZAccelByteServerLifeCycle::OnNetDriverTearDown() {
+}
+
 

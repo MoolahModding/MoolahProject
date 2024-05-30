@@ -4,3 +4,4 @@ USBZMeleeWeaponData::USBZMeleeWeaponData() {
     this->MeleeAttackData = NULL;
 }
 
+

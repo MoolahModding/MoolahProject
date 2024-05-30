@@ -8,5 +8,6 @@ class USBZSkillScramblerCamDistortion : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillScramblerCamDistortion();
+
 };
 

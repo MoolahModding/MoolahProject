@@ -9,21 +9,22 @@ class USBZAIUtilityScorer : public USBZAIScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectedBP();
-
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeselectedBP();
-
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDeactivatedBP(const TEnumAsByte<EBTNodeResult::Type>& NodeResult);
-
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivatedBP();
-
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float CalcScoreBP() const;
-
+    
 };
 

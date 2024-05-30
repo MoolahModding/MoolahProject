@@ -1,5 +1,86 @@
 #include "SBZGameUserSettings.h"
 
+USBZGameUserSettings::USBZGameUserSettings() {
+    this->SBZVersion = 3;
+    this->bUseDLSSG = false;
+    this->ReflexMode = ESBZReflexMode::On;
+    this->CameraVerticalFoV = 90;
+    this->FramerateMode = ESBZFramerateMode::Performance;
+    this->Brightness = 1.00f;
+    this->Contrast = 1.00f;
+    this->Gamma = 1.00f;
+    this->ColorBlindMode = EColorVisionDeficiency::NormalVision;
+    this->ColorBlindStrength = 0.50f;
+    this->bUseMotionBlur = true;
+    this->bUseDepthOfField = false;
+    this->bUseChromaticAberration = true;
+    this->AntiAliasingMode = 0;
+    this->UpscalingMode = ESBZUpscalingMode::Quality;
+    this->UpscalingSharpness = 0.05f;
+    this->Upscaler = ESBZUpscaler::DLSSSR;
+    this->CapsuleShadowQuality = 3;
+    this->bUseOutlines = true;
+    this->bUseSubtitles = true;
+    this->SubtitlesSize = 16;
+    this->bUseFPSDisplay = false;
+    this->bUseReticle = true;
+    this->CrosshairsBarWidth = 2.00f;
+    this->CrosshairsBarLength = 8.00f;
+    this->CrosshairsDotSize = 2.00f;
+    this->MinCrosshairsScale = 2.00f;
+    this->MaxCrosshairsScale = 48.00f;
+    this->bUseHitIndicators = true;
+    this->HitIndicatorScale = 32.00f;
+    this->bEnableStoryVideoButtons = false;
+    this->LobbyType = ESBZOnlineJoinType::Private;
+    this->MatchmakingDifficulty = ESBZDifficulty::VeryHard;
+    this->MasterVolume = 100.00f;
+    this->MusicVolume = 0.00f;
+    this->VOVolume = 75.00f;
+    this->SFXVolume = 100.00f;
+    this->VoipVolume = 100.00f;
+    this->CinematicVolume = 100.00f;
+    this->bUseContractorAudioBriefing = false;
+    this->MouseSensitivityMultiplier = 1.00f;
+    this->bUseMouseSmoothing = true;
+    this->bIsGamepadLookSensitivityCurveEnabled = true;
+    this->GamepadLookAccelerationMultiplier = 3.00f;
+    this->GamepadLookAccelerationTime = 0.25f;
+    this->bIsGamepadAimAssistEnabled = true;
+    this->GamepadAimAssistStrength = 1.00f;
+    this->GamepadHorizontalSensitivity = 1.00f;
+    this->GamepadVerticalSensitivity = 1.00f;
+    this->bUseInvertedYAxis = false;
+    this->bUseForceFeedback = true;
+    this->TargetingSensitivityMultiplier = 1.00f;
+    this->bUseHoldToRun = true;
+    this->bUseHoldToCrouch = false;
+    this->bUseHoldToTarget = true;
+    this->bIsHoldToSlide = false;
+    this->bUseSwitchWeaponAutomatically = true;
+    this->bIsChatDisabled = false;
+    this->bIsCrossplayDisabled = false;
+    this->MouseSensitivity = 0.07f;
+    this->bUseHoldForTabMenu = false;
+    this->bIsRememberSkipIntroSequence = true;
+    this->HeadbobScale = 1.00f;
+    this->AxisKeyboardBindings.AddDefaulted(8);
+    this->ActionKeyboardBindings.AddDefaulted(34);
+    this->GamepadBindingsPreset = 0;
+    this->PopupsShownBitmask = 2;
+    this->AdapterName = TEXT("NVIDIA GeForce RTX 3060");
+    this->CPUPerfIndex = 228.93f;
+    this->GPUPerfIndex = 276.45f;
+    this->OptimalViewDistanceQuality = 2;
+    this->OptimalShadowQuality = 2;
+    this->OptimalOptimalPostProcessQuality = 2;
+    this->OptimalTextureQuality = 2;
+    this->OptimalEffectsQuality = 2;
+    this->OptimalFoliageQuality = 2;
+    this->OptimalShadingQuality = 2;
+    this->GameInstance = NULL;
+}
+
 void USBZGameUserSettings::SetVOVolume(float Volume) {
 }
 
@@ -186,6 +267,9 @@ void USBZGameUserSettings::SetColorBlindMode(EColorVisionDeficiency Value) {
 void USBZGameUserSettings::SetCinematicVolume(float Volume) {
 }
 
+void USBZGameUserSettings::SetChromaticAberrationEnabled(bool bEnable) {
+}
+
 void USBZGameUserSettings::SetChatDisabled(bool bDisable) {
 }
 
@@ -265,6 +349,10 @@ bool USBZGameUserSettings::IsCrossplayDisabled() const {
 }
 
 bool USBZGameUserSettings::IsContractorAudioBriefingEnabled() {
+    return false;
+}
+
+bool USBZGameUserSettings::IsChromaticAberrationEnabled() const {
     return false;
 }
 
@@ -459,79 +547,4 @@ bool USBZGameUserSettings::AreHitIndicatorsEnabled() const {
     return false;
 }
 
-USBZGameUserSettings::USBZGameUserSettings() {
-    this->SBZVersion = 2;
-    this->CameraVerticalFoV = 90;
-    this->Brightness = 1.00f;
-    this->Contrast = 1.00f;
-    this->Gamma = 1.00f;
-    this->ColorBlindMode = EColorVisionDeficiency::NormalVision;
-    this->ColorBlindStrength = 0.50f;
-    this->bUseMotionBlur = true;
-    this->bUseDepthOfField = false;
-    this->AntiAliasingMode = 4;
-    this->UpscalingMode = ESBZUpscalingMode::None;
-    this->UpscalingSharpness = 0.05f;
-    this->Upscaler = ESBZUpscaler::Unreal;
-    this->CapsuleShadowQuality = 3;
-    this->bUseOutlines = true;
-    this->bUseSubtitles = true;
-    this->SubtitlesSize = 16;
-    this->bUseFPSDisplay = false;
-    this->bUseReticle = true;
-    this->CrosshairsBarWidth = 2.00f;
-    this->CrosshairsBarLength = 8.00f;
-    this->CrosshairsDotSize = 2.00f;
-    this->MinCrosshairsScale = 2.00f;
-    this->MaxCrosshairsScale = 48.00f;
-    this->bUseHitIndicators = true;
-    this->HitIndicatorScale = 32.00f;
-    this->bEnableStoryVideoButtons = false;
-    this->LobbyType = ESBZOnlineJoinType::Private;
-    this->MatchmakingDifficulty = ESBZDifficulty::VeryHard;
-    this->MasterVolume = 11.94f;
-    this->MusicVolume = 15.00f;
-    this->VOVolume = 100.00f;
-    this->SFXVolume = 100.00f;
-    this->VoipVolume = 100.00f;
-    this->CinematicVolume = 100.00f;
-    this->bUseContractorAudioBriefing = false;
-    this->MouseSensitivityMultiplier = 1.00f;
-    this->bUseMouseSmoothing = true;
-    this->bIsGamepadLookSensitivityCurveEnabled = true;
-    this->GamepadLookAccelerationMultiplier = 3.00f;
-    this->GamepadLookAccelerationTime = 0.25f;
-    this->bIsGamepadAimAssistEnabled = true;
-    this->GamepadAimAssistStrength = 1.00f;
-    this->GamepadHorizontalSensitivity = 1.00f;
-    this->GamepadVerticalSensitivity = 1.00f;
-    this->bUseInvertedYAxis = false;
-    this->bUseForceFeedback = true;
-    this->TargetingSensitivityMultiplier = 1.00f;
-    this->bUseHoldToRun = true;
-    this->bUseHoldToCrouch = false;
-    this->bUseHoldToTarget = true;
-    this->bIsHoldToSlide = false;
-    this->bUseSwitchWeaponAutomatically = true;
-    this->bIsChatDisabled = false;
-    this->bIsCrossplayDisabled = false;
-    this->MouseSensitivity = 0.07f;
-    this->bUseHoldForTabMenu = false;
-    this->AxisKeyboardBindings.AddDefaulted(8);
-    this->ActionKeyboardBindings.AddDefaulted(34);
-    this->GamepadBindingsPreset = 0;
-    this->PopupsShownBitmask = 2;
-    this->bIsPristine = false;
-    this->AdapterName = TEXT("NVIDIA GeForce RTX 3060");
-    this->CPUPerfIndex = 228.93f;
-    this->GPUPerfIndex = 276.45f;
-    this->OptimalViewDistanceQuality = 2;
-    this->OptimalShadowQuality = 2;
-    this->OptimalOptimalPostProcessQuality = 2;
-    this->OptimalTextureQuality = 2;
-    this->OptimalEffectsQuality = 2;
-    this->OptimalFoliageQuality = 2;
-    this->OptimalShadingQuality = 2;
-    this->GameInstance = NULL;
-}
 

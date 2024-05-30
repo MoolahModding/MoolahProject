@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZGadget : public AActor {
     GENERATED_BODY()
 public:
-    ASBZGadget();
+    ASBZGadget(const FObjectInitializer& ObjectInitializer);
+
 };
 

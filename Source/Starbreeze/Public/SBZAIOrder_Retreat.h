@@ -15,5 +15,6 @@ protected:
     
 public:
     USBZAIOrder_Retreat();
+
 };
 

@@ -20,30 +20,31 @@ protected:
     
 public:
     USBZMainMenuInventorySuitSlotButton();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveSuitSlot(bool bIsActiveSuitSlot);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSuitSlotInitialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPresetSuitSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeSuitSlot(int32 InSuitSlotIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSuitSlotIndex() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZSuitConfig GetSuitInSlotConfig() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZSuitData* GetSuitInSlot() const;
     
 };

@@ -16,44 +16,45 @@ private:
     uint8 bDummy: 1;
     
 public:
-    ASBZVotingReplicatedProxy();
+    ASBZVotingReplicatedProxy(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION(Reliable, Server)
+
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_NotifySendVoteRecall(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION(Reliable, Server)
-    void Server_NotifySendVoteInitiate(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, bool bVotePositive);
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_NotifySendVoteInitiate(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, FUniqueNetIdRepl PlayerTargeted, bool bVotePositive);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_NotifySendVoteAnswer(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_NotifyClientDisconnected(FUniqueNetIdRepl PlayerId);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastReceiveVoteRecall(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION(NetMulticast, Reliable)
-    void MulticastReceiveVoteInitiate(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, FDateTime TimeStarted, const TArray<FUniqueNetIdRepl>& PlayersPending);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void MulticastReceiveVoteInitiate(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, FUniqueNetIdRepl PlayerTargeted, FDateTime TimeStarted, const TArray<FUniqueNetIdRepl>& PlayersPending);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastReceiveVoteAnswer(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer);
     
-    UFUNCTION(NetMulticast, Reliable)
-    void MulticastReceiveLocalizedChatMessage(const FString& FormatLocaleKey, const TArray<FString>& ExportedArgsNames, const TArray<FString>& ExportedArgsStrings, const TArray<FString>& ArgsToLocalizeNames, const TArray<FString>& ArgsToLocalizeLocaleKeys);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void MulticastReceiveLocalizedChatMessage(const FString& FormatTableId, const FString& FormatLocaleKey, const TArray<FString>& ExportedArgsNames, const TArray<FString>& ExportedArgsStrings, const TArray<FString>& ArgsToLocalizeNames, const TArray<FString>& ArgsToLocalizeTableIds, const TArray<FString>& ArgsToLocalizeLocaleKeys);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastReceiveClientDisconnected(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastReceiveChatMessage(const FString& Message);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastExecuteAction();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastClearCurrentVote();
     
 };

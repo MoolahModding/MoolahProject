@@ -25,6 +25,7 @@ private:
     
 public:
     USBZMainMenuWeaponVendorWidget();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void TryBuyWeaponPreset(const FSBZWeaponPresetStoreItem& WeaponPresetStoreItem);
@@ -32,22 +33,22 @@ protected:
     UFUNCTION(BlueprintCallable)
     void TryBuyWeapon(const FSBZWeaponStoreItem& WeaponStoreItem);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWeaponStoreItemsUpdated(const TMap<FGuid, FSBZWeaponStoreItem>& InWeaponStoreMap);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWeaponPresetStoreItemsUpdated(const TMap<FGuid, FSBZWeaponPresetStoreItem>& InWeaponPresetStoreMap);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnBuyWeaponPresetDone(bool bWasSuccess);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnBuyWeaponDone(bool bWasSuccess);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnBuyWeaponPresetDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnBuyWeaponDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
 };

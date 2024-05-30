@@ -1,5 +1,17 @@
 #include "SBZCheatManagerMainMenu.h"
 
+USBZCheatManagerMainMenu::USBZCheatManagerMainMenu() {
+    this->MenuInputComponent = NULL;
+    this->SelectedMaskSprayCanData[0] = NULL;
+    this->SelectedMaskSprayCanData[1] = NULL;
+    this->SelectedMaskSprayCanData[2] = NULL;
+    this->SelectedMaskSprayCanData[3] = NULL;
+    this->SelectedMaskSprayCanData[4] = NULL;
+    this->SuitPartConfigs[0] = NULL;
+    this->SuitPartConfigs[1] = NULL;
+    this->SuitPartConfigs[2] = NULL;
+}
+
 void USBZCheatManagerMainMenu::WriteAchievement(const FString& AchievementId) {
 }
 
@@ -15,9 +27,6 @@ void USBZCheatManagerMainMenu::UnlockCharacterForTutorial() {
 void USBZCheatManagerMainMenu::SyncDLC() {
 }
 
-void USBZCheatManagerMainMenu::SimulateProgressivePriceResetEveryMinute() {
-}
-
 void USBZCheatManagerMainMenu::SimulateForeground() {
 }
 
@@ -25,6 +34,9 @@ void USBZCheatManagerMainMenu::SetSecondaryWeaponLoadout(uint32 LoadoutIndex, ui
 }
 
 void USBZCheatManagerMainMenu::SetPrimaryWeaponLoadout(uint32 LoadoutIndex, uint32 ConfigSlotIndex) {
+}
+
+void USBZCheatManagerMainMenu::SetLoadoutName(const int32 LoadoutIndex, const FString& LoadoutName) {
 }
 
 void USBZCheatManagerMainMenu::SetEquippiedSuitInventoryIndex(uint32 ConfigSlotIndex) {
@@ -144,7 +156,16 @@ void USBZCheatManagerMainMenu::DumpOwnedHeists() {
 void USBZCheatManagerMainMenu::DumpNextResetTime() {
 }
 
+void USBZCheatManagerMainMenu::DumpMaskOfTheWeek() {
+}
+
+void USBZCheatManagerMainMenu::DumpLoadoutName(const int32 LoadoutIndex) {
+}
+
 void USBZCheatManagerMainMenu::DumpItemsProgressions() {
+}
+
+void USBZCheatManagerMainMenu::DumpIsQuickPlayEnabled() {
 }
 
 void USBZCheatManagerMainMenu::DumpInventoryItems() {
@@ -157,6 +178,9 @@ void USBZCheatManagerMainMenu::DumpEntitlementSkuFromDLCButNotOwnedArray() const
 }
 
 void USBZCheatManagerMainMenu::DumpDLCRewards() const {
+}
+
+void USBZCheatManagerMainMenu::DumpDailyChallenges() {
 }
 
 void USBZCheatManagerMainMenu::DumpCurrentRenownLevel() {
@@ -258,15 +282,4 @@ void USBZCheatManagerMainMenu::AddUniquePartToWeaponConfig(uint32 SlotIndex, con
 void USBZCheatManagerMainMenu::AddOwnedDLCAndPopulateEntitlementDisabledArray(const FString& DLCNameCommaList) {
 }
 
-USBZCheatManagerMainMenu::USBZCheatManagerMainMenu() {
-    this->MenuInputComponent = NULL;
-    this->SelectedMaskSprayCanData[0] = NULL;
-    this->SelectedMaskSprayCanData[1] = NULL;
-    this->SelectedMaskSprayCanData[2] = NULL;
-    this->SelectedMaskSprayCanData[3] = NULL;
-    this->SelectedMaskSprayCanData[4] = NULL;
-    this->SuitPartConfigs[0] = NULL;
-    this->SuitPartConfigs[1] = NULL;
-    this->SuitPartConfigs[2] = NULL;
-}
 

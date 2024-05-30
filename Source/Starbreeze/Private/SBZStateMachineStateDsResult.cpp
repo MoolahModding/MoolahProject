@@ -1,5 +1,12 @@
 #include "SBZStateMachineStateDsResult.h"
 
+USBZStateMachineStateDsResult::USBZStateMachineStateDsResult() {
+    this->ResultStateTimeout = 60.00f;
+    this->RestartAcceptTimeout = 15.00f;
+    this->RestartInitiateTimeout = 5.00f;
+    this->ResultWidget = NULL;
+}
+
 void USBZStateMachineStateDsResult::OnRestartTimerFinsihed() {
 }
 
@@ -15,10 +22,4 @@ void USBZStateMachineStateDsResult::OnRestartAccepted(const FUniqueNetIdRepl& Pl
 void USBZStateMachineStateDsResult::DestinationMapLoaded(UWorld* NewWorld) {
 }
 
-USBZStateMachineStateDsResult::USBZStateMachineStateDsResult() {
-    this->ResultStateTimeout = 60.00f;
-    this->RestartAcceptTimeout = 15.00f;
-    this->RestartInitiateTimeout = 5.00f;
-    this->ResultWidget = NULL;
-}
 

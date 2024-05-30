@@ -12,5 +12,6 @@ public:
     ESBZGameMachineStateError ErrorType;
     
     USBZStateMachineDataGameError();
+
 };
 

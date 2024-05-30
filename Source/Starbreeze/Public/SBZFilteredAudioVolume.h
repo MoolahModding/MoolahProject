@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/TriggerVolume.h"
+#include "EPD3HeistState.h"
 #include "SBZFilteredAudioVolume.generated.h"
 
 class AActor;
@@ -12,14 +13,6 @@ class USBZActorFilterComponent;
 UCLASS(Blueprintable, MinimalAPI)
 class ASBZFilteredAudioVolume : public ATriggerVolume {
     GENERATED_BODY()
-public:
-protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZActorFilterComponent* ActorFilterComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 bShouldStartEnabled: 1;
-    
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* CrowdEvent;
@@ -33,8 +26,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkRtpc* RTPC;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Intensity, meta=(AllowPrivateAccess=true))
+    uint8 Intensity;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float Intensity;
+    bool bIsStoppedWhenLoud;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 InterPolationTimerMs;
@@ -54,26 +50,34 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CrowdCurrent;
     
-    ASBZFilteredAudioVolume();
-    UFUNCTION(BlueprintCallable)
-    void SetVolumeEnabled(bool bEnabled);
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZActorFilterComponent* ActorFilterComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bShouldStartEnabled: 1;
+    
+public:
+    ASBZFilteredAudioVolume(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetEnabled(bool bIsEnabled);
+    
+protected:
     UFUNCTION(BlueprintCallable)
-    void OnLevelLoud();
+    void OnRep_Intensity(uint8 OldIntensity);
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnFilteredActorEndOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
+    void OnOverlapActorsChanged(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
     UFUNCTION(BlueprintCallable)
-    void OnFilteredActorBeginOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
+    void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-public:
-    UFUNCTION(BlueprintCallable)
-    void OnCrowdLevelChange();
-    
-    UFUNCTION(BlueprintCallable)
-    void OnCivilianDeath(AActor* OtherActor);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetIntensity(uint8 NewIntensity);
     
 };
 

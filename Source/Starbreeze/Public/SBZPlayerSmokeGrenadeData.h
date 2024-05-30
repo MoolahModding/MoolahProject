@@ -11,5 +11,6 @@ public:
     float RangeMultiplierIncrease;
     
     USBZPlayerSmokeGrenadeData();
+
 };
 

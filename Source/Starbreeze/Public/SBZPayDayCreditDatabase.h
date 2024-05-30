@@ -13,5 +13,6 @@ public:
     TArray<USBZPayDayCreditData*> PayDayCreditArray;
     
     USBZPayDayCreditDatabase();
+
 };
 

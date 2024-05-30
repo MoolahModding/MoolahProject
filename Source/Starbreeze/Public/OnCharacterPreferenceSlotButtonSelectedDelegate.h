@@ -4,5 +4,5 @@
 
 class USBZCharacterPreferenceCharacterSlotButton;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterPreferenceSlotButtonSelected, USBZCharacterPreferenceCharacterSlotButton*, Button);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterPreferenceSlotButtonSelected, USBZCharacterPreferenceCharacterSlotButton*, Button);
 

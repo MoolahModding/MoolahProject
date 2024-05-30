@@ -16,6 +16,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UStaticMeshComponent* StaticMeshComponent;
     
-    ASBZVariationViewActor();
+    ASBZVariationViewActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

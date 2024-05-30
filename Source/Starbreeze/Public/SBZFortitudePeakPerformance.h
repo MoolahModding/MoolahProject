@@ -8,5 +8,6 @@ class USBZFortitudePeakPerformance : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZFortitudePeakPerformance();
+
 };
 

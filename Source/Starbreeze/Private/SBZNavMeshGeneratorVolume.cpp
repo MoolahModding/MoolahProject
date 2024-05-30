@@ -1,5 +1,6 @@
 #include "SBZNavMeshGeneratorVolume.h"
 
-ASBZNavMeshGeneratorVolume::ASBZNavMeshGeneratorVolume() {
+ASBZNavMeshGeneratorVolume::ASBZNavMeshGeneratorVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

@@ -6,7 +6,7 @@
 
 class UWidget;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=StarbreezeUI)
+UCLASS(Blueprintable, DefaultConfig, Config=StarbreezeUI)
 class STARBREEZE_API USBZCarouselWidget : public UPanelWidget {
     GENERATED_BODY()
 public:
@@ -23,6 +23,7 @@ public:
     float ScrollSpeed;
     
     USBZCarouselWidget();
+
     UFUNCTION(BlueprintCallable)
     void StopScrolling();
     
@@ -41,10 +42,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void NextPage();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UWidget* GetWidgetAtIndex(int32 Index) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetActiveIndex() const;
     
 };

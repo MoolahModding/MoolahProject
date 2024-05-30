@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BehaviorTree/Decorators/BTDecorator_BlackboardBase.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
 #include "SBZBTDecorator_CanSeeTarget.generated.h"
 
 UCLASS(Blueprintable)
@@ -21,9 +22,10 @@ protected:
     bool bCheckRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float Range;
+    FBlackboardKeySelector RangeBlackboardKey;
     
 public:
     USBZBTDecorator_CanSeeTarget();
+
 };
 

@@ -6,3 +6,4 @@ USBZShowAmmoNotifyState::USBZShowAmmoNotifyState() {
     this->ExtraAmmoCount = 0;
 }
 
+

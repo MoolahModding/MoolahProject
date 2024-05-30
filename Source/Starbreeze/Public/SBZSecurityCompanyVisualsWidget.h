@@ -19,30 +19,31 @@ private:
     
 public:
     USBZSecurityCompanyVisualsWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetEmpty();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSecurityCompanyAssetStartedLoad();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSecurityCompanyAssetLoaded();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEmptySet();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnAssetLoaded();
     
 public:
     UFUNCTION(BlueprintCallable)
     void InitializeSecurityCompany(const ESBZSecurityCompany InSecurityCompany);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZSecurityCompany GetSecurityCompanyEnum() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPD3SecurityCompanyDataAsset* GetSecurityCompany() const;
     
 };

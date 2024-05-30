@@ -8,5 +8,6 @@ class USBZRangedWeaponEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZRangedWeaponEffect();
+
 };
 

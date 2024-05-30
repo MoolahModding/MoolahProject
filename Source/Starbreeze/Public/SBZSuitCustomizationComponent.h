@@ -18,7 +18,8 @@ private:
     FSBZSuitConfig SuitConfig;
     
 public:
-    USBZSuitCustomizationComponent();
+    USBZSuitCustomizationComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetSuitConfig(const FSBZSuitConfig& Config);
     
@@ -26,7 +27,7 @@ public:
     void SetMeshComponent(USkeletalMeshComponent* InMeshCompoenent);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnSkeletalMeshLoaded();
     
 };

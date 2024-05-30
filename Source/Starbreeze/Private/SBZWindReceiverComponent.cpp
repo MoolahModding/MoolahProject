@@ -1,5 +1,7 @@
 #include "SBZWindReceiverComponent.h"
 
-USBZWindReceiverComponent::USBZWindReceiverComponent() {
+USBZWindReceiverComponent::USBZWindReceiverComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Applier = NULL;
 }
+
 

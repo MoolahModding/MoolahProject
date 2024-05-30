@@ -1,7 +1,20 @@
 #include "SBZInstantLoot.h"
+#include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 #include "SBZOutlineComponent.h"
+
+ASBZInstantLoot::ASBZInstantLoot(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
+    this->bIsDestroyOnLooted = false;
+    this->OnLootedEvent = NULL;
+    this->bIsLooted = false;
+}
 
 void ASBZInstantLoot::SetInteractionEnabled(bool bIsEnabled) {
 }
@@ -25,11 +38,4 @@ void ASBZInstantLoot::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZInstantLoot, bIsLooted);
 }
 
-ASBZInstantLoot::ASBZInstantLoot() {
-    this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
-    this->bIsDestroyOnLooted = false;
-    this->OnLootedEvent = NULL;
-    this->bIsLooted = false;
-}
 

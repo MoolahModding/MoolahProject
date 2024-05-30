@@ -15,5 +15,6 @@ public:
     ESBZFireTokenType TokenType;
     
     UDEPRECATED_SBZBTDecorator_FirePermissionGuard();
+
 };
 

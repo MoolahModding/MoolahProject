@@ -1,5 +1,8 @@
 #include "SBZGameEventBroker.h"
 
+USBZGameEventBroker::USBZGameEventBroker() {
+}
+
 void USBZGameEventBroker::SendChatMessage(const FSBZPlayerChatEvent& ChatEventData) {
 }
 
@@ -21,6 +24,4 @@ void USBZGameEventBroker::PostOnCrewAIChatMessageReceived(const FSBZAICrewChatEv
 void USBZGameEventBroker::PostOnAICrewDefeatStateChanged(const FSBZAICrewDefeatStateChangedData& InData) {
 }
 
-USBZGameEventBroker::USBZGameEventBroker() {
-}
 

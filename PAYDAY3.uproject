@@ -128,7 +128,8 @@
 		},
 		{
 			"Name": "MfMedia",
-			"Enabled": true
+			"Enabled": true,
+			"BlacklistPlatforms": []
 		},
 		{
 			"Name": "Niagara",

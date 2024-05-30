@@ -1,4 +1,12 @@
 #include "SBZCarouselWidget.h"
+#include "Layout/Clipping.h"
+
+USBZCarouselWidget::USBZCarouselWidget() {
+    this->Clipping = EWidgetClipping::ClipToBounds;
+    this->ActiveIndex = 0;
+    this->ScrollInterval = 1.00f;
+    this->ScrollSpeed = 5.00f;
+}
 
 void USBZCarouselWidget::StopScrolling() {
 }
@@ -26,9 +34,4 @@ int32 USBZCarouselWidget::GetActiveIndex() const {
     return 0;
 }
 
-USBZCarouselWidget::USBZCarouselWidget() {
-    this->ActiveIndex = 0;
-    this->ScrollInterval = 1.00f;
-    this->ScrollSpeed = 5.00f;
-}
 

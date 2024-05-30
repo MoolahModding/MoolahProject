@@ -18,5 +18,6 @@ public:
     FGameplayTag ScramblerDurationTag;
     
     USBZSkillScramblerKineticShortCircuit();
+
 };
 

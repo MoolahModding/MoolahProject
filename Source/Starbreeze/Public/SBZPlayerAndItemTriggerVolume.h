@@ -58,7 +58,8 @@ protected:
     TArray<AActor*> ClosedReactorArray;
     
 public:
-    ASBZPlayerAndItemTriggerVolume();
+    ASBZPlayerAndItemTriggerVolume(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetVolumeEnabled(bool bIsEnabled);

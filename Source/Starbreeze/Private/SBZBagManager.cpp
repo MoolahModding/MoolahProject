@@ -1,6 +1,9 @@
 #include "SBZBagManager.h"
 #include "Net/UnrealNetwork.h"
 
+USBZBagManager::USBZBagManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 bool USBZBagManager::TryRemoveClaim(FSBZBagHandle Handle, AActor* Actor) {
     return false;
 }
@@ -57,6 +60,4 @@ void USBZBagManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     DOREPLIFETIME(USBZBagManager, Bags);
 }
 
-USBZBagManager::USBZBagManager() {
-}
 

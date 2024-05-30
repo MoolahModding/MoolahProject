@@ -13,5 +13,6 @@ public:
     TArray<USBZWatchData*> Watches;
     
     USBZWatchDatabase();
+
 };
 

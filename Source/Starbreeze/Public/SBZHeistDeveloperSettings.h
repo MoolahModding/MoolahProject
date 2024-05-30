@@ -7,7 +7,7 @@
 
 class UPD3HeistDataAsset;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Game)
+UCLASS(Blueprintable, DefaultConfig, Config=Game)
 class USBZHeistDeveloperSettings : public UDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -17,13 +17,14 @@ protected:
     
 public:
     USBZHeistDeveloperSettings();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static UPD3HeistDataAsset* GetHeistDataFromLevelShortName(const FString& ShortName);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static UPD3HeistDataAsset* GetHeistDataFromLevelPath(FSoftObjectPath LevelPath);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static TArray<FSBZHeistDataLevelPair> GetAllHeistData();
     
 };

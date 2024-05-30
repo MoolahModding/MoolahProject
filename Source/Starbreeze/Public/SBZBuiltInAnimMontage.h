@@ -21,5 +21,6 @@ public:
     TArray<FSBZBuiltInAnimMontageBoneTrack> BoneTracks;
     
     USBZBuiltInAnimMontage();
+
 };
 

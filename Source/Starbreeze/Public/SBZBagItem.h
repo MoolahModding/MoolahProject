@@ -82,32 +82,33 @@ protected:
     bool bShouldBroadcastOnHitEvent;
     
 public:
-    ASBZBagItem();
+    ASBZBagItem(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION(BlueprintAuthorityOnly)
+
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SecureBag(bool bDestroyOnSecured);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentZipline();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_BagId();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPickup(USBZBaseInteractableComponent* NewInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetZipline(ASBZZipline* Zipline, const float InTimeOnZipline, const bool bInIsMovingForward);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnZiplineAttachmentChanged(bool bIsAttached);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnDegradationChanged(const int32 DegredationLevel);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

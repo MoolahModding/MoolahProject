@@ -5,5 +5,5 @@
 class ASBZAICharacter;
 class ASBZCharacter;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZOnHumanShield, ASBZAICharacter*, Character, ASBZCharacter*, Instigator, bool, bHumanShield);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZOnHumanShield, ASBZAICharacter*, Character, ASBZCharacter*, Instigator, bool, bHumanShield);
 

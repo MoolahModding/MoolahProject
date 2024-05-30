@@ -33,6 +33,7 @@ private:
     UAkComponent* LastUsedAkComponent;
     
 public:
-    USBZCharacterSlidingComponent();
+    USBZCharacterSlidingComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

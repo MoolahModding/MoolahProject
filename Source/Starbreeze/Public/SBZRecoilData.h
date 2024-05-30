@@ -8,7 +8,7 @@
 #include "SBZRecoilData.generated.h"
 
 UCLASS(Blueprintable, Const)
-class USBZRecoilData : public UDataAsset {
+class STARBREEZE_API USBZRecoilData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -36,16 +36,17 @@ public:
     FSBZWeaponGunKickBackData GunKickBackTargeting;
     
     USBZRecoilData();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGunKickVerticalTop(float& OutMin, float& OutMax) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGunKickVerticalBottom(float& OutMin, float& OutMax) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGunKickHorizontalRight(float& OutMin, float& OutMax) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGunKickHorizontalLeft(float& OutMin, float& OutMax) const;
     
 };

@@ -1,5 +1,22 @@
 #include "SBZBlackMarketVendorsWidget.h"
 
+USBZBlackMarketVendorsWidget::USBZBlackMarketVendorsWidget() {
+    this->StackValue = TEXT("Default__SBZBlackMarketVendorsWidget");
+    this->Panel_CategoriesList = NULL;
+    this->Navbar_Vendors = NULL;
+    this->CategoryButtonClass = NULL;
+    this->StoreItemButtonClass = NULL;
+    this->GoldStoreItemButtonClass = NULL;
+    this->ControlsRefActionWidget_PaydayStore = NULL;
+    this->VendorButtonClass = NULL;
+    this->bIsTransactionInProgress = false;
+    this->ActiveVendorIndex = -1;
+    this->PurchaseTargetButton = NULL;
+    this->PurchaseItemPopUpBodyWidgetClass = NULL;
+    this->PurchaseItemSlotPopUpBodyWidgetClass = NULL;
+    this->PurchaseItemPopUpBody = NULL;
+}
+
 void USBZBlackMarketVendorsWidget::UpdateActiveVendor(int32 NewActiveVendorIndex) {
 }
 
@@ -42,24 +59,4 @@ USBZBlackMarketCategoryWidget* USBZBlackMarketVendorsWidget::GetFirstCategoryWid
     return NULL;
 }
 
-USBZBlackMarketVendorButton* USBZBlackMarketVendorsWidget::GetActiveVendorButton() const {
-    return NULL;
-}
-
-USBZBlackMarketVendorsWidget::USBZBlackMarketVendorsWidget() {
-    this->Panel_CategoriesList = NULL;
-    this->Navbar_Vendors = NULL;
-    this->CategoryButtonClass = NULL;
-    this->StoreItemButtonClass = NULL;
-    this->GoldStoreItemButtonClass = NULL;
-    this->Panel_VendorList = NULL;
-    this->ControlsRefActionWidget_PaydayStore = NULL;
-    this->VendorButtonClass = NULL;
-    this->bIsTransactionInProgress = false;
-    this->ActiveVendorIndex = -1;
-    this->PurchaseTargetButton = NULL;
-    this->PurchaseItemPopUpBodyWidgetClass = NULL;
-    this->PurchaseItemSlotPopUpBodyWidgetClass = NULL;
-    this->PurchaseItemPopUpBody = NULL;
-}
 

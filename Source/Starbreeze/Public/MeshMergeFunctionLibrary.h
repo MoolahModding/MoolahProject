@@ -11,6 +11,7 @@ class STARBREEZE_API UMeshMergeFunctionLibrary : public UBlueprintFunctionLibrar
     GENERATED_BODY()
 public:
     UMeshMergeFunctionLibrary();
+
     UFUNCTION(BlueprintCallable)
     static USkeletalMesh* MergeMeshes(const FSkeletalMeshMergeParams& Params);
     

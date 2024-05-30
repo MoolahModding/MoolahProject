@@ -1,5 +1,12 @@
 #include "SBZStateMachineStateResult.h"
 
+USBZStateMachineStateResult::USBZStateMachineStateResult() {
+    this->ResultWidget = NULL;
+}
+
+void USBZStateMachineStateResult::SetupMergePartyDone() {
+}
+
 void USBZStateMachineStateResult::OnRestartTimeExpired() {
 }
 
@@ -18,7 +25,4 @@ void USBZStateMachineStateResult::OnRestartAccepted(const FUniqueNetIdRepl& Play
 void USBZStateMachineStateResult::OnExpireRestartTimerUpdate() {
 }
 
-USBZStateMachineStateResult::USBZStateMachineStateResult() {
-    this->ResultWidget = NULL;
-}
 

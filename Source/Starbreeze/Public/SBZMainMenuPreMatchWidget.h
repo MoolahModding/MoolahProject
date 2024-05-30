@@ -9,14 +9,15 @@ class USBZMainMenuPreMatchWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuPreMatchWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAsyncLoadingProgress(const FSBZAsyncLoadingProgress& Progress);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAsyncLoadingDone();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAsyncLoadingCancel();
     
 public:

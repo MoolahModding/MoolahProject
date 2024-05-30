@@ -5,6 +5,7 @@
 #include "Templates/SubclassOf.h"
 #include "SBZJobOverviewBaseWidget.generated.h"
 
+class ASBZPlayerState;
 class UPanelWidget;
 class USBZJobOverviewPlayerStatusWidget;
 
@@ -21,17 +22,20 @@ protected:
     
 public:
     USBZJobOverviewBaseWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerReadyStatusUpdated(const TArray<FSBZPlayerReadyInfo>& PlayerReadyStatus);
     
-public:
-    UFUNCTION(BlueprintImplementableEvent)
-    void IntroSequenceStarted();
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnPlayerStateSkipIntroSequenceChanged(ASBZPlayerState* PlayerState);
     
-private:
-    UFUNCTION()
-    void HandleIntroSequenceStarted();
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnPlayerStateCountChanged(ASBZPlayerState* PlayerState);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnIntroSequenceChanged(bool bIsStarted);
     
 };
 

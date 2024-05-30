@@ -43,9 +43,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZOutlineAsset* OutlineAsset;
     
-    ASBZDrill();
+    ASBZDrill(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool UnjamDrill();
     
@@ -56,16 +57,16 @@ public:
     bool StartDrill();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUnjamInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnStateChanged();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopDrill(ESBZDrillState StopState, float TimeLeftDrill);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartDrill(float EndServerTime);
     
 public:

@@ -7,3 +7,4 @@ USBZZiplineSettings::USBZZiplineSettings() {
     this->ForcedDirectionThreshold = 0.20f;
 }
 
+

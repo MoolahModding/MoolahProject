@@ -4,3 +4,4 @@ USBZAILookFocusState::USBZAILookFocusState() {
     this->LookFocusData = NULL;
 }
 
+

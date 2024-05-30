@@ -13,7 +13,13 @@ FSBZReconnectPlayerStateData::FSBZReconnectPlayerStateData() {
     this->SpectateDurationModification = 0.00f;
     this->ReducedCustodyTime = 0.00f;
     this->SpectateTime = 0.00f;
+    this->CustodyCount = 0;
+    this->CustodyReleaseCost = 0;
+    this->CurrentTradeReduction = 0;
+    this->bServerIsHardBargainCustody = false;
     this->DefeatState = EPD3DefeatState::None;
     this->bIsLastArrestedByGuard = false;
+    this->bIsSkillTankLastManStandingBlocking = false;
+    this->SkillTankLastManStandingImmuneTime = 0.00f;
 }
 

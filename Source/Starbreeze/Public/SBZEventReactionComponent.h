@@ -18,6 +18,7 @@ private:
     TMap<FGameplayTag, FSBZEventRequestContainer> EventReactionRequests;
     
 public:
-    USBZEventReactionComponent();
+    USBZEventReactionComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

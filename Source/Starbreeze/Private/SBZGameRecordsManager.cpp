@@ -1,5 +1,8 @@
 #include "SBZGameRecordsManager.h"
 
+USBZGameRecordsManager::USBZGameRecordsManager() {
+}
+
 FSBZTitleData USBZGameRecordsManager::GetTitleData() {
     return FSBZTitleData{};
 }
@@ -30,6 +33,4 @@ void USBZGameRecordsManager::CacheNewsFeed(const FSBZNewsFeedList& inNewsFeed) {
 void USBZGameRecordsManager::CacheDifficultyConfiguration(const TArray<FSBZDifficultyConfiguration>& InConfiguration) {
 }
 
-USBZGameRecordsManager::USBZGameRecordsManager() {
-}
 

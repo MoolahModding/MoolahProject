@@ -8,5 +8,6 @@ class USBZSkillInfiltratorFrugalThrower : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillInfiltratorFrugalThrower();
+
 };
 

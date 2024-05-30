@@ -18,6 +18,7 @@ class USBZChallengeManager;
 class USBZCharacterManager;
 class USBZCosmeticsManager;
 class USBZCurrencyManager;
+class USBZDSChallengeManager;
 class USBZExperienceManager;
 class USBZFineGrainedRateLimitManager;
 class USBZGameEventBroker;
@@ -31,6 +32,7 @@ class USBZInventoryManager;
 class USBZItemProgressionManager;
 class USBZListenerManager;
 class USBZLoadoutManager;
+class USBZMergePartyManager;
 class USBZMusicManager;
 class USBZOnlineEventBroker;
 class USBZPlatformUserManager;
@@ -90,6 +92,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZChallengeCategoryManager> ChallengeCategoryManagerClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZDSChallengeManager> DSChallengeManagerClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZServerStatusManager> ServerStatusManagerClass;
@@ -165,6 +170,9 @@ private:
     USBZChallengeManager* ChallengeManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZDSChallengeManager* DSChallengeManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZChallengeCategoryManager* ChallengeCategoryManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -231,6 +239,9 @@ private:
     USBZGameplayManager* GameplayManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZMergePartyManager* MergePartyManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZFineGrainedRateLimitManager* FGRLManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -238,37 +249,41 @@ private:
     
 public:
     USBZGameInstance();
+
     UFUNCTION(BlueprintCallable)
     void SetDifficulty(ESBZDifficulty InDifficulty);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFindReplaysComplete(const TArray<FSBZReplayInfo>& Replays);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleGameStateEntered(FName StateName);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    USBZTimeEventManager* GetTimeEventManager() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZSaveManager* GetSaveManager() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZReplayManager* GetReplayManager() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZPlatformUserManager* GetPlatformUserManager() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZGlobalItemDatabase* GetGlobalItemDatabase() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZDifficulty GetDifficulty() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetBuiltFromChangelist();
     
 protected:
-    UFUNCTION(Exec)
+    UFUNCTION(BlueprintCallable, Exec)
     void DisplayVersion();
     
 };

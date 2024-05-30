@@ -1,9 +1,8 @@
 #include "SBZBagSpawner.h"
+#include "Components/SceneComponent.h"
 
-void ASBZBagSpawner::StartSpawningBags() {
-}
-
-ASBZBagSpawner::ASBZBagSpawner() {
+ASBZBagSpawner::ASBZBagSpawner(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
     this->NumberOfBags = 1;
     this->DelayBetweenSpawns = 2.00f;
     this->BagTypeToSpawn = NULL;
@@ -12,4 +11,8 @@ ASBZBagSpawner::ASBZBagSpawner() {
     this->bShouldLaunchWithinCone = false;
     this->ConeAngle = 0.00f;
 }
+
+void ASBZBagSpawner::StartSpawningBags() {
+}
+
 

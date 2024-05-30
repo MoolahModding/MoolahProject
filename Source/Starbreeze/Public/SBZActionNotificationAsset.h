@@ -31,5 +31,6 @@ public:
     ESBZVoicePriority VoicePriority;
     
     USBZActionNotificationAsset();
+
 };
 

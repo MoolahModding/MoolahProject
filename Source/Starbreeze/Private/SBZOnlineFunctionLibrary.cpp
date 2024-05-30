@@ -1,5 +1,8 @@
 #include "SBZOnlineFunctionLibrary.h"
 
+USBZOnlineFunctionLibrary::USBZOnlineFunctionLibrary() {
+}
+
 void USBZOnlineFunctionLibrary::UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
 }
 
@@ -12,10 +15,16 @@ void USBZOnlineFunctionLibrary::SetLocalClientReady(UObject* WorldContextObject,
 void USBZOnlineFunctionLibrary::RequestVoteRestartLevel(UObject* WorldContextObject) {
 }
 
+void USBZOnlineFunctionLibrary::RequestVoteKickPlayer(UObject* WorldContextObject, const FUniqueNetIdRepl& PlayerTargeted) {
+}
+
 void USBZOnlineFunctionLibrary::RequestSteamLogin(UObject* WorldContextObject) {
 }
 
 void USBZOnlineFunctionLibrary::RequestRestartLevel(UObject* WorldContextObject) {
+}
+
+void USBZOnlineFunctionLibrary::RequestMergeParty(UObject* WorldContextObject, bool bIsSelected) {
 }
 
 void USBZOnlineFunctionLibrary::RequestLoginWithDeviceID(UObject* WorldContextObject) {
@@ -172,6 +181,10 @@ bool USBZOnlineFunctionLibrary::IsAccelByteMatchmakingDisabled() {
 void USBZOnlineFunctionLibrary::HideSessionFromJoin(UObject* WorldContextObject) {
 }
 
+bool USBZOnlineFunctionLibrary::HasPrivilege(const UObject* WorldContextObject, ESBZUserPrivilegesProxy Privilege) {
+    return false;
+}
+
 void USBZOnlineFunctionLibrary::GetUiLobbyInfo(UObject* WorldContextObject, TArray<FSBZLobbyCharacterInfoUi>& OutInfo) {
 }
 
@@ -247,6 +260,10 @@ FString USBZOnlineFunctionLibrary::GetOverrideAccelbyteGameMode() {
     return TEXT("");
 }
 
+TArray<FSBZMergePlayerData> USBZOnlineFunctionLibrary::GetMergePartyInformation(UObject* WorldContextObject) {
+    return TArray<FSBZMergePlayerData>();
+}
+
 uint8 USBZOnlineFunctionLibrary::GetMaxPlayersForSession(const UObject* WorldContextObject) {
     return 0;
 }
@@ -316,6 +333,10 @@ FString USBZOnlineFunctionLibrary::DebugGetSessionParameters(const UObject* Worl
     return TEXT("");
 }
 
+bool USBZOnlineFunctionLibrary::CanVoteForStayInParty(UObject* WorldContextObject) {
+    return false;
+}
+
 void USBZOnlineFunctionLibrary::ActivateSessionInviteOverlay(UObject* WorldContextObject) {
 }
 
@@ -325,6 +346,4 @@ void USBZOnlineFunctionLibrary::ActivateProfileOverlay(UObject* WorldContextObje
 void USBZOnlineFunctionLibrary::ActivatePartyInviteOverlay(UObject* WorldContextObject) {
 }
 
-USBZOnlineFunctionLibrary::USBZOnlineFunctionLibrary() {
-}
 

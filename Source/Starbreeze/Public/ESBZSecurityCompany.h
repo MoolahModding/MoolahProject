@@ -8,5 +8,13 @@ enum class ESBZSecurityCompany : uint8 {
     GenSec,
     Senturian,
     AmGuard,
+    DebilitatingSpecials,
+    FacialRecognition,
+    ArmorPiercing,
+    BuddySystem,
+    AlphaStrike,
+    HardBargain,
+    AICore,
+    ReflectorShields,
 };
 

@@ -13,5 +13,6 @@ public:
     TArray<USBZGloveData*> Gloves;
     
     USBZGloveDatabase();
+
 };
 

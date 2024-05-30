@@ -33,6 +33,9 @@ public:
     bool bAutoWinding;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bStopAutoWindingAtFirstLockedPoint;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WindingSpeed;
     
     STARBREEZE_API FSBZCablePointAttachment();

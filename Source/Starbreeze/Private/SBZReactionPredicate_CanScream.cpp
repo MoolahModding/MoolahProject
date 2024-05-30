@@ -5,3 +5,4 @@ USBZReactionPredicate_CanScream::USBZReactionPredicate_CanScream() {
     this->MaxPlayerScreamDistance = 1500.00f;
 }
 
+

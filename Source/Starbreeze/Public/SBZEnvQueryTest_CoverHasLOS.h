@@ -14,5 +14,6 @@ public:
     TSubclassOf<UEnvQueryContext> TargetContext;
     
     USBZEnvQueryTest_CoverHasLOS();
+
 };
 

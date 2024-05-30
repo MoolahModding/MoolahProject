@@ -13,5 +13,6 @@ public:
     TMap<ESBZMainMenuAnimationName, FSBZMenuACPerCharacterSlot> PerCharacterSlots;
     
     USBZPlayerMenuAnimationCollection();
+
 };
 

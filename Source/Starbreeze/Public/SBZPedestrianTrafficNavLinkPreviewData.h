@@ -17,5 +17,6 @@ public:
     UAnimationAsset* Animation;
     
     USBZPedestrianTrafficNavLinkPreviewData();
+
 };
 

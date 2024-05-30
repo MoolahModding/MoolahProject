@@ -2,13 +2,13 @@
 #include "CoreMinimal.h"
 #include "Perception/AISightTargetInterface.h"
 #include "GameFramework/Actor.h"
-#include "GameplayTagContainer.h"
 #include "SBZAIAttractorInterface.h"
 #include "SBZAgilityObstacleInterface.h"
+#include "SBZPropDamageContext.h"
 #include "SBZAIAttractorDestruction.generated.h"
 
 class APawn;
-class ASBZAIBaseCharacter;
+class UActorComponent;
 class USBZAIAttractorComponent;
 class USBZPropDamageComponent;
 
@@ -20,22 +20,31 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZPropDamageComponent* PropDamage;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTag DestroyedSoundTag;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float SoundRange;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZAIAttractorComponent* AttractorComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsAirNavOnDestruction;
+    
 public:
-    ASBZAIAttractorDestruction();
-    UFUNCTION(NetMulticast, Reliable)
-    void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator);
+    ASBZAIAttractorDestruction(const FObjectInitializer& ObjectInitializer);
+
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnPropDamageHits(UActorComponent* PoolComponent, int32 Hits, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
+    UFUNCTION(BlueprintCallable)
+    void OnPropDamageHealth(UActorComponent* PoolComponent, float Health, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_BreakDestructionAttractor();
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void BreakDestructionAttractor();
+    
+
     // Fix for true pure virtual functions not being implemented
+public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);
     

@@ -1,4 +1,12 @@
 #include "SBZMainMenuCrimeNetHeistMapIcon.h"
+#include "Components/SlateWrapperTypes.h"
+
+USBZMainMenuCrimeNetHeistMapIcon::USBZMainMenuCrimeNetHeistMapIcon() {
+    this->bOverride_Cursor = true;
+    this->Cursor = EMouseCursor::Hand;
+    this->Visibility = ESlateVisibility::Visible;
+    this->HeistData = NULL;
+}
 
 
 
@@ -10,7 +18,4 @@ UPD3HeistDataAsset* USBZMainMenuCrimeNetHeistMapIcon::GetHeistData() const {
 }
 
 
-USBZMainMenuCrimeNetHeistMapIcon::USBZMainMenuCrimeNetHeistMapIcon() {
-    this->HeistData = NULL;
-}
 

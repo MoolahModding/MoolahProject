@@ -22,37 +22,38 @@ protected:
     USBZOnlineSession* OnlineSession;
     
 public:
-    ASBZOnlineSlotsSync();
+    ASBZOnlineSlotsSync(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UpdatePlayerName(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UpdatePlatform(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UpdateInfamyLevel(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UniqueIdUpdated(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SyncSlotsData();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SlotsData();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRemovePlayerState(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameModeInitialized(AGameModeBase* GameMode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAddPlayerState(APlayerState* PlayerState);
     
 };

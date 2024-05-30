@@ -4,5 +4,5 @@
 
 class USBZCarouselWidget;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCurrentPageIndexChanged, USBZCarouselWidget*, CarouselWidget, int32, CurrentPageIndex);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnCurrentPageIndexChanged, USBZCarouselWidget*, CarouselWidget, int32, CurrentPageIndex);
 

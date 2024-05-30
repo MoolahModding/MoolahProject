@@ -8,5 +8,6 @@ class USBZBTTask_ObjectiveInteractionDirect : public USBZBTTask_ObjectiveInterac
     GENERATED_BODY()
 public:
     USBZBTTask_ObjectiveInteractionDirect();
+
 };
 

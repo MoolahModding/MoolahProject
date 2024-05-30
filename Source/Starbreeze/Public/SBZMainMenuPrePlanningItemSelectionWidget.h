@@ -34,6 +34,7 @@ private:
     
 public:
     USBZMainMenuPrePlanningItemSelectionWidget();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void UpdateAvailablePrePlanningAssetList();
@@ -41,29 +42,29 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetPreplanningSelectionEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPreplanningSelectionEnabledChanged(bool bEnabled);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPrePlanningItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPreplanningAssetRemovedByPlayer(const FUniqueNetIdRepl& PlayerID);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPreplanningAssetDeclinedByServer();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPreplanningAssetAddedByPlayer(const FUniqueNetIdRepl& PlayerID, const USBZPreplanningAssetData* PreplanningAsset);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativePreplanningAssetRemovedByPlayer(const FUniqueNetIdRepl& PlayerID);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativePreplanningAssetAddedByPlayer(const FUniqueNetIdRepl& PlayerID, const FString& AssetSku);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnPrePlanningItemButtonSelected(USBZMenuButton* InButton);
     
 };

@@ -5,3 +5,4 @@ USBZStatisticCriteriaData::USBZStatisticCriteriaData() {
     this->MaxPassableState = EPD3HeistState::PointOfNoReturn;
 }
 
+

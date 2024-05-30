@@ -14,5 +14,6 @@ public:
     TSubclassOf<USBZTacticianDiscombobulateEffect> PostSmokeFlashEffect;
     
     USBZSkillTacticianDiscombobulate();
+
 };
 

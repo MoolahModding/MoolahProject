@@ -13,3 +13,4 @@ USBZAgilityTraversalQueryParams::USBZAgilityTraversalQueryParams() {
     this->MaxReflectionAngle = 45.00f;
 }
 
+

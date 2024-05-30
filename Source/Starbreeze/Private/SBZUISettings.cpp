@@ -5,3 +5,4 @@ USBZUISettings::USBZUISettings() {
     this->ServersStatusMessageURL_Live = TEXT("https://5g68ruvnwk.execute-api.eu-north-1.amazonaws.com/GetServerStatusMessage");
 }
 
+

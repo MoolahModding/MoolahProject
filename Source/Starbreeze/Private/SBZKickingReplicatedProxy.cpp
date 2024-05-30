@@ -1,5 +1,12 @@
 #include "SBZKickingReplicatedProxy.h"
 
+ASBZKickingReplicatedProxy::ASBZKickingReplicatedProxy(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bAlwaysRelevant = true;
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+}
+
 void ASBZKickingReplicatedProxy::VoteToKick_Implementation(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
 }
 bool ASBZKickingReplicatedProxy::VoteToKick_Validate(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
@@ -42,6 +49,4 @@ bool ASBZKickingReplicatedProxy::InitiateKicking_Validate(FUniqueNetIdRepl Playe
     return true;
 }
 
-ASBZKickingReplicatedProxy::ASBZKickingReplicatedProxy() {
-}
 

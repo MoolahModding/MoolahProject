@@ -10,7 +10,7 @@ class ASBZPlayerController;
 class USBZActionPhaseBaseWidget;
 class USBZStateMachineDataActionPhase;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateActionPhase : public USBZClientStateMachineState {
     GENERATED_BODY()
 public:
@@ -26,35 +26,36 @@ private:
     
 public:
     USBZStateMachineStateActionPhase();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateChanged(ASBZPlayerController* PlayerController, const FName& OldStateName, const FName& NewStateName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleMissionEnd(const int32 OutroVariation);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerId, const FString& DisplayName);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BlackScreenDoneTimeout();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void AutoReadyTimeout();
     
 };

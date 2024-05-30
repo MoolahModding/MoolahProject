@@ -27,8 +27,9 @@ protected:
     
 public:
     USBZLoginScreenInfoPopupWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInfoTextInitialized();
     
 };

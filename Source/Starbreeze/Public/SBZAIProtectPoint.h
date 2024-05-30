@@ -14,6 +14,7 @@ protected:
     USBZAISquad* AssignedSquad;
     
 public:
-    ASBZAIProtectPoint();
+    ASBZAIProtectPoint(const FObjectInitializer& ObjectInitializer);
+
 };
 

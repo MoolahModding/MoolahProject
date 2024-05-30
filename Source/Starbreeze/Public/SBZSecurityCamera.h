@@ -72,7 +72,7 @@ protected:
     TMap<FGameplayTag, USBZActionNotificationAsset*> Escalations;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZActionNotificationAsset* ActionNotificationAssetArray[13];
+    USBZActionNotificationAsset* ActionNotificationAssetArray[16];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZHackableInteractableComponent* HackableInteractable;
@@ -313,131 +313,132 @@ private:
     TArray<AActor*> CurrentlyMarkedActorsArray;
     
 public:
-    ASBZSecurityCamera();
+    ASBZSecurityCamera(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlaySoundEvent(UAkAudioEvent* AudioEvent);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnVisualDetection(USBZAIVisualDetectionComponent* DetectionComponent, bool bWasDetected, AActor* DetectedTarget);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRuntimeStateRemoved(ESBZRuntimeState AppliedState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRuntimeStateApplied(ESBZRuntimeState AppliedState);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ViewTargetPlayerStateIdArray(const TArray<int32>& OldViewTargetPlayerStateIdArray);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TargetCamRotation();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_RuntimeState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_RoughDetection();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentCamRotation();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CameraState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPredictedAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_UpdateRoughDetection(uint8 NewRoughVisualDetectionValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartNonVisionGeneratorInvestigation();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartAlarm();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetRuntimeExplosionInstigator(AActor* InExplosionInstigator);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetRuntimed(ESBZRuntimeState InRuntimeState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetECMDisabled(bool bInIsDisabled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RuntimeExpired(ESBZRuntimeState InRuntimeState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RemoveRuntime(ESBZRuntimeState InRuntimeToRemove);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RefundRuntime();
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnChangeState(ESBZCameraState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_EndViewTarget(int32 PlayerId);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_BecomeViewTarget(int32 PlayerId);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetRuntimeState() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZCameraState GetCameraState() const;
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ChangeRTPC(UAkRtpc* RTPC, float Value, int32 InterpolationTime);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnViewTargetChanged(bool bIsViewTarget);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZCameraState OldState, ESBZCameraState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnIndestructibleCamera();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnCameraColorStateChanged(ESBZCameraColorState NewCameraColorState);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

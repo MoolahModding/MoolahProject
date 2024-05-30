@@ -13,5 +13,6 @@ public:
     UTextBlock* TextWidget;
     
     USBZWidgetCreditsText();
+
 };
 

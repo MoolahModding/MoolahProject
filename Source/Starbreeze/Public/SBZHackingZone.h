@@ -25,29 +25,30 @@ protected:
     float ActiveTime;
     
 public:
-    ASBZHackingZone();
+    ASBZHackingZone(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ZoneEnabled();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetZoneEnabled(bool bInEnabled);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnOverlapEnd(bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnOverlapBegin(bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_EnabledStateChanged(bool bNewState, bool bDoCosmetics);
     
 };

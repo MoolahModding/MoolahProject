@@ -43,9 +43,10 @@ private:
     bool bIsReplicatedHidden;
     
 public:
-    USBZOutlineComponent();
+    USBZOutlineComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetReplicatedHidden(bool bInIsReplicatedHidden);
     
@@ -56,24 +57,24 @@ public:
     void RemoveMesh(UMeshComponent* Mesh, bool bRemoveFromSelectorsIfUninitialized);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsReplicatedHidden();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ActiveReplicated();
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetReplicatedHidden(bool bInIsReplicatedHidden);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetActiveReplicated(USBZOutlineAsset* NewActiveReplicated);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleInteractionFocusChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInFocus);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bEnabled);
     
 public:

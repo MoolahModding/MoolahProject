@@ -12,5 +12,6 @@ public:
     FPD3PlayerLoadout Loadout;
     
     USBZPlayerLoadoutAsset();
+
 };
 

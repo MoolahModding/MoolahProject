@@ -1,5 +1,8 @@
 #include "SBZBuiltInAnimMontagesHandler.h"
 
+USBZBuiltInAnimMontagesHandler::USBZBuiltInAnimMontagesHandler() {
+}
+
 void USBZBuiltInAnimMontagesHandler::Update(float DeltaSeconds) {
 }
 
@@ -21,6 +24,4 @@ TArray<FSBZBuiltInAnimMontageInstance> USBZBuiltInAnimMontagesHandler::GetActive
     return TArray<FSBZBuiltInAnimMontageInstance>();
 }
 
-USBZBuiltInAnimMontagesHandler::USBZBuiltInAnimMontagesHandler() {
-}
 

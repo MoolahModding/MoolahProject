@@ -16,5 +16,6 @@ public:
     bool bShouldCheckSightPerception;
     
     USBZAIActionData_SetHostile();
+
 };
 

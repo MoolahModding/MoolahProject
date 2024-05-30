@@ -14,5 +14,6 @@ protected:
     
 public:
     USBZTargetFinderPredicate_Dot();
+
 };
 

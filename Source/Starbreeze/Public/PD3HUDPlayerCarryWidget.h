@@ -23,11 +23,12 @@ private:
     
 public:
     UPD3HUDPlayerCarryWidget();
+
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnCarryTypePickedUp(const USBZCarryType* PickedUpCarryType);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnCarryTypeDropped(const USBZCarryType* DroppedCarryType);
     
 };

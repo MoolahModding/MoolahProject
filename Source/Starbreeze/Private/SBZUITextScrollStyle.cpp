@@ -8,3 +8,4 @@ USBZUITextScrollStyle::USBZUITextScrollStyle() {
     this->FadeOutDelay = 0.00f;
 }
 
+

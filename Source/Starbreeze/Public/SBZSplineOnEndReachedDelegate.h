@@ -5,5 +5,5 @@
 class AActor;
 class ASBZSpline;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZSplineOnEndReached, ASBZSpline*, Spline, AActor*, Actor);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZSplineOnEndReached, ASBZSpline*, Spline, AActor*, Actor);
 

@@ -6,7 +6,7 @@
 
 class USBZWorldRuntimeBase;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Transient)
+UCLASS(Blueprintable, DefaultConfig, Transient, Config=Engine)
 class SBZWORLDRUNTIME_API USBZWorldRuntimeBase : public UObject {
     GENERATED_BODY()
 public:
@@ -14,7 +14,8 @@ public:
     TSubclassOf<USBZWorldRuntimeBase> WorldRuntimeClass;
     
     USBZWorldRuntimeBase();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWorldRuntimeBase* GetWorldRuntime(const UObject* WorldContextObject);
     
 };

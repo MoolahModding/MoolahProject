@@ -5,3 +5,4 @@ USBZWeaponPartDataCosmeticOverrideConfig::USBZWeaponPartDataCosmeticOverrideConf
     this->bAddMeshes = false;
 }
 
+

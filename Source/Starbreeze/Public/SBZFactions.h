@@ -8,5 +8,6 @@ class STARBREEZE_API USBZFactions : public UObject {
     GENERATED_BODY()
 public:
     USBZFactions();
+
 };
 

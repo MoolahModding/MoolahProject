@@ -5,3 +5,4 @@ USBZCharacterEffectDataAsset::USBZCharacterEffectDataAsset() {
     this->OnDisplayAudioEvent = NULL;
 }
 
+

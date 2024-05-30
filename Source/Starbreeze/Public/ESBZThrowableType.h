@@ -9,6 +9,7 @@ enum class ESBZThrowableType : uint8 {
     Gas,
     Frag,
     Knife,
+    Shock,
     MAX,
 };
 

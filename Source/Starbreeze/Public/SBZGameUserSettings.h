@@ -6,8 +6,10 @@
 #include "InputCoreTypes.h"
 #include "Rendering/RenderingCommon.h"
 #include "ESBZDifficulty.h"
+#include "ESBZFramerateMode.h"
 #include "ESBZOnlineJoinType.h"
 #include "ESBZPopupType.h"
+#include "ESBZReflexMode.h"
 #include "ESBZUpscaler.h"
 #include "ESBZUpscalingMode.h"
 #include "SBZCrosshairSettings.h"
@@ -21,7 +23,7 @@ class USBZGameInstance;
 class USBZGameUserSettings;
 class USBZSkillData;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZGameUserSettings : public UGameUserSettings {
     GENERATED_BODY()
 public:
@@ -30,7 +32,16 @@ protected:
     uint32 SBZVersion;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bUseDLSSG: 1;
+    
+    UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZReflexMode ReflexMode;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CameraVerticalFoV;
+    
+    UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZFramerateMode FramerateMode;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Brightness;
@@ -52,6 +63,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseDepthOfField;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseChromaticAberration;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 AntiAliasingMode;
@@ -216,6 +230,12 @@ protected:
     bool bUseHoldForTabMenu;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsRememberSkipIntroSequence;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float HeadbobScale;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZInputAxisKeyboardBinding> AxisKeyboardBindings;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -229,9 +249,6 @@ protected:
     
     UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 PopupsShownBitmask;
-    
-    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsPristine;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AdapterName;
@@ -272,6 +289,7 @@ private:
     
 public:
     USBZGameUserSettings();
+
     UFUNCTION(BlueprintCallable)
     void SetVOVolume(float Volume);
     
@@ -459,6 +477,9 @@ public:
     void SetCinematicVolume(float Volume);
     
     UFUNCTION(BlueprintCallable)
+    void SetChromaticAberrationEnabled(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable)
     void SetChatDisabled(bool bDisable);
     
     UFUNCTION(BlueprintCallable)
@@ -476,181 +497,184 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetAntiAliasingMode(int32 Mode);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSwitchWeaponAutomaticallyEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsStoryVideoButtonsEnabled();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsReticleEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPopupShown(ESBZPopupType PopupType) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMouseSmoothingEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMotionBlurEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInvertedYAxisEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHoldToTargetEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHoldToRunEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHoldToCrouchEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsHoldForTabMenuEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFPSDisplayEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsForceFeedbackEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDepthOfFieldEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCrossplayDisabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsContractorAudioBriefingEnabled();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsChromaticAberrationEnabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsChatDisabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetVOVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetVoIPVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetUpscalingSharpness() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZUpscalingMode GetUpscalingMode() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZUpscaler GetUpscaler() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetTelemetryEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTargetingSensitivityMultiplier() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSubtitlesSize() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetSFXVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetSecondaryKeyboardBinding(FName AxisOrActionName, float Scale);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMusicVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMouseSensitivityMultiplier() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMouseSensitivity() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMinCrosshairsScale() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMaxCrosshairsScale() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMasterVolume() const;
     
     UFUNCTION(BlueprintCallable)
     FSBZHitIndicatorSettings GetHitIndicatorSettings();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetHitIndicatorScale() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetHitIndicatorColorKill() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetHitIndicatorColorHit() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetHitIndicatorColorCrit() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetGamma() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetGameSenseEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetGamepadVerticalSensitivityMultiplier() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetGamepadHorizontalSensitivityMultiplier() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGamepadBindingsPreset() const;
     
     UFUNCTION(BlueprintCallable)
     FSBZCrosshairSettings GetCrosshairSettings();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCrosshairsDotSize() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetCrosshairsDotColor() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCrosshairsBarWidth() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCrosshairsBarLength() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetCrosshairsBarColor() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetContrast() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetColorBlindStrength() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EColorVisionDeficiency GetColorBlindMode() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCinematicVolume() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCapsuleShadowQuality() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCameraVerticalFoV() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCameraHorizontalFoV(bool bUseLastConfirmedResolution) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBrightness() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetAntiAliasingMode() const;
     
     UFUNCTION(BlueprintCallable)
@@ -659,13 +683,13 @@ public:
     UFUNCTION(BlueprintCallable)
     void AutoSetQuality();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool AreSubtitlesEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool AreOutlinesEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool AreHitIndicatorsEnabled() const;
     
 };

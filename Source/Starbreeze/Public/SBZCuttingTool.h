@@ -36,6 +36,7 @@ protected:
     UAkRtpc* OnCuttingToolStrengthRtpc;
     
 public:
-    ASBZCuttingTool();
+    ASBZCuttingTool(const FObjectInitializer& ObjectInitializer);
+
 };
 

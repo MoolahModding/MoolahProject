@@ -6,9 +6,9 @@
 #include "Templates/SubclassOf.h"
 #include "SBZBagType.generated.h"
 
-class AActor;
 class ASBZBagItem;
 class ASBZCarriedBag;
+class ASBZSecuredBag;
 
 UCLASS(Blueprintable)
 class USBZBagType : public USBZCarryType {
@@ -27,7 +27,7 @@ public:
     TSubclassOf<ASBZCarriedBag> BackItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<AActor> SecuredItem;
+    TSubclassOf<ASBZSecuredBag> SecuredItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer Tags;
@@ -54,5 +54,6 @@ public:
     float WeightTierOffset;
     
     USBZBagType();
+
 };
 

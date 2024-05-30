@@ -1,9 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "ESBZVolumeType.h"
 #include "SBZVolumeTypeSetting.h"
 #include "SBZVolumeManager.generated.h"
 
+class UAkAudioEvent;
 class USBZVolumeManager;
 
 UCLASS(Blueprintable)
@@ -32,9 +34,19 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZVolumeTypeSetting CinematicVolumeSetting;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<ESBZVolumeType> PausedMuteSet;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* PauseEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* ResumeEvent;
+    
 public:
     USBZVolumeManager();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZVolumeManager* GetVolumeManager(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

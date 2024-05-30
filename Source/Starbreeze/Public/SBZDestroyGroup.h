@@ -29,14 +29,15 @@ protected:
     int32 Seed;
     
 public:
-    ASBZDestroyGroup();
+    ASBZDestroyGroup(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_HasDestroyedActors(bool OldValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DestroyActors();
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

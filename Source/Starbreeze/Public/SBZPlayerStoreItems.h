@@ -8,5 +8,6 @@ class USBZPlayerStoreItems : public UObject {
     GENERATED_BODY()
 public:
     USBZPlayerStoreItems();
+
 };
 

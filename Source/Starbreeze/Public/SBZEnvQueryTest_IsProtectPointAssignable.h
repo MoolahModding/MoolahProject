@@ -8,5 +8,6 @@ class USBZEnvQueryTest_IsProtectPointAssignable : public USBZEnvQueryTest_IsOrde
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsProtectPointAssignable();
+
 };
 

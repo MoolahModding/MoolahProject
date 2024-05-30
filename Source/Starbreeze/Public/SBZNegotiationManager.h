@@ -20,8 +20,9 @@ private:
     
 public:
     USBZNegotiationManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

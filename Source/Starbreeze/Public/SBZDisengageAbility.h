@@ -8,5 +8,6 @@ class USBZDisengageAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZDisengageAbility();
+
 };
 

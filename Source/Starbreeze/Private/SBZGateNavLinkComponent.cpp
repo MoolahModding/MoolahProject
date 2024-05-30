@@ -1,6 +1,10 @@
 #include "SBZGateNavLinkComponent.h"
+#include "ComponentInstanceDataCache.h"
 
-USBZGateNavLinkComponent::USBZGateNavLinkComponent() {
+USBZGateNavLinkComponent::USBZGateNavLinkComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CreationMethod = EComponentCreationMethod::Instance;
+    this->LeftRoom = NULL;
+    this->RightRoom = NULL;
     this->bIsBlocked = false;
     this->bIsUsing = false;
     this->AgilityComponent = NULL;
@@ -8,4 +12,5 @@ USBZGateNavLinkComponent::USBZGateNavLinkComponent() {
     this->AllowedBlockingController = NULL;
     this->OriginalAreaClass = NULL;
 }
+
 

@@ -1,6 +1,9 @@
 #include "SBZPlayerLibrary.h"
 #include "Templates/SubclassOf.h"
 
+USBZPlayerLibrary::USBZPlayerLibrary() {
+}
+
 bool USBZPlayerLibrary::IsPlayerInRange(const UObject* WorldContextObject, const FVector& Location, float Range) {
     return false;
 }
@@ -47,6 +50,4 @@ int32 USBZPlayerLibrary::ApplyCameraFeedbackToLocalPlayer(const UObject* WorldCo
     return 0;
 }
 
-USBZPlayerLibrary::USBZPlayerLibrary() {
-}
 

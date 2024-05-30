@@ -8,5 +8,6 @@ class USBZSkillManipulatorOverbearing : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillManipulatorOverbearing();
+
 };
 

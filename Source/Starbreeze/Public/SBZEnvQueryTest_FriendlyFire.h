@@ -19,5 +19,6 @@ protected:
     
 public:
     USBZEnvQueryTest_FriendlyFire();
+
 };
 

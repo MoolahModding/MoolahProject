@@ -10,3 +10,4 @@ USBZTasedData::USBZTasedData() {
     this->TasedUncontrolledCameraShakeFeedback = NULL;
 }
 
+

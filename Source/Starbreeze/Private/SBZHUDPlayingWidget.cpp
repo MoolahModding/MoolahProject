@@ -4,3 +4,4 @@ USBZHUDPlayingWidget::USBZHUDPlayingWidget() {
     this->Widget_LocalPlayerStatus = NULL;
 }
 
+

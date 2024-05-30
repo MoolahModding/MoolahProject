@@ -8,5 +8,6 @@ class STARBREEZE_API USBZNavArea_NoPatrol : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_NoPatrol();
+
 };
 

@@ -11,6 +11,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZGateState OpenDirection;
     
-    USBZDoorBoxComponent();
+    USBZDoorBoxComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,6 +1,10 @@
 #include "SBZBeaconActionPhaseClient.h"
 #include "Net/UnrealNetwork.h"
 
+ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsDsLobbyClient = false;
+}
+
 void ASBZBeaconActionPhaseClient::ServerVoteStayAsParty_Implementation() {
 }
 
@@ -142,7 +146,4 @@ void ASBZBeaconActionPhaseClient::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(ASBZBeaconActionPhaseClient, PlayersInfo);
 }
 
-ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient() {
-    this->bIsDsLobbyClient = false;
-}
 

@@ -14,3 +14,4 @@ USBZWeaponSpreadData::USBZWeaponSpreadData() {
     this->DeviationTargetingFireMultiplier = 1.00f;
 }
 
+

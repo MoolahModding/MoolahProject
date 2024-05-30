@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZAirNavigationBoundsVolume : public AVolume {
     GENERATED_BODY()
 public:
-    ASBZAirNavigationBoundsVolume();
+    ASBZAirNavigationBoundsVolume(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -8,5 +8,6 @@ class USBZReactionPredicate_HasEnemy : public USBZReactionPredicate {
     GENERATED_BODY()
 public:
     USBZReactionPredicate_HasEnemy();
+
 };
 

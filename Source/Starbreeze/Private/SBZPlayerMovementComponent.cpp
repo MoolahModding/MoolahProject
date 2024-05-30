@@ -1,15 +1,7 @@
 #include "SBZPlayerMovementComponent.h"
 
-void USBZPlayerMovementComponent::Server_SetWantToSprint_Implementation(bool bInWantToSprint) {
-}
-bool USBZPlayerMovementComponent::Server_SetWantToSprint_Validate(bool bInWantToSprint) {
-    return true;
-}
-
-void USBZPlayerMovementComponent::Multicast_SetWantToSprint_Implementation(bool bInWantToSprint) {
-}
-
-USBZPlayerMovementComponent::USBZPlayerMovementComponent() {
+USBZPlayerMovementComponent::USBZPlayerMovementComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bSkipImpulseFromPhysicsInteraction = true;
     this->bAutoComputeTrajectory = false;
     this->AutoComputeTrajectoryInterval = 0.35f;
     this->MinSpeedToSprintAccelerating = 105.00f;
@@ -27,4 +19,14 @@ USBZPlayerMovementComponent::USBZPlayerMovementComponent() {
     this->SkillSprintModifier = 0.00f;
     this->SkillWalkHumanShieldModifier = 0.00f;
 }
+
+void USBZPlayerMovementComponent::Server_SetWantToSprint_Implementation(bool bInWantToSprint) {
+}
+bool USBZPlayerMovementComponent::Server_SetWantToSprint_Validate(bool bInWantToSprint) {
+    return true;
+}
+
+void USBZPlayerMovementComponent::Multicast_SetWantToSprint_Implementation(bool bInWantToSprint) {
+}
+
 

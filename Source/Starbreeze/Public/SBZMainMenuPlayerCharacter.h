@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "PD3PlayerLoadout.h"
+#include "SBZEquippableConfig.h"
 #include "SBZMaskConfig.h"
 #include "SBZMainMenuPlayerCharacter.generated.h"
 
@@ -40,6 +41,9 @@ private:
     USBZPlayerCharacterData* PlayerCharacterData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZEquippableConfig AsyncEquippableConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<UObject*> CachedWeaponObjects;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -49,7 +53,8 @@ private:
     FPD3PlayerLoadout CachedLoadout;
     
 public:
-    ASBZMainMenuPlayerCharacter();
+    ASBZMainMenuPlayerCharacter(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void DestroyEquippable();
     

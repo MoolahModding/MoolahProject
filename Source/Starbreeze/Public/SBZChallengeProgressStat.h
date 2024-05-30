@@ -10,6 +10,9 @@ public:
     FName StatId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CurrentProgress;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TargetProgress;
     
     STARBREEZE_API FSBZChallengeProgressStat();

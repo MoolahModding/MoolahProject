@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "SBZAIDroneMovementComponent.generated.h"
 
@@ -17,7 +18,13 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DroneAvoidanceCollisionRadius;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    FVector MoveUpVector;
+    
 public:
-    USBZAIDroneMovementComponent();
+    USBZAIDroneMovementComponent(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 };
 

@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class ASBZArmorRepairKit : public ASBZPlaceableCharges {
     GENERATED_BODY()
 public:
-    ASBZArmorRepairKit();
+    ASBZArmorRepairKit(const FObjectInitializer& ObjectInitializer);
+
 };
 

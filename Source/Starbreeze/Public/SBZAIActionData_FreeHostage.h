@@ -17,5 +17,6 @@ public:
     ESBZAIOrderMode Mode;
     
     USBZAIActionData_FreeHostage();
+
 };
 

@@ -6,3 +6,4 @@ USBZGrenadeDetectionSettings::USBZGrenadeDetectionSettings() {
     this->GrenadeTypeFlags = -1;
 }
 
+

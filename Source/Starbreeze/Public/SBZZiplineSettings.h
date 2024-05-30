@@ -35,5 +35,6 @@ public:
     float ForcedDirectionThreshold;
     
     USBZZiplineSettings();
+
 };
 

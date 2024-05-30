@@ -1,6 +1,9 @@
 #include "SBZRagdollSyncManager.h"
 #include "Net/UnrealNetwork.h"
 
+USBZRagdollSyncManager::USBZRagdollSyncManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void USBZRagdollSyncManager::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
 }
 
@@ -13,6 +16,4 @@ void USBZRagdollSyncManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(USBZRagdollSyncManager, Ragdolls);
 }
 
-USBZRagdollSyncManager::USBZRagdollSyncManager() {
-}
 

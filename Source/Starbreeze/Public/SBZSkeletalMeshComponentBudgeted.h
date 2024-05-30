@@ -5,15 +5,16 @@
 
 class USBZCapsuleShadowingData;
 
-UCLASS(Blueprintable, EditInlineNew, ClassGroup = Custom, meta = (BlueprintSpawnableComponent))
+UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZSkeletalMeshComponentBudgeted : public USkeletalMeshComponentBudgeted {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (AllowPrivateAccess = true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZCapsuleShadowingData* CapsuleShadowingData;
-
+    
 public:
-    USBZSkeletalMeshComponentBudgeted(const class FObjectInitializer& ObjectInitializer);
+    USBZSkeletalMeshComponentBudgeted(const FObjectInitializer& ObjectInitializer);
+
 };
 

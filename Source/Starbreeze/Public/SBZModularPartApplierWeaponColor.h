@@ -8,5 +8,6 @@ class USBZModularPartApplierWeaponColor : public USBZModularPartApplierWeaponPat
     GENERATED_BODY()
 public:
     USBZModularPartApplierWeaponColor();
+
 };
 

@@ -18,5 +18,6 @@ public:
     TArray<FSBZPawnVariationData> PawnVariationDatas;
     
     USBZPawnSpawnRequestData();
+
 };
 

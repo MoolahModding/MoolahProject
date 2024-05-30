@@ -13,6 +13,7 @@ protected:
     
 public:
     USBZSettingsButtonActionClick();
+
     UFUNCTION(BlueprintCallable)
     void SetActionButtonLabelLocalized(const FText& NewActionButtonLabelLocalized);
     
@@ -20,7 +21,7 @@ public:
     void ClickActionButton();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ActionButtonLabelLocalizedChanged();
     
 };

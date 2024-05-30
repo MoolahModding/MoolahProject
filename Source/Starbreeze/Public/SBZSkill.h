@@ -24,5 +24,6 @@ public:
     USBZSkillLine* SkillLine;
     
     USBZSkill();
+
 };
 

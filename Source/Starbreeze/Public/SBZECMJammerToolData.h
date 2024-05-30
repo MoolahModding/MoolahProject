@@ -8,5 +8,6 @@ class USBZECMJammerToolData : public USBZToolData {
     GENERATED_BODY()
 public:
     USBZECMJammerToolData();
+
 };
 

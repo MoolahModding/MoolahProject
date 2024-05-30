@@ -4,5 +4,5 @@
 
 class ASBZAerialVehicle;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZAerialVehicleOnBeginStop, ASBZAerialVehicle*, Vehicle);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZAerialVehicleOnBeginStop, ASBZAerialVehicle*, Vehicle);
 

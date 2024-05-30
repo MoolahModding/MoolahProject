@@ -13,5 +13,6 @@ public:
     TArray<UPD3HeistDataAsset*> HeistArray;
     
     USBZHeistDatabase();
+
 };
 

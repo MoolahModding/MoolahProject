@@ -8,5 +8,6 @@ class USBZSkillMedicFieldSurgery : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMedicFieldSurgery();
+
 };
 

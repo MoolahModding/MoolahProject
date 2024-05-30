@@ -53,5 +53,6 @@ public:
     TArray<FSBZSkillIntValue> IntArray;
     
     USBZSkillData();
+
 };
 

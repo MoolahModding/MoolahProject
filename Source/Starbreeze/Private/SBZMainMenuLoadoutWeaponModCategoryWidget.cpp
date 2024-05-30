@@ -1,5 +1,14 @@
 #include "SBZMainMenuLoadoutWeaponModCategoryWidget.h"
 
+USBZMainMenuLoadoutWeaponModCategoryWidget::USBZMainMenuLoadoutWeaponModCategoryWidget() {
+    this->StackValue = TEXT("Default__SBZMainMenuLoadoutWeaponModCategoryWidget");
+    this->ButtonClass = NULL;
+    this->ObjectPoolAmount = 15;
+    this->CategoryParentPanel = NULL;
+    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
+    this->WeaponSlotIndex = -1;
+}
+
 void USBZMainMenuLoadoutWeaponModCategoryWidget::OnCategoryButtonSelected(const USBZModularPartSlotBase* ModSlot) {
 }
 
@@ -12,11 +21,4 @@ bool USBZMainMenuLoadoutWeaponModCategoryWidget::CustomizeWeaponInSlot(ESBZEquip
     return false;
 }
 
-USBZMainMenuLoadoutWeaponModCategoryWidget::USBZMainMenuLoadoutWeaponModCategoryWidget() {
-    this->ButtonClass = NULL;
-    this->ObjectPoolAmount = 15;
-    this->CategoryParentPanel = NULL;
-    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
-    this->WeaponSlotIndex = -1;
-}
 

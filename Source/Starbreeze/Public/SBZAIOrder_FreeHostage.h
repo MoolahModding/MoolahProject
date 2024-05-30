@@ -25,8 +25,9 @@ private:
     
 public:
     USBZAIOrder_FreeHostage();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive);
     
 };

@@ -8,5 +8,6 @@ class USBZInteractPlayerRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractPlayerRequirement();
+
 };
 

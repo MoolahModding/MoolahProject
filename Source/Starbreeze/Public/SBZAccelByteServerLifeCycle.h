@@ -6,7 +6,7 @@
 class USBZAccelByteDS;
 class USBZDsStateMachine;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class USBZAccelByteServerLifeCycle : public UObject {
     GENERATED_BODY()
 public:
@@ -34,8 +34,9 @@ private:
     
 public:
     USBZAccelByteServerLifeCycle();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnNetDriverTearDown();
     
 };

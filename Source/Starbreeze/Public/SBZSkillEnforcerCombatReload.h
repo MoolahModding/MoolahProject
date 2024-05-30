@@ -8,5 +8,6 @@ class USBZSkillEnforcerCombatReload : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEnforcerCombatReload();
+
 };
 

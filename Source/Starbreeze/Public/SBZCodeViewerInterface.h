@@ -14,6 +14,9 @@ class ISBZCodeViewerInterface : public IInterface {
     GENERATED_BODY()
 public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void UpdateIdentifier(const FText& InIdentifier);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void UpdateCodeViewer(const TArray<int32>& GeneratedCodes, const int32 TrueCodeIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

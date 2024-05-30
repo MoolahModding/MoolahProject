@@ -24,6 +24,7 @@ private:
     
 public:
     USBZShowLoginUICallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZShowLoginUICallbackProxy* SBZShowExternalLoginUI(UObject* NewWorldContextObject, APlayerController* InPlayerController);
     

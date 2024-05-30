@@ -8,5 +8,6 @@ class USBZSkillScramblerExtraPockets : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillScramblerExtraPockets();
+
 };
 

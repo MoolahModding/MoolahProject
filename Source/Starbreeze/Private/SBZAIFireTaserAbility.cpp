@@ -5,3 +5,4 @@ USBZAIFireTaserAbility::USBZAIFireTaserAbility() {
     this->RegisteredPlayerState = NULL;
 }
 
+

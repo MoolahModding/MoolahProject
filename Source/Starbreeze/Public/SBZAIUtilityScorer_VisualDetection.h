@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_VisualDetection : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_VisualDetection();
+
 };
 

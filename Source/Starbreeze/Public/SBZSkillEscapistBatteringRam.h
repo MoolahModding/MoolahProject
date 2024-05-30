@@ -8,5 +8,6 @@ class USBZSkillEscapistBatteringRam : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEscapistBatteringRam();
+
 };
 

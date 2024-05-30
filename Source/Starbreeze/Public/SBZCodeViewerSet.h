@@ -11,6 +11,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<AActor*> PossibleCodeViewers;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText Identifier;
+    
     STARBREEZE_API FSBZCodeViewerSet();
 };
 

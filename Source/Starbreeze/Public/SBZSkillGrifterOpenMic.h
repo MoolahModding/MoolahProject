@@ -8,5 +8,6 @@ class USBZSkillGrifterOpenMic : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGrifterOpenMic();
+
 };
 

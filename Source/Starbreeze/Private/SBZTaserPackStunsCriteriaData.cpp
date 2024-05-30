@@ -4,3 +4,4 @@ USBZTaserPackStunsCriteriaData::USBZTaserPackStunsCriteriaData() {
     this->NumberOfStuns = 4;
 }
 
+

@@ -8,5 +8,6 @@ class USBZAttractorPredicate_OutOfCombat : public USBZAttractorPredicate {
     GENERATED_BODY()
 public:
     USBZAttractorPredicate_OutOfCombat();
+
 };
 

@@ -8,5 +8,6 @@ class USBZSkillTankHardy : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTankHardy();
+
 };
 

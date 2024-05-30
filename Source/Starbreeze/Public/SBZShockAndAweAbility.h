@@ -8,5 +8,6 @@ class USBZShockAndAweAbility : public USBZSkillTriggeredHurtReactionAbility {
     GENERATED_BODY()
 public:
     USBZShockAndAweAbility();
+
 };
 

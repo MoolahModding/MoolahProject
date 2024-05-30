@@ -8,5 +8,6 @@ class USBZSkillMedicTriage : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMedicTriage();
+
 };
 

@@ -17,8 +17,9 @@ protected:
     
 public:
     USBZSettingsCategoryScreenGamepad();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SettingsCategoryInitialized();
     
 public:
@@ -26,20 +27,20 @@ public:
     void ResetSettingsCategory();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void RefreshScreen();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSettingsButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSettingsButtonChanged(USBZSettingsButton* SettingsButton);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInputTypeChanged();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSettingsCategoryDirty() const;
     
     UFUNCTION(BlueprintCallable)

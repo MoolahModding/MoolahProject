@@ -1,5 +1,11 @@
 #include "SBZLevelScriptMainMenuActor.h"
 
+ASBZLevelScriptMainMenuActor::ASBZLevelScriptMainMenuActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MainMenuMannequin = NULL;
+    this->CustomizationManager = NULL;
+    this->MainMenuCameraManager = NULL;
+}
+
 void ASBZLevelScriptMainMenuActor::PostInitializeComponents() {
 }
 
@@ -12,9 +18,4 @@ void ASBZLevelScriptMainMenuActor::OnLoadoutChanged(const TArray<FSBZLobbyCharac
 void ASBZLevelScriptMainMenuActor::OnLeft() {
 }
 
-ASBZLevelScriptMainMenuActor::ASBZLevelScriptMainMenuActor() {
-    this->MainMenuMannequin = NULL;
-    this->CustomizationManager = NULL;
-    this->MainMenuCameraManager = NULL;
-}
 

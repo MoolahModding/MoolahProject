@@ -1,6 +1,6 @@
 #include "SBZCharacterMantlingComponent.h"
 
-USBZCharacterMantlingComponent::USBZCharacterMantlingComponent() {
+USBZCharacterMantlingComponent::USBZCharacterMantlingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->OverrideSoundEvent = NULL;
     this->FoleySoundEvent = NULL;
     this->bCanMakeNoise = false;
@@ -8,4 +8,5 @@ USBZCharacterMantlingComponent::USBZCharacterMantlingComponent() {
     this->OwnerCharacter = NULL;
     this->OwnerCharacterMovementComponent = NULL;
 }
+
 

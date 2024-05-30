@@ -6,7 +6,7 @@
 
 class USBZMetaDataLoader;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class STARBREEZE_API USBZAccelByteAdminHelper : public UDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -31,7 +31,8 @@ private:
     
 public:
     USBZAccelByteAdminHelper();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void CheckLogoutDone(const FString& Email, const FString& Username, const FString& Password);
     
 };

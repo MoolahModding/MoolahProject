@@ -4,3 +4,4 @@ USBZWeaponWearAndTearData::USBZWeaponWearAndTearData() {
     this->WearAndTearLevel = 0;
 }
 
+

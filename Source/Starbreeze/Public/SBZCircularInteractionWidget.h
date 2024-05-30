@@ -57,6 +57,7 @@ protected:
     
 public:
     USBZCircularInteractionWidget();
+
     UFUNCTION(BlueprintCallable)
     void UpdateNumSlices(int32 InNumSlices);
     
@@ -64,10 +65,10 @@ public:
     void SelectCurrentIndex();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNumSectionsChanged();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnIndexChanged();
     
 public:

@@ -27,5 +27,6 @@ private:
     
 public:
     USBZBTTask_GetClosestPosition();
+
 };
 

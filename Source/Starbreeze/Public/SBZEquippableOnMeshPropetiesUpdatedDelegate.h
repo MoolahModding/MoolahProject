@@ -5,5 +5,5 @@
 class UMeshComponent;
 class USBZOutlineComponent;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZEquippableOnMeshPropetiesUpdated, const UMeshComponent*, Reference, USBZOutlineComponent*, OutlineComponent, bool, bIsReset);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZEquippableOnMeshPropetiesUpdated, const UMeshComponent*, Reference, USBZOutlineComponent*, OutlineComponent, bool, bIsReset);
 

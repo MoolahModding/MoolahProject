@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class ASBZAmmoPack : public ASBZAmmoBag {
     GENERATED_BODY()
 public:
-    ASBZAmmoPack();
+    ASBZAmmoPack(const FObjectInitializer& ObjectInitializer);
+
 };
 

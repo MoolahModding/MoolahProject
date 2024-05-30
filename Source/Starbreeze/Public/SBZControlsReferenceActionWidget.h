@@ -38,11 +38,12 @@ protected:
     
 public:
     USBZControlsReferenceActionWidget();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void PressControlsReferenceAction();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInputAction(const FName ActionName);
     
 public:

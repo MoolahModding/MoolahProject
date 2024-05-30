@@ -91,9 +91,10 @@ protected:
     int32 InitialSeed;
     
 public:
-    ASBZThermite();
+    ASBZThermite(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetOutsideInterferenceActive(const bool bInActive);
     
@@ -101,46 +102,46 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetBagOverlapBoxEnabled(bool bInEnabled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_Seed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsInterfered();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState(ESBZThermiteBurnState OldState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBoxComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckCompleteIgnition(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ThermiteBagOverlapped(bool bIsInitialBag);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZThermiteBurnState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetOutsideInterference(const bool bInIsActive);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnThermiteBagOverlapped(bool bIsInitialBag);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnSteamExplosion();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZThermiteBurnState OldState, ESBZThermiteBurnState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnInterferenceChanged(const bool bInterfered);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnFlashOver();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

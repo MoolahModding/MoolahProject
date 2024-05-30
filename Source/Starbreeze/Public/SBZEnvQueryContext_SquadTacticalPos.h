@@ -8,5 +8,6 @@ class USBZEnvQueryContext_SquadTacticalPos : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_SquadTacticalPos();
+
 };
 

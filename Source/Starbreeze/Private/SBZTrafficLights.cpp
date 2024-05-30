@@ -1,6 +1,16 @@
 #include "SBZTrafficLights.h"
 #include "Net/UnrealNetwork.h"
 
+ASBZTrafficLights::ASBZTrafficLights(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->ActivePoolIndex = -1;
+    this->NextPoolTimer = 0.00f;
+    this->TrafficManager = NULL;
+    this->TrafficSettings = NULL;
+}
+
 void ASBZTrafficLights::UpdatePool_Implementation(ESBZTrafficLightStatus Status, const TArray<UStaticMeshComponent*>& Pool, const TArray<USBZAmbientSoundComponent*>& PedestrianSoundEmitters) {
 }
 
@@ -16,10 +26,4 @@ void ASBZTrafficLights::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(ASBZTrafficLights, ActivePoolIndex);
 }
 
-ASBZTrafficLights::ASBZTrafficLights() {
-    this->ActivePoolIndex = -1;
-    this->NextPoolTimer = 0.00f;
-    this->TrafficManager = NULL;
-    this->TrafficSettings = NULL;
-}
 

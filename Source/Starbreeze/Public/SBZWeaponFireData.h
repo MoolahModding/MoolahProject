@@ -28,6 +28,9 @@ public:
     uint32 ProjectilesPerFiredRound;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint32 BurstRoundCount;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 MaximumPenetrationCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -41,6 +44,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AdditionalPlayerRange;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverHealDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetration;
@@ -99,10 +105,11 @@ protected:
     
 public:
     USBZWeaponFireData();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetProjectilesPerFiredRound() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetCriticalMultipliersOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutMultiplierArray) const;
     
 };

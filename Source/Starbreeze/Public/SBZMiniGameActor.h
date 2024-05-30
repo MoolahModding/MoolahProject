@@ -43,9 +43,10 @@ protected:
     UWidgetComponent* WidgetComponent;
     
 public:
-    ASBZMiniGameActor();
+    ASBZMiniGameActor(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetMiniGameIgnored(bool bIgnored);
     
@@ -53,25 +54,25 @@ public:
     void SetEnabled(bool bInEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsUnlocked();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMiniGameStateChanged(EPD3MiniGameState OldState, EPD3MiniGameState NewState, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractableStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMiniGameIgnored(bool bIgnored);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnComplete();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnMiniGameSuccess(bool bDoCosmetics);
     
 };

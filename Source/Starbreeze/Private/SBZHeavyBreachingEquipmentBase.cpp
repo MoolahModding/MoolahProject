@@ -1,6 +1,14 @@
 #include "SBZHeavyBreachingEquipmentBase.h"
 #include "Net/UnrealNetwork.h"
 
+ASBZHeavyBreachingEquipmentBase::ASBZHeavyBreachingEquipmentBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
+    this->HeatupTimeSeconds = 5.00f;
+    this->NumberOfPartsAdded = 0;
+    this->EstimatedFuelEndTime = 0.00f;
+    this->PartAddedEvent = NULL;
+}
+
 void ASBZHeavyBreachingEquipmentBase::OnRep_PartsAdded() {
 }
 
@@ -18,10 +26,4 @@ void ASBZHeavyBreachingEquipmentBase::GetLifetimeReplicatedProps(TArray<FLifetim
     DOREPLIFETIME(ASBZHeavyBreachingEquipmentBase, EstimatedFuelEndTime);
 }
 
-ASBZHeavyBreachingEquipmentBase::ASBZHeavyBreachingEquipmentBase() {
-    this->HeatupTimeSeconds = 5.00f;
-    this->NumberOfPartsAdded = 0;
-    this->EstimatedFuelEndTime = 0.00f;
-    this->PartAddedEvent = NULL;
-}
 

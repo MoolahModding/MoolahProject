@@ -25,12 +25,13 @@ protected:
     ASBZRoomVolume* SpawnGroupRoom;
     
 public:
-    ASBZPawnSpawnGroup();
+    ASBZPawnSpawnGroup(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnSpawnDestroyed(AActor* DestroyedActor);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

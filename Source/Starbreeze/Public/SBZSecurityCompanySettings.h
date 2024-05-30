@@ -6,7 +6,7 @@
 
 class UObject;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class USBZSecurityCompanySettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -14,16 +14,41 @@ public:
     FSBZSecurityCompanySettingData Settings;
     
     USBZSecurityCompanySettings();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasReflectorShields(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool HasLeadGuard(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool HasIndestructibleCameras(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasHardBargain(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasFacialRecognition(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasDebilitatingSpecials(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool HasCameraRuntimeLimit(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasBuddySystem(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasArmorPiercing(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasAlphaStrike(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasAICore(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FSBZSecurityCompanySettingData Get();
     
 };

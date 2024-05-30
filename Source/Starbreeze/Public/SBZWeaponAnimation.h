@@ -76,5 +76,6 @@ protected:
     
 public:
     USBZWeaponAnimation();
+
 };
 

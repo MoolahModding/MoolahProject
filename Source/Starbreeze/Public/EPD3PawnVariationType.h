@@ -6,6 +6,6 @@ UENUM(BlueprintType)
 enum class EPD3PawnVariationType : uint8 {
     America,
     MAX,
-    DEFAULT = 0x0,
+    DEFAULT = America,
 };
 

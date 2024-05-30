@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZMakeNoiseActor : public AActor {
     GENERATED_BODY()
 public:
-    ASBZMakeNoiseActor();
+    ASBZMakeNoiseActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

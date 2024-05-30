@@ -19,39 +19,40 @@ public:
     FSBZOnRenownLevelChangedDelegate OnRenownLevelChangedDelegate;
     
     USBZInfamyManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleOnStateMachineStateEntered(FName StateName);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMaxLevel() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetLevelForExperience(const int32 InExperience) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZInfamyManager* GetInfamyManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetExperienceForLevel(const int32 InLevel) const;
     
     UFUNCTION(BlueprintCallable)
     void ClientGetProgressInfo(int32& OutProgressTowardsNextLevelUp, int32& OutPointsRequiredForNextLevelUp);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ClientGetPreviousExperience() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ClientGetPreMatchExperience() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ClientGetCurrentRenownLevel() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ClientGetCurrentLevel() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ClientGetCurrentExperience() const;
     
 };

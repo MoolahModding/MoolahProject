@@ -86,11 +86,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Progress, meta=(AllowPrivateAccess=true))
     int32 Progress;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     int32 MaxProgress;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxProgressPerDifficulty[4];
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCanEverReplicateMaxProgress;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float StartTimeSeconds;
@@ -108,30 +111,34 @@ protected:
     USBZMarkerDataAsset* MarkerAsset;
     
 public:
-    ASBZObjective();
+    ASBZObjective(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetProgress(int32 NewProgress);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_State();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_Progress();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetMaxProgress(float InMaxProgress);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnStateChanged(ESBZObjectiveState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnProgressChanged(int32 NewProgress);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActive() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContext"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContext"))
     static TArray<ASBZObjective*> GetActiveInGroup(UObject* WorldContext, ESBZObjectiveGroup Group);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZAITaserSpecialComponent : public USBZSpecialAIComponent {
     GENERATED_BODY()
 public:
-    USBZAITaserSpecialComponent();
+    USBZAITaserSpecialComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -4,3 +4,4 @@ USBZSuitInventorySlotData::USBZSuitInventorySlotData() {
     this->SuitBaseSlot = NULL;
 }
 
+

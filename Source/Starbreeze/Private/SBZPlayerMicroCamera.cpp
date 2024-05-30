@@ -2,6 +2,16 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZToolSkeletalMeshComponent.h"
 
+ASBZPlayerMicroCamera::ASBZPlayerMicroCamera(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USBZToolSkeletalMeshComponent>(TEXT("MeshComponent"));
+    this->SkeletalMesh = (USBZToolSkeletalMeshComponent*)RootComponent;
+    this->RotationSpeed = 100.00f;
+    this->InstigatorCharacter = NULL;
+}
+
 void ASBZPlayerMicroCamera::OnRep_ViewTargetPlayerStateIdArray(const TArray<int32>& OldViewTargetPlayerStateIdArray) {
 }
 
@@ -29,9 +39,4 @@ void ASBZPlayerMicroCamera::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(ASBZPlayerMicroCamera, ViewTargetPlayerStateIdArray);
 }
 
-ASBZPlayerMicroCamera::ASBZPlayerMicroCamera() {
-    this->SkeletalMesh = CreateDefaultSubobject<USBZToolSkeletalMeshComponent>(TEXT("MeshComponent"));
-    this->RotationSpeed = 100.00f;
-    this->InstigatorCharacter = NULL;
-}
 

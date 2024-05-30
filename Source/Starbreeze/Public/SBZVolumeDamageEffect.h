@@ -8,5 +8,6 @@ class USBZVolumeDamageEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZVolumeDamageEffect();
+
 };
 

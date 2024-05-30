@@ -16,10 +16,11 @@ protected:
     
 public:
     USBZLoadoutSkillsButton();
+
     UFUNCTION(BlueprintCallable)
     void NativeInitializeSkills(const TArray<USBZSkillData*>& SkillList);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void InitializeSkills(int32 EquippedSkillCount);
     
 };

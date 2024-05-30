@@ -22,19 +22,20 @@ private:
     
 public:
     USBZCurrencyManager();
+
     UFUNCTION(BlueprintCallable)
     void SubtractCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int32 Amount);
     
     UFUNCTION(BlueprintCallable)
     void SetCurrency(ESBZCurrencyCode Type, int32 Cost);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCurrentAmount(ESBZCurrencyCode Type) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZCurrencyManager* GetCurrencyManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanAfford(ESBZCurrencyCode Type, int32 Cost) const;
     
     UFUNCTION(BlueprintCallable)

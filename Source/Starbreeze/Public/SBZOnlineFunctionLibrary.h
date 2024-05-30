@@ -10,8 +10,10 @@
 #include "ESBZOnlineJoinType.h"
 #include "ESBZPlatform.h"
 #include "ESBZSecurityCompany.h"
+#include "ESBZUserPrivilegesProxy.h"
 #include "SBZLobbyCharacterInfoUi.h"
 #include "SBZLoginFieldInfo.h"
+#include "SBZMergePlayerData.h"
 #include "SBZMissionInfo.h"
 #include "SBZOnlineMatchmakingParams.h"
 #include "SBZOnlineSearchResult.h"
@@ -28,6 +30,7 @@ class STARBREEZE_API USBZOnlineFunctionLibrary : public UBlueprintFunctionLibrar
     GENERATED_BODY()
 public:
     USBZOnlineFunctionLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
@@ -41,10 +44,16 @@ public:
     static void RequestVoteRestartLevel(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void RequestVoteKickPlayer(UObject* WorldContextObject, const FUniqueNetIdRepl& PlayerTargeted);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestSteamLogin(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestRestartLevel(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void RequestMergeParty(UObject* WorldContextObject, bool bIsSelected);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestLoginWithDeviceID(UObject* WorldContextObject);
@@ -64,218 +73,227 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FSoftObjectPath LevelIdxToPath(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsWinGDKActive();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsUserOnline(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsTitleOnline(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsSteamActive();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsSoloGame(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsShippingBuild();
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsServerAcceptingSlots(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsSecurityCompaniesProvided();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsSameUniqueId(FUniqueNetIdRepl UniqueNetIdA, FUniqueNetIdRepl UniqueNetIdB);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsRequestInProgress(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsProductOwned(int32 ProductId);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPlayerPartyOwner(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPlayerMuted(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPlayerInParty(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPartyOwner(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPartyClient(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsOwnUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNoSteam();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNoHud();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNoChallenges();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsLocalPlayerInDropInLobby(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsLocalClientReady(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsLobbyHost(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsLobbyClient(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsInSession(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsInParty(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsForceLocalProgressionSaveFile();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsEOSActive();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsDifficultyArgumentProvided();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsDebugRandomSeedProvided();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsActionPhaseClient(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsAccelByteV2SessionsEnabled();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsAccelByteMatchmakingDisabled();
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void HideSessionFromJoin(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasPrivilege(const UObject* WorldContextObject, ESBZUserPrivilegesProxy Privilege);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetUiLobbyInfo(UObject* WorldContextObject, TArray<FSBZLobbyCharacterInfoUi>& OutInfo);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetSingleNameToShow(const FString& PlatformName, const FString& NebulaName, const ESBZPlatform Platform);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static EOnlineSessionInfo GetSessionInfo(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static TArray<ESBZSecurityCompany> GetSecurityCompanyListForDifficulty(const UObject* WorldContextObject, const FString& LevelName, ESBZDifficulty Difficulty);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static TArray<ESBZSecurityCompany> GetSecurityCompaniesArgument();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZOnlineSession* GetSBZOnline(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetPlayersCount(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString GetPlayerDisplayNameByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UTexture2D* GetPlayerAvatarByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UTexture2D* GetPlayerAvatar(UObject* WorldContextObject, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZPlatform GetPlatformFromAccelbytePlatformId(const FString& AccelbytePlatformId);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZPlatform GetPlatform();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FSoftObjectPath GetPathNameFromLevelIdx(const UObject* WorldContextObject, int32 LevelIdx);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetPartyMembersCount(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UTexture2D* GetPartyMemberAvatar(UObject* WorldContextObject, int32 PlayerIndex);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static ESBZOnlineJoinType GetPartyJoinType(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool GetPartyData(UObject* WorldContextObject, FSBZPartyData& OutPartyData);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetOverrideLevelName();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetOverrideAccelbyteGameMode();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static TArray<FSBZMergePlayerData> GetMergePartyInformation(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static uint8 GetMaxPlayersForSession(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static uint8 GetMaxPlayersArgument(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FSBZOnlineMatchmakingParams GetMatchmakingParameters(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString GetLastMatchID(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetFoundPlayersCount(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZFirstPartyPlatform GetFirstPartyPlatform();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static uint8 GetDifficultyIdxArgument();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetDebugRandomSeed();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetDebugMatchmakingGroup();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FSBZLoginFieldInfo GetDebugLoginAndPassword(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetConnectionsCount(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetBeaconMissionInfo(UObject* WorldContextObject, FSBZMissionInfo& OutInfo);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetAllPlayersUniqueNetIds(UObject* WorldContextObject, TArray<FUniqueNetIdRepl>& OutParam);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static EAccelBytePlatformType GetAccelbytePlatformTypeFromFirstPartyPlatformType(ESBZFirstPartyPlatform FirstPartyPlatform);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static EAccelBytePlatformType GetAccelBytePlatformType();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetAccelByteLinkedAccountsUrl();
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void DebugJoinByInvite(UObject* WorldContextObject, const FSBZOnlineSearchResult& InSessionToJoin);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString DebugGetSessionParameters(const UObject* WorldContextObject, FName SessionName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool CanVoteForStayInParty(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void ActivateSessionInviteOverlay(UObject* WorldContextObject);

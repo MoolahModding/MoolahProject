@@ -1,6 +1,10 @@
 #include "SBZHackingComponent.h"
 #include "Net/UnrealNetwork.h"
 
+USBZHackingComponent::USBZHackingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->HackingState = ESBZHackingState::NotHacked;
+}
+
 void USBZHackingComponent::SetHackingState(ESBZHackingState NewHackingState) {
 }
 
@@ -20,7 +24,4 @@ void USBZHackingComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(USBZHackingComponent, HackingState);
 }
 
-USBZHackingComponent::USBZHackingComponent() {
-    this->HackingState = ESBZHackingState::NotHacked;
-}
 

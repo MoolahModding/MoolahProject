@@ -54,5 +54,6 @@ public:
     FString StatisticsDeployString;
     
     USBZPlaceableData();
+
 };
 

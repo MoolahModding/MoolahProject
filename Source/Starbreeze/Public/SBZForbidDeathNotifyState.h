@@ -8,5 +8,6 @@ class USBZForbidDeathNotifyState : public USBZForbidHurtNotifyState {
     GENERATED_BODY()
 public:
     USBZForbidDeathNotifyState();
+
 };
 

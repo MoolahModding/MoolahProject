@@ -8,5 +8,6 @@ class STARBREEZE_API USBZGameplayTags : public UObject {
     GENERATED_BODY()
 public:
     USBZGameplayTags();
+
 };
 

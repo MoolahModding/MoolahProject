@@ -8,5 +8,6 @@ class USBZGetCurrencyRequestQueue : public UObject {
     GENERATED_BODY()
 public:
     USBZGetCurrencyRequestQueue();
+
 };
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZAirNeighborTestActor : public AActor {
     GENERATED_BODY()
 public:
-    ASBZAirNeighborTestActor();
+    ASBZAirNeighborTestActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -17,24 +17,25 @@ private:
     
 public:
     USBZBlockedPlayerManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void XsxBlockListChangeTimer();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlatformUserInitialized();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBlockedPlayersUpdated();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayerBlocked(const FString& PlayerId) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TMap<FString, FSBZFriendListEntry> GetBlockedPlayers() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZBlockedPlayerManager* Get(const UObject* WorldContextObject);
     
 };

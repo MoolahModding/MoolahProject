@@ -37,5 +37,6 @@ protected:
     
 public:
     USBZEnvQueryTest_RoomPathfinding();
+
 };
 

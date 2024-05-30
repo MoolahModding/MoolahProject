@@ -19,5 +19,6 @@ public:
     TArray<float> DialogBodyGestureDurations;
     
     USBZDialogBodyGesturesData();
+
 };
 

@@ -53,6 +53,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZHelmetHideInfo> HideInfo;
     
-    USBZHelmetPopper();
+    USBZHelmetPopper(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,6 +1,12 @@
 #include "SBZAILibrary.h"
 #include "Templates/SubclassOf.h"
 
+USBZAILibrary::USBZAILibrary() {
+}
+
+void USBZAILibrary::TryEnableAirNavigation(const FVector& CenterLocation, const FVector& BoundsExtent, const FVector& ForwardVector, const AActor* ActorBlockingAirNav) {
+}
+
 void USBZAILibrary::TriggerAbility(ASBZAICharacter* Character, ESBZAbilityInput InAbility) {
 }
 
@@ -46,6 +52,4 @@ USBZAIActionData* USBZAILibrary::CreateActionData(TSubclassOf<USBZAIActionData> 
     return NULL;
 }
 
-USBZAILibrary::USBZAILibrary() {
-}
 

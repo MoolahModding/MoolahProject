@@ -20,25 +20,26 @@ protected:
     
 public:
     USBZMenuStackWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRemovedFromStack();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLostStackFocused();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGainedStackFocused(const FName& PreviousValue);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAddedToStack();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetStackValue() const;
     
 };

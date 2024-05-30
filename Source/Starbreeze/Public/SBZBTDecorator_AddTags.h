@@ -17,5 +17,6 @@ private:
     
 public:
     USBZBTDecorator_AddTags();
+
 };
 

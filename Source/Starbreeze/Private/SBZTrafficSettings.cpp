@@ -8,3 +8,4 @@ USBZTrafficSettings::USBZTrafficSettings() {
     this->PedestrianRedSoundEvent = NULL;
 }
 
+

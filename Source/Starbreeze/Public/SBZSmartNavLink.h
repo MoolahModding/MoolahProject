@@ -64,20 +64,21 @@ private:
     UBillboardComponent* SpriteComponent;
     
 public:
-    ASBZSmartNavLink();
+    ASBZSmartNavLink(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetNavArea(TSubclassOf<UNavArea> AreaClass);
     
     UFUNCTION(BlueprintCallable)
     void SetLinkEnabled(bool bInLinkEnabled);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLinkEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TSubclassOf<UNavArea> GetNavArea() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

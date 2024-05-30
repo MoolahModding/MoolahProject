@@ -1,31 +1,7 @@
 #include "SBZMiniGameComponent.h"
+#include "Net/UnrealNetwork.h"
 
-void USBZMiniGameComponent::SetAudioPerspective(UAkComponent* AkComponent, UAkRtpc* Rtpc, bool bIsLocallyControlled) {
-}
-
-void USBZMiniGameComponent::ServerAbortMiniGame() {
-}
-
-void USBZMiniGameComponent::PlaySoundOnNative(UAkAudioEvent* AudioEvent) {
-}
-
-void USBZMiniGameComponent::PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent) {
-}
-
-void USBZMiniGameComponent::OnPlayerStateEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
-}
-
-void USBZMiniGameComponent::Multicast_ActivateMiniGame_Implementation(ASBZCharacter* Character) {
-}
-
-UPD3MiniGameWidgetBase* USBZMiniGameComponent::GetSpawnedWidget() const {
-    return NULL;
-}
-
-void USBZMiniGameComponent::ActivateMiniGame(ASBZCharacter* Character, bool bIsLocallyControlled, bool bIsReplicated) {
-}
-
-USBZMiniGameComponent::USBZMiniGameComponent() {
+USBZMiniGameComponent::USBZMiniGameComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Data = NULL;
     this->AudioComponent = NULL;
     this->AbortedAudioEvent = NULL;
@@ -52,4 +28,42 @@ USBZMiniGameComponent::USBZMiniGameComponent() {
     this->RootComponent = NULL;
     this->ActiveLocallyController = NULL;
 }
+
+void USBZMiniGameComponent::SetMiniGameData(USBZMiniGameData* InData) {
+}
+
+void USBZMiniGameComponent::SetAudioPerspective(UAkComponent* AkComponent, UAkRtpc* Rtpc, bool bIsLocallyControlled) {
+}
+
+void USBZMiniGameComponent::ServerAbortMiniGame() {
+}
+
+void USBZMiniGameComponent::PlaySoundOnNative(UAkAudioEvent* AudioEvent) {
+}
+
+void USBZMiniGameComponent::PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent) {
+}
+
+void USBZMiniGameComponent::OnPlayerStateEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
+void USBZMiniGameComponent::Multicast_SetMiniGameData_Implementation(USBZMiniGameData* InData) {
+}
+
+void USBZMiniGameComponent::Multicast_ActivateMiniGame_Implementation(ASBZCharacter* Character) {
+}
+
+UPD3MiniGameWidgetBase* USBZMiniGameComponent::GetSpawnedWidget() const {
+    return NULL;
+}
+
+void USBZMiniGameComponent::ActivateMiniGame(ASBZCharacter* Character, bool bIsLocallyControlled, bool bIsReplicated) {
+}
+
+void USBZMiniGameComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(USBZMiniGameComponent, Data);
+}
+
 

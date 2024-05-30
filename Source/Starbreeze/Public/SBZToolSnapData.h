@@ -17,5 +17,6 @@ public:
     float ToolSnapRadius;
     
     USBZToolSnapData();
+
 };
 

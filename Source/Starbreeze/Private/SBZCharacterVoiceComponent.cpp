@@ -1,6 +1,18 @@
 #include "SBZCharacterVoiceComponent.h"
 #include "AkComponent.h"
 
+USBZCharacterVoiceComponent::USBZCharacterVoiceComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->VoiceAttachPoint = TEXT("Jaw");
+    this->VoiceSpacialRTPC = NULL;
+    this->VoiceFilterRTPC = NULL;
+    this->VoiceFilterRTPCValue = 0.00f;
+    this->DialogAnimDataCollection = NULL;
+    this->RemoveLipSyncPrefix = TEXT("LPS_");
+    this->SBZCharacterOwner = NULL;
+    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    this->PerformsInDialog = NULL;
+}
+
 void USBZCharacterVoiceComponent::StopTalking() {
 }
 
@@ -52,15 +64,4 @@ void USBZCharacterVoiceComponent::HandleAudioComponentActivated(UActorComponent*
 void USBZCharacterVoiceComponent::CallRecieved(const FSBZPlayerCallEvent& CallEventData) {
 }
 
-USBZCharacterVoiceComponent::USBZCharacterVoiceComponent() {
-    this->VoiceAttachPoint = TEXT("Jaw");
-    this->VoiceSpacialRTPC = NULL;
-    this->VoiceFilterRTPC = NULL;
-    this->VoiceFilterRTPCValue = 0.00f;
-    this->DialogAnimDataCollection = NULL;
-    this->RemoveLipSyncPrefix = TEXT("LPS_");
-    this->SBZCharacterOwner = NULL;
-    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
-    this->PerformsInDialog = NULL;
-}
 

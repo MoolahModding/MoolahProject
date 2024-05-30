@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class ASBZRangedProjectileWeapon : public ASBZRangedWeapon {
     GENERATED_BODY()
 public:
-    ASBZRangedProjectileWeapon();
+    ASBZRangedProjectileWeapon(const FObjectInitializer& ObjectInitializer);
+
 };
 

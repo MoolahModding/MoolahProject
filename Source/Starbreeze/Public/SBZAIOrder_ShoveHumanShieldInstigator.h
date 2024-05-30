@@ -15,5 +15,6 @@ private:
     
 public:
     USBZAIOrder_ShoveHumanShieldInstigator();
+
 };
 

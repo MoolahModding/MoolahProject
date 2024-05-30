@@ -1,5 +1,9 @@
 #include "SBZGameStateMachine.h"
 
+USBZGameStateMachine::USBZGameStateMachine() {
+    this->StateMachine = NULL;
+}
+
 void USBZGameStateMachine::SetMatchmakingSecurityCompanies(const TArray<ESBZSecurityCompany>& InSecurityCompanies) {
 }
 
@@ -134,7 +138,4 @@ void USBZGameStateMachine::DebugOnlineTravel(const FString& LevelUrl, bool bIsAb
 void USBZGameStateMachine::AddMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany) {
 }
 
-USBZGameStateMachine::USBZGameStateMachine() {
-    this->StateMachine = NULL;
-}
 

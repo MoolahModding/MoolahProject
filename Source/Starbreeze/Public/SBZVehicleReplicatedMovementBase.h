@@ -17,6 +17,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ServerTimestamp;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
+    float PredictionCorrectionTimer;
+    
     STARBREEZE_API FSBZVehicleReplicatedMovementBase();
 };
 

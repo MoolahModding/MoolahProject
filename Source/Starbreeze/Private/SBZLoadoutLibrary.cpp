@@ -1,5 +1,8 @@
 #include "SBZLoadoutLibrary.h"
 
+USBZLoadoutLibrary::USBZLoadoutLibrary() {
+}
+
 void USBZLoadoutLibrary::SetWeaponPartOnWeapon(const UObject* WorldContextObject, const ESBZEquippableLoadoutSlot EquippableSlot, const int32 SlotIndex, const USBZWeaponPartSlot* ModularPartSlot, const USBZEquippablePartDataAsset* EquippablePartDataAsset) {
 }
 
@@ -43,6 +46,4 @@ int32 USBZLoadoutLibrary::GetActivePlayerLoadoutIndex(const UObject* WorldContex
     return 0;
 }
 
-USBZLoadoutLibrary::USBZLoadoutLibrary() {
-}
 

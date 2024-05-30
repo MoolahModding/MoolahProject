@@ -1,6 +1,23 @@
 #include "SBZInteractableComponent.h"
 #include "Net/UnrealNetwork.h"
 
+USBZInteractableComponent::USBZInteractableComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->LoopingAkComponent = NULL;
+    this->GameplayInteractionQuery = NULL;
+    this->SharedKeyItemQuery = NULL;
+    this->PredictedInteractor = NULL;
+    this->PredictionTimeoutSeconds = -1.00f;
+    this->bCurrentlyInteracting = false;
+    this->bInteractionEnabled = true;
+    this->bLocalEnabled = true;
+    this->bPredictLocalEnd = false;
+    this->bSyncInteracting = true;
+    this->bRepeatable = false;
+    this->bClearInteractorsOnComplete = true;
+    this->bIsAllowedInCasing = false;
+    this->bIsIllegal = true;
+}
+
 void USBZInteractableComponent::Stop3DSound(UAkAudioEvent* AudioEvent) {
 }
 
@@ -34,21 +51,4 @@ void USBZInteractableComponent::GetLifetimeReplicatedProps(TArray<FLifetimePrope
     DOREPLIFETIME(USBZInteractableComponent, bInteractionEnabled);
 }
 
-USBZInteractableComponent::USBZInteractableComponent() {
-    this->LoopingAkComponent = NULL;
-    this->GameplayInteractionQuery = NULL;
-    this->SharedKeyItemQuery = NULL;
-    this->PredictedInteractor = NULL;
-    this->PredictionTimeoutSeconds = -1.00f;
-    this->bCurrentlyInteracting = false;
-    this->bInteractionEnabled = true;
-    this->bLocalEnabled = true;
-    this->bPredictLocalEnd = false;
-    this->bSyncInteracting = true;
-    this->bSyncAbortEvent = false;
-    this->bRepeatable = false;
-    this->bClearInteractorsOnComplete = true;
-    this->bIsAllowedInCasing = false;
-    this->bIsIllegal = true;
-}
 

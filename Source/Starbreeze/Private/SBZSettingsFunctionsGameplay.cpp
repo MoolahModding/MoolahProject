@@ -1,5 +1,8 @@
 #include "SBZSettingsFunctionsGameplay.h"
 
+USBZSettingsFunctionsGameplay::USBZSettingsFunctionsGameplay() {
+}
+
 void USBZSettingsFunctionsGameplay::SetTelemetryDisabled(UObject* WorldContextObject, bool bDisabled) {
 }
 
@@ -7,6 +10,9 @@ void USBZSettingsFunctionsGameplay::SetTargetingSensitivityMultiplier(UObject* W
 }
 
 void USBZSettingsFunctionsGameplay::SetSwitchWeaponAutomaticallyEnabled(UObject* WorldContextObject, bool bEnabled) {
+}
+
+void USBZSettingsFunctionsGameplay::SetRememberSkipIntroSequence(UObject* WorldContextObject, bool bInIsRemember) {
 }
 
 void USBZSettingsFunctionsGameplay::SetMouseSmoothingEnabled(UObject* WorldContextObject, bool bEnabled) {
@@ -28,6 +34,9 @@ void USBZSettingsFunctionsGameplay::SetHoldToRunEnabled(UObject* WorldContextObj
 }
 
 void USBZSettingsFunctionsGameplay::SetHoldToCrouchEnabled(UObject* WorldContextObject, bool bEnabled) {
+}
+
+void USBZSettingsFunctionsGameplay::SetHeadbobScale(UObject* WorldContextObject, float InScale) {
 }
 
 void USBZSettingsFunctionsGameplay::SetGamesightDisabled(UObject* WorldContextObject, bool bDisabled) {
@@ -82,6 +91,14 @@ bool USBZSettingsFunctionsGameplay::IsSwitchWeaponAutomaticallyEnabledByDefault(
 }
 
 bool USBZSettingsFunctionsGameplay::IsSwitchWeaponAutomaticallyEnabled(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsRememberSkipIntroSequenceDefault(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsRememberSkipIntroSequence(UObject* WorldContextObject) {
     return false;
 }
 
@@ -181,6 +198,14 @@ float USBZSettingsFunctionsGameplay::GetMouseSensitivityMultiplier(UObject* Worl
     return 0.0f;
 }
 
+float USBZSettingsFunctionsGameplay::GetHeadbobScaleDefault(UObject* WorldContextObject) {
+    return 0.0f;
+}
+
+float USBZSettingsFunctionsGameplay::GetHeadbobScale(UObject* WorldContextObject) {
+    return 0.0f;
+}
+
 float USBZSettingsFunctionsGameplay::GetGamepadVerticalSensitivityMultiplier(UObject* WorldContextObject) {
     return 0.0f;
 }
@@ -253,6 +278,4 @@ bool USBZSettingsFunctionsGameplay::AreControllerVibrationsEnabled(UObject* Worl
     return false;
 }
 
-USBZSettingsFunctionsGameplay::USBZSettingsFunctionsGameplay() {
-}
 

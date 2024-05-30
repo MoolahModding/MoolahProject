@@ -4,3 +4,4 @@ USBZForceFacialAnimationNotifyState::USBZForceFacialAnimationNotifyState() {
     this->FacialAnimation = NULL;
 }
 
+

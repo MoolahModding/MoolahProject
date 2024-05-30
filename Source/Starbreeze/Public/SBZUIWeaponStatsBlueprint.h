@@ -10,22 +10,23 @@ class USBZUIWeaponStatsBlueprint : public UObject {
     GENERATED_BODY()
 public:
     USBZUIWeaponStatsBlueprint();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetStabilityValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetRecoilValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetHandlingValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetFireRateValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetDamageValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GetAccuracyValueArray(const USBZRangedWeaponData* RangedWeaponData, TArray<float>& OutValueArray) const;
     
 };

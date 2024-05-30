@@ -8,5 +8,6 @@ class USBZSkillScramblerFullRecall : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillScramblerFullRecall();
+
 };
 

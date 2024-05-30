@@ -28,7 +28,14 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MoveSidewaysAmount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float AdditionalStepOutDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldCareAboutNeighbors;
+    
 public:
     USBZBTTask_Peek();
+
 };
 

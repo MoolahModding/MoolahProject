@@ -54,5 +54,6 @@ protected:
     
 public:
     USBZGameplayAbility();
+
 };
 

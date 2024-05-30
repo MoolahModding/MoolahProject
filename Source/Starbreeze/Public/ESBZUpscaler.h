@@ -8,6 +8,8 @@ enum class ESBZUpscaler : uint8 {
     Unreal,
     NIS,
     DLSSSR,
+    FSR2,
+    XeSS,
     MAX,
 };
 

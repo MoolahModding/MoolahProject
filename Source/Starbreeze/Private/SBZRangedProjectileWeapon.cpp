@@ -1,5 +1,6 @@
 #include "SBZRangedProjectileWeapon.h"
 
-ASBZRangedProjectileWeapon::ASBZRangedProjectileWeapon() {
+ASBZRangedProjectileWeapon::ASBZRangedProjectileWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

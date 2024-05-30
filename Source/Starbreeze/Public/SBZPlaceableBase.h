@@ -33,8 +33,9 @@ protected:
     USBZAIAttractorComponent* AttractorComponent;
     
 public:
-    ASBZPlaceableBase();
-    
+    ASBZPlaceableBase(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);

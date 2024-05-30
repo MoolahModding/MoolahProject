@@ -22,6 +22,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USkeletalMeshComponent* StrapSkeletalMeshComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNeedCollisionWithCharacter;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     UAnimMontage* MaskOnMontage;
     
@@ -35,6 +38,7 @@ protected:
     FSBZMaskConfig MaskConfig;
     
 public:
-    ASBZMask();
+    ASBZMask(const FObjectInitializer& ObjectInitializer);
+
 };
 

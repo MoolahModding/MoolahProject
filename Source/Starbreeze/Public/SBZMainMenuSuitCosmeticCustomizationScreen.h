@@ -54,19 +54,20 @@ private:
     
 public:
     USBZMainMenuSuitCosmeticCustomizationScreen();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosed(FName ClosingActionName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void EquippedItemChanged(const USBZCosmeticsDataAsset* InEquippedItem);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CosmeticPanelDefaultButtonSelected();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CosmeticPanelButtonSelected(USBZMainMenuCosmeticItemButton* SelectedButton);
     
 };

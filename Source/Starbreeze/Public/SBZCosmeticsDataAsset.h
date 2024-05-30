@@ -14,10 +14,11 @@ protected:
     
 public:
     USBZCosmeticsDataAsset();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsConsumable() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZRarity GetRarity() const;
     
 };

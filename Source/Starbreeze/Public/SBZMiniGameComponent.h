@@ -29,7 +29,7 @@ public:
     FSBZOnMiniGameInteraction OnPreMiniGameInteraction;
     
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     USBZMiniGameData* Data;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -109,7 +109,13 @@ private:
     APlayerController* ActiveLocallyController;
     
 public:
-    USBZMiniGameComponent();
+    USBZMiniGameComponent(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetMiniGameData(USBZMiniGameData* InData);
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void SetAudioPerspective(UAkComponent* AkComponent, UAkRtpc* Rtpc, bool bIsLocallyControlled);
@@ -126,21 +132,25 @@ protected:
     void PlaySound(UAkComponent* AkComponent, UAkAudioEvent* AudioEvent);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerStateEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
+private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetMiniGameData(USBZMiniGameData* InData);
+    
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ActivateMiniGame(ASBZCharacter* Character);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPD3MiniGameWidgetBase* GetSpawnedWidget() const;
     
     UFUNCTION(BlueprintCallable)
     void ActivateMiniGame(ASBZCharacter* Character, bool bIsLocallyControlled, bool bIsReplicated);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 
