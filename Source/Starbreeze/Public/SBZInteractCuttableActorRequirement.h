@@ -8,5 +8,6 @@ class USBZInteractCuttableActorRequirement : public USBZBaseInteractRequirement 
     GENERATED_BODY()
 public:
     USBZInteractCuttableActorRequirement();
+
 };
 

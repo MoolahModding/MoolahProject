@@ -5,3 +5,4 @@ USBZPlayerAttackEventBase::USBZPlayerAttackEventBase() {
     this->MaxTimeSinceAttack = 1.00f;
 }
 
+

@@ -8,5 +8,6 @@ class USBZInteractLootProcessorRequirement : public USBZBaseInteractRequirement 
     GENERATED_BODY()
 public:
     USBZInteractLootProcessorRequirement();
+
 };
 

@@ -40,29 +40,30 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UStaticMeshComponent* MeshComponent;
     
-    ASBZSmallCosmeticDestruction();
+    ASBZSmallCosmeticDestruction(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActivated();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleTakeRadialDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, const TArray<FHitResult>& HitInfos, const FRadialDamageParams& Params, const FVector& Origin, const UDamageType* DamageType, AActor* DamageCauser);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* FHitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleTakeOverlapDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, const TArray<FHitResult>& HitInfos, const FVector& OriginDirection, const UDamageType* DamageType, AActor* DamageCauser);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CreateImpactPoint(const FHitResult& Hit);
     
 };

@@ -8,5 +8,6 @@ class USBZPlayerBatteringRamTackleAbility : public USBZPlayerTackleBaseAbility {
     GENERATED_BODY()
 public:
     USBZPlayerBatteringRamTackleAbility();
+
 };
 

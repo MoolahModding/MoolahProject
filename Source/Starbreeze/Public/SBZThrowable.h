@@ -7,6 +7,7 @@
 #include "ESBZThrowableState.h"
 #include "SBZEquippable.h"
 #include "SBZProjectileInterface.h"
+#include "Templates/SubclassOf.h"
 #include "SBZThrowable.generated.h"
 
 class AActor;
@@ -76,64 +77,68 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AudioImpactForceModifierValue;
     
-public:
-    ASBZThrowable();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZThrowableData> DataType;
     
-    UFUNCTION(Reliable, Server)
+public:
+    ASBZThrowable(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetThrowableState(ESBZThrowableState NewThrowableState);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnThrowStillAttached();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnThrownActorHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnThrownActorBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnThrow();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ThrowableState();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnProjectileStopped(const FHitResult& InHitResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnProjectileBounce(const FHitResult& InHitResult, const FVector& ImpactVelocity);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInstigatorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDetachForThrow();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAttachForThrow();
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetThrowVelocity(const FVector_NetQuantizeNormal& ThrowDirection);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetThrowState(ESBZThrowableState NewThrowState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DestroyBreakable(const FHitResult& InBreakableHitResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CreateImpactPoint(const FHitResult& Hit, float Velocity);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -39,5 +39,6 @@ public:
     float ScanLineTime;
     
     USBZSensorToolData();
+
 };
 

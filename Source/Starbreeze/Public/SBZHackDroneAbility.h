@@ -8,5 +8,6 @@ class USBZHackDroneAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZHackDroneAbility();
+
 };
 

@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SBZAIOrder_TacticalMoveTo.h"
+#include "SBZAISquadOrder.h"
 #include "SBZAIOrder_Retreat.generated.h"
 
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable, EditInlineNew)
-class USBZAIOrder_Retreat : public USBZAIOrder_TacticalMoveTo {
+class USBZAIOrder_Retreat : public USBZAISquadOrder {
     GENERATED_BODY()
 public:
 protected:
@@ -15,5 +15,6 @@ protected:
     
 public:
     USBZAIOrder_Retreat();
+
 };
 

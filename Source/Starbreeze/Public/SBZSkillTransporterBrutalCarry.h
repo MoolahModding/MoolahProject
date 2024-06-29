@@ -8,5 +8,6 @@ class USBZSkillTransporterBrutalCarry : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTransporterBrutalCarry();
+
 };
 

@@ -16,5 +16,6 @@ private:
     
 public:
     USBZEnvQueryTest_CoverSafeness();
+
 };
 

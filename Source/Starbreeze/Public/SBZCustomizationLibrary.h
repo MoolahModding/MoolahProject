@@ -21,6 +21,7 @@ class STARBREEZE_API USBZCustomizationLibrary : public UBlueprintFunctionLibrary
     GENERATED_BODY()
 public:
     USBZCustomizationLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void UseDefaultMask();
     

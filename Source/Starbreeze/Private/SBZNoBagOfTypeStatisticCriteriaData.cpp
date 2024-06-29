@@ -4,3 +4,4 @@ USBZNoBagOfTypeStatisticCriteriaData::USBZNoBagOfTypeStatisticCriteriaData() {
     this->NumberOfRequiredSecuredBags = 0;
 }
 
+

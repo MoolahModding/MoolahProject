@@ -7,3 +7,4 @@ USBZHumanShieldData::USBZHumanShieldData() {
     this->TimeBufferArray[3] = 0.00f;
 }
 
+

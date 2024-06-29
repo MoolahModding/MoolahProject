@@ -18,6 +18,7 @@ class ASBZPlayerCharacter;
 class ASBZPlayerState;
 class ULevelStreamingDynamic;
 class UObject;
+class USBZBagType;
 class USBZStatisticCriteriaData;
 class UWorld;
 
@@ -30,87 +31,100 @@ protected:
     int32 Seed;
     
 public:
-    ASBZLevelScriptActor();
+    ASBZLevelScriptActor(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetBagMarkerEnabledByTags(const FGameplayTagContainer& BagGameplayTagContainer, bool bEnabled);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetBagMarkerEnabledByBagType(const USBZBagType* BagType, bool bEnabled);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ULevelStreamingDynamic* SBZPlaceRandomSublevelBySoftObjectPtr(UObject* WorldContextObject, const TSoftObjectPtr<UWorld> Level, const FTransform& RoomTransform, bool& bOutSuccess);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ULevelStreamingDynamic* SBZPlaceRandomSublevel(UObject* WorldContextObject, const FString& LevelName, const FVector Location, const FRotator Rotation, bool& bOutSuccess);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void RandomPlacementStarted(const FRandomStream& RandomStream);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OutroSequenceStarted(const int32 OutroVariation);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRandomSublevelPlaced();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRandomPlacementStarted();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRandomizedRoomShown();
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
-    void OnPreplanningAssetsTagsApplied(const TArray<FGameplayTag>& PreplanningAssetsTags);
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPreplanningAssetsTagsApplied(const FGameplayTagContainer& PreplanningTagContainer);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerPickedUpBag(FSBZBagHandle BagHandle);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerInstantLootTaken(ASBZInstantLoot* InstantLoot, ASBZPlayerCharacter* TakenByPlayer);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerDefeatStateChanged(ASBZPlayerState* PlayerState, EPD3DefeatState OldDefeatState, EPD3DefeatState DefeatState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnOverkillWeaponRequested();
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void OnOptionalObjectiveComplete(const int32 ObjectiveNumber);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLevelModifiersApplied(ESBZDifficulty InDifficulty, const TArray<ESBZSecurityCompany>& InCompanies);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDifficultyModifierApplied(ESBZDifficulty InDifficulty);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAllRandomizedRoomsPlaced();
     
-    UFUNCTION(BlueprintImplementableEvent)
-    void IntroSequenceStarted();
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnAllBagSecured(int32 SecuredCount);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void IntroSequenceChanged(bool bIsStarted);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void HeistStateChanged(EPD3HeistState OldHeistState, EPD3HeistState CurrentHeistState);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleOutroSequenceStarted(const int32 OutroVariation);
     
-    UFUNCTION()
-    void HandleIntroSequenceStarted();
+    UFUNCTION(BlueprintCallable)
+    void HandleIntroSequenceChanged(bool bIsStarted);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleBlackScreenStarted();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleActionPhaseStarted();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRandomIntegerFromStreamMixed(int32 Max, int32 MixedSeed);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRandomIntegerFromLevelStream(int32 Max);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetRandomBoolWithWeightFromStreamMixed(float Weight, int32 MixedSeed);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetRandomBoolWithWeightFromLevelStream(float Weight);
     
     UFUNCTION(BlueprintCallable)
@@ -122,13 +136,13 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void CriteriaObjectiveComplete(const USBZStatisticCriteriaData* StatisticData);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
     void CallPlaced();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BlackScreenStarted();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ActionPhaseStarted();
     
 };

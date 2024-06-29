@@ -18,10 +18,11 @@ public:
     USBZInteractorComponent* Interactor;
     
     USBZAIInteractHandler();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnInteractionStarted(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractionCompleted(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlled);
     
 };

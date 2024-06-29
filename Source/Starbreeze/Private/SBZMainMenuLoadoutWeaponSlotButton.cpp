@@ -1,5 +1,10 @@
 #include "SBZMainMenuLoadoutWeaponSlotButton.h"
 
+USBZMainMenuLoadoutWeaponSlotButton::USBZMainMenuLoadoutWeaponSlotButton() {
+    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
+    this->WeaponSlotIndex = -1;
+}
+
 
 
 bool USBZMainMenuLoadoutWeaponSlotButton::IsPresetWeaponSlot() const {
@@ -36,8 +41,4 @@ ESBZEquippableLoadoutSlot USBZMainMenuLoadoutWeaponSlotButton::GetEquippableSlot
 void USBZMainMenuLoadoutWeaponSlotButton::GetEntitlementAndWeaponID(FGuid& EntitlementID, FGuid& ItemID) const {
 }
 
-USBZMainMenuLoadoutWeaponSlotButton::USBZMainMenuLoadoutWeaponSlotButton() {
-    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
-    this->WeaponSlotIndex = -1;
-}
 

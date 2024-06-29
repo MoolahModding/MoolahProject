@@ -6,3 +6,4 @@ USBZMicroCameraData::USBZMicroCameraData() {
     this->MarkedOutline = NULL;
 }
 
+

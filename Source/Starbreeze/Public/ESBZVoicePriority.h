@@ -9,7 +9,7 @@ enum class ESBZVoicePriority : uint8 {
     MediumPriority,
     HighPriority,
     VeryHighPriority,
-    ExtremelyHighPriority = 0x64,
-    MaxPriority = 0xFF,
+    ExtremelyHighPriority = 100,
+    MaxPriority = 255,
 };
 

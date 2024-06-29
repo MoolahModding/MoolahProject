@@ -9,6 +9,6 @@ enum class ESBZDifficulty : uint8 {
     VeryHard,
     Overkill,
     MAX,
-    Default = 0x0,
+    Default = Normal,
 };
 

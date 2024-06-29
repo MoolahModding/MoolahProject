@@ -8,5 +8,6 @@ class USBZToolUnequippedAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZToolUnequippedAbility();
+
 };
 

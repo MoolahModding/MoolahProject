@@ -8,5 +8,6 @@ class USBZAttractorPredicate_IsPerceived : public USBZAttractorPredicate {
     GENERATED_BODY()
 public:
     USBZAttractorPredicate_IsPerceived();
+
 };
 

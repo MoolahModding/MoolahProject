@@ -27,13 +27,14 @@ private:
     
 public:
     USBZPlayerStatisticsManager();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPlayerStatisticsManager* GetPlayerStatisticsManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZLevelTimesStruct> GetHeistBestTimes(FSoftObjectPath LevelPath);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

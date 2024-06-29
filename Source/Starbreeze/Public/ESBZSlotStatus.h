@@ -12,6 +12,6 @@ enum class ESBZSlotStatus : uint8 {
     ActionPhase,
     ResultScreen,
     Disconnected,
-    Default = 0x0,
+    Default = Initializing,
 };
 

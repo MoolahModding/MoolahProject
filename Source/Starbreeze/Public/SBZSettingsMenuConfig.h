@@ -4,7 +4,7 @@
 #include "SBZSettingsMenuCategoryInfo.h"
 #include "SBZSettingsMenuConfig.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class STARBREEZE_API USBZSettingsMenuConfig : public UObject {
     GENERATED_BODY()
 public:
@@ -12,5 +12,6 @@ public:
     TArray<FSBZSettingsMenuCategoryInfo> SettingsCategories;
     
     USBZSettingsMenuConfig();
+
 };
 

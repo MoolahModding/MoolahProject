@@ -10,3 +10,4 @@ USBZSprayCanData::USBZSprayCanData() {
     this->SPCT = NULL;
 }
 
+

@@ -8,5 +8,6 @@ class USBZThrowBagAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZThrowBagAbility();
+
 };
 

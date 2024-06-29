@@ -1,8 +1,30 @@
 #include "SBZAerialVehicle.h"
+#include "Engine/EngineTypes.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZAerialVehicleAudioComponent.h"
 #include "SBZAerialVehicleSplineFollowingComponent.h"
+
+ASBZAerialVehicle::ASBZAerialVehicle(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("AerialVehicleMesh"));
+    this->AutoPossessAI = EAutoPossessAI::Disabled;
+    this->AerialVehicleAudioComponent = CreateDefaultSubobject<USBZAerialVehicleAudioComponent>(TEXT("SBZAerialVehicleAudioComponent"));
+    this->Mesh = (USkeletalMeshComponent*)RootComponent;
+    this->SplineFollowingComponent = CreateDefaultSubobject<USBZAerialVehicleSplineFollowingComponent>(TEXT("SBZVehicleSplineFollowingComponent"));
+    this->StateMachine = NULL;
+    this->DoorState = 0;
+    this->MaxRollAngle = 90.00f;
+    this->PitchAngle = -15.00f;
+    this->MaxHoverYawAngle = 10.00f;
+    this->MaxHoverRollAngle = 5.00f;
+    this->LandingRotation = 0.00f;
+    this->bUseLandingRotation = false;
+    this->MainRotorName = TEXT("MainRotor");
+    this->TailRotorName = TEXT("TailRotor");
+    this->RootName = TEXT("Root");
+    this->bActiveEngine = false;
+    this->AerialVehicleAudioComponent->SetupAttachment(RootComponent);
+}
 
 void ASBZAerialVehicle::SetDoorState(uint8 NewState) {
 }
@@ -51,21 +73,4 @@ void ASBZAerialVehicle::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
     DOREPLIFETIME(ASBZAerialVehicle, PitchAngle);
 }
 
-ASBZAerialVehicle::ASBZAerialVehicle() {
-    this->AerialVehicleAudioComponent = CreateDefaultSubobject<USBZAerialVehicleAudioComponent>(TEXT("SBZAerialVehicleAudioComponent"));
-    this->Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("AerialVehicleMesh"));
-    this->SplineFollowingComponent = CreateDefaultSubobject<USBZAerialVehicleSplineFollowingComponent>(TEXT("SBZVehicleSplineFollowingComponent"));
-    this->StateMachine = NULL;
-    this->DoorState = 0;
-    this->MaxRollAngle = 90.00f;
-    this->PitchAngle = -15.00f;
-    this->MaxHoverYawAngle = 10.00f;
-    this->MaxHoverRollAngle = 5.00f;
-    this->LandingRotation = 0.00f;
-    this->bUseLandingRotation = false;
-    this->MainRotorName = TEXT("MainRotor");
-    this->TailRotorName = TEXT("TailRotor");
-    this->RootName = TEXT("Root");
-    this->bActiveEngine = false;
-}
 

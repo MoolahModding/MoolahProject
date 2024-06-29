@@ -8,5 +8,6 @@ class USBZAIOrder_GoToDespawn : public USBZAIOrder {
     GENERATED_BODY()
 public:
     USBZAIOrder_GoToDespawn();
+
 };
 

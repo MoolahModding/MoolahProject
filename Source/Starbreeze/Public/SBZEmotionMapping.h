@@ -13,5 +13,6 @@ public:
     TMap<ESBZCharacterStance, FSBZEmotions> EmotionsPerStance;
     
     USBZEmotionMapping();
+
 };
 

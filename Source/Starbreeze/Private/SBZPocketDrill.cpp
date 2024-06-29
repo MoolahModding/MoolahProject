@@ -2,6 +2,25 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 
+ASBZPocketDrill::ASBZPocketDrill(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
+    this->DisassembleMarkerAsset = NULL;
+    this->NumberOfNeededAdjusts = 3;
+    this->SliceOffset = 5.00f;
+    this->AdjustTimeSeconds = 5.00f;
+    this->bStartActive = true;
+    this->UnjamInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("UnjamInteraction"));
+    this->AdjustInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AdjustInteraction"));
+    this->ActivationInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ActivationInteraction"));
+    this->AlarmNotificationAsset = NULL;
+    this->MotorEndingXPosition = 0.00f;
+    this->MotorStartingXPosition = 0.00f;
+    this->AdjustsReached = 0;
+    this->DrillMesh = NULL;
+    this->bIsEnabled = false;
+    this->ProgressPerSecond = 0.00f;
+}
+
 void ASBZPocketDrill::SetActive(bool bIsActive) {
 }
 
@@ -32,22 +51,4 @@ void ASBZPocketDrill::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPocketDrill, bIsEnabled);
 }
 
-ASBZPocketDrill::ASBZPocketDrill() {
-    this->DisassembleMarkerAsset = NULL;
-    this->bPauseProgressWhileAdjustingIsNeeded = false;
-    this->NumberOfNeededAdjusts = 3;
-    this->SliceOffset = 5.00f;
-    this->AdjustTimeSeconds = 5.00f;
-    this->bStartActive = true;
-    this->UnjamInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("UnjamInteraction"));
-    this->AdjustInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AdjustInteraction"));
-    this->ActivationInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ActivationInteraction"));
-    this->AlarmNotificationAsset = NULL;
-    this->MotorEndingXPosition = 0.00f;
-    this->MotorStartingXPosition = 0.00f;
-    this->AdjustsReached = 0;
-    this->DrillMesh = NULL;
-    this->bIsEnabled = false;
-    this->ProgressPerSecond = 0.00f;
-}
 

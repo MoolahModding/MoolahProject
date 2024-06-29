@@ -5,6 +5,7 @@ USBZMeleeDamageData::USBZMeleeDamageData() {
     this->DamageGameplayEffectClass = NULL;
     this->HurtReactionWeightModifier = 0.00f;
     this->HitboxViewRotation = 0.00f;
+    this->OverHealDamageMultiplier = 1.00f;
     this->ArmorPenetration = 0.00f;
     this->PrimaryDamageWeight = ESBZDamageWeight::Stun;
     this->SecondaryDamageWeight = ESBZDamageWeight::Flinch;
@@ -17,4 +18,5 @@ USBZMeleeDamageData::USBZMeleeDamageData() {
     this->AttackCategory = ESBZMeleeAttackCategory::Light;
     this->Duration = 0.00f;
 }
+
 

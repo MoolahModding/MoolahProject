@@ -14,8 +14,9 @@ protected:
     
 public:
     USBZLoadoutConfirmationPopupBody();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDataInitialized();
     
 };

@@ -17,7 +17,10 @@ enum class EPD3DispatchCallerReason : uint8 {
     Cuffed,
     UnlockedGate,
     Sabotage,
+    BrokenWindow,
+    BrokenCamera,
+    None,
     MAX,
-    Default = GenericAlarm
+    Default = GenericAlarm,
 };
 

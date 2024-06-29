@@ -4,3 +4,4 @@ USBZAttractorPredicate_MaxConcurrentUsers::USBZAttractorPredicate_MaxConcurrentU
     this->MaxConcurentUsers = 1;
 }
 
+

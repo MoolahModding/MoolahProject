@@ -20,13 +20,14 @@ protected:
     
 public:
     USBZAIAction_Order();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnOrderStopped(USBZAIOrder* Order, APawn* OrderPawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOrderStarted(USBZAIOrder* Order, APawn* OrderPawn);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOrderCompleted(USBZAIOrder* Order, APawn* OrderPawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
 };

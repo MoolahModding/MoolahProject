@@ -1,5 +1,6 @@
 #include "SBZAIDefensePoint.h"
 
-ASBZAIDefensePoint::ASBZAIDefensePoint() {
+ASBZAIDefensePoint::ASBZAIDefensePoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

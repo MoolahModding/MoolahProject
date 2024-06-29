@@ -9,3 +9,4 @@ USBZLeftHandEquippableAnimation::USBZLeftHandEquippableAnimation() {
     this->AnimationCollection = NULL;
 }
 
+

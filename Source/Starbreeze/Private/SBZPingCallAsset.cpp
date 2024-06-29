@@ -5,3 +5,4 @@ USBZPingCallAsset::USBZPingCallAsset() {
     this->CallComment = NULL;
 }
 
+

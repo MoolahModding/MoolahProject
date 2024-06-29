@@ -4,3 +4,4 @@ USBZKeyItemData::USBZKeyItemData() {
     this->KeyItemIcon = NULL;
 }
 
+

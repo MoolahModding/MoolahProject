@@ -4,6 +4,7 @@
 #include "SBZMaskData.generated.h"
 
 class ASBZMask;
+class UAnimInstance;
 class UAnimMontage;
 class USBZMaskMaterialData;
 class USBZMaskMouldData;
@@ -41,6 +42,13 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMaskVFXData* VFX;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<UAnimInstance> MaskAnimationClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bNeedCollisionWithCharacter;
+    
     USBZMaskData();
+
 };
 

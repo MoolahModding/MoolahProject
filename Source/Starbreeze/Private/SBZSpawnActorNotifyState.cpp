@@ -4,3 +4,4 @@ USBZSpawnActorNotifyState::USBZSpawnActorNotifyState() {
     this->SpawnSettings = NULL;
 }
 
+

@@ -21,8 +21,9 @@ protected:
     
 public:
     USBZEquippableInspectAbility();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
     
 };

@@ -1,5 +1,11 @@
 #include "SBZSocialFriendButton.h"
 
+USBZSocialFriendButton::USBZSocialFriendButton() {
+    this->FriendButtonType = ESocialFriendButtonType::AccelByteFriend;
+    this->SocialFriendButtonContainer = NULL;
+    this->CurrentFeedbackType = ESBZRequestFeedbackType::AcceptFriendRequest;
+}
+
 void USBZSocialFriendButton::UnblockPlayerAction() {
 }
 
@@ -83,9 +89,4 @@ void USBZSocialFriendButton::BlockPlayerAction() {
 void USBZSocialFriendButton::AcceptFriendRequest() {
 }
 
-USBZSocialFriendButton::USBZSocialFriendButton() {
-    this->FriendButtonType = ESocialFriendButtonType::AccelByteFriend;
-    this->SocialFriendButtonContainer = NULL;
-    this->CurrentFeedbackType = ESBZRequestFeedbackType::AcceptFriendRequest;
-}
 

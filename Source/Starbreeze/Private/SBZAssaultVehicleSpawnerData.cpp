@@ -7,3 +7,4 @@ USBZAssaultVehicleSpawnerData::USBZAssaultVehicleSpawnerData() {
     this->bInitialSpawnOnly = false;
 }
 
+

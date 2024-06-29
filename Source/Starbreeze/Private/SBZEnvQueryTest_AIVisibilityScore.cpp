@@ -4,3 +4,4 @@ USBZEnvQueryTest_AIVisibilityScore::USBZEnvQueryTest_AIVisibilityScore() {
     this->Context = NULL;
 }
 
+

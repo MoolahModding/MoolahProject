@@ -13,16 +13,16 @@ class STARBREEZE_API USBZViewTargetCollectionInterface : public UInterface {
 class STARBREEZE_API ISBZViewTargetCollectionInterface : public IInterface {
     GENERATED_BODY()
 public:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     int32 GetViewTargetIndex(AActor* ViewTarget) const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     int32 GetViewTargetCount() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     AActor* GetViewTarget(int32 InViewTargetIndex) const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     AActor* GetCurrentViewTarget() const;
     
 };

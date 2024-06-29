@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
+#include "Engine/NetSerialization.h"
 #include "SBZAIVisibilityLeafNode.h"
 #include "SBZExplosionResult.h"
 #include "SBZExplosive.h"
@@ -31,18 +32,28 @@ protected:
     UNiagaraComponent* DetonationEffect;
     
 public:
-    ASBZGrenade();
+    ASBZGrenade(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnExplosion();
+    
+    UFUNCTION(BlueprintCallable)
     void OnCollisionComponentHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnArmed();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_OnServerCollision(const FVector_NetQuantize& InLocation);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ExplosionInHand();
+    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -12,6 +12,7 @@ protected:
     int32 ArmorChunkSizePerCharge;
     
 public:
-    ASBZArmorBag();
+    ASBZArmorBag(const FObjectInitializer& ObjectInitializer);
+
 };
 

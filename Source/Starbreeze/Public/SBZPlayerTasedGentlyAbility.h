@@ -8,5 +8,6 @@ class USBZPlayerTasedGentlyAbility : public USBZPlayerTasedAbility {
     GENERATED_BODY()
 public:
     USBZPlayerTasedGentlyAbility();
+
 };
 

@@ -9,3 +9,4 @@ USBZAgilityDeltaCorrectionNS::USBZAgilityDeltaCorrectionNS() {
     this->TargetPointTypeToRecomputeFrom = ESBZAgilityPointType::FrontEdgeTop;
 }
 
+

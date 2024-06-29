@@ -8,5 +8,6 @@ class USBZMaskMaterialApplier : public USBZModularPartApplier {
     GENERATED_BODY()
 public:
     USBZMaskMaterialApplier();
+
 };
 

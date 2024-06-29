@@ -8,5 +8,6 @@ class USBZBTDecorator_InsideAirNav : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_InsideAirNav();
+
 };
 

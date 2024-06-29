@@ -107,16 +107,17 @@ protected:
     TArray<FSBZGasCellHitData> CellHitData;
     
 public:
-    USBZGasVolumeComponent();
+    USBZGasVolumeComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLocationOverlapping(const FVector& Location) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCharacterOverlapping(const ASBZCharacter* Character) const;
     
     UFUNCTION(BlueprintCallable)

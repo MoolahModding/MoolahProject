@@ -28,8 +28,9 @@ protected:
     
 public:
     USBZMainMenuChallengeCategorySelectionScreen();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnCategoryButtonSelected(USBZMenuButton* InCategoryButton);
     
 };

@@ -25,144 +25,159 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDsLobbyClient;
     
-    ASBZBeaconActionPhaseClient();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+private:
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<uint32, FPD3PlayerLoadout> PinnedLoadouts;
     
-    UFUNCTION(Reliable, Server)
+public:
+    ASBZBeaconActionPhaseClient(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerVoteStayAsParty();
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ServerUpdateGameSession();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerTogglePlayerReady(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetSlotStatus(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerUnready(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerReady(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const ESBZFirstPartyPlatform& FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerLoadingComplete(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSetPlayerInfo(const FSBZLobbyCharacterInfo& PlayerInfo);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerData(const FSBZSlotData& InSlotData);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerCharactersArray(const FUniqueNetIdRepl& InPlayerId, const TArray<FSoftObjectPath>& InPreferredPlayerCharacters, const TArray<FSoftObjectPath>& InInventoryPlayerCharacters);
     
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerReserveSlot(const TArray<FSBZPlayerSlotInfo>& InPlayers);
     
 public:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerRemovePreplanningAsset(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerPlayerToReadyReceive(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ServerPlayerToReadyAck();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ServerPlayerToReady();
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerNotifyStartTravel(const FUniqueNetIdRepl& InPlayerIdStartTravel);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ServerGetGamePort();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerAddPreplanningAsset(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendTogglePlayerReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendPreplanningAssets();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendPlayerUnready();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendPlayerReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SendActiveLoadout(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CharactersInfo();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
     
 public:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void NotifyMissionEnd();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientUpdateStayAsPartyList(const TArray<FString>& BackendPlayerIds);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientUpdateSlotsData(const TArray<FSBZSlotData>& InSlotsData);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ClientTravelConnectionTimeout();
     
 public:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientStartWaitingPlayersLoadingComplete();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientStartTravelAck(const ESBZOnlineCode& Result);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZFirstPartyPlatform FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ClientSetGamePort(int32 GamePort, const FString& ServerVersion, const FString& GameSessionId);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientRestartPreTravelTimer(float PreTravelTimeLimit);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientRestartPreMatchTimer(float PreMatchReadyTimeLimit);
     
 protected:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientReserveSlotAck(bool bWasSuccessful, const FSBZMissionInfo& InMissionInfo);
     
 public:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreplanningAssetRemoved(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreplanningAssetRejected();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreplanningAssetAdded(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreMatchLobbyStatusUpdated(ESBZPreMatchLobbyStatus InStatus);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPlayerToReadyAck();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPlayerReadyAck(bool bIsReady);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientJoinPartyByCode(const FString& PartyCode);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientInitializeTravel();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientForceReadyButtonByServer();
     
 };

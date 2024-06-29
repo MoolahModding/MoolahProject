@@ -20,19 +20,26 @@ public:
     FOnPlayerLoadoutConfigChanged OnLocalPlayerLoadoutChanged;
     
     USBZLoadoutManager();
+
     UFUNCTION(BlueprintCallable)
     void SetLoadoutAtIndex(int32 LoadoutIndex, const FSBZPlayerLoadoutConfig& InLoadoutConfig);
     
     UFUNCTION(BlueprintCallable)
     ESBZMetaRequestResult SetActiveLoadoutIndex(int32 ActiveLoadoutIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable)
+    void SendLoadoutName(const int32 LoadoutIndex, const FString& LoadoutName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZPlayerLoadoutConfig> GetPlayerLoadouts();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetLoadoutName(const int32 LoadoutIndex) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZLoadoutManager* GetLoadoutManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetActiveLoadoutIndex() const;
     
 };

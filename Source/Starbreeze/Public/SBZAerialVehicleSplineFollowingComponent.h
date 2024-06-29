@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZAerialVehicleSplineFollowingComponent : public USBZVehicleSplineFollowingComponent {
     GENERATED_BODY()
 public:
-    USBZAerialVehicleSplineFollowingComponent();
+    USBZAerialVehicleSplineFollowingComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

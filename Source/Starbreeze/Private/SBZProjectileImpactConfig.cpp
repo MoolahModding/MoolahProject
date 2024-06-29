@@ -4,3 +4,4 @@ USBZProjectileImpactConfig::USBZProjectileImpactConfig() {
     this->bShouldDoBloodSplatter = false;
 }
 
+

@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZWheeledVehicleSkeletalMeshComponent : public USkeletalMeshComponent {
     GENERATED_BODY()
 public:
-    USBZWheeledVehicleSkeletalMeshComponent();
+    USBZWheeledVehicleSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -142,10 +142,13 @@ private:
     bool bIsAICrewSpawned;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bEscalated;
+    bool bIsAssaultStarted;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float SavedCustodyTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 HostageDemandReduction;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_NegotiationTradeType, meta=(AllowPrivateAccess=true))
     ESBZNegotiationTradeType NegotiationTradeType;
@@ -172,9 +175,10 @@ private:
     float ECMJammerAdditionalIncreasePercentagePerJammer;
     
 public:
-    APD3HeistGameState();
+    APD3HeistGameState(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static EPD3HeistState StealthBranch(UObject* WorldContextObject, ESBZStealthBranch& OutputPins);
     
@@ -182,59 +186,59 @@ public:
     void SetHeistState(EPD3HeistState HeistState);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStateMachineStateLeft(FName StateName);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SpawnedCarryDataArray();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_NrHostagesDemand(uint8 OldDemand);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_NegotiationTradeType(ESBZNegotiationTradeType OldType);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_NegotiationEndTime(float OldEndTime);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ECMCountData(const FSBZECMCountData& OldCountData);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentHeistState(EPD3HeistState OldHeistState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SuspenseValueChanged(uint8 NewSuspenseValue);
     
     UFUNCTION(NetMulticast, Reliable)
     void Multicast_SetPagerEnabled(uint32 NetID, bool bIsEnabled, bool bIsTimedOut);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetNegotiationTradeType(ESBZNegotiationTradeType Type);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetNegotiationEndTime(float EndTime);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHostagesDemand(uint8 Count);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHeistState(EPD3HeistState HeistState);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCurrentECMJammerCount(const FSBZECMCountData& InCountData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ProcessTrafficControls(const TArray<FSBZTrafficControl>& TrafficControlArray);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAssaultActive() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActiveAssaultState(const EPD3HeistState State) const;
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -243,16 +247,16 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void HeistStateBranch(UObject* WorldContextObject, EPD3HeistState& OutputPins);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZNegotiationTradeType GetNegotiationTradeType() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetNegotiationEndTime() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetHostageDemand() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EPD3HeistState GetCurrentHeistState() const;
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))

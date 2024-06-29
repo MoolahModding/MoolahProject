@@ -15,6 +15,7 @@ protected:
     float RegularInteractionTime;
     
 public:
-    USBZSentryInteractableComponent();
+    USBZSentryInteractableComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

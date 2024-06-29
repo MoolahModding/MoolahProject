@@ -25,5 +25,6 @@ public:
     TMap<FString, TSoftObjectPtr<UTexture2D>> LifeActionsIcons;
     
     USBZDebugPreviewSettings();
+
 };
 

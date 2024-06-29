@@ -8,5 +8,6 @@ class USBZEquipPlaceableAbility : public USBZEquipSpecificAbility {
     GENERATED_BODY()
 public:
     USBZEquipPlaceableAbility();
+
 };
 

@@ -8,7 +8,7 @@ class UNiagaraParameterCollection;
 class USBZLifeActionSettings;
 class USBZSurfaceTypesConfig;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class USBZWorldSettingsDeveloperSettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -25,5 +25,6 @@ public:
     TSoftObjectPtr<USBZLifeActionSettings> DefaultLifeActionSettings;
     
     USBZWorldSettingsDeveloperSettings();
+
 };
 

@@ -16,5 +16,6 @@ private:
     
 public:
     USBZAIDataProvider_TowerHidingSpotPreferredRange();
+
 };
 

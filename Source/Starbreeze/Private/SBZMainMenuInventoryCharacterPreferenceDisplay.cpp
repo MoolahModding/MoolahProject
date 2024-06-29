@@ -1,5 +1,11 @@
 #include "SBZMainMenuInventoryCharacterPreferenceDisplay.h"
 
+USBZMainMenuInventoryCharacterPreferenceDisplay::USBZMainMenuInventoryCharacterPreferenceDisplay() {
+    this->HorizontalBox_CharacterDisplays = NULL;
+    this->CharacterDisplayWidgetClass = NULL;
+    this->ActiveIndex = 0;
+}
+
 void USBZMainMenuInventoryCharacterPreferenceDisplay::SetActiveIndex(int32 NewActiveIndex) {
 }
 
@@ -23,9 +29,4 @@ int32 USBZMainMenuInventoryCharacterPreferenceDisplay::GetActiveIndex() const {
 void USBZMainMenuInventoryCharacterPreferenceDisplay::DecrementActiveIndex() {
 }
 
-USBZMainMenuInventoryCharacterPreferenceDisplay::USBZMainMenuInventoryCharacterPreferenceDisplay() {
-    this->HorizontalBox_CharacterDisplays = NULL;
-    this->CharacterDisplayWidgetClass = NULL;
-    this->ActiveIndex = 0;
-}
 

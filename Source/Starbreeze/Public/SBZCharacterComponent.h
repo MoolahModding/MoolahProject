@@ -3,7 +3,6 @@
 #include "Components/ActorComponent.h"
 #include "SBZCharacterComponent.generated.h"
 
-class USkeletalMesh;
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -15,10 +14,7 @@ private:
     USkeletalMeshComponent* MeshComponent;
     
 public:
-    USBZCharacterComponent();
-protected:
-    UFUNCTION()
-    void NativeOnSkeletalMeshLoaded(USkeletalMesh* NewSkeletalMesh);
-    
+    USBZCharacterComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

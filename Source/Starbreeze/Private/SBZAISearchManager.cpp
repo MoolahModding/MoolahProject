@@ -1,5 +1,15 @@
 #include "SBZAISearchManager.h"
 
+USBZAISearchManager::USBZAISearchManager() {
+    this->InvestigateOrder = NULL;
+    this->MaximumSearchSquadSize = 4;
+    this->SearchOrder = NULL;
+    this->PercentageEvacutingCivilians = 0.80f;
+    this->NumInvestigateUpdatesBeforeArrest = 2;
+    this->CivilianEvacuateOrder = NULL;
+    this->SearchOriginRoom = NULL;
+}
+
 void USBZAISearchManager::OnInvestigationCompleted(USBZAIOrder* Order, APawn* Pawn, TEnumAsByte<EBTNodeResult::Type> Result) {
 }
 
@@ -18,13 +28,4 @@ USBZAISearchManager* USBZAISearchManager::Get(const UObject* WorldContextObject)
     return NULL;
 }
 
-USBZAISearchManager::USBZAISearchManager() {
-    this->InvestigateOrder = NULL;
-    this->MaximumSearchSquadSize = 4;
-    this->SearchOrder = NULL;
-    this->PercentageEvacutingCivilians = 0.80f;
-    this->NumInvestigateUpdatesBeforeArrest = 2;
-    this->CivilianEvacuateOrder = NULL;
-    this->SearchOriginRoom = NULL;
-}
 

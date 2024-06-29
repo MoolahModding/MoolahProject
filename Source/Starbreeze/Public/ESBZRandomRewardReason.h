@@ -6,5 +6,6 @@ UENUM(BlueprintType)
 enum class ESBZRandomRewardReason : uint8 {
     HeistSuccessfullyCompleted,
     RenownLeveledUp,
+    InfamyLeveledUp,
 };
 

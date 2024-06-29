@@ -46,5 +46,6 @@ public:
     ESBZCuttingMaterialTier MinCuttableTier;
     
     USBZToolCuttingData();
+
 };
 

@@ -8,5 +8,6 @@ class USBZBTDecorator_FriendlyFire : public UBTDecorator_BlackboardBase {
     GENERATED_BODY()
 public:
     USBZBTDecorator_FriendlyFire();
+
 };
 

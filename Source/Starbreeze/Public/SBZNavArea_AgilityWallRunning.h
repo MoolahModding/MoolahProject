@@ -8,5 +8,6 @@ class USBZNavArea_AgilityWallRunning : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityWallRunning();
+
 };
 

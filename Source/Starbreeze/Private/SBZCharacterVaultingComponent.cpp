@@ -1,6 +1,6 @@
 #include "SBZCharacterVaultingComponent.h"
 
-USBZCharacterVaultingComponent::USBZCharacterVaultingComponent() {
+USBZCharacterVaultingComponent::USBZCharacterVaultingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->OverrideSoundEvent = NULL;
     this->FoleySoundEvent = NULL;
     this->bCanMakeNoise = false;
@@ -8,4 +8,5 @@ USBZCharacterVaultingComponent::USBZCharacterVaultingComponent() {
     this->OwnerCharacter = NULL;
     this->OwnerCharacterMovementComponent = NULL;
 }
+
 

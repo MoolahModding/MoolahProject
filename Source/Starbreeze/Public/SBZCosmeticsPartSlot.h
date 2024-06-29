@@ -8,5 +8,6 @@ class USBZCosmeticsPartSlot : public USBZModularPartSlotBase {
     GENERATED_BODY()
 public:
     USBZCosmeticsPartSlot();
+
 };
 

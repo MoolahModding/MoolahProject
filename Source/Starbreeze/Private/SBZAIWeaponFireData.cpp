@@ -1,6 +1,8 @@
 #include "SBZAIWeaponFireData.h"
 
 USBZAIWeaponFireData::USBZAIWeaponFireData() {
+    this->CriticalDamageMultiplierDistanceArray.AddDefaulted(1);
+    this->DamageDistanceProjectileArray.AddDefaulted(1);
     this->DamageModifierCurve = NULL;
     this->AccuracyModifierCurve = NULL;
     this->PreferredTimeToFire = 1.00f;
@@ -10,4 +12,5 @@ USBZAIWeaponFireData::USBZAIWeaponFireData() {
     this->bDamageAccuracyModified = true;
     this->bSliceProjectiles = true;
 }
+
 

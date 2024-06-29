@@ -20,5 +20,6 @@ private:
     
 public:
     USBZUIWeaponStatsAsset();
+
 };
 

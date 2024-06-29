@@ -2,12 +2,12 @@
 #include "CoreMinimal.h"
 #include "ESBZColorBlindMode.generated.h"
 
-UENUM(BlueprintType)
-enum class ESBZColorBlindMode : uint8 {
+UENUM()
+enum class ESBZColorBlindMode {
     Off,
     Deuteranope,
     Protanope,
     Tritanope,
-    Invalid = 0xFF,
+    Invalid = -1,
 };
 

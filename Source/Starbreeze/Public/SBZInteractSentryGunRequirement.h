@@ -8,5 +8,6 @@ class USBZInteractSentryGunRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractSentryGunRequirement();
+
 };
 

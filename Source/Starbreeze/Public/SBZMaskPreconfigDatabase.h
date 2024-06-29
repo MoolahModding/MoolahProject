@@ -13,5 +13,6 @@ public:
     TArray<USBZMaskPreconfigData*> MaskPreconfigArray;
     
     USBZMaskPreconfigDatabase();
+
 };
 

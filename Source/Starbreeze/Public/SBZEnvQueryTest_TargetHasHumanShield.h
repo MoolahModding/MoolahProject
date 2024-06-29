@@ -8,5 +8,6 @@ class USBZEnvQueryTest_TargetHasHumanShield : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_TargetHasHumanShield();
+
 };
 

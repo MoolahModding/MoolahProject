@@ -1,4 +1,10 @@
 #include "SBZAIOrder_FollowTarget.h"
+#include "ESBZAIBehaviorCategory.h"
+
+USBZAIOrder_FollowTarget::USBZAIOrder_FollowTarget() {
+    this->bIsPersistent = true;
+    this->Category = ESBZAIBehaviorCategory::Combat;
+}
 
 void USBZAIOrder_FollowTarget::OnOwnerOrderPushed(ASBZAIController* AIController, USBZAIOrder* AIOrder) {
 }
@@ -12,6 +18,4 @@ void USBZAIOrder_FollowTarget::OnHitByPlayer() {
 void USBZAIOrder_FollowTarget::OnAIPawnKilled() {
 }
 
-USBZAIOrder_FollowTarget::USBZAIOrder_FollowTarget() {
-}
 

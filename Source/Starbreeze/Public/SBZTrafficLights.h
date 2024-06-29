@@ -35,17 +35,18 @@ private:
     USBZTrafficSettings* TrafficSettings;
     
 public:
-    ASBZTrafficLights();
+    ASBZTrafficLights(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION(BlueprintNativeEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void UpdatePool(ESBZTrafficLightStatus Status, const TArray<UStaticMeshComponent*>& Pool, const TArray<USBZAmbientSoundComponent*>& PedestrianSoundEmitters);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Rep_ActivePoolStateIndex();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetActivePool(int32 NewActivePoolIndex);
     
 };

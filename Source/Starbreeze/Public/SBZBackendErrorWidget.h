@@ -15,10 +15,11 @@ protected:
     
 public:
     USBZBackendErrorWidget();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetErrorText() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetErrorHeader() const;
     
 };

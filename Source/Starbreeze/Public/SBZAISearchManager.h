@@ -58,21 +58,22 @@ private:
     
 public:
     USBZAISearchManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInvestigationCompleted(USBZAIOrder* Order, APawn* Pawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldHeistState, EPD3HeistState NewHeistState);
     
 public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool Investigate(const UObject* WorldContextObject, const FSBZInvestigationRequest& Request);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasPendingInvestigationFor(AActor* Target) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZAISearchManager* Get(const UObject* WorldContextObject);
     
 };

@@ -24,6 +24,7 @@ private:
     
 public:
     USBZSessionJoinCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZSessionJoinCallbackProxy* SessionJoin(UObject* NewWorldContextObject, const FSBZOnlineSearchResult& InSessionToJoin);
     

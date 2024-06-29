@@ -115,51 +115,52 @@ private:
     bool bActiveEngine;
     
 public:
-    ASBZAerialVehicle();
+    ASBZAerialVehicle(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetDoorState(uint8 NewState);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetDoorOpen(ESBZAerialVehicleDoor Door, bool bOpen);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ReceiveOnDoorStateChanged(ESBZAerialVehicleDoor Door, bool bIsDoorOpen);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStoppedCallback();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSplineLeftCallback(ASBZSpline* Spline);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSplineEnteredCallback(ASBZSpline* Spline, bool bPathEntered, bool bTeleportToPathStart);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSplineEndReachedCallback(ASBZSpline* Spline);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_RepMove();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_DoorState(uint8 OldState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPathEndReachedCallback();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBeginStopCallback();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDoorState(uint8 NewState);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZVehicleSplineFollowingComponent* GetVehicleSplineFollowingComponent() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     USBZVehicleSplineFollowingComponent* GetSplineFollowingComponent() const override PURE_VIRTUAL(GetSplineFollowingComponent, return NULL;);

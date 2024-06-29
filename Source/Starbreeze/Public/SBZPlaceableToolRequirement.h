@@ -8,5 +8,6 @@ class USBZPlaceableToolRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZPlaceableToolRequirement();
+
 };
 

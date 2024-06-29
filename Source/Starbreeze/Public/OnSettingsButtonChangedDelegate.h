@@ -4,5 +4,5 @@
 
 class USBZSettingsButton;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSettingsButtonChanged, USBZSettingsButton*, Button);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSettingsButtonChanged, USBZSettingsButton*, Button);
 

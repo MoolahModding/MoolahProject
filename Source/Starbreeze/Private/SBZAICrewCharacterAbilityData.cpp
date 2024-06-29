@@ -7,3 +7,4 @@ USBZAICrewCharacterAbilityData::USBZAICrewCharacterAbilityData() {
     this->ReviveHealth = 50.00f;
 }
 
+

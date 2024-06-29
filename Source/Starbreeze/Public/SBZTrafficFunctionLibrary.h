@@ -21,6 +21,7 @@ class USBZTrafficFunctionLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZTrafficFunctionLibrary();
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo", WorldContext="WorldContextObject"))
     static void SpawnEscapeVanWithRoute(UObject* WorldContextObject, TSubclassOf<ASBZWheeledVehicle> EscapeVanActorClass, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo);
     
@@ -42,10 +43,10 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool SetAndDriveAerialVehicleRoute(UObject* WorldContextObject, ASBZAerialVehicle* Vehicle, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FTransform GetTrafficSplineGroundTransform(UObject* WorldContextObject, ASBZTrafficSpline* Spline, ESBZTrafficNodeType TransformType);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZTrafficManager* GetTrafficManager(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))

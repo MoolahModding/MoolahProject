@@ -7,3 +7,4 @@ USBZSentryGunAnimation::USBZSentryGunAnimation() {
     this->FromDeadPitchSpeed = 150.00f;
 }
 
+

@@ -1,5 +1,17 @@
 #include "SBZMainMenuGloveInventoryScreen.h"
 
+USBZMainMenuGloveInventoryScreen::USBZMainMenuGloveInventoryScreen() {
+    this->StackValue = TEXT("Default__SBZMainMenuGloveInventoryScreen");
+    this->GloveSlotButtonClass = NULL;
+    this->Panel_GloveSlotButtons = NULL;
+    this->Button_BuySlots = NULL;
+    this->Button_DefaultGlove = NULL;
+    this->DiscardGlovePopUpBodyWidgetClass = NULL;
+    this->GloveIndexToDiscard = -1;
+    this->DiscardGlovePopUpBody = NULL;
+    this->ActiveGloveSlotButton = NULL;
+}
+
 void USBZMainMenuGloveInventoryScreen::TryDiscardGloveInSlot(int32 InGloveIndex) {
 }
 
@@ -42,14 +54,4 @@ bool USBZMainMenuGloveInventoryScreen::CanDiscardGloveInSlot(int32 IndexToDiscar
     return false;
 }
 
-USBZMainMenuGloveInventoryScreen::USBZMainMenuGloveInventoryScreen() {
-    this->GloveSlotButtonClass = NULL;
-    this->Panel_GloveSlotButtons = NULL;
-    this->Button_BuySlots = NULL;
-    this->Button_DefaultGlove = NULL;
-    this->DiscardGlovePopUpBodyWidgetClass = NULL;
-    this->GloveIndexToDiscard = -1;
-    this->DiscardGlovePopUpBody = NULL;
-    this->ActiveGloveSlotButton = NULL;
-}
 

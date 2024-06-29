@@ -13,6 +13,7 @@ class AActor;
 class APawn;
 class UAISense;
 class USBZAIAction;
+class USBZAttractorDataAsset;
 class USBZAttractorPredicate;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -28,6 +29,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPD3HeistState MaxHeistStateToBeEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZAttractorDataAsset* AttractorDataAssetDefault;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZAttractorDataAsset* AttractorDataAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZAIAttractorPriority Priority;
@@ -96,7 +103,8 @@ protected:
     bool bIsEnabled;
     
 public:
-    USBZAIAttractorComponent();
+    USBZAIAttractorComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UnregisterFromPerceptionSystem();
     
@@ -110,10 +118,10 @@ public:
     void RegisterWithPerceptionSystem();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

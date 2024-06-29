@@ -59,10 +59,10 @@ protected:
     ESBZBreachingEquipmentState CurrentEquipmentState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    float EstimatedCompleteTime;
+    float EstimatedDurationLeft;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
-    float ProgressMade;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float UpdateEstimatedTimeInterval;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZAIAttractorComponent* AttractorComponent;
@@ -101,9 +101,10 @@ protected:
     TArray<ASBZRoomVolume*> RoomVolumes;
     
 public:
-    ASBZBreachingEquipmentBase();
+    ASBZBreachingEquipmentBase(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void UpdateMarker(USBZMarkerDataAsset* MarkerAsset, const FVector MarkerLocation);
@@ -111,26 +112,26 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(ESBZBreachingEquipmentState NewState, bool bDoCosmetics);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState(ESBZBreachingEquipmentState OldState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZBreachingEquipmentState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
-    void Multicast_SetEstimatedCompleteTime(float InEstimatedCompleteTime);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetEstimatedDurationLeft(float InDurationLeft);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetProgressMade() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZBreachingEquipmentState GetCurrentState() const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZBreachingEquipmentState OldState, ESBZBreachingEquipmentState NewState, bool bDoCosmetics);
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);

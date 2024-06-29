@@ -44,6 +44,7 @@ private:
     TArray<UMeshComponent*> TargetingHideMeshArray;
     
 public:
-    USBZFirstPersonCameraAttachment();
+    USBZFirstPersonCameraAttachment(const FObjectInitializer& ObjectInitializer);
+
 };
 

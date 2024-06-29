@@ -25,3 +25,4 @@ USBZThrowableData::USBZThrowableData() {
     this->FireData = NULL;
 }
 
+

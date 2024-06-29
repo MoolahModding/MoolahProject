@@ -1,5 +1,6 @@
 #include "SBZWheeledVehicleNavModifierComponent.h"
 
-USBZWheeledVehicleNavModifierComponent::USBZWheeledVehicleNavModifierComponent() {
+USBZWheeledVehicleNavModifierComponent::USBZWheeledVehicleNavModifierComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

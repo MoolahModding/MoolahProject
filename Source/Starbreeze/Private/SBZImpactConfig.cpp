@@ -5,3 +5,4 @@ USBZImpactConfig::USBZImpactConfig() {
     this->TranslucentSortPriority = 0;
 }
 
+

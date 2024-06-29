@@ -12,3 +12,4 @@ USBZModGripAnimData::USBZModGripAnimData() {
     this->OverrideTriggerDisciplineLeftGripTPPose = NULL;
 }
 
+

@@ -8,3 +8,4 @@ USBZEnvQueryTest_RoomPathfinding::USBZEnvQueryTest_RoomPathfinding() {
     this->bIsLockedExpensive = false;
 }
 
+

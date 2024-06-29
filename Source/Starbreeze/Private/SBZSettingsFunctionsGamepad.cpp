@@ -1,5 +1,8 @@
 #include "SBZSettingsFunctionsGamepad.h"
 
+USBZSettingsFunctionsGamepad::USBZSettingsFunctionsGamepad() {
+}
+
 void USBZSettingsFunctionsGamepad::SetGamepadBindingsPreset(UObject* WorldContextObject, int32 Preset) {
 }
 
@@ -22,6 +25,4 @@ FInputChord USBZSettingsFunctionsGamepad::GetDefaultGamepadBinding(UObject* Worl
     return FInputChord{};
 }
 
-USBZSettingsFunctionsGamepad::USBZSettingsFunctionsGamepad() {
-}
 

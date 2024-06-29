@@ -12,6 +12,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZLobbyRemoteState* LobbyState;
     
-    ASBZLobbyBeaconHost();
+    ASBZLobbyBeaconHost(const FObjectInitializer& ObjectInitializer);
+
 };
 

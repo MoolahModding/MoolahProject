@@ -173,5 +173,6 @@ public:
     TSoftObjectPtr<USBZHeistDatabase> Heists;
     
     USBZGlobalItemDatabase();
+
 };
 

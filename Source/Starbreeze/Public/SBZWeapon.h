@@ -2,15 +2,12 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
-#include "ESBZWeaponAnimationState.h"
 #include "SBZEquippable.h"
 #include "SBZVelocityTrackedComponentArrayData.h"
 #include "SBZWeapon.generated.h"
 
 class AActor;
 class USBZModularMeshComponent;
-class USBZWeaponAmmoData;
-class UStaticMeshComponent;
 
 UCLASS(Abstract, Blueprintable)
 class STARBREEZE_API ASBZWeapon : public ASBZEquippable {
@@ -24,16 +21,16 @@ protected:
     USBZModularMeshComponent* ModularMeshComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsReloading;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsEmpty;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsCycle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer WeaponTags;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ESBZWeaponAnimationState AnimationState;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    TArray<UStaticMeshComponent*> AmmoMeshComponentArray;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZWeaponAmmoData* CurrentAmmoData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float ShaderSightOffset;
@@ -48,6 +45,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeaponCustomizationFOV;
     
-    ASBZWeapon();
+    ASBZWeapon(const FObjectInitializer& ObjectInitializer);
+
 };
 

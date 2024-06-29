@@ -54,32 +54,33 @@ protected:
     bool bIsCollisionEnabled;
     
 public:
-    ASBZVolumeDamageProp();
+    ASBZVolumeDamageProp(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetServerDamageEnabled(const TScriptInterface<IAbilitySystemInterface>& AbilitySystemScriptInterface, bool bIsEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnVolumeEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnVolumeCollisionChanged(UPrimitiveComponent* ChangedComponent);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnVolumeBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsCollisionEnabled();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CollisionEnabled(bool bIsEnabled);
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnVolumeEnabledChanged(bool bIsEnabled);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

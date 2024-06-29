@@ -4,3 +4,4 @@ USBZSmashAndGrabStatisticCriteriaData::USBZSmashAndGrabStatisticCriteriaData() {
     this->CompletionTime = 120.00f;
 }
 
+

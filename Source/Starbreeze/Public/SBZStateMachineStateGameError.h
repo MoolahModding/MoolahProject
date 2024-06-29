@@ -24,9 +24,13 @@ private:
     
 public:
     USBZStateMachineStateGameError();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SetNetworkConnected(ESBZServiceStatus ServiceStatus);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnMissionEndPopupClosed(FName ClosingActionName);
     
 };
 

@@ -8,5 +8,6 @@ class USBZSkillTacticianCrowdControl : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTacticianCrowdControl();
+
 };
 

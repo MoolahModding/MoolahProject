@@ -4,3 +4,4 @@ USBZDialogBodyGesturesData::USBZDialogBodyGesturesData() {
     this->bUpdate = false;
 }
 
+

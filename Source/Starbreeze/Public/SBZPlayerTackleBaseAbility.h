@@ -8,5 +8,6 @@ class USBZPlayerTackleBaseAbility : public USBZMeleeAbility {
     GENERATED_BODY()
 public:
     USBZPlayerTackleBaseAbility();
+
 };
 

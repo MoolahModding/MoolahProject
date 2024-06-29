@@ -22,11 +22,12 @@ protected:
     
 public:
     UPD3AmmoAttributeWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup(float AmmoLoadedSetup, float AmmoInventorySetup, float AmmoTotal);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAmmoUpdated(float AmmoLoadedUpdated, float AmmoInventoryUpdated, float AmmoTotal);
     
 public:

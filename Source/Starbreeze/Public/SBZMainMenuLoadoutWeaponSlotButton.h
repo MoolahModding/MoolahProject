@@ -25,39 +25,40 @@ protected:
     
 public:
     USBZMainMenuLoadoutWeaponSlotButton();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveWeaponSlot(bool bIsActiveWeaponSlot);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWeaponSlotInitialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPresetWeaponSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeWeaponSlot(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetWeaponSlotIndex() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZInventoryBaseData* GetWeaponInventoryData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetWeaponInSlotLevel() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZEquippableData* GetWeaponInSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZEquippableLoadoutSlot GetEquippableSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetEntitlementAndWeaponID(FGuid& EntitlementID, FGuid& ItemID) const;
     
 };

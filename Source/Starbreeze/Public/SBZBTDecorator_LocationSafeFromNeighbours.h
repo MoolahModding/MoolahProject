@@ -8,5 +8,6 @@ class USBZBTDecorator_LocationSafeFromNeighbours : public UBTDecorator_Blackboar
     GENERATED_BODY()
 public:
     USBZBTDecorator_LocationSafeFromNeighbours();
+
 };
 

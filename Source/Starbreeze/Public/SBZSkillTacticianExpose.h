@@ -8,5 +8,6 @@ class USBZSkillTacticianExpose : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTacticianExpose();
+
 };
 

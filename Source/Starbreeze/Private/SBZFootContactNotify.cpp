@@ -6,3 +6,4 @@ USBZFootContactNotify::USBZFootContactNotify() {
     this->FootContactIntensityOverride = ESBZFootContactIntensity::Medium;
 }
 
+

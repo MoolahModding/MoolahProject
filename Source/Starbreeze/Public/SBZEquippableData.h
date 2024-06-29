@@ -97,5 +97,6 @@ protected:
     
 public:
     USBZEquippableData();
+
 };
 

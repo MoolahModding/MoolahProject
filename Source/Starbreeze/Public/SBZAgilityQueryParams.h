@@ -18,5 +18,6 @@ public:
     TArray<FSBZAgilityRowQueryParam> RowQueryParams;
     
     USBZAgilityQueryParams();
+
 };
 

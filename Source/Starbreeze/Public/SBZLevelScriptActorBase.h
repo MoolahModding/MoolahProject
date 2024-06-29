@@ -9,7 +9,8 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZLevelScriptActorBase : public ALevelScriptActor {
     GENERATED_BODY()
 public:
-    ASBZLevelScriptActorBase();
+    ASBZLevelScriptActorBase(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     bool RemoteEventWithInt(FName EventName, int32 Integer);
     

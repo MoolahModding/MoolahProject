@@ -181,9 +181,10 @@ private:
     uint8 bIsNavigationLinksEnabled: 1;
     
 public:
-    ASBZGate();
+    ASBZGate(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SetYaw(USceneComponent* Mesh, float InYaw);
@@ -204,46 +205,46 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnStateDone();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStateChanged(ESBZGateState OldState, ESBZGateState NewState, bool bIsInitialStateChange);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_State(ESBZGateState OldState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZGateState InState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnUnlockingLinkMoveStarted();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnUnlockingLinkMoveEnded();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnAddIgnoreMoveActor(APawn* InPawn);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
-    void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator);
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator, const FVector& InstigatorLocation);
     
 protected:
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     bool IsOpenForwardFromLocation(const FVector& Location) const;
     
 public:
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     bool IsOpenForwardFromDirection(const FVector& Direction) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ASBZAkAcousticPortal* GetPortalObject() const;
     
     UFUNCTION(BlueprintCallable)
     bool GetAllowPortalStateChange();
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);

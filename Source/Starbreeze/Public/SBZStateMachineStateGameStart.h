@@ -17,15 +17,16 @@ private:
     
 public:
     USBZStateMachineStateGameStart();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SessionJoinStarted();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SessionJoined(UWorld* InWorld);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToPartyHost(ESBZOnlineCode ErrorCode);
     
 };

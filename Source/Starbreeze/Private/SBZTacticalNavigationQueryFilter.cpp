@@ -15,3 +15,4 @@ USBZTacticalNavigationQueryFilter::USBZTacticalNavigationQueryFilter() {
     this->AreaFixedSizeMaxAdditionnalWidth = 4000;
 }
 
+

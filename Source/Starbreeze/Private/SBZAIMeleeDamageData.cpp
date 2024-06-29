@@ -8,3 +8,4 @@ USBZAIMeleeDamageData::USBZAIMeleeDamageData() {
     this->GlobalCooldown = 5.00f;
 }
 
+

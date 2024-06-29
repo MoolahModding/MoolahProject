@@ -11,5 +11,6 @@ public:
     int8 WearAndTearLevel;
     
     USBZWeaponWearAndTearData();
+
 };
 

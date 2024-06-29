@@ -8,5 +8,6 @@ class USBZSpawnTowerShieldNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZSpawnTowerShieldNotifyState();
+
 };
 

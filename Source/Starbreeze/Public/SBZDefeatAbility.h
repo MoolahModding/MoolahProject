@@ -8,5 +8,6 @@ class USBZDefeatAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZDefeatAbility();
+
 };
 

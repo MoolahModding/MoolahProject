@@ -5,3 +5,4 @@ USBZItemDataContainer::USBZItemDataContainer() {
     this->InventoryBaseData = NULL;
 }
 
+

@@ -43,11 +43,12 @@ protected:
     
 public:
     USBZAIUtilityDecider_AIObjectiveBase();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDoorInteractionCompleted(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ObjectiveInteractableChanged();
     
 };

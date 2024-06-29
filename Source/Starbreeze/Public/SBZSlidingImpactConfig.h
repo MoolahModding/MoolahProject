@@ -8,5 +8,6 @@ class USBZSlidingImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZSlidingImpactConfig();
+
 };
 

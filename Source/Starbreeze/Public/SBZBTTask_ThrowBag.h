@@ -8,5 +8,6 @@ class USBZBTTask_ThrowBag : public UBTTaskNode {
     GENERATED_BODY()
 public:
     USBZBTTask_ThrowBag();
+
 };
 

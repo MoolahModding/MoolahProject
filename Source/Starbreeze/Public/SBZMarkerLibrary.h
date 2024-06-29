@@ -13,6 +13,7 @@ class USBZMarkerLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZMarkerLibrary();
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RemoveReplicatedMarker(UObject* WorldContextObject, int32 ID);
     

@@ -1,5 +1,8 @@
 #include "SBZCoverPointManager.h"
 
+USBZCoverPointManager::USBZCoverPointManager() {
+}
+
 TArray<FSBZCoverShootingPoints> USBZCoverPointManager::GetShootingPoints() const {
     return TArray<FSBZCoverShootingPoints>();
 }
@@ -16,6 +19,4 @@ USBZCoverPointManager* USBZCoverPointManager::Get(UObject* WorldContextObject) {
     return NULL;
 }
 
-USBZCoverPointManager::USBZCoverPointManager() {
-}
 

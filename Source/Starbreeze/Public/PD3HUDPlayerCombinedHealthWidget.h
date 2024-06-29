@@ -30,11 +30,12 @@ protected:
     
 public:
     UPD3HUDPlayerCombinedHealthWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void Setup();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnReplenishArmorChanged(bool bIsReplenishingArmor);
     
 };

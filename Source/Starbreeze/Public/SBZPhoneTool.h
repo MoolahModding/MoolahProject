@@ -22,11 +22,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UStaticMeshComponent* GlowMesh;
     
-    ASBZPhoneTool();
-    UFUNCTION(NetMulticast, Reliable)
+    ASBZPhoneTool(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ToggleScreenMode(ESBZPhoneScreenState NewScreenState);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

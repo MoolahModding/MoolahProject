@@ -14,5 +14,6 @@ FSBZDamageEvent::FSBZDamageEvent() {
     this->bWasArmorBroken = false;
     this->bIsKillshot = false;
     this->bIsFrequent = false;
+    this->EquippableIndex = 0;
 }
 

@@ -14,7 +14,7 @@ public:
     bool bIsPlaying;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsPlayingCycleNeeded;
+    bool bIsPlayingEmptyCycleNeeded;
     
     STARBREEZE_API FSBZReplicatedReloadState();
 };

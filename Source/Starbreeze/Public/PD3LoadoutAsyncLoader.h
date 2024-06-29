@@ -8,5 +8,6 @@ class UPD3LoadoutAsyncLoader : public UObject {
     GENERATED_BODY()
 public:
     UPD3LoadoutAsyncLoader();
+
 };
 

@@ -8,5 +8,6 @@ class USBZSkillStrategistCombatMarking : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillStrategistCombatMarking();
+
 };
 

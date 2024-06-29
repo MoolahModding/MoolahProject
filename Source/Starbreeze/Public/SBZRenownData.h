@@ -20,5 +20,6 @@ public:
     TArray<UPaperSprite*> DivisionSprites;
     
     USBZRenownData();
+
 };
 

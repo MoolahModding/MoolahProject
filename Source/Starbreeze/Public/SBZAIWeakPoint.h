@@ -37,9 +37,10 @@ protected:
     TArray<FSBZWeakpointHideInfo> HideInfo;
     
 public:
-    USBZAIWeakPoint();
+    USBZAIWeakPoint(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnWeakPointDestroyed();
     
 };

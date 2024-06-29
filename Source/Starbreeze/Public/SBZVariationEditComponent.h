@@ -27,6 +27,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UStaticMeshComponent* StaticMeshComponent;
     
-    USBZVariationEditComponent();
+    USBZVariationEditComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

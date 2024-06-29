@@ -8,5 +8,6 @@ class STARBREEZE_API USBZEquippablePartConfig : public USBZModularPartConfig {
     GENERATED_BODY()
 public:
     USBZEquippablePartConfig();
+
 };
 

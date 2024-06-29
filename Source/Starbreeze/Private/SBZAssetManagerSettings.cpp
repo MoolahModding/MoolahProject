@@ -4,3 +4,4 @@ USBZAssetManagerSettings::USBZAssetManagerSettings() {
     this->PhysicalMaterialPathArray.AddDefaulted(1);
 }
 
+

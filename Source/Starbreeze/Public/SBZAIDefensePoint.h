@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class ASBZAIDefensePoint : public ASBZAIOrderTargetArea {
     GENERATED_BODY()
 public:
-    ASBZAIDefensePoint();
+    ASBZAIDefensePoint(const FObjectInitializer& ObjectInitializer);
+
 };
 

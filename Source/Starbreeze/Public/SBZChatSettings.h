@@ -5,7 +5,7 @@
 
 class USBZChatGameSettings;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Game)
+UCLASS(Blueprintable, DefaultConfig, Config=Game)
 class USBZChatSettings : public UDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -16,7 +16,8 @@ public:
     USBZChatGameSettings* CachedSchematic;
     
     USBZChatSettings();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static USBZChatGameSettings* GetChatSettings();
     
 };

@@ -74,10 +74,14 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZMainMenuPlayerCharacter* Mannequin;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZMaskConfig MaskConfig;
+    
 public:
-    ASBZCustomizationManager();
+    ASBZCustomizationManager(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
-    void SpawnGlobalMaskWithConfig(const FSBZMaskConfig& MaskConfig);
+    void SpawnGlobalMaskWithConfig(const FSBZMaskConfig& InMaskConfig);
     
     UFUNCTION(BlueprintCallable)
     void SpawnGlobalMask(const USBZMaskData* MaskData);

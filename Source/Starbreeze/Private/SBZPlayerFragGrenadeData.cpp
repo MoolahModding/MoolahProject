@@ -5,3 +5,4 @@ USBZPlayerFragGrenadeData::USBZPlayerFragGrenadeData() {
     this->ArmorPenetration = 0.00f;
 }
 
+

@@ -11,9 +11,10 @@ class USBZBTTask_ShieldPrepareForGrenade : public UBTTask_BlackboardBase {
 public:
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZVoiceCommentDataAsset* VoiceComments[5];
+    USBZVoiceCommentDataAsset* VoiceComments[6];
     
 public:
     USBZBTTask_ShieldPrepareForGrenade();
+
 };
 

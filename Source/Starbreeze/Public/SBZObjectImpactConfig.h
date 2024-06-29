@@ -8,5 +8,6 @@ class USBZObjectImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZObjectImpactConfig();
+
 };
 

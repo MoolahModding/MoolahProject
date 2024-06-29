@@ -8,5 +8,6 @@ class USBZInteractPlaceableSentryRequirement : public USBZBaseInteractRequiremen
     GENERATED_BODY()
 public:
     USBZInteractPlaceableSentryRequirement();
+
 };
 

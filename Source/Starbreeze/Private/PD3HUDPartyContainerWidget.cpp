@@ -8,3 +8,4 @@ UPD3HUDPartyContainerWidget::UPD3HUDPartyContainerWidget() {
     this->Panel_PartyAICrewWidgetContainer = NULL;
 }
 
+

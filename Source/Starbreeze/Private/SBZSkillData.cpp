@@ -8,3 +8,4 @@ USBZSkillData::USBZSkillData() {
     this->bIsAnyRequiredBuffTypeEnough = false;
 }
 
+

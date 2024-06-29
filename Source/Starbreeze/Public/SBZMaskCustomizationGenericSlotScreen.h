@@ -28,14 +28,15 @@ protected:
     
 public:
     USBZMaskCustomizationGenericSlotScreen();
+
     UFUNCTION(BlueprintCallable)
     bool InitializePartsSlot(const USBZCosmeticsPartSlot* PartsSlot, FSBZCosmeticPanelDefaultParams DefaultButtonParams);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CosmeticPanelDefaultButtonSelected();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CosmeticPanelButtonSelected(USBZMainMenuCosmeticItemButton* SelectedButton);
     
 };

@@ -35,26 +35,27 @@ private:
     
 public:
     USBZMainMenuInventoryCharacterPreferenceDisplay();
+
     UFUNCTION(BlueprintCallable)
     void SetActiveIndex(int32 NewActiveIndex);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnPreferredCharacterSlotButtonSelected(USBZCharacterPreferenceCharacterSlotButton* SelectedPreferredCharacterSlotButton);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsActiveSlotEmpty() const;
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void InitializeCharacterDisplays();
     
 public:
     UFUNCTION(BlueprintCallable)
     void IncrementActiveIndex();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetActiveIndex() const;
     
     UFUNCTION(BlueprintCallable)

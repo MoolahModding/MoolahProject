@@ -67,9 +67,10 @@ private:
     TMap<AActor*, USBZDialogDataAsset*> SoloCullingMap;
     
 public:
-    USBZSmallTalkManager();
+    USBZSmallTalkManager(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

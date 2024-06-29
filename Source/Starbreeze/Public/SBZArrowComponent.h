@@ -15,6 +15,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* To;
     
-    USBZArrowComponent();
+    USBZArrowComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

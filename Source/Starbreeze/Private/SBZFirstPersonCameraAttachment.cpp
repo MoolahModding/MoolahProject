@@ -1,6 +1,6 @@
 #include "SBZFirstPersonCameraAttachment.h"
 
-USBZFirstPersonCameraAttachment::USBZFirstPersonCameraAttachment() {
+USBZFirstPersonCameraAttachment::USBZFirstPersonCameraAttachment(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CameraSocket = TEXT("RootCamSocket");
     this->SightSocket = TEXT("L_Sight");
     this->PitchLookEaseTime = 0.25f;
@@ -10,4 +10,5 @@ USBZFirstPersonCameraAttachment::USBZFirstPersonCameraAttachment() {
     this->EquippedWeaponSightData = NULL;
     this->EquippedTargetingData = NULL;
 }
+
 

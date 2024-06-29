@@ -16,5 +16,6 @@ enum class ESBZReturnToMainMenuReason : uint8 {
     InvalidReplay,
     CanPlayOnlineCheckFailed,
     JoinProcessing,
+    CancelMatchmaking,
 };
 

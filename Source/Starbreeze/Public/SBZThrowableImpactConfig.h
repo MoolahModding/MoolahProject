@@ -8,5 +8,6 @@ class USBZThrowableImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZThrowableImpactConfig();
+
 };
 

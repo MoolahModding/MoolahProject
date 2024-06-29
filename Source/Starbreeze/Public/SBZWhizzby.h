@@ -19,6 +19,7 @@ protected:
     USBZPlayerCameraFeedbackComponent* PlayerCameraFeedbackComponent;
     
 public:
-    ASBZWhizzby();
+    ASBZWhizzby(const FObjectInitializer& ObjectInitializer);
+
 };
 

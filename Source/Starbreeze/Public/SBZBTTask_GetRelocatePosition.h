@@ -8,5 +8,6 @@ class USBZBTTask_GetRelocatePosition : public UBTTask_BlackboardBase {
     GENERATED_BODY()
 public:
     USBZBTTask_GetRelocatePosition();
+
 };
 

@@ -23,8 +23,9 @@ protected:
     USBZNavLinkAgilityComponent* NavLinkAgilityComponent;
     
 public:
-    ASBZAgilityNavLink();
-    
+    ASBZAgilityNavLink(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

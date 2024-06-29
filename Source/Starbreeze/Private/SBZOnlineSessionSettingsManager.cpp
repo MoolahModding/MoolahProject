@@ -5,3 +5,4 @@ USBZOnlineSessionSettingsManager::USBZOnlineSessionSettingsManager() {
     this->GameSessionSettings = NULL;
 }
 
+

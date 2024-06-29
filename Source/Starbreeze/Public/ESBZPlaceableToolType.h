@@ -9,5 +9,6 @@ enum class ESBZPlaceableToolType : uint8 {
     MicroCamera,
     SensorTool,
     TripMine,
+    Tripper,
 };
 

@@ -12,5 +12,6 @@ public:
     FSBZLifeActionAffinityList AllowedActions;
     
     USBZLifeActionAffinitytData();
+
 };
 

@@ -37,6 +37,7 @@ private:
     
 public:
     USBZMainMenuCosmeticPanel();
+
     UFUNCTION(BlueprintCallable)
     void UpdateStackCount(const USBZCosmeticsDataAsset* InCosmeticItem, int32 InNewStackCount);
     
@@ -44,13 +45,13 @@ public:
     void ReleaseButtons();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnCosmeticItemButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnCosmeticItemButtonHoverChanged(USBZMenuButton* InButton, bool bIsHovered);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnCosmeticItemButtonFocusedChanged(USBZMenuButton* InButton, bool bIsFocused);
     
 public:

@@ -1,14 +1,7 @@
 #include "SBZBlackMarketInspectWidget.h"
 
-void USBZBlackMarketInspectWidget::SetInspectCamera(FName CameraName) {
-}
-
-void USBZBlackMarketInspectWidget::SetGlovesOnMannequin(const USBZGloveData* GloveData) {
-}
-
-
-
 USBZBlackMarketInspectWidget::USBZBlackMarketInspectWidget() {
+    this->StackValue = TEXT("Default__SBZBlackMarketInspectWidget");
     this->CurrentInspectData = NULL;
     this->ZoomSpeedRatio = 0.10f;
     this->ZoomMax = 0.00f;
@@ -21,4 +14,13 @@ USBZBlackMarketInspectWidget::USBZBlackMarketInspectWidget() {
     this->MaxZoomCameraPitch = 1.50f;
     this->MinZoomCameraPitch = -3.00f;
 }
+
+void USBZBlackMarketInspectWidget::SetInspectCamera(FName CameraName) {
+}
+
+void USBZBlackMarketInspectWidget::SetGlovesOnMannequin(const USBZGloveData* GloveData) {
+}
+
+
+
 

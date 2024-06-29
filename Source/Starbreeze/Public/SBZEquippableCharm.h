@@ -21,8 +21,9 @@ protected:
     ASBZEquippable* OwningEquippable;
     
 public:
-    ASBZEquippableCharm();
-    UFUNCTION()
+    ASBZEquippableCharm(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable)
     void UpdateMeshPropertiesFrom(const UMeshComponent* Reference, USBZOutlineComponent* OutlineComponent, bool bIsReset);
     
     UFUNCTION(BlueprintCallable)
@@ -31,48 +32,48 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetOwningCharacter(const ASBZCharacter* Character);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ResetMeshProperties(const UMeshComponent* Reference, USBZOutlineComponent* OutlineComponent);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnParentDestroyed(AActor* DestroyedParent);
     
 public:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEquippableUsed(const ASBZEquippable* Equippable);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEquippableUnequipped(const ASBZEquippable* Equippable);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEquippableUndropped(const ASBZEquippable* Equippable);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEquippableEquipped(const ASBZEquippable* Equippable);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnEquippableDropped(const ASBZEquippable* Equippable);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector GetOwningCharacterVelocity() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetEquippableTimeLastUsed() const;
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EquippableUsed(const ASBZEquippable* Equippable);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EquippableUnequipped(const ASBZEquippable* Equippable);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EquippableUndropped(const ASBZEquippable* Equippable);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EquippableEquipped(const ASBZEquippable* Equippable);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EquippableDropped(const ASBZEquippable* Equippable);
     
 };

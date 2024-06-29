@@ -13,28 +13,29 @@ class STARBREEZE_API USBZGameStateMachineFunctionLibrary : public UBlueprintFunc
     GENERATED_BODY()
 public:
     USBZGameStateMachineFunctionLibrary();
+
     UFUNCTION(BlueprintCallable)
     static bool IsValidPakchunkIndex(int32 PakchunkIndex);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPie(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetLobbyTimeout(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TEnumAsByte<ESBZGameStateMachineState> GetGameStateMachineState(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZGameStateMachine* GetGameStateMachine(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZCurrentPlatform GetCurrentPlatform();
     
     UFUNCTION(BlueprintCallable)
     static float GetChunkInstallProgress(int32 ChunkID);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetAcceptMatchTimeout(UObject* WorldContextObject);
     
 };

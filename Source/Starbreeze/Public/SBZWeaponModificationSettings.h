@@ -4,7 +4,7 @@
 #include "SBZWeaponModificationData.h"
 #include "SBZWeaponModificationSettings.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class USBZWeaponModificationSettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -12,5 +12,6 @@ public:
     FSBZWeaponModificationData Settings;
     
     USBZWeaponModificationSettings();
+
 };
 

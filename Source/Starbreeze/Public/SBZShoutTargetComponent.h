@@ -77,7 +77,8 @@ private:
     bool bEnabled;
     
 public:
-    USBZShoutTargetComponent();
+    USBZShoutTargetComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetEnabled(bool bNewValue);
     
@@ -90,7 +91,7 @@ public:
     UFUNCTION(BlueprintCallable)
     static void MakeComponentShoutTargetable(UPrimitiveComponent* Component);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnabled() const;
     
 };

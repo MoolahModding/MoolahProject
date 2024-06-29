@@ -5,3 +5,4 @@ USBZArmorData::USBZArmorData() {
     this->ArmorDescriptionStatColorName = TEXT("StatDescription");
 }
 
+

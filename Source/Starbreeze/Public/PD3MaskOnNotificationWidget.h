@@ -13,14 +13,15 @@ protected:
     
 public:
     UPD3MaskOnNotificationWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnProgressChanged(float InProgress);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void MaskOnChanged(bool bInIsPuttingOnMask);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMaskOnProgress() const;
     
 };

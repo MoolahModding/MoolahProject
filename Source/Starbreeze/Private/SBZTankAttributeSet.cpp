@@ -1,6 +1,10 @@
 #include "SBZTankAttributeSet.h"
 #include "Net/UnrealNetwork.h"
 
+USBZTankAttributeSet::USBZTankAttributeSet() {
+    this->TankComponent = NULL;
+}
+
 void USBZTankAttributeSet::OnRep_VisorArmor(const FGameplayAttributeData& OldValue) {
 }
 
@@ -13,7 +17,4 @@ void USBZTankAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(USBZTankAttributeSet, VisorArmor);
 }
 
-USBZTankAttributeSet::USBZTankAttributeSet() {
-    this->TankComponent = NULL;
-}
 

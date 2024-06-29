@@ -22,6 +22,7 @@ enum class ESBZOnlineCode : uint8 {
     PartyFailedToJoinLobby,
     ServerVersionMismatch,
     LostConnectionToMatchMakingService,
+    MatchmakingRequestFailed,
     DataParsingError,
     PartyLeaderCancelledMatchmaking,
     JoinedCrossPlatformLobby,
@@ -29,5 +30,6 @@ enum class ESBZOnlineCode : uint8 {
     SessionDoesNotExist,
     ReturnToIIS,
     UserHasChanged,
+    SoloGameRequested,
 };
 

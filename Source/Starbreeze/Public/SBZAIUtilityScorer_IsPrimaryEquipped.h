@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_IsPrimaryEquipped : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_IsPrimaryEquipped();
+
 };
 

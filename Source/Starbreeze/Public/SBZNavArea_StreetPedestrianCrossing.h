@@ -8,5 +8,6 @@ class USBZNavArea_StreetPedestrianCrossing : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_StreetPedestrianCrossing();
+
 };
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZDebugCameraController : public ADebugCameraController {
     GENERATED_BODY()
 public:
-    ASBZDebugCameraController();
+    ASBZDebugCameraController(const FObjectInitializer& ObjectInitializer);
+
 };
 

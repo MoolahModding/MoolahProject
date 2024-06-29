@@ -74,5 +74,6 @@ public:
     float CancelingBackInputAlpha;
     
     USBZAgilitySlideParams();
+
 };
 

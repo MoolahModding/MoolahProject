@@ -8,5 +8,6 @@ class USBZEnvQueryTest_IsOrderTargetAreaEnabled : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsOrderTargetAreaEnabled();
+
 };
 

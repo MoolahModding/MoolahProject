@@ -11,5 +11,6 @@ public:
     int32 MinConcurentUsers;
     
     USBZAttractorPredicate_MinConcurrentUsers();
+
 };
 

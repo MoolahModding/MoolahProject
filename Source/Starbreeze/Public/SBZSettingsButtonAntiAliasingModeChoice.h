@@ -13,6 +13,7 @@ protected:
     
 public:
     USBZSettingsButtonAntiAliasingModeChoice();
+
     UFUNCTION(BlueprintCallable)
     void SetOptionAntiAliasingModes(const TArray<int64>& InOptionAntiAliasingModes);
     

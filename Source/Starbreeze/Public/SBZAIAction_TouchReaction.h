@@ -1,10 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "EPD3DefeatState.h"
 #include "ESBZVoicePriority.h"
 #include "SBZAIAction_Order.h"
 #include "SBZAIAction_TouchReaction.generated.h"
 
+class ASBZPlayerState;
 class USBZActionNotificationAsset;
 class USBZVoiceCommentDataAsset;
 
@@ -34,7 +36,16 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer ForbiddenTags;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* TargetPlayerState;
+    
 public:
     USBZAIAction_TouchReaction();
+
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnTargetDefeatStateChanged(ASBZPlayerState* InSBZPlayerState, EPD3DefeatState OldDefeatState, EPD3DefeatState InDefeatState);
+    
 };
 

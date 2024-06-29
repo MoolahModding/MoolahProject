@@ -8,5 +8,6 @@ class USBZSkillInfiltratorInfiltrator : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillInfiltratorInfiltrator();
+
 };
 

@@ -9,6 +9,7 @@ class USBZAIUtilityScorer : public USBZAIScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectedBP();
 

@@ -7,6 +7,15 @@ UCLASS(Blueprintable, CollapseCategories, EditInlineNew)
 class USBZBlockEnterRunMontageNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bBlockEnter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bBlockExit;
+    
+public:
     USBZBlockEnterRunMontageNotifyState();
+
 };
 

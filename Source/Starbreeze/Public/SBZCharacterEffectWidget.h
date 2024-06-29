@@ -16,6 +16,7 @@ protected:
     
 public:
     USBZCharacterEffectWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetProgress(float InNewProgress);
     
@@ -26,13 +27,13 @@ public:
     void SetActive(bool bIsActive);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEffectValueChanged(int32 InNewEffectValue);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCooldownProgressChanged(float InNewProgress);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCharacterEffectInitialized(FSBZCharacterEffectRuntime InCharacterEffectRuntime);
     
 public:

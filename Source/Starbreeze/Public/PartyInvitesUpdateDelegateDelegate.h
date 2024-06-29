@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "PartyInvitesUpdateDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPartyInvitesUpdateDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPartyInvitesUpdateDelegate);
 

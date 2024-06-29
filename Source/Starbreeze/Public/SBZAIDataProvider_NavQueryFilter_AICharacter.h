@@ -14,5 +14,6 @@ public:
     TSubclassOf<UNavigationQueryFilter> NQFClass;
     
     USBZAIDataProvider_NavQueryFilter_AICharacter();
+
 };
 

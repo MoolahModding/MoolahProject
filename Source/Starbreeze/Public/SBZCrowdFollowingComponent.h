@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZCrowdFollowingComponent : public UCrowdFollowingComponent {
     GENERATED_BODY()
 public:
-    USBZCrowdFollowingComponent();
+    USBZCrowdFollowingComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

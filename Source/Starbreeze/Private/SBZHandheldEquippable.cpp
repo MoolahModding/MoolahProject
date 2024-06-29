@@ -1,5 +1,6 @@
 #include "SBZHandheldEquippable.h"
 
-ASBZHandheldEquippable::ASBZHandheldEquippable() {
+ASBZHandheldEquippable::ASBZHandheldEquippable(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

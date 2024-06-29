@@ -24,16 +24,17 @@ private:
     
 public:
     USBZSettingsMenuManager();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosedUnappliedChanges(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosedConfirmResetToDefault(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosedConfirmChanges(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosedConfirmAllChanges(FName ActionName);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))

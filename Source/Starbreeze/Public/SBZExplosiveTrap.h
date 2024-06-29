@@ -45,15 +45,16 @@ protected:
     int32 MarkerId;
     
 public:
-    ASBZExplosiveTrap();
+    ASBZExplosiveTrap(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CriticalDamageNoParams();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CriticalDamage(const FVector ImpactLocation, const FVector ImpactNormal);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnCriticalDamage();
     
 };

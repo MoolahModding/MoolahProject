@@ -3,3 +3,4 @@
 USBZMaskPatternData::USBZMaskPatternData() {
 }
 
+

@@ -1,5 +1,7 @@
 #include "SBZReplayPlayerState.h"
 
-ASBZReplayPlayerState::ASBZReplayPlayerState(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+ASBZReplayPlayerState::ASBZReplayPlayerState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->PlayerColors.AddDefaulted(4);
 }
+
 

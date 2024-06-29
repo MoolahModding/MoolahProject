@@ -27,8 +27,9 @@ protected:
     
 public:
     USBZMarkerWidgetContainer();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMarkerAdded(FSBZMarkerRuntime& MarkerRuntime);
     
 };

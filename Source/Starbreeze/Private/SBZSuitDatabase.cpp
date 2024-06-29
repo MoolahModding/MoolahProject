@@ -4,3 +4,4 @@ USBZSuitDatabase::USBZSuitDatabase() {
     this->CustomizableSuit = NULL;
 }
 
+

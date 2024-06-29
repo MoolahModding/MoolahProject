@@ -8,5 +8,6 @@ class USBZAIAction_CrewAIMarking : public USBZAIAction {
     GENERATED_BODY()
 public:
     USBZAIAction_CrewAIMarking();
+
 };
 

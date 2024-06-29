@@ -5,7 +5,7 @@
 #include "SBZFactionInfo.h"
 #include "SBZFactionsConfig.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class STARBREEZE_API USBZFactionsConfig : public UObject {
     GENERATED_BODY()
 public:
@@ -16,5 +16,6 @@ public:
     TArray<FSBZFactionAttitude> Attitudes;
     
     USBZFactionsConfig();
+
 };
 

@@ -4,3 +4,4 @@ USBZBaseMenuAnimationCollection::USBZBaseMenuAnimationCollection() {
     this->bUpdateCollection = false;
 }
 
+

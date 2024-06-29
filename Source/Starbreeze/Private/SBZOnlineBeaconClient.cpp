@@ -1,5 +1,8 @@
 #include "SBZOnlineBeaconClient.h"
 
+ASBZOnlineBeaconClient::ASBZOnlineBeaconClient(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void ASBZOnlineBeaconClient::VoteToKick_Implementation(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
 }
 bool ASBZOnlineBeaconClient::VoteToKick_Validate(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
@@ -42,6 +45,4 @@ bool ASBZOnlineBeaconClient::HandleKicked_Validate() {
     return true;
 }
 
-ASBZOnlineBeaconClient::ASBZOnlineBeaconClient() {
-}
 

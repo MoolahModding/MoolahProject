@@ -10,3 +10,4 @@ USBZWeaponStickerData::USBZWeaponStickerData() {
     this->StickerRoughnessValue = 0.00f;
 }
 
+

@@ -10,7 +10,8 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZRenderTargetWidgetComponent : public UWidgetComponent {
     GENERATED_BODY()
 public:
-    USBZRenderTargetWidgetComponent();
+    USBZRenderTargetWidgetComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SetWidgetAsTextureParameter(UMaterialInstanceDynamic* Target, const FName& ParameterName);

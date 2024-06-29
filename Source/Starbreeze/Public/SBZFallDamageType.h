@@ -8,5 +8,6 @@ class USBZFallDamageType : public USBZDamageType {
     GENERATED_BODY()
 public:
     USBZFallDamageType();
+
 };
 

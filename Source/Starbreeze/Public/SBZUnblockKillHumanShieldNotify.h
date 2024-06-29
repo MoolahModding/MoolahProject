@@ -8,5 +8,6 @@ class USBZUnblockKillHumanShieldNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZUnblockKillHumanShieldNotify();
+
 };
 

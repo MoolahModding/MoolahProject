@@ -1,5 +1,16 @@
 #include "SBZLoginScreenBaseWidget.h"
 
+USBZLoginScreenBaseWidget::USBZLoginScreenBaseWidget() {
+    this->bRememeberDetails = false;
+    this->LoadingThrobber = NULL;
+    this->LoadingCanvasPanel = NULL;
+    this->LoginScreen = NULL;
+    this->LogoP3 = NULL;
+    this->ClickToStartButton = NULL;
+    this->ClickToStartOverlay = NULL;
+    this->bIsWidgetReady = false;
+}
+
 void USBZLoginScreenBaseWidget::WidgetReady() {
 }
 
@@ -37,14 +48,4 @@ UCanvasPanel* USBZLoginScreenBaseWidget::GetLoadingCanvasPanel() {
     return NULL;
 }
 
-USBZLoginScreenBaseWidget::USBZLoginScreenBaseWidget() {
-    this->bRememeberDetails = false;
-    this->LoadingThrobber = NULL;
-    this->LoadingCanvasPanel = NULL;
-    this->LoginScreen = NULL;
-    this->LogoP3 = NULL;
-    this->ClickToStartButton = NULL;
-    this->ClickToStartOverlay = NULL;
-    this->bIsWidgetReady = false;
-}
 

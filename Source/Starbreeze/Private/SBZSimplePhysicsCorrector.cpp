@@ -1,6 +1,10 @@
 #include "SBZSimplePhysicsCorrector.h"
 #include "Net/UnrealNetwork.h"
 
+USBZSimplePhysicsCorrector::USBZSimplePhysicsCorrector(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->TeleportDistance = 200.00f;
+}
+
 void USBZSimplePhysicsCorrector::SetVelocity(FVector Vel) {
 }
 
@@ -21,7 +25,4 @@ void USBZSimplePhysicsCorrector::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     DOREPLIFETIME(USBZSimplePhysicsCorrector, LastState);
 }
 
-USBZSimplePhysicsCorrector::USBZSimplePhysicsCorrector() {
-    this->TeleportDistance = 200.00f;
-}
 

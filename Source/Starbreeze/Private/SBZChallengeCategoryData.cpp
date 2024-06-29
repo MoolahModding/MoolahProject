@@ -4,3 +4,4 @@ USBZChallengeCategoryData::USBZChallengeCategoryData() {
     this->DisplayIcon = NULL;
 }
 
+

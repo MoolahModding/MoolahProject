@@ -1,23 +1,6 @@
 #include "SBZBaseInteractableComponent.h"
 
-void USBZBaseInteractableComponent::SetGameplayEffectsOnInteract(const TArray<FSBZGameplayEffectData> GameplayEffects) {
-}
-
-void USBZBaseInteractableComponent::OnFocusChanged_Implementation(bool bInNewFocusState) {
-}
-
-bool USBZBaseInteractableComponent::IsInteractionIllegal(int32 InModeIndex) const {
-    return false;
-}
-
-void USBZBaseInteractableComponent::GetGameplayEffectsOnInteract(TArray<FSBZGameplayEffectData>& GameplayEffects) const {
-}
-
-int32 USBZBaseInteractableComponent::GetCurrentModeIndex() const {
-    return 0;
-}
-
-USBZBaseInteractableComponent::USBZBaseInteractableComponent() {
+USBZBaseInteractableComponent::USBZBaseInteractableComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->NormalDistance = 200.00f;
     this->PitchDistance = 200.00f;
     this->bIgnoreDistanceValidation = false;
@@ -52,4 +35,22 @@ USBZBaseInteractableComponent::USBZBaseInteractableComponent() {
     this->AnimatedInteractionData = NULL;
     this->bIsScramblerAffected = false;
 }
+
+void USBZBaseInteractableComponent::SetGameplayEffectsOnInteract(const TArray<FSBZGameplayEffectData> GameplayEffects) {
+}
+
+void USBZBaseInteractableComponent::OnFocusChanged_Implementation(bool bInNewFocusState) {
+}
+
+bool USBZBaseInteractableComponent::IsInteractionIllegal(int32 InModeIndex) const {
+    return false;
+}
+
+void USBZBaseInteractableComponent::GetGameplayEffectsOnInteract(TArray<FSBZGameplayEffectData>& GameplayEffects) const {
+}
+
+int32 USBZBaseInteractableComponent::GetCurrentModeIndex() const {
+    return 0;
+}
+
 

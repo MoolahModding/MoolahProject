@@ -24,8 +24,9 @@ protected:
     
 public:
     USBZAnimatedInteractionAbility();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
     
 };

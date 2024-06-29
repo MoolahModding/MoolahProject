@@ -45,27 +45,28 @@ protected:
     ASBZAmmoPickup* AmmoPickup;
     
 public:
-    ASBZThrowableKnife();
+    ASBZThrowableKnife(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_ReplicateDamage(const FSBZKnifeProjectileTargetData& TargetData);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_PickedUp();
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_CreateImpact(bool bInShouldBladeBounce, bool bInHasRetrieverSkill, UPrimitiveComponent* InHitComponent, const FName& InBoneName, const FVector& InRelativeLocation);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnParentActorEndPlay(AActor* OldAttachParentActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_FireKnife(const FSBZKnifeProjectileTargetData& TargetData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateImpact(bool bInShouldBladeBounce, bool bInHasRetrieverSkill);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasRetrieverSkill() const;
     
 };

@@ -21,15 +21,16 @@ private:
     TArray<UAISenseConfig*> DistractedSensesConfig;
     
 public:
-    USBZAIPerceptionComponent();
+    USBZAIPerceptionComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetSenseConfig(ESBZSenseConfig ConfigID);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTransporterBrutalCarrySkillPerceptionInfoUpdated(const FActorPerceptionUpdateInfo& UpdateInfo);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetPerception(AActor* Actor, FAIStimulus Stimulus);
     
 };

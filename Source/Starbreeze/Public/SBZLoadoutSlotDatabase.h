@@ -13,5 +13,6 @@ public:
     TArray<USBZLoadoutSlotData*> LoadoutSlotArray;
     
     USBZLoadoutSlotDatabase();
+
 };
 

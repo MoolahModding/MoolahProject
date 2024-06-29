@@ -1,5 +1,13 @@
 #include "SBZUIChatBaseWidget.h"
 
+USBZUIChatBaseWidget::USBZUIChatBaseWidget() {
+    this->bEnableLobbyChat = false;
+    this->bIsChatDisabled = false;
+    this->bIsOnWindows = false;
+    this->GameUserSettings = NULL;
+    this->Chat = NULL;
+}
+
 void USBZUIChatBaseWidget::SendMessage(const FSBZChatMessage& InMessage) {
 }
 
@@ -19,11 +27,4 @@ FString USBZUIChatBaseWidget::CreateTimestamp() const {
     return TEXT("");
 }
 
-USBZUIChatBaseWidget::USBZUIChatBaseWidget() {
-    this->bEnableLobbyChat = false;
-    this->bIsChatDisabled = false;
-    this->bIsOnWindows = false;
-    this->GameUserSettings = NULL;
-    this->Chat = NULL;
-}
 

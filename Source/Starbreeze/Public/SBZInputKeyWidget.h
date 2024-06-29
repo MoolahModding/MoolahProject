@@ -19,6 +19,7 @@ protected:
     
 public:
     USBZInputKeyWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetKey(FKey InKey);
     
@@ -26,10 +27,10 @@ public:
     void SetInverted(bool bInInverted);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnKeyNameChanged(const FString& NewActionKeyName);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnKeyIconChanged(UPaperSprite* NewActionKeyIcon);
     
 };

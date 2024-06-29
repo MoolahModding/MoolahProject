@@ -3,5 +3,5 @@
 #include "SBZPlayerCallEvent.h"
 #include "SBZPlayerCallMessageEventDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZPlayerCallMessageEvent, const FSBZPlayerCallEvent&, PlayerCallEventData);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZPlayerCallMessageEvent, const FSBZPlayerCallEvent&, PlayerCallEventData);
 

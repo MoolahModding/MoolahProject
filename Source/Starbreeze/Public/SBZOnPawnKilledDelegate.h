@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnPawnKilledDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPawnKilled);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnPawnKilled);
 

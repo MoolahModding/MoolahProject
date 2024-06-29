@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnStateMachineExitedStateDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStateMachineExitedStateDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStateMachineExitedStateDelegate);
 

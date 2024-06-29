@@ -1,5 +1,8 @@
 #include "SBZGameStateMachineFunctionLibrary.h"
 
+USBZGameStateMachineFunctionLibrary::USBZGameStateMachineFunctionLibrary() {
+}
+
 bool USBZGameStateMachineFunctionLibrary::IsValidPakchunkIndex(int32 PakchunkIndex) {
     return false;
 }
@@ -32,6 +35,4 @@ int32 USBZGameStateMachineFunctionLibrary::GetAcceptMatchTimeout(UObject* WorldC
     return 0;
 }
 
-USBZGameStateMachineFunctionLibrary::USBZGameStateMachineFunctionLibrary() {
-}
 

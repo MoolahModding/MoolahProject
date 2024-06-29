@@ -8,5 +8,6 @@ class STARBREEZE_API USBZAccelByteArgs : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZAccelByteArgs();
+
 };
 

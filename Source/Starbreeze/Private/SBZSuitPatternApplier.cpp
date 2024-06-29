@@ -3,3 +3,4 @@
 USBZSuitPatternApplier::USBZSuitPatternApplier() {
 }
 
+

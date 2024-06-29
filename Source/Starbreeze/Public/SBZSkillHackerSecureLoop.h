@@ -8,5 +8,6 @@ class USBZSkillHackerSecureLoop : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillHackerSecureLoop();
+
 };
 

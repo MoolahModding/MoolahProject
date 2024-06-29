@@ -15,10 +15,11 @@ public:
     FMessageReceivedDelegate OnMessageReceived;
     
     USBZServerStatusManager();
+
     UFUNCTION(BlueprintCallable)
     void GetServerStatusMessage();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZServerStatusManager* GetServerStatusManager(const UObject* WorldContextObject);
     
 };

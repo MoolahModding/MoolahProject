@@ -39,15 +39,16 @@ protected:
     TArray<FSBZBagHandle> BagHandleArray;
     
 public:
-    ASBZMultiBagGenerator();
+    ASBZMultiBagGenerator(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bIsEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* Comp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

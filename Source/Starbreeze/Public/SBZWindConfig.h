@@ -5,7 +5,7 @@
 
 class USBZWindConfig;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZWindConfig : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -16,7 +16,8 @@ public:
     TArray<FName> FoliageMaterialFunctionNames;
     
     USBZWindConfig();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static USBZWindConfig* Get();
     
 };

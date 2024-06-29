@@ -8,5 +8,6 @@ class USBZPlayerJumpAbility : public USBZGameplayAbility_CharacterJump {
     GENERATED_BODY()
 public:
     USBZPlayerJumpAbility();
+
 };
 

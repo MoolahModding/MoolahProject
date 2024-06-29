@@ -27,5 +27,6 @@ public:
     FGameplayTag DurationTag;
     
     USBZPlaceableTripMineData();
+
 };
 

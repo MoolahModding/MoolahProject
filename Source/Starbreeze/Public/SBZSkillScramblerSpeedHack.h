@@ -8,5 +8,6 @@ class USBZSkillScramblerSpeedHack : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillScramblerSpeedHack();
+
 };
 

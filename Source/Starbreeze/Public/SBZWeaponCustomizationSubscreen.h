@@ -37,39 +37,40 @@ private:
     
 public:
     USBZWeaponCustomizationSubscreen();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void UpdatePreview();
     
     UFUNCTION(BlueprintCallable)
     void SetupScreen(const USBZCosmeticsPartSlot* NewCosmeticSlot, ESBZEquippableLoadoutSlot LoadoutSlot, int32 LoadoutIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RefreshEquippableConfig(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryApplyDone(ESBZMetaRequestResult Result);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryApply();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCosmeticSlotUpdated();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnApplyCosmeticDone(ESBZMetaRequestResult Result);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZCosmeticsPartSlot* GetCosmeticSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZCosmeticsDataAsset* GetCosmeticPart() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZCosmeticsInventoryItem> GetCosmeticItems(const USBZCosmeticsPartSlot* NewCosmeticSlot);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZEquippablePartConfig* GetCosmeticConfig();
     
     UFUNCTION(BlueprintCallable)

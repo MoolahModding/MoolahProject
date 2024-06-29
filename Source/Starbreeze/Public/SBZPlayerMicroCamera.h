@@ -40,33 +40,34 @@ private:
     TArray<int32> ViewTargetPlayerStateIdArray;
     
 public:
-    ASBZPlayerMicroCamera();
+    ASBZPlayerMicroCamera(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ViewTargetPlayerStateIdArray(const TArray<int32>& OldViewTargetPlayerStateIdArray);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CameraTargetRotation();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CameraCurrentRotation();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerStateReplicated();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_EndViewTarget(int32 PlayerId);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_BecomeViewTarget(int32 PlayerId);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnViewTargetChanged(bool bIsViewTarget);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

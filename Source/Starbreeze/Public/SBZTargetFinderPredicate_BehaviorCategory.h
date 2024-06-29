@@ -13,5 +13,6 @@ protected:
     
 public:
     USBZTargetFinderPredicate_BehaviorCategory();
+
 };
 

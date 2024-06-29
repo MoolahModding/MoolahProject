@@ -1,6 +1,7 @@
 #include "SBZBTTask_Evade.h"
 
 USBZBTTask_Evade::USBZBTTask_Evade() {
+    this->NodeName = TEXT("Evade");
     this->FilterClass = NULL;
     this->NeededTimeSinceFireToEvade = 0.50f;
     this->FastEvadeCoolDown = 0.50f;
@@ -9,4 +10,5 @@ USBZBTTask_Evade::USBZBTTask_Evade() {
     this->MinSlowEvadeDist = 600.00f;
     this->MinFastEvadeDist = 200.00f;
 }
+
 

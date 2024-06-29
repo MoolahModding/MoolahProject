@@ -29,7 +29,8 @@ protected:
     TMap<USBZModularPartSlotBase*, FSBZEquippablePartConfigGroup> WeaponModMap;
     
 public:
-    ASBZModularWeaponDisplay();
+    ASBZModularWeaponDisplay(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SwapModPart(const USBZModularPartSlotBase* Slot, const USBZEquippablePartDataAsset* EquippablePart);
     
@@ -46,14 +47,14 @@ public:
     void RemoveSlot(const USBZModularPartSlotBase* Slot);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ModuleMeshLoadingDone();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZEquippableConfig GetWeaponModMap() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZBaseWeaponData* GetWeaponData() const;
     
     UFUNCTION(BlueprintCallable)

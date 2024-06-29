@@ -13,6 +13,8 @@
 
 class UAkAudioEvent;
 class UPaperSprite;
+class USBZPersonalStatisticCriteriaData;
+class USBZPlayerCharacterData;
 class USBZStatisticCriteriaData;
 
 UCLASS(Blueprintable)
@@ -109,14 +111,21 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZStatisticCriteriaData*> StatisticCriteriaDataArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZPersonalStatisticCriteriaData*> PersonalStatisticCriteriaDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZPlayerCharacterData*> LockedCharacterArray;
+    
     UPD3HeistDataAsset();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetHeistTimeShort() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetHeistReferenceText() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetEstimatedPayout(ESBZDifficulty Diffculty, int32& OutMin, int32& OutMax) const;
     
 };

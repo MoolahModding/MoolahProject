@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZAIObjectiveComponent_FileCabinet : public USBZAIObjectiveComponent {
     GENERATED_BODY()
 public:
-    USBZAIObjectiveComponent_FileCabinet();
+    USBZAIObjectiveComponent_FileCabinet(const FObjectInitializer& ObjectInitializer);
+
 };
 

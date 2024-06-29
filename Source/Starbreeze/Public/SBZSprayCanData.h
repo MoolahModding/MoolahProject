@@ -50,5 +50,6 @@ public:
     UTexture2D* SPCT;
     
     USBZSprayCanData();
+
 };
 

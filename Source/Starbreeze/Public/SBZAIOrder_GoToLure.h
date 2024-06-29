@@ -8,5 +8,6 @@ class USBZAIOrder_GoToLure : public USBZAIOrder_LifeAction {
     GENERATED_BODY()
 public:
     USBZAIOrder_GoToLure();
+
 };
 

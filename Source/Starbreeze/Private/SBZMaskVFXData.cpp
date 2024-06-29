@@ -4,3 +4,4 @@ USBZMaskVFXData::USBZMaskVFXData() {
     this->VFXSlot = ESBZMaskVFXSlot::Mouth;
 }
 
+

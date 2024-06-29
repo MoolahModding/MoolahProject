@@ -16,11 +16,12 @@ private:
     
 public:
     USBZStateMachineStateWaitingReturnToIIS();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePostLoadMap(UWorld* NewWorld);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleP2PSessionDestroyed(FName SessionName, bool bResult);
     
 };

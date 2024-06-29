@@ -5,3 +5,4 @@ USBZWeaponBaseAttackData::USBZWeaponBaseAttackData() {
     this->TargetEffectClass = NULL;
 }
 
+

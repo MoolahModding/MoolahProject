@@ -1,5 +1,6 @@
 #include "SBZPersistentWorldDamageZoneManager.h"
 
-ASBZPersistentWorldDamageZoneManager::ASBZPersistentWorldDamageZoneManager() {
+ASBZPersistentWorldDamageZoneManager::ASBZPersistentWorldDamageZoneManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

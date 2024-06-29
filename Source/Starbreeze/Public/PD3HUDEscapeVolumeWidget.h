@@ -9,21 +9,22 @@ class UPD3HUDEscapeVolumeWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     UPD3HUDEscapeVolumeWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayersInEscapeChangedEvent(const FSBZPlayerInEscapeChangedEvent& PlayerInEscapeChangedEvent);
     
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnPlayersEnteredVolume(int32 PlayersInVolumeOnEntered, int32 TotalPlayers);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnPlayerCountChanged(int32 PlayersInVolumeOnChanged, int32 TotalPlayers);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnEscapeTimerChanged(int32 NewTime);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnAllPlayersLeftVolume(int32 PlayersInVolumeOnLeft, int32 TotalPlayers);
     
 };

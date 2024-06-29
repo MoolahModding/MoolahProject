@@ -8,5 +8,6 @@ class USBZSkillTransporterPowerLifter : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTransporterPowerLifter();
+
 };
 

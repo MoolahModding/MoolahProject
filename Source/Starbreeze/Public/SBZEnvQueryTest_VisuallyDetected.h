@@ -13,5 +13,6 @@ protected:
     
 public:
     USBZEnvQueryTest_VisuallyDetected();
+
 };
 

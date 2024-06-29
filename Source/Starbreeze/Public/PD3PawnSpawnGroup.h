@@ -27,7 +27,8 @@ protected:
     FGameplayTagContainer AllowedPawnTypeContainer;
     
 public:
-    APD3PawnSpawnGroup();
+    APD3PawnSpawnGroup(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetEnabledForCivilians(bool bInIsEnabledForCivilians);
     
@@ -35,7 +36,7 @@ public:
     void SetEnabledForAssault(bool bInIsEnabledForAssault);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSpawnFinished(const FSBZPawnSpawnRequestHandle& Handle, APawn* Pawn, ASBZPawnSpawnBase* Spawner);
     
 };

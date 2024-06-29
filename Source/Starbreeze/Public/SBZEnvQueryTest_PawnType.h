@@ -14,5 +14,6 @@ private:
     
 public:
     USBZEnvQueryTest_PawnType();
+
 };
 

@@ -1,5 +1,10 @@
 #include "SBZStateMachineStateOutro.h"
 
+USBZStateMachineStateOutro::USBZStateMachineStateOutro() {
+    this->ResultData = NULL;
+    this->WaitingForEndResult = false;
+}
+
 void USBZStateMachineStateOutro::OutroSequenceTimeout() {
 }
 
@@ -9,8 +14,4 @@ void USBZStateMachineStateOutro::HandleMissionResultReady(const FSBZEndMissionRe
 void USBZStateMachineStateOutro::DelayedLeaveOutroSequence() {
 }
 
-USBZStateMachineStateOutro::USBZStateMachineStateOutro() {
-    this->ResultData = NULL;
-    this->WaitingForEndResult = false;
-}
 

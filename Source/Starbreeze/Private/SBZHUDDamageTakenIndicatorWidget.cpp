@@ -5,3 +5,4 @@ USBZHUDDamageTakenIndicatorWidget::USBZHUDDamageTakenIndicatorWidget() {
     this->Image_DamageTakenIndicator = NULL;
 }
 
+

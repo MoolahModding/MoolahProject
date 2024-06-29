@@ -1,5 +1,8 @@
 #include "SBZEditorUtilityLibrary.h"
 
+USBZEditorUtilityLibrary::USBZEditorUtilityLibrary() {
+}
+
 bool USBZEditorUtilityLibrary::ResetToBlueprintDefault(AActor* Actor) {
     return false;
 }
@@ -12,6 +15,4 @@ int32 USBZEditorUtilityLibrary::GetEditorInstanceID(const UObject* WorldContextO
     return 0;
 }
 
-USBZEditorUtilityLibrary::USBZEditorUtilityLibrary() {
-}
 

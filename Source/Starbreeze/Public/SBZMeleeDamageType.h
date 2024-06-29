@@ -8,5 +8,6 @@ class USBZMeleeDamageType : public USBZDamageType {
     GENERATED_BODY()
 public:
     USBZMeleeDamageType();
+
 };
 

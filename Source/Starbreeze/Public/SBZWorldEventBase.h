@@ -8,5 +8,6 @@ class USBZWorldEventBase : public UObject {
     GENERATED_BODY()
 public:
     USBZWorldEventBase();
+
 };
 

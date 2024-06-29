@@ -19,5 +19,6 @@ public:
     TMap<FGameplayTag, FSBZMontageContainer> GamePlayTagBasedMontageContainers;
     
     USBZPlayerAnimationCollectionFPP();
+
 };
 

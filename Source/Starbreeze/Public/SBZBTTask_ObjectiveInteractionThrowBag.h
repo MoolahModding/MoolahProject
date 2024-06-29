@@ -8,5 +8,6 @@ class USBZBTTask_ObjectiveInteractionThrowBag : public USBZBTTask_ObjectiveInter
     GENERATED_BODY()
 public:
     USBZBTTask_ObjectiveInteractionThrowBag();
+
 };
 

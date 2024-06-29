@@ -1,5 +1,20 @@
 #include "SBZModifiableTimer.h"
+#include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
+
+ASBZModifiableTimer::ASBZModifiableTimer(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->Duration = 30.00f;
+    this->ProgressionValuesToPost.AddDefaulted(4);
+    this->TimeElapsed = 0.00f;
+    this->CurrentSpeed = 1.00f;
+    this->CurrentTimerState = ESBZTimerState::Inactive;
+    this->SabotagePoint = NULL;
+    this->NextProgressionToPostIndex = 0;
+}
 
 void ASBZModifiableTimer::StartTimer() {
 }
@@ -76,13 +91,4 @@ void ASBZModifiableTimer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
     DOREPLIFETIME(ASBZModifiableTimer, CurrentTimerState);
 }
 
-ASBZModifiableTimer::ASBZModifiableTimer() {
-    this->Duration = 30.00f;
-    this->ProgressionValuesToPost.AddDefaulted(4);
-    this->TimeElapsed = 0.00f;
-    this->CurrentSpeed = 1.00f;
-    this->CurrentTimerState = ESBZTimerState::Inactive;
-    this->SabotagePoint = NULL;
-    this->NextProgressionToPostIndex = 0;
-}
 

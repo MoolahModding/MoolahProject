@@ -45,9 +45,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bOffsetPathFromCorners;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZPathOffset PathOffset;
-    
     USBZBTTask_RunMoveToBehavior();
+
 };
 

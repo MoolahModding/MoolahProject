@@ -3,5 +3,5 @@
 #include "SBZUIHUDContext.h"
 #include "SBZOnHUDContextChangedDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnHUDContextChanged, const FSBZUIHUDContext&, OnHUDContextChanged);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnHUDContextChanged, const FSBZUIHUDContext&, OnHUDContextChanged);
 

@@ -18,8 +18,9 @@ private:
     USBZReplayBaseWidget* ReplayWidget;
     
 public:
-    ASBZReplayPlayerController();
-    UFUNCTION(BlueprintPure)
+    ASBZReplayPlayerController(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZReplayManager* GetReplayManager() const;
     
 };

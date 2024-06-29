@@ -27,15 +27,16 @@ protected:
     ASBZPawnSpawnPredefined* GuardRoomSpawner;
     
 public:
-    ASBZSecurityRoom();
+    ASBZSecurityRoom(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayableLevelInitialized(UWorld* World);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCameraDestroyed(AActor* DestroyedActor);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

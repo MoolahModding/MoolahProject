@@ -12,5 +12,6 @@ public:
     FSBZWeaponPatternDataSingleColorAreaList GlobalPaintAreas;
     
     USBZWeaponGlobalPaintSlot();
+
 };
 

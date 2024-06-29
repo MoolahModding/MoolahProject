@@ -8,5 +8,6 @@ class USBZPlaceableHealthData : public USBZPlaceableData {
     GENERATED_BODY()
 public:
     USBZPlaceableHealthData();
+
 };
 

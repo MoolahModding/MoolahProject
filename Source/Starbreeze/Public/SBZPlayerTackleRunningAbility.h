@@ -8,5 +8,6 @@ class USBZPlayerTackleRunningAbility : public USBZPlayerTackleBaseAbility {
     GENERATED_BODY()
 public:
     USBZPlayerTackleRunningAbility();
+
 };
 

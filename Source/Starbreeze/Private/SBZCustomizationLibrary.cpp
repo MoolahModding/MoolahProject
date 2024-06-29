@@ -1,5 +1,8 @@
 #include "SBZCustomizationLibrary.h"
 
+USBZCustomizationLibrary::USBZCustomizationLibrary() {
+}
+
 void USBZCustomizationLibrary::UseDefaultMask() {
 }
 
@@ -70,6 +73,4 @@ void USBZCustomizationLibrary::ApplyAllCosmeticPartsFromPreviewOnSuit(const int3
 void USBZCustomizationLibrary::ApplyAllCosmeticPartsFromPreviewOnMask(const int32 SlotIndex) {
 }
 
-USBZCustomizationLibrary::USBZCustomizationLibrary() {
-}
 

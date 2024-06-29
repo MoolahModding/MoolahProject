@@ -8,5 +8,6 @@ class USBZBaseCharacterAnimationData : public UDataAsset {
     GENERATED_BODY()
 public:
     USBZBaseCharacterAnimationData();
+
 };
 

@@ -1,6 +1,6 @@
 #include "SBZAgentPathFollowingComponent.h"
 
-USBZAgentPathFollowingComponent::USBZAgentPathFollowingComponent() {
+USBZAgentPathFollowingComponent::USBZAgentPathFollowingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->PathFocalDistance = 125.00f;
     this->PathViewFocalDistance = 225.00f;
     this->bUseSplineSteering = true;
@@ -15,4 +15,5 @@ USBZAgentPathFollowingComponent::USBZAgentPathFollowingComponent() {
     this->CurTrafficNavLink = NULL;
     this->CachedCurrentNavAreaClass = NULL;
 }
+
 

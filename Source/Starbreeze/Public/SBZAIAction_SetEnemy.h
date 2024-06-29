@@ -8,5 +8,6 @@ class USBZAIAction_SetEnemy : public USBZAIAction {
     GENERATED_BODY()
 public:
     USBZAIAction_SetEnemy();
+
 };
 

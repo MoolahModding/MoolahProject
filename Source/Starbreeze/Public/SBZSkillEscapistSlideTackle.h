@@ -12,5 +12,6 @@ public:
     FGameplayTagContainer AffectedAITypes;
     
     USBZSkillEscapistSlideTackle();
+
 };
 

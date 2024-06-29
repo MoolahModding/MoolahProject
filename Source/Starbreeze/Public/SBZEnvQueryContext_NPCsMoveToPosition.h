@@ -8,5 +8,6 @@ class USBZEnvQueryContext_NPCsMoveToPosition : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_NPCsMoveToPosition();
+
 };
 

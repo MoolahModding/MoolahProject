@@ -1,5 +1,8 @@
 #include "SBZProgressionSaveGame.h"
 
+USBZProgressionSaveGame::USBZProgressionSaveGame() {
+}
+
 TArray<FSBZWeaponInventorySlot> USBZProgressionSaveGame::GetWeaponInventorySlotArray(ESBZEquippableLoadoutSlot EquippableSlot) const {
     return TArray<FSBZWeaponInventorySlot>();
 }
@@ -32,6 +35,8 @@ TArray<FSBZGloveInventorySlot> USBZProgressionSaveGame::GetGloveInventorySlotArr
     return TArray<FSBZGloveInventorySlot>();
 }
 
-USBZProgressionSaveGame::USBZProgressionSaveGame() {
+int32 USBZProgressionSaveGame::GetEquippedWeaponInventorySlotIndex(const int32 LoadoutIndex, ESBZEquippableLoadoutSlot ItemSlot) const {
+    return 0;
 }
+
 

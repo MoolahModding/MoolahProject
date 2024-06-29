@@ -28,11 +28,12 @@ private:
     
 public:
     USBZAIOrder_SecurityRoom();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPausedFunc(const FName& Reason);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

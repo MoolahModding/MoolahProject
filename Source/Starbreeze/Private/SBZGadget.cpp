@@ -1,5 +1,6 @@
 #include "SBZGadget.h"
 
-ASBZGadget::ASBZGadget() {
+ASBZGadget::ASBZGadget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

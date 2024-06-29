@@ -1,5 +1,9 @@
 #include "SBZCurrencyManager.h"
 
+USBZCurrencyManager::USBZCurrencyManager() {
+    this->GetCurrencyRequestQueue = NULL;
+}
+
 void USBZCurrencyManager::SubtractCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int32 Amount) {
 }
 
@@ -21,7 +25,4 @@ bool USBZCurrencyManager::CanAfford(ESBZCurrencyCode Type, int32 Cost) const {
 void USBZCurrencyManager::AddCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int32 Amount) {
 }
 
-USBZCurrencyManager::USBZCurrencyManager() {
-    this->GetCurrencyRequestQueue = NULL;
-}
 

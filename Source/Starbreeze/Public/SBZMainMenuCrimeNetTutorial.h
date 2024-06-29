@@ -39,31 +39,32 @@ private:
     
 public:
     USBZMainMenuCrimeNetTutorial();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHeistButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisabledHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnHeistButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnHeistButtonFocused(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnDisabledHeistButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePartyChanged();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void DisableHeistButtons(bool bDisabled);
     
 };

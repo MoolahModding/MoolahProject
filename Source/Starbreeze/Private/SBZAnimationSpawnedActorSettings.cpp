@@ -8,3 +8,4 @@ USBZAnimationSpawnedActorSettings::USBZAnimationSpawnedActorSettings() {
     this->CompatibleStancesToDrop = -1;
 }
 
+

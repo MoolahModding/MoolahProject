@@ -8,5 +8,6 @@ class USBZFortitudeWalkingTall : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZFortitudeWalkingTall();
+
 };
 

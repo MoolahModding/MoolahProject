@@ -20,6 +20,7 @@ private:
     
 public:
     USBZSessionLeavePartyCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZSessionLeavePartyCallbackProxy* SessionLeaveParty(UObject* NewWorldContextObject);
     

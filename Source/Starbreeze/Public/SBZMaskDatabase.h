@@ -16,5 +16,6 @@ public:
     USBZMaskData* CustomizableMask;
     
     USBZMaskDatabase();
+
 };
 

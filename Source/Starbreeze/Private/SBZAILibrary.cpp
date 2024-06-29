@@ -1,6 +1,12 @@
 #include "SBZAILibrary.h"
 #include "Templates/SubclassOf.h"
 
+USBZAILibrary::USBZAILibrary() {
+}
+
+void USBZAILibrary::TryEnableAirNavigation(const FVector& CenterLocation, const FVector& BoundsExtent, const FVector& ForwardVector, const AActor* ActorBlockingAirNav) {
+}
+
 void USBZAILibrary::TriggerAbility(ASBZAICharacter* Character, ESBZAbilityInput InAbility) {
 }
 
@@ -34,6 +40,9 @@ bool USBZAILibrary::DetectNavBottleNeckAndRelocate(const UObject* WorldContextOb
     return false;
 }
 
+void USBZAILibrary::DespawnAICharacter(ASBZAICharacter* AICharacter, bool bPerformDespawnTagCheck) {
+}
+
 USBZAIOrder_MoveTo* USBZAILibrary::CreateAIOrderMoveTo(TSubclassOf<USBZAIOrder_MoveTo> OrderClass, FVector Location, ASBZAIController* AIController) {
     return NULL;
 }
@@ -46,6 +55,4 @@ USBZAIActionData* USBZAILibrary::CreateActionData(TSubclassOf<USBZAIActionData> 
     return NULL;
 }
 
-USBZAILibrary::USBZAILibrary() {
-}
 

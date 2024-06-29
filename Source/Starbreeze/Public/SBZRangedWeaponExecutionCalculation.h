@@ -8,5 +8,6 @@ class USBZRangedWeaponExecutionCalculation : public UGameplayEffectExecutionCalc
     GENERATED_BODY()
 public:
     USBZRangedWeaponExecutionCalculation();
+
 };
 

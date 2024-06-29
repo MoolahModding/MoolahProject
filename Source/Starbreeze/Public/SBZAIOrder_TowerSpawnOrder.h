@@ -8,5 +8,6 @@ class USBZAIOrder_TowerSpawnOrder : public USBZAISquadOrder {
     GENERATED_BODY()
 public:
     USBZAIOrder_TowerSpawnOrder();
+
 };
 

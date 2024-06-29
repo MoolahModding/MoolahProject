@@ -1,30 +1,5 @@
 #include "PD3GameIntensityAnalyzer.h"
 
-void UPD3GameIntensityAnalyzer::RemoveGlitchEffectSourceActor(AActor* Actor) {
-}
-
-void UPD3GameIntensityAnalyzer::OnExitedActionPhase() {
-}
-
-void UPD3GameIntensityAnalyzer::HandleSuspenseValueChanged(uint8 NewValue) {
-}
-
-void UPD3GameIntensityAnalyzer::HandleProgressionIndexChanged() {
-}
-
-void UPD3GameIntensityAnalyzer::HandleGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
-}
-
-UPD3GameIntensityAnalyzer* UPD3GameIntensityAnalyzer::GetGameIntensityAnalyzer(UObject* WorldContextObject) {
-    return NULL;
-}
-
-void UPD3GameIntensityAnalyzer::AddGlitchRetainerBox(URetainerBox* RetainerBox) {
-}
-
-void UPD3GameIntensityAnalyzer::AddGlitchEffectSourceActor(AActor* Actor, float Range) {
-}
-
 UPD3GameIntensityAnalyzer::UPD3GameIntensityAnalyzer() {
     this->SystemStates[0] = NULL;
     this->SystemStates[1] = NULL;
@@ -58,4 +33,33 @@ UPD3GameIntensityAnalyzer::UPD3GameIntensityAnalyzer() {
     this->GlitchTextureParameterName = TEXT("UIGlitch");
     this->HUDGlitchDynamicMaterialInstance = NULL;
 }
+
+void UPD3GameIntensityAnalyzer::RemoveGlitchEffectSourceActor(AActor* Actor) {
+}
+
+void UPD3GameIntensityAnalyzer::OnExitedActionPhase() {
+}
+
+void UPD3GameIntensityAnalyzer::HandleSuspenseValueChanged(uint8 NewValue) {
+}
+
+void UPD3GameIntensityAnalyzer::HandleProgressionIndexChanged() {
+}
+
+void UPD3GameIntensityAnalyzer::HandleGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
+}
+
+void UPD3GameIntensityAnalyzer::HandleBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure) {
+}
+
+UPD3GameIntensityAnalyzer* UPD3GameIntensityAnalyzer::GetGameIntensityAnalyzer(UObject* WorldContextObject) {
+    return NULL;
+}
+
+void UPD3GameIntensityAnalyzer::AddGlitchRetainerBox(URetainerBox* RetainerBox) {
+}
+
+void UPD3GameIntensityAnalyzer::AddGlitchEffectSourceActor(AActor* Actor, float Range) {
+}
+
 

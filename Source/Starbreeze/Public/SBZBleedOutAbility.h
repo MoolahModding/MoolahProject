@@ -8,5 +8,6 @@ class USBZBleedOutAbility : public USBZDamageDefeatAbility {
     GENERATED_BODY()
 public:
     USBZBleedOutAbility();
+
 };
 

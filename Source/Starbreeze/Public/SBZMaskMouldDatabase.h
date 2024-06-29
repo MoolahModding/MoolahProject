@@ -13,5 +13,6 @@ public:
     TArray<USBZMaskMouldData*> MaskMouldArray;
     
     USBZMaskMouldDatabase();
+
 };
 

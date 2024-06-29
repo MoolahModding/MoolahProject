@@ -16,18 +16,19 @@ private:
     
 public:
     USBZAccelByteNetworkErrorManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ValidateFailedInternetConnection();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PollAccelTimeService();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpWaitToReconnectClosed(FName ActionName);
     
 public:
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZAccelByteNetworkErrorManager* Get(const UObject* WorldContextObject);
     
 };

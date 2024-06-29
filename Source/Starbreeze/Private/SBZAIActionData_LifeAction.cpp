@@ -13,3 +13,4 @@ USBZAIActionData_LifeAction::USBZAIActionData_LifeAction() {
     this->CompleteOrderForResults = -1;
 }
 
+

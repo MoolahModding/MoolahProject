@@ -13,6 +13,7 @@ class STARBREEZE_API USBZArrayLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZArrayLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void SortArray(const TArray<UObject*>& Array, TArray<UObject*>& OutArray, const FArraySortDelegate& SortCallback);
     

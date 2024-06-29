@@ -16,7 +16,8 @@ private:
     
 public:
     USBZForwardState();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

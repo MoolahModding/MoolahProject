@@ -25,6 +25,7 @@ protected:
     
 public:
     USBZAxisInputWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetAxis(FName InAxisName);
     

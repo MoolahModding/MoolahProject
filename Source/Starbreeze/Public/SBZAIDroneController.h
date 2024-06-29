@@ -31,6 +31,7 @@ private:
     uint8 FailedTasksUntilDespawn;
     
 public:
-    ASBZAIDroneController();
+    ASBZAIDroneController(const FObjectInitializer& ObjectInitializer);
+
 };
 

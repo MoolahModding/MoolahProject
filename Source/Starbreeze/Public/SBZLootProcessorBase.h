@@ -34,6 +34,9 @@ protected:
     float ProcessDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCanQueueProcessing;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMarkerDataAsset* MarkerAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -48,6 +51,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BagCount, meta=(AllowPrivateAccess=true))
     int32 BagCount;
     
+    UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnRep_CurrentProcessingIndex, meta=(AllowPrivateAccess=true))
+    int8 CurrentProcessingIndex;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<ASBZSabotagePoint*> SabotagePointArray;
     
@@ -55,7 +61,7 @@ protected:
     ASBZSabotagePoint* SabotagePoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bShouldSabotageGoToRunning;
+    ESBZLootProcessorState SabotageRestoreState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZBagType* BagTypeToReturn;
@@ -78,10 +84,14 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZBagHandle CurrentBag;
     
-public:
-    ASBZLootProcessorBase();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZBagType*> AllowedBagTypeArray;
     
+public:
+    ASBZLootProcessorBase(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
@@ -92,34 +102,43 @@ public:
     void PauseProcessing();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerClaimBagInteractComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSabotagedStateChanged(bool bSabotaged);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
+    void OnRep_CurrentProcessingIndex();
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_BagCount();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bInNewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBagBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_UpdateBagCount(int32 NewBagCount);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZLootProcessorState NewState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetCurrentProcessingIndex(uint8 Index);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnRunningStateChanged(ESBZLootProcessorState NewState, bool bDoCosmetics, bool bIsDedicatedServer);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_OnBagProcessed(const USBZBagType* OldBagType, const USBZBagType* NewBagType);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_BagCountUpdated(int32 NumOfBags);
     
 };

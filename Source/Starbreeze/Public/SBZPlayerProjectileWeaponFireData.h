@@ -14,5 +14,6 @@ public:
     float SpawnOffsetFromCamera;
     
     USBZPlayerProjectileWeaponFireData();
+
 };
 

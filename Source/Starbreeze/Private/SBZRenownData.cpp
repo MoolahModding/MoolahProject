@@ -4,3 +4,4 @@ USBZRenownData::USBZRenownData() {
     this->LevelsPerDivision = 99;
 }
 
+

@@ -35,6 +35,7 @@ private:
     
 public:
     USBZReplayBaseWidget();
+
     UFUNCTION(BlueprintCallable)
     bool StopReplay();
     
@@ -59,33 +60,33 @@ public:
     UFUNCTION(BlueprintCallable)
     bool PauseReplay();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReplayUpdate(const FString& ReplayLength, const FString& ReplayElapased, float ReplayElapsedPercent);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReplayTimerUpdate();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReplayStopped();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnReplayStarted(FSBZReplayInfo InReplayInfo);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReplayStart();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPaused() const;
     
     UFUNCTION(BlueprintCallable)
     void IncreaseReplaySpeed();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetReplayLengthSeconds() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetElapsedTimeSeconds() const;
     
     UFUNCTION(BlueprintCallable)

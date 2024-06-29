@@ -33,21 +33,22 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZFilterAllDesiredCountsDynamicDelegate FiltersAllHaveDesiredCountsChanged;
     
-    ASBZFilteredTriggerVolume();
+    ASBZFilteredTriggerVolume(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFiltersAllHaveDesiredCountsChanged(bool bState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFilterHasDesiredCountChanged(FName Identifer, bool bState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFilteredActorEndOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFilteredActorBeginOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
 };

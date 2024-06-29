@@ -37,33 +37,34 @@ private:
     FLinearColor CachedCrewAIColor;
     
 public:
-    ASBZAICrewState();
+    ASBZAICrewState(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsMaskOn();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_DefeatState(EPD3DefeatState InOldDefeatState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_Character(ASBZAICrewCharacter* OldCharacter);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMaskOn(bool bMaskOn);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDefeatState(EPD3DefeatState InState);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetCharacterName();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetCharacterIcon() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -8,5 +8,6 @@ class USBZSkillSharpshooterCollateralControl : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillSharpshooterCollateralControl();
+
 };
 

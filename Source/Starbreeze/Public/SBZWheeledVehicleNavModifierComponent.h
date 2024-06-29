@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZWheeledVehicleNavModifierComponent : public UNavModifierComponent {
     GENERATED_BODY()
 public:
-    USBZWheeledVehicleNavModifierComponent();
+    USBZWheeledVehicleNavModifierComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -1,6 +1,11 @@
 #include "SBZAIShieldAttributeSet.h"
 #include "Net/UnrealNetwork.h"
 
+USBZAIShieldAttributeSet::USBZAIShieldAttributeSet() {
+    this->Shield = NULL;
+    this->ShieldVisor = NULL;
+}
+
 void USBZAIShieldAttributeSet::OnRep_VisorArmor(const FGameplayAttributeData& OldValue) {
 }
 
@@ -13,8 +18,4 @@ void USBZAIShieldAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProper
     DOREPLIFETIME(USBZAIShieldAttributeSet, VisorArmor);
 }
 
-USBZAIShieldAttributeSet::USBZAIShieldAttributeSet() {
-    this->Shield = NULL;
-    this->ShieldVisor = NULL;
-}
 

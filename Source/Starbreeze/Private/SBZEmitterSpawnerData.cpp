@@ -7,3 +7,4 @@ USBZEmitterSpawnerData::USBZEmitterSpawnerData() {
     this->AutoActivate = true;
 }
 
+

@@ -13,13 +13,14 @@ private:
     
 public:
     USBZMenuTutorialMouseButton();
+
     UFUNCTION(BlueprintCallable)
     void SetTutorialShowing(bool bInIsShowing);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnShowingTutorialChanged();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsShowingTutorial() const;
     
 };

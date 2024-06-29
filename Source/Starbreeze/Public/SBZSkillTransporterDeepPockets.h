@@ -8,5 +8,6 @@ class USBZSkillTransporterDeepPockets : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTransporterDeepPockets();
+
 };
 

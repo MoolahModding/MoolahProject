@@ -42,7 +42,10 @@ public:
     UNiagaraSystem* DropDetonationEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalPlayerFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> LocalPlayerInstigatorFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PlayerFeedbackCurve;
@@ -54,5 +57,6 @@ public:
     TMap<FName, float> TacticianDiscombobulateEffectValueMap;
     
     USBZGrenadeData();
+
 };
 

@@ -8,5 +8,6 @@ class USBZTargetFinderPredicate : public UObject {
     GENERATED_BODY()
 public:
     USBZTargetFinderPredicate();
+
 };
 

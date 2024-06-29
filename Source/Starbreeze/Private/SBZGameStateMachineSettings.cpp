@@ -1,5 +1,15 @@
 #include "SBZGameStateMachineSettings.h"
 
+USBZGameStateMachineSettings::USBZGameStateMachineSettings() {
+    this->BlackScreenTime = 4.00f;
+    this->IntroSequenceSafetyTimeout = 30.00f;
+    this->OutroSequenceSafetyTimeout = 10.00f;
+    this->JobOveviewToActionPhaseDropInTime = 1.00f;
+    this->HeistCollections.AddDefaulted(3);
+    this->Levels.AddDefaulted(12);
+    this->LevelsTutorial.AddDefaulted(4);
+}
+
 int32 USBZGameStateMachineSettings::LevelShortNameToIdx(const UObject* WorldContextObject, const FString& ShortName) {
     return 0;
 }
@@ -36,13 +46,4 @@ TArray<FSBZHeistCollection> USBZGameStateMachineSettings::GetHeistCollections(co
     return TArray<FSBZHeistCollection>();
 }
 
-USBZGameStateMachineSettings::USBZGameStateMachineSettings() {
-    this->BlackScreenTime = 4.00f;
-    this->IntroSequenceSafetyTimeout = 30.00f;
-    this->OutroSequenceSafetyTimeout = 10.00f;
-    this->JobOveviewToActionPhaseDropInTime = 1.00f;
-    this->HeistCollections.AddDefaulted(3);
-    this->Levels.AddDefaulted(16);
-    this->LevelsTutorial.AddDefaulted(4);
-}
 

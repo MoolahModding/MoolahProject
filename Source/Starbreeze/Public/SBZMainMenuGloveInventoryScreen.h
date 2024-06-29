@@ -61,64 +61,65 @@ private:
     
 public:
     USBZMainMenuGloveInventoryScreen();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardGloveInSlot(int32 InGloveIndex);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RefreshWidgetVisuals();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryBuyGloveSlot();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSlotPurchaseComplete(bool bWasSuccessful);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSlotPriceChanged(const FSBZInventorySlotStoreItem& Item);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnShowBuySlotPopUpClosed(FName InActionName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDiscarded(bool bWasSuccessful);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDiscardGlovePopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnGloveSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnGloveDefaultButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnDefaultSet(ESBZMetaRequestResult Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeGloveSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void GloveSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DiscardItemDone(ESBZMetaRequestResult DiscardItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanDiscardGloveInSlot(int32 IndexToDiscard) const;
     
 };

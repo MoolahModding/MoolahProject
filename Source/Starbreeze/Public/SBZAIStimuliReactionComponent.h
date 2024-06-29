@@ -22,15 +22,16 @@ protected:
     USBZAIOrder_Escalate* EscalationOrder;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZActionNotificationAsset* ReasonAssets[13];
+    USBZActionNotificationAsset* ReasonAssets[16];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<ASBZCharacter*> DetectedCharacters;
     
 public:
-    USBZAIStimuliReactionComponent();
+    USBZAIStimuliReactionComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleStimuli(AActor* Actor, FAIStimulus Stimulus);
     
 };

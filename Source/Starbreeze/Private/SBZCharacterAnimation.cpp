@@ -5,3 +5,4 @@ USBZCharacterAnimation::USBZCharacterAnimation() {
     this->Character = NULL;
 }
 
+

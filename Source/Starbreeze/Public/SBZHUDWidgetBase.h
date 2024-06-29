@@ -17,16 +17,17 @@ protected:
     
 public:
     USBZHUDWidgetBase();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetRequiresUITagsChanged(bool bInHasRequiredTags);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUITagsChanged(const FGameplayTagContainer& UITagContainer);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasRequiredTags() const;
     
 };

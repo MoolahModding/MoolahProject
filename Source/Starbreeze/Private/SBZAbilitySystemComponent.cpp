@@ -2,7 +2,15 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZLandingEffect.h"
 
+USBZAbilitySystemComponent::USBZAbilitySystemComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Character = NULL;
+    this->LandingGameplayEffectClass = USBZLandingEffect::StaticClass();
+}
+
 void USBZAbilitySystemComponent::Server_ReplicateExplosion_Implementation(UObject* ExplosiveObject, const FSBZExplosionResult& Result, FPredictionKey PredictionKey) {
+}
+
+void USBZAbilitySystemComponent::Server_ReplicateCosmeticExplosion_Implementation(UObject* ExplosiveObject) {
 }
 
 void USBZAbilitySystemComponent::Server_MaskOn_Implementation() {
@@ -56,7 +64,7 @@ void USBZAbilitySystemComponent::Client_RevertDamageAttributeSetArray_Implementa
 void USBZAbilitySystemComponent::Client_RevertDamageAttributeSet_Implementation(const FSBZRevertDamageAttributeSetData& AttributeSetData) {
 }
 
-void USBZAbilitySystemComponent::Client_PredictedRagdollDenied_Implementation(ASBZCharacter* InCharacter, int32 HurtReactionIndex) {
+void USBZAbilitySystemComponent::Client_PredictedRagdollDenied_Implementation(APawn* InPawn, int32 HurtReactionIndex) {
 }
 
 void USBZAbilitySystemComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -65,8 +73,4 @@ void USBZAbilitySystemComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     DOREPLIFETIME(USBZAbilitySystemComponent, AppliedVolumeDamageNetIDArray);
 }
 
-USBZAbilitySystemComponent::USBZAbilitySystemComponent() {
-    this->Character = NULL;
-    this->LandingGameplayEffectClass = USBZLandingEffect::StaticClass();
-}
 

@@ -16,6 +16,7 @@ private:
     FSBZComponentSelector PhysicsComponent;
     
 public:
-    ASBZAmmoPickup();
+    ASBZAmmoPickup(const FObjectInitializer& ObjectInitializer);
+
 };
 

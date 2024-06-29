@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_HasNotSucceeded : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_HasNotSucceeded();
+
 };
 

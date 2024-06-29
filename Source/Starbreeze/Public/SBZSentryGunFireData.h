@@ -14,5 +14,6 @@ public:
     TSubclassOf<UGameplayEffect> OverheatEffectClass;
     
     USBZSentryGunFireData();
+
 };
 

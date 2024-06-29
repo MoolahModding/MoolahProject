@@ -15,5 +15,6 @@ private:
     
 public:
     USBZReplicationGraphNode_AlwaysRelevant_ForConnection();
+
 };
 

@@ -8,5 +8,6 @@ class USBZNoKillStatisticCriteriaData : public USBZStatisticCriteriaData {
     GENERATED_BODY()
 public:
     USBZNoKillStatisticCriteriaData();
+
 };
 

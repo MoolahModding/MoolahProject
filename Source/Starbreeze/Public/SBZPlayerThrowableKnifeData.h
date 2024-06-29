@@ -26,5 +26,6 @@ public:
     UNiagaraSystem* ShatteredEffect;
     
     USBZPlayerThrowableKnifeData();
+
 };
 

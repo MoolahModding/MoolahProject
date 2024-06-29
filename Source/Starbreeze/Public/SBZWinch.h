@@ -53,32 +53,33 @@ protected:
     bool bIsExternallySabotaged;
     
 public:
-    ASBZWinch();
+    ASBZWinch(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetWinchEnabled(bool bEnabled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnWinchSabotaged(bool bIsSabotaged);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_WinchState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckHookInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckHookAttachInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckActivationInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetWinchState(ESBZWinchState NewState);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnWinchStateChanged(ESBZWinchState OldState, ESBZWinchState NewState, bool bDoCosmetics);
     
 };

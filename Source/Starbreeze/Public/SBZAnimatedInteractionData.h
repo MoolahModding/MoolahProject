@@ -24,5 +24,6 @@ public:
     TArray<FSBZAnimatedInteractionTagPerDuration> AnimatedInteractionTagPerDurations;
     
     USBZAnimatedInteractionData();
+
 };
 

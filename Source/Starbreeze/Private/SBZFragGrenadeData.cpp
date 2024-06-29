@@ -8,3 +8,4 @@ USBZFragGrenadeData::USBZFragGrenadeData() {
     this->InstigatorPlayerDamageScale = 1.00f;
 }
 
+

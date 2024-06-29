@@ -17,5 +17,6 @@ private:
     
 public:
     USBZEnvQueryTest_DrillState();
+
 };
 

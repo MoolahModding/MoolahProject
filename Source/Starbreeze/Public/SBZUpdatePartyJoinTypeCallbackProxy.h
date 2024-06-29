@@ -21,6 +21,7 @@ private:
     
 public:
     USBZUpdatePartyJoinTypeCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZUpdatePartyJoinTypeCallbackProxy* UpdatePartyJoinType(UObject* NewWorldContextObject, ESBZOnlineJoinType InNewJoinType);
     

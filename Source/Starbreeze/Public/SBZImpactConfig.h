@@ -18,5 +18,6 @@ public:
     int32 TranslucentSortPriority;
     
     USBZImpactConfig();
+
 };
 

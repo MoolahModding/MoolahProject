@@ -8,5 +8,6 @@ class USBZAIActionData_Surrender : public USBZAIActionData {
     GENERATED_BODY()
 public:
     USBZAIActionData_Surrender();
+
 };
 

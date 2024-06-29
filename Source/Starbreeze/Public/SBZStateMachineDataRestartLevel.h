@@ -12,5 +12,6 @@ public:
     FSBZRestartLevelInfo Params;
     
     USBZStateMachineDataRestartLevel();
+
 };
 

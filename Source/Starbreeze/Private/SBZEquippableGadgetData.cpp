@@ -5,3 +5,4 @@ USBZEquippableGadgetData::USBZEquippableGadgetData() {
     this->SpawnSocket = TEXT("Gadget");
 }
 
+

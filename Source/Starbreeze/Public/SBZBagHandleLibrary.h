@@ -9,7 +9,8 @@ class USBZBagHandleLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZBagHandleLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsValid(FSBZBagHandle& BagHandle);
     
 };

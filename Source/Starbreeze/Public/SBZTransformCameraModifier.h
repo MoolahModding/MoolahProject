@@ -8,5 +8,6 @@ class USBZTransformCameraModifier : public USBZPlayerCameraModifier {
     GENERATED_BODY()
 public:
     USBZTransformCameraModifier();
+
 };
 

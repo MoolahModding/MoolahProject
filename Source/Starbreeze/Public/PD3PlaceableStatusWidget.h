@@ -26,11 +26,12 @@ private:
     
 public:
     UPD3PlaceableStatusWidget();
+
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnIconChanged(const TSoftObjectPtr<UPaperSprite>& InIcon);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnAmmoInventoryChanged(int32 InAmmoInventory);
     
 };

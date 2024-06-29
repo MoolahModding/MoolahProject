@@ -8,5 +8,6 @@ class USBZAIAction_Revive : public USBZAIAction_Order {
     GENERATED_BODY()
 public:
     USBZAIAction_Revive();
+
 };
 

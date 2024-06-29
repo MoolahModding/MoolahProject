@@ -10,17 +10,19 @@ UCLASS(Blueprintable, EditInlineNew)
 class UPD3CustodyTimerWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UTextBlock* TitleText;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZPlayerState* PlayerState;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UTextBlock* TitleText;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UTextBlock* TimerText;
     
 public:
     UPD3CustodyTimerWidget();
+
 };
 

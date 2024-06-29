@@ -8,5 +8,6 @@ class USBZPlayerCrouchAbility : public USBZGameplayAbility_CharacterCrouch {
     GENERATED_BODY()
 public:
     USBZPlayerCrouchAbility();
+
 };
 

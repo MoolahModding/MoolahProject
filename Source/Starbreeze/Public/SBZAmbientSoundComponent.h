@@ -52,7 +52,8 @@ private:
     float AttenuationSquared;
     
 public:
-    USBZAmbientSoundComponent();
+    USBZAmbientSoundComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetSwitchState(const UAkSwitchValue* SwitchValue, const FString& InSwitchGroup, const FString& InSwitchState);
     
@@ -62,10 +63,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetAudioEvent(UAkAudioEvent* InAkAudioEvent);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAmbientSoundComponentEnabled() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetAttenuation() const;
     
     UFUNCTION(BlueprintCallable)

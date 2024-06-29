@@ -13,5 +13,6 @@ public:
     TArray<USBZItemBundleData*> ItemBundleArray;
     
     USBZItemBundleDatabase();
+
 };
 

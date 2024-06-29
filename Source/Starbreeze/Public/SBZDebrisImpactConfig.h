@@ -8,5 +8,6 @@ class USBZDebrisImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZDebrisImpactConfig();
+
 };
 

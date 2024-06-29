@@ -8,5 +8,6 @@ class USBZNavArea_AgilityMisc : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityMisc();
+
 };
 

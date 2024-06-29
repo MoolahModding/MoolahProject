@@ -5,3 +5,4 @@ USBZGameStartMainMenuLoadoutWidget::USBZGameStartMainMenuLoadoutWidget() {
     this->DefaultItemWidgetClass = NULL;
 }
 
+

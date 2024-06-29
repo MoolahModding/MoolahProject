@@ -4,3 +4,4 @@ USBZWidgetCreditsText::USBZWidgetCreditsText() {
     this->TextWidget = NULL;
 }
 
+

@@ -8,5 +8,6 @@ class USBZAIAction_Lobotomize : public USBZAIAction {
     GENERATED_BODY()
 public:
     USBZAIAction_Lobotomize();
+
 };
 

@@ -4,5 +4,5 @@
 
 class AActor;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSpectateTargetChangedDelegate, AActor*, TargetActor);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZSpectateTargetChangedDelegate, AActor*, TargetActor);
 

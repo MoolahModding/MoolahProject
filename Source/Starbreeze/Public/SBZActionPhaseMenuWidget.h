@@ -22,11 +22,12 @@ private:
     
 public:
     USBZActionPhaseMenuWidget();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void ToggleShowMenu();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMenuShown(bool bIsShown);
     
 };

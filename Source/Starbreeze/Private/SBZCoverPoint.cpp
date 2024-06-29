@@ -1,5 +1,17 @@
 #include "SBZCoverPoint.h"
 #include "Components/BoxComponent.h"
+#include "Components/SceneComponent.h"
+
+ASBZCoverPoint::ASBZCoverPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->BlockingCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("BlockingCollision"));
+    this->AIVisibilityNodeComputationFrequency = ESBZAIVisibilityNodeComputationFrequency::Once;
+    this->LinkRadius = 0.00f;
+    this->CurrentRoom = NULL;
+    this->ValidShootingPoints = 0;
+    this->bManualRegistering = false;
+    this->BlockingCollision->SetupAttachment(RootComponent);
+}
 
 bool ASBZCoverPoint::Reserve(AActor* ForActor) {
     return false;
@@ -91,12 +103,4 @@ bool ASBZCoverPoint::Abandon(AActor* OccupyingActor) {
     return false;
 }
 
-ASBZCoverPoint::ASBZCoverPoint() {
-    this->BlockingCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("BlockingCollision"));
-    this->AIVisibilityNodeComputationFrequency = ESBZAIVisibilityNodeComputationFrequency::Once;
-    this->LinkRadius = 0.00f;
-    this->CurrentRoom = NULL;
-    this->ValidShootingPoints = 0;
-    this->bManualRegistering = false;
-}
 

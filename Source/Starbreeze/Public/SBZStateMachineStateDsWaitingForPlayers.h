@@ -7,7 +7,7 @@
 #include "SBZPlayerStateRemovedEvent.h"
 #include "SBZStateMachineStateDsWaitingForPlayers.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateDsWaitingForPlayers : public USBZDsStateMachineState {
     GENERATED_BODY()
 public:
@@ -20,52 +20,53 @@ private:
     
 public:
     USBZStateMachineStateDsWaitingForPlayers();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void UnregisterClient(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerStartTravel(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerReadyReceived(const FUniqueNetIdRepl& ReadyPlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayersReadyTimerComplete();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void IntroSequenceTimeout();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EndIntroSequence();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerId, const FString& DisplayName);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CleanState();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BlackScreenDoneTimeout();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void AutoReadyTimeout();
     
 };

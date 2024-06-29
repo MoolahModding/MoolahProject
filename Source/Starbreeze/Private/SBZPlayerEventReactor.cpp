@@ -1,5 +1,22 @@
 #include "SBZPlayerEventReactor.h"
+#include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
+
+ASBZPlayerEventReactor::ASBZPlayerEventReactor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->EventCooldown = 10.00f;
+    this->LastPlayedTime = 0.00f;
+    this->ReactorStateArray[0] = NULL;
+    this->ReactorStateArray[1] = NULL;
+    this->ReactorStateArray[2] = NULL;
+    this->ReactorStateArray[3] = NULL;
+    this->ReactorStateArray[4] = NULL;
+    this->PlayerCommentDelay = 60.00f;
+    this->CurrentState = ESBZEventReactorState::Inactive;
+}
 
 void ASBZPlayerEventReactor::SetState(ESBZEventReactorState NewState) {
 }
@@ -25,15 +42,4 @@ void ASBZPlayerEventReactor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(ASBZPlayerEventReactor, CurrentState);
 }
 
-ASBZPlayerEventReactor::ASBZPlayerEventReactor() {
-    this->EventCooldown = 10.00f;
-    this->LastPlayedTime = 0.00f;
-    this->ReactorStateArray[0] = NULL;
-    this->ReactorStateArray[1] = NULL;
-    this->ReactorStateArray[2] = NULL;
-    this->ReactorStateArray[3] = NULL;
-    this->ReactorStateArray[4] = NULL;
-    this->PlayerCommentDelay = 60.00f;
-    this->CurrentState = ESBZEventReactorState::Inactive;
-}
 

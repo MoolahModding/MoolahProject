@@ -1,5 +1,9 @@
 #include "SBZMenuMultiStackWidget.h"
 
+USBZMenuMultiStackWidget::USBZMenuMultiStackWidget() {
+    this->bHasStackFocus = false;
+}
+
 void USBZMenuMultiStackWidget::OnStackStateChanged(FSBZUIStackChangedEvent UIStackStateChangedEvent) {
 }
 
@@ -15,7 +19,4 @@ FName USBZMenuMultiStackWidget::GetActiveStackValue() const {
     return NAME_None;
 }
 
-USBZMenuMultiStackWidget::USBZMenuMultiStackWidget() {
-    this->bHasStackFocus = false;
-}
 

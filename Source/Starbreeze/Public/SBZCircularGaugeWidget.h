@@ -24,6 +24,7 @@ protected:
     
 public:
     USBZCircularGaugeWidget();
+
     UFUNCTION(BlueprintCallable)
     void UpdateGaugeProgress(float inNewProgress);
     

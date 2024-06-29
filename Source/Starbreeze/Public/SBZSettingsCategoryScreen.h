@@ -66,8 +66,9 @@ protected:
     
 public:
     USBZSettingsCategoryScreen();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SettingsCategoryInitialized();
     
 public:
@@ -75,14 +76,14 @@ public:
     void ResetSettingsCategory(const FName& SettingsCategoryName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSettingsButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSettingsButtonChanged(USBZSettingsButton* SettingsButton);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSettingsCategoryDirty(const FName& SettingsCategoryName) const;
     
     UFUNCTION(BlueprintCallable)

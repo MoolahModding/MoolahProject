@@ -1,5 +1,10 @@
 #include "SBZSettingsMenuManager.h"
 
+USBZSettingsMenuManager::USBZSettingsMenuManager() {
+    this->SettingsMenuConfig = NULL;
+    this->SubSettings = NULL;
+}
+
 void USBZSettingsMenuManager::OnPopUpClosedUnappliedChanges(FName ActionName) {
 }
 
@@ -16,8 +21,4 @@ USBZSettingsMenuManager* USBZSettingsMenuManager::Get(const UObject* WorldContex
     return NULL;
 }
 
-USBZSettingsMenuManager::USBZSettingsMenuManager() {
-    this->SettingsMenuConfig = NULL;
-    this->SubSettings = NULL;
-}
 

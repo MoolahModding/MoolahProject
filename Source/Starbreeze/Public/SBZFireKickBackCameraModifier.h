@@ -8,5 +8,6 @@ class USBZFireKickBackCameraModifier : public USBZPlayerCameraModifier {
     GENERATED_BODY()
 public:
     USBZFireKickBackCameraModifier();
+
 };
 

@@ -8,5 +8,6 @@ class USBZBTTask_LifeActionWaitForCompletion : public UBTTaskNode {
     GENERATED_BODY()
 public:
     USBZBTTask_LifeActionWaitForCompletion();
+
 };
 

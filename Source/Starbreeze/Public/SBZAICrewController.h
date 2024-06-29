@@ -22,14 +22,15 @@ private:
     ASBZRoomVolume* LastWardRoom;
     
 public:
-    ASBZAICrewController();
+    ASBZAICrewController(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CrewState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCrewStateDestroyed(AActor* DestroyedActor);
     
 };

@@ -13,5 +13,6 @@ public:
     USBZWorldEventBase* Event;
     
     USBZWorldEventData();
+
 };
 

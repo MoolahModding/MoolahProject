@@ -12,7 +12,8 @@ protected:
     bool bStartEnabled;
     
 public:
-    ASBZBagRespawnPoint();
+    ASBZBagRespawnPoint(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void EnableBagRespawnPoint();
     

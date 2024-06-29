@@ -1,5 +1,6 @@
 #include "SBZInteractableDoorComponent.h"
 
-USBZInteractableDoorComponent::USBZInteractableDoorComponent() {
+USBZInteractableDoorComponent::USBZInteractableDoorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

@@ -5,5 +5,5 @@
 class USBZBaseInteractableComponent;
 class USBZInteractorComponent;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZOnInteraction, USBZBaseInteractableComponent*, Interactable, USBZInteractorComponent*, Interactor, bool, bIsLocallyControlledInteractor);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZOnInteraction, USBZBaseInteractableComponent*, Interactable, USBZInteractorComponent*, Interactor, bool, bIsLocallyControlledInteractor);
 

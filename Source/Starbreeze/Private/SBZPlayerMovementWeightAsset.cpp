@@ -6,3 +6,4 @@ USBZPlayerMovementWeightAsset::USBZPlayerMovementWeightAsset() {
     this->SlideData = NULL;
 }
 
+

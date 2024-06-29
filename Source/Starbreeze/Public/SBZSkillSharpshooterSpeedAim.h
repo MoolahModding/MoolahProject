@@ -8,5 +8,6 @@ class USBZSkillSharpshooterSpeedAim : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillSharpshooterSpeedAim();
+
 };
 

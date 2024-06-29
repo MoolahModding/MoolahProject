@@ -14,6 +14,7 @@ class USBZMannequinLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZMannequinLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetMainMenuMannequinPose(const UObject* WorldContextObject, UAnimSequenceBase* Pose);
     

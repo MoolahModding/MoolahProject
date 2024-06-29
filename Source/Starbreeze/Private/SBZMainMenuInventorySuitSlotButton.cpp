@@ -1,5 +1,9 @@
 #include "SBZMainMenuInventorySuitSlotButton.h"
 
+USBZMainMenuInventorySuitSlotButton::USBZMainMenuInventorySuitSlotButton() {
+    this->SuitSlotIndex = -1;
+}
+
 
 
 bool USBZMainMenuInventorySuitSlotButton::IsPresetSuitSlot() const {
@@ -25,7 +29,4 @@ USBZSuitData* USBZMainMenuInventorySuitSlotButton::GetSuitInSlot() const {
     return NULL;
 }
 
-USBZMainMenuInventorySuitSlotButton::USBZMainMenuInventorySuitSlotButton() {
-    this->SuitSlotIndex = -1;
-}
 

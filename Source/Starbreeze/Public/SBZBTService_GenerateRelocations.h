@@ -8,5 +8,6 @@ class USBZBTService_GenerateRelocations : public UBTService {
     GENERATED_BODY()
 public:
     USBZBTService_GenerateRelocations();
+
 };
 

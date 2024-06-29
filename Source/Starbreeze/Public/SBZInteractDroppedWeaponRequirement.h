@@ -8,5 +8,6 @@ class USBZInteractDroppedWeaponRequirement : public USBZBaseInteractRequirement 
     GENERATED_BODY()
 public:
     USBZInteractDroppedWeaponRequirement();
+
 };
 

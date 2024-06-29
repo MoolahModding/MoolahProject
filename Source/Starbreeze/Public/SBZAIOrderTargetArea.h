@@ -28,7 +28,7 @@ protected:
     UBoxComponent* BoxComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZRoomVolume* Room;
+    TArray<ASBZRoomVolume*> RoomVolumes;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -38,19 +38,20 @@ private:
     TArray<ASBZCoverPoint*> CachedCoverPoints;
     
 public:
-    ASBZAIOrderTargetArea();
+    ASBZAIOrderTargetArea(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UpdateCoverPoints();
     
 public:
     UFUNCTION(BlueprintCallable)
     void SetEnabled(bool bEnable);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnabled() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

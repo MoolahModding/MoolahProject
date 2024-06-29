@@ -12,13 +12,14 @@ class USBZModularPartApplier : public UObject {
     GENERATED_BODY()
 public:
     USBZModularPartApplier();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool NeedConfig() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<TSubclassOf<USBZModularPartDataAsset>> GetExpectedParts(const USBZModularPartDataAsset* PartAsset) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool DoesConfigNeedParts() const;
     
     UFUNCTION(BlueprintCallable)

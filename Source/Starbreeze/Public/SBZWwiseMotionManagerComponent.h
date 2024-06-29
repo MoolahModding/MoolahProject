@@ -20,6 +20,7 @@ protected:
     FString WwiseMotionBusName;
     
 public:
-    USBZWwiseMotionManagerComponent();
+    USBZWwiseMotionManagerComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

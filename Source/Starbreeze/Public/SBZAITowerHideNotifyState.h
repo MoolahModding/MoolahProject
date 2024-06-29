@@ -8,5 +8,6 @@ class USBZAITowerHideNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZAITowerHideNotifyState();
+
 };
 

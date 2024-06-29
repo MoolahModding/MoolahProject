@@ -4,3 +4,4 @@ USBZTutorialPopUpDataAsset::USBZTutorialPopUpDataAsset() {
     this->TutorialIcon = NULL;
 }
 
+

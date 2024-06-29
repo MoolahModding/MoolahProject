@@ -12,11 +12,15 @@ public:
     TMap<ESBZDifficulty, float> Damage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverHealDamageMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetration;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float DamageInterval[4];
     
     USBZAIWeaponMeleeAttackData();
+
 };
 

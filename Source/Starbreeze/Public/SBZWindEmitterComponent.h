@@ -39,7 +39,8 @@ protected:
     float Strength;
     
 public:
-    USBZWindEmitterComponent();
+    USBZWindEmitterComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetSpeed(float InWindSpeed);
     

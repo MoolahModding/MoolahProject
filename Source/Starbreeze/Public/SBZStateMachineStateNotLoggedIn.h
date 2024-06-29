@@ -18,5 +18,6 @@ private:
     
 public:
     USBZStateMachineStateNotLoggedIn();
+
 };
 

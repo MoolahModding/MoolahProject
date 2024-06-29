@@ -1,6 +1,6 @@
 #include "SBZAIUtilityComponent.h"
 
-USBZAIUtilityComponent::USBZAIUtilityComponent() {
+USBZAIUtilityComponent::USBZAIUtilityComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bTimeSliceDecidersLoop = true;
     this->Default = NULL;
     this->AIController = NULL;
@@ -10,4 +10,5 @@ USBZAIUtilityComponent::USBZAIUtilityComponent() {
     this->Pawn = NULL;
     this->CachedTopDecider = NULL;
 }
+
 

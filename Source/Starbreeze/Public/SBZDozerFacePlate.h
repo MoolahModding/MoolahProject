@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZDozerFacePlate : public USBZDozerFaceArmor {
     GENERATED_BODY()
 public:
-    USBZDozerFacePlate();
+    USBZDozerFacePlate(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -4,3 +4,4 @@ USBZAirPathFinder::USBZAirPathFinder() {
     this->NavigationData = NULL;
 }
 
+

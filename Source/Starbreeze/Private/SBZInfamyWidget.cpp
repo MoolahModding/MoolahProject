@@ -1,12 +1,5 @@
 #include "SBZInfamyWidget.h"
 
-void USBZInfamyWidget::RefreshCurrentInfamyData(USBZInfamyManager* InfamyManager) {
-}
-
-
-void USBZInfamyWidget::OnInfamyAdded(USBZInfamyManager* InfamyManager, int32 InLevelValue, int32 InExpirienceValue) {
-}
-
 USBZInfamyWidget::USBZInfamyWidget() {
     this->InfamyLevel = 0;
     this->InfamyExperience = 0;
@@ -15,4 +8,12 @@ USBZInfamyWidget::USBZInfamyWidget() {
     this->CurrentLevelProgress = 0.00f;
     this->bIsMaxLevel = false;
 }
+
+void USBZInfamyWidget::RefreshCurrentInfamyData(USBZInfamyManager* InfamyManager) {
+}
+
+
+void USBZInfamyWidget::OnInfamyAdded(USBZInfamyManager* InfamyManager, int32 InLevelValue, int32 InExpirienceValue) {
+}
+
 

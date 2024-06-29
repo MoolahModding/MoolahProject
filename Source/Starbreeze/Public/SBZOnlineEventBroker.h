@@ -8,5 +8,6 @@ class USBZOnlineEventBroker : public UObject {
     GENERATED_BODY()
 public:
     USBZOnlineEventBroker();
+
 };
 

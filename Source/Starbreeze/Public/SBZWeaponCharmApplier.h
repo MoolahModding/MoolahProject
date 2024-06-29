@@ -8,5 +8,6 @@ class USBZWeaponCharmApplier : public USBZModularPartApplier {
     GENERATED_BODY()
 public:
     USBZWeaponCharmApplier();
+
 };
 

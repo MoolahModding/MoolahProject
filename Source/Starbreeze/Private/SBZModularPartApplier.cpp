@@ -1,6 +1,9 @@
 #include "SBZModularPartApplier.h"
 #include "Templates/SubclassOf.h"
 
+USBZModularPartApplier::USBZModularPartApplier() {
+}
+
 bool USBZModularPartApplier::NeedConfig() const {
     return false;
 }
@@ -17,6 +20,4 @@ USBZModularPartConfig* USBZModularPartApplier::CreateNewConfig() {
     return NULL;
 }
 
-USBZModularPartApplier::USBZModularPartApplier() {
-}
 

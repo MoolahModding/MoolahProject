@@ -5,3 +5,4 @@ USBZAgilityQueryParams::USBZAgilityQueryParams() {
     this->ObstacleDetectionProfileName = TEXT("Pawn");
 }
 
+

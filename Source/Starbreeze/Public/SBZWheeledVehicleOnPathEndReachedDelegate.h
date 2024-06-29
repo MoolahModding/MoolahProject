@@ -4,5 +4,5 @@
 
 class ASBZWheeledVehicle;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZWheeledVehicleOnPathEndReached, ASBZWheeledVehicle*, Vehicle);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZWheeledVehicleOnPathEndReached, ASBZWheeledVehicle*, Vehicle);
 

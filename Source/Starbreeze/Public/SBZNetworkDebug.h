@@ -7,6 +7,7 @@ UCLASS(Blueprintable, NonTransient)
 class ASBZNetworkDebug : public AHUD {
     GENERATED_BODY()
 public:
-    ASBZNetworkDebug();
+    ASBZNetworkDebug(const FObjectInitializer& ObjectInitializer);
+
 };
 

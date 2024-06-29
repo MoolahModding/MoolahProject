@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableCompo
 class USBZSpecialAIComponent : public UActorComponent {
     GENERATED_BODY()
 public:
-    USBZSpecialAIComponent();
+    USBZSpecialAIComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

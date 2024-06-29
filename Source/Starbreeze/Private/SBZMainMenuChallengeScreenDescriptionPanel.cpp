@@ -1,10 +1,5 @@
 #include "SBZMainMenuChallengeScreenDescriptionPanel.h"
 
-
-void USBZMainMenuChallengeScreenDescriptionPanel::SetChallengeData(const FSBZChallengeData& InChallengeData) {
-}
-
-
 USBZMainMenuChallengeScreenDescriptionPanel::USBZMainMenuChallengeScreenDescriptionPanel() {
     this->Panel_ChallengeStats = NULL;
     this->Panel_ItemRewards = NULL;
@@ -13,4 +8,10 @@ USBZMainMenuChallengeScreenDescriptionPanel::USBZMainMenuChallengeScreenDescript
     this->MaxStatWidgetsDisplayed = 3;
     this->MaxItemWidgetsDisplayed = 3;
 }
+
+
+void USBZMainMenuChallengeScreenDescriptionPanel::SetChallengeData(const FSBZChallengeData& InChallengeData) {
+}
+
+
 

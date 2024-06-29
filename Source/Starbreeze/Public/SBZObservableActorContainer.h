@@ -19,5 +19,6 @@ public:
     FAddRemove OnRemoved;
     
     USBZObservableActorContainer();
+
 };
 

@@ -16,19 +16,20 @@ protected:
     
 public:
     USBZSocialMainMenuScreenBaseWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetToggleSocialScreenInput(FName InNewToggleActionName);
     
     UFUNCTION(BlueprintCallable)
     void OnToggleSocialScreenPressed();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnToggleSocialScreenInputChanged(FName NewToggleSocialSceenAction);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnOpenSocialScreen();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCloseSocialScreen();
     
 };

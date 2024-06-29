@@ -1,6 +1,10 @@
 #include "SBZPlayerCameraFeedbackComponent.h"
 #include "Templates/SubclassOf.h"
 
+USBZPlayerCameraFeedbackComponent::USBZPlayerCameraFeedbackComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->PlayerCameraOwner = NULL;
+}
+
 bool USBZPlayerCameraFeedbackComponent::SetFeedbackIntensity(int32 FeedbackID, float InIntensity) {
     return false;
 }
@@ -27,7 +31,4 @@ int32 USBZPlayerCameraFeedbackComponent::AddFeedback(FSBZLocalPlayerFeedbackPara
     return 0;
 }
 
-USBZPlayerCameraFeedbackComponent::USBZPlayerCameraFeedbackComponent() {
-    this->PlayerCameraOwner = NULL;
-}
 

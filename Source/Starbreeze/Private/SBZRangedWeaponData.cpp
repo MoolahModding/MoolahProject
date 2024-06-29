@@ -25,3 +25,4 @@ USBZRangedWeaponData::USBZRangedWeaponData() {
     this->CachedMagazineData = NULL;
 }
 
+

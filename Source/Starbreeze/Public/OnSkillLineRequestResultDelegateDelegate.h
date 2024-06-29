@@ -5,5 +5,5 @@
 
 class USBZSkillLine;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnSkillLineRequestResultDelegate, ESBZMetaRequestResult, Result, const USBZSkillLine*, SkillLine);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnSkillLineRequestResultDelegate, ESBZMetaRequestResult, Result, const USBZSkillLine*, SkillLine);
 

@@ -8,5 +8,6 @@ class USBZSkillEngineerAPTurret : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEngineerAPTurret();
+
 };
 

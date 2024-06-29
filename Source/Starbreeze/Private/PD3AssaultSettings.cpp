@@ -22,5 +22,7 @@ UPD3AssaultSettings::UPD3AssaultSettings() {
     this->MaxNrAttackers[1] = 15;
     this->MaxNrAttackers[2] = 15;
     this->MaxNrAttackers[3] = 15;
+    this->SecuritySettingDataModifiers = NULL;
 }
+
 

@@ -8,5 +8,6 @@ class USBZFortitudeEmpathicHealing : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZFortitudeEmpathicHealing();
+
 };
 

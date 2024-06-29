@@ -11,5 +11,6 @@ public:
     uint8 SuitPart;
     
     USBZSuitPartSlot();
+
 };
 

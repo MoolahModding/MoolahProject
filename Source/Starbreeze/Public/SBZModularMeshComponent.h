@@ -32,6 +32,7 @@ protected:
     uint8 bMeshReady: 1;
     
 public:
-    USBZModularMeshComponent();
+    USBZModularMeshComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

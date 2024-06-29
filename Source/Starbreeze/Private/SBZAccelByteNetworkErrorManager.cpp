@@ -1,5 +1,9 @@
 #include "SBZAccelByteNetworkErrorManager.h"
 
+USBZAccelByteNetworkErrorManager::USBZAccelByteNetworkErrorManager() {
+    this->NotifyWidget = NULL;
+}
+
 void USBZAccelByteNetworkErrorManager::ValidateFailedInternetConnection() {
 }
 
@@ -13,7 +17,4 @@ USBZAccelByteNetworkErrorManager* USBZAccelByteNetworkErrorManager::Get(const UO
     return NULL;
 }
 
-USBZAccelByteNetworkErrorManager::USBZAccelByteNetworkErrorManager() {
-    this->NotifyWidget = NULL;
-}
 

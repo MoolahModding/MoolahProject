@@ -8,5 +8,6 @@ class USBZSentryGunRangedWeaponAbility : public USBZFireRangedWeaponAbility {
     GENERATED_BODY()
 public:
     USBZSentryGunRangedWeaponAbility();
+
 };
 

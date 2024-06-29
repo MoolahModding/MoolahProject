@@ -23,6 +23,9 @@ public:
     USBZActorContainer* AllPawns;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZActorContainer* AllAlivePawns;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZObservableActorContainer* AllPlayerCharacters;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -62,7 +65,7 @@ public:
     USBZActorContainer* AllDespawnVolumes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    USBZActorContainer* AllArmedGrenades;
+    USBZActorContainer* AllArmedPlayerGrenades;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZActorContainer* AllRoomVolumes;
@@ -112,6 +115,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZObjectContainer* AllAIObjectives;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZActorContainer* AllBrainslugs;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZImpactManager* ImpactManager;
     
@@ -148,7 +154,8 @@ private:
     
 public:
     USBZWorldRuntime();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWorldRuntime* Get(const UObject* WorldContextObject);
     
 };

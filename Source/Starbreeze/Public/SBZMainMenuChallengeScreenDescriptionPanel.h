@@ -41,6 +41,7 @@ private:
     
 public:
     USBZMainMenuChallengeScreenDescriptionPanel();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetEmpty();
     
@@ -48,7 +49,7 @@ public:
     void SetChallengeData(const FSBZChallengeData& InChallengeData);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnChallengeDataUpdated(const FSBZChallengeData& InChallengeData);
     
 };

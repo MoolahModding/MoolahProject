@@ -1,5 +1,10 @@
 #include "SBZLifeActionInstance.h"
 
+USBZLifeActionInstance::USBZLifeActionInstance(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DialogPlayer = NULL;
+    this->OwningLifeActionComponent = NULL;
+}
+
 void USBZLifeActionInstance::StopDialog(bool bReset) {
 }
 
@@ -34,8 +39,4 @@ bool USBZLifeActionInstance::AreAllNeededSlotsReady() const {
     return false;
 }
 
-USBZLifeActionInstance::USBZLifeActionInstance() {
-    this->DialogPlayer = NULL;
-    this->OwningLifeActionComponent = NULL;
-}
 

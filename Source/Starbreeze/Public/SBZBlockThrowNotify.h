@@ -8,5 +8,6 @@ class USBZBlockThrowNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZBlockThrowNotify();
+
 };
 

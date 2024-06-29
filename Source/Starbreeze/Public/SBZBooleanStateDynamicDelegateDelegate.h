@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZBooleanStateDynamicDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZBooleanStateDynamicDelegate, bool, State);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZBooleanStateDynamicDelegate, bool, State);
 

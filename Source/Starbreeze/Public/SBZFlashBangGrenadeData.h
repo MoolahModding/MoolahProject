@@ -40,5 +40,6 @@ public:
     FGameplayTagContainer PawnTypesToIgnoreSkills;
     
     USBZFlashBangGrenadeData();
+
 };
 

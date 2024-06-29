@@ -8,7 +8,7 @@
 class USBZChat;
 class USBZGameUserSettings;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, EditInlineNew, Config=StarbreezeUI)
+UCLASS(Blueprintable, DefaultConfig, EditInlineNew, Config=StarbreezeUI)
 class STARBREEZE_API USBZUIChatBaseWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
@@ -39,22 +39,23 @@ protected:
     
 public:
     USBZUIChatBaseWidget();
+
     UFUNCTION(BlueprintCallable)
     void SendMessage(const FSBZChatMessage& InMessage);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnNewMessageReceived(const FSBZChatMessage& InChatMessage);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMessageReceivedEvent(const FSBZChatMessage& ChatMessage);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetUserId();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetUserDisplayName();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString CreateTimestamp() const;
     
 };

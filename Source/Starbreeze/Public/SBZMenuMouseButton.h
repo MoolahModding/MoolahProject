@@ -16,14 +16,15 @@ public:
     FOnMenuMouseButtonSelected OnButtonSelected;
     
     USBZMenuMouseButton();
+
     UFUNCTION(BlueprintCallable)
     void SelectButton();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonSelected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonHoveredChanged(bool bInIsHovered);
     
 };

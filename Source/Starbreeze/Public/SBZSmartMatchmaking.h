@@ -8,5 +8,6 @@ class STARBREEZE_API USBZSmartMatchmaking : public USBZMatchmaking {
     GENERATED_BODY()
 public:
     USBZSmartMatchmaking();
+
 };
 

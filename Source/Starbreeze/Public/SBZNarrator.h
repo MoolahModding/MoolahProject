@@ -15,8 +15,9 @@ protected:
     USBZCharacterVoiceComponent* VoiceComponent;
     
 public:
-    ASBZNarrator();
-    
+    ASBZNarrator(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

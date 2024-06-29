@@ -5,7 +5,7 @@
 #include "SBZLobbyCharacterInfo.h"
 #include "SBZLobbyRemoteState.generated.h"
 
-UCLASS(Blueprintable, NotPlaceable, Transient)
+UCLASS(Blueprintable, NotPlaceable, Transient, Config=Engine)
 class STARBREEZE_API ASBZLobbyRemoteState : public AInfo {
     GENERATED_BODY()
 public:
@@ -29,24 +29,25 @@ private:
     int32 LobbyTimeout;
     
 public:
-    ASBZLobbyRemoteState();
+    ASBZLobbyRemoteState(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_LobbyTimeout();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_LobbyInfo();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleGameStateChanged(FName NewState);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastWaitGameTimerStarted();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void BroadcastRemotePlayerAcceptedMatch();
     
 };

@@ -4,3 +4,4 @@ USBZSetCharacterStanceNofity::USBZSetCharacterStanceNofity() {
     this->Stance = ESBZCharacterStance::First;
 }
 
+

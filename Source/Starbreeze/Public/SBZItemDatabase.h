@@ -8,5 +8,6 @@ class USBZItemDatabase : public UDataAsset {
     GENERATED_BODY()
 public:
     USBZItemDatabase();
+
 };
 

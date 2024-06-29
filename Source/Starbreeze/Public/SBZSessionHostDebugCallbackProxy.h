@@ -20,6 +20,7 @@ private:
     
 public:
     USBZSessionHostDebugCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZSessionHostDebugCallbackProxy* SessionHostDebug(UObject* NewWorldContextObject);
     

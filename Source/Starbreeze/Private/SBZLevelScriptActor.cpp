@@ -1,5 +1,15 @@
 #include "SBZLevelScriptActor.h"
 
+ASBZLevelScriptActor::ASBZLevelScriptActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Seed = -1;
+}
+
+void ASBZLevelScriptActor::SetBagMarkerEnabledByTags(const FGameplayTagContainer& BagGameplayTagContainer, bool bEnabled) {
+}
+
+void ASBZLevelScriptActor::SetBagMarkerEnabledByBagType(const USBZBagType* BagType, bool bEnabled) {
+}
+
 ULevelStreamingDynamic* ASBZLevelScriptActor::SBZPlaceRandomSublevelBySoftObjectPtr(UObject* WorldContextObject, const TSoftObjectPtr<UWorld> Level, const FTransform& RoomTransform, bool& bOutSuccess) {
     return NULL;
 }
@@ -28,10 +38,12 @@ void ASBZLevelScriptActor::OnOptionalObjectiveComplete(const int32 ObjectiveNumb
 
 
 
+
+
 void ASBZLevelScriptActor::HandleOutroSequenceStarted(const int32 OutroVariation) {
 }
 
-void ASBZLevelScriptActor::HandleIntroSequenceStarted() {
+void ASBZLevelScriptActor::HandleIntroSequenceChanged(bool bIsStarted) {
 }
 
 void ASBZLevelScriptActor::HandleBlackScreenStarted() {
@@ -68,7 +80,4 @@ void ASBZLevelScriptActor::CriteriaObjectiveComplete(const USBZStatisticCriteria
 
 
 
-ASBZLevelScriptActor::ASBZLevelScriptActor() {
-    this->Seed = -1;
-}
 

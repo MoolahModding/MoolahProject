@@ -17,6 +17,7 @@ private:
     FSBZInteractableModeData ModeDataArray[11];
     
 public:
-    USBZAICharacterInteractableComponent();
+    USBZAICharacterInteractableComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

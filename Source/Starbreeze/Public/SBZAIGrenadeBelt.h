@@ -29,6 +29,7 @@ private:
     float PlayerStaggerDuration[4];
     
 public:
-    USBZAIGrenadeBelt();
+    USBZAIGrenadeBelt(const FObjectInitializer& ObjectInitializer);
+
 };
 

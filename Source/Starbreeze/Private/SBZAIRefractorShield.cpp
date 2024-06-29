@@ -3,6 +3,20 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZPropDamageComponent.h"
 
+ASBZAIRefractorShield::ASBZAIRefractorShield(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USkeletalMeshComponentBudgeted>(TEXT("SkeletalMesh"));
+    this->SkeletalMesh = (USkeletalMeshComponentBudgeted*)RootComponent;
+    this->PropDamageComponent = CreateDefaultSubobject<USBZPropDamageComponent>(TEXT("SBZPropDamageComponent"));
+    this->DestroyedEffect = NULL;
+    this->DestroyedEvent = NULL;
+    this->DeployAnimation = NULL;
+    this->RetractAnimation = NULL;
+    this->bHasDeployed = false;
+}
+
 void ASBZAIRefractorShield::OnRep_HasDeployed() {
 }
 
@@ -15,13 +29,4 @@ void ASBZAIRefractorShield::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(ASBZAIRefractorShield, bHasDeployed);
 }
 
-ASBZAIRefractorShield::ASBZAIRefractorShield() {
-    this->SkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponentBudgeted>(TEXT("SkeletalMesh"));
-    this->PropDamageComponent = CreateDefaultSubobject<USBZPropDamageComponent>(TEXT("SBZPropDamageComponent"));
-    this->DestroyedEffect = NULL;
-    this->DestroyedEvent = NULL;
-    this->DeployAnimation = NULL;
-    this->RetractAnimation = NULL;
-    this->bHasDeployed = false;
-}
 

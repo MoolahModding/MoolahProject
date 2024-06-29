@@ -14,7 +14,7 @@ class USBZWeaponMagazineData;
 class USBZWeaponSpreadData;
 
 UCLASS(Blueprintable)
-class USBZRangedWeaponData : public USBZBaseWeaponData {
+class STARBREEZE_API USBZRangedWeaponData : public USBZBaseWeaponData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -114,5 +114,6 @@ public:
     USBZWeaponMagazineData* CachedMagazineData;
     
     USBZRangedWeaponData();
+
 };
 

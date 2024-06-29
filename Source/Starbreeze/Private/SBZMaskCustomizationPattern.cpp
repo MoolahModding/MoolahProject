@@ -1,5 +1,19 @@
 #include "SBZMaskCustomizationPattern.h"
 
+USBZMaskCustomizationPattern::USBZMaskCustomizationPattern() {
+    this->StackValue = TEXT("Default__SBZMaskCustomizationPattern");
+    this->PatternSlotAsset = NULL;
+    this->SprayCanSlotAsset = NULL;
+    this->CurrentMenuMode = EBSZPatternMenuMode::Pattern;
+    this->MaxSprayCans = 4;
+    this->ReturnPattern = NULL;
+    this->SprayCanSelectorButtonClass = NULL;
+    this->ActiveSprayCanSlotIndex = -1;
+    this->Cosmetic_Panel = NULL;
+    this->SprayCanHorizontalPanel = NULL;
+    this->CurrentPatternSelectedItemButton = NULL;
+}
+
 void USBZMaskCustomizationPattern::SprayCanSelectorButtonSelected(USBZMenuButton* SelectedButton) {
 }
 
@@ -22,16 +36,4 @@ void USBZMaskCustomizationPattern::CosmeticPanelDefaultButtonSelected() {
 void USBZMaskCustomizationPattern::CosmeticPanelButtonSelected(USBZMainMenuCosmeticItemButton* SelectedButton) {
 }
 
-USBZMaskCustomizationPattern::USBZMaskCustomizationPattern() {
-    this->PatternSlotAsset = NULL;
-    this->SprayCanSlotAsset = NULL;
-    this->CurrentMenuMode = EBSZPatternMenuMode::Pattern;
-    this->MaxSprayCans = 4;
-    this->ReturnPattern = NULL;
-    this->SprayCanSelectorButtonClass = NULL;
-    this->ActiveSprayCanSlotIndex = -1;
-    this->Cosmetic_Panel = NULL;
-    this->SprayCanHorizontalPanel = NULL;
-    this->CurrentPatternSelectedItemButton = NULL;
-}
 

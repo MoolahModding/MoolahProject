@@ -3,10 +3,7 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "EnvironmentQuery/EnvQueryTypes.h"
-#include "SBZAirPathQueryResult.h"
 #include "SBZBTTask_AirMoveTo.generated.h"
-
-class AAIController;
 
 UCLASS(Blueprintable)
 class USBZBTTask_AirMoveTo : public UBTTaskNode {
@@ -30,9 +27,6 @@ protected:
     
 public:
     USBZBTTask_AirMoveTo();
-protected:
-    UFUNCTION()
-    void OnPathCompleted(FSBZAirPathQueryResult Result, AAIController* AIController);
-    
+
 };
 

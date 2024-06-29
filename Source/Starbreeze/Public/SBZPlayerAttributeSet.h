@@ -221,145 +221,146 @@ protected:
     
 public:
     USBZPlayerAttributeSet();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryToolAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryThrowableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryEquippableAmmoLoaded(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryEquippableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SecondaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SecondaryToolAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SecondaryThrowableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SecondaryPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SecondaryEquippableAmmoLoaded(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_SecondaryEquippableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryToolAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryThrowableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryEquippableAmmoLoaded(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryEquippableAmmoInventory(const FGameplayAttributeData& OldData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_HealthTrauma(const FGameplayAttributeData& OldArmorTrauma);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_DownedCount(const FGameplayAttributeData& OldDownedCount);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_Dodge(const FGameplayAttributeData& OldDodge);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ArmorTrauma(const FGameplayAttributeData& OldArmorTrauma);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ArmorChunkCount(const FGameplayAttributeData& OldArmorChunkCount);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTertiaryToolPlaceableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTertiaryToolAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTertiaryThrowableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTertiaryPlaceableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTertiaryEquippableAmmoLoaded(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTertiaryEquippableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSecondaryToolPlaceableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSecondaryToolAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSecondaryThrowableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSecondaryPlaceableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSecondaryEquippableAmmoLoaded(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSecondaryEquippableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryToolPlaceableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryToolAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryThrowableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryPlaceableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryEquippableAmmoLoaded(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryEquippableAmmoInventory(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHealthTrauma(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDownedCount(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDodge(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmorTrauma(float NewCurrentValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmorChunkCount(float NewCurrentValue);
     
 };

@@ -25,7 +25,8 @@ protected:
     ESBZCuttableSplineType CuttableSplineType;
     
 public:
-    USBZCuttableSplineComponent();
+    USBZCuttableSplineComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetupSplineComponent();
     

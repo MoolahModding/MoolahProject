@@ -1,6 +1,7 @@
 #include "SBZSpringArmComponent.h"
 
-USBZSpringArmComponent::USBZSpringArmComponent() {
+USBZSpringArmComponent::USBZSpringArmComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Target = NULL;
 }
+
 

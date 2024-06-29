@@ -8,5 +8,6 @@ class USBZModularPartApplierWeaponPattern : public USBZModularPartApplierWeaponP
     GENERATED_BODY()
 public:
     USBZModularPartApplierWeaponPattern();
+
 };
 

@@ -54,6 +54,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZChallengeConversion ChallengeConversion;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool IsActive;
+    
     STARBREEZE_API FSBZChallengeData();
 };
 

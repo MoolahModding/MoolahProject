@@ -19,8 +19,9 @@ private:
     UBoxComponent* BoxComponent;
     
 public:
-    ASBZRoomActor();
-    
+    ASBZRoomActor(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

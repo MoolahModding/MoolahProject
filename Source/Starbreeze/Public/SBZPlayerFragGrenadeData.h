@@ -15,5 +15,6 @@ public:
     float ArmorPenetration;
     
     USBZPlayerFragGrenadeData();
+
 };
 

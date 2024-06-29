@@ -65,6 +65,7 @@ protected:
     
 public:
     USBZMenuButton();
+
     UFUNCTION(BlueprintCallable)
     void SetButtonDisabled(bool bInIsDisabled);
     
@@ -72,31 +73,31 @@ public:
     void SelectButton();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnSelectionInputPressed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnAlternativeSelectionInputPressed();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void DisabledButtonSelected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void DisabledButtonAlternativeSelected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonSelected();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonHoveredChanged(bool bInIsHovered);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonFocusedChanged(bool bInHasFocus);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonDisabledChanged(bool bInIsDisabled);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonAlternativeSelected();
     
 public:

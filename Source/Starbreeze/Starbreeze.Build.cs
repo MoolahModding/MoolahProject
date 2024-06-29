@@ -23,6 +23,7 @@ public class Starbreeze : ModuleRules {
             "GameplayTags",
             "GameplayTasks",
             "InputCore",
+            "JsonUtilities",
             "NavigationSystem",
             "Niagara",
             "OnlineSubsystemUtils",

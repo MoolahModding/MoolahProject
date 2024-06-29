@@ -33,5 +33,6 @@ public:
     FGameplayTagContainer BlockingTags;
     
     USBZVoiceCommentDataAsset();
+
 };
 

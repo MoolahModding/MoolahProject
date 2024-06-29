@@ -13,5 +13,6 @@ public:
     TArray<USBZArmorData*> ArmorArray;
     
     USBZArmorDatabase();
+
 };
 

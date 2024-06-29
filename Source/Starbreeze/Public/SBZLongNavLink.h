@@ -51,7 +51,8 @@ protected:
     TArray<ASBZLongNavLinkPlatform*> NavMeshPlatforms;
     
 public:
-    ASBZLongNavLink();
+    ASBZLongNavLink(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetPlatformNavArea(TSubclassOf<UNavArea> AreaClass);
     
@@ -62,7 +63,7 @@ public:
     void SetLinkEnabled(bool bInLinkEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSmartLinkReached(AActor* MovingActor, const FVector& DestinationPoint);
     
 };

@@ -1,5 +1,6 @@
 #include "SBZSpecialAIComponent.h"
 
-USBZSpecialAIComponent::USBZSpecialAIComponent() {
+USBZSpecialAIComponent::USBZSpecialAIComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

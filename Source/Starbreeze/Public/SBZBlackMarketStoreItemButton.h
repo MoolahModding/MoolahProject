@@ -18,21 +18,22 @@ protected:
     
 public:
     USBZBlackMarketStoreItemButton();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerStoreItemDataIntialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTransactionInProgress() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeStoreData(const FSBZStoreItemUIData& InStoreItemUIData);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FGuid GetItemID() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZInventoryBaseData* GetItemData() const;
     
     UFUNCTION(BlueprintCallable)

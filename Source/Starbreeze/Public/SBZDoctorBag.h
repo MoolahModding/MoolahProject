@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class ASBZDoctorBag : public ASBZHealthPlaceable {
     GENERATED_BODY()
 public:
-    ASBZDoctorBag();
+    ASBZDoctorBag(const FObjectInitializer& ObjectInitializer);
+
 };
 

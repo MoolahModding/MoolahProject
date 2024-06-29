@@ -33,5 +33,6 @@ protected:
     
 public:
     USBZEnvQueryGenerator_PerceivedActors();
+
 };
 

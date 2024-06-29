@@ -37,5 +37,6 @@ private:
     
 public:
     USBZOnlineSessionSearch();
+
 };
 

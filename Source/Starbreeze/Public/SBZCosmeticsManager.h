@@ -8,5 +8,6 @@ class USBZCosmeticsManager : public UObject {
     GENERATED_BODY()
 public:
     USBZCosmeticsManager();
+
 };
 

@@ -21,6 +21,9 @@ public:
     void OnCuttableStateChanged(ESBZCuttableState NewCuttableState);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    bool IsWindow();
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     UNiagaraComponent* GetNiagaraComponent();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

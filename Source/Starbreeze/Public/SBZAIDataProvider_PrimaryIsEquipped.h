@@ -11,5 +11,6 @@ public:
     bool bBoolValue;
     
     USBZAIDataProvider_PrimaryIsEquipped();
+
 };
 

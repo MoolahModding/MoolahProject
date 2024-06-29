@@ -2,6 +2,12 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 
+ASBZCombiningLootProcessor::ASBZCombiningLootProcessor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->NumberOfBagsToCombine = 1;
+    this->ClaimCombinedBagInteractable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ClaimCombinedBagInteractable"));
+    this->CombinedBags = 0;
+}
+
 void ASBZCombiningLootProcessor::OnServerClaimCombinedBagInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled) {
 }
 
@@ -15,10 +21,4 @@ void ASBZCombiningLootProcessor::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     DOREPLIFETIME(ASBZCombiningLootProcessor, CombinedBags);
 }
 
-ASBZCombiningLootProcessor::ASBZCombiningLootProcessor() {
-    this->NumberOfBagsToCombine = 1;
-    this->bCanQueueProcessing = false;
-    this->ClaimCombinedBagInteractable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ClaimCombinedBagInteractable"));
-    this->CombinedBags = 0;
-}
 

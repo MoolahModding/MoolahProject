@@ -48,5 +48,6 @@ public:
     USBZAgilitySlideParams* SlideData;
     
     USBZPlayerMovementWeightAsset();
+
 };
 

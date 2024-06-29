@@ -11,24 +11,25 @@ class USBZAchievementManager : public UObject {
     GENERATED_BODY()
 public:
     USBZAchievementManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInitializedChallengeRecordsCacheDone();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnChallengeCompleted(const FSBZChallengeData& ChallengeData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlatformUserChanged(int32 OldUserIndex);
     
 public:
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZAchievementManager* GetAchievementManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void CompleteAchievements(const TArray<FName>& AchievementIds);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void CompleteAchievement(const FName& AchievementId);
     
 };

@@ -8,5 +8,6 @@ class USBZLandingEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZLandingEffect();
+
 };
 

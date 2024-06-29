@@ -1,5 +1,10 @@
 #include "SBZMainMenuInventoryCharacterSlotButton.h"
 
+USBZMainMenuInventoryCharacterSlotButton::USBZMainMenuInventoryCharacterSlotButton() {
+    this->InventoryIndex = -1;
+    this->PreferredValueIndex = -1;
+}
+
 void USBZMainMenuInventoryCharacterSlotButton::SetPreferredValueIndex(int32 InPreferredValueIndex) {
 }
 
@@ -23,8 +28,4 @@ FSBZCharacterInventoryData USBZMainMenuInventoryCharacterSlotButton::GetCharacte
 void USBZMainMenuInventoryCharacterSlotButton::DeselectPreferredCharacter() {
 }
 
-USBZMainMenuInventoryCharacterSlotButton::USBZMainMenuInventoryCharacterSlotButton() {
-    this->InventoryIndex = -1;
-    this->PreferredValueIndex = -1;
-}
 

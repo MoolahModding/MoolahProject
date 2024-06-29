@@ -21,8 +21,9 @@ protected:
     
 public:
     USBZEmoteAbility();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
     
 };

@@ -8,19 +8,20 @@ class USBZCuttableWidget : public UUserWidget {
     GENERATED_BODY()
 public:
     USBZCuttableWidget();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetInitialCut(float AtSegment);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetCutCounterClockwise(float DeltaDegrees);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetCutCompleted();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetCutClockwise(float DeltaDegrees);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetCut(float AtSegment);
     
 };

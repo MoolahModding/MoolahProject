@@ -8,7 +8,8 @@ class USBZWidgetBase : public UUserWidget {
     GENERATED_BODY()
 public:
     USBZWidgetBase();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWidgetPreRemovedFromParent();
     
 };

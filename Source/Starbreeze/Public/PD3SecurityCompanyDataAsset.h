@@ -19,5 +19,6 @@ public:
     FString SecurityCompanyDescription;
     
     UPD3SecurityCompanyDataAsset();
+
 };
 

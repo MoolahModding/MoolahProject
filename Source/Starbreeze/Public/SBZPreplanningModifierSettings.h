@@ -4,7 +4,7 @@
 #include "SBZPreplanningModifierSettingsData.h"
 #include "SBZPreplanningModifierSettings.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class USBZPreplanningModifierSettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -14,5 +14,6 @@ protected:
     
 public:
     USBZPreplanningModifierSettings();
+
 };
 

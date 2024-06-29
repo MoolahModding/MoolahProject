@@ -8,5 +8,6 @@ class USBZTargetEnemyEffectRequirement : public UGameplayEffectCustomApplication
     GENERATED_BODY()
 public:
     USBZTargetEnemyEffectRequirement();
+
 };
 

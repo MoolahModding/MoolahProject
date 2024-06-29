@@ -8,5 +8,6 @@ class USBZHackerSecuredLoopAbility : public USBZHackerBaseAbility {
     GENERATED_BODY()
 public:
     USBZHackerSecuredLoopAbility();
+
 };
 

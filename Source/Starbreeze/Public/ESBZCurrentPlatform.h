@@ -10,6 +10,5 @@ enum class ESBZCurrentPlatform : uint8 {
     EP_MAC,
     EP_XBOX,
     EP_PLAYSTATION,
-    EP_MAX UMETA(Hidden),
 };
 

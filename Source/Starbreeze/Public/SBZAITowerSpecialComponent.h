@@ -31,25 +31,22 @@ private:
     bool bIsGlitchEffectActive;
     
 public:
-    USBZAITowerSpecialComponent();
+    USBZAITowerSpecialComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_RefractorShield(ASBZAIRefractorShield* OldRefractorShield);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsGlitchEffectActive();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHideOrderCompleted(USBZAIOrder* Order, APawn* Owner, TEnumAsByte<EBTNodeResult::Type> NodeResult);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RetractShield();
-    
-public:
-    UFUNCTION(NetMulticast, Reliable)
-    void Multicast_ActivateGlitchEffect(bool bIsEffectActive);
     
 };
 

@@ -23,5 +23,6 @@ public:
     float HackingAimDegreePadding;
     
     USBZToolHackingData();
+
 };
 

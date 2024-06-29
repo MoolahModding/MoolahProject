@@ -15,8 +15,9 @@ protected:
     USBZNavLinkTraversalComponent* NavLinkTraversalComponent;
     
 public:
-    ASBZTraversalNavLink();
-    
+    ASBZTraversalNavLink(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

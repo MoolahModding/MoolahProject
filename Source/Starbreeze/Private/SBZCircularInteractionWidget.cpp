@@ -1,16 +1,5 @@
 #include "SBZCircularInteractionWidget.h"
 
-void USBZCircularInteractionWidget::UpdateNumSlices(int32 InNumSlices) {
-}
-
-void USBZCircularInteractionWidget::SelectCurrentIndex() {
-}
-
-
-
-void USBZCircularInteractionWidget::ActivateCircularWidget(bool bShouldActive) {
-}
-
 USBZCircularInteractionWidget::USBZCircularInteractionWidget() {
     this->MouseSensitivity = 1.00f;
     this->Deadzone = 0.50f;
@@ -24,4 +13,16 @@ USBZCircularInteractionWidget::USBZCircularInteractionWidget() {
     this->bIsUsingController = false;
     this->TimeToRememberActiveIndex = 0.50f;
 }
+
+void USBZCircularInteractionWidget::UpdateNumSlices(int32 InNumSlices) {
+}
+
+void USBZCircularInteractionWidget::SelectCurrentIndex() {
+}
+
+
+
+void USBZCircularInteractionWidget::ActivateCircularWidget(bool bShouldActive) {
+}
+
 

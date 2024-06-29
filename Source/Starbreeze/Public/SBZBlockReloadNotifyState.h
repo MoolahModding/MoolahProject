@@ -8,5 +8,6 @@ class USBZBlockReloadNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZBlockReloadNotifyState();
+
 };
 

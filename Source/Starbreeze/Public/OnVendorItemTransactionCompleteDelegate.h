@@ -5,5 +5,5 @@
 
 class USBZInventoryBaseData;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnVendorItemTransactionComplete, ESBZMetaRequestResult, MetaRequestResult, const USBZInventoryBaseData*, Item);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnVendorItemTransactionComplete, ESBZMetaRequestResult, MetaRequestResult, const USBZInventoryBaseData*, Item);
 

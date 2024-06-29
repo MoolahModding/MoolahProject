@@ -13,6 +13,7 @@ public:
     UTextBlock* Text_PrePlanningAssets;
     
     USBZHUDOverlayRight();
+
     UFUNCTION(BlueprintCallable)
     void MakePrePlanningText();
     

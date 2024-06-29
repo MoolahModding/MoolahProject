@@ -8,5 +8,6 @@ class USBZSkillFortitudeFortitudeAced : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillFortitudeFortitudeAced();
+
 };
 

@@ -8,7 +8,8 @@ class USBZSettingsFunctions : public UObject {
     GENERATED_BODY()
 public:
     USBZSettingsFunctions();
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool GetButtonVisibilityAlways(UObject* WorldContextObject);
     
 };

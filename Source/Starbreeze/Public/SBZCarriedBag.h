@@ -42,19 +42,20 @@ protected:
     FRotator RotationOffsetScale;
     
 public:
-    ASBZCarriedBag();
+    ASBZCarriedBag(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractionComplete(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnDegradationChanged(const int32 DegredationLevel);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_AttachmentComplete(USkeletalMeshComponent* ParentSkeletalMeshComponent);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_AdjustAttachment(int32 Index, int32 NewCount, const FTransform& NewStrapTransformOffset);
     
 };

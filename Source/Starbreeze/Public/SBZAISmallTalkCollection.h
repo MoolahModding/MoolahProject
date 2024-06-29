@@ -13,5 +13,6 @@ public:
     TArray<USBZDialogDataAsset*> DialogAssets;
     
     USBZAISmallTalkCollection();
+
 };
 

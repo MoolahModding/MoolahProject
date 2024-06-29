@@ -25,11 +25,12 @@ private:
     
 public:
     USBZAIAction_DelayedSurrender();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTakeDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
     
 };

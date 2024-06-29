@@ -24,6 +24,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString Region;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString GameSessionCode;
+    
     STARBREEZE_API FSBZArmadaInfo();
 };
 

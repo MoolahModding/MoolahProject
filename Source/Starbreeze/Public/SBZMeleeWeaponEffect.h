@@ -8,5 +8,6 @@ class USBZMeleeWeaponEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZMeleeWeaponEffect();
+
 };
 

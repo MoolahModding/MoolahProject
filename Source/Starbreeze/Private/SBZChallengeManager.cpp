@@ -1,5 +1,13 @@
 #include "SBZChallengeManager.h"
 
+USBZChallengeManager::USBZChallengeManager() {
+    this->LocalizationOverrides = NULL;
+    this->InfamyPointRewardStatID = TEXT("infamy-point");
+}
+
+void USBZChallengeManager::RefreshDailySlot(int32 SlotIndex) {
+}
+
 void USBZChallengeManager::RefreshChallengeRecordCache() {
 }
 
@@ -13,8 +21,16 @@ int32 USBZChallengeManager::GetStatProgress(const FName& InStatID) {
     return 0;
 }
 
-bool USBZChallengeManager::GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut) {
+bool USBZChallengeManager::GetRerollAvailable() const {
     return false;
+}
+
+bool USBZChallengeManager::GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut) const {
+    return false;
+}
+
+TArray<FSBZChallengeData> USBZChallengeManager::GetDailyChallengesArray() const {
+    return TArray<FSBZChallengeData>();
 }
 
 TArray<FSBZChallengeData> USBZChallengeManager::GetCompletedChallengesDuringMission() const {
@@ -45,8 +61,4 @@ FText USBZChallengeManager::GetChallengeDescriptionText(const FSBZChallengeData&
     return FText::GetEmpty();
 }
 
-USBZChallengeManager::USBZChallengeManager() {
-    this->LocalizationOverrides = NULL;
-    this->InfamyPointRewardStatID = TEXT("infamy-point");
-}
 

@@ -8,5 +8,6 @@ class USBZGlobalLobby : public UObject {
     GENERATED_BODY()
 public:
     USBZGlobalLobby();
+
 };
 

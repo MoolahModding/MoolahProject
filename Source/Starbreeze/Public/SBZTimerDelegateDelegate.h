@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZTimerDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZTimerDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZTimerDelegate);
 

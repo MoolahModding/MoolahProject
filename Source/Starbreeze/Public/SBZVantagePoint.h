@@ -9,8 +9,9 @@ UCLASS(Abstract, Blueprintable)
 class STARBREEZE_API ASBZVantagePoint : public AActor {
     GENERATED_BODY()
 public:
-    ASBZVantagePoint();
-    UFUNCTION()
+    ASBZVantagePoint(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable)
     void OnOccupantKilled(APawn* Pawn);
     
 };

@@ -48,10 +48,11 @@ public:
     TSoftObjectPtr<UPaperSprite> InGameDisplayIcon;
     
     USBZInventoryBaseData();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetFormattedDescriptionText() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetDisplayName(FText& OutDisplayName, bool& OutHasText) const;
     
 };

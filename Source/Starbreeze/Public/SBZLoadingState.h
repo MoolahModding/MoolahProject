@@ -12,10 +12,11 @@ protected:
     float LoadingProgress;
     
 public:
-    ASBZLoadingState();
+    ASBZLoadingState(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION(Reliable, Server, WithValidation)
+
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSetLoadingProgress(float InLoadingProgress);
     
 };

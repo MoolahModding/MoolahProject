@@ -6,5 +6,5 @@
 class ASBZBagItem;
 class ASBZBagTriggerVolume;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZBagEnteredDelegate, ASBZBagTriggerVolume*, Volume, ASBZBagItem*, Bag, FSBZBagHandle, Handle);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZBagEnteredDelegate, ASBZBagTriggerVolume*, Volume, ASBZBagItem*, Bag, FSBZBagHandle, Handle);
 

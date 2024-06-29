@@ -2,6 +2,6 @@
 
 FSBZReplicatedReloadState::FSBZReplicatedReloadState() {
     this->bIsPlaying = false;
-    this->bIsPlayingCycleNeeded = false;
+    this->bIsPlayingEmptyCycleNeeded = false;
 }
 

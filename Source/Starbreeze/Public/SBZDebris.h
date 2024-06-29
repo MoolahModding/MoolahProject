@@ -14,6 +14,7 @@ protected:
     UStaticMeshComponent* StaticMeshComponent;
     
 public:
-    ASBZDebris();
+    ASBZDebris(const FObjectInitializer& ObjectInitializer);
+
 };
 

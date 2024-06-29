@@ -8,5 +8,6 @@ class USBZSkillTankCleanSlate : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTankCleanSlate();
+
 };
 

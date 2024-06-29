@@ -1,5 +1,6 @@
 #include "SBZPawnSpawnEditorMeshComponent.h"
 
-USBZPawnSpawnEditorMeshComponent::USBZPawnSpawnEditorMeshComponent() {
+USBZPawnSpawnEditorMeshComponent::USBZPawnSpawnEditorMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

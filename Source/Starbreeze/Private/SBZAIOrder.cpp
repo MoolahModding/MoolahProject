@@ -14,7 +14,13 @@ USBZAIOrder::USBZAIOrder() {
     this->bCompleteOnStop = false;
 }
 
-bool USBZAIOrder::ExecPredicate_Implementation(const ASBZAIController* AIController) const {
+
+
+
+
+
+bool USBZAIOrder::ExecPredicate_Implementation(const UObject* Owner) const {
     return false;
 }
+
 

@@ -3,3 +3,4 @@
 USBZCoinDatabase::USBZCoinDatabase() {
 }
 
+

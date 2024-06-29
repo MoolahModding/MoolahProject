@@ -1,5 +1,8 @@
 #include "SBZUE4StatsProfiler.h"
 
+USBZUE4StatsProfiler::USBZUE4StatsProfiler() {
+}
+
 void USBZUE4StatsProfiler::OnExitedActionPhase() {
 }
 
@@ -10,6 +13,4 @@ USBZUE4StatsProfiler* USBZUE4StatsProfiler::GetUE4StatsProfiler(const UObject* W
     return NULL;
 }
 
-USBZUE4StatsProfiler::USBZUE4StatsProfiler() {
-}
 

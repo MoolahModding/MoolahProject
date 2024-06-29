@@ -8,5 +8,6 @@ class USBZAbilitySystemGlobals : public UAbilitySystemGlobals {
     GENERATED_BODY()
 public:
     USBZAbilitySystemGlobals();
+
 };
 

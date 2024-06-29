@@ -24,6 +24,7 @@ private:
     
 public:
     USBZSessionHostPartyCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZSessionHostPartyCallbackProxy* SessionHostParty(UObject* NewWorldContextObject, const FSBZOnlinePartyParamsUi& InPartyParams);
     

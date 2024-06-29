@@ -12,13 +12,14 @@ class STARBREEZE_API USBZEditorUtilityLibrary : public UBlueprintFunctionLibrary
     GENERATED_BODY()
 public:
     USBZEditorUtilityLibrary();
+
     UFUNCTION(BlueprintCallable)
     static bool ResetToBlueprintDefault(AActor* Actor);
     
     UFUNCTION(BlueprintCallable)
     static bool IsSbzLevelScriptActor(UWorld* World);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetEditorInstanceID(const UObject* WorldContextObject);
     
 };

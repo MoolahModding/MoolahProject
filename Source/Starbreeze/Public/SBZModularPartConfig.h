@@ -10,6 +10,7 @@ class USBZModularPartConfig : public UDataAsset {
     GENERATED_BODY()
 public:
     USBZModularPartConfig();
+
     UFUNCTION(BlueprintCallable)
     void SetPart(const USBZModularPartDataAsset* PartAsset, int32 Index);
     

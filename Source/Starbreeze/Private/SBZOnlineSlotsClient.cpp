@@ -4,3 +4,4 @@ USBZOnlineSlotsClient::USBZOnlineSlotsClient() {
     this->PreTravelTimeLimit = 10.00f;
 }
 
+

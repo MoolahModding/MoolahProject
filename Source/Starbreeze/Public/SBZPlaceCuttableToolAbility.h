@@ -8,5 +8,6 @@ class USBZPlaceCuttableToolAbility : public USBZPlaceToolAbility {
     GENERATED_BODY()
 public:
     USBZPlaceCuttableToolAbility();
+
 };
 

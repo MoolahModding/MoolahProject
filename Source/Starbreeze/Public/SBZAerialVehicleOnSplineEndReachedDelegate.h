@@ -5,5 +5,5 @@
 class ASBZAerialVehicle;
 class ASBZSpline;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZAerialVehicleOnSplineEndReached, ASBZAerialVehicle*, Vehicle, ASBZSpline*, Spline);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZAerialVehicleOnSplineEndReached, ASBZAerialVehicle*, Vehicle, ASBZSpline*, Spline);
 

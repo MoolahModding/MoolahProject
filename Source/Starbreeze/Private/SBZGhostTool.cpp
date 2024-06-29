@@ -2,10 +2,12 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "SBZOutlineComponent.h"
 
-
-ASBZGhostTool::ASBZGhostTool() {
-    this->SkeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComponent"));
+ASBZGhostTool::ASBZGhostTool(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComponent"));
+    this->SkeletalMesh = (USkeletalMeshComponent*)RootComponent;
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
     this->OutlineAsset = NULL;
 }
+
+
 

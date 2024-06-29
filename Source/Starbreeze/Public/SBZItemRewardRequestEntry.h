@@ -3,8 +3,6 @@
 #include "ESBZRewardRequestType.h"
 #include "SBZItemRewardRequestEntry.generated.h"
 
-class ASBZPlayerState;
-
 USTRUCT(BlueprintType)
 struct FSBZItemRewardRequestEntry {
     GENERATED_BODY()
@@ -13,7 +11,10 @@ public:
     ESBZRewardRequestType RewardRequestType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZPlayerState* SBZPlayerState;
+    FString AccelByteUserId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 PlayerId;
     
     STARBREEZE_API FSBZItemRewardRequestEntry();
 };

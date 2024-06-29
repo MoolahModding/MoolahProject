@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZInteractableCarriedBagComponent : public USBZInteractableComponent {
     GENERATED_BODY()
 public:
-    USBZInteractableCarriedBagComponent();
+    USBZInteractableCarriedBagComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

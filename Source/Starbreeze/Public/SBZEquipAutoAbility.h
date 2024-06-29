@@ -8,5 +8,6 @@ class USBZEquipAutoAbility : public USBZHandleEquipmentAbility {
     GENERATED_BODY()
 public:
     USBZEquipAutoAbility();
+
 };
 

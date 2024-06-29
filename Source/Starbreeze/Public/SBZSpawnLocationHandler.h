@@ -54,12 +54,13 @@ protected:
     bool bUseOnlyOneLocation;
     
 public:
-    ASBZSpawnLocationHandler();
+    ASBZSpawnLocationHandler(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void TriggerSpawnManually();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerImportantLootPickedUp(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 };

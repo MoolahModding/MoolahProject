@@ -8,5 +8,6 @@ class USBZInteractArmorRepairKitRequirement : public USBZBaseInteractRequirement
     GENERATED_BODY()
 public:
     USBZInteractArmorRepairKitRequirement();
+
 };
 

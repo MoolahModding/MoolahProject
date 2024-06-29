@@ -33,15 +33,16 @@ protected:
     FNavigationLink NavigationLink;
     
 public:
-    ASBZAgilityPawnSpawnPredefined();
+    ASBZAgilityPawnSpawnPredefined(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UpdateAgilityTrajectory();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SpawnedPawnOrderPushed(ASBZAIController* Controller, USBZAIOrder* Order);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

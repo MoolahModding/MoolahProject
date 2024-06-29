@@ -33,5 +33,6 @@ public:
     FSBZAnimationContainer MeleeMontage;
     
     USBZCharacterAnimationCollection();
+
 };
 

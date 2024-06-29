@@ -8,5 +8,6 @@ class STARBREEZE_API USBZMaskCustomizationSlotScreenBase : public USBZMenuStackS
     GENERATED_BODY()
 public:
     USBZMaskCustomizationSlotScreenBase();
+
 };
 

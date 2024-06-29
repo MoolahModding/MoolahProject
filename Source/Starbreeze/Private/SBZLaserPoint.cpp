@@ -1,5 +1,6 @@
 #include "SBZLaserPoint.h"
 
-USBZLaserPoint::USBZLaserPoint() {
+USBZLaserPoint::USBZLaserPoint(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

@@ -1,5 +1,9 @@
 #include "SBZStateMachineStateDsWaitingForPlayers.h"
 
+USBZStateMachineStateDsWaitingForPlayers::USBZStateMachineStateDsWaitingForPlayers() {
+    this->PlayersReadyTimeoutValue = 60.00f;
+}
+
 void USBZStateMachineStateDsWaitingForPlayers::UnregisterClient(const FUniqueNetIdRepl& PlayerId) {
 }
 
@@ -42,7 +46,4 @@ void USBZStateMachineStateDsWaitingForPlayers::BlackScreenDoneTimeout() {
 void USBZStateMachineStateDsWaitingForPlayers::AutoReadyTimeout() {
 }
 
-USBZStateMachineStateDsWaitingForPlayers::USBZStateMachineStateDsWaitingForPlayers() {
-    this->PlayersReadyTimeoutValue = 60.00f;
-}
 

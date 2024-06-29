@@ -1,8 +1,9 @@
 #include "SBZPreplanningAssetData.h"
 
+USBZPreplanningAssetData::USBZPreplanningAssetData() {
+}
+
 void USBZPreplanningAssetData::ApplyPreplanningAsset(UObject* WorldContextObject) const {
 }
 
-USBZPreplanningAssetData::USBZPreplanningAssetData() {
-}
 

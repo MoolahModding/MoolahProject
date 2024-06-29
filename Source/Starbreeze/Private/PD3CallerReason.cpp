@@ -14,5 +14,8 @@ FPD3CallerReason::FPD3CallerReason() {
     this->Reason[10] = NULL;
     this->Reason[11] = NULL;
     this->Reason[12] = NULL;
+    this->Reason[13] = NULL;
+    this->Reason[14] = NULL;
+    this->Reason[15] = NULL;
 }
 

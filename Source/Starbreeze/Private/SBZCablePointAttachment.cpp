@@ -6,6 +6,7 @@ FSBZCablePointAttachment::FSBZCablePointAttachment() {
     this->SegmentStretchFactor = 0.00f;
     this->bRelativeToCableLength = false;
     this->bAutoWinding = false;
+    this->bStopAutoWindingAtFirstLockedPoint = false;
     this->WindingSpeed = 0.00f;
 }
 

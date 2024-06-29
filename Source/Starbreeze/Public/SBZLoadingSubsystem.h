@@ -8,5 +8,6 @@ class STARBREEZE_API USBZLoadingSubsystem : public UEngineSubsystem {
     GENERATED_BODY()
 public:
     USBZLoadingSubsystem();
+
 };
 

@@ -7,3 +7,4 @@ USBZMiniGameData::USBZMiniGameData() {
     this->AnimatedInteractionData = NULL;
 }
 
+

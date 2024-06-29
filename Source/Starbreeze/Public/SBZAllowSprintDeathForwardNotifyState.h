@@ -8,5 +8,6 @@ class UDEPRECATED_SBZAllowSprintDeathForwardNotifyState : public UAnimNotifyStat
     GENERATED_BODY()
 public:
     UDEPRECATED_SBZAllowSprintDeathForwardNotifyState();
+
 };
 

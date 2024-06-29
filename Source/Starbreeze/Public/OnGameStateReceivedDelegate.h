@@ -4,5 +4,5 @@
 
 class AGameStateBase;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameStateReceived, AGameStateBase*, GameState);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameStateReceived, AGameStateBase*, GameState);
 

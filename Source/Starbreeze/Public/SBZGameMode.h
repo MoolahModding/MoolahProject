@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable, NonTransient)
 class ASBZGameMode : public ASBZGameModeBase {
     GENERATED_BODY()
 public:
-    ASBZGameMode(const class FObjectInitializer& ObjectInitializer);
+    ASBZGameMode(const FObjectInitializer& ObjectInitializer);
+
 };
 

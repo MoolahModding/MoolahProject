@@ -8,5 +8,6 @@ class USBZConsole : public UConsole {
     GENERATED_BODY()
 public:
     USBZConsole();
+
 };
 

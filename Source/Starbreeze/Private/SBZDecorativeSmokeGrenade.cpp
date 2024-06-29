@@ -3,6 +3,21 @@
 #include "NiagaraComponent.h"
 #include "Net/UnrealNetwork.h"
 
+ASBZDecorativeSmokeGrenade::ASBZDecorativeSmokeGrenade(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
+    this->StaticMesh = (UMeshComponent*)RootComponent;
+    this->GasEffectComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("NiagaraComponent"));
+    this->DetonationEvent = NULL;
+    this->DurationSeconds = 15.00f;
+    this->Range = 250.00f;
+    this->DelayedExplosionTimer = -1.00f;
+    this->SmokeState = ESBZDecorativeSmokeState::Spawned;
+    this->GasEffectComponent->SetupAttachment(RootComponent);
+}
+
 
 void ASBZDecorativeSmokeGrenade::OnRep_SmokeState() {
 }
@@ -20,13 +35,4 @@ void ASBZDecorativeSmokeGrenade::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     DOREPLIFETIME(ASBZDecorativeSmokeGrenade, SmokeState);
 }
 
-ASBZDecorativeSmokeGrenade::ASBZDecorativeSmokeGrenade() {
-    this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
-    this->GasEffectComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("NiagaraComponent"));
-    this->DetonationEvent = NULL;
-    this->DurationSeconds = 15.00f;
-    this->Range = 250.00f;
-    this->DelayedExplosionTimer = -1.00f;
-    this->SmokeState = ESBZDecorativeSmokeState::Spawned;
-}
 

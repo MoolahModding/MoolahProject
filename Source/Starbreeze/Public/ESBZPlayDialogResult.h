@@ -6,5 +6,6 @@ UENUM(BlueprintType)
 enum class ESBZPlayDialogResult : uint8 {
     Successful,
     Failed,
+    Queued,
 };
 

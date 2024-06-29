@@ -18,6 +18,7 @@
 #include "SBZAbilitySystemComponent.generated.h"
 
 class ACharacter;
+class APawn;
 class ASBZCharacter;
 class UGameplayEffect;
 class UObject;
@@ -54,44 +55,48 @@ private:
     TMap<TSubclassOf<USBZDamageType>, float> LastVolumeDamageTypeUpdateTimeMap;
     
 public:
-    USBZAbilitySystemComponent();
+    USBZAbilitySystemComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(Reliable, Server)
     void Server_ReplicateExplosion(UObject* ExplosiveObject, const FSBZExplosionResult& Result, FPredictionKey PredictionKey);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_ReplicateCosmeticExplosion(UObject* ExplosiveObject);
+    
 private:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_MaskOn();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_AppliedVolumeDamageNetIDArray();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMovementModeChanged(ACharacter* InCharacter, TEnumAsByte<EMovementMode> PrevMovementMode, uint8 PreviousCustomMode);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ShoveHumanShield(const FSBZActorMultiHitResult& ActorMultiHitResult);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Melee(const FSBZMeleeTargetData& TargetData);
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MaskOn();
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Landed(const FSBZFallDamageTargetData& TargetData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_FireProjectileSentry(const FSBZProjectileTargetData& TargetData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_FireProjectile(const FSBZProjectileTargetData& TargetData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_FireGrenadeProjectile();
     
 protected:
@@ -102,23 +107,23 @@ protected:
     void Multicast_EnterVolumeDamage(uint32 NetID);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DebugApplyGameplayEffectSpecToSelf(FGameplayEffectSpec EffectSpec, float Duration, const FString& NameMagnitudeString);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ApplyGameplayEffectSpecToSelf(const FGameplayEffectSpec& EffectSpec);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_AppliedSkillHurtReaction(const FSBZSkillTriggeredHurtTargetData& SkillTriggeredHurtTargetData);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RevertDamageAttributeSetArray(const TArray<FSBZRevertDamageAttributeSetData>& AttributeSetDataArray);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RevertDamageAttributeSet(const FSBZRevertDamageAttributeSetData& AttributeSetData);
     
-    UFUNCTION(Client, Reliable)
-    void Client_PredictedRagdollDenied(ASBZCharacter* InCharacter, int32 HurtReactionIndex);
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_PredictedRagdollDenied(APawn* InPawn, int32 HurtReactionIndex);
     
 };
 

@@ -31,7 +31,8 @@ private:
     
 public:
     USBZOnlineSessionRequestHandler();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EOnlineSessionInfo GetSessionInfo() const;
     
 };

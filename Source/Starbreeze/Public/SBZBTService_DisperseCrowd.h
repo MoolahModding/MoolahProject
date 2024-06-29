@@ -17,5 +17,6 @@ protected:
     
 public:
     USBZBTService_DisperseCrowd();
+
 };
 

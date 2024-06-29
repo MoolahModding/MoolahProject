@@ -7,7 +7,7 @@
 class APlayerState;
 class UWorld;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateWaitingActionPhaseHost : public USBZStateMachineStateWaitingActionPhaseBase {
     GENERATED_BODY()
 public:
@@ -17,20 +17,21 @@ protected:
     
 public:
     USBZStateMachineStateWaitingActionPhaseHost();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PostLoadTransitionMap(UWorld* NewWorld);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerRegister(APlayerState* ChangedPlayerState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerControllerReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerAckReceived(FUniqueNetIdRepl PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DestinationMapLoaded(UWorld* NewWorld);
     
 };

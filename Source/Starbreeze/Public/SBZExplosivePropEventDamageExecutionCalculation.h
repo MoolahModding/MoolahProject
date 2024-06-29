@@ -8,5 +8,6 @@ class USBZExplosivePropEventDamageExecutionCalculation : public UGameplayEffectE
     GENERATED_BODY()
 public:
     USBZExplosivePropEventDamageExecutionCalculation();
+
 };
 

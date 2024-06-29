@@ -10,3 +10,4 @@ USBZDeltaCorrectionNotifyState::USBZDeltaCorrectionNotifyState() {
     this->ReferenceTime = -1.00f;
 }
 
+

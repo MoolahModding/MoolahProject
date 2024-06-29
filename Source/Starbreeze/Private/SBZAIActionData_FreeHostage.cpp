@@ -5,3 +5,4 @@ USBZAIActionData_FreeHostage::USBZAIActionData_FreeHostage() {
     this->Mode = ESBZAIOrderMode::None;
 }
 
+

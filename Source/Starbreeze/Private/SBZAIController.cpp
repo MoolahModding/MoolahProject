@@ -1,6 +1,27 @@
 #include "SBZAIController.h"
+#include "BehaviorTree/BehaviorTreeComponent.h"
+#include "SBZAIPerceptionComponent.h"
 #include "SBZAIUtilityComponent.h"
+#include "SBZAgentPathFollowingComponent.h"
 #include "Templates/SubclassOf.h"
+
+ASBZAIController::ASBZAIController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZAgentPathFollowingComponent>(TEXT("PathFollowingComponent"))) {
+    this->BrainComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
+    this->PerceptionComponent = CreateDefaultSubobject<USBZAIPerceptionComponent>(TEXT("AIPerceptionComponent"));
+    this->VisualDetectionComponent = NULL;
+    this->UtilityComponent = CreateDefaultSubobject<USBZAIUtilityComponent>(TEXT("SBZAIUtilityComponent"));
+    this->BlackboardAsset = NULL;
+    this->CurrentOrder = NULL;
+    this->MinCoverScoreToFocus = 50;
+    this->MinDistFromTraversalNavLinkToFocus = 160.00f;
+    this->SameRoomTargetFocusDistance = 500.00f;
+    this->bIsTargetFocusEnabled = true;
+    this->FocusOnLastVisibleLocationDuration = 3.00f;
+    this->HeistStateAlert = 0;
+}
+
+void ASBZAIController::SetAIEnabled(bool bIsEnabled, const FName& Reason) {
+}
 
 bool ASBZAIController::PushOrder(USBZAIOrder* Order, ESBZAIOrderMode Mode) {
     return false;
@@ -27,15 +48,4 @@ APawn* ASBZAIController::GetCurrentEnemy() const {
 }
 
 
-ASBZAIController::ASBZAIController() {
-    this->VisualDetectionComponent = NULL;
-    this->UtilityComponent = CreateDefaultSubobject<USBZAIUtilityComponent>(TEXT("SBZAIUtilityComponent"));
-    this->BlackboardAsset = NULL;
-    this->CurrentOrder = NULL;
-    this->MinCoverScoreToFocus = 50;
-    this->MinDistFromTraversalNavLinkToFocus = 160.00f;
-    this->SameRoomTargetFocusDistance = 500.00f;
-    this->FocusOnLastVisibleLocationDuration = 3.00f;
-    this->HeistStateAlert = 0;
-}
 

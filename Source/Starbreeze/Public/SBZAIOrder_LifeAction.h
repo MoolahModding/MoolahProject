@@ -61,15 +61,16 @@ protected:
     
 public:
     USBZAIOrder_LifeAction();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCharacterSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBlockingSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ClearDelegates();
     
 };

@@ -8,5 +8,6 @@ class USBZSkillManipulatorMasterTrader : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillManipulatorMasterTrader();
+
 };
 

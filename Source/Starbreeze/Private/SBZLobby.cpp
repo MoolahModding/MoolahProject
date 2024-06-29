@@ -1,5 +1,16 @@
 #include "SBZLobby.h"
 
+USBZLobby::USBZLobby() {
+    this->LocalState = NULL;
+    this->DefaultPort = 16039;
+    this->LobbyClient = NULL;
+    this->LobbyHost = NULL;
+    this->LobbyOnlineBeacon = NULL;
+    this->BeaconActionPhaseClient = NULL;
+    this->BeaconActionPhaseHost = NULL;
+    this->ActionPhaseOnlineBeacon = NULL;
+}
+
 void USBZLobby::JoinLobbyComplete(ESBZOnlineCode Result) {
 }
 
@@ -18,14 +29,4 @@ void USBZLobby::HostLobby(const FSBZOnlineSessionParams& Params) {
 void USBZLobby::HandleLostConnectionToHost() {
 }
 
-USBZLobby::USBZLobby() {
-    this->LocalState = NULL;
-    this->DefaultPort = 16039;
-    this->LobbyClient = NULL;
-    this->LobbyHost = NULL;
-    this->LobbyOnlineBeacon = NULL;
-    this->BeaconActionPhaseClient = NULL;
-    this->BeaconActionPhaseHost = NULL;
-    this->ActionPhaseOnlineBeacon = NULL;
-}
 

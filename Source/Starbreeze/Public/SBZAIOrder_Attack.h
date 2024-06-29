@@ -12,11 +12,12 @@ class USBZAIOrder_Attack : public USBZAIOrder_TacticalMoveTo {
     GENERATED_BODY()
 public:
     USBZAIOrder_Attack();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetKilled(APawn* KilledPawn);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetDefeatStateChanged(ASBZPlayerState* InSBZPlayerState, EPD3DefeatState OldDefeatState, EPD3DefeatState InDefeatState);
     
 };

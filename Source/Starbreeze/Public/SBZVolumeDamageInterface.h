@@ -19,34 +19,37 @@ class USBZVolumeDamageInterface : public UInterface {
 class ISBZVolumeDamageInterface : public IInterface {
     GENERATED_BODY()
 public:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool IsVolumeDamageReady() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    float GetVolumeOverHealDamageMultiplier() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TSubclassOf<USBZDamageType> GetVolumeDamageType() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetVolumeDamageTickSeconds() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetVolumeDamagePerSecond() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     AActor* GetVolumeDamageOwner(UObject* ThisObject) const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TSubclassOf<USBZVolumeDamageEffect> GetVolumeDamageEffectClass() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetVolumeDamageArmorPenetration() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     FGameplayTagContainer GetVolumeDamageAddedTagContainer() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TMap<FName, float> GetTacticianDiscombobulateVolumeDamageEffectValueMap() const;
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TSubclassOf<UGameplayEffect> GetTacticianDiscombobulateVolumeDamageEffectClass() const;
     
 };

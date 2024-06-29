@@ -8,5 +8,6 @@ class USBZPlaceTripMineAbility : public USBZPlaceToolAbility {
     GENERATED_BODY()
 public:
     USBZPlaceTripMineAbility();
+
 };
 

@@ -14,6 +14,7 @@ protected:
     UStaticMesh* BrokenMesh;
     
 public:
-    ASBZZipTieEquippable();
+    ASBZZipTieEquippable(const FObjectInitializer& ObjectInitializer);
+
 };
 

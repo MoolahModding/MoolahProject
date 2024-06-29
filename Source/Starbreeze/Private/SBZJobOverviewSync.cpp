@@ -1,5 +1,11 @@
 #include "SBZJobOverviewSync.h"
 
+ASBZJobOverviewSync::ASBZJobOverviewSync(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+}
+
 void ASBZJobOverviewSync::UpdateReadyClientStatusReceived_Implementation(const FSBZPlayersReadyStatusStateArray& PlayersReadyStatus) {
 }
 
@@ -57,6 +63,4 @@ void ASBZJobOverviewSync::ClientMoveToBlackScreenReceived_Implementation(EBlackS
 void ASBZJobOverviewSync::ClientMoveToBlackScreen(EBlackScreenTransitionType BlackScreenTransitionType) {
 }
 
-ASBZJobOverviewSync::ASBZJobOverviewSync() {
-}
 

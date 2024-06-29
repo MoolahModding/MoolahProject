@@ -35,20 +35,21 @@ protected:
     
 public:
     UPD3ActionNotificationWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRevive(const FSBZReviveEvent& ReviveEventData);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNotificationAdded(const FSBZHUDNotificationData& InNotificationAdded);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAICharacterKilled(ASBZCharacter* Character);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void DisplayNotification(const FSBZHUDNotificationData& InNotification);
     
 public:

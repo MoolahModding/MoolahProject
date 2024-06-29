@@ -4,3 +4,4 @@ USBZTargetFinderPredicate_BehaviorCategory::USBZTargetFinderPredicate_BehaviorCa
     this->AllowedBehaviors = 0;
 }
 
+

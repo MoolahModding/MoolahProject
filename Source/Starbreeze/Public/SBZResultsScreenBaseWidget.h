@@ -8,15 +8,19 @@ class USBZResultsScreenBaseWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZResultsScreenBaseWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartExpireTimerUpdated(float InNewTime);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartCountdownTimerUpdated(float InNewTime);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartAcceptTimerUpdated(float InNewTime);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnMergePartyUpdated(const FString& PlayerDisplayName, const bool bIsMergePartySelected);
     
 };
 

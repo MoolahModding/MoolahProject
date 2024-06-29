@@ -6,6 +6,7 @@ UENUM(BlueprintType)
 enum class ESBZUpscalingMode : uint8 {
     None,
     Auto,
+    UltraQualityPlus,
     UltraQuality,
     Quality,
     Balanced,

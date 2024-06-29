@@ -9,3 +9,4 @@ USBZWeaponMagazineData::USBZWeaponMagazineData() {
     this->AmmoVisibilityType = ESBZWeaponAmmoVisibilityType::Never;
 }
 
+

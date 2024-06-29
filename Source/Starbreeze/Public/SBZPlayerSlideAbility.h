@@ -8,5 +8,6 @@ class USBZPlayerSlideAbility : public USBZGameplayAbility_CharacterSlide {
     GENERATED_BODY()
 public:
     USBZPlayerSlideAbility();
+
 };
 

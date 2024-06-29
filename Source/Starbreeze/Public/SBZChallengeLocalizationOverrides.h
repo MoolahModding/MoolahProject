@@ -12,5 +12,6 @@ public:
     TMap<FString, FSBZObjectiveKeysOverrides> ObjectiveKeysOverrides;
     
     USBZChallengeLocalizationOverrides();
+
 };
 

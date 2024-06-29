@@ -1,5 +1,9 @@
 #include "SBZMainMenuInventoryGloveSlotButton.h"
 
+USBZMainMenuInventoryGloveSlotButton::USBZMainMenuInventoryGloveSlotButton() {
+    this->GloveSlotIndex = -1;
+}
+
 
 
 bool USBZMainMenuInventoryGloveSlotButton::IsEmpty() const {
@@ -17,7 +21,4 @@ USBZGloveData* USBZMainMenuInventoryGloveSlotButton::GetGloveInSlot() const {
     return NULL;
 }
 
-USBZMainMenuInventoryGloveSlotButton::USBZMainMenuInventoryGloveSlotButton() {
-    this->GloveSlotIndex = -1;
-}
 

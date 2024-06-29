@@ -61,9 +61,10 @@ protected:
     uint8 FailCounter;
     
 public:
-    ASBZConnectedCableBox();
+    ASBZConnectedCableBox(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetCorrectColorSequence(const TArray<int32> CorrectSequence);
     
@@ -71,22 +72,22 @@ public:
     void SetCorrectColorIndex(const int32 InCorrectColorIndex);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_InteractionStates();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_FailCounter();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_DoorOpen();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentSequenceIndex();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDoorInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCableInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 public:
@@ -94,22 +95,22 @@ public:
     void EnableInteraction(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateModelNumber(const FText& ModelNumberText);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateInputsMade(int32 InputsMade);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_UpdateFailCounter(int32 NumberOfFails);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OpenDoor(bool bDoCosmetics);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnComplete(bool bWasSuccess);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_FlipSwitch(int32 Index, bool bDoCosmetics, bool bReset);
     
 };

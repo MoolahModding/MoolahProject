@@ -8,3 +8,4 @@ USBZStateMachineDataMatchmaking::USBZStateMachineDataMatchmaking() {
     this->JoinType = ESBZOnlineJoinType::Debug;
 }
 
+

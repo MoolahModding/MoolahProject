@@ -1,5 +1,33 @@
 #include "SBZMainMenuWidget.h"
 
+USBZMainMenuWidget::USBZMainMenuWidget() {
+    this->Widget_LoadoutCustomization = NULL;
+    this->Widget_WeaponCustomization = NULL;
+    this->Widget_WeaponCustomizationTemp = NULL;
+    this->Widget_WeaponInventory = NULL;
+    this->Widget_ItemInventory = NULL;
+    this->Widget_SkillsSelection = NULL;
+    this->Widget_WeaponProgression = NULL;
+    this->Widget_MaskCustomization = NULL;
+    this->Widget_WeaponModifiers = NULL;
+    this->Widget_SuitCustomization = NULL;
+    this->Widget_SuitCosmeticCustomization = NULL;
+    this->Widget_BlackMarketInspect = NULL;
+    this->Widget_Cosmetic = NULL;
+    this->Widget_HeistInspect = NULL;
+    this->Widget_FullscreenVideo = NULL;
+    this->Widget_MainMenuNavbar = NULL;
+    this->CosmeticItemButtonClass = NULL;
+    this->CrossplayPopupWidgetClass = NULL;
+    this->TutorialPopupWidgetClass = NULL;
+    this->PopUpBody = NULL;
+    this->LoadoutChangePopupWidgetClass = NULL;
+    this->LoadoutChangePopupHeaderText = FText::FromString(TEXT("WARNING"));
+    this->LoadoutChangePopupDescriptionText = FText::FromString(TEXT("Skill changes caused the following skills to unequip:\n"));
+    this->LoadoutChangePopupListText = FText::FromString(TEXT("{PreviousMessage}\n* {NewMessage}"));
+    this->VendorTypeToOpen = ESBZBlackMarketVendorType::None;
+}
+
 void USBZMainMenuWidget::ShowTutorialPopup() {
 }
 
@@ -24,6 +52,9 @@ void USBZMainMenuWidget::OnTutorialPopUpClosed(FName ClosingActionName) {
 }
 
 void USBZMainMenuWidget::OnTelemetryPopUpClosed(FName ClosingActionName) {
+}
+
+void USBZMainMenuWidget::OnMainMenuInitializeComplete() {
 }
 
 void USBZMainMenuWidget::OnLoadoutChangePopupClosed(FName ClosingActionName) {
@@ -104,31 +135,4 @@ bool USBZMainMenuWidget::CanInspectInventoryItem(USBZInventoryBaseData* InspectD
 }
 
 
-USBZMainMenuWidget::USBZMainMenuWidget() {
-    this->Widget_LoadoutCustomization = NULL;
-    this->Widget_WeaponCustomization = NULL;
-    this->Widget_WeaponCustomizationTemp = NULL;
-    this->Widget_WeaponInventory = NULL;
-    this->Widget_ItemInventory = NULL;
-    this->Widget_SkillsSelection = NULL;
-    this->Widget_WeaponProgression = NULL;
-    this->Widget_MaskCustomization = NULL;
-    this->Widget_WeaponModifiers = NULL;
-    this->Widget_SuitCustomization = NULL;
-    this->Widget_SuitCosmeticCustomization = NULL;
-    this->Widget_BlackMarketInspect = NULL;
-    this->Widget_Cosmetic = NULL;
-    this->Widget_HeistInspect = NULL;
-    this->Widget_FullscreenVideo = NULL;
-    this->Widget_MainMenuNavbar = NULL;
-    this->CosmeticItemButtonClass = NULL;
-    this->CrossplayPopupWidgetClass = NULL;
-    this->TutorialPopupWidgetClass = NULL;
-    this->PopUpBody = NULL;
-    this->LoadoutChangePopupWidgetClass = NULL;
-    this->LoadoutChangePopupHeaderText = FText::FromString(TEXT("WARNING"));
-    this->LoadoutChangePopupDescriptionText = FText::FromString(TEXT("Skill changes caused the following skills to unequip:\n"));
-    this->LoadoutChangePopupListText = FText::FromString(TEXT("{PreviousMessage}\n* {NewMessage}"));
-    this->VendorTypeToOpen = ESBZBlackMarketVendorType::None;
-}
 

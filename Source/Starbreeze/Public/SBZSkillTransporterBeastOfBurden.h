@@ -8,5 +8,6 @@ class USBZSkillTransporterBeastOfBurden : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTransporterBeastOfBurden();
+
 };
 

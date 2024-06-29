@@ -8,5 +8,6 @@ class USBZPlaceableSentryData : public USBZPlaceableData {
     GENERATED_BODY()
 public:
     USBZPlaceableSentryData();
+
 };
 

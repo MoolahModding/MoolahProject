@@ -17,8 +17,9 @@ private:
     
 public:
     USBZAIOrder_ReleaseHostage();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetHostageStateChanged(uint8 NewHostageState);
     
 };

@@ -13,3 +13,4 @@ USBZWeaponTargetingData::USBZWeaponTargetingData() {
     this->HeadbobData = NULL;
 }
 
+

@@ -1,5 +1,8 @@
 #include "SBZChat.h"
 
+USBZChat::USBZChat() {
+}
+
 void USBZChat::SendSystemChatMessage(UObject* WorldContextObject, const FString& Message) {
 }
 
@@ -28,6 +31,4 @@ USBZChat* USBZChat::GetChat(UObject* WorldContextObject) {
     return NULL;
 }
 
-USBZChat::USBZChat() {
-}
 

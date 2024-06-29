@@ -1,5 +1,12 @@
 #include "SBZMainMenuInventoryItemSlotButton.h"
 
+USBZMainMenuInventoryItemSlotButton::USBZMainMenuInventoryItemSlotButton() {
+    this->ItemData = NULL;
+    this->InfamyLevel = 0;
+    this->bIsAvailable = false;
+    this->ItemSource = ESBZUIItemSource::InfamyLevel;
+}
+
 
 
 bool USBZMainMenuInventoryItemSlotButton::IsAvailable() const {
@@ -28,10 +35,4 @@ int32 USBZMainMenuInventoryItemSlotButton::GetInfamyLevel() const {
     return 0;
 }
 
-USBZMainMenuInventoryItemSlotButton::USBZMainMenuInventoryItemSlotButton() {
-    this->ItemData = NULL;
-    this->InfamyLevel = 0;
-    this->bIsAvailable = false;
-    this->ItemSource = ESBZUIItemSource::InfamyLevel;
-}
 

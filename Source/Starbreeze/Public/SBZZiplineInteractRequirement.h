@@ -8,5 +8,6 @@ class USBZZiplineInteractRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZZiplineInteractRequirement();
+
 };
 

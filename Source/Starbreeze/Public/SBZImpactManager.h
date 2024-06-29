@@ -62,8 +62,9 @@ private:
     
 public:
     USBZImpactManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleDroppedDecalComponent(UObject* DroppedElement);
     
 };

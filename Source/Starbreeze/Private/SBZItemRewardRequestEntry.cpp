@@ -2,6 +2,6 @@
 
 FSBZItemRewardRequestEntry::FSBZItemRewardRequestEntry() {
     this->RewardRequestType = ESBZRewardRequestType::HeistCompleted;
-    this->SBZPlayerState = NULL;
+    this->PlayerId = 0;
 }
 

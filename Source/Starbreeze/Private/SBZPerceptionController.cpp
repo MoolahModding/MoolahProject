@@ -1,6 +1,7 @@
 #include "SBZPerceptionController.h"
 
-ASBZPerceptionController::ASBZPerceptionController() {
+ASBZPerceptionController::ASBZPerceptionController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->VisualDetectionComponent = NULL;
 }
+
 

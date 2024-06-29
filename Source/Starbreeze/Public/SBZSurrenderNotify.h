@@ -8,5 +8,6 @@ class USBZSurrenderNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZSurrenderNotify();
+
 };
 

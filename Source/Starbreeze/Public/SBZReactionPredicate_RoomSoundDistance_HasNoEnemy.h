@@ -8,5 +8,6 @@ class UDEPRECATED_SBZReactionPredicate_RoomSoundDistance_HasNoEnemy : public USB
     GENERATED_BODY()
 public:
     UDEPRECATED_SBZReactionPredicate_RoomSoundDistance_HasNoEnemy();
+
 };
 

@@ -1,7 +1,5 @@
 #include "PD3HUDPlayerStatusWidget.h"
 
-
-
 UPD3HUDPlayerStatusWidget::UPD3HUDPlayerStatusWidget() {
     this->Widget_CombinedHealthBar = NULL;
     this->Widget_DownedCounter = NULL;
@@ -25,4 +23,7 @@ UPD3HUDPlayerStatusWidget::UPD3HUDPlayerStatusWidget() {
     this->Widget_KeyItemContainer = NULL;
     this->Widget_CharacterEffectsContainer = NULL;
 }
+
+
+
 

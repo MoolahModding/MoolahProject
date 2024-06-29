@@ -16,6 +16,7 @@ protected:
     
 public:
     USBZSettingsButtonUpscalerChoice();
+
     UFUNCTION(BlueprintCallable)
     void SetOptionUpscalers(int32 InOptionUpscalers);
     

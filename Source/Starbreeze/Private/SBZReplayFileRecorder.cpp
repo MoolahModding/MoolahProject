@@ -4,3 +4,4 @@ USBZReplayFileRecorder::USBZReplayFileRecorder() {
     this->GameInstance = NULL;
 }
 
+

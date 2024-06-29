@@ -72,5 +72,6 @@ public:
     FSBZRespawnMinimumAttributeData RespawnMinAttributeDataDifficultyArray[4];
     
     USBZPlayerAbilityData();
+
 };
 

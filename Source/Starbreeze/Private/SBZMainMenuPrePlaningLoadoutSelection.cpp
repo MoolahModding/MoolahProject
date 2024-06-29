@@ -1,5 +1,11 @@
 #include "SBZMainMenuPrePlaningLoadoutSelection.h"
 
+USBZMainMenuPrePlaningLoadoutSelection::USBZMainMenuPrePlaningLoadoutSelection() {
+    this->bShouldUseActionBindings = true;
+    this->FocusedPlayerLoadoutIndex = -1;
+    this->bIsValidLoadout = false;
+}
+
 void USBZMainMenuPrePlaningLoadoutSelection::UnbindGamepadActions() {
 }
 
@@ -31,9 +37,4 @@ void USBZMainMenuPrePlaningLoadoutSelection::BindGamepadActions() {
 }
 
 
-USBZMainMenuPrePlaningLoadoutSelection::USBZMainMenuPrePlaningLoadoutSelection() {
-    this->bShouldUseActionBindings = true;
-    this->FocusedPlayerLoadoutIndex = -1;
-    this->bIsValidLoadout = false;
-}
 

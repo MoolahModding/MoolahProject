@@ -8,5 +8,6 @@ class STARBREEZE_API USBZAIActionData : public UObject {
     GENERATED_BODY()
 public:
     USBZAIActionData();
+
 };
 

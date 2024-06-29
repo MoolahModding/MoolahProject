@@ -10,3 +10,4 @@ USBZChatGameSettings::USBZChatGameSettings() {
     this->MaxTotalDisplayedMessages = 100;
 }
 
+

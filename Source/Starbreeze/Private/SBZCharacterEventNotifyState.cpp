@@ -3,3 +3,4 @@
 USBZCharacterEventNotifyState::USBZCharacterEventNotifyState() {
 }
 
+

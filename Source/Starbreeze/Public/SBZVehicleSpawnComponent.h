@@ -49,30 +49,31 @@ private:
     TArray<ASBZAgilityPawnSpawnPredefined*> Spawners;
     
 public:
-    USBZVehicleSpawnComponent();
+    USBZVehicleSpawnComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SpawnCompleted(ESBZVehicleSpawnResult Result);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnWheeledStarted(ASBZWheeledVehicle* Vehicle, ASBZSpline* Spline);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnWheeledReachedPathEnd(ASBZWheeledVehicle* Vehicle);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnSpawned(APD3PawnSpawnGroup* InSpawnGroup, ASBZPawnSpawnBase* Spawner, APawn* Pawn);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAerialStarted(ASBZAerialVehicle* Vehicle, ASBZSpline* Spline);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAerialReachedPathEnd(ASBZAerialVehicle* Vehicle);
     
 };

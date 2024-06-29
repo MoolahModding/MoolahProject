@@ -27,8 +27,12 @@ public:
     TMap<FGameplayTag, FSBZHurtReactionArray> GameplayTagMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayTag, FSBZHurtReactionArray> DamageTypeTagMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZHurtReactionLookup> LookupArray;
     
     USBZHurtReaction();
+
 };
 

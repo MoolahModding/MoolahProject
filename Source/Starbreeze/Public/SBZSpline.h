@@ -29,11 +29,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZSplineComponent* SplineComponent;
     
-    ASBZSpline();
-    UFUNCTION(BlueprintPure)
+    ASBZSpline(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ASBZSpline*> GetOutputSplines() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ASBZSpline*> GetInputSplines() const;
     
 };

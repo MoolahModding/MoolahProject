@@ -16,23 +16,24 @@ protected:
     
 public:
     USBZStateMachineStateABPreMatch();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerReadyStatusUpdated(bool bIsReady);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleReceivedPlayerReadyAck();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLobbyStateUpdated(ESBZOnlineCode Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleInitializeTravel();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleBeaconDisconnect();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DelayedTravelToServer();
     
 };

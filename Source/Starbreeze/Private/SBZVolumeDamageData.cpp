@@ -2,5 +2,6 @@
 
 FSBZVolumeDamageData::FSBZVolumeDamageData() {
     this->Object = NULL;
+    this->Owner = NULL;
 }
 

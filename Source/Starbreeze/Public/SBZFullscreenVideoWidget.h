@@ -41,15 +41,16 @@ private:
     
 public:
     USBZFullscreenVideoWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnControlReferencePressed(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Close();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnControlReferencePressed(const FName& ActionName);
     
 };

@@ -8,5 +8,6 @@ class USBZSkillEscapistBalanced : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEscapistBalanced();
+
 };
 

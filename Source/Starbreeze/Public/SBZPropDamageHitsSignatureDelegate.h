@@ -5,5 +5,5 @@
 
 class UActorComponent;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FSBZPropDamageHitsSignature, UActorComponent*, PoolComponent, int32, Hits, bool, bDoCosmetics, const FSBZPropDamageContext&, DamageContext);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FSBZPropDamageHitsSignature, UActorComponent*, PoolComponent, int32, Hits, bool, bDoCosmetics, const FSBZPropDamageContext&, DamageContext);
 

@@ -4,3 +4,4 @@ USBZSecuredBagTypeStatisticCriteria::USBZSecuredBagTypeStatisticCriteria() {
     this->RequiredSecuredCount = 0;
 }
 
+

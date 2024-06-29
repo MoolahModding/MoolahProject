@@ -8,5 +8,6 @@ class USBZHackerBaseAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZHackerBaseAbility();
+
 };
 

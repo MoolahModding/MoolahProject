@@ -8,5 +8,6 @@ class USBZSkillManipulatorMenacing : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillManipulatorMenacing();
+
 };
 

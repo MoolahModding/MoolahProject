@@ -31,5 +31,6 @@ public:
     float LineHeightPercentage;
     
     USBZTextStyle();
+
 };
 

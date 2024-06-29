@@ -1,7 +1,29 @@
 #include "SBZLootProcessorBase.h"
 #include "Components/BoxComponent.h"
+#include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
+
+ASBZLootProcessorBase::ASBZLootProcessorBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->ProcessDuration = 30.00f;
+    this->bCanQueueProcessing = true;
+    this->MarkerAsset = NULL;
+    this->ClaimBagInteractable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ClaimBagInteractable"));
+    this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
+    this->CurrentState = ESBZLootProcessorState::Inactive;
+    this->BagCount = 0;
+    this->CurrentProcessingIndex = -1;
+    this->SabotagePoint = NULL;
+    this->SabotageRestoreState = ESBZLootProcessorState::Inactive;
+    this->BagTypeToReturn = NULL;
+    this->MarkerID = -1;
+    this->MarkerComponent = NULL;
+    this->BoxComponent->SetupAttachment(RootComponent);
+}
 
 void ASBZLootProcessorBase::SetInteractionEnabled(bool bEnabled) {
 }
@@ -21,6 +43,9 @@ void ASBZLootProcessorBase::OnSabotagedStateChanged(bool bSabotaged) {
 void ASBZLootProcessorBase::OnRep_CurrentState() {
 }
 
+void ASBZLootProcessorBase::OnRep_CurrentProcessingIndex() {
+}
+
 void ASBZLootProcessorBase::OnRep_BagCount() {
 }
 
@@ -36,6 +61,10 @@ void ASBZLootProcessorBase::Multicast_UpdateBagCount_Implementation(int32 NewBag
 void ASBZLootProcessorBase::Multicast_SetState_Implementation(ESBZLootProcessorState NewState) {
 }
 
+void ASBZLootProcessorBase::Multicast_SetCurrentProcessingIndex_Implementation(uint8 Index) {
+}
+
+
 
 
 void ASBZLootProcessorBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -43,19 +72,7 @@ void ASBZLootProcessorBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     
     DOREPLIFETIME(ASBZLootProcessorBase, CurrentState);
     DOREPLIFETIME(ASBZLootProcessorBase, BagCount);
+    DOREPLIFETIME(ASBZLootProcessorBase, CurrentProcessingIndex);
 }
 
-ASBZLootProcessorBase::ASBZLootProcessorBase() {
-    this->ProcessDuration = 30.00f;
-    this->MarkerAsset = NULL;
-    this->ClaimBagInteractable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ClaimBagInteractable"));
-    this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
-    this->CurrentState = ESBZLootProcessorState::Inactive;
-    this->BagCount = 0;
-    this->SabotagePoint = NULL;
-    this->bShouldSabotageGoToRunning = false;
-    this->BagTypeToReturn = NULL;
-    this->MarkerID = -1;
-    this->MarkerComponent = NULL;
-}
 

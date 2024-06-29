@@ -11,7 +11,7 @@ class UReplicationGraphNode_GridSpatialization2D;
 class USBZReplicationGraphNode_InitialFrameReplication;
 class USBZReplicationGraphNode_PrototypingOnly;
 
-UCLASS(Blueprintable, NonTransient)
+UCLASS(Blueprintable, NonTransient, Config=Engine)
 class STARBREEZE_API USBZReplicationGraph : public UReplicationGraph {
     GENERATED_BODY()
 public:
@@ -39,10 +39,11 @@ protected:
     
 public:
     USBZReplicationGraph();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnActorDependencyRemoved(AActor* Master, AActor* Slave);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActorDependencyAdded(AActor* Master, AActor* Slave);
     
 };

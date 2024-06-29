@@ -13,5 +13,6 @@ protected:
     
 public:
     USBZAIOrder_InvestigateCorpse();
+
 };
 

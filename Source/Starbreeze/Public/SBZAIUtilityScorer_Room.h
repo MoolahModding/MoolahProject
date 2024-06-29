@@ -17,5 +17,6 @@ private:
     
 public:
     USBZAIUtilityScorer_Room();
+
 };
 

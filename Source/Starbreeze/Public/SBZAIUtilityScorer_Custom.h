@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_Custom : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_Custom();
+
 };
 

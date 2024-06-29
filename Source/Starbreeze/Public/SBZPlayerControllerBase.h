@@ -16,14 +16,27 @@ protected:
     ASBZPlayerState* SBZPlayerState;
     
 public:
-    ASBZPlayerControllerBase();
+    ASBZPlayerControllerBase(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable)
+    void SetPausedPreferred(bool bIsPaused);
+    
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_SetPausedPreferred(bool bInIsPaused);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_SetLoadout(const FPD3PlayerLoadout& Loadout);
     
 public:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetAccelByteSessionInformation(const FString& InAccelByteUserId, const FString& InSessionId, const ESBZFirstPartyPlatform FirstPartyPlatform);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPausedPreferred() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool BP_IsPaused() const;
     
 };
 

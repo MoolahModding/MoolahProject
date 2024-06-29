@@ -68,36 +68,37 @@ protected:
     FSBZLifeActionStopEventDelegate OnCharacterSlotFreed;
     
 public:
-    ASBZLifeActionTriggerVolume();
+    ASBZLifeActionTriggerVolume(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetVolumeEnabled(bool bEnabled);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotStart(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotReserved(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotReady(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotExiting(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotExited(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotEntered(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFilteredActorEndOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnFilteredActorBeginOverlapping(FName Identifier, AActor* Actor, int32 CurrentTotalActors);
     
 };

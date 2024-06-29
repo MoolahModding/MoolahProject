@@ -46,20 +46,21 @@ private:
     TArray<USBZAIObjectiveComponent*> AIObjectivesInRoom;
     
 public:
-    ASBZRoomVolume();
+    ASBZRoomVolume(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetRoomType(ESBZRoomType InRoomType);
     
     UFUNCTION(BlueprintCallable)
     void SetRoomName(const FText& InRoomName);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZRoomType GetRoomType() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetRoomName() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

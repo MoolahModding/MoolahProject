@@ -8,5 +8,6 @@ class USBZEnvQueryContext_Players : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_Players();
+
 };
 

@@ -18,18 +18,19 @@ protected:
     
 public:
     USBZMainMenuPrePlanningItemSelectionButton();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetRemoveAssetButton(bool bIsRemoveAssetButton);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPrePlanningItemInitialized(const USBZPreplanningAssetData* InPreplanningData);
     
 public:
     UFUNCTION(BlueprintCallable)
     void InitializePrePlanningItem(const USBZPreplanningAssetData* InPreplanningItem, int32 InStackCount);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZPreplanningAssetData* GetPreplanningItem() const;
     
 };

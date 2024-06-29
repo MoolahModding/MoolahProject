@@ -21,6 +21,6 @@ enum class ESBZImpactConfigType : uint8 {
     DebrisRolling,
     BagItem,
     Last,
-    First = 0x0,
+    First = Default,
 };
 

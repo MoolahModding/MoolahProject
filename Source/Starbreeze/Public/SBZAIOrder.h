@@ -9,7 +9,6 @@
 
 class AActor;
 class APawn;
-class ASBZAIController;
 class UBehaviorTree;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -64,6 +63,7 @@ protected:
 
 public:
     USBZAIOrder();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStoppedBP(APawn* Pawn, const TEnumAsByte<EBTNodeResult::Type>& NodeResult);
 
@@ -80,7 +80,7 @@ public:
     void OnCompletedBP(APawn* Pawn, const TEnumAsByte<EBTNodeResult::Type>& NodeResult);
 
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, BlueprintPure)
-    bool ExecPredicate(const ASBZAIController* AIController) const;
+    bool ExecPredicate(const UObject* Owner) const;
 
 };
 

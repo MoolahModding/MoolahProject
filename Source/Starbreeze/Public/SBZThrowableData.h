@@ -97,5 +97,6 @@ public:
     USBZWeaponFireData* FireData;
     
     USBZThrowableData();
+
 };
 

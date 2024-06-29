@@ -6,3 +6,4 @@ USBZWeaponDecalData::USBZWeaponDecalData() {
     this->DecalTextureSize = 1.00f;
 }
 
+

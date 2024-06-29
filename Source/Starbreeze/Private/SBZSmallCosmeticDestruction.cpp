@@ -1,6 +1,16 @@
 #include "SBZSmallCosmeticDestruction.h"
 #include "Components/StaticMeshComponent.h"
 
+ASBZSmallCosmeticDestruction::ASBZSmallCosmeticDestruction(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UStaticMeshComponent>(TEXT("StaticMeshComponent0"))) {
+    this->Tags.AddDefaulted(1);
+    this->bMoveToDebris = true;
+    this->bDestroyWhenActivated = false;
+    this->bCanBeActivatedByPlayerOverlap = true;
+    this->bReceivesDamageFromMelee = true;
+    this->MinimumImpactForce = 10.00f;
+    this->PhysicalMaterial = NULL;
+}
+
 void ASBZSmallCosmeticDestruction::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
 }
 
@@ -20,13 +30,4 @@ void ASBZSmallCosmeticDestruction::HandleTakeOverlapDamage(AActor* DamagedActor,
 void ASBZSmallCosmeticDestruction::CreateImpactPoint(const FHitResult& Hit) {
 }
 
-ASBZSmallCosmeticDestruction::ASBZSmallCosmeticDestruction() {
-    this->bMoveToDebris = true;
-    this->bDestroyWhenActivated = false;
-    this->bCanBeActivatedByPlayerOverlap = true;
-    this->bReceivesDamageFromMelee = true;
-    this->MinimumImpactForce = 10.00f;
-    this->PhysicalMaterial = NULL;
-    this->MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
-}
 

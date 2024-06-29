@@ -52,20 +52,21 @@ protected:
     float PendingOnScreenTime;
     
 public:
-    USBZPlayerInteractorComponent();
-    UFUNCTION(BlueprintPure)
+    USBZPlayerInteractorComponent(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShowInteractWidget() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCurrentInstant() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZBaseInteractableComponent* GetSelectedInteraction() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FSBZInteractModeDisplayData GetModeDisplayData(const FSBZInteractDisplayDataCollection& Collection, bool bIsInstant, bool& bOutIsFront);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanInteract() const;
     
 };

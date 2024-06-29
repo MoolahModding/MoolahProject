@@ -54,7 +54,8 @@ protected:
     float RtpcInterpolationTimerMS;
     
 public:
-    ASBZNiagaraWwiseActor();
+    ASBZNiagaraWwiseActor(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UpdateRtpc(float RtpcValue, float RtpcInterpolationValue);
     

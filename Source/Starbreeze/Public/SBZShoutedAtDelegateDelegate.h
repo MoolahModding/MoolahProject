@@ -5,5 +5,5 @@
 class APawn;
 class USBZShoutTargetComponent;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZShoutedAtDelegate, USBZShoutTargetComponent*, ShoutTarget, APawn*, Shouter);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZShoutedAtDelegate, USBZShoutTargetComponent*, ShoutTarget, APawn*, Shouter);
 

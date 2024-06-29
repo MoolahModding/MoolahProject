@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnPlatformUserChangedDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnPlatformUserChangedDelegate, int32, OldUserIndex);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnPlatformUserChangedDelegate, int32, OldUserIndex);
 

@@ -1,5 +1,10 @@
 #include "SBZOnlineSessionUtils.h"
 
+USBZOnlineSessionUtils::USBZOnlineSessionUtils() {
+    this->Party = NULL;
+    this->Lobby = NULL;
+}
+
 bool USBZOnlineSessionUtils::IsPartyOwner() const {
     return false;
 }
@@ -32,8 +37,4 @@ bool USBZOnlineSessionUtils::IsActionPhaseClient() const {
     return false;
 }
 
-USBZOnlineSessionUtils::USBZOnlineSessionUtils() {
-    this->Party = NULL;
-    this->Lobby = NULL;
-}
 

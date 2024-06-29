@@ -8,7 +8,7 @@
 class USBZWidgetBase;
 class UWorld;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateDsResult : public USBZDsStateMachineState {
     GENERATED_BODY()
 public:
@@ -40,20 +40,21 @@ private:
     
 public:
     USBZStateMachineStateDsResult();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRestartTimerFinsihed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRestartLevelTimeExpired();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRestartAcceptTimerFinsihed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRestartAccepted(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DestinationMapLoaded(UWorld* NewWorld);
     
 };

@@ -13,5 +13,6 @@ public:
     UImage* ImageWidget;
     
     USBZWidgetCreditsImage();
+
 };
 

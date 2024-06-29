@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZToggleGadget : public ASBZGadget {
     GENERATED_BODY()
 public:
-    ASBZToggleGadget();
+    ASBZToggleGadget(const FObjectInitializer& ObjectInitializer);
+
 };
 

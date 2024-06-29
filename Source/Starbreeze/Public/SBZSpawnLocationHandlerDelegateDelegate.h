@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZSpawnLocationHandlerDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZSpawnLocationHandlerDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZSpawnLocationHandlerDelegate);
 

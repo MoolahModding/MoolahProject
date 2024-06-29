@@ -7,3 +7,4 @@ USBZControlsReferenceAxisWidget::USBZControlsReferenceAxisWidget() {
     this->AxisInputWidgetClass = NULL;
 }
 
+

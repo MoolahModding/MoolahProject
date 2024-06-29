@@ -64,62 +64,63 @@ private:
     uint8 bManualRegistering: 1;
     
 public:
-    ASBZCoverPoint();
+    ASBZCoverPoint(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     bool Reserve(AActor* ForActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOccupantKilled(APawn* Pawn);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBlockerKilled(APawn* Pawn);
     
     UFUNCTION(BlueprintCallable)
     bool Occupy(AActor* OccupyingActor);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsStandingCover() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsReserved(AActor* ForActor) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsRegistered() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsOccupied() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLowCover() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFree(AActor* ForActor) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCrouchingCover() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsComputed() const;
     
     UFUNCTION(BlueprintCallable)
     bool IsBlockedBy(AActor* Actor);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsBlocked(AActor* ForActor) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasShootingPointLOS_Synchronously(ESBZShootingPointType ShootingPoint, AActor* TargetActor) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAnyShootingPointLOS_Synchronously(AActor* TargetActor) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetValidShootingPoints() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetReservedForActor() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetOccupant() const;
     
     UFUNCTION(BlueprintCallable)
@@ -129,17 +130,17 @@ public:
     void CancelReservation(AActor* ForActor);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BlockingActorLeft(UPrimitiveComponent* OverlappedComp, AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BlockingActorEntered(UPrimitiveComponent* OverlappedComp, AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 public:
     UFUNCTION(BlueprintCallable)
     bool Abandon(AActor* OccupyingActor);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -7,17 +7,13 @@
 #include "SBZPlayerStateRemovedEvent.h"
 #include "SBZStateMachineStateDsActionPhase.generated.h"
 
-class USBZActionPhaseBaseWidget;
 class USBZStateMachineDataActionPhase;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateDsActionPhase : public USBZDsStateMachineState {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    USBZActionPhaseBaseWidget* ActionPhaseWidget;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZStateMachineDataActionPhase* ActionPhaseData;
     
@@ -26,38 +22,39 @@ private:
     
 public:
     USBZStateMachineStateDsActionPhase();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerStartTravel(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PlayerDisconnectedAtBeacon(const FUniqueNetIdRepl& PlayerId);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& Data);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleMissionResultReady(const FSBZEndMissionResultData& MissionResultData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleMissionEnd(const int32 OutroVariation);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DropInLobbyClient(const FUniqueNetIdRepl& PlayerId, const FString& DisplayName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void AutoReadyTimeout();
     
 };

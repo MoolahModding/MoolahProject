@@ -1,5 +1,11 @@
 #include "SBZStateMachineStateActionPhase.h"
 
+USBZStateMachineStateActionPhase::USBZStateMachineStateActionPhase() {
+    this->ActionPhaseWidget = NULL;
+    this->ActionPhaseData = NULL;
+    this->InitialLongTimeoutDelay = 0.00f;
+}
+
 void USBZStateMachineStateActionPhase::PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId) {
 }
 
@@ -27,9 +33,4 @@ void USBZStateMachineStateActionPhase::BlackScreenDoneTimeout() {
 void USBZStateMachineStateActionPhase::AutoReadyTimeout() {
 }
 
-USBZStateMachineStateActionPhase::USBZStateMachineStateActionPhase() {
-    this->ActionPhaseWidget = NULL;
-    this->ActionPhaseData = NULL;
-    this->InitialLongTimeoutDelay = 0.00f;
-}
 

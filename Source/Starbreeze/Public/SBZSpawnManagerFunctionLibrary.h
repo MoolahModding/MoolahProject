@@ -23,6 +23,7 @@ class USBZSpawnManagerFunctionLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZSpawnManagerFunctionLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo", WorldContext="WorldContextObject"))
     static void WaitForPawnRequest(const UObject* WorldContextObject, FSBZPawnSpawnRequestHandle Handle, FLatentActionInfo LatentInfo);
     
@@ -35,28 +36,28 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FSBZActorSpawnRequestHandle RequestActor(const UObject* WorldContextObject, const TArray<FSBZActorSpawnRequest>& RequestArray, FSBZSpawnRequestOptions Options, const FSBZActorSpawnRequestDynamicDelegate& Spawned, const FSBZActorSpawnRequestDoneDynamicDelegate& RequestDone, FName DebugName);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZSpawnRequestStatus GetPawnRequestStatus(const FSBZPawnSpawnRequestHandle& Handle);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetPawnRequestCount(const FSBZPawnSpawnRequestHandle& Handle);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FSBZPawnSpawnRequest GetPawnRequest(const FSBZPawnSpawnRequestHandle& Handle, int32 Index);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static TArray<APawn*> GetCreatedPawns(const FSBZPawnSpawnRequestHandle& Handle, bool bIncludeMissingPawns);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static TArray<AActor*> GetCreatedActors(const FSBZActorSpawnRequestHandle& Handle, bool bRemoveMissingActors);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZSpawnRequestStatus GetActorRequestStatus(const FSBZActorSpawnRequestHandle& Handle);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetActorRequestCount(const FSBZActorSpawnRequestHandle& Handle);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FSBZActorSpawnRequest GetActorRequest(const FSBZActorSpawnRequestHandle& Handle, int32 Index);
     
 };

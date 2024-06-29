@@ -8,5 +8,6 @@ class USBZInteractAmmoBagRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractAmmoBagRequirement();
+
 };
 

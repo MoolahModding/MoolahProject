@@ -8,5 +8,6 @@ class USBZAIAction_ThrowGrenade : public USBZAIAction_Order {
     GENERATED_BODY()
 public:
     USBZAIAction_ThrowGrenade();
+
 };
 

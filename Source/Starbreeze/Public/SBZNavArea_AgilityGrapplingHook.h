@@ -8,5 +8,6 @@ class USBZNavArea_AgilityGrapplingHook : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityGrapplingHook();
+
 };
 

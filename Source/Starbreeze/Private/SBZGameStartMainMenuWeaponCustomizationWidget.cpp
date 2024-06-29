@@ -1,5 +1,11 @@
 #include "SBZGameStartMainMenuWeaponCustomizationWidget.h"
 
+USBZGameStartMainMenuWeaponCustomizationWidget::USBZGameStartMainMenuWeaponCustomizationWidget() {
+    this->StackValue = TEXT("Default__SBZGameStartMainMenuWeaponCustomizationWidget");
+    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
+    this->WeaponSlotIndex = -1;
+}
+
 void USBZGameStartMainMenuWeaponCustomizationWidget::UpdateEquippableConfig(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex) {
 }
 
@@ -10,8 +16,4 @@ bool USBZGameStartMainMenuWeaponCustomizationWidget::CustomizeWeaponInSlot(ESBZE
     return false;
 }
 
-USBZGameStartMainMenuWeaponCustomizationWidget::USBZGameStartMainMenuWeaponCustomizationWidget() {
-    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
-    this->WeaponSlotIndex = -1;
-}
 

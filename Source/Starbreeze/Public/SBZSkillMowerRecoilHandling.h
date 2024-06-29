@@ -8,5 +8,6 @@ class USBZSkillMowerRecoilHandling : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMowerRecoilHandling();
+
 };
 

@@ -31,5 +31,6 @@ public:
     float StickerRoughnessValue;
     
     USBZWeaponStickerData();
+
 };
 

@@ -12,5 +12,6 @@ public:
     ESBZHumanShieldEnterType HumanShieldEnterType;
     
     USBZHumanShieldEnterTypeNotify();
+
 };
 

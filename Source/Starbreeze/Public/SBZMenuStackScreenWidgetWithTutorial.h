@@ -33,22 +33,23 @@ protected:
     
 public:
     USBZMenuStackScreenWidgetWithTutorial();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void ToggleShowingTutorial();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTutorialHidden();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTutorialDisplayed();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTutorialButtonSelected(USBZMenuMouseButton* Button);
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsShowingTutorial() const;
     
 };

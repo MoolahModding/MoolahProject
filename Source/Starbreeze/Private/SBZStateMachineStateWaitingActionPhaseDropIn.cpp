@@ -1,5 +1,8 @@
 #include "SBZStateMachineStateWaitingActionPhaseDropIn.h"
 
+USBZStateMachineStateWaitingActionPhaseDropIn::USBZStateMachineStateWaitingActionPhaseDropIn() {
+}
+
 void USBZStateMachineStateWaitingActionPhaseDropIn::HandlePlayerControllerReady() {
 }
 
@@ -9,6 +12,4 @@ void USBZStateMachineStateWaitingActionPhaseDropIn::HandleJoinedHost(UWorld* New
 void USBZStateMachineStateWaitingActionPhaseDropIn::HandleGameStateReady() {
 }
 
-USBZStateMachineStateWaitingActionPhaseDropIn::USBZStateMachineStateWaitingActionPhaseDropIn() {
-}
 

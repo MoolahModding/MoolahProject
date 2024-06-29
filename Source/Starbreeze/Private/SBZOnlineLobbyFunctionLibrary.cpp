@@ -1,5 +1,8 @@
 #include "SBZOnlineLobbyFunctionLibrary.h"
 
+USBZOnlineLobbyFunctionLibrary::USBZOnlineLobbyFunctionLibrary() {
+}
+
 void USBZOnlineLobbyFunctionLibrary::TogglePlayerReady(const UObject* WorldContextObject) {
 }
 
@@ -17,6 +20,4 @@ USBZOnlineSession* USBZOnlineLobbyFunctionLibrary::GetOnlineSession(const UObjec
     return NULL;
 }
 
-USBZOnlineLobbyFunctionLibrary::USBZOnlineLobbyFunctionLibrary() {
-}
 

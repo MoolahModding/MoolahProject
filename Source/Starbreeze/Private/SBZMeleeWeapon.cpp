@@ -1,6 +1,7 @@
 #include "SBZMeleeWeapon.h"
 
-ASBZMeleeWeapon::ASBZMeleeWeapon() {
+ASBZMeleeWeapon::ASBZMeleeWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->MeleeHitEvent = NULL;
 }
+
 

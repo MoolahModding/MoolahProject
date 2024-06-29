@@ -1,5 +1,10 @@
 #include "SBZPartyHost.h"
 
+USBZPartyHost::USBZPartyHost() {
+    this->PartyTravelTimeout = 20.00f;
+    this->PartyDisconnectTimeout = 20.00f;
+}
+
 void USBZPartyHost::NotifyClientLeftLobby(const FUniqueNetIdRepl& PartyMemberId) {
 }
 
@@ -24,8 +29,4 @@ void USBZPartyHost::BroadcastPartyTravelled(ESBZOnlineCode Result) {
 void USBZPartyHost::BroadcastPartyLeftLobby(ESBZOnlineCode Result) {
 }
 
-USBZPartyHost::USBZPartyHost() {
-    this->PartyTravelTimeout = 20.00f;
-    this->PartyDisconnectTimeout = 20.00f;
-}
 

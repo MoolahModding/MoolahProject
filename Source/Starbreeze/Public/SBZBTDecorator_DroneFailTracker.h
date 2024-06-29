@@ -8,5 +8,6 @@ class USBZBTDecorator_DroneFailTracker : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_DroneFailTracker();
+
 };
 

@@ -5,5 +5,5 @@
 
 class AActor;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZSmartLinkReachedSignature, AActor*, MovingActor, const FVector&, DestinationPoint);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZSmartLinkReachedSignature, AActor*, MovingActor, const FVector&, DestinationPoint);
 

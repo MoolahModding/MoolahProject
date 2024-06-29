@@ -1,6 +1,11 @@
 #include "SBZAlertnessDataComponent.h"
 #include "Net/UnrealNetwork.h"
 
+UDEPRECATED_SBZAlertnessDataComponent::UDEPRECATED_SBZAlertnessDataComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->AlertState = -1;
+    this->AlertMarkerAsset = NULL;
+}
+
 void UDEPRECATED_SBZAlertnessDataComponent::OnRep_AlertState() {
 }
 
@@ -13,8 +18,4 @@ void UDEPRECATED_SBZAlertnessDataComponent::GetLifetimeReplicatedProps(TArray<FL
     DOREPLIFETIME(UDEPRECATED_SBZAlertnessDataComponent, AlertState);
 }
 
-UDEPRECATED_SBZAlertnessDataComponent::UDEPRECATED_SBZAlertnessDataComponent() {
-    this->AlertState = -1;
-    this->AlertMarkerAsset = NULL;
-}
 

@@ -6,7 +6,7 @@ public class PAYDAY3Target : TargetRules {
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		ExtraModuleNames.AddRange(new string[] {
 			"PAYDAY3",
-            "SBZWorldRuntime",
+			"SBZWorldRuntime",
 			"Starbreeze",
 		});
 	}

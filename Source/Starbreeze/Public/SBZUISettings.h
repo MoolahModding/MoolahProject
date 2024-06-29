@@ -6,7 +6,7 @@
 #include "SBZUIDefaultSoundEvents.h"
 #include "SBZUISettings.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class USBZUISettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -32,5 +32,6 @@ public:
     FString ServersStatusMessageURL_Live;
     
     USBZUISettings();
+
 };
 

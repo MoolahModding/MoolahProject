@@ -13,5 +13,6 @@ public:
     USBZWeaponStickerDataConfig* StickerConfig;
     
     USBZModularPartApplierWeaponSticker();
+
 };
 

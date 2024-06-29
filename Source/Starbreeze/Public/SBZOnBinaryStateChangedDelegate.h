@@ -4,5 +4,5 @@
 
 class ASBZBinaryStateNode;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZOnBinaryStateChanged, ASBZBinaryStateNode*, BinaryStateNode, bool, bState);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZOnBinaryStateChanged, ASBZBinaryStateNode*, BinaryStateNode, bool, bState);
 

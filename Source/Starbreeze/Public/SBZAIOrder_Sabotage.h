@@ -21,5 +21,6 @@ protected:
     
 public:
     USBZAIOrder_Sabotage();
+
 };
 

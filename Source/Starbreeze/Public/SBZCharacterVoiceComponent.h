@@ -96,11 +96,12 @@ private:
     USBZDialogDataAsset* PerformsInDialog;
     
 public:
-    USBZCharacterVoiceComponent();
+    USBZCharacterVoiceComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void StopTalking();
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_SaySystemComment(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority, bool bServerInstigated);
     
     UFUNCTION(BlueprintCallable)
@@ -130,20 +131,20 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnDeath();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SaySystemComment_ServerInstigated(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SaySystemComment(const USBZVoiceCommentDataAsset* CommentDataAsset, ESBZVoicePriority InPlayingPriority);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleAudioComponentDeactivated(UActorComponent* Component);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleAudioComponentActivated(UActorComponent* Component, bool bReset);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CallRecieved(const FSBZPlayerCallEvent& CallEventData);
     
 };

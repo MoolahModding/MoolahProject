@@ -2,6 +2,8 @@
 
 FSBZAgilityTraversalQueryParamsRow::FSBZAgilityTraversalQueryParamsRow() {
     this->AgilityType = ESBZAgilityTraversalType::VaultLowSlow;
+    this->bPerformSprintCheck = false;
+    this->bMustWantToSprint = false;
     this->MinFallHeight = 0.00f;
     this->bEntrySpeedOverridesJumpCurve = false;
     this->bEntrySpeedOverridesTraversalCurve = false;

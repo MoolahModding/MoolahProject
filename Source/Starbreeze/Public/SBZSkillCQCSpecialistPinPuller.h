@@ -19,5 +19,6 @@ public:
     float FlashBangDelay;
     
     USBZSkillCQCSpecialistPinPuller();
+
 };
 

@@ -13,3 +13,4 @@ USBZPagerData::USBZPagerData() {
     this->TimeoutFailAudioEvent = NULL;
 }
 
+

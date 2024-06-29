@@ -4,5 +4,5 @@
 
 class USBZModularPartSlotBase;
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FOnCategoryButtonSelected, const USBZModularPartSlotBase*, ModSlot);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FOnCategoryButtonSelected, const USBZModularPartSlotBase*, ModSlot);
 

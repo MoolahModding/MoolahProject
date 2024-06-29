@@ -15,5 +15,6 @@ public:
     FTransform ThrowBoneComponentTransform;
     
     USBZThrowReleaseNotify();
+
 };
 

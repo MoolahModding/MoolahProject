@@ -1,6 +1,7 @@
 #include "SBZBTTask_FindLifeActionWithTag.h"
 
 USBZBTTask_FindLifeActionWithTag::USBZBTTask_FindLifeActionWithTag() {
+    this->NodeName = TEXT("SBZ Find Life Action With tag");
     this->UtilityScore = 0.70f;
     this->bIsPersistant = false;
     this->CompatibleStances = 1;
@@ -8,4 +9,5 @@ USBZBTTask_FindLifeActionWithTag::USBZBTTask_FindLifeActionWithTag() {
     this->Behavior = NULL;
     this->LifeActionAffinityData = NULL;
 }
+
 

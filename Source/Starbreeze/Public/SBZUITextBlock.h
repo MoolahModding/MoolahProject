@@ -9,7 +9,7 @@ class USBZColorStyle;
 class USBZTextStyle;
 class USBZUITextScrollStyle;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=StarbreezeUI)
+UCLASS(Blueprintable, DefaultConfig, Config=StarbreezeUI)
 class STARBREEZE_API USBZUITextBlock : public UTextBlock {
     GENERATED_BODY()
 public:
@@ -37,6 +37,7 @@ private:
     
 public:
     USBZUITextBlock();
+
     UFUNCTION(BlueprintCallable)
     void SetStyle(USBZTextStyle* InStyle);
     

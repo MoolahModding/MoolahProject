@@ -8,5 +8,6 @@ class USBZNavArea_ExitableNoEnter : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_ExitableNoEnter();
+
 };
 

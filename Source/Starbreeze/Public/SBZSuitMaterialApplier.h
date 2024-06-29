@@ -8,5 +8,6 @@ class USBZSuitMaterialApplier : public USBZModularPartApplier {
     GENERATED_BODY()
 public:
     USBZSuitMaterialApplier();
+
 };
 

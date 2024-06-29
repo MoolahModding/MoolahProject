@@ -1,5 +1,10 @@
 #include "SBZSelectorWidget.h"
 
+USBZSelectorWidget::USBZSelectorWidget() {
+    this->SelectionCount = 1;
+    this->CurrentIndex = -1;
+}
+
 void USBZSelectorWidget::SetSelectionCount(int32 NewSelectionCount) {
 }
 
@@ -15,8 +20,4 @@ void USBZSelectorWidget::SelectLeft() {
 
 
 
-USBZSelectorWidget::USBZSelectorWidget() {
-    this->SelectionCount = 1;
-    this->CurrentIndex = -1;
-}
 

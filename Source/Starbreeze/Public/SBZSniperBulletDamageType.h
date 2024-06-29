@@ -8,5 +8,6 @@ class USBZSniperBulletDamageType : public USBZBulletDamageType {
     GENERATED_BODY()
 public:
     USBZSniperBulletDamageType();
+
 };
 

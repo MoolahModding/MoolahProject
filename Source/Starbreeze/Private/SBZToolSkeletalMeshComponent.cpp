@@ -1,5 +1,6 @@
 #include "SBZToolSkeletalMeshComponent.h"
 
-USBZToolSkeletalMeshComponent::USBZToolSkeletalMeshComponent() {
+USBZToolSkeletalMeshComponent::USBZToolSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

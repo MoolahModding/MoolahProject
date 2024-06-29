@@ -6,3 +6,4 @@ USBZPersistentWorldDamageSettings::USBZPersistentWorldDamageSettings() {
     this->RadialDamageMultiplier = 10.00f;
 }
 
+

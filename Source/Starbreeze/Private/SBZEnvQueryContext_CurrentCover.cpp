@@ -3,3 +3,4 @@
 USBZEnvQueryContext_CurrentCover::USBZEnvQueryContext_CurrentCover() {
 }
 
+

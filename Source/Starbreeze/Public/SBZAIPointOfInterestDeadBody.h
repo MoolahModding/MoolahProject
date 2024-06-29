@@ -22,6 +22,7 @@ private:
     USBZLifeActionSlot* LifeActionSlot;
     
 public:
-    ASBZAIPointOfInterestDeadBody();
+    ASBZAIPointOfInterestDeadBody(const FObjectInitializer& ObjectInitializer);
+
 };
 

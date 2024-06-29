@@ -25,6 +25,7 @@ private:
     
 public:
     USBZQueryPrivilege();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZQueryPrivilege* QueryPrivilege(UObject* NewWorldContextObject, ESBZUserPrivilegesProxy Privilege);
     

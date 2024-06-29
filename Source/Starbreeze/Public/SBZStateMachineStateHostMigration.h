@@ -8,5 +8,6 @@ class STARBREEZE_API USBZStateMachineStateHostMigration : public USBZClientState
     GENERATED_BODY()
 public:
     USBZStateMachineStateHostMigration();
+
 };
 

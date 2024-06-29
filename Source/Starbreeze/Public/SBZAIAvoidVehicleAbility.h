@@ -19,8 +19,9 @@ protected:
     
 public:
     USBZAIAvoidVehicleAbility();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void Tick(float DeltaSeconds);
     
 };

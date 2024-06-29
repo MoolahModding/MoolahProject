@@ -8,5 +8,6 @@ class USBZEnvQueryTest_IsHostile : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsHostile();
+
 };
 

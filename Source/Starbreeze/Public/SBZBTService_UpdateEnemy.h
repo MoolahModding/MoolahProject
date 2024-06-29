@@ -34,5 +34,6 @@ protected:
     
 public:
     USBZBTService_UpdateEnemy();
+
 };
 

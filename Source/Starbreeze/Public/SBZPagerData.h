@@ -53,5 +53,6 @@ public:
     UAkAudioEvent* TimeoutFailAudioEvent;
     
     USBZPagerData();
+
 };
 

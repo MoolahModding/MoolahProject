@@ -13,9 +13,13 @@ protected:
     FFloatRange DistanceRange;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float HeightLimit;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BlackboardKey;
     
 public:
     USBZAIUtilityScorer_DistanceToActor();
+
 };
 

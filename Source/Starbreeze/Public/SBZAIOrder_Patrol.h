@@ -25,5 +25,6 @@ private:
     
 public:
     USBZAIOrder_Patrol();
+
 };
 

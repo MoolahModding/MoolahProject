@@ -31,5 +31,6 @@ protected:
     
 public:
     UPD3HUDPartyContainerWidget();
+
 };
 

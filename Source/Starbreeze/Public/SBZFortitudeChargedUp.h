@@ -8,5 +8,6 @@ class USBZFortitudeChargedUp : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZFortitudeChargedUp();
+
 };
 

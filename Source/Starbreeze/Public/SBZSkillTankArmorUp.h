@@ -8,5 +8,6 @@ class USBZSkillTankArmorUp : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTankArmorUp();
+
 };
 

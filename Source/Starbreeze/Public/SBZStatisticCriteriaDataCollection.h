@@ -45,6 +45,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZStatisticCriteriaData* NoBagOnGround;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZStatisticCriteriaData* BranchBankNoDyePackExploded;
+    
     STARBREEZE_API FSBZStatisticCriteriaDataCollection();
 };
 

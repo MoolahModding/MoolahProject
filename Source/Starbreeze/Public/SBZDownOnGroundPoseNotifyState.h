@@ -8,5 +8,6 @@ class USBZDownOnGroundPoseNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZDownOnGroundPoseNotifyState();
+
 };
 

@@ -29,7 +29,7 @@ public:
     TArray<FSBZObjectiveData> ExperienceObjectiveArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FSBZMilestoneData> ExperienceMilestoneArray;
+    TArray<FSBZMilestoneData> MilestoneArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZPlayerEndMissionResultData> PlayerResultArray;
@@ -42,6 +42,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZInstantLootData> InstantLootArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 CompletedAssaultWaveCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsFinalAssaultTriggered;
     
     STARBREEZE_API FSBZEndMissionResultData();
 };

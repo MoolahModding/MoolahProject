@@ -8,5 +8,6 @@ class USBZSkillEnforcerFaceToFace : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEnforcerFaceToFace();
+
 };
 

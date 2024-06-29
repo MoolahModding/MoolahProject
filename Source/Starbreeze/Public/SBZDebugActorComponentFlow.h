@@ -35,6 +35,7 @@ protected:
     USBZDebugObjectFlow* LastDynamicObject;
     
 public:
-    USBZDebugActorComponentFlow();
+    USBZDebugActorComponentFlow(const FObjectInitializer& ObjectInitializer);
+
 };
 

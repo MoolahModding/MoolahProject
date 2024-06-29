@@ -4,3 +4,4 @@ USBZHeightTransitionCameraModifier::USBZHeightTransitionCameraModifier() {
     this->FallingTransitionSpeedModifier = 1.00f;
 }
 
+

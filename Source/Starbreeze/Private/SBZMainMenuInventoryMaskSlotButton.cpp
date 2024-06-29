@@ -1,5 +1,9 @@
 #include "SBZMainMenuInventoryMaskSlotButton.h"
 
+USBZMainMenuInventoryMaskSlotButton::USBZMainMenuInventoryMaskSlotButton() {
+    this->MaskSlotIndex = -1;
+}
+
 
 
 bool USBZMainMenuInventoryMaskSlotButton::IsPresetMaskSlot() const {
@@ -29,7 +33,4 @@ USBZMaskData* USBZMainMenuInventoryMaskSlotButton::GetMaskInSlot() const {
     return NULL;
 }
 
-USBZMainMenuInventoryMaskSlotButton::USBZMainMenuInventoryMaskSlotButton() {
-    this->MaskSlotIndex = -1;
-}
 

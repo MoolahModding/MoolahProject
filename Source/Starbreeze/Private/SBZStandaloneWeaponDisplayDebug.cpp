@@ -1,10 +1,12 @@
 #include "SBZStandaloneWeaponDisplayDebug.h"
 
-void ASBZStandaloneWeaponDisplayDebug::Setup() {
-}
-
-ASBZStandaloneWeaponDisplayDebug::ASBZStandaloneWeaponDisplayDebug() {
+ASBZStandaloneWeaponDisplayDebug::ASBZStandaloneWeaponDisplayDebug(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bForceWithoutPivotPoint = true;
     this->WeaponPreset = NULL;
     this->WeaponData = NULL;
 }
+
+void ASBZStandaloneWeaponDisplayDebug::Setup() {
+}
+
 

@@ -5,3 +5,4 @@ USBZReactionPredicate_HasTags::USBZReactionPredicate_HasTags() {
     this->Mode = ESBZTagsQuerySetting::Any;
 }
 
+

@@ -112,9 +112,10 @@ protected:
     AActor* AttachedLoot;
     
 public:
-    ASBZDisplayCase();
+    ASBZDisplayCase(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetLockdownEnabled(bool bEnabled);
     
@@ -128,40 +129,40 @@ public:
     void SetDisplayCaseLarmed(bool bInIsLarmed);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState(ESBZDisplayCaseState OldState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPropDamageHits(UActorComponent* HitComponent, int32 Hits, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLockpickStateChanged(EPD3MiniGameState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHackingStateChanged(EPD3MiniGameState NewState);
     
     UFUNCTION(BlueprintCallable)
     void OnDoorTimelineDone();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZDisplayCaseState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetIsLocked(bool bInIsLocked);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetIsLarmed(bool bInIsLarmed);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZDisplayCaseState OldState, ESBZDisplayCaseState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnGlassBroken(bool bDoCosmetics);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

@@ -1,5 +1,12 @@
 #include "SBZControlsReferenceActionWidget.h"
 
+USBZControlsReferenceActionWidget::USBZControlsReferenceActionWidget() {
+    this->Text_DisplayText = NULL;
+    this->Panel_ActionInputLists = NULL;
+    this->MaxActionInputsDisplayed = 2;
+    this->ActionInputWidgetClass = NULL;
+}
+
 void USBZControlsReferenceActionWidget::PressControlsReferenceAction() {
 }
 
@@ -13,10 +20,4 @@ bool USBZControlsReferenceActionWidget::DisplayControlsReferenceWithEvent(const 
 void USBZControlsReferenceActionWidget::ClearControlReference() {
 }
 
-USBZControlsReferenceActionWidget::USBZControlsReferenceActionWidget() {
-    this->Text_DisplayText = NULL;
-    this->Panel_ActionInputLists = NULL;
-    this->MaxActionInputsDisplayed = 2;
-    this->ActionInputWidgetClass = NULL;
-}
 

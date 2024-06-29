@@ -24,6 +24,7 @@ class USBZBlockedPlayerManager;
 class USBZChat;
 class USBZFriendManager;
 class USBZGameRecordsManager;
+class USBZGameSessionManager;
 class USBZGlobalLobby;
 class USBZInvites;
 class USBZKickingManager;
@@ -40,9 +41,10 @@ class USBZOnlineVoip;
 class USBZP2PSession;
 class USBZParty;
 class USBZPartyManager;
+class USBZRecentPlayersManager;
 class USBZVotingManager;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZOnlineSession : public UOnlineSession {
     GENERATED_BODY()
 public:
@@ -143,6 +145,12 @@ public:
     USBZPartyManager* PartyManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZGameSessionManager* GameSessionManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZRecentPlayersManager* RecentPlayersManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZOnlineSessionSettingsManager* OnlineSessionSettingManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -209,42 +217,43 @@ private:
     
 public:
     USBZOnlineSession();
+
     UFUNCTION(BlueprintCallable)
     void SetLocalClientReady(bool bIsClientReady);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnNetworkStatus(ESBZServiceStatus ServiceStatus);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsLocalClientReady() const;
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleOnlinePlatformError(ESBZOnlineSessionRequestType RequestType);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZLobbyCharacterInfoUi> GetUiLobbyInfo() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetPlayersCount();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetPartyMembersCount();
     
     UFUNCTION(BlueprintCallable)
     void GetMenuEvent(const FString& EventName);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetMatchmakingRegion() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZLobbyLocalState* GetLobbyState();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetFoundPlayersCount();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZMissionInfo GetBeaconMissionInfo();
     
 };

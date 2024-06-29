@@ -93,11 +93,12 @@ protected:
     
 public:
     UPD3HUDPlayerStatusWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlatformChanged(ASBZPlayerState* InPlayerState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInfamyLevelChanged(ASBZPlayerState* InPlayerState);
     
 };

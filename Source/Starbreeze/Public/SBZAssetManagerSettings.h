@@ -6,7 +6,7 @@
 
 class USBZAssetLookupData;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class USBZAssetManagerSettings : public USBZDeveloperSettings {
     GENERATED_BODY()
 public:
@@ -19,5 +19,6 @@ private:
     
 public:
     USBZAssetManagerSettings();
+
 };
 

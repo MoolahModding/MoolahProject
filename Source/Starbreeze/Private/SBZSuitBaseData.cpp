@@ -6,3 +6,4 @@ USBZSuitBaseData::USBZSuitBaseData() {
     this->CPD01 = 0;
 }
 
+

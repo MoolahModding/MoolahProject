@@ -1,5 +1,6 @@
 #include "SBZEventReactionComponent.h"
 
-USBZEventReactionComponent::USBZEventReactionComponent() {
+USBZEventReactionComponent::USBZEventReactionComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

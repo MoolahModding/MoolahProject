@@ -15,8 +15,9 @@ protected:
     
 public:
     USBZFPSWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisplayedChanged(bool bInIsDisplaying);
     
 };

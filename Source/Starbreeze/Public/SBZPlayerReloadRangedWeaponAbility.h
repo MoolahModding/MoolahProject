@@ -8,5 +8,6 @@ class USBZPlayerReloadRangedWeaponAbility : public USBZReloadRangedWeaponAbility
     GENERATED_BODY()
 public:
     USBZPlayerReloadRangedWeaponAbility();
+
 };
 

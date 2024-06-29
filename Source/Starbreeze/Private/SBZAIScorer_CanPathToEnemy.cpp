@@ -6,3 +6,4 @@ USBZAIScorer_CanPathToEnemy::USBZAIScorer_CanPathToEnemy() {
     this->DefaultScoreValue = 0.00f;
 }
 
+

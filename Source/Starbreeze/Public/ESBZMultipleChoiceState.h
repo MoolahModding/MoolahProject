@@ -2,12 +2,12 @@
 #include "CoreMinimal.h"
 #include "ESBZMultipleChoiceState.generated.h"
 
-UENUM(BlueprintType)
-enum class ESBZMultipleChoiceState : uint8 {
+UENUM()
+enum class ESBZMultipleChoiceState {
     Low,
     Medium,
     High,
     Ultra,
-    Invalid = 0xFF,
+    Invalid = -1,
 };
 

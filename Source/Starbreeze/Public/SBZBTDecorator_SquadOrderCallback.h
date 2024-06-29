@@ -8,5 +8,6 @@ class USBZBTDecorator_SquadOrderCallback : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_SquadOrderCallback();
+
 };
 

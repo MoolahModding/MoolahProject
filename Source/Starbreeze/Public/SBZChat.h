@@ -29,6 +29,7 @@ private:
     
 public:
     USBZChat();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SendSystemChatMessage(UObject* WorldContextObject, const FString& Message);
     
@@ -38,10 +39,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void SendChatMessage(FSBZChatMessage ChatMessage);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSessionMessageReceived(const FAccelByteModelsChatNotif& Result);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMuted(FUniqueNetIdRepl UniqueNetId);
     
     UFUNCTION(BlueprintCallable)
@@ -50,7 +51,7 @@ public:
     UFUNCTION(BlueprintCallable)
     bool GetNextWhisperOption(const FUniqueNetIdRepl& CurrentWhisper, FUniqueNetIdRepl& OutNextWhisper, FString& OutNextWhisperName, bool& bOutNoWhisperOptions);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZChat* GetChat(UObject* WorldContextObject);
     
 };

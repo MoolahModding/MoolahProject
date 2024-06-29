@@ -14,3 +14,4 @@ USBZHeadbobData::USBZHeadbobData() {
     this->TargetingData = NULL;
 }
 
+

@@ -8,5 +8,6 @@ class STARBREEZE_API USBZCoinData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     USBZCoinData();
+
 };
 

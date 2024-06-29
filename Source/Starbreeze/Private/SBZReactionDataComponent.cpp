@@ -1,5 +1,6 @@
 #include "SBZReactionDataComponent.h"
 
-USBZReactionDataComponent::USBZReactionDataComponent() {
+USBZReactionDataComponent::USBZReactionDataComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

@@ -1,5 +1,15 @@
 #include "SBZAIObjectiveComponent.h"
 
+USBZAIObjectiveComponent::USBZAIObjectiveComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bRegisterToWorldRuntime = true;
+    this->bExcludeInteractableAfterUse = false;
+    this->InteractionType = EAIObjectiveInteractionTypes::DirectInteraction;
+    this->InteractionPriority = EAIObjectivePriority::StandardPriority;
+    this->CurrentInteractable = -1;
+    this->LastKnownRoom = NULL;
+    this->MoveToPosEQSQuery = NULL;
+}
+
 void USBZAIObjectiveComponent::OnOrderCompleted(USBZAIOrder* Order, APawn* Owner, TEnumAsByte<EBTNodeResult::Type> OrderResult) {
 }
 
@@ -17,13 +27,4 @@ ASBZRoomVolume* USBZAIObjectiveComponent::GetCurrentRoom_Implementation() const 
     return NULL;
 }
 
-USBZAIObjectiveComponent::USBZAIObjectiveComponent() {
-    this->bRegisterToWorldRuntime = true;
-    this->bExcludeInteractableAfterUse = false;
-    this->InteractionType = EAIObjectiveInteractionTypes::DirectInteraction;
-    this->InteractionPriority = EAIObjectivePriority::StandardPriority;
-    this->CurrentInteractable = -1;
-    this->LastKnownRoom = NULL;
-    this->MoveToPosEQSQuery = NULL;
-}
 

@@ -8,5 +8,6 @@ class USBZEnvQueryContext_Ward : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_Ward();
+
 };
 

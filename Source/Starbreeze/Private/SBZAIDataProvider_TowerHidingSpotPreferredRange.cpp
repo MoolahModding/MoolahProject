@@ -5,3 +5,4 @@ USBZAIDataProvider_TowerHidingSpotPreferredRange::USBZAIDataProvider_TowerHiding
     this->AdditionalDistance = 0.00f;
 }
 
+

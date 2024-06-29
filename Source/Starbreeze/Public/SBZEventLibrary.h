@@ -11,6 +11,7 @@ class STARBREEZE_API USBZEventLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZEventLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZGameEventBroker* GetGameEventBroker(const UObject* WorldContextObject);
     

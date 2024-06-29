@@ -11,6 +11,9 @@ public:
     ESBZReloadState State;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsEmptyCycleNeeded;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsCycleNeeded;
     
     STARBREEZE_API FSBZCombinedReloadState();

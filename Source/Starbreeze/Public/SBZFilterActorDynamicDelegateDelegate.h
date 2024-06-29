@@ -4,5 +4,5 @@
 
 class AActor;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZFilterActorDynamicDelegate, FName, Identifier, AActor*, Actor, int32, CurrentTotalActors);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZFilterActorDynamicDelegate, FName, Identifier, AActor*, Actor, int32, CurrentTotalActors);
 

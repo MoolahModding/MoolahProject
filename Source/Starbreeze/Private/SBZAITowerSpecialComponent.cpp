@@ -1,6 +1,14 @@
 #include "SBZAITowerSpecialComponent.h"
 #include "Net/UnrealNetwork.h"
 
+USBZAITowerSpecialComponent::USBZAITowerSpecialComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ShieldClass = NULL;
+    this->ShieldBrokenComment = NULL;
+    this->ShieldDeployedComment = NULL;
+    this->RefractorShield = NULL;
+    this->bIsGlitchEffectActive = false;
+}
+
 void USBZAITowerSpecialComponent::OnRep_RefractorShield(ASBZAIRefractorShield* OldRefractorShield) {
 }
 
@@ -13,9 +21,6 @@ void USBZAITowerSpecialComponent::OnHideOrderCompleted(USBZAIOrder* Order, APawn
 void USBZAITowerSpecialComponent::Multicast_RetractShield_Implementation() {
 }
 
-void USBZAITowerSpecialComponent::Multicast_ActivateGlitchEffect_Implementation(bool bIsEffectActive) {
-}
-
 void USBZAITowerSpecialComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -23,11 +28,4 @@ void USBZAITowerSpecialComponent::GetLifetimeReplicatedProps(TArray<FLifetimePro
     DOREPLIFETIME(USBZAITowerSpecialComponent, bIsGlitchEffectActive);
 }
 
-USBZAITowerSpecialComponent::USBZAITowerSpecialComponent() {
-    this->ShieldClass = NULL;
-    this->ShieldBrokenComment = NULL;
-    this->ShieldDeployedComment = NULL;
-    this->RefractorShield = NULL;
-    this->bIsGlitchEffectActive = false;
-}
 

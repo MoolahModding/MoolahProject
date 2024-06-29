@@ -1,22 +1,6 @@
 #include "SBZShoutTargetComponent.h"
 
-void USBZShoutTargetComponent::SetEnabled(bool bNewValue) {
-}
-
-void USBZShoutTargetComponent::SetCustomPingMessage(FText InCustomPingMessage) {
-}
-
-void USBZShoutTargetComponent::MakeComponentsShoutTargetable(TArray<UPrimitiveComponent*> Components) {
-}
-
-void USBZShoutTargetComponent::MakeComponentShoutTargetable(UPrimitiveComponent* Component) {
-}
-
-bool USBZShoutTargetComponent::IsEnabled() const {
-    return false;
-}
-
-USBZShoutTargetComponent::USBZShoutTargetComponent() {
+USBZShoutTargetComponent::USBZShoutTargetComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->BasePriority = 1.00f;
     this->DistModPriority = 1.00f;
     this->bUseDirectHits = true;
@@ -33,4 +17,21 @@ USBZShoutTargetComponent::USBZShoutTargetComponent() {
     this->bUseAllActorOutlines = false;
     this->bEnabled = true;
 }
+
+void USBZShoutTargetComponent::SetEnabled(bool bNewValue) {
+}
+
+void USBZShoutTargetComponent::SetCustomPingMessage(FText InCustomPingMessage) {
+}
+
+void USBZShoutTargetComponent::MakeComponentsShoutTargetable(TArray<UPrimitiveComponent*> Components) {
+}
+
+void USBZShoutTargetComponent::MakeComponentShoutTargetable(UPrimitiveComponent* Component) {
+}
+
+bool USBZShoutTargetComponent::IsEnabled() const {
+    return false;
+}
+
 

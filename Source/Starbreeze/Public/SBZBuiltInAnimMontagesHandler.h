@@ -16,6 +16,7 @@ protected:
     
 public:
     USBZBuiltInAnimMontagesHandler();
+
     UFUNCTION(BlueprintCallable)
     void Update(float DeltaSeconds);
     
@@ -28,10 +29,10 @@ public:
     UFUNCTION(BlueprintCallable)
     float PlayAnimMontage(const USBZBuiltInAnimMontage* AnimMontage);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAnyActiveAnimation() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZBuiltInAnimMontageInstance> GetActiveAnimMontageInstances() const;
     
 };

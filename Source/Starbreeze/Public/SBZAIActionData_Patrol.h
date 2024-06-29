@@ -13,5 +13,6 @@ public:
     ASBZPatrolPoint* PatrolPoint;
     
     USBZAIActionData_Patrol();
+
 };
 

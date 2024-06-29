@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZStaticInteractionActor : public ASBZInteractionActor {
     GENERATED_BODY()
 public:
-    ASBZStaticInteractionActor();
+    ASBZStaticInteractionActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

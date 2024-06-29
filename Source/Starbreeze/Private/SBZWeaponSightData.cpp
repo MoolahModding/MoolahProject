@@ -5,3 +5,4 @@ USBZWeaponSightData::USBZWeaponSightData() {
     this->DOFData = NULL;
 }
 
+

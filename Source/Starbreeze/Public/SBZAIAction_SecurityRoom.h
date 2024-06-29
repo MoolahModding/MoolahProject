@@ -29,14 +29,15 @@ private:
     
 public:
     USBZAIAction_SecurityRoom();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSecurityRoomVolumeBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ClearDelegates();
     
 };

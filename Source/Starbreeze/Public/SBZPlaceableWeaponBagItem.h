@@ -13,6 +13,7 @@ protected:
     FSBZEquippableConfig StoredWeaponConfig;
     
 public:
-    ASBZPlaceableWeaponBagItem();
+    ASBZPlaceableWeaponBagItem(const FObjectInitializer& ObjectInitializer);
+
 };
 

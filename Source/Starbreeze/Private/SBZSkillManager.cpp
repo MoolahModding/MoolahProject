@@ -1,5 +1,9 @@
 #include "SBZSkillManager.h"
 
+USBZSkillManager::USBZSkillManager() {
+    this->ModifyingSkillLine = NULL;
+}
+
 bool USBZSkillManager::UnequipSkills(TArray<USBZSkill*>& Skills, FSBZPlayerLoadoutConfig& PlayerLoadoutConfig) {
     return false;
 }
@@ -62,7 +66,4 @@ bool USBZSkillManager::EquipSkill(const USBZSkill* Skill, FSBZPlayerLoadoutConfi
     return false;
 }
 
-USBZSkillManager::USBZSkillManager() {
-    this->ModifyingSkillLine = NULL;
-}
 

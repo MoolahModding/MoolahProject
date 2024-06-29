@@ -12,5 +12,6 @@ public:
     FBlackboardKeySelector TargetCoverPointBBKey;
     
     USBZBTDecorator_ReserveCoverPoint();
+
 };
 

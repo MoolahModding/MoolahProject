@@ -215,6 +215,7 @@ protected:
     
 public:
     USBZUIManager();
+
     UFUNCTION(BlueprintCallable)
     bool TryRemoveFromStack(const FName& StackValue);
     
@@ -245,14 +246,17 @@ public:
     UFUNCTION(BlueprintCallable)
     void ShowEULAPopup(const FSBZOnPopUpWidgetClosed& InDelegate);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShouldStartInHeistSelection() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ShouldDisplayCursor() const;
     
     UFUNCTION(BlueprintCallable)
     void SetStartInHeistSelection();
+    
+    UFUNCTION(BlueprintCallable)
+    void SetOnePlayerMatchHook();
     
     UFUNCTION(BlueprintCallable)
     void SetLogoP3Visibility(ESlateVisibility InVisibility);
@@ -293,95 +297,98 @@ public:
     UFUNCTION(BlueprintCallable)
     FName PopStack();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName PeekStack() const;
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStateMachineStateExited(FName StateName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStateMachineStateEntered(FName StateName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopupControllerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOptForSoloModePopupClosed(FName ClosingActionName);
     
 public:
     UFUNCTION(BlueprintCallable)
     void OnHeistSelectionMenuSet();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsStackLocked() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsStackEmpty() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPopupShowing() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsGameInstallPending() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsControllerMode() const;
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void HideMenuControlsReference(const UObject* WorldContextObject);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLocalPlayerControllerReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleActionPhaseEntered();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FName> GetUIStack() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZUIData* GetUIData(UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
-    UPaperSprite* GetSpriteForPlatform(ESBZPlatform InPlatform, bool bUseCurrentPlatformIconIfUnknown);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPaperSprite* GetSpriteForPlatform(ESBZPlatform InPlatform, bool bUseCurrentPlatformIconIfUnknown) const;
     
-    UFUNCTION(BlueprintPure)
-    UPaperSprite* GetSpriteForNebula();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPaperSprite* GetSpriteForNebula() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZPopupWidget* GetPopUpWidget() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZBaseMenuWidget* GetMenuWidget(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
-    FText GetLocalizedPlayerNoName();
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FText GetLocalizedPlayerNoName() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZWidgetBase* GetLastFocusedWidget() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetKeySpriteForFKey(const FKey& InKey) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetKeySpriteEmpty() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetKeysForAxisMapping(const FName& InAxisName, TArray<FKey>& ReturnList) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetKeyForActionMapping(const FName& InActionName) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZInputState GetInputMode() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetGamepadSprite() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZUIFullscreenNotificationData> GetFullscreenNotificationQueue() const;
     
     UFUNCTION(BlueprintCallable)
@@ -402,7 +409,7 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 AddControlsReference(const FSBZControlsReference& InControlsReference);
     
-    
+
     // Fix for true pure virtual functions not being implemented
     UFUNCTION(BlueprintCallable)
     bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override PURE_VIRTUAL(HasMatchingGameplayTag, return false;);

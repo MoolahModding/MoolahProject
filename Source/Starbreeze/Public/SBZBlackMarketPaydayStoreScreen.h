@@ -26,20 +26,21 @@ protected:
     
 public:
     USBZBlackMarketPaydayStoreScreen();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnVendorItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRealMoneyPurchaseWindowClosed(bool IsSuccess);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRealMoneyItemsInitialized();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRealMoneyItemButtonSelected(USBZMenuButton* InButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBuyRealMoneyItemPurchaseCompleted(ESBZMetaRequestResult Result);
     
 };

@@ -41,12 +41,16 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZPawnSpawnRequest PredefinedPawnRequest;
     
-    ASBZPawnSpawnPredefined();
+    ASBZPawnSpawnPredefined(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo"))
     void SpawnPredefinedLatent(FLatentActionInfo LatentInfo);
     
     UFUNCTION(BlueprintCallable)
     FSBZPawnSpawnRequestHandle SpawnPredefined();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnSelectedTick();
     
 };
 

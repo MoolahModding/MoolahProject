@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_HasFollowTarget : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_HasFollowTarget();
+
 };
 

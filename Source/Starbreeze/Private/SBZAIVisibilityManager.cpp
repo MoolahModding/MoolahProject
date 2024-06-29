@@ -1,5 +1,15 @@
 #include "SBZAIVisibilityManager.h"
 
+ASBZAIVisibilityManager::ASBZAIVisibilityManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MaxComputedNodePerFrame = 100;
+    this->MaxComputedCoverPointVisibilityPerFrame = 20;
+    this->MaxDistFromObstacleToBeStandCovered = 150.00f;
+    this->MaxDistFromObstacleToBeCrouchCovered = 150.00f;
+    this->MinDistFromEnemyToBeCrouchCovered = 400.00f;
+    this->MinDistFromEnemyToBeStandCovered = 400.00f;
+    this->VisibilityComponent = NULL;
+}
+
 void ASBZAIVisibilityManager::UnregisterVisibilityComponent(USBZAIVisibilityComponent* InVisibilityComponent) {
 }
 
@@ -72,13 +82,4 @@ bool ASBZAIVisibilityManager::DebugLocation(const UObject* WorldContextObject, c
     return false;
 }
 
-ASBZAIVisibilityManager::ASBZAIVisibilityManager() {
-    this->MaxComputedNodePerFrame = 100;
-    this->MaxComputedCoverPointVisibilityPerFrame = 20;
-    this->MaxDistFromObstacleToBeStandCovered = 150.00f;
-    this->MaxDistFromObstacleToBeCrouchCovered = 150.00f;
-    this->MinDistFromEnemyToBeCrouchCovered = 400.00f;
-    this->MinDistFromEnemyToBeStandCovered = 400.00f;
-    this->VisibilityComponent = NULL;
-}
 

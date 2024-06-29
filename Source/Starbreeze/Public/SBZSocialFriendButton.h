@@ -29,6 +29,7 @@ protected:
     
 public:
     USBZSocialFriendButton();
+
     UFUNCTION(BlueprintCallable)
     void UnblockPlayerAction();
     
@@ -41,7 +42,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void RequestFriend();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ReportPlayerAction();
     
     UFUNCTION(BlueprintCallable)
@@ -57,21 +58,21 @@ public:
     void QuaternaryAction();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRequestStatusPopupClosed(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRequestFeedback(ESBZRequestFeedbackType FeedbackType, bool bResult, const FString& ErrorCode);
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerDataInitialized(const FSBZFriendListEntry& InFriendListEntry);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPartyRequestFeedback(ESBZPartyRequestFeedbackType FeedbackType, bool bResult, const FString& ErrorCode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnConfirmationPopupClosed(FName ActionName);
     
 public:
@@ -93,10 +94,10 @@ public:
     UFUNCTION(BlueprintCallable)
     bool CanRequestFriend();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanJoinParty();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanJoinLobby();
     
     UFUNCTION(BlueprintCallable)
