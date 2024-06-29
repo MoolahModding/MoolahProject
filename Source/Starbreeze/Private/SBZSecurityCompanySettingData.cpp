@@ -12,6 +12,7 @@ FSBZSecurityCompanySettingData::FSBZSecurityCompanySettingData() {
     this->HardBargainMask = 0;
     this->AICoreMask = 0;
     this->ReflectorShieldsMask = 0;
+    this->AIShieldingMask = 0;
     this->ArmorPiercingPercentage = 0.00f;
     this->HardBargainMinHostageRequired = 0;
 }

@@ -44,6 +44,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZPlayerStatisticsValue RenownStatsValue;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bHasBeenInCustody;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 SurvivedAssaultWaves;
+    
     STARBREEZE_API FSBZPlayerEndMissionResultData();
 };
 

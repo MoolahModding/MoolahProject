@@ -3,6 +3,7 @@
 #include "GameplayTagContainer.h"
 #include "SBZSpawnWaveSegmentSettings.h"
 #include "SBZSpawnWaveSquadOrderLimits.h"
+#include "SBZSpawnWaveTypeLimit.h"
 #include "SBZSpawnWaveSettings.generated.h"
 
 class USBZAISquadOrder;
@@ -12,10 +13,13 @@ struct FSBZSpawnWaveSettings {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName Name;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SpawnInterval;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGameplayTag, int32> TypeLimits;
+    TMap<FGameplayTag, FSBZSpawnWaveTypeLimit> SpawnTypeLimits;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TSoftClassPtr<USBZAISquadOrder>, FSBZSpawnWaveSquadOrderLimits> AllSquadOrderLimits;

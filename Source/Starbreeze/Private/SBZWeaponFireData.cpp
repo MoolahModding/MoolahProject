@@ -28,10 +28,16 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->AmmoLoadedMax = 10;
     this->AmmoPerReload = 10;
     this->AmmoVisibleMax = 10;
+    this->AmmoVisibleMaxPreviewOverride = -1;
     this->bIsEmptyAmmoEjected = false;
     this->bIsEquippedAmmoLoadedTracked = false;
     this->bIsChamberRotatedEachFiredRound = false;
     this->bIsChamberRotatedEachReloadedRound = false;
+    this->bIsUsingRemoveMagazineCycle = false;
+    this->bIsUsingInsertMagazine = false;
+    this->bIsUsingInsertMagazineCycle = false;
+    this->bIsUsingInsertAmmoCycle1 = false;
+    this->bIsUsingInsertAmmoCycle2 = false;
     this->RoundsPerMinute = 600.00f;
 }
 

@@ -7,5 +7,6 @@ enum class ESBZPartyError : uint8 {
     DifferentGameClientsVersion,
     FriendNotFound,
     PartyLeaderLeft,
+    DifferentHostingProvider,
 };
 

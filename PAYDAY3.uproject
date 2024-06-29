@@ -128,8 +128,7 @@
 		},
 		{
 			"Name": "MfMedia",
-			"Enabled": true,
-			"BlacklistPlatforms": []
+			"Enabled": true
 		},
 		{
 			"Name": "Niagara",
@@ -200,10 +199,6 @@
 			"Name": "ThumbnailExporter",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/b48e190a04664422972d37b03899371c"
-		},
-		{
-			"Name": "SBZTools",
-			"Enabled": true
 		},
 		{
 			"Name": "RMMethods",
@@ -297,6 +292,71 @@
 		{
 			"Name": "WmfMedia",
 			"Enabled": false
+		},
+		{
+			"Name": "AppleMoviePlayer",
+			"Enabled": false
+		},
+		{
+			"Name": "MovieRenderPipeline",
+			"Enabled": true
+		},
+		{
+			"Name": "OpenXRHandTracking",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux",
+				"HoloLens",
+				"Android"
+			]
+		},
+		{
+			"Name": "OpenXREyeTracker",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux",
+				"HoloLens",
+				"Android"
+			]
+		},
+		{
+			"Name": "OpenXR",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux",
+				"Android",
+				"HoloLens"
+			]
+		},
+		{
+			"Name": "MagicLeapPassableWorld",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Lumin",
+				"Mac",
+				"Win64"
+			]
+		},
+		{
+			"Name": "ControlRig",
+			"Enabled": true
+		},
+		{
+			"Name": "XeSS",
+			"Enabled": false,
+			"WhitelistPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "SBZTools",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [

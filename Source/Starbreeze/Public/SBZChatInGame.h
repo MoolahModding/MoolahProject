@@ -35,9 +35,6 @@ public:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void ClientSubscribeToChatMessages();
-
-    UPROPERTY()
-    bool bEnableNetReadyEvent;
     
 };
 

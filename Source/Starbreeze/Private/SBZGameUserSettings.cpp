@@ -33,9 +33,9 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->HitIndicatorScale = 32.00f;
     this->bEnableStoryVideoButtons = false;
     this->LobbyType = ESBZOnlineJoinType::Private;
-    this->MatchmakingDifficulty = ESBZDifficulty::VeryHard;
+    this->MatchmakingDifficulty = ESBZDifficulty::Overkill;
     this->MasterVolume = 100.00f;
-    this->MusicVolume = 0.00f;
+    this->MusicVolume = 100.00f;
     this->VOVolume = 75.00f;
     this->SFXVolume = 100.00f;
     this->VoipVolume = 100.00f;
@@ -159,7 +159,13 @@ void USBZGameUserSettings::SetMinCrosshairsScale(float Scale) {
 void USBZGameUserSettings::SetMaxCrosshairsScale(float Scale) {
 }
 
+void USBZGameUserSettings::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty) {
+}
+
 void USBZGameUserSettings::SetMasterVolume(float Volume) {
+}
+
+void USBZGameUserSettings::SetLobbyType(ESBZOnlineJoinType InLobbyType) {
 }
 
 void USBZGameUserSettings::SetKeyboardToDefaults() {
@@ -400,6 +406,10 @@ FKey USBZGameUserSettings::GetSecondaryKeyboardBinding(FName AxisOrActionName, f
     return FKey{};
 }
 
+USBZGameUserSettings* USBZGameUserSettings::GetSBZGameUserSettings(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 FKey USBZGameUserSettings::GetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale) {
     return FKey{};
 }
@@ -424,8 +434,16 @@ float USBZGameUserSettings::GetMaxCrosshairsScale() const {
     return 0.0f;
 }
 
+ESBZDifficulty USBZGameUserSettings::GetMatchmakingDifficulty() const {
+    return ESBZDifficulty::Default;
+}
+
 float USBZGameUserSettings::GetMasterVolume() const {
     return 0.0f;
+}
+
+ESBZOnlineJoinType USBZGameUserSettings::GetLobbyType() const {
+    return ESBZOnlineJoinType::Debug;
 }
 
 FSBZHitIndicatorSettings USBZGameUserSettings::GetHitIndicatorSettings() {

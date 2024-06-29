@@ -1,7 +1,6 @@
 #include "SBZPlayerMovementComponent.h"
 
 USBZPlayerMovementComponent::USBZPlayerMovementComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->bSkipImpulseFromPhysicsInteraction = true;
     this->bAutoComputeTrajectory = false;
     this->AutoComputeTrajectoryInterval = 0.35f;
     this->MinSpeedToSprintAccelerating = 105.00f;

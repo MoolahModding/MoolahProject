@@ -15,7 +15,6 @@
 #include "ESBZFirstPartyPlatform.h"
 #include "ESBZPlatform.h"
 #include "PD3PlayerLoadout.h"
-#include "SBZAbilitySystemComponent.h"
 #include "SBZAmmoPickupLookup.h"
 #include "SBZCrewStateInterface.h"
 #include "SBZDropPlaceableEquippableData.h"
@@ -98,7 +97,7 @@ protected:
     USBZPlayerAttributeSet* AttributeSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZAbilitySystemComponent* AbilitySystem;
+    UAbilitySystemComponent* AbilitySystem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZUICharacterEffectComponent* UICharacterEffects;
@@ -307,6 +306,10 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     void SetSkipIntroSequence(bool bInIsSkipIntroSequence);
+    
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_UpdateGameSession();
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -577,7 +580,6 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_ChallengeCompleted(const FChallengeNotifPayload& ChallengeNotifPayload);
     
-
     // Fix for true pure virtual functions not being implemented
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
     {

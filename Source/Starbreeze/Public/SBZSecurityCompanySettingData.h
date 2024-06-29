@@ -41,6 +41,9 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint16 ReflectorShieldsMask;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint16 AIShieldingMask;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPiercingPercentage;
     

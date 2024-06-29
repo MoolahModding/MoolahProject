@@ -77,6 +77,9 @@ bool USBZUIManager::ShouldDisplayCursor() const {
 void USBZUIManager::SetStartInHeistSelection() {
 }
 
+void USBZUIManager::SetOnePlayerMatchHook() {
+}
+
 void USBZUIManager::SetLogoP3Visibility(ESlateVisibility InVisibility) {
 }
 
@@ -128,6 +131,9 @@ void USBZUIManager::OnStateMachineStateEntered(FName StateName) {
 }
 
 void USBZUIManager::OnPopupControllerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
+}
+
+void USBZUIManager::OnOptForSoloModePopupClosed(FName ClosingActionName) {
 }
 
 void USBZUIManager::OnHeistSelectionMenuSet() {

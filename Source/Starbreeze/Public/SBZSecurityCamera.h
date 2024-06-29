@@ -5,6 +5,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Pawn.h"
+#include "GameFramework/OnlineReplStructs.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "EPD3DispatchCallerReason.h"
@@ -121,6 +122,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_RuntimeState, meta=(AllowPrivateAccess=true))
     uint8 RuntimeState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_IsShielded, meta=(AllowPrivateAccess=true))
+    bool bIsShielded;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CameraState, meta=(AllowPrivateAccess=true))
     ESBZCameraState CameraState;
@@ -312,6 +316,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<AActor*> CurrentlyMarkedActorsArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FUniqueNetIdRepl> HackedByPlayerArray;
+    
 public:
     ASBZSecurityCamera(const FObjectInitializer& ObjectInitializer);
 
@@ -324,6 +331,14 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnVisualDetection(USBZAIVisualDetectionComponent* DetectionComponent, bool bWasDetected, AActor* DetectedTarget);
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnShieldRemoved();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnShieldApplied();
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnServerAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
@@ -346,6 +361,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_RoughDetection();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IsShielded();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentCamRotation();
@@ -383,6 +401,9 @@ private:
     void Multicast_StartAlarm();
     
 protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetShielded(bool bInShielded);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetRuntimeExplosionInstigator(AActor* InExplosionInstigator);
     

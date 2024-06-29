@@ -31,6 +31,10 @@ int32 USBZMissionResultLibrary::GetAllPlayersHaveKilledCount(const FSBZEndMissio
     return 0;
 }
 
+int32 USBZMissionResultLibrary::GetAllPlayersHaveGuardKilledCount(const FSBZEndMissionResultData& ResultData) {
+    return 0;
+}
+
 int32 USBZMissionResultLibrary::GetAllPlayersHaveCivilianKilledCount(const FSBZEndMissionResultData& ResultData) {
     return 0;
 }

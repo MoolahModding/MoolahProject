@@ -34,6 +34,9 @@ void USBZStateMachineStateJobOverview::PlayerDisconnectedAtBeacon(const FUniqueN
 void USBZStateMachineStateJobOverview::OnPlayerBeginPlayState(ASBZPlayerController* PlayerController) {
 }
 
+void USBZStateMachineStateJobOverview::OnLocalPlayerStateReady() {
+}
+
 void USBZStateMachineStateJobOverview::OnAllPlayersReady(EBlackScreenTransitionType BlackScreenTransitionType) {
 }
 

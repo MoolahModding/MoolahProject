@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
-#include "ESBZWeaponAnimationState.h"
 #include "SBZEquippable.h"
 #include "SBZVelocityTrackedComponentArrayData.h"
 #include "SBZWeapon.generated.h"
@@ -22,7 +21,13 @@ protected:
     USBZModularMeshComponent* ModularMeshComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ESBZWeaponAnimationState AnimationState;
+    bool bIsReloading;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsEmpty;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsCycle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer WeaponTags;

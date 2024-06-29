@@ -9,4 +9,3 @@ enum class ESBZFocusPriority : uint8 {
     Override,
     Default = 0,
 };
-

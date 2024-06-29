@@ -15,7 +15,7 @@ class USBZBagManager : public UActorComponent {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Bags, meta=(AllowPrivateAccess=true))
     TArray<FSBZBagPersistentData> Bags;
     
 public:
@@ -33,6 +33,9 @@ public:
     bool RemoveClaim(FSBZBagHandle Handle, AActor* Actor);
     
 protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_Bags();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SecureBag(const int32 BagId, const bool bClearClaim);
     

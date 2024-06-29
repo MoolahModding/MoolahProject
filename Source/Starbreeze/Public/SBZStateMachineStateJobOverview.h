@@ -57,6 +57,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable)
+    void OnLocalPlayerStateReady();
+    
+    UFUNCTION(BlueprintCallable)
     void OnAllPlayersReady(EBlackScreenTransitionType BlackScreenTransitionType);
     
     UFUNCTION(BlueprintCallable)

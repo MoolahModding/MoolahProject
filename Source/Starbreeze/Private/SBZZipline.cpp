@@ -26,6 +26,8 @@ ASBZZipline::ASBZZipline(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->bZiplineEnabled = true;
     this->DistanceFromEndToStop = 50.00f;
     this->HalfExtentSizeToAdd = 15.00f;
+    this->StartForcedDirectionThreshold = 0.20f;
+    this->EndForcedDirectionThreshold = 0.20f;
     this->OverlapBox->SetupAttachment(SplineComponent);
     this->SplineComponent->SetupAttachment(RootComponent);
     this->StartPointMesh->SetupAttachment(RootComponent);

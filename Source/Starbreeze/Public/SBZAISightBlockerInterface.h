@@ -15,5 +15,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     float GetSightModifier(const FVector& Start, const FVector& End) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    bool CanAffectStealth() const;
+    
 };
 

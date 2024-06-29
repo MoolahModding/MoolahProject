@@ -6,5 +6,5 @@
 
 class USBZHoldOutObjectiveBase;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FSBZHoldOutObjectiveResult, const ESBZHoldOutObjectiveResult, Result, USBZHoldOutObjectiveBase*, Objective, const FGameplayTag&, EventTag);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FSBZHoldOutObjectiveResult, const ESBZHoldOutObjectiveResult, Result, USBZHoldOutObjectiveBase*, Objective, const FGameplayTagContainer&, GrantedTags, const FGameplayTagContainer&, RemovedTags);
 

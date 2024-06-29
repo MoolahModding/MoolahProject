@@ -27,8 +27,14 @@ public:
     UFUNCTION(BlueprintCallable)
     ESBZMetaRequestResult SetActiveLoadoutIndex(int32 ActiveLoadoutIndex);
     
+    UFUNCTION(BlueprintCallable)
+    void SendLoadoutName(const int32 LoadoutIndex, const FString& LoadoutName);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZPlayerLoadoutConfig> GetPlayerLoadouts();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetLoadoutName(const int32 LoadoutIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZLoadoutManager* GetLoadoutManager(const UObject* WorldContextObject);

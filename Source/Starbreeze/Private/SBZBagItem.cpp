@@ -31,6 +31,7 @@ ASBZBagItem::ASBZBagItem(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->ZiplineParams = NULL;
     this->bCanCrewAICarry = true;
     this->bShouldBroadcastOnHitEvent = false;
+    this->MarkerID = -1;
     this->AudioComponent->SetupAttachment(RootComponent);
 }
 

@@ -3,6 +3,8 @@
 USBZGameInstance::USBZGameInstance() {
     this->GameEventBroker = NULL;
     this->OnlineEventBroker = NULL;
+    this->MatchmakingProvider = ESBZMatchmakingProvider::Accelbyte;
+    this->HostingProvider = ESBZHostingProvider::EdgeGap;
     this->WwiseInitBank = NULL;
     this->MusicManagerClass = NULL;
     this->MotionManagerClass = NULL;

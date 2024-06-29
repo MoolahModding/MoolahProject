@@ -132,6 +132,9 @@ public:
     void SetRegisterRewardPrints(bool bIsRegistered);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetPlayerSuit(const FName& PlayerMaskName, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerName(const FString& Name, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -139,6 +142,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerMask(const FName& PlayerMaskName, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetPlayerGlove(const FName& PlayerMaskName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerCharacter(const FName& CharacterClassName, int32 PlayerIndex);

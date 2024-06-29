@@ -19,6 +19,10 @@ TArray<FSBZMetaEventData> USBZGameRecordsManager::GetMetaEventsData() const {
     return TArray<FSBZMetaEventData>();
 }
 
+FSBZMatchmakingAndHostingData USBZGameRecordsManager::GetMatchmakingAndHostingData() {
+    return FSBZMatchmakingAndHostingData{};
+}
+
 TArray<FSBZDifficultyConfiguration> USBZGameRecordsManager::GetDifficultyConfiguration() {
     return TArray<FSBZDifficultyConfiguration>();
 }

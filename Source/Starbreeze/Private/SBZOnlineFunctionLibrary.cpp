@@ -6,6 +6,12 @@ USBZOnlineFunctionLibrary::USBZOnlineFunctionLibrary() {
 void USBZOnlineFunctionLibrary::UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
 }
 
+void USBZOnlineFunctionLibrary::SetSoloGameEnabled(UObject* WorldContextObject) {
+}
+
+void USBZOnlineFunctionLibrary::SetSoloGameDisabled(UObject* WorldContextObject) {
+}
+
 void USBZOnlineFunctionLibrary::SetMatchmakingRegion(const UObject* WorldContextObject, const FString& MatchmakingRegion) {
 }
 
@@ -59,6 +65,10 @@ bool USBZOnlineFunctionLibrary::IsTitleOnline(UObject* WorldContextObject) {
 }
 
 bool USBZOnlineFunctionLibrary::IsSteamActive() {
+    return false;
+}
+
+bool USBZOnlineFunctionLibrary::IsSoloGameEnabled(const UObject* WorldContextObject) {
     return false;
 }
 
@@ -158,7 +168,7 @@ bool USBZOnlineFunctionLibrary::IsEOSActive() {
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsDifficultyArgumentProvided() {
+bool USBZOnlineFunctionLibrary::IsDifficultyArgumentProvided(const UObject* WorldContextObject) {
     return false;
 }
 
@@ -252,7 +262,7 @@ bool USBZOnlineFunctionLibrary::GetPartyData(UObject* WorldContextObject, FSBZPa
     return false;
 }
 
-FString USBZOnlineFunctionLibrary::GetOverrideLevelName() {
+FString USBZOnlineFunctionLibrary::GetOverrideLevelName(const UObject* WorldContextObject) {
     return TEXT("");
 }
 
@@ -272,12 +282,20 @@ uint8 USBZOnlineFunctionLibrary::GetMaxPlayersArgument(const UObject* WorldConte
     return 0;
 }
 
+ESBZMatchmakingProvider USBZOnlineFunctionLibrary::GetMatchmakingProvider(const UObject* WorldContextObject) {
+    return ESBZMatchmakingProvider::Accelbyte;
+}
+
 FSBZOnlineMatchmakingParams USBZOnlineFunctionLibrary::GetMatchmakingParameters(UObject* WorldContextObject) {
     return FSBZOnlineMatchmakingParams{};
 }
 
 FString USBZOnlineFunctionLibrary::GetLastMatchID(const UObject* WorldContextObject) {
     return TEXT("");
+}
+
+ESBZHostingProvider USBZOnlineFunctionLibrary::GetHostingProvider(const UObject* WorldContextObject) {
+    return ESBZHostingProvider::Accelbyte;
 }
 
 int32 USBZOnlineFunctionLibrary::GetFoundPlayersCount(UObject* WorldContextObject) {
@@ -288,7 +306,7 @@ ESBZFirstPartyPlatform USBZOnlineFunctionLibrary::GetFirstPartyPlatform() {
     return ESBZFirstPartyPlatform::Unknown;
 }
 
-uint8 USBZOnlineFunctionLibrary::GetDifficultyIdxArgument() {
+uint8 USBZOnlineFunctionLibrary::GetDifficultyIdxArgument(const UObject* WorldContextObject) {
     return 0;
 }
 

@@ -87,8 +87,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetRerollAvailable() const;
     
-    UFUNCTION(BlueprintCallable)
-    bool GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZChallengeData> GetDailyChallengesArray() const;

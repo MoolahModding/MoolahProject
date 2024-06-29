@@ -2,6 +2,8 @@
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
 #include "ESBZDifficulty.h"
+#include "ESBZHostingProvider.h"
+#include "ESBZMatchmakingProvider.h"
 #include "SBZReplayInfo.h"
 #include "Templates/SubclassOf.h"
 #include "SBZGameInstance.generated.h"
@@ -55,7 +57,7 @@ class USBZWeaponProgressionManager;
 class USBZWorldLoader;
 class USBZWwiseMotionManagerComponent;
 
-UCLASS(Blueprintable, NonTransient)
+UCLASS(Blueprintable, DefaultConfig, NonTransient, Config=Starbreeze)
 class STARBREEZE_API USBZGameInstance : public UGameInstance {
     GENERATED_BODY()
 public:
@@ -64,6 +66,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZOnlineEventBroker* OnlineEventBroker;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZMatchmakingProvider MatchmakingProvider;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZHostingProvider HostingProvider;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

@@ -5,7 +5,7 @@
 
 class ASBZPlayerState;
 
-UCLASS(Abstract, Blueprintable)
+UCLASS(Abstract, Blueprintable, Config=Starbreeze)
 class STARBREEZE_API USBZCommonStateMachine : public USBZStateMachine {
     GENERATED_BODY()
 public:

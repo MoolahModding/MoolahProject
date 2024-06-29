@@ -20,7 +20,9 @@ class UAkAudioEvent;
 class UAnimMontage;
 class UPD3AssaultSettings;
 class USBZAISmallTalkCollection;
+class USBZBagType;
 class USBZCivilianManagerSettings;
+class USBZDialogDataAsset;
 class USBZKeyItemData;
 class USBZLifeActionComponent;
 class USBZLifeActionSettings;
@@ -129,6 +131,24 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZAIConfigDPSData AIDPS[4];
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingSystemicBagCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingBagCountdown;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 StartBagCountdownFrom;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<USBZBagType*, USBZDialogDataAsset*> SecureBagVOOverrideMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingLastSecureBagVOOverride;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDialogDataAsset* LastSecureBagVOOverride;
     
 private:
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

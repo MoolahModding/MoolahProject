@@ -1,6 +1,7 @@
 #include "SBZCharacter.h"
 #include "AkComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "SBZApplyMarkedTagEffect.h"
 #include "SBZCharacterFootStepComponent.h"
 #include "SBZCharacterInteractableComponent.h"
 #include "SBZCharacterMantlingComponent.h"
@@ -138,7 +139,7 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->ForcedFacialAnimaton = NULL;
     this->EquippedMask = NULL;
     this->DisplayIcon = NULL;
-    this->MarkedGameplayEffectClass = NULL;
+    this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->HurtReactionOffset[0] = 0;
     this->HurtReactionOffset[1] = 0;
     this->HurtReactionOffset[2] = 0;

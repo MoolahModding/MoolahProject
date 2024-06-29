@@ -142,7 +142,7 @@ private:
     bool bIsAICrewSpawned;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bEscalated;
+    bool bIsAssaultStarted;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float SavedCustodyTime;

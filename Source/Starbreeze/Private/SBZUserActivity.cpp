@@ -10,5 +10,8 @@ FSBZUserActivity::FSBZUserActivity() {
     this->JoinType = ESBZOnlineJoinType::Debug;
     this->GameSessionMembers = 0;
     this->PartySessionMembers = 0;
+    this->InfamyLevel = 0;
+    this->RenownLevel = 0;
+    this->HostingProvider = ESBZHostingProvider::Accelbyte;
 }
 

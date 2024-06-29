@@ -6,6 +6,7 @@
 
 class ASBZBagItem;
 class ASBZBagTriggerVolume;
+class ASBZHoldOutLootContainer;
 class USBZBagType;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -14,6 +15,9 @@ class USBZHoldOutFindLootObjective : public USBZHoldOutObjectiveBase {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ASBZHoldOutLootContainer*> LootContainers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZBagTriggerVolume* BagTriggerVolume;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -21,6 +25,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NumLootToCollect;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 NumActiveLootContainer;
     
 public:
     USBZHoldOutFindLootObjective();

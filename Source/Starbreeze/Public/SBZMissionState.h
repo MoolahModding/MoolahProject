@@ -99,6 +99,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZEquippableConfig RequestedOverkillWeaponConfig;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BlockedBagMarkers, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer BlockedBagMarkers;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UAkAudioBank*> SoundBanks;
@@ -261,6 +264,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_Difficulty();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_BlockedBagMarkers();
+    
+protected:
     UFUNCTION(BlueprintCallable)
     void OnBlackScreenStarted();
     
@@ -279,10 +287,6 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NotifyClientPassedMilestone(ESBZMilestoneType MilestoneType, const FString& MilestoneName);
     
-public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void MulticastPreplanningAssetsApplied();
-    
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartOverkillCooldown();
@@ -296,6 +300,9 @@ private:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEscapeTimeLeft(const int32 NewTime);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetBlockedBagMarkers(const FGameplayTagContainer& InBlockedBagMarkers);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnAmmoSpecialistHighGrainSkillDeactivated();
@@ -321,7 +328,7 @@ public:
     bool HasSharedKeyItemTag(FGameplayTag InTag) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool HasPreplanningTag(FGameplayTag InTag, const UObject* WorldContextObject);
+    static bool HasPreplanningTag(const FGameplayTag& InTag, const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAttributedAllVariations(const USBZVariationSetData* VariationData) const;
@@ -339,9 +346,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRandomSeed() const;
-    
-    UFUNCTION(BlueprintCallable)
-    TArray<FGameplayTag> GetPreplanningTags();
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FRandomStream GetMixedRandomStream(int32 MixSeed, const UObject* WorldContextObject);

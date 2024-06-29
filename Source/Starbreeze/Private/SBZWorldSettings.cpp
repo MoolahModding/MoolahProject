@@ -24,6 +24,11 @@ ASBZWorldSettings::ASBZWorldSettings(const FObjectInitializer& ObjectInitializer
     this->LifeActionSettings = NULL;
     this->SoloPlayerLoadoutOverride = NULL;
     this->bOverrideAIDPS = false;
+    this->bIsUsingSystemicBagCount = false;
+    this->bIsUsingBagCountdown = true;
+    this->StartBagCountdownFrom = 5;
+    this->bIsUsingLastSecureBagVOOverride = false;
+    this->LastSecureBagVOOverride = NULL;
 }
 
 

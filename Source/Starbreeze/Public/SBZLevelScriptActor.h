@@ -18,6 +18,7 @@ class ASBZPlayerCharacter;
 class ASBZPlayerState;
 class ULevelStreamingDynamic;
 class UObject;
+class USBZBagType;
 class USBZStatisticCriteriaData;
 class UWorld;
 
@@ -32,6 +33,12 @@ protected:
 public:
     ASBZLevelScriptActor(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetBagMarkerEnabledByTags(const FGameplayTagContainer& BagGameplayTagContainer, bool bEnabled);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetBagMarkerEnabledByBagType(const USBZBagType* BagType, bool bEnabled);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ULevelStreamingDynamic* SBZPlaceRandomSublevelBySoftObjectPtr(UObject* WorldContextObject, const TSoftObjectPtr<UWorld> Level, const FTransform& RoomTransform, bool& bOutSuccess);
     
@@ -56,7 +63,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnPreplanningAssetsTagsApplied(const TArray<FGameplayTag>& PreplanningAssetsTags);
+    void OnPreplanningAssetsTagsApplied(const FGameplayTagContainer& PreplanningTagContainer);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerPickedUpBag(FSBZBagHandle BagHandle);
@@ -80,7 +87,13 @@ public:
     void OnDifficultyModifierApplied(ESBZDifficulty InDifficulty);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAllRandomizedRoomsPlaced();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnAllBagSecured(int32 SecuredCount);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void IntroSequenceChanged(bool bIsStarted);

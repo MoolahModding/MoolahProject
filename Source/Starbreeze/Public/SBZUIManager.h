@@ -256,6 +256,9 @@ public:
     void SetStartInHeistSelection();
     
     UFUNCTION(BlueprintCallable)
+    void SetOnePlayerMatchHook();
+    
+    UFUNCTION(BlueprintCallable)
     void SetLogoP3Visibility(ESlateVisibility InVisibility);
     
     UFUNCTION(BlueprintCallable)
@@ -306,6 +309,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnPopupControllerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOptForSoloModePopupClosed(FName ClosingActionName);
     
 public:
     UFUNCTION(BlueprintCallable)

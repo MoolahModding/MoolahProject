@@ -92,6 +92,9 @@ void USBZCheatManager::SetSharedTagCount(const FName& Tag, int32 Count) {
 void USBZCheatManager::SetRegisterRewardPrints(bool bIsRegistered) {
 }
 
+void USBZCheatManager::SetPlayerSuit(const FName& PlayerMaskName, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetPlayerName(const FString& Name, int32 PlayerIndex) {
 }
 
@@ -99,6 +102,9 @@ void USBZCheatManager::SetPlayerMergePartySelected(bool bIsMergePartySelected) {
 }
 
 void USBZCheatManager::SetPlayerMask(const FName& PlayerMaskName, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::SetPlayerGlove(const FName& PlayerMaskName, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetPlayerCharacter(const FName& CharacterClassName, int32 PlayerIndex) {

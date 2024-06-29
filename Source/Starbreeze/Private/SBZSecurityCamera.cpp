@@ -44,6 +44,7 @@ ASBZSecurityCamera::ASBZSecurityCamera(const FObjectInitializer& ObjectInitializ
     this->PeripheralVisionAngleDegrees = 45.00f;
     this->InvestigateEscalation = EPD3DispatchCallerReason::GenericSearch;
     this->RuntimeState = 0;
+    this->bIsShielded = false;
     this->CameraState = ESBZCameraState::Enabled;
     this->CameraSetting = ESBZCameraOptions::Still;
     this->SecurityCameraRoot = NULL;
@@ -92,8 +93,8 @@ ASBZSecurityCamera::ASBZSecurityCamera(const FObjectInitializer& ObjectInitializ
     this->SoundState = ESBZCameraSoundState::None;
     this->StatisticsMarkCamera = TEXT("mark-camera");
     this->CurrentRoom = NULL;
-    this->AutoAimComponent->SetupAttachment(RootComponent);
     this->CameraSoundComponent->SetupAttachment(RootComponent);
+    this->AutoAimComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZSecurityCamera::PlaySoundEvent(UAkAudioEvent* AudioEvent) {
@@ -101,6 +102,8 @@ void ASBZSecurityCamera::PlaySoundEvent(UAkAudioEvent* AudioEvent) {
 
 void ASBZSecurityCamera::OnVisualDetection(USBZAIVisualDetectionComponent* DetectionComponent, bool bWasDetected, AActor* DetectedTarget) {
 }
+
+
 
 void ASBZSecurityCamera::OnServerAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {
 }
@@ -117,6 +120,9 @@ void ASBZSecurityCamera::OnRep_RuntimeState() {
 }
 
 void ASBZSecurityCamera::OnRep_RoughDetection() {
+}
+
+void ASBZSecurityCamera::OnRep_IsShielded() {
 }
 
 void ASBZSecurityCamera::OnRep_CurrentCamRotation() {
@@ -150,6 +156,9 @@ void ASBZSecurityCamera::Multicast_StartNonVisionGeneratorInvestigation_Implemen
 }
 
 void ASBZSecurityCamera::Multicast_StartAlarm_Implementation() {
+}
+
+void ASBZSecurityCamera::Multicast_SetShielded_Implementation(bool bInShielded) {
 }
 
 void ASBZSecurityCamera::Multicast_SetRuntimeExplosionInstigator_Implementation(AActor* InExplosionInstigator) {
@@ -201,6 +210,7 @@ void ASBZSecurityCamera::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZSecurityCamera, RuntimeState);
+    DOREPLIFETIME(ASBZSecurityCamera, bIsShielded);
     DOREPLIFETIME(ASBZSecurityCamera, CameraState);
     DOREPLIFETIME(ASBZSecurityCamera, CameraTargetRotation);
     DOREPLIFETIME(ASBZSecurityCamera, CameraCurrentRotation);

@@ -72,6 +72,9 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
 void ASBZPlayerState::SetSkipIntroSequence(bool bInIsSkipIntroSequence) {
 }
 
+void ASBZPlayerState::Server_UpdateGameSession_Implementation() {
+}
+
 void ASBZPlayerState::Server_StopTargeting_Implementation() {
 }
 

@@ -4,6 +4,7 @@
 #include "UObject/Object.h"
 #include "GameplayTagContainer.h"
 #include "EPD3HeistState.h"
+#include "SBZBagHandle.h"
 #include "Templates/SubclassOf.h"
 #include "PD3GameIntensityAnalyzer.generated.h"
 
@@ -56,6 +57,12 @@ private:
     TMap<TSubclassOf<USBZAIOrder>, USBZDialogDataAsset*> SquadDialog;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZDialogDataAsset*> SecuredBagDialogArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZDialogDataAsset*> SecuredBagLeftDialogArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UMaterialInterface* HUDGlitchMaterial;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -101,6 +108,10 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void HandleGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
+    
+private:
+    UFUNCTION(BlueprintCallable)
+    void HandleBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))

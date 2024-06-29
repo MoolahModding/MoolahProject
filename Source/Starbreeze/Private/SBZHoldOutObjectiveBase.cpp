@@ -3,6 +3,7 @@
 USBZHoldOutObjectiveBase::USBZHoldOutObjectiveBase() {
     this->bReverseCondition = false;
     this->bIsOptional = false;
+    this->bBroadcastProgressChanged = true;
     this->UIObjective = NULL;
 }
 
@@ -14,16 +15,16 @@ bool USBZHoldOutObjectiveBase::IsActive() const {
     return false;
 }
 
-int32 USBZHoldOutObjectiveBase::GetUIObjectiveProgress() const {
-    return 0;
-}
-
-int32 USBZHoldOutObjectiveBase::GetUIObjectiveMaxProgress() const {
+int32 USBZHoldOutObjectiveBase::GetProgressCount() const {
     return 0;
 }
 
 float USBZHoldOutObjectiveBase::GetProgress() const {
     return 0.0f;
+}
+
+int32 USBZHoldOutObjectiveBase::GetMaxProgressCount() const {
+    return 0;
 }
 
 

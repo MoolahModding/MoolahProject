@@ -13,6 +13,7 @@
 
 class UAkAudioEvent;
 class UPaperSprite;
+class USBZPersonalStatisticCriteriaData;
 class USBZPlayerCharacterData;
 class USBZStatisticCriteriaData;
 
@@ -109,6 +110,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZStatisticCriteriaData*> StatisticCriteriaDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZPersonalStatisticCriteriaData*> PersonalStatisticCriteriaDataArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZPlayerCharacterData*> LockedCharacterArray;

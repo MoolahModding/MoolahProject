@@ -65,6 +65,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 Seed;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bRandomizeOnBeginPlay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_HasRandomized, meta=(AllowPrivateAccess=true))
+    bool bHasRandomized;
+    
 public:
     ASBZKeypadBase(const FObjectInitializer& ObjectInitializer);
 
@@ -72,10 +78,16 @@ public:
 
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void StartRandomization();
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsInteractable();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_HasRandomized();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_GuessedCode();
@@ -91,6 +103,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnFocusChanged(const USBZBaseInteractableComponent* InteractableComp, bool bInNewState);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_StartRandomization();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_UpdateHighlights(const TArray<int32>& GeneratedCode);

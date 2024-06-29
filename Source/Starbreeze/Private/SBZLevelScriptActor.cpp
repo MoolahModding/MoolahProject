@@ -4,6 +4,12 @@ ASBZLevelScriptActor::ASBZLevelScriptActor(const FObjectInitializer& ObjectIniti
     this->Seed = -1;
 }
 
+void ASBZLevelScriptActor::SetBagMarkerEnabledByTags(const FGameplayTagContainer& BagGameplayTagContainer, bool bEnabled) {
+}
+
+void ASBZLevelScriptActor::SetBagMarkerEnabledByBagType(const USBZBagType* BagType, bool bEnabled) {
+}
+
 ULevelStreamingDynamic* ASBZLevelScriptActor::SBZPlaceRandomSublevelBySoftObjectPtr(UObject* WorldContextObject, const TSoftObjectPtr<UWorld> Level, const FTransform& RoomTransform, bool& bOutSuccess) {
     return NULL;
 }
@@ -26,6 +32,8 @@ void ASBZLevelScriptActor::OnRandomizedRoomShown() {
 
 void ASBZLevelScriptActor::OnOptionalObjectiveComplete(const int32 ObjectiveNumber) {
 }
+
+
 
 
 

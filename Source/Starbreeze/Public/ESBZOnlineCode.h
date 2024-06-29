@@ -30,5 +30,6 @@ enum class ESBZOnlineCode : uint8 {
     SessionDoesNotExist,
     ReturnToIIS,
     UserHasChanged,
+    SoloGameRequested,
 };
 

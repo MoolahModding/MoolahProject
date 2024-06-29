@@ -38,6 +38,9 @@ public:
     void ServerVoteStayAsParty();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ServerUpdateGameSession();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerTogglePlayerReady(const FUniqueNetIdRepl& InPlayerId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -83,6 +86,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerNotifyStartTravel(const FUniqueNetIdRepl& InPlayerIdStartTravel);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ServerGetGamePort();
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerAddPreplanningAsset(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku);
@@ -132,6 +138,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientSetPlayerLoadout(const FUniqueNetIdRepl& InPlayerId, const FPD3PlayerLoadout& InLoadout, const FSoftObjectPath InSelectedCharacter, const ESBZFirstPartyPlatform FirstPartyPlatform, const ESBZPlatform InPlatform, const int32 InInfamyLevel, const FString& AccelByteUserName, const FString& AccelByteDisplayName, bool bCrossPlayEnabled);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ClientSetGamePort(int32 GamePort, const FString& ServerVersion, const FString& GameSessionId);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientRestartPreTravelTimer(float PreTravelTimeLimit);

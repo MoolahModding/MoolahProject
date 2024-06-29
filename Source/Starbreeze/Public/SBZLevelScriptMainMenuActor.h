@@ -34,6 +34,9 @@ public:
     void OnLobbyUpdate(ESBZOnlineCode ErrorCode);
     
     UFUNCTION(BlueprintCallable)
+    void OnLoadoutChangedSolo(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
+    
+    UFUNCTION(BlueprintCallable)
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
     
     UFUNCTION(BlueprintCallable)

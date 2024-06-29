@@ -5,12 +5,10 @@
 #include "SBZAICharacterAttributeSet.h"
 #include "SBZAICharacterMovementComponent.h"
 #include "SBZAIInteractorComponent.h"
-#include "SBZApplyMarkedTagEffect.h"
 
 ASBZAIBaseCharacter::ASBZAIBaseCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZAICharacterMovementComponent>(TEXT("CharMoveComp"))) {
     this->bUseControllerRotationYaw = false;
     this->AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
-    this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->CombatUtilityData = NULL;
     this->NavFilters[0] = NULL;
     this->NavFilters[1] = NULL;

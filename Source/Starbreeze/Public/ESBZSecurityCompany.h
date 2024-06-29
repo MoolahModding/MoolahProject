@@ -16,5 +16,6 @@ enum class ESBZSecurityCompany : uint8 {
     HardBargain,
     AICore,
     ReflectorShields,
+    AIShielding,
 };
 

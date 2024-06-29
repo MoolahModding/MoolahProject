@@ -6,7 +6,7 @@ USBZReplicationGraph::USBZReplicationGraph() {
     this->AlwaysRelevantNode = NULL;
     this->DynamicSpatialFrequencyNode = NULL;
     this->IntialFrameReplicationNode = NULL;
-    this->ConfigRepClasses.AddDefaulted(90);
+    this->ConfigRepClasses.AddDefaulted(91);
 }
 
 void USBZReplicationGraph::OnActorDependencyRemoved(AActor* Master, AActor* Slave) {

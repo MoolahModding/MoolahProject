@@ -57,6 +57,9 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool DetectNavBottleNeckAndRelocate(const UObject* WorldContextObject, const FVector& BlockingCharacterLocation, const FVector& BlockedCharacterDirection, float& OutBottleNeckSqSize2D, FVector& OutRelocationPosition, float CharacterRadius, float BottleNeckSize);
     
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    static void DespawnAICharacter(ASBZAICharacter* AICharacter, bool bPerformDespawnTagCheck);
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     static USBZAIOrder_MoveTo* CreateAIOrderMoveTo(TSubclassOf<USBZAIOrder_MoveTo> OrderClass, FVector Location, ASBZAIController* AIController);
     

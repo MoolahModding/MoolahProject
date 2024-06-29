@@ -4,7 +4,6 @@
 
 UENUM(BlueprintType)
 enum class ESBZHoldOutObjectiveResult : uint8 {
-    InProgress,
     Succeeded,
     Failed,
     Aborted,

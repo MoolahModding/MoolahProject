@@ -1,7 +1,7 @@
 #include "SBZConsole.h"
 
 USBZConsole::USBZConsole() {
-    this->HistoryBuffer.AddDefaulted(15);
+    this->HistoryBuffer.AddDefaulted(22);
 }
 
 

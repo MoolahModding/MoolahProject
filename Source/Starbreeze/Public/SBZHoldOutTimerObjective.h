@@ -21,6 +21,9 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
+    void OnTimerProgressionReached(int32 ProgressionIndex);
+    
+    UFUNCTION(BlueprintCallable)
     void OnTimerFinished();
     
 };

@@ -46,6 +46,9 @@ public:
     static bool HasAlphaStrike(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasAIShielding(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool HasAICore(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

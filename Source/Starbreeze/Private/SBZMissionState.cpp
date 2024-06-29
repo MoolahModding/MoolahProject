@@ -14,7 +14,7 @@
 
 ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RandomSeed = -1;
-    this->ServerChangelist = 695140;
+    this->ServerChangelist = 705542;
     this->Difficulty = ESBZDifficulty::Default;
     this->PredictionTimeOutSeconds = 1.00f;
     this->ServerUnblockAbilityEarlierSeconds = 0.25f;
@@ -99,6 +99,9 @@ void ASBZMissionState::OnRep_EscapeTimeLeft() {
 void ASBZMissionState::OnRep_Difficulty() {
 }
 
+void ASBZMissionState::OnRep_BlockedBagMarkers() {
+}
+
 void ASBZMissionState::OnBlackScreenStarted() {
 }
 
@@ -114,9 +117,6 @@ void ASBZMissionState::OnActionPhaseExited() {
 void ASBZMissionState::NotifyClientPassedMilestone_Implementation(ESBZMilestoneType MilestoneType, const FString& MilestoneName) {
 }
 
-void ASBZMissionState::MulticastPreplanningAssetsApplied_Implementation() {
-}
-
 void ASBZMissionState::Multicast_StartOverkillCooldown_Implementation() {
 }
 
@@ -127,6 +127,9 @@ void ASBZMissionState::Multicast_SetEscapeVolumeData_Implementation(const uint8 
 }
 
 void ASBZMissionState::Multicast_SetEscapeTimeLeft_Implementation(const int32 NewTime) {
+}
+
+void ASBZMissionState::Multicast_SetBlockedBagMarkers_Implementation(const FGameplayTagContainer& InBlockedBagMarkers) {
 }
 
 void ASBZMissionState::Multicast_OnAmmoSpecialistHighGrainSkillDeactivated_Implementation() {
@@ -153,7 +156,7 @@ bool ASBZMissionState::HasSharedKeyItemTag(FGameplayTag InTag) const {
     return false;
 }
 
-bool ASBZMissionState::HasPreplanningTag(FGameplayTag InTag, const UObject* WorldContextObject) {
+bool ASBZMissionState::HasPreplanningTag(const FGameplayTag& InTag, const UObject* WorldContextObject) {
     return false;
 }
 
@@ -174,10 +177,6 @@ ASBZMissionState* ASBZMissionState::GetSBZMissionState(const UObject* WorldConte
 
 int32 ASBZMissionState::GetRandomSeed() const {
     return 0;
-}
-
-TArray<FGameplayTag> ASBZMissionState::GetPreplanningTags() {
-    return TArray<FGameplayTag>();
 }
 
 FRandomStream ASBZMissionState::GetMixedRandomStream(int32 MixSeed, const UObject* WorldContextObject) {
@@ -229,6 +228,7 @@ void ASBZMissionState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
     DOREPLIFETIME(ASBZMissionState, SecurityCompanies);
     DOREPLIFETIME(ASBZMissionState, ReplicatedSharedKeyItemTagCount);
     DOREPLIFETIME(ASBZMissionState, MissionStartTime);
+    DOREPLIFETIME(ASBZMissionState, BlockedBagMarkers);
     DOREPLIFETIME(ASBZMissionState, PlayersInEscapeVolume);
     DOREPLIFETIME(ASBZMissionState, PlayersRequiredInEscapeVolume);
     DOREPLIFETIME(ASBZMissionState, EscapeTimeLeft);

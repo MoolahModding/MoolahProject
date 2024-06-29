@@ -25,7 +25,7 @@ void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty,
 void USBZGameStateMachine::SetIsMatchmakingQuickMatch(bool bInIsQuickMatch) {
 }
 
-void USBZGameStateMachine::RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx) {
+void USBZGameStateMachine::RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch) {
 }
 
 void USBZGameStateMachine::RequestReturnToMainMenu(ESBZReturnToMainMenuReason Reason) {
@@ -133,6 +133,10 @@ ESBZDifficulty USBZGameStateMachine::GetMatchmakingDifficulty() const {
 }
 
 void USBZGameStateMachine::DebugOnlineTravel(const FString& LevelUrl, bool bIsAbsolute) {
+}
+
+bool USBZGameStateMachine::CanRequestSoloGame() const {
+    return false;
 }
 
 void USBZGameStateMachine::AddMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany) {

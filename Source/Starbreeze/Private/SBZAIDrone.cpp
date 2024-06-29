@@ -49,6 +49,9 @@ ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->ExplosionInstigator = NULL;
     this->CurrentTarget = NULL;
     this->StatisticsMarkDrone = TEXT("mark-drone");
+    this->StatisticsMarkEnemy = TEXT("mark-enemy");
+    this->StatisticsMarkEnemyCamera = TEXT("mark-enemy-camera");
+    this->StatisticsMarkEnemyMicroCamera = TEXT("mark-enemy-micro-camera");
     this->AIDamageModifier = 1.00f;
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->MarkedOutline = NULL;

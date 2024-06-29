@@ -18,19 +18,40 @@ protected:
     bool bIsOptional;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bBroadcastProgressChanged;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZObjective* UIObjective;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTag StartEventTag;
+    FGameplayTagContainer GrantedTagsOnStart;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTag ProgressChangedEventTag;
+    FGameplayTagContainer GrantedTagsOnProgressIncreased;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTag SuccessEventTag;
+    FGameplayTagContainer GrantedTagsOnProgressDecreased;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTag FailEventTag;
+    FGameplayTagContainer GrantedTagsOnSuccess;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer GrantedTagsOnFail;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer RemovedTagsOnStart;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer RemovedTagsOnProgressIncreased;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer RemovedTagsOnProgressDecreased;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer RemovedTagsOnSuccess;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer RemovedTagsOnFail;
     
 public:
     USBZHoldOutObjectiveBase();
@@ -42,13 +63,13 @@ public:
     bool IsActive() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetUIObjectiveProgress() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetUIObjectiveMaxProgress() const;
+    int32 GetProgressCount() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetProgress() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetMaxProgressCount() const;
     
 };
 

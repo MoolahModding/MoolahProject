@@ -4,7 +4,9 @@
 ASBZWeapon::ASBZWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bMergeMeshes = true;
     this->ModularMeshComponent = CreateDefaultSubobject<USBZModularMeshComponent>(TEXT("SBZModularMeshComponent"));
-    this->AnimationState = ESBZWeaponAnimationState::Idle;
+    this->bIsReloading = false;
+    this->bIsEmpty = false;
+    this->bIsCycle = false;
     this->ShaderSightOffset = 0.00f;
     this->WeaponCustomizationFOV = 25.00f;
 }

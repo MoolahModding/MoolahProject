@@ -16,6 +16,9 @@ bool USBZBagManager::RemoveClaim(FSBZBagHandle Handle, AActor* Actor) {
     return false;
 }
 
+void USBZBagManager::OnRep_Bags() {
+}
+
 void USBZBagManager::Multicast_SecureBag_Implementation(const int32 BagId, const bool bClearClaim) {
 }
 

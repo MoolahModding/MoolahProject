@@ -13,6 +13,9 @@ void USBZSpawnWaveManager::SetOrderOnSpawnedPawns(const FSBZSpawnWaveFilteredOrd
 void USBZSpawnWaveManager::SetDifficulty(ESBZDifficulty NewDifficulty) {
 }
 
+void USBZSpawnWaveManager::PopulateSpawnTypeLimitsOnWave(FSBZSpawnWaveSettings& WaveSettings) {
+}
+
 void USBZSpawnWaveManager::OnPawnSpawned(USBZSpawnManager* SpawnManager, APawn* Pawn) {
 }
 

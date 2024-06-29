@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameplayTagContainer.h"
+#include "GameplayTagContainer.h"
 #include "SBZAdditiveMoveData.h"
 #include "SBZCachedWeaponTargeting.h"
 #include "SBZEquippableData.h"
@@ -124,6 +125,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<USBZWeaponPartSlot*, FSBZModularPartSlotConfiguration> ModularConfiguration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTag Family;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsInaccurateWeapon;

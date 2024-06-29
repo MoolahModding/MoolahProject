@@ -228,7 +228,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator);
+    void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator, const FVector& InstigatorLocation);
     
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)

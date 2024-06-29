@@ -10,6 +10,7 @@ ASBZObjective::ASBZObjective(const FObjectInitializer& ObjectInitializer) : Supe
     this->DisplayOrder = 0;
     this->bIsOptional = false;
     this->bUIUseProgressBar = false;
+    this->bReverseProgressBar = false;
     this->bUIReverseTimer = false;
     this->ProgressTextOption = ESBZProgressTextDisplayOption::ShowFraction;
     this->ObjectiveGroup = ESBZObjectiveGroup::None;

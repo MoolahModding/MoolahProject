@@ -3,6 +3,7 @@
 #include "UObject/Object.h"
 #include "ESBZMetaEventType.h"
 #include "SBZDifficultyConfiguration.h"
+#include "SBZMatchmakingAndHostingData.h"
 #include "SBZMetaEventData.h"
 #include "SBZNewsFeedList.h"
 #include "SBZTitleData.h"
@@ -27,6 +28,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZMetaEventData> GetMetaEventsData() const;
+    
+    UFUNCTION(BlueprintCallable)
+    FSBZMatchmakingAndHostingData GetMatchmakingAndHostingData();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZDifficultyConfiguration> GetDifficultyConfiguration();

@@ -5,5 +5,5 @@
 
 class USBZHoldOutObjectiveBase;
 
-UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FSBZHoldOutObjectiveProgressChanged, USBZHoldOutObjectiveBase*, Objective, float, OldProgress, float, NewProgress, const FGameplayTag&, EventTag);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams(FSBZHoldOutObjectiveProgressChanged, USBZHoldOutObjectiveBase*, Objective, int32, OldProgressCount, int32, NewProgressCount, const FGameplayTagContainer&, EventTag, const FGameplayTagContainer&, RemovedTags);
 

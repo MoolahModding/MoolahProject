@@ -49,6 +49,9 @@ void UPD3GameIntensityAnalyzer::HandleProgressionIndexChanged() {
 void UPD3GameIntensityAnalyzer::HandleGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
 }
 
+void UPD3GameIntensityAnalyzer::HandleBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure) {
+}
+
 UPD3GameIntensityAnalyzer* UPD3GameIntensityAnalyzer::GetGameIntensityAnalyzer(UObject* WorldContextObject) {
     return NULL;
 }

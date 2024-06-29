@@ -40,6 +40,9 @@ bool USBZAILibrary::DetectNavBottleNeckAndRelocate(const UObject* WorldContextOb
     return false;
 }
 
+void USBZAILibrary::DespawnAICharacter(ASBZAICharacter* AICharacter, bool bPerformDespawnTagCheck) {
+}
+
 USBZAIOrder_MoveTo* USBZAILibrary::CreateAIOrderMoveTo(TSubclassOf<USBZAIOrder_MoveTo> OrderClass, FVector Location, ASBZAIController* AIController) {
     return NULL;
 }

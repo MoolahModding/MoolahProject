@@ -37,6 +37,9 @@ public:
     static int32 GetAllPlayersHaveKilledCount(const FSBZEndMissionResultData& ResultData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetAllPlayersHaveGuardKilledCount(const FSBZEndMissionResultData& ResultData);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetAllPlayersHaveCivilianKilledCount(const FSBZEndMissionResultData& ResultData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

@@ -16,15 +16,23 @@ ASBZKeypadBase::ASBZKeypadBase(const FObjectInitializer& ObjectInitializer) : Su
     this->ButtonSoundEvent = NULL;
     this->Code = 0;
     this->Seed = -1;
+    this->bRandomizeOnBeginPlay = true;
+    this->bHasRandomized = false;
     this->BaseKeypadMesh->SetupAttachment(RootComponent);
     this->CodeWidget->SetupAttachment(BaseKeypadMesh);
     this->LanternCapsule->SetupAttachment(RootComponent);
+}
+
+void ASBZKeypadBase::StartRandomization() {
 }
 
 void ASBZKeypadBase::SetInteractionEnabled(bool bEnabled) {
 }
 
 void ASBZKeypadBase::OnRep_IsInteractable() {
+}
+
+void ASBZKeypadBase::OnRep_HasRandomized() {
 }
 
 void ASBZKeypadBase::OnRep_GuessedCode() {
@@ -42,6 +50,9 @@ void ASBZKeypadBase::OnKeypadPressed(USBZBaseInteractableComponent* Interactable
 void ASBZKeypadBase::OnFocusChanged(const USBZBaseInteractableComponent* InteractableComp, bool bInNewState) {
 }
 
+void ASBZKeypadBase::Multicast_StartRandomization_Implementation() {
+}
+
 
 
 
@@ -54,6 +65,7 @@ void ASBZKeypadBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
     DOREPLIFETIME(ASBZKeypadBase, GuessedCode);
     DOREPLIFETIME(ASBZKeypadBase, Inputs);
     DOREPLIFETIME(ASBZKeypadBase, bIsInteractable);
+    DOREPLIFETIME(ASBZKeypadBase, bHasRandomized);
 }
 
 

@@ -12,6 +12,9 @@ void ASBZLevelScriptMainMenuActor::PostInitializeComponents() {
 void ASBZLevelScriptMainMenuActor::OnLobbyUpdate(ESBZOnlineCode ErrorCode) {
 }
 
+void ASBZLevelScriptMainMenuActor::OnLoadoutChangedSolo(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray) {
+}
+
 void ASBZLevelScriptMainMenuActor::OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray) {
 }
 

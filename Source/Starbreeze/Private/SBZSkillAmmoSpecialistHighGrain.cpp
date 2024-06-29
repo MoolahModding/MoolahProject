@@ -4,7 +4,7 @@
 USBZSkillAmmoSpecialistHighGrain::USBZSkillAmmoSpecialistHighGrain() {
     this->CrewEffect = USBZAmmoSpecialistHighGrainCrewEffect::StaticClass();
     this->FloatArray.AddDefaulted(2);
-    this->IntArray.AddDefaulted(2);
+    this->IntArray.AddDefaulted(1);
 }
 
 

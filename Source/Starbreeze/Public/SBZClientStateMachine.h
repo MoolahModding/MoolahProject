@@ -36,7 +36,7 @@ public:
     void RequestSteamLogin();
     
     UFUNCTION(BlueprintCallable)
-    void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx);
+    void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch);
     
     UFUNCTION(BlueprintCallable)
     void RequestReturnToMainMenu(ESBZReturnToMainMenuReason Reason);
@@ -126,6 +126,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetCurrentStateNameString();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanRequestSoloGame() const;
     
     UFUNCTION(BlueprintCallable)
     void ApplyPreplanningAsset(const FString& ItemSku);

@@ -66,6 +66,8 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->bIsPagerSnatched = false;
     this->bIsScramblerSignalScanSkillActive = false;
     this->bHasGuardBehavior = false;
+    this->bIsHogTiedOnce = false;
+    this->LastTieHandsInstigatorPlayerState = NULL;
     this->PagerData = NULL;
     this->PagerTriggeredCount = 0;
     this->PagerSnatchedInteractor = NULL;
@@ -79,6 +81,10 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->PendingMeleeDownOnGoundInstigator = NULL;
     this->SurrenderInstigatorPlayerState = NULL;
     this->VariationCategory = ESBZAICharacterVariationCategory::Default;
+    this->MarkSpecials = TEXT("mark-specials");
+    this->MarkEnemy = TEXT("mark-enemy");
+    this->StatisticsMarkEnemyCamera = TEXT("mark-enemy-camera");
+    this->StatisticsMarkEnemyMicroCamera = TEXT("mark-enemy-micro-camera");
     this->bCanBeSeenByThermalScope = true;
     this->KillInstigatorController = NULL;
 }

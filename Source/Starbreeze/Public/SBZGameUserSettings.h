@@ -19,6 +19,7 @@
 #include "SBZPlatformsBackendSettingsInfo.h"
 #include "SBZGameUserSettings.generated.h"
 
+class UObject;
 class USBZGameInstance;
 class USBZGameUserSettings;
 class USBZSkillData;
@@ -369,7 +370,13 @@ public:
     void SetMaxCrosshairsScale(float Scale);
     
     UFUNCTION(BlueprintCallable)
+    void SetMatchmakingDifficulty(ESBZDifficulty InDifficulty);
+    
+    UFUNCTION(BlueprintCallable)
     void SetMasterVolume(float Volume);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetLobbyType(ESBZOnlineJoinType InLobbyType);
     
     UFUNCTION(BlueprintCallable)
     void SetKeyboardToDefaults();
@@ -581,6 +588,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetSecondaryKeyboardBinding(FName AxisOrActionName, float Scale);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZGameUserSettings* GetSBZGameUserSettings(const UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FKey GetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale);
     
@@ -600,7 +610,13 @@ public:
     float GetMaxCrosshairsScale() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZDifficulty GetMatchmakingDifficulty() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMasterVolume() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZOnlineJoinType GetLobbyType() const;
     
     UFUNCTION(BlueprintCallable)
     FSBZHitIndicatorSettings GetHitIndicatorSettings();

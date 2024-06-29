@@ -25,7 +25,7 @@ bool USBZChallengeManager::GetRerollAvailable() const {
     return false;
 }
 
-bool USBZChallengeManager::GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut) {
+bool USBZChallengeManager::GetRecommendedChallenges(const FString& ScreenName, FSBZRecommendedChallenges& RecommendedChallengesOut) const {
     return false;
 }
 

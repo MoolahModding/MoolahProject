@@ -81,6 +81,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldBroadcastOnHitEvent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 MarkerID;
+    
 public:
     ASBZBagItem(const FObjectInitializer& ObjectInitializer);
 

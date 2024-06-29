@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "GameplayTagContainer.h"
 #include "SBZCarryType.h"
 #include "SBZGameplayEffectData.h"
@@ -9,6 +10,7 @@
 class ASBZBagItem;
 class ASBZCarriedBag;
 class ASBZSecuredBag;
+class USBZMarkerDataAsset;
 
 UCLASS(Blueprintable)
 class USBZBagType : public USBZCarryType {
@@ -52,6 +54,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeightTierOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZMarkerDataAsset* MarkerAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector MarkerOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPersistentMarker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString SecureStatisticCode;
     
     USBZBagType();
 

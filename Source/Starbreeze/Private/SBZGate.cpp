@@ -85,7 +85,7 @@ void ASBZGate::Multicast_OnUnlockingLinkMoveEnded_Implementation() {
 void ASBZGate::Multicast_OnAddIgnoreMoveActor_Implementation(APawn* InPawn) {
 }
 
-void ASBZGate::Multicast_HandleAgilityTagEvent_Implementation(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator) {
+void ASBZGate::Multicast_HandleAgilityTagEvent_Implementation(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator, const FVector& InstigatorLocation) {
 }
 
 bool ASBZGate::IsOpenForwardFromLocation(const FVector& Location) const {

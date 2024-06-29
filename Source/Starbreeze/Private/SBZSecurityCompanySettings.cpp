@@ -43,6 +43,10 @@ bool USBZSecurityCompanySettings::HasAlphaStrike(const UObject* WorldContextObje
     return false;
 }
 
+bool USBZSecurityCompanySettings::HasAIShielding(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool USBZSecurityCompanySettings::HasAICore(const UObject* WorldContextObject) {
     return false;
 }

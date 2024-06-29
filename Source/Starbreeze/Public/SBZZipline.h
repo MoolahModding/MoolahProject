@@ -77,6 +77,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HalfExtentSizeToAdd;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float StartForcedDirectionThreshold;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float EndForcedDirectionThreshold;
+    
 public:
     ASBZZipline(const FObjectInitializer& ObjectInitializer);
 

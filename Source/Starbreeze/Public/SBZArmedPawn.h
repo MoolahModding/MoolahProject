@@ -8,7 +8,6 @@
 #include "GameplayTagAssetInterface.h"
 #include "GameplayTagContainer.h"
 #include "ESBZAIVisibilityNodeComputationFrequency.h"
-#include "SBZAbilitySystemComponent.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZEquippableConfig.h"
 #include "SBZPawnInterface.h"
@@ -40,7 +39,7 @@ protected:
     TArray<ASBZEquippable*> EquippableArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZAbilitySystemComponent* AbilitySystemComponent;
+    UAbilitySystemComponent* AbilitySystemComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAICharacterAbilityData* AbilityData;
@@ -95,10 +94,11 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-    
+
     virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
     {
         return AbilitySystemComponent;
     }
+    
 };
 
