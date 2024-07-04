@@ -18,24 +18,25 @@ private:
     
 public:
     USBZMainMenuCosmeticItemButton();
+
     UFUNCTION(BlueprintCallable)
     void SetItemCount(int32 InItemCount);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemCountChanged(int32 InItemCount);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCosmeticItemDataInitialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDefaultItem() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeCosmeticItem(const USBZCosmeticsDataAsset* InCosmeticItemData, bool bInIsDefault);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZCosmeticsDataAsset* GetCosmeticItemData() const;
     
 };

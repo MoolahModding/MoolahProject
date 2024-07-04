@@ -4,6 +4,7 @@
 #include "SBZSaveManagerInterface.h"
 #include "SBZSaveManager.generated.h"
 
+class USBZProgressionSaveChallenges;
 class USBZProgressionSaveGame;
 class USBZSaveManager;
 
@@ -18,18 +19,31 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZProgressionSaveGame* DefaultProgressionSaveGame;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZProgressionSaveChallenges* ProgressionSaveChallenges;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZProgressionSaveChallenges* DefaultProgressionSaveChallenges;
+    
 public:
     USBZSaveManager();
+
     UFUNCTION(BlueprintCallable)
     void UpdateLoadoutInLobby();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZProgressionSaveGame* GetProgressionSaveGame() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    USBZProgressionSaveChallenges* GetProgressionSaveChallenges() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZSaveManager* GetChecked(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZSaveManager* Get(const UObject* WorldContextObject);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

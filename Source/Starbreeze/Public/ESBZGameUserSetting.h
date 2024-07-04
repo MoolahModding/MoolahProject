@@ -20,5 +20,7 @@ enum class ESBZGameUserSetting : uint8 {
     UseInvertedYAxis,
     UseMouseSmoothing,
     UseSwitchWeaponAutomatically,
+    IsRememberSkipIntroSequence,
+    HeadbobScale,
 };
 

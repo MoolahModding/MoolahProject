@@ -52,6 +52,7 @@ private:
     
 public:
     USBZMainMenuWeaponStatsWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetEmpty();
     
@@ -64,13 +65,13 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetBaseFromEquippableConfig(const FSBZEquippableConfig& InEquippableConfig);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnUpdateVisuals();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEmpty();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasCompare() const;
     
     UFUNCTION(BlueprintCallable)

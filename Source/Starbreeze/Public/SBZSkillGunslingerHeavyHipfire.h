@@ -8,5 +8,6 @@ class USBZSkillGunslingerHeavyHipfire : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGunslingerHeavyHipfire();
+
 };
 

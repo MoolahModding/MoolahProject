@@ -15,6 +15,7 @@
 #include "SBZEquippableConfig.h"
 #include "SBZGameStateBase.h"
 #include "SBZOnFBIActivationChangedDelegate.h"
+#include "SBZPlayerStateRemovedEvent.h"
 #include "SBZPreplanningAsset.h"
 #include "SBZRepSharedKeyItemTags.h"
 #include "SBZStatisticCodeCollection.h"
@@ -23,10 +24,11 @@
 #include "SBZMissionState.generated.h"
 
 class AActor;
+class APlayerState;
 class ASBZAICrewState;
 class ASBZCharacter;
 class ASBZMissionState;
-class ASBZSeasonalEventItemBase;
+class ASBZPowerUp;
 class UAkAudioBank;
 class UObject;
 class UPD3HeistDataAsset;
@@ -34,6 +36,7 @@ class USBZActorPoolManager;
 class USBZAgentManager;
 class USBZBagManager;
 class USBZCosmeticDestructionComponent;
+class USBZDSChallengeManager;
 class USBZDialogManager;
 class USBZKeyItemData;
 class USBZLifeActionManager;
@@ -69,7 +72,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Difficulty, meta=(AllowPrivateAccess=true))
     ESBZDifficulty Difficulty;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnSecurityCompaniesChanged, meta=(AllowPrivateAccess=true))
     TArray<ESBZSecurityCompany> SecurityCompanies;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
@@ -95,6 +98,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZEquippableConfig RequestedOverkillWeaponConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BlockedBagMarkers, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer BlockedBagMarkers;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -169,6 +175,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 SeasonalEventItemCount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZDSChallengeManager* DSChallengeManager;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverkillWeaponCooldown;
     
@@ -184,12 +193,22 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnAmmoSpecialistHighGrainSkillTimeChanged, meta=(AllowPrivateAccess=true))
     float AmmoSpecialistHighGrainSkillTime;
     
-public:
-    ASBZMissionState();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsIntroSequenceSkipped, meta=(AllowPrivateAccess=true))
+    bool bIsIntroSequenceSkipped;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<APlayerState*> PlayerToRewardArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float WeaponArmorPenetrationModifier;
+    
+public:
+    ASBZMissionState(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ServerPostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
     
 public:
@@ -199,153 +218,166 @@ public:
     UFUNCTION(BlueprintCallable)
     void RewardCompleteExperienceMilestone(const FString& MilestoneName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ResetPreplanningAssets();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RemovePreplanningAsset(const FUniqueNetIdRepl& InPlayerId);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
+    void PlayerStateRemovedDuringEndMission(const FSBZPlayerStateRemovedEvent& Data);
+    
+    UFUNCTION(BlueprintCallable)
     void OnStandaloneNetIDEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION()
-    void OnServerSeasonalItemPickedUp(ASBZSeasonalEventItemBase* SeasonalEventItem);
+    UFUNCTION(BlueprintCallable)
+    void OnServerPowerUpPickedUp(ASBZPowerUp* PowerUp);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
+    void OnSecurityCompaniesChanged();
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_ServerChangelist();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_RandomSeed();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PreplanningAssetsApplied();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PlayersRequiredInEscapeVolume();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PlayersInEscapeVolume();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IsIntroSequenceSkipped();
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_EscapeTimeLeft();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_Difficulty();
     
-    UFUNCTION()
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_BlockedBagMarkers();
+    
+protected:
+    UFUNCTION(BlueprintCallable)
     void OnBlackScreenStarted();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAmmoSpecialistHighGrainSkillTimeChanged(float OldTime);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActionPhaseStarted();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActionPhaseExited();
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NotifyClientPassedMilestone(ESBZMilestoneType MilestoneType, const FString& MilestoneName);
     
-public:
-    UFUNCTION(NetMulticast, Reliable)
-    void MulticastPreplanningAssetsApplied();
-    
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartOverkillCooldown();
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SkipIntroSequence();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEscapeVolumeData(const uint8 InPlayersInVolume, const uint8 InTotal);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEscapeTimeLeft(const int32 NewTime);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetBlockedBagMarkers(const FGameplayTagContainer& InBlockedBagMarkers);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnAmmoSpecialistHighGrainSkillDeactivated();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnAmmoSpecialistHighGrainSkillActivated();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MissionResult(const FSBZEndMissionResultData& InMissionResultData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MissionEnd(const int32 OutroVariation);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTutorialLevel() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsFBIActive(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasSharedKeyItemTag(FGameplayTag InTag) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool HasPreplanningTag(FGameplayTag InTag, const UObject* WorldContextObject);
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasPreplanningTag(const FGameplayTag& InTag, const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAttributedAllVariations(const USBZVariationSetData* VariationData) const;
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleSharedKeyItemTagChanged(const FGameplayTag Tag, int32 Count);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ESBZSecurityCompany> GetSecurityCompanies() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static ASBZMissionState* GetSBZMissionState(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetRandomSeed() const;
     
-    UFUNCTION()
-    TArray<FGameplayTag> GetPreplanningTags();
-    
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FRandomStream GetMixedRandomStream(int32 MixSeed, const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMixedRandomSeed(int32 MixSeed) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMissionTime() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZEndMissionResultData GetMissionResultData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZEndMissionResult GetMissionResult() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetDifficultyIdx() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZDifficulty GetDifficulty() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCharacterSeed(const ASBZCharacter* Character, int32 MixSeed);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnHideAllOutlinesChanged(bool bIsHidden);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ApplyPreplanningAssets();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     bool AddPreplanningAsset(const FUniqueNetIdRepl& InPlayerId, const FString& InSkuNo);
     
 };

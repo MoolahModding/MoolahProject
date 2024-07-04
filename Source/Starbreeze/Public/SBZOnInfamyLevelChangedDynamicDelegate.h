@@ -4,5 +4,5 @@
 
 class ASBZPlayerState;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnInfamyLevelChangedDynamic, ASBZPlayerState*, PlayerState);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnInfamyLevelChangedDynamic, ASBZPlayerState*, PlayerState);
 

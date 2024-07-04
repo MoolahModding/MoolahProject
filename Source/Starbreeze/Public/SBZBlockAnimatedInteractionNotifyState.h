@@ -8,5 +8,6 @@ class USBZBlockAnimatedInteractionNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZBlockAnimatedInteractionNotifyState();
+
 };
 

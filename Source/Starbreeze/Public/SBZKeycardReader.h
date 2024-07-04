@@ -24,12 +24,13 @@ protected:
     USBZAIObjectiveComponent* AIOjectiveComponent;
     
 public:
-    ASBZKeycardReader();
+    ASBZKeycardReader(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* Interactable, bool bInNewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bIsLocallyControlled);
     
 };

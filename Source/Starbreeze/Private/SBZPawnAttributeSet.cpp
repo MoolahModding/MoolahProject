@@ -1,6 +1,14 @@
 #include "SBZPawnAttributeSet.h"
 #include "Net/UnrealNetwork.h"
 
+USBZPawnAttributeSet::USBZPawnAttributeSet() {
+    this->LastDamageTypeCDO = NULL;
+    this->LastInstigatorPawn = NULL;
+    this->FlashedVoiceComment = NULL;
+    this->FlashedByAllyVoiceComment = NULL;
+    this->HitByFragVoiceComment = NULL;
+}
+
 void USBZPawnAttributeSet::OnRep_OverHeal(const FGameplayAttributeData& OldOverHeal) {
 }
 
@@ -27,11 +35,4 @@ void USBZPawnAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(USBZPawnAttributeSet, OverHeal);
 }
 
-USBZPawnAttributeSet::USBZPawnAttributeSet() {
-    this->LastDamageTypeCDO = NULL;
-    this->LastInstigatorPawn = NULL;
-    this->FlashedVoiceComment = NULL;
-    this->FlashedByAllyVoiceComment = NULL;
-    this->HitByFragVoiceComment = NULL;
-}
 

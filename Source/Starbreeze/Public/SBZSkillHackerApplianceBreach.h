@@ -8,5 +8,6 @@ class USBZSkillHackerApplianceBreach : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillHackerApplianceBreach();
+
 };
 

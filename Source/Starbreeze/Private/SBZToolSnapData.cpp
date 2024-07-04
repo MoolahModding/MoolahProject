@@ -6,3 +6,4 @@ USBZToolSnapData::USBZToolSnapData() {
     this->ToolSnapRadius = 75.00f;
 }
 
+

@@ -44,26 +44,27 @@ protected:
     ESBZModuleActorState CurrentState;
     
 public:
-    ASBZModuleActor();
+    ASBZModuleActor(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bInEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerHackingStateChanged(EPD3MiniGameState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCuttingComplete(ASBZCuttableActor* CuttableActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZModuleActorState NewState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnStateChanged(ESBZModuleActorState NewState, bool bDoCosmetics);
     
 };

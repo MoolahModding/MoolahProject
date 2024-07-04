@@ -13,6 +13,7 @@ private:
     TMap<uint32, FSBZCharacterEffectRuntime> CharacterEffectRuntimes;
     
 public:
-    USBZUICharacterEffectComponent();
+    USBZUICharacterEffectComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

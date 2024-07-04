@@ -3,5 +3,5 @@
 #include "SBZAICrewDefeatStateChangedData.h"
 #include "SBZAICrewDefeatStateChangedDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZAICrewDefeatStateChangedDelegate, const FSBZAICrewDefeatStateChangedData&, InData);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZAICrewDefeatStateChangedDelegate, const FSBZAICrewDefeatStateChangedData&, InData);
 

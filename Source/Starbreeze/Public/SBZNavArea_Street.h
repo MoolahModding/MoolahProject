@@ -8,5 +8,6 @@ class USBZNavArea_Street : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_Street();
+
 };
 

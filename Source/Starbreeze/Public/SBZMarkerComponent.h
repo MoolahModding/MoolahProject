@@ -37,14 +37,15 @@ private:
     USceneComponent* AttachComponent;
     
 public:
-    USBZMarkerComponent();
+    USBZMarkerComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_MarkerState();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMarkerState(ESBZMarkerState RepMarkerState);
     
 };

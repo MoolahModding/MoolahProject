@@ -8,5 +8,6 @@ class USBZUnblockReloadNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZUnblockReloadNotify();
+
 };
 

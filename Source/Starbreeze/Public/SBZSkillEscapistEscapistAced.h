@@ -8,5 +8,6 @@ class USBZSkillEscapistEscapistAced : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEscapistEscapistAced();
+
 };
 

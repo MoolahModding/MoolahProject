@@ -1,10 +1,11 @@
 #include "SBZPlayerTriggeredVoiceVolume.h"
 
-void ASBZPlayerTriggeredVoiceVolume::HandleDialogEnded(ESBZDialogEndedReason Reason) {
-}
-
-ASBZPlayerTriggeredVoiceVolume::ASBZPlayerTriggeredVoiceVolume() {
+ASBZPlayerTriggeredVoiceVolume::ASBZPlayerTriggeredVoiceVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Dialog = NULL;
     this->Comment = NULL;
 }
+
+void ASBZPlayerTriggeredVoiceVolume::HandleDialogEnded(ESBZDialogEndedReason Reason) {
+}
+
 

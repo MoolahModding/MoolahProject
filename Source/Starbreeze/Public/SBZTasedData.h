@@ -43,5 +43,6 @@ public:
     FSBZLockCameraData LockCameraData;
     
     USBZTasedData();
+
 };
 

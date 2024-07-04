@@ -83,25 +83,26 @@ protected:
     UEnvQuery* MoveToPosEQSQuery;
     
 public:
-    USBZAIObjectiveComponent();
+    USBZAIObjectiveComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOrderCompleted(USBZAIOrder* Order, APawn* Owner, TEnumAsByte<EBTNodeResult::Type> OrderResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractStateChanged(const USBZBaseInteractableComponent* Interactable, bool bEnabled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCollisionChanged(UPrimitiveComponent* ActorPrimitive);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ASBZRoomVolume* GetLastKnownRoom() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ASBZRoomVolume* GetCurrentRoom_Implementation() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

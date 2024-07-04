@@ -11,7 +11,7 @@
 
 class APlayerState;
 
-UCLASS(Blueprintable, NonTransient)
+UCLASS(Blueprintable, NonTransient, Config=Engine)
 class STARBREEZE_API ASBZPartyBeaconHost : public ASBZOnlineBeaconHostObject {
     GENERATED_BODY()
 public:
@@ -45,32 +45,33 @@ private:
     FTimerHandle LeaveLobbyTimeoutTimer;
     
 public:
-    ASBZPartyBeaconHost();
-    UFUNCTION()
+    ASBZPartyBeaconHost(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable)
     void NotifyClientLeftLobby(const FUniqueNetIdRepl& PartyMemberId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NotifyClientFailedConnectionToLobby(const FUniqueNetIdRepl& PartyMemberNetId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NotifyClientConnectedToLobby(const FUniqueNetIdRepl& PartyMemberNetId);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePartyTravelTimeout();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePartyLeaveLobbyTimeout();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void FirePartyUpdated(APlayerState* ChangedPlayerState);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BroadcastPartyTravelled(ESBZOnlineCode Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BroadcastPartyLeftLobby(ESBZOnlineCode Result);
     
 };

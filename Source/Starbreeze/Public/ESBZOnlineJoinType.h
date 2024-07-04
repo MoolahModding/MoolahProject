@@ -9,6 +9,6 @@ enum class ESBZOnlineJoinType : uint8 {
     Private,
     FriendsOnly,
     InviteOnly,
-    Default = 0x1,
+    Default = Public,
 };
 

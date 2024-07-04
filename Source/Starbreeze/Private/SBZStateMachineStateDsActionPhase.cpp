@@ -1,5 +1,10 @@
 #include "SBZStateMachineStateDsActionPhase.h"
 
+USBZStateMachineStateDsActionPhase::USBZStateMachineStateDsActionPhase() {
+    this->ActionPhaseData = NULL;
+    this->InitialLongTimeoutDelay = 0.00f;
+}
+
 void USBZStateMachineStateDsActionPhase::PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId) {
 }
 
@@ -30,9 +35,4 @@ void USBZStateMachineStateDsActionPhase::DropInLobbyClient(const FUniqueNetIdRep
 void USBZStateMachineStateDsActionPhase::AutoReadyTimeout() {
 }
 
-USBZStateMachineStateDsActionPhase::USBZStateMachineStateDsActionPhase() {
-    this->ActionPhaseWidget = NULL;
-    this->ActionPhaseData = NULL;
-    this->InitialLongTimeoutDelay = 0.00f;
-}
 

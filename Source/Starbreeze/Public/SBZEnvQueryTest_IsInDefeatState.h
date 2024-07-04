@@ -8,5 +8,6 @@ class USBZEnvQueryTest_IsInDefeatState : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsInDefeatState();
+
 };
 

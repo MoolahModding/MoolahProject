@@ -1,5 +1,33 @@
 #include "SBZOnlineSession.h"
 
+USBZOnlineSession::USBZOnlineSession() {
+    this->Party = NULL;
+    this->PartyManager = NULL;
+    this->GameSessionManager = NULL;
+    this->RecentPlayersManager = NULL;
+    this->OnlineSessionSettingManager = NULL;
+    this->Lobby = NULL;
+    this->Chat = NULL;
+    this->Invites = NULL;
+    this->KickingManager = NULL;
+    this->VotingManager = NULL;
+    this->Matchmaking = NULL;
+    this->OnlineSessionUtils = NULL;
+    this->OnlineSessionRequestHandler = NULL;
+    this->OnlineSessionSearch = NULL;
+    this->P2P = NULL;
+    this->GlobalLobby = NULL;
+    this->FriendManager = NULL;
+    this->JobOverviewSync = NULL;
+    this->OnlineSlotsClient = NULL;
+    this->OnlineSlotsHost = NULL;
+    this->Voip = NULL;
+    this->bHostPartyByDefault = false;
+    this->GameRecordsManager = NULL;
+    this->BlockedPlayerManager = NULL;
+    this->AvatarCache = NULL;
+}
+
 void USBZOnlineSession::SetLocalClientReady(bool bIsClientReady) {
 }
 
@@ -44,29 +72,4 @@ FSBZMissionInfo USBZOnlineSession::GetBeaconMissionInfo() {
     return FSBZMissionInfo{};
 }
 
-USBZOnlineSession::USBZOnlineSession() {
-    this->Party = NULL;
-    this->PartyManager = NULL;
-    this->OnlineSessionSettingManager = NULL;
-    this->Lobby = NULL;
-    this->Chat = NULL;
-    this->Invites = NULL;
-    this->KickingManager = NULL;
-    this->VotingManager = NULL;
-    this->Matchmaking = NULL;
-    this->OnlineSessionUtils = NULL;
-    this->OnlineSessionRequestHandler = NULL;
-    this->OnlineSessionSearch = NULL;
-    this->P2P = NULL;
-    this->GlobalLobby = NULL;
-    this->FriendManager = NULL;
-    this->JobOverviewSync = NULL;
-    this->OnlineSlotsClient = NULL;
-    this->OnlineSlotsHost = NULL;
-    this->Voip = NULL;
-    this->bHostPartyByDefault = false;
-    this->GameRecordsManager = NULL;
-    this->BlockedPlayerManager = NULL;
-    this->AvatarCache = NULL;
-}
 

@@ -8,5 +8,6 @@ class USBZSubduedAbility : public USBZDamageDefeatAbility {
     GENERATED_BODY()
 public:
     USBZSubduedAbility();
+
 };
 

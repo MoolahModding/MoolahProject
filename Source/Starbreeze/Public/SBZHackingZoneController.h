@@ -61,15 +61,16 @@ protected:
     TArray<int32> AvailableZoneIndexes;
     
 public:
-    ASBZHackingZoneController();
+    ASBZHackingZoneController(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistGoneLoud();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 public:

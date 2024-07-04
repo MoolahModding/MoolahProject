@@ -5,3 +5,4 @@ USBZTankAbilityData::USBZTankAbilityData() {
     this->VisorHardness = 1.80f;
 }
 
+

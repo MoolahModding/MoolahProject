@@ -14,16 +14,17 @@ class USBZCoverPointManager : public UObject {
     GENERATED_BODY()
 public:
     USBZCoverPointManager();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZCoverShootingPoints> GetShootingPoints() const;
     
     UFUNCTION(BlueprintCallable)
     TArray<ASBZCoverPoint*> GetCoverWithinBounds(const FBoxSphereBounds& Bounds);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetCoverSafeness(const ASBZCoverPoint* CoverPoint, const TArray<AActor*>& Enemies) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZCoverPointManager* Get(UObject* WorldContextObject);
     
 };

@@ -8,5 +8,6 @@ class USBZGrantKeycardEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZGrantKeycardEffect();
+
 };
 

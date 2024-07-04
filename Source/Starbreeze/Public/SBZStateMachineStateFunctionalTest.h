@@ -8,5 +8,6 @@ class STARBREEZE_API USBZStateMachineStateFunctionalTest : public USBZClientStat
     GENERATED_BODY()
 public:
     USBZStateMachineStateFunctionalTest();
+
 };
 

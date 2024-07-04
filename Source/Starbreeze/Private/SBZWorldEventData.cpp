@@ -4,3 +4,4 @@ USBZWorldEventData::USBZWorldEventData() {
     this->Event = NULL;
 }
 
+

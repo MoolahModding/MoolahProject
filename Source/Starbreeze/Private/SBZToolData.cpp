@@ -19,5 +19,7 @@ USBZToolData::USBZToolData() {
     this->ViewDistanceOffset = 3.00f;
     this->bIsClippingAllowed = true;
     this->SurfaceOffset = 0.00f;
+    this->bIgnoreCharacters = false;
 }
+
 

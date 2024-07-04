@@ -16,5 +16,6 @@ protected:
     
 public:
     USBZAIUtilityScorer_PlayerDefeatState();
+
 };
 

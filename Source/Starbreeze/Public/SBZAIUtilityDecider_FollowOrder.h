@@ -22,5 +22,6 @@ private:
     
 public:
     USBZAIUtilityDecider_FollowOrder();
+
 };
 

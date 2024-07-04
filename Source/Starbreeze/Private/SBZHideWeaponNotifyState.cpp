@@ -4,3 +4,4 @@ USBZHideWeaponNotifyState::USBZHideWeaponNotifyState() {
     this->bIsCosmetic = false;
 }
 
+

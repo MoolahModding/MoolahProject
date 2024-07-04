@@ -25,29 +25,30 @@ protected:
     
 public:
     USBZSocialPartyButtonContainer();
+
     UFUNCTION(BlueprintCallable)
     void RequestPartyLeave();
     
     UFUNCTION(BlueprintCallable)
     void RefreshPanel();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPartyButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPanelRefreshComplete();
     
     UFUNCTION(BlueprintCallable)
     int32 GetPartyMembersNum();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZPartyMember> GetPartyMembers() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildPartyMembersList();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void AddPartyMember(FSBZPartyMember NewMember);
     
 };

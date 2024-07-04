@@ -8,5 +8,6 @@ class USBZSkillHackerRoutedPing : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillHackerRoutedPing();
+
 };
 

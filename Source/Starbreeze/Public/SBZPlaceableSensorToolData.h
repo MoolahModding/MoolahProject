@@ -8,5 +8,6 @@ class USBZPlaceableSensorToolData : public USBZToolData {
     GENERATED_BODY()
 public:
     USBZPlaceableSensorToolData();
+
 };
 

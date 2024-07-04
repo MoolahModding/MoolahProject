@@ -29,6 +29,7 @@ protected:
     
 public:
     USBZObjectContainer();
+
     UFUNCTION(BlueprintCallable)
     void Reset();
     

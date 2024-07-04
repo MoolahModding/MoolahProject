@@ -23,14 +23,15 @@ protected:
     TMap<AActor*, FTimerHandle> ReturnActorTimerHandles;
     
 public:
-    USBZActorPoolManager();
+    USBZActorPoolManager(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void ReturnActor(AActor* Actor, float Delay);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnExitedActionPhase();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActorDestroyed(AActor* DestroyedActor);
     
     UFUNCTION(BlueprintCallable)
@@ -39,7 +40,7 @@ public:
     UFUNCTION(BlueprintCallable)
     AActor* GetActor(UWorld* World, TSubclassOf<AActor> ActorClass);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZActorPoolManager* Get(const UObject* WorldContextObject);
     
 };

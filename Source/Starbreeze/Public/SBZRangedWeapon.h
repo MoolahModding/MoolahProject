@@ -7,7 +7,9 @@ class UAkAudioEvent;
 class UMeshComponent;
 class UNiagaraComponent;
 class UNiagaraSystem;
+class USBZWeaponAmmoData;
 class UStaticMesh;
+class UStaticMeshComponent;
 
 UCLASS(Abstract, Blueprintable)
 class STARBREEZE_API ASBZRangedWeapon : public ASBZWeapon {
@@ -71,11 +73,27 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AmmoInMagazineRTPC;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UStaticMeshComponent*> AmmoMeshComponentArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZWeaponAmmoData* CurrentAmmoData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 AmmoEquipped;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 AmmoLoaded;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 DroppedAmmoLoaded;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<UMeshComponent*> ChamberMeshArray;
     
 public:
-    ASBZRangedWeapon();
+    ASBZRangedWeapon(const FObjectInitializer& ObjectInitializer);
+
 };
 

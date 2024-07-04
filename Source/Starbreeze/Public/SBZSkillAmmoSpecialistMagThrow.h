@@ -8,5 +8,6 @@ class USBZSkillAmmoSpecialistMagThrow : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillAmmoSpecialistMagThrow();
+
 };
 

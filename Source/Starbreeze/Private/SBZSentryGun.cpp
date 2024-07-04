@@ -8,10 +8,53 @@
 #include "SBZSentryGunAttributeSet.h"
 #include "SBZSentryInteractableComponent.h"
 
+ASBZSentryGun::ASBZSentryGun(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->RootComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
+    this->Tags.AddDefaulted(1);
+    this->FireCooldown = 3.00f;
+    this->FireTime = 3.00f;
+    this->YawRotation = 170.00f;
+    this->RotationCooldown = 5.00f;
+    this->RotationSpeed = 70.00f;
+    this->SelfOverheatDamagePerShot = 1.00f;
+    this->DeployMontage = NULL;
+    this->CurrentTarget = NULL;
+    this->LastTarget = NULL;
+    this->CurrentMarkedTarget = NULL;
+    this->AttributeSet = CreateDefaultSubobject<USBZSentryGunAttributeSet>(TEXT("SBZSentryGunAttributeSet"));
+    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    this->RotationEvent = NULL;
+    this->RotationStopEvent = NULL;
+    this->OverheatEvent = NULL;
+    this->DetonationEvent = NULL;
+    this->Interactable = CreateDefaultSubobject<USBZSentryInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->OwnerPlayerState = NULL;
+    this->SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComponent"));
+    this->CurrentSentryRotationCooldown = 0.00f;
+    this->LocallyControlledOutline = NULL;
+    this->ExplosionRange = 500.00f;
+    this->DetonationEffect = NULL;
+    this->DamageGameplayEffectClass = NULL;
+    this->DamageTypeClass = USBZSentryExplosionDamageType::StaticClass();
+    this->LocalplayerFeedback = NULL;
+    this->DamageDistanceArray.AddDefaulted(1);
+    this->FriendlyPlayerDamageScale = 0.25f;
+    this->bUseInstigatorPlayerDamageScale = false;
+    this->InstigatorPlayerDamageScale = 1.00f;
+    this->ExplosionArmorPenetration = 0.00f;
+    this->OutOfBoundsBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("OutOfBoundsBoxComp"));
+    this->BoxComponent = (UBoxComponent*)RootComponent;
+    this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
+    this->HackingDrone = NULL;
+    this->OutOfBoundsBoxComponent->SetupAttachment(SkeletalMeshComponent);
+    this->SkeletalMeshComponent->SetupAttachment(RootComponent);
+    this->AudioComponent->SetupAttachment(SkeletalMeshComponent);
+}
+
 void ASBZSentryGun::OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {
 }
 
-void ASBZSentryGun::OnSentryEnemyMarked(ASBZCharacter* InCharacter, float InDuration) {
+void ASBZSentryGun::OnSentryEnemyMarked(APawn* InPawn, float InDuration) {
 }
 
 void ASBZSentryGun::OnRep_YawRotation() {
@@ -57,40 +100,4 @@ void ASBZSentryGun::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZSentryGun, TargetLocation);
 }
 
-ASBZSentryGun::ASBZSentryGun(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->FireCooldown = 3.00f;
-    this->FireTime = 3.00f;
-    this->YawRotation = 170.00f;
-    this->RotationCooldown = 5.00f;
-    this->RotationSpeed = 70.00f;
-    this->SelfOverheatDamagePerShot = 1.00f;
-    this->DeployMontage = NULL;
-    this->CurrentTarget = NULL;
-    this->LastTarget = NULL;
-    this->CurrentMarkedTarget = NULL;
-    this->AttributeSet = CreateDefaultSubobject<USBZSentryGunAttributeSet>(TEXT("SBZSentryGunAttributeSet"));
-    this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
-    this->RotationEvent = NULL;
-    this->RotationStopEvent = NULL;
-    this->OverheatEvent = NULL;
-    this->DetonationEvent = NULL;
-    this->Interactable = CreateDefaultSubobject<USBZSentryInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->OwnerPlayerState = NULL;
-    this->SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComponent"));
-    this->CurrentSentryRotationCooldown = 0.00f;
-    this->LocallyControlledOutline = NULL;
-    this->ExplosionRange = 500.00f;
-    this->DetonationEffect = NULL;
-    this->DamageGameplayEffectClass = NULL;
-    this->DamageTypeClass = USBZSentryExplosionDamageType::StaticClass();
-    this->LocalplayerFeedback = NULL;
-    this->DamageDistanceArray.AddDefaulted(1);
-    this->FriendlyPlayerDamageScale = 0.25f;
-    this->bUseInstigatorPlayerDamageScale = false;
-    this->InstigatorPlayerDamageScale = 1.00f;
-    this->ExplosionArmorPenetration = 0.00f;
-    this->OutOfBoundsBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("OutOfBoundsBoxComp"));
-    this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
-    this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
-}
 

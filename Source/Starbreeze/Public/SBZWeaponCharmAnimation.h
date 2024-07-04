@@ -8,5 +8,6 @@ class USBZWeaponCharmAnimation : public USBZEquippableCharmAnimation {
     GENERATED_BODY()
 public:
     USBZWeaponCharmAnimation();
+
 };
 

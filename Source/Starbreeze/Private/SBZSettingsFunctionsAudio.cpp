@@ -1,5 +1,8 @@
 #include "SBZSettingsFunctionsAudio.h"
 
+USBZSettingsFunctionsAudio::USBZSettingsFunctionsAudio() {
+}
+
 void USBZSettingsFunctionsAudio::SetVOVolume(UObject* WorldContextObject, float Volume) {
 }
 
@@ -66,6 +69,4 @@ float USBZSettingsFunctionsAudio::GetCinematicVolume(UObject* WorldContextObject
     return 0.0f;
 }
 
-USBZSettingsFunctionsAudio::USBZSettingsFunctionsAudio() {
-}
 

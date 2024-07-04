@@ -22,6 +22,7 @@ protected:
     USBZRecoilData* CurrentRecoilData;
     
 public:
-    USBZRecoilComponent();
+    USBZRecoilComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

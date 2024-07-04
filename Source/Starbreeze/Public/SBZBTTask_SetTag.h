@@ -14,5 +14,6 @@ protected:
     
 public:
     USBZBTTask_SetTag();
+
 };
 

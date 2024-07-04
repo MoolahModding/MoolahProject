@@ -28,6 +28,7 @@ protected:
     
 public:
     USBZMainMenuDamageFalloffWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetFireData(const USBZPlayerWeaponFireData* InFireData);
     

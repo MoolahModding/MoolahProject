@@ -11,15 +11,16 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZAICharacterVoiceComponent : public USBZCharacterVoiceComponent {
     GENERATED_BODY()
 public:
-    USBZAICharacterVoiceComponent();
+    USBZAICharacterVoiceComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleOnHostageStateChanged(uint8 HostageState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleHumanShieldChanged(ASBZAICharacter* Victim, ASBZCharacter* Instigator, bool bHumanShield);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleAIBehaviorCategoryChanged(ESBZAIBehaviorCategory OldCategory, ESBZAIBehaviorCategory NewCategory);
     
 };

@@ -1,6 +1,17 @@
 #include "SBZCheatManagerBase.h"
+#include "SBZDebugCameraController.h"
+
+USBZCheatManagerBase::USBZCheatManagerBase() {
+    this->DebugCameraControllerClass = ASBZDebugCameraController::StaticClass();
+    this->InputComponent = NULL;
+    this->AccelByteAdminHelper = NULL;
+    this->SelectedEmulationType = ESBZDebugNetEmulationType::None;
+}
 
 void USBZCheatManagerBase::VoteRestartLevel() {
+}
+
+void USBZCheatManagerBase::VoteKickPlayer(int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::UnselectSocket(int32 PlayerIndex) {
@@ -171,6 +182,9 @@ void USBZCheatManagerBase::OnEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::
 void USBZCheatManagerBase::LoadProgressionSaveGame() {
 }
 
+void USBZCheatManagerBase::LoadProgressionSaveChallenges() {
+}
+
 void USBZCheatManagerBase::FetchAllVendorItems(int32 MaxCount) {
 }
 
@@ -243,9 +257,4 @@ void USBZCheatManagerBase::ChangeStatCode(const FString& StatCode, int32 Count, 
 void USBZCheatManagerBase::AddCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex) {
 }
 
-USBZCheatManagerBase::USBZCheatManagerBase() {
-    this->InputComponent = NULL;
-    this->AccelByteAdminHelper = NULL;
-    this->SelectedEmulationType = ESBZDebugNetEmulationType::None;
-}
 

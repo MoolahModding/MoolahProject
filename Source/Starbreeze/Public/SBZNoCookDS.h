@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZNoCookDS : public AStaticMeshActor {
     GENERATED_BODY()
 public:
-    ASBZNoCookDS();
+    ASBZNoCookDS(const FObjectInitializer& ObjectInitializer);
+
 };
 

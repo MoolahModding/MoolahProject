@@ -19,11 +19,12 @@ private:
     
 public:
     USBZStateMachineStateWaitingRestartLevel();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLocalPlayerStateReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHandleGameStateReady();
     
 };

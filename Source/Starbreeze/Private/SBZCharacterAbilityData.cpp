@@ -7,3 +7,4 @@ USBZCharacterAbilityData::USBZCharacterAbilityData() {
     this->InitialDealtDamageMultiplier = 1.00f;
 }
 
+

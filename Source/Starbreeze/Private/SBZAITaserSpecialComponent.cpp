@@ -1,5 +1,6 @@
 #include "SBZAITaserSpecialComponent.h"
 
-USBZAITaserSpecialComponent::USBZAITaserSpecialComponent() {
+USBZAITaserSpecialComponent::USBZAITaserSpecialComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

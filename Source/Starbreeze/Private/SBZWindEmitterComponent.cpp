@@ -1,12 +1,6 @@
 #include "SBZWindEmitterComponent.h"
 
-void USBZWindEmitterComponent::SetSpeed(float InWindSpeed) {
-}
-
-void USBZWindEmitterComponent::SetExtent(const FVector& InExtent) {
-}
-
-USBZWindEmitterComponent::USBZWindEmitterComponent() {
+USBZWindEmitterComponent::USBZWindEmitterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->VolumeType = ESBZWindVolumeType::Box;
     this->EmitterType = ESBZWindEmitterType::Directionnal;
     this->bHasInfiniteExtent = false;
@@ -16,4 +10,11 @@ USBZWindEmitterComponent::USBZWindEmitterComponent() {
     this->GustFrequency = 1.00f;
     this->Strength = 1.00f;
 }
+
+void USBZWindEmitterComponent::SetSpeed(float InWindSpeed) {
+}
+
+void USBZWindEmitterComponent::SetExtent(const FVector& InExtent) {
+}
+
 

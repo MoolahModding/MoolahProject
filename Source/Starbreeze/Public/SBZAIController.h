@@ -76,6 +76,9 @@ protected:
     float SameRoomTargetFocusDistance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsTargetFocusEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FocusOnLastVisibleLocationDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -95,7 +98,11 @@ private:
     uint8 HeistStateAlert;
     
 public:
-    ASBZAIController();
+    ASBZAIController(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable)
+    void SetAIEnabled(bool bIsEnabled, const FName& Reason);
+    
     UFUNCTION(BlueprintCallable)
     bool PushOrder(USBZAIOrder* Order, ESBZAIOrderMode Mode);
     
@@ -103,26 +110,26 @@ public:
     USBZAIAction* PushAction(TSubclassOf<USBZAIAction> ActionClass, AActor* TargetActor);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOrderCompleted(USBZAIOrder* Order, APawn* OrderPawn, TEnumAsByte<EBTNodeResult::Type> Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEnemyKilled(APawn* KilledPawn);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActionCompleted(USBZAIAction* Action, AActor* Actor, bool bSuccess);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActionCanceled(USBZAIAction* Action);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     APawn* GetCurrentEnemy() const;
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnCurrentEnemyAssigned();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

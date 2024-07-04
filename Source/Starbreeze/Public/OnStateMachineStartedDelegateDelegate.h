@@ -4,5 +4,5 @@
 
 class USBZGameStateMachine;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStateMachineStartedDelegate, USBZGameStateMachine*, StateMachine);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStateMachineStartedDelegate, USBZGameStateMachine*, StateMachine);
 

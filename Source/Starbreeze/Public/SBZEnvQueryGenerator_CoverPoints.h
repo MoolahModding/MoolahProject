@@ -45,5 +45,6 @@ protected:
     
 public:
     USBZEnvQueryGenerator_CoverPoints();
+
 };
 

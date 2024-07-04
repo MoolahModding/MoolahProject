@@ -7,3 +7,4 @@ USBZOnlineSessionSearch::USBZOnlineSessionSearch() {
     this->SBZOnlineSessionRequestHandler = NULL;
 }
 
+

@@ -8,5 +8,6 @@ class USBZAttractorPredicate_HasVisibility : public USBZAttractorPredicate {
     GENERATED_BODY()
 public:
     USBZAttractorPredicate_HasVisibility();
+
 };
 

@@ -12,5 +12,6 @@ public:
     FBlackboardKeySelector InteractableActorBBKey;
     
     USBZBTTask_Interact();
+
 };
 

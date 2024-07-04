@@ -8,5 +8,6 @@ class USBZBTTask_ClearBBValue : public UBTTask_BlackboardBase {
     GENERATED_BODY()
 public:
     USBZBTTask_ClearBBValue();
+
 };
 

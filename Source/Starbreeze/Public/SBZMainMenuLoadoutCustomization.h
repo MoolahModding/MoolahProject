@@ -17,6 +17,7 @@ protected:
     
 public:
     USBZMainMenuLoadoutCustomization();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SaveCachedLoadout();

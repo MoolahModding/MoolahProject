@@ -8,5 +8,6 @@ class USBZThrowableInvisibleNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZThrowableInvisibleNotify();
+
 };
 

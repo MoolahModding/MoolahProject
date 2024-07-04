@@ -8,3 +8,4 @@ USBZPlayerCharacterData::USBZPlayerCharacterData() {
     this->MainMenuAnimationCollection = NULL;
 }
 
+

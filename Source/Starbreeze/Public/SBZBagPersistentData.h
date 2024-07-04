@@ -5,6 +5,7 @@
 
 class AActor;
 class ASBZPlayerCharacter;
+class ASBZPlayerState;
 
 USTRUCT(BlueprintType)
 struct FSBZBagPersistentData {
@@ -20,7 +21,10 @@ public:
     AActor* CurrentActor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ASBZPlayerCharacter* LastClaimedByPlayer;
+    ASBZPlayerCharacter* LastClaimedByPlayerCharacter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* LastClaimedByPlayerState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float ServerTimeAtFirstPickup;

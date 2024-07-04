@@ -24,16 +24,17 @@ private:
     bool bIsFriendlyFireAllowedOverride;
     
 public:
-    USBZMeleeComponent();
+    USBZMeleeComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEnforcerSolidNetIDArray(const TArray<int32>& InEnforcerSolidNetIDArray);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

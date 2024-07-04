@@ -19,5 +19,6 @@ public:
     FGameplayTagContainer AllowAnyDirectionTags;
     
     USBZHumanShieldData();
+
 };
 

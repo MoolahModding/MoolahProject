@@ -1,5 +1,8 @@
 #include "SBZFriendManager.h"
 
+USBZFriendManager::USBZFriendManager() {
+}
+
 void USBZFriendManager::OnUnblockPlayerComplete(bool bResult, FSBZFriendListEntry PlayerEntry) {
 }
 
@@ -58,6 +61,4 @@ TMap<FString, FSBZFriendListEntry> USBZFriendManager::GetAccelByteFriendEntries(
     return TMap<FString, FSBZFriendListEntry>();
 }
 
-USBZFriendManager::USBZFriendManager() {
-}
 

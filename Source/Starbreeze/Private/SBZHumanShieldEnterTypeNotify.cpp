@@ -4,3 +4,4 @@ USBZHumanShieldEnterTypeNotify::USBZHumanShieldEnterTypeNotify() {
     this->HumanShieldEnterType = ESBZHumanShieldEnterType::Invalid;
 }
 
+

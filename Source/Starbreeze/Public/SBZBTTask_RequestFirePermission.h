@@ -16,5 +16,6 @@ public:
     ESBZFireTokenType TokenType;
     
     UDEPRECATED_SBZBTTask_RequestFirePermission();
+
 };
 

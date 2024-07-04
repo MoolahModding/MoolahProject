@@ -50,47 +50,48 @@ protected:
     bool bIsCuttingBlocked;
     
 public:
-    USBZCuttableComponent();
+    USBZCuttableComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_InitialCutAngle();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CuttableState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CutProgressData();
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCutCompleted();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCuttingBlocked(bool bInIsBlocked);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCuttableState(ESBZCuttableState NewCuttableState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateLineCut(FSBZCutProgressData NewCutProgressData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateInitialCutAngle(float InCutAngle);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateInitialCut(FSBZCutProgressData NewCutProgressData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CreateCut(FSBZCutProgressData NewCutProgressData);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZCuttableType GetCuttableType() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZCuttableState GetCuttableState() const;
     
 };

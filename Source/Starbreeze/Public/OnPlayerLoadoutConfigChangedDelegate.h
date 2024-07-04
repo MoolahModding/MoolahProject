@@ -3,5 +3,5 @@
 #include "SBZPlayerLoadoutConfig.h"
 #include "OnPlayerLoadoutConfigChangedDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerLoadoutConfigChanged, const FSBZPlayerLoadoutConfig&, PlayerLoadout, int32, PlayerLoadoutIndex);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerLoadoutConfigChanged, const FSBZPlayerLoadoutConfig&, PlayerLoadout, int32, PlayerLoadoutIndex);
 

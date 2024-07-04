@@ -4,3 +4,4 @@ USBZAICharacterAbilityData::USBZAICharacterAbilityData() {
     this->ArmorHardness = 0.00f;
 }
 
+

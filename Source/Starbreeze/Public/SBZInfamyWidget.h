@@ -30,16 +30,17 @@ protected:
     
 public:
     USBZInfamyWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RefreshCurrentInfamyData(USBZInfamyManager* InfamyManager);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInfamyValuesRefreshed();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInfamyAdded(USBZInfamyManager* InfamyManager, int32 InLevelValue, int32 InExpirienceValue);
     
 };

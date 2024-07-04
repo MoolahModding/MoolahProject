@@ -6,7 +6,7 @@
 
 class USBZStateMachineDataWaitActionPhase;
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateWaitingActionPhaseBase : public USBZClientStateMachineState {
     GENERATED_BODY()
 public:
@@ -19,26 +19,27 @@ protected:
     
 public:
     USBZStateMachineStateWaitingActionPhaseBase();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleTransitionGameModeReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleNetworkError(ESBZOnlineCode Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleGameReady();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleCinematicStopped();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleCinematicStarted();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleBeaconNetworkError(ESBZOnlineCode Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DelayedNetworkBeaconError();
     
 };

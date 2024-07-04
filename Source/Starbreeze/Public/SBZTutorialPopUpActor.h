@@ -23,7 +23,8 @@ protected:
     TArray<FSBZControlsReference> ControlsReferenceArray;
     
 public:
-    ASBZTutorialPopUpActor();
+    ASBZTutorialPopUpActor(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void ShowTutorialPopUp(const int32 TutorialIndex, FSBZOnPopUpWidgetClosed InTutorialPopUpClosed);
     
@@ -34,22 +35,22 @@ public:
     void ShowControlsReference(const int32 ReferenceIndex);
     
 protected:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_CloseTutorialPopUp();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnActionPhaseEntered();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CloseTutorialPopUp(FName ClosingActionName);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_ShowTutorialPopUp(const int32 Index);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_ShowSideBarNotification(const int32 Index);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_ShowControlsReference(const int32 Index);
     
 };

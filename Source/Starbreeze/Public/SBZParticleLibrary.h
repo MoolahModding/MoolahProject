@@ -15,6 +15,7 @@ class USBZParticleLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZParticleLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UParticleSystemComponent* SpawnPooledEmitterAtLocation(const UObject* WorldContextObject, UParticleSystem* EmitterTemplate, FVector Location, FRotator Rotation, FVector Scale);
     

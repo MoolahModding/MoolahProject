@@ -8,5 +8,6 @@ class USBZPlayerSlideTackleAbility : public USBZSkillTriggeredHurtReactionAbilit
     GENERATED_BODY()
 public:
     USBZPlayerSlideTackleAbility();
+
 };
 

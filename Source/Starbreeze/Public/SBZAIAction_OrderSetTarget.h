@@ -8,5 +8,6 @@ class USBZAIAction_OrderSetTarget : public USBZAIAction_Order {
     GENERATED_BODY()
 public:
     USBZAIAction_OrderSetTarget();
+
 };
 

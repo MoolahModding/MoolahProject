@@ -4,5 +4,5 @@
 #include "ESBZMetaRequestResult.h"
 #include "OnMetaRequestResultAndItemIdBluePrintDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnMetaRequestResultAndItemIdBluePrintDelegate, ESBZMetaRequestResult, Result, FGuid, Guid);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnMetaRequestResultAndItemIdBluePrintDelegate, ESBZMetaRequestResult, Result, FGuid, Guid);
 

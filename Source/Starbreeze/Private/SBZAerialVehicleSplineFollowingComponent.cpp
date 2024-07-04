@@ -1,5 +1,6 @@
 #include "SBZAerialVehicleSplineFollowingComponent.h"
 
-USBZAerialVehicleSplineFollowingComponent::USBZAerialVehicleSplineFollowingComponent() {
+USBZAerialVehicleSplineFollowingComponent::USBZAerialVehicleSplineFollowingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

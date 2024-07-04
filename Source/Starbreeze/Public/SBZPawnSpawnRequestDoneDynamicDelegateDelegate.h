@@ -6,5 +6,5 @@
 
 class APawn;
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_ThreeParams(FSBZPawnSpawnRequestDoneDynamicDelegate, FSBZPawnSpawnRequestHandle, RequestHandle, const TArray<APawn*>&, CreatedPawnArray, ESBZSpawnRequestStatus, FinalStatus);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_ThreeParams(FSBZPawnSpawnRequestDoneDynamicDelegate, FSBZPawnSpawnRequestHandle, RequestHandle, const TArray<APawn*>&, CreatedPawnArray, ESBZSpawnRequestStatus, FinalStatus);
 

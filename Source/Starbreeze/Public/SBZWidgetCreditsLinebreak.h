@@ -8,5 +8,6 @@ class USBZWidgetCreditsLinebreak : public USBZWidgetCreditsRowBase {
     GENERATED_BODY()
 public:
     USBZWidgetCreditsLinebreak();
+
 };
 

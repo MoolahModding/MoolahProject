@@ -4,3 +4,4 @@ USBZWeaponMuzzleData::USBZWeaponMuzzleData() {
     this->SuppressorStrength = ESBZMuzzleSuppressor::None;
 }
 
+

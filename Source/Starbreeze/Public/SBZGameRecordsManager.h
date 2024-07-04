@@ -3,6 +3,7 @@
 #include "UObject/Object.h"
 #include "ESBZMetaEventType.h"
 #include "SBZDifficultyConfiguration.h"
+#include "SBZMatchmakingAndHostingData.h"
 #include "SBZMetaEventData.h"
 #include "SBZNewsFeedList.h"
 #include "SBZTitleData.h"
@@ -15,22 +16,26 @@ class STARBREEZE_API USBZGameRecordsManager : public UObject {
     GENERATED_BODY()
 public:
     USBZGameRecordsManager();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZTitleData GetTitleData();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZNewsFeedList GetNewsFeed();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ESBZMetaEventType> GetMetaEventsDataRunning() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZMetaEventData> GetMetaEventsData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable)
+    FSBZMatchmakingAndHostingData GetMatchmakingAndHostingData();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZDifficultyConfiguration> GetDifficultyConfiguration();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZGameRecordsManager* Get(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

@@ -4,3 +4,4 @@ USBZAssetLookupData::USBZAssetLookupData() {
     this->PhysicalMaterialIndexBitCount = 1;
 }
 
+

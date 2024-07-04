@@ -1,5 +1,6 @@
 #include "SBZDozerFacePlate.h"
 
-USBZDozerFacePlate::USBZDozerFacePlate() {
+USBZDozerFacePlate::USBZDozerFacePlate(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

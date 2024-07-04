@@ -8,5 +8,6 @@ class USBZSkillAmmoSpecialistScrounger : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillAmmoSpecialistScrounger();
+
 };
 

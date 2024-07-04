@@ -8,5 +8,6 @@ class USBZBTDecorator_RoomScanning : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_RoomScanning();
+
 };
 

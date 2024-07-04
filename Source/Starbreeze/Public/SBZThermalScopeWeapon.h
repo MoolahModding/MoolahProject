@@ -17,6 +17,7 @@ protected:
     FName TargetSocketName;
     
 public:
-    ASBZThermalScopeWeapon();
+    ASBZThermalScopeWeapon(const FObjectInitializer& ObjectInitializer);
+
 };
 

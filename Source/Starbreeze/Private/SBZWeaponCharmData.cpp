@@ -4,3 +4,4 @@ USBZWeaponCharmData::USBZWeaponCharmData() {
     this->AttachmentBoneName = TEXT("Charm");
 }
 
+

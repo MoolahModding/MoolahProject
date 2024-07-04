@@ -41,12 +41,13 @@ protected:
     int32 ContainerAfterKeyItemIndex;
     
 public:
-    ASBZHiddenStaticInteractionCollection();
+    ASBZHiddenStaticInteractionCollection(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnKeyItemInteractionComplete(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

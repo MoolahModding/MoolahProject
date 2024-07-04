@@ -13,5 +13,6 @@ public:
     TArray<USBZToolData*> Tools;
     
     USBZToolDatabase();
+
 };
 

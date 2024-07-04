@@ -8,5 +8,6 @@ class USBZReactionPredicate_NonePublicInvestigation : public USBZReactionPredica
     GENERATED_BODY()
 public:
     USBZReactionPredicate_NonePublicInvestigation();
+
 };
 

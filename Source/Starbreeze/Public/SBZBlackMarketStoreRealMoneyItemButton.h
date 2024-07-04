@@ -14,10 +14,11 @@ protected:
     
 public:
     USBZBlackMarketStoreRealMoneyItemButton();
+
     UFUNCTION(BlueprintCallable)
     void InitializeRealMoneyStoreItem(const FSBZPayDayCreditStoreItem& InRealMoneyStoreItem);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZPayDayCreditStoreItem GetRealMoneyStoreItem();
     
 };

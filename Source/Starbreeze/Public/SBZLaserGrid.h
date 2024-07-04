@@ -68,9 +68,10 @@ private:
     bool bIsEnabled;
     
 public:
-    ASBZLaserGrid();
+    ASBZLaserGrid(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void StopCyclingPatterns();
     
@@ -81,10 +82,10 @@ public:
     void SetEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentPatternIndex();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 public:
@@ -92,13 +93,13 @@ public:
     void NextPattern();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEnabled(bool bEnabled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_NextPattern();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BlockingActorEntered(UPrimitiveComponent* OverlappedComp, AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
 };

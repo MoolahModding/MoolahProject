@@ -8,5 +8,6 @@ class USBZBTDecorator_TelegraphAttack : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_TelegraphAttack();
+
 };
 

@@ -2,14 +2,13 @@
 #include "CoreMinimal.h"
 #include "GameFramework/WorldSettings.h"
 #include "GameplayTagContainer.h"
+#include "SBZAIConfigDPSData.h"
 #include "SBZAgilityNavlinkRooms.h"
 #include "SBZGlobalMaterialParameters.h"
 #include "SBZVehicleSpawnData.h"
 #include "SBZWorldSettings.generated.h"
 
 class AActor;
-class ASBZAIDefensePoint;
-class ASBZAIProtectPoint;
 class ASBZAgilityNavLink;
 class ASBZAkAcousticPortal;
 class ASBZCoverPoint;
@@ -21,7 +20,9 @@ class UAkAudioEvent;
 class UAnimMontage;
 class UPD3AssaultSettings;
 class USBZAISmallTalkCollection;
+class USBZBagType;
 class USBZCivilianManagerSettings;
+class USBZDialogDataAsset;
 class USBZKeyItemData;
 class USBZLifeActionComponent;
 class USBZLifeActionSettings;
@@ -84,7 +85,13 @@ public:
     bool bStartWithAICrew;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCanCrewShootStreetCops;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsInRandomSublevel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 AudioVolumetricCullingDepth;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UPD3AssaultSettings* AssaultManagerSettings;
@@ -119,6 +126,30 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSet<USBZMarkerDataAsset*> LoadedDynamicMarkerAssetSet;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bOverrideAIDPS;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZAIConfigDPSData AIDPS[4];
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingSystemicBagCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingBagCountdown;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 StartBagCountdownFrom;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<USBZBagType*, USBZDialogDataAsset*> SecureBagVOOverrideMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingLastSecureBagVOOverride;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDialogDataAsset* LastSecureBagVOOverride;
+    
 private:
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TSoftObjectPtr<ASBZCoverPoint>, TSoftObjectPtr<ASBZRoomVolume>> CoverRoomConnection;
@@ -127,13 +158,10 @@ private:
     TMap<TSoftObjectPtr<ASBZRoomConnectorVolume>, TSoftObjectPtr<ASBZGate>> ConnectorGateConnection;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<TSoftObjectPtr<AActor>, FSBZAgilityNavlinkRooms> GateConnectorComponentConnection;
+    
+    UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TSoftObjectPtr<ASBZDespawnVolume>, TSoftObjectPtr<ASBZRoomVolume>> DespawnRoomConnection;
-    
-    UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<ASBZAIDefensePoint>, TSoftObjectPtr<ASBZRoomVolume>> DefenseRoomConnection;
-    
-    UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<ASBZAIProtectPoint>, TSoftObjectPtr<ASBZRoomVolume>> ProtectRoomConnection;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TSoftObjectPtr<ASBZAgilityNavLink>, FSBZAgilityNavlinkRooms> AgilityNavlinkConnection;
@@ -142,7 +170,13 @@ private:
     TMap<TSoftObjectPtr<AActor>, FSBZAgilityNavlinkRooms> ConnectorComponentConnection;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<TSoftObjectPtr<AActor>, FSBZAgilityNavlinkRooms> ConnectorComponentRoomPathConnection;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<TSoftObjectPtr<ASBZAkAcousticPortal>, TSoftObjectPtr<ASBZGate>> AcousticPortalConnection;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<TSoftObjectPtr<AActor>, TSoftObjectPtr<ASBZAkAcousticPortal>> PortalConnectorConnection;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<UAnimMontage*> LifeActionMontages;
@@ -151,6 +185,7 @@ private:
     TArray<USBZLifeActionComponent*> LifeActionComponents;
     
 public:
-    ASBZWorldSettings();
+    ASBZWorldSettings(const FObjectInitializer& ObjectInitializer);
+
 };
 

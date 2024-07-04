@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZBagPickedUpDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZBagPickedUp);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZBagPickedUp);
 

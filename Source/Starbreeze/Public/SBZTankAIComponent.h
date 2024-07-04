@@ -66,9 +66,10 @@ private:
     TArray<FSBZArmorVariationInfo> ArmorInfo;
     
 public:
-    USBZTankAIComponent();
+    USBZTankAIComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAttackTagChanged(const FGameplayTag InTag, int32 TagCount);
     
 };

@@ -8,5 +8,6 @@ class USBZSkillStrategistThreatAssessment : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillStrategistThreatAssessment();
+
 };
 

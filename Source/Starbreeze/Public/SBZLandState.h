@@ -16,7 +16,8 @@ private:
     
 public:
     USBZLandState();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

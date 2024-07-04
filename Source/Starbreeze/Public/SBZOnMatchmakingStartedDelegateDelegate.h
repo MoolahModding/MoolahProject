@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "SBZOnMatchmakingStartedDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnMatchmakingStartedDelegate);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSBZOnMatchmakingStartedDelegate);
 

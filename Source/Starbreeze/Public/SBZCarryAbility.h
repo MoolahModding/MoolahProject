@@ -8,5 +8,6 @@ class USBZCarryAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZCarryAbility();
+
 };
 

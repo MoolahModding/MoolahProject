@@ -1,26 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
 #include "SBZEffectChanceData.h"
+#include "SBZPowerUp.h"
 #include "SBZSeasonalEventItemBase.generated.h"
 
-class USBZBaseInteractableComponent;
-class USBZInteractableComponent;
-class USBZInteractorComponent;
-
 UCLASS(Blueprintable)
-class ASBZSeasonalEventItemBase : public AActor {
+class ASBZSeasonalEventItemBase : public ASBZPowerUp {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZInteractableComponent* InteractableComponent;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZEffectChanceData> EffectChanceDataArray;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsDestroyedOnPickUp;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HealthGained;
@@ -35,15 +25,13 @@ protected:
     uint8 NumberOfGrenades;
     
 public:
-    ASBZSeasonalEventItemBase();
+    ASBZSeasonalEventItemBase(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
-    void OnServerCompleteInteraction(USBZBaseInteractableComponent* InteractableComp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
-    
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnItemPickedUp(bool bIsPositiveEffect);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnItemPickedUp(bool bIsPositiveEffect);
     
 };

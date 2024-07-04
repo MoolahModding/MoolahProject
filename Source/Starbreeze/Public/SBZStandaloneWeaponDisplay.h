@@ -45,7 +45,8 @@ protected:
     AActor* SpawnedPivotPoint;
     
 public:
-    ASBZStandaloneWeaponDisplay();
+    ASBZStandaloneWeaponDisplay(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetupWeaponData(const USBZBaseWeaponData* InWeaponData);
     
@@ -58,7 +59,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemovePart(const USBZModularPartSlotBase* Slot);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnWeaponSpawned();
     
 };

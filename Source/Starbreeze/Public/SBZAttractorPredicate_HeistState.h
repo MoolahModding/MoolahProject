@@ -11,5 +11,6 @@ public:
     int32 AllowedHeistStates;
     
     USBZAttractorPredicate_HeistState();
+
 };
 

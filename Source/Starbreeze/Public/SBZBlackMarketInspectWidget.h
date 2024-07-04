@@ -50,6 +50,7 @@ protected:
     
 public:
     USBZBlackMarketInspectWidget();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void SetInspectCamera(FName CameraName);
@@ -57,11 +58,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void SetGlovesOnMannequin(const USBZGloveData* GloveData);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCustomizationActorLoadingChanged(bool bIsLoading);
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     bool CanInspectItem(USBZInventoryBaseData* InInspectData);
     
 };

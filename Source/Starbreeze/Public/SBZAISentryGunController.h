@@ -8,8 +8,9 @@ UCLASS(Blueprintable)
 class ASBZAISentryGunController : public ASBZAIArmedPawnController, public ISBZDamageInstigatorInterface {
     GENERATED_BODY()
 public:
-    ASBZAISentryGunController();
-    
+    ASBZAISentryGunController(const FObjectInitializer& ObjectInitializer);
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

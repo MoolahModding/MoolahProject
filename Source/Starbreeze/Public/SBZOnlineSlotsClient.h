@@ -26,7 +26,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PreTravelTimeLimit;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FString SoloPreplanningItem;
+    
 public:
     USBZOnlineSlotsClient();
+
 };
 

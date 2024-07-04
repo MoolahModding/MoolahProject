@@ -8,5 +8,6 @@ class USBZEquippableCharmAnimation : public UAnimInstance {
     GENERATED_BODY()
 public:
     USBZEquippableCharmAnimation();
+
 };
 

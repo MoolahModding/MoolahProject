@@ -8,5 +8,6 @@ class USBZAIGrenadeBeltDamageExecutionCalculation : public UGameplayEffectExecut
     GENERATED_BODY()
 public:
     USBZAIGrenadeBeltDamageExecutionCalculation();
+
 };
 

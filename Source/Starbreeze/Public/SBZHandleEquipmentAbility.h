@@ -8,5 +8,6 @@ class USBZHandleEquipmentAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZHandleEquipmentAbility();
+
 };
 

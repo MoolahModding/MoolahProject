@@ -12,31 +12,32 @@ class USBZFriendManager : public UObject {
     GENERATED_BODY()
 public:
     USBZFriendManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUnblockPlayerComplete(bool bResult, FSBZFriendListEntry PlayerEntry);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlatformUserInitialized();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBlockPlayerComplete(bool bResult, FSBZFriendListEntry PlayerEntry);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBlockedPlayerChanged();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPlayingOnSamePlatform(const FSBZFriendListEntry& FriendEntry) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCrossplayAllowed() const;
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleUIStackChanged(FSBZUIStackChangedEvent Event);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleStateEntered(FName StateName);
     
 public:
@@ -55,7 +56,7 @@ public:
     UFUNCTION(BlueprintCallable)
     TMap<FString, FSBZFriendListEntry> GetIncomingFriendRequests();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZFriendManager* GetFriendManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable)

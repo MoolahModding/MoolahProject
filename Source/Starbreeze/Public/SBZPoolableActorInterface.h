@@ -11,10 +11,10 @@ class USBZPoolableActorInterface : public UInterface {
 class ISBZPoolableActorInterface : public IInterface {
     GENERATED_BODY()
 public:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnUnpooled();
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnPooled();
     
 };

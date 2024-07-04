@@ -14,10 +14,11 @@ public:
     UWrapBox* Panel_ButtonList;
     
     USBZBlackMarketCategoryWidget();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetStoreCategoryName(const FText& InCategoryName);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FText GetCategoryStringTextFromCategoryEnum(ESBZStoreItemDefaultUICategory InCategory);
     
 };

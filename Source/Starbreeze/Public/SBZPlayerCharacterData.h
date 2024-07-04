@@ -31,6 +31,9 @@ public:
     TSoftObjectPtr<USkeletalMesh> SkeletalMesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USkeletalMesh> BaseSkeletalMesh;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USkeletalMesh> SkeletalMesh1P;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -48,5 +51,6 @@ protected:
     
 public:
     USBZPlayerCharacterData();
+
 };
 

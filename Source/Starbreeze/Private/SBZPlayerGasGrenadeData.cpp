@@ -7,3 +7,4 @@ USBZPlayerGasGrenadeData::USBZPlayerGasGrenadeData() {
     this->ArmorPenetration = 2.00f;
 }
 
+

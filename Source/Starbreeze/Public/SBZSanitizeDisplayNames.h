@@ -30,6 +30,7 @@ private:
     
 public:
     USBZSanitizeDisplayNames();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZSanitizeDisplayNames* SanitizeDisplayNames(UObject* NewWorldContextObject, const ASBZPlayerState* NewPlayerState, const TArray<FString>& DisplayNames);
     

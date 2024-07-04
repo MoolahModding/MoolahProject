@@ -133,20 +133,21 @@ protected:
     bool bIsScramblerAffected;
     
 public:
-    USBZBaseInteractableComponent();
+    USBZBaseInteractableComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetGameplayEffectsOnInteract(const TArray<FSBZGameplayEffectData> GameplayEffects);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnFocusChanged(bool bInNewFocusState);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInteractionIllegal(int32 InModeIndex) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetGameplayEffectsOnInteract(TArray<FSBZGameplayEffectData>& GameplayEffects) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetCurrentModeIndex() const;
     
 };

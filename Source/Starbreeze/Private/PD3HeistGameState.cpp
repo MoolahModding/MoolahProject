@@ -4,6 +4,40 @@
 #include "PD3GameIntensityAnalyzer.h"
 #include "SBZRoomPathFinder.h"
 
+APD3HeistGameState::APD3HeistGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentSuspenseValue = 0;
+    this->CurrentThreatLevel = 0.00f;
+    this->CurrentHeistState = EPD3HeistState::Stealth;
+    this->GameIntensityAnalyzer = CreateDefaultSubobject<UPD3GameIntensityAnalyzer>(TEXT("GameIntensityAnalyzer"));
+    this->Dispatcher = CreateDefaultSubobject<UPD3Dispatcher>(TEXT("PD3Dispatcher"));
+    this->RoomPathFinder = CreateDefaultSubobject<USBZRoomPathFinder>(TEXT("SBZRoomPathFinder"));
+    this->MissionFailedTimeoutSeconds = 5.00f;
+    this->NegotiationEndTime = -1.00f;
+    this->NrHostagesDemand = 0;
+    this->AnswerPagerCount = 0;
+    this->DefaultWeaponBoxClass = NULL;
+    this->MaxCrewCount = 4;
+    this->GlobalMaterialParameterCollection = NULL;
+    this->GlobalNiagaraParameterCollection = NULL;
+    this->AlarmThreatLevel = 0.10f;
+    this->NegotiationThreatLevel = 0.20f;
+    this->AssaultThreatLevel = 0.50f;
+    this->AssaultThreatLevelIncrease = 0.10f;
+    this->PlayerPositionUpdateFrequency = 1.00f;
+    this->GlobalMaterialCollectionInstance = NULL;
+    this->GlobalNiagaraCollectionInstance = NULL;
+    this->bIsAICrewSpawned = true;
+    this->bIsAssaultStarted = false;
+    this->SavedCustodyTime = 0.00f;
+    this->HostageDemandReduction = 0;
+    this->NegotiationTradeType = ESBZNegotiationTradeType::None;
+    this->JammerTimeSeconds = 15.00f;
+    this->ECMJammerRadioBasePercentageIncrease = 0.20f;
+    this->ECMJammerCameraBasePercentageIncrease = 0.20f;
+    this->ECMJammerPagerBasePercentageIncrease = 0.20f;
+    this->ECMJammerAdditionalIncreasePercentagePerJammer = 0.10f;
+}
+
 EPD3HeistState APD3HeistGameState::StealthBranch(UObject* WorldContextObject, ESBZStealthBranch& OutputPins) {
     return EPD3HeistState::Stealth;
 }
@@ -103,36 +137,4 @@ void APD3HeistGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     DOREPLIFETIME(APD3HeistGameState, ECMCountData);
 }
 
-APD3HeistGameState::APD3HeistGameState() {
-    this->CurrentSuspenseValue = 0;
-    this->CurrentThreatLevel = 0.00f;
-    this->CurrentHeistState = EPD3HeistState::Stealth;
-    this->GameIntensityAnalyzer = CreateDefaultSubobject<UPD3GameIntensityAnalyzer>(TEXT("GameIntensityAnalyzer"));
-    this->Dispatcher = CreateDefaultSubobject<UPD3Dispatcher>(TEXT("PD3Dispatcher"));
-    this->RoomPathFinder = CreateDefaultSubobject<USBZRoomPathFinder>(TEXT("SBZRoomPathFinder"));
-    this->MissionFailedTimeoutSeconds = 5.00f;
-    this->NegotiationEndTime = -1.00f;
-    this->NrHostagesDemand = 0;
-    this->AnswerPagerCount = 0;
-    this->DefaultWeaponBoxClass = NULL;
-    this->MaxCrewCount = 4;
-    this->GlobalMaterialParameterCollection = NULL;
-    this->GlobalNiagaraParameterCollection = NULL;
-    this->AlarmThreatLevel = 0.10f;
-    this->NegotiationThreatLevel = 0.20f;
-    this->AssaultThreatLevel = 0.50f;
-    this->AssaultThreatLevelIncrease = 0.10f;
-    this->PlayerPositionUpdateFrequency = 1.00f;
-    this->GlobalMaterialCollectionInstance = NULL;
-    this->GlobalNiagaraCollectionInstance = NULL;
-    this->bIsAICrewSpawned = true;
-    this->bEscalated = false;
-    this->SavedCustodyTime = 0.00f;
-    this->NegotiationTradeType = ESBZNegotiationTradeType::None;
-    this->JammerTimeSeconds = 15.00f;
-    this->ECMJammerRadioBasePercentageIncrease = 0.20f;
-    this->ECMJammerCameraBasePercentageIncrease = 0.20f;
-    this->ECMJammerPagerBasePercentageIncrease = 0.20f;
-    this->ECMJammerAdditionalIncreasePercentagePerJammer = 0.10f;
-}
 

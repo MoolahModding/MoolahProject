@@ -1,5 +1,6 @@
 #include "SBZGameStateBase.h"
 
-ASBZGameStateBase::ASBZGameStateBase() {
+ASBZGameStateBase::ASBZGameStateBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

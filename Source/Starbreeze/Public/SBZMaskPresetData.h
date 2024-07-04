@@ -26,5 +26,6 @@ public:
     TSoftObjectPtr<UAnimMontage> EquipAnimationTP;
     
     USBZMaskPresetData();
+
 };
 

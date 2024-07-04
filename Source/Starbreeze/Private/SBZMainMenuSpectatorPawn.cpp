@@ -1,5 +1,6 @@
 #include "SBZMainMenuSpectatorPawn.h"
 
-ASBZMainMenuSpectatorPawn::ASBZMainMenuSpectatorPawn() {
+ASBZMainMenuSpectatorPawn::ASBZMainMenuSpectatorPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

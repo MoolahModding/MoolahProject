@@ -1,5 +1,6 @@
 #include "SBZStaticInteractionActor.h"
 
-ASBZStaticInteractionActor::ASBZStaticInteractionActor() {
+ASBZStaticInteractionActor::ASBZStaticInteractionActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

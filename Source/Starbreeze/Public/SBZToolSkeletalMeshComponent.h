@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZToolSkeletalMeshComponent : public USkeletalMeshComponent {
     GENERATED_BODY()
 public:
-    USBZToolSkeletalMeshComponent();
+    USBZToolSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

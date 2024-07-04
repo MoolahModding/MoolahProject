@@ -37,5 +37,6 @@ public:
     TArray<FSBZAnimationSpawnedActorCPD> CPDs;
     
     USBZAnimationSpawnedActorSettings();
+
 };
 

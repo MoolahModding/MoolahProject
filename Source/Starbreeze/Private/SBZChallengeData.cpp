@@ -6,5 +6,6 @@ FSBZChallengeData::FSBZChallengeData() {
     this->TotalProgress = 0;
     this->TotalTarget = 0;
     this->ChallengeConversion = ESBZChallengeConversion::None;
+    this->IsActive = false;
 }
 

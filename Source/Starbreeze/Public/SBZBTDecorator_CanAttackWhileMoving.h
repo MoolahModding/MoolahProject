@@ -8,5 +8,6 @@ class USBZBTDecorator_CanAttackWhileMoving : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_CanAttackWhileMoving();
+
 };
 

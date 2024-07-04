@@ -1,6 +1,7 @@
 #include "SBZMainMenuCredits.h"
 
 USBZMainMenuCredits::USBZMainMenuCredits() {
+    this->StackValue = TEXT("Default__SBZMainMenuCredits");
     this->CreditsDataTable = NULL;
     this->TypeWidgets[0] = NULL;
     this->TypeWidgets[1] = NULL;
@@ -17,4 +18,5 @@ USBZMainMenuCredits::USBZMainMenuCredits() {
     this->ScrollCredits = NULL;
     this->ContentBox = NULL;
 }
+
 

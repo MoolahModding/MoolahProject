@@ -14,5 +14,6 @@ protected:
     
 public:
     USBZBTService_UpdateSuspect();
+
 };
 

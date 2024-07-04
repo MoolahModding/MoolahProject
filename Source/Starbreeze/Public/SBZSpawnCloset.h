@@ -40,18 +40,19 @@ protected:
     TArray<ASBZAICharacter*> CiviliansInVolume;
     
 public:
-    ASBZSpawnCloset();
+    ASBZSpawnCloset(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRoomVolumeEndOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRoomVolumeBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistGoneLoud();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void BindRoomVolumeOverlaps();
     
 };

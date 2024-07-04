@@ -27,6 +27,7 @@ private:
     
 public:
     USBZScrollBox();
+
     UFUNCTION(BlueprintCallable)
     void SetCustomFocus(bool bInIsCustomFocus);
     

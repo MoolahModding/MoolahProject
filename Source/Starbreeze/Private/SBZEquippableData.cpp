@@ -17,3 +17,4 @@ USBZEquippableData::USBZEquippableData() {
     this->EquippableMenuAnimCollection = NULL;
 }
 
+

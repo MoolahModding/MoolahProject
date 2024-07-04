@@ -12,6 +12,6 @@ enum class ESBZLogVerbosityType : uint8 {
     Log,
     Verbose,
     VeryVerbose,
-    All = 0x7,
+    All = VeryVerbose,
 };
 

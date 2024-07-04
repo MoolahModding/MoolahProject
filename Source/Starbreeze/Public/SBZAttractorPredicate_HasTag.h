@@ -12,5 +12,6 @@ public:
     FGameplayTagContainer AttractorTags;
     
     USBZAttractorPredicate_HasTag();
+
 };
 

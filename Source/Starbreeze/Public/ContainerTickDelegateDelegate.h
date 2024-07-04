@@ -4,5 +4,5 @@
 
 class USBZObjectContainer;
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_TwoParams(FContainerTickDelegate, USBZObjectContainer*, Container, float, DeltaTime);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_TwoParams(FContainerTickDelegate, USBZObjectContainer*, Container, float, DeltaTime);
 

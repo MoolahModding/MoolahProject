@@ -1,5 +1,8 @@
 #include "SBZSettingsFunctionsUserInterface.h"
 
+USBZSettingsFunctionsUserInterface::USBZSettingsFunctionsUserInterface() {
+}
+
 void USBZSettingsFunctionsUserInterface::SetSubtitlesSize(UObject* WorldContextObject, float Size) {
 }
 
@@ -176,6 +179,4 @@ bool USBZSettingsFunctionsUserInterface::AreHitIndicatorsEnabled(UObject* WorldC
     return false;
 }
 
-USBZSettingsFunctionsUserInterface::USBZSettingsFunctionsUserInterface() {
-}
 

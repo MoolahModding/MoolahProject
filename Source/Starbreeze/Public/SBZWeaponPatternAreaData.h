@@ -15,5 +15,6 @@ public:
     FSBZWeaponPatternAreaDefinition DefaultAreaDefinition;
     
     USBZWeaponPatternAreaData();
+
 };
 

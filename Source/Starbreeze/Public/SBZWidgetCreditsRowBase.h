@@ -8,5 +8,6 @@ class USBZWidgetCreditsRowBase : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZWidgetCreditsRowBase();
+
 };
 

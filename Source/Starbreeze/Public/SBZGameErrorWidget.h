@@ -16,18 +16,19 @@ private:
     
 public:
     USBZGameErrorWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SetInternetConnected(ESBZServiceStatus ServiceStatus);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetErrorText() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetErrorHeader() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZMenuButton* GetButton_ReturnToMainMenu() const;
     
 };

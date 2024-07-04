@@ -3,6 +3,28 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 
+ASBZThermite::ASBZThermite(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
+    this->BagOverlapBoxComponent = (UBoxComponent*)RootComponent;
+    this->IgnitionInteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
+    this->BurnDuration = 360.00f;
+    this->ExplosionChance = 0.50f;
+    this->TimeBetweenExplosionChecks = 10.00f;
+    this->bShouldDestroyOnComplete = true;
+    this->bStartEnabled = true;
+    this->ElapsedBurnTime = 0.00f;
+    this->CurrentBurnState = ESBZThermiteBurnState::Inactive;
+    this->CriticalBurnTimeLeft = 0.00f;
+    this->Seed = -1;
+    this->bIsInterfered = false;
+    this->BurnModifier = 1.00f;
+    this->TimeSinceLastExplosionCheck = 0.00f;
+    this->InitialSeed = -1;
+}
+
 void ASBZThermite::SetOutsideInterferenceActive(const bool bInActive) {
 }
 
@@ -49,21 +71,4 @@ void ASBZThermite::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
     DOREPLIFETIME(ASBZThermite, TimeSinceLastExplosionCheck);
 }
 
-ASBZThermite::ASBZThermite() {
-    this->BagOverlapBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
-    this->IgnitionInteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
-    this->BurnDuration = 360.00f;
-    this->ExplosionChance = 0.50f;
-    this->TimeBetweenExplosionChecks = 10.00f;
-    this->bShouldDestroyOnComplete = true;
-    this->bStartEnabled = true;
-    this->ElapsedBurnTime = 0.00f;
-    this->CurrentBurnState = ESBZThermiteBurnState::Inactive;
-    this->CriticalBurnTimeLeft = 0.00f;
-    this->Seed = -1;
-    this->bIsInterfered = false;
-    this->BurnModifier = 1.00f;
-    this->TimeSinceLastExplosionCheck = 0.00f;
-    this->InitialSeed = -1;
-}
 

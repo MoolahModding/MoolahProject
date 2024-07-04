@@ -15,6 +15,7 @@ private:
     float OverriddenDriveTorque;
     
 public:
-    USBZWheeledVehicleMovementComponent();
+    USBZWheeledVehicleMovementComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

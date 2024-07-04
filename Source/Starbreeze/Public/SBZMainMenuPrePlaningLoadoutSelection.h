@@ -30,6 +30,7 @@ protected:
     
 public:
     USBZMainMenuPrePlaningLoadoutSelection();
+
     UFUNCTION(BlueprintCallable)
     void UnbindGamepadActions();
     
@@ -37,35 +38,35 @@ public:
     void SetFocusedPlayerLoadoutIndex(int32 NewFocusedPlayerLoadoutIndex);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLocalLoadoutUpdated(const FSBZPlayerLoadoutConfig& InPlayerLoadout, int32 ModifiedPlayerLoadoutIndex);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLoadoutIncrement();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLoadoutDecrement();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInputTypeChangedToGamepad(bool bIsGamepad);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnFocusedPlayerLoadoutConfigChanged(const FSBZPlayerLoadoutConfig& NewPlayerLoadout);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsFocusedPlayerLoadoutValid() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetFocusedPlayerLoadoutIndex() const;
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void FocusedPlayerLoadoutConfigChanged(const FSBZPlayerLoadoutConfig& NewPlayerLoadout);
     
 public:
@@ -73,7 +74,7 @@ public:
     void BindGamepadActions();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
     
 };

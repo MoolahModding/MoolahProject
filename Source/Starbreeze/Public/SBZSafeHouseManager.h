@@ -30,11 +30,12 @@ private:
     
 public:
     USBZSafeHouseManager();
+
     UFUNCTION(BlueprintCallable)
     void TravelToSafeHouse();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerStateAdded(const FSBZPlayerStateAddedEvent& Data);
     
 public:
@@ -42,10 +43,10 @@ public:
     static USBZSafeHouseManager* Get(const UObject* WorldContextObject);
     
 private:
-    UFUNCTION(Exec)
+    UFUNCTION(BlueprintCallable, Exec)
     void DebugExitSafeHouse();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -24,8 +24,9 @@ protected:
     int32 AmmoInventoryLeft;
     
 public:
-    ASBZPlaceableDroppedWeapon();
+    ASBZPlaceableDroppedWeapon(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 };
 

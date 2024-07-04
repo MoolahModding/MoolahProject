@@ -8,5 +8,6 @@ class USBZEnvQueryContext_OrderTargetActor : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_OrderTargetActor();
+
 };
 

@@ -1,14 +1,22 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "Engine/EngineTypes.h"
+#include "Engine/EngineTypes.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameplayTagContainer.h"
 #include "SBZComponentSelector.h"
 #include "SBZAIShield.generated.h"
 
+class AActor;
+class ASBZPlayerCharacter;
 class UAkAudioEvent;
+class UNiagaraComponent;
+class UPrimitiveComponent;
 class USBZAIShieldAttributeSet;
 class USBZVoiceCommentDataAsset;
+class USphereComponent;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZAIShield : public UStaticMeshComponent {
@@ -66,16 +74,80 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ExplosionBlockDot;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LightConeWidthDegrees;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PlayerLightDirectionMinDegrees;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USphereComponent* SphereComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZComponentSelector NiagaraComponentSelector;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FLinearColor LightColor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ReflectorShieldRadius;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LightMaterialEmissiveValue;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LightLength;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LightMaxDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaterialOnOffCPDIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 RedCPDIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 GreenCPDIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 BlueCPDIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaterialEmissiveCPDIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UNiagaraComponent* NiagaraComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<ASBZPlayerCharacter*, bool> CurrentVisiblePlayerMap;
+    
 public:
-    USBZAIShield();
+    USBZAIShield(const FObjectInitializer& ObjectInitializer);
+
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnShieldEndPlay(AActor* InActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ShieldBreak();
     
-    UFUNCTION()
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnPlayerEndPlay(AActor* InActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+    
+private:
+    UFUNCTION(BlueprintCallable)
     void OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool bActive);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ShieldBreak();
     
 };

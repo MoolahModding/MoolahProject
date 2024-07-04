@@ -25,21 +25,22 @@ protected:
     ESBZEventReactorState CurrentReactorState;
     
 public:
-    ASBZAudioScreen();
+    ASBZAudioScreen(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAudioEventComplete(EAkCallbackType Type, UAkCallbackInfo* CallbackInfo);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnReactorStateChanged(ESBZEventReactorState NewState, bool bDoCosmetics);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_Deactivate();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_Activate();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

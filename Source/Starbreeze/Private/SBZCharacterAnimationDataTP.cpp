@@ -57,3 +57,4 @@ USBZCharacterAnimationDataTP::USBZCharacterAnimationDataTP() {
     this->bCanDoHipsZBlending = true;
 }
 
+

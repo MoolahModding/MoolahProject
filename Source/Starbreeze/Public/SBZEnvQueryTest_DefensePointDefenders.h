@@ -8,5 +8,6 @@ class USBZEnvQueryTest_DefensePointDefenders : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_DefensePointDefenders();
+
 };
 

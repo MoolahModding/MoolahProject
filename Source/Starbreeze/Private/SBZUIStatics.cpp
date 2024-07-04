@@ -1,5 +1,8 @@
 #include "SBZUIStatics.h"
 
+USBZUIStatics::USBZUIStatics() {
+}
+
 void USBZUIStatics::Stop2DSound(int32& SoundID) {
 }
 
@@ -73,6 +76,4 @@ FText USBZUIStatics::ClampText(const FText& InText, int32 MaxCharacters, bool bA
     return FText::GetEmpty();
 }
 
-USBZUIStatics::USBZUIStatics() {
-}
 

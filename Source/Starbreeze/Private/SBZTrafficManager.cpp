@@ -1,5 +1,16 @@
 #include "SBZTrafficManager.h"
 
+USBZTrafficManager::USBZTrafficManager() {
+    this->Settings = NULL;
+    this->TimeToNextSpawnAttempt = 0.00f;
+    this->AmountFirstRespondersLeftToArrive = 0;
+    this->EscapeVan = NULL;
+    this->bCivilianTrafficEnabled = true;
+    this->TimeToNextCivilianSpawn = 0.00f;
+    this->AmountActiveCivilianVehicles = 0;
+    this->bIsInActionPhase = false;
+}
+
 void USBZTrafficManager::OnExitedActionPhase() {
 }
 
@@ -30,14 +41,4 @@ void USBZTrafficManager::HandleEscapeVanArrived(ASBZWheeledVehicle* Vehicle) {
 void USBZTrafficManager::HandleCivilianArrived(ASBZWheeledVehicle* Vehicle) {
 }
 
-USBZTrafficManager::USBZTrafficManager() {
-    this->Settings = NULL;
-    this->TimeToNextSpawnAttempt = 0.00f;
-    this->AmountFirstRespondersLeftToArrive = 0;
-    this->EscapeVan = NULL;
-    this->bCivilianTrafficEnabled = true;
-    this->TimeToNextCivilianSpawn = 0.00f;
-    this->AmountActiveCivilianVehicles = 0;
-    this->bIsInActionPhase = false;
-}
 

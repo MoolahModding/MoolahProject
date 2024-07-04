@@ -4,5 +4,5 @@
 
 class ASBZPlayerAndItemTriggerVolume;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZPlayerAndItemTriggerVolumeEmptyDelegate, ASBZPlayerAndItemTriggerVolume*, Volume, bool, bIsInitialCheck);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZPlayerAndItemTriggerVolumeEmptyDelegate, ASBZPlayerAndItemTriggerVolume*, Volume, bool, bIsInitialCheck);
 

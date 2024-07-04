@@ -30,10 +30,20 @@ protected:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnSensorAmmoDepleted OnSensorAmmoDepleted;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    bool bIsPickupDisabled;
+    
 public:
-    ASBZPlaceableSensorTool();
-    UFUNCTION(NetMulticast, Reliable)
+    ASBZPlaceableSensorTool(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SensorAmmoDepleted();
+    
+protected:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_DisablePickup();
     
 };
 

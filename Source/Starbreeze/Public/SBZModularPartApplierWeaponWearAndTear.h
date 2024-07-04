@@ -8,5 +8,6 @@ class USBZModularPartApplierWeaponWearAndTear : public USBZModularPartApplierWea
     GENERATED_BODY()
 public:
     USBZModularPartApplierWeaponWearAndTear();
+
 };
 

@@ -8,5 +8,6 @@ class USBZSuitSprayCanGlobalColorApplier : public USBZSuitSprayCanApplier {
     GENERATED_BODY()
 public:
     USBZSuitSprayCanGlobalColorApplier();
+
 };
 

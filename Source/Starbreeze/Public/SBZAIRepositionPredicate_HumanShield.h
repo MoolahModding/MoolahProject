@@ -8,5 +8,6 @@ class USBZAIRepositionPredicate_HumanShield : public USBZAIRepositionPredicate {
     GENERATED_BODY()
 public:
     USBZAIRepositionPredicate_HumanShield();
+
 };
 

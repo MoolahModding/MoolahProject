@@ -1,11 +1,93 @@
 #include "SBZAICharacter.h"
 #include "PhysicsEngine/PhysicalAnimationComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "SBZAICharacterInteractableComponent.h"
+#include "SBZAICharacterVoiceComponent.h"
 #include "SBZAlertnessDataComponent.h"
 #include "SBZHelmetPopper.h"
 #include "SBZMarkerComponent.h"
 #include "SBZSensorComponent.h"
 #include "Templates/SubclassOf.h"
+
+ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZAICharacterVoiceComponent>(TEXT("SBZCharacterVoiceComponent")).SetDefaultSubobjectClass<USBZAICharacterInteractableComponent>(TEXT("SBZInteractableComponent"))) {
+    this->BulletMagnetismSocketName = TEXT("Head");
+    this->StickyAimSocketNameArray.AddDefaulted(1);
+    this->DownOnGroundEyeHeight = -32.00f;
+    this->HostageState = 0;
+    this->bIsSurrendered = false;
+    this->CurrentBehaviorCategory = ESBZAIBehaviorCategory::None;
+    this->SensorComponent = CreateDefaultSubobject<USBZSensorComponent>(TEXT("SBZSensorComponent"));
+    this->ShoutTargetComponent = NULL;
+    this->EquipmentData = NULL;
+    this->HumanShieldData = NULL;
+    this->SurrenderedHumanShieldData = NULL;
+    this->SurrenderedUtilityData = NULL;
+    this->AmmoPickupAsset = NULL;
+    this->PlaceableSpawnForwardOffset = 0.00f;
+    this->AlertnessDataComponent = CreateDefaultSubobject<UDEPRECATED_SBZAlertnessDataComponent>(TEXT("SBZAlertnessDataComponent"));
+    this->MarkerComponent = CreateDefaultSubobject<USBZMarkerComponent>(TEXT("SBZMarkerComponent"));
+    this->HelmetPopper = CreateDefaultSubobject<USBZHelmetPopper>(TEXT("HelmetPopper"));
+    this->SpecialType = NULL;
+    this->PhysicalAnimationComponent = CreateDefaultSubobject<UPhysicalAnimationComponent>(TEXT("PhysicalAnimationComponent"));
+    this->bCanRunWhileFocusing = true;
+    this->bShouldTelegraphAttack = false;
+    this->PreferredCoverDist = 200.00f;
+    this->TradeOutline = NULL;
+    this->ReleasedOutline = NULL;
+    this->ObjectiveOutline = NULL;
+    this->ObjectiveMarker = NULL;
+    this->StartRoomLabel = ESBZRoomLabel::OutsideHeistArea;
+    this->AsObjectiveState = 0;
+    this->VariationData = NULL;
+    this->LastInteractorCharacter = NULL;
+    this->ShotBlockedDownTime = 6.00f;
+    this->SurrenderedNavFilter = NULL;
+    this->bTelegraphAttack = false;
+    this->FireWeaponComment = NULL;
+    this->OnKilledComment = NULL;
+    this->TauntComment = NULL;
+    this->HumanShieldTaken = NULL;
+    this->HumanShieldReleased = NULL;
+    this->DeadBodyPOIClass = NULL;
+    this->HostagePOIClass = NULL;
+    this->HumanShieldPOIClass = NULL;
+    this->DeadBodyPOIInstance = NULL;
+    this->HostagePOIInstance = NULL;
+    this->HumanShieldPOIInstance = NULL;
+    this->bIsValidHumanShield = false;
+    this->bIsPagerEnabled = false;
+    this->bIsPagerEnabledOnce = false;
+    this->bIsCarriedKillInteraction = false;
+    this->bIsBeingHogTied = false;
+    this->bHasBeenHogtied = false;
+    this->bIsInCover = false;
+    this->bWantsCoverPose = false;
+    this->bIsInDownOnGroundPose = false;
+    this->bIsPagerSnatched = false;
+    this->bIsScramblerSignalScanSkillActive = false;
+    this->bHasGuardBehavior = false;
+    this->bIsHogTiedOnce = false;
+    this->LastTieHandsInstigatorPlayerState = NULL;
+    this->PagerData = NULL;
+    this->PagerTriggeredCount = 0;
+    this->PagerSnatchedInteractor = NULL;
+    this->NavQueryFilterOverride = NULL;
+    this->ValidTargetDefeatStates = 7;
+    this->bCanShootDownedIfFired = true;
+    this->HackedGameplayEffectClass = NULL;
+    this->AttachedLoot = NULL;
+    this->CurrentLifeActionTriggerVolume = NULL;
+    this->LocallyDamagedByPlayer = NULL;
+    this->PendingMeleeDownOnGoundInstigator = NULL;
+    this->SurrenderInstigatorPlayerState = NULL;
+    this->VariationCategory = ESBZAICharacterVariationCategory::Default;
+    this->MarkSpecials = TEXT("mark-specials");
+    this->MarkEnemy = TEXT("mark-enemy");
+    this->StatisticsMarkEnemyCamera = TEXT("mark-enemy-camera");
+    this->StatisticsMarkEnemyMicroCamera = TEXT("mark-enemy-micro-camera");
+    this->bCanBeSeenByThermalScope = true;
+    this->KillInstigatorController = NULL;
+}
 
 ASBZCarriedStaticInteractionActor* ASBZAICharacter::SpawnLootOnCharacter(TSubclassOf<ASBZCarriedStaticInteractionActor> ClassTOSpawn) {
     return NULL;
@@ -125,75 +207,4 @@ void ASBZAICharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZAICharacter, VariationCategory);
 }
 
-ASBZAICharacter::ASBZAICharacter() {
-    this->BulletMagnetismSocketName = TEXT("Head");
-    this->StickyAimSocketNameArray.AddDefaulted(1);
-    this->DownOnGroundEyeHeight = -32.00f;
-    this->HostageState = 0;
-    this->bIsSurrendered = false;
-    this->CurrentBehaviorCategory = ESBZAIBehaviorCategory::None;
-    this->SensorComponent = CreateDefaultSubobject<USBZSensorComponent>(TEXT("SBZSensorComponent"));
-    this->ShoutTargetComponent = NULL;
-    this->EquipmentData = NULL;
-    this->HumanShieldData = NULL;
-    this->SurrenderedHumanShieldData = NULL;
-    this->SurrenderedUtilityData = NULL;
-    this->AmmoPickupAsset = NULL;
-    this->PlaceableSpawnForwardOffset = 0.00f;
-    this->AlertnessDataComponent = CreateDefaultSubobject<UDEPRECATED_SBZAlertnessDataComponent>(TEXT("SBZAlertnessDataComponent"));
-    this->MarkerComponent = CreateDefaultSubobject<USBZMarkerComponent>(TEXT("SBZMarkerComponent"));
-    this->HelmetPopper = CreateDefaultSubobject<USBZHelmetPopper>(TEXT("HelmetPopper"));
-    this->SpecialType = NULL;
-    this->PhysicalAnimationComponent = CreateDefaultSubobject<UPhysicalAnimationComponent>(TEXT("PhysicalAnimationComponent"));
-    this->bCanRunWhileFocusing = true;
-    this->bShouldTelegraphAttack = false;
-    this->PreferredCoverDist = 200.00f;
-    this->TradeOutline = NULL;
-    this->ReleasedOutline = NULL;
-    this->ObjectiveOutline = NULL;
-    this->ObjectiveMarker = NULL;
-    this->StartRoomLabel = ESBZRoomLabel::OutsideHeistArea;
-    this->AsObjectiveState = 0;
-    this->VariationData = NULL;
-    this->LastInteractorCharacter = NULL;
-    this->ShotBlockedDownTime = 6.00f;
-    this->SurrenderedNavFilter = NULL;
-    this->bTelegraphAttack = false;
-    this->FireWeaponComment = NULL;
-    this->OnKilledComment = NULL;
-    this->TauntComment = NULL;
-    this->HumanShieldTaken = NULL;
-    this->HumanShieldReleased = NULL;
-    this->DeadBodyPOIClass = NULL;
-    this->HostagePOIClass = NULL;
-    this->HumanShieldPOIClass = NULL;
-    this->DeadBodyPOIInstance = NULL;
-    this->HostagePOIInstance = NULL;
-    this->HumanShieldPOIInstance = NULL;
-    this->bIsValidHumanShield = false;
-    this->bIsPagerEnabled = false;
-    this->bIsPagerEnabledOnce = false;
-    this->bIsCarriedKillInteraction = false;
-    this->bIsBeingHogTied = false;
-    this->bHasBeenHogtied = false;
-    this->bIsInCover = false;
-    this->bWantsCoverPose = false;
-    this->bIsInDownOnGroundPose = false;
-    this->bIsPagerSnatched = false;
-    this->bIsScramblerSignalScanSkillActive = false;
-    this->bHasGuardBehavior = false;
-    this->PagerData = NULL;
-    this->PagerTriggeredCount = 0;
-    this->PagerSnatchedInteractor = NULL;
-    this->NavQueryFilterOverride = NULL;
-    this->ValidTargetDefeatStates = 7;
-    this->bCanShootDownedIfFired = true;
-    this->HackedGameplayEffectClass = NULL;
-    this->AttachedLoot = NULL;
-    this->CurrentLifeActionTriggerVolume = NULL;
-    this->LocallyDamagedByPlayer = NULL;
-    this->PendingMeleeDownOnGoundInstigator = NULL;
-    this->SurrenderInstigatorPlayerState = NULL;
-    this->VariationCategory = ESBZAICharacterVariationCategory::Default;
-}
 

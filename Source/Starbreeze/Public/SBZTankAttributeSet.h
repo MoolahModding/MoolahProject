@@ -29,13 +29,14 @@ protected:
     
 public:
     USBZTankAttributeSet();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_VisorArmor(const FGameplayAttributeData& OldValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetVisorArmor(float NewCurrentValue);
     
 };

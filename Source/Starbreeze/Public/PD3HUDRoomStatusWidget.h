@@ -24,28 +24,29 @@ protected:
     
 public:
     UPD3HUDRoomStatusWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RoomVolumeChanged(ASBZRoomVolume* InRoomVolume);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RoomTypeChanged(ESBZRoomType NewRoomType);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRoomTypeChanged(ESBZRoomType InRoomType);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRoomChanged(ASBZRoomVolume* RoomVolume);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNoRoomData();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnHeistGoneLoud();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleHeistGoneLoud();
     
 };

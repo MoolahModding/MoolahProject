@@ -1,5 +1,6 @@
 #include "SBZActorSpawnShapes.h"
 
-ASBZActorSpawnShapes::ASBZActorSpawnShapes() {
+ASBZActorSpawnShapes::ASBZActorSpawnShapes(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

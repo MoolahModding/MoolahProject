@@ -29,18 +29,19 @@ protected:
     TArray<FSBZPropDamagePool> DamagePools;
     
 public:
-    USBZPropDamageComponent();
+    USBZPropDamageComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_DamagePools();
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleTakeRadialDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, const TArray<FHitResult>& HitInfos, const FRadialDamageParams& Params, const FVector& Origin, const UDamageType* DamageType, AActor* DamageCauser);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser);
     
 };

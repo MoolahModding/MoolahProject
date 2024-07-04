@@ -4,7 +4,7 @@
 #include "SBZClientStateMachineState.h"
 #include "SBZStateMachineStateLobby.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API USBZStateMachineStateLobby : public USBZClientStateMachineState {
     GENERATED_BODY()
 public:
@@ -20,45 +20,46 @@ protected:
     
 public:
     USBZStateMachineStateLobby();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void WaitPlayersTickSeconds();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void WaitGameTickSeconds();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void TryUpdateWaitPlayersTimer();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void StartWaitPlayersTimer();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void StartWaitGameTimer();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void StartWaitForServerPlayerReadyAck();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ResetWaitPlayersTimer();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ReceivedHostUpdate();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMissionEnd();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleWaitActionPhaseReceived();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToPartyHost(ESBZOnlineCode ErrorCode);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToHost(ESBZOnlineCode ErrorCode);
     
 };

@@ -8,5 +8,6 @@ class USBZPlaceMicroCameraAbility : public USBZPlaceToolAbility {
     GENERATED_BODY()
 public:
     USBZPlaceMicroCameraAbility();
+
 };
 

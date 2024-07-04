@@ -8,5 +8,6 @@ class USBZBTTask_LifeActionWaitForReservation : public UBTTaskNode {
     GENERATED_BODY()
 public:
     USBZBTTask_LifeActionWaitForReservation();
+
 };
 

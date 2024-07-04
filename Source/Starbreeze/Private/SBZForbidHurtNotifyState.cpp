@@ -4,3 +4,4 @@ USBZForbidHurtNotifyState::USBZForbidHurtNotifyState() {
     this->bIsFlinchForbidden = false;
 }
 
+

@@ -27,12 +27,13 @@ protected:
     USBZCapsuleShadowingData* CapsuleShadowingData;
     
 public:
-    USBZCustomizableSuitMeshComponent();
+    USBZCustomizableSuitMeshComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetSuitConfig(const FSBZSuitConfig& Config);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnSkeletalMeshLoaded();
     
 };

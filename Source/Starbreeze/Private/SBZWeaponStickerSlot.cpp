@@ -4,3 +4,4 @@ USBZWeaponStickerSlot::USBZWeaponStickerSlot() {
     this->StickerPositionIndex = 0;
 }
 
+

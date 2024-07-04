@@ -8,5 +8,6 @@ class USBZMeleeDamageExecutionCalculation : public UGameplayEffectExecutionCalcu
     GENERATED_BODY()
 public:
     USBZMeleeDamageExecutionCalculation();
+
 };
 

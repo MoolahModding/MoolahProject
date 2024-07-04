@@ -15,33 +15,34 @@ protected:
     FSBZPartyData PartyState;
     
 public:
-    ASBZPartyBeaconClient();
+    ASBZPartyBeaconClient(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerNotifyLeftLobby(const FUniqueNetIdRepl& ClientId);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerNotifyJoinedLobby(const FUniqueNetIdRepl& ClientId);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerNotifyFailedToJoinLobby(const FUniqueNetIdRepl& ClientId);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerLogin(const FSBZPartyMemberInfo& Client);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_PartyState();
     
 public:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void LeaveLobby();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ConnectToLobby(const FString& InLobbyNetId);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientLoginAck(const FUniqueNetIdRepl& InNetId, bool bWasSuccessful);
     
 };

@@ -162,6 +162,7 @@ private:
     
 public:
     USBZMainMenuWidget();
+
 private:
     UFUNCTION(BlueprintCallable)
     void ShowTutorialPopup();
@@ -191,19 +192,24 @@ public:
     void RemoveBackgroundBlur();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTutorialPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTelemetryPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnMainMenuInitializeComplete();
+    
+private:
+    UFUNCTION(BlueprintCallable)
     void OnLoadoutChangePopupClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameSensePopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCrossplayPopUpClosed(FName ClosingActionName);
     
 public:

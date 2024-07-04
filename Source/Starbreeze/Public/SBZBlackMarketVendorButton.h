@@ -18,19 +18,20 @@ protected:
     
 public:
     USBZBlackMarketVendorButton();
+
     UFUNCTION(BlueprintCallable)
     void SetActiveVendor(bool bInIsActiveVendor);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnVendorDataInitialized(const USBZVendorData* InVendorData);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnActiveVendorSet(bool bInIsActiveVendor);
     
     UFUNCTION(BlueprintCallable)
     void InitializeVendorData(const USBZVendorData* InVendorData);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZVendorData* GetVendorData() const;
     
 };

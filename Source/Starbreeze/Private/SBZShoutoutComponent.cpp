@@ -1,5 +1,24 @@
 #include "SBZShoutoutComponent.h"
 
+USBZShoutoutComponent::USBZShoutoutComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->ShoutOutRadius = 600.00f;
+    this->MaxRoomPathDistanceFromInitialTarget = 1000.00f;
+    this->HeightCutOffDistance = 400.00f;
+    this->RaytraceTargetFindDist = 40000.00f;
+    this->MarkingOutlineAsset = NULL;
+    this->MarkLimit = 1;
+    this->ShoutoutDuration = 5.00f;
+    this->DefaultMarkComment = NULL;
+    this->DefaultHelpComment = NULL;
+    this->DefaultGetDownComment = NULL;
+    this->DefaultCopSurrenderComment = NULL;
+    this->PingMarkerAsset = NULL;
+    this->PingTimer = 5.00f;
+    this->CopSurrenderAction = NULL;
+    this->PingIndex = -1;
+    this->AbilitySystem = NULL;
+}
+
 void USBZShoutoutComponent::SetMarkLimit(int32 NewLimit) {
 }
 
@@ -28,22 +47,4 @@ bool USBZShoutoutComponent::IsActorMarked(AActor* Actor) {
     return false;
 }
 
-USBZShoutoutComponent::USBZShoutoutComponent() {
-    this->ShoutOutRadius = 600.00f;
-    this->MaxRoomPathDistanceFromInitialTarget = 1000.00f;
-    this->HeightCutOffDistance = 400.00f;
-    this->RaytraceTargetFindDist = 40000.00f;
-    this->MarkingOutlineAsset = NULL;
-    this->MarkLimit = 1;
-    this->ShoutoutDuration = 5.00f;
-    this->DefaultMarkComment = NULL;
-    this->DefaultHelpComment = NULL;
-    this->DefaultGetDownComment = NULL;
-    this->DefaultCopSurrenderComment = NULL;
-    this->PingMarkerAsset = NULL;
-    this->PingTimer = 5.00f;
-    this->CopSurrenderAction = NULL;
-    this->PingIndex = -1;
-    this->AbilitySystem = NULL;
-}
 

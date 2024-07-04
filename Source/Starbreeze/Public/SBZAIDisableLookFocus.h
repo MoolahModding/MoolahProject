@@ -8,5 +8,6 @@ class STARBREEZE_API USBZAIDisableLookFocus : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZAIDisableLookFocus();
+
 };
 

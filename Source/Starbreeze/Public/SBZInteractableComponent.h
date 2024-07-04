@@ -97,9 +97,6 @@ public:
     uint8 bSyncInteracting: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 bSyncAbortEvent: 1;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bRepeatable: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -114,9 +111,10 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer SharedKeyItemTags;
     
-    USBZInteractableComponent();
+    USBZInteractableComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void Stop3DSound(UAkAudioEvent* AudioEvent);
     
@@ -126,26 +124,26 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SetDefaultsForTimed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SetDefaultsForInstant();
     
     UFUNCTION(BlueprintCallable)
     void Play3DSound(UAkAudioEvent* AudioEvent);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSharedKeyItemTagChanged(const FSBZSharedKeyItemTagChangedEvent& SharedKeyItemTagChangedEventData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_InteractionEnabled(bool bOldInteractionEnabled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetInteractionEnabled(bool bEnabled);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

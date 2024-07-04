@@ -31,5 +31,6 @@ public:
     TArray<USBZSkillData*> MasterySkillArray;
     
     USBZSkillLineData();
+
 };
 

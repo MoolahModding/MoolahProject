@@ -30,12 +30,13 @@ protected:
     
 public:
     UPD3TickerWidget();
+
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnTickerModeChanged(const FText& Text, const FLinearColor& TextColor, const FLinearColor& BackgroundColor);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

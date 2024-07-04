@@ -20,6 +20,7 @@ protected:
     
 public:
     USBZSelectorWidget();
+
     UFUNCTION(BlueprintCallable)
     void SetSelectionCount(int32 NewSelectionCount);
     
@@ -33,13 +34,13 @@ public:
     void SelectLeft();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectionOptionChanged(int32 InCurrentIndex);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectedRight();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectedLeft();
     
 };

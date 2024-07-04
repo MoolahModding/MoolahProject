@@ -85,6 +85,7 @@ private:
     
 public:
     USBZSocialFriendButtonContainer();
+
     UFUNCTION(BlueprintCallable)
     void UpdatePartyMembersList();
     
@@ -112,32 +113,32 @@ public:
     UFUNCTION(BlueprintCallable)
     void RefreshFriends();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPartyPanelRefreshComplete();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPartyButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFriendButtonsUpdated();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFriendButtonFocused(USBZMenuButton* MenuButton, bool bIsFocused);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetPlatformName() const;
     
     UFUNCTION(BlueprintCallable)
     int32 GetPartyMembersNum();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZPartyMember> GetPartyMembers() const;
     
     UFUNCTION(BlueprintCallable)
     void BuildPartyMembersList();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void AddPartyMember(FSBZPartyMember NewMember);
     
 };

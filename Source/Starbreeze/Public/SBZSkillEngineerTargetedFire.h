@@ -8,5 +8,6 @@ class USBZSkillEngineerTargetedFire : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillEngineerTargetedFire();
+
 };
 

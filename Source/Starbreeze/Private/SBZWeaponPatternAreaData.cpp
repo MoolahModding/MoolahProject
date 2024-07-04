@@ -3,3 +3,4 @@
 USBZWeaponPatternAreaData::USBZWeaponPatternAreaData() {
 }
 
+

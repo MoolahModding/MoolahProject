@@ -15,6 +15,7 @@ protected:
     
 public:
     USBZMainMenuCharacterDisplayPanel();
+
     UFUNCTION(BlueprintCallable)
     void SetEmpty();
     
@@ -22,10 +23,10 @@ public:
     void SetCharacterToDisplay(const USBZPlayerCharacterData* InCharacterData);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEmptySet();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCharacterDataChanged(const USBZPlayerCharacterData* InCharacterData);
     
 };

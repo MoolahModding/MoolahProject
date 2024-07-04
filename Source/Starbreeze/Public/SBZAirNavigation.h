@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Info.h"
 #include "SBZAirNavigationTree.h"
 #include "SBZAirNavigation.generated.h"
@@ -13,8 +14,12 @@ private:
     TArray<FSBZAirNavigationTree> NavData;
     
 public:
-    ASBZAirNavigation();
-    UFUNCTION()
+    ASBZAirNavigation(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable)
+    static bool HasValidNavigationAt(const FVector& Location);
+    
+    UFUNCTION(BlueprintCallable)
     void GenerateNavigationData();
     
 };

@@ -4,3 +4,4 @@ USBZAttractorPredicate_MinConcurrentUsers::USBZAttractorPredicate_MinConcurrentU
     this->MinConcurentUsers = 1;
 }
 
+

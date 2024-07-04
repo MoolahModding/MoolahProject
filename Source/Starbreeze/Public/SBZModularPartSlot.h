@@ -8,5 +8,6 @@ class USBZModularPartSlot : public USBZWeaponPartSlot {
     GENERATED_BODY()
 public:
     USBZModularPartSlot();
+
 };
 

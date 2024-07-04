@@ -33,5 +33,6 @@ public:
     USBZAnimatedInteractionData* AnimatedInteractionData;
     
     USBZMiniGameData();
+
 };
 

@@ -4,5 +4,5 @@
 
 class ASBZTimedBagConverter;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZTimedBagConverterDelegate, ASBZTimedBagConverter*, BagConverter);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZTimedBagConverterDelegate, ASBZTimedBagConverter*, BagConverter);
 

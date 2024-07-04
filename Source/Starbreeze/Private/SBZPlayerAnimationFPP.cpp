@@ -18,6 +18,7 @@ USBZPlayerAnimationFPP::USBZPlayerAnimationFPP() {
     this->AdditiveMovePlayRate = 0.00f;
     this->AdditiveDetailAlpha = 0.00f;
     this->MoveGaitValue = 1.00f;
+    this->RightHandOnlyRecoilBlendWeight = 0.00f;
     this->AdditiveMoveType = ESBZAdditiveMoveType::Equipped;
     this->IdlePose = NULL;
     this->IdleAdditivePose = NULL;
@@ -40,4 +41,5 @@ USBZPlayerAnimationFPP::USBZPlayerAnimationFPP() {
     this->AnimationCollectionFPP = NULL;
     this->CurrentTraverseMontage = NULL;
 }
+
 

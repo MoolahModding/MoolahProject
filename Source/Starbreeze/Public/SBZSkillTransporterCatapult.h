@@ -8,5 +8,6 @@ class USBZSkillTransporterCatapult : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTransporterCatapult();
+
 };
 

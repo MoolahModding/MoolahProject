@@ -8,5 +8,6 @@ class USBZBTDecorator_UtilityCriticalSection : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_UtilityCriticalSection();
+
 };
 

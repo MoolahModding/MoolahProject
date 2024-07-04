@@ -8,7 +8,8 @@ class USBZPrimaryToolWidget : public UUserWidget {
     GENERATED_BODY()
 public:
     USBZPrimaryToolWidget();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNoAmmoTriggered(float VisibilityTime);
     
 };

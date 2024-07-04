@@ -39,5 +39,6 @@ public:
     FFloatInterval VisibleRange;
     
     USBZMarkerDataAsset();
+
 };
 

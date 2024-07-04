@@ -6,5 +6,7 @@ UENUM(BlueprintType)
 enum class ESBZRewardRequestType : uint8 {
     HeistCompleted,
     Renown,
+    Infamy,
+    Challenge,
 };
 

@@ -22,8 +22,9 @@ protected:
     
 public:
     USBZBaseInventoryItemVisualsWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SpriteLoaded(UPaperSprite* OutLoadedSprite);
     
 public:
@@ -31,15 +32,15 @@ public:
     void SetEmpty();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLoadingChanged(bool bIsLoading);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnSpriteLoaded();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ItemInitialized(const USBZInventoryBaseData* NewItem);
     
 public:
@@ -47,7 +48,7 @@ public:
     void InitializeItem(const USBZInventoryBaseData* InItem, bool bShouldLoadImage);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void EmptySet();
     
 };

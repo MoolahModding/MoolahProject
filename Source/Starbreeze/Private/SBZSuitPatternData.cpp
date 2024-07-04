@@ -3,3 +3,4 @@
 USBZSuitPatternData::USBZSuitPatternData() {
 }
 
+

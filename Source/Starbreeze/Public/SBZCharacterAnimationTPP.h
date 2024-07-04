@@ -779,5 +779,6 @@ protected:
     
 public:
     USBZCharacterAnimationTPP();
+
 };
 

@@ -1,5 +1,19 @@
 #include "SBZMainMenuWeaponModifierScreen.h"
 
+USBZMainMenuWeaponModifierScreen::USBZMainMenuWeaponModifierScreen() {
+    this->StackValue = TEXT("Default__SBZMainMenuWeaponModifierScreen");
+    this->Panel_WeaponProgressionPartButtons = NULL;
+    this->WeaponPartProgressionButtonClass = NULL;
+    this->EquippedWeaponProgressionButton = NULL;
+    this->Panel_TransactionInProgress = NULL;
+    this->PurchaseItemPopUpBodyWidgetClass = NULL;
+    this->WeaponPartSlot = NULL;
+    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
+    this->WeaponSlotIndex = 0;
+    this->WeaponPartInPurchase = NULL;
+    this->SelectedWeaponProgressionButton = NULL;
+}
+
 void USBZMainMenuWeaponModifierScreen::SetNewEquippedButton(USBZMainMenuWeaponPartProgressionButton* InEquippedWeaponProgressionButton) {
 }
 
@@ -37,16 +51,4 @@ USBZWeaponPartSlot* USBZMainMenuWeaponModifierScreen::GetCurrentWeaponPartSlot()
 void USBZMainMenuWeaponModifierScreen::GetBlockedSlotNamesForWeaponPart(const USBZWeaponPartDataAsset* WeaponPartDataAsset, TArray<FText>& OutSlotNames) {
 }
 
-USBZMainMenuWeaponModifierScreen::USBZMainMenuWeaponModifierScreen() {
-    this->Panel_WeaponProgressionPartButtons = NULL;
-    this->WeaponPartProgressionButtonClass = NULL;
-    this->EquippedWeaponProgressionButton = NULL;
-    this->Panel_TransactionInProgress = NULL;
-    this->PurchaseItemPopUpBodyWidgetClass = NULL;
-    this->WeaponPartSlot = NULL;
-    this->EquippableSlot = ESBZEquippableLoadoutSlot::PrimaryWeapon;
-    this->WeaponSlotIndex = 0;
-    this->WeaponPartInPurchase = NULL;
-    this->SelectedWeaponProgressionButton = NULL;
-}
 

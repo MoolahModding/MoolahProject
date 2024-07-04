@@ -13,5 +13,6 @@ public:
     TArray<TSoftObjectPtr<USBZBaseCharacterAnimationCollection>> AnimationCollections;
     
     USBZLifeActionSettings();
+
 };
 

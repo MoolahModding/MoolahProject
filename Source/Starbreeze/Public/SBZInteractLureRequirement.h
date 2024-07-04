@@ -8,5 +8,6 @@ class USBZInteractLureRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractLureRequirement();
+
 };
 

@@ -4,3 +4,4 @@ USBZSentryKillsStatisticCriteriaData::USBZSentryKillsStatisticCriteriaData() {
     this->SentryKills = 10;
 }
 
+

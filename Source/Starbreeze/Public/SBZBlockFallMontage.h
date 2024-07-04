@@ -8,5 +8,6 @@ class USBZBlockFallMontage : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZBlockFallMontage();
+
 };
 

@@ -37,14 +37,15 @@ private:
     
 public:
     UPD3DetectionMeterContainer();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnObservedChanged(bool bObserved);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnObserved(bool bIsObserved);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleHeistGoneLoud();
     
 };

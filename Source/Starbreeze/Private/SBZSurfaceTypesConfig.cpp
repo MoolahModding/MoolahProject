@@ -6,3 +6,4 @@ USBZSurfaceTypesConfig::USBZSurfaceTypesConfig() {
     this->BloodSplatterDecalFadeOutDuration = 0.50f;
 }
 
+

@@ -15,5 +15,6 @@ protected:
     
 public:
     UPD3HUDGameTimerWidget();
+
 };
 

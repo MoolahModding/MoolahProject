@@ -5,3 +5,4 @@ USBZReactionPredicate_GlobalCooldown::USBZReactionPredicate_GlobalCooldown() {
     this->GlobalCooldownKey = TEXT("Key");
 }
 
+

@@ -13,5 +13,6 @@ public:
     TArray<USBZSuitMaterialData*> SuitMaterialArray;
     
     USBZSuitMaterialDatabase();
+
 };
 

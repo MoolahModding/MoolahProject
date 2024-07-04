@@ -1,5 +1,6 @@
 #include "SBZActorSpawnTransforms.h"
 
-ASBZActorSpawnTransforms::ASBZActorSpawnTransforms() {
+ASBZActorSpawnTransforms::ASBZActorSpawnTransforms(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

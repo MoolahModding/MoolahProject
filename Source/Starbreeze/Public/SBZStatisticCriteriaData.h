@@ -18,11 +18,15 @@ public:
     ESBZDifficulty LowestDifficulty;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPD3HeistState MinPassableState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPD3HeistState MaxPassableState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString StatisticCode;
     
     USBZStatisticCriteriaData();
+
 };
 

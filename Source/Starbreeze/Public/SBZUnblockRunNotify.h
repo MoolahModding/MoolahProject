@@ -8,5 +8,6 @@ class USBZUnblockRunNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZUnblockRunNotify();
+
 };
 

@@ -5,8 +5,10 @@
 #include "SBZAbilitySystemComponent.h"
 #include "SBZPlayerAbilitySystemComponent.generated.h"
 
+class APawn;
 class ASBZAIBaseCharacter;
 class USBZCharacterEffectDataAsset;
+class USBZSkillData;
 
 UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZPlayerAbilitySystemComponent : public USBZAbilitySystemComponent {
@@ -16,7 +18,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float StaggeredTargetDamageIncrease;
     
-    UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnRep_BuffTimeArray, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnBuffTimeArrayChanged, meta=(AllowPrivateAccess=true))
     float BuffTimeArray[3];
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -40,17 +42,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 BuffTickCount;
     
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    float BuffBlockCountArray[3];
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint8 BuffCooldownTickCount;
+    
+    UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnBuffBlockCountArrayChanged, meta=(AllowPrivateAccess=true))
+    uint8 BuffBlockCountArray[3];
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZCharacterEffectDataAsset* BuffGUIEffectDataArray[3];
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZCharacterEffectDataAsset* TankLastManStandingImmuneGUIEffectData;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZCharacterEffectDataAsset* BlockedBuffGUIEffectDataArray[3];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZCharacterEffectDataAsset* TankLastManStandingBlockingGUIEffectData;
+    USBZCharacterEffectDataAsset* TankLastManStandingImmuneGUIEffectData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZCharacterEffectDataAsset* AmmoSpecialistHighGrainGUIEffectData;
@@ -59,19 +64,19 @@ private:
     uint32 BuffGUIEffectHandleArray[3];
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    uint32 TankLastManStandingImmuneGUIEffectHandle;
+    uint32 BlockedBuffGUIEffectHandleArray[3];
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    uint32 TankLastManStandingBlockingGUIEffectHandle;
+    uint32 TankLastManStandingImmuneGUIEffectHandle;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint32 AmmoSpecialistHighGrainGUIEffectHandle;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnSkillTankLastManStandingImmuneTimeChanged, meta=(AllowPrivateAccess=true))
-    float SkillTankLastManStandingImmuneTime;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnSkillTankLastManStandingBlockingChanged, meta=(AllowPrivateAccess=true))
     bool bIsSkillTankLastManStandingBlocking;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnSkillTankLastManStandingImmuneTimeChanged, meta=(AllowPrivateAccess=true))
+    float SkillTankLastManStandingImmuneTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, float> SkillCooldownSecondsMap;
@@ -80,10 +85,13 @@ private:
     bool bCanTriggerCoupDeGraceSkill;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsAmmoSpecialistHighGrainDamage;
+    bool bIsAmmoSpecialistHighGrain;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float AmmoSpecialistHighGrainDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 AmmoSpecialistHighGrainArmorPenetrationPoints;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverHealDegradationTickInterval;
@@ -91,67 +99,88 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverHealDamagePauseTimer;
     
-public:
-    USBZPlayerAbilitySystemComponent();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnBuffBlockCooldownTimeArrayChanged, meta=(AllowPrivateAccess=true))
+    float BuffBlockCooldownTimeArray[3];
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZSkillData* LastManStandingSkillData;
+    
+public:
+    USBZPlayerAbilitySystemComponent(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 private:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetSpeedBuffTime(const FGameplayTag& SkillTag, float Time);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetMitigationBuffTime(const FGameplayTag& SkillTag, float Time);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetDamageBuffTime(const FGameplayTag& SkillTag, float Time);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_ResetSpeedBuffTime();
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_ResetMitigationBuffTime();
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_ResetDamageBuffTime();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSkillTankLastManStandingImmuneTimeChanged();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSkillTankLastManStandingBlockingChanged();
     
-    UFUNCTION()
-    void OnRep_BuffTimeArray();
+    UFUNCTION(BlueprintCallable)
+    void OnBuffTimeArrayChanged();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable)
+    void OnBuffBlockCountArrayChanged();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnBuffBlockCooldownTimeArrayChanged();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_UnblockSkillTankLastManStanding();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetTacticalDroneBuffBlockCooldown(float Cooldown);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSpeedBuffTime(float Time);
     
-    UFUNCTION(NetMulticast, Reliable)
-    void Multicast_SetSkillTankLastManStandingImmuneTime(float ImmuneTime);
-    
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMitigationBuffTime(float Time);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDamageBuffTime(float Time);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ResetSpeedBuffTime();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ResetMitigationBuffTime();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ResetDamageBuffTime();
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_MarkTarget(APawn* MarkedPawn, float InDuration);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MarkedForDeath(const TArray<ASBZAIBaseCharacter*>& AICharacters);
     
-    UFUNCTION(Client, Reliable)
+private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_BlockSkillTankLastManStanding(float ImmuneTime);
+    
+public:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RejectBuffTime(ESBZPlayerAbilityBuffType Type);
     
 };

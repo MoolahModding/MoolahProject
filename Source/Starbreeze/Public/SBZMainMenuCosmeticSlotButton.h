@@ -19,19 +19,20 @@ protected:
     
 public:
     USBZMainMenuCosmeticSlotButton();
+
     UFUNCTION(BlueprintCallable)
     void SetItemInSlot(const USBZInventoryBaseData* InItemBaseData);
     
     UFUNCTION(BlueprintCallable)
     void SetCosmeticPartSlot(const USBZCosmeticsPartSlot* InCosmeticPartSlot);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ItemInSlotChanged(const USBZInventoryBaseData* InItemBaseData);
     
     UFUNCTION(BlueprintCallable)
     void InitializeButton(const USBZCosmeticsPartSlot* InCosmeticPartSlot, const USBZInventoryBaseData* InItemBaseData);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CosmeticPartSlotChanged(const USBZCosmeticsPartSlot* InCosmeticPartSlot);
     
 };

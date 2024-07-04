@@ -63,7 +63,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxStepHeightRootMotion;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SlowedSpeedReduction;
+    
 public:
-    USBZAICharacterMovementComponent();
+    USBZAICharacterMovementComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

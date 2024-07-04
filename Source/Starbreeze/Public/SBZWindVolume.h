@@ -14,6 +14,7 @@ private:
     USBZWindEmitterComponent* EmitterComponent;
     
 public:
-    ASBZWindVolume();
+    ASBZWindVolume(const FObjectInitializer& ObjectInitializer);
+
 };
 

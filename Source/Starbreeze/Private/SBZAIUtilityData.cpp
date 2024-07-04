@@ -5,3 +5,4 @@ USBZAIUtilityData::USBZAIUtilityData() {
     this->Default = NULL;
 }
 
+

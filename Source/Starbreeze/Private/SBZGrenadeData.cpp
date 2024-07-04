@@ -10,7 +10,9 @@ USBZGrenadeData::USBZGrenadeData() {
     this->bArmOnThrow = true;
     this->DetonationEffect = NULL;
     this->DropDetonationEffect = NULL;
-    this->LocalplayerFeedback = NULL;
+    this->LocalPlayerFeedback = NULL;
+    this->LocalPlayerInstigatorFeedback = NULL;
     this->TacticianDiscombobulateEffectClass = NULL;
 }
+
 

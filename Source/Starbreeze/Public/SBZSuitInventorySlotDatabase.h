@@ -13,5 +13,6 @@ public:
     TArray<USBZSuitInventorySlotData*> InventorySlotArray;
     
     USBZSuitInventorySlotDatabase();
+
 };
 

@@ -1,6 +1,14 @@
 #include "SBZPlayerTriggerVolume.h"
 #include "SBZPlayerCharacter.h"
 
+ASBZPlayerTriggerVolume::ASBZPlayerTriggerVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bNetLoadOnClient = false;
+    this->PlayerPawnParentClass = ASBZPlayerCharacter::StaticClass();
+    this->bShouldStartEnabled = true;
+    this->bDisableWhenPlayerBeginsOverlapping = true;
+    this->bDisableWhenAllPlayersAreInside = false;
+}
+
 void ASBZPlayerTriggerVolume::SetVolumeEnabled(bool bEnabled) {
 }
 
@@ -12,10 +20,4 @@ bool ASBZPlayerTriggerVolume::AreAllPlayerPawnsInside() const {
     return false;
 }
 
-ASBZPlayerTriggerVolume::ASBZPlayerTriggerVolume() {
-    this->PlayerPawnParentClass = ASBZPlayerCharacter::StaticClass();
-    this->bShouldStartEnabled = true;
-    this->bDisableWhenPlayerBeginsOverlapping = true;
-    this->bDisableWhenAllPlayersAreInside = false;
-}
 

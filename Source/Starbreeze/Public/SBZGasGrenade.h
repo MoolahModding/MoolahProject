@@ -4,7 +4,7 @@
 #include "Engine/NetSerialization.h"
 #include "SBZFragGrenade.h"
 #include "SBZGasExplosionData.h"
-#include "SBZGasGrenadeTarget.h"
+#include "SBZGasVolumeTarget.h"
 #include "SBZVolumeDamageInterface.h"
 #include "SBZGasGrenade.generated.h"
 
@@ -40,26 +40,27 @@ protected:
     FSBZGasExplosionData GasExplosionRepData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FSBZGasGrenadeTarget> TargetArray;
+    TArray<FSBZGasVolumeTarget> TargetArray;
     
 public:
-    ASBZGasGrenade();
+    ASBZGasGrenade(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_GasExplosionData();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bIsSweep, const FHitResult& SweepHitResult);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosionLocation(const FVector_NetQuantize& Location);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

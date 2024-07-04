@@ -8,5 +8,6 @@ class STARBREEZE_API USBZAllowSoloDialogNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZAllowSoloDialogNotifyState();
+
 };
 

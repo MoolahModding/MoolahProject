@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZRappellingRopeComponent : public USBZCableComponent {
     GENERATED_BODY()
 public:
-    USBZRappellingRopeComponent();
+    USBZRappellingRopeComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

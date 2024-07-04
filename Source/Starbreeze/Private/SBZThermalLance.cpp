@@ -1,6 +1,23 @@
 #include "SBZThermalLance.h"
 #include "SBZInteractableComponent.h"
 
+ASBZThermalLance::ASBZThermalLance(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
+    this->IgnitionInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("IgnitionInteraction"));
+    this->RemoveCanisterInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("RemoveCanisterInteraction"));
+    this->AddCanisterInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AddCanisterInteraction"));
+    this->DisassembleInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("DisassembleInteraction"));
+    this->BoltingInteractions.AddDefaulted(3);
+    this->bNeedsDisassemblyWhenFinished = true;
+    this->bShouldSpawnBagsWhenCompleted = true;
+    this->BagTriggerVolume = NULL;
+    this->RequiredBagType = NULL;
+    this->DisassembleInteractionWaitTime = 2.00f;
+    this->BoltedEvent = NULL;
+    this->RemoveCannisterEvent = NULL;
+    this->AddCannisterEvent = NULL;
+}
+
 void ASBZThermalLance::OnServerRemovedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled) {
 }
 
@@ -35,19 +52,4 @@ void ASBZThermalLance::OnAckAddedCanister(USBZBaseInteractableComponent* Interac
 }
 
 
-ASBZThermalLance::ASBZThermalLance() {
-    this->IgnitionInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("IgnitionInteraction"));
-    this->RemoveCanisterInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("RemoveCanisterInteraction"));
-    this->AddCanisterInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AddCanisterInteraction"));
-    this->DisassembleInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("DisassembleInteraction"));
-    this->BoltingInteractions.AddDefaulted(3);
-    this->bNeedsDisassemblyWhenFinished = true;
-    this->bShouldSpawnBagsWhenCompleted = true;
-    this->BagTriggerVolume = NULL;
-    this->RequiredBagType = NULL;
-    this->DisassembleInteractionWaitTime = 2.00f;
-    this->BoltedEvent = NULL;
-    this->RemoveCannisterEvent = NULL;
-    this->AddCannisterEvent = NULL;
-}
 

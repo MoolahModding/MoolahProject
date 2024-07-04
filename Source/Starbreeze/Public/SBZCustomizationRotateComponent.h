@@ -50,6 +50,7 @@ private:
     APlayerController* FoundController;
     
 public:
-    USBZCustomizationRotateComponent();
+    USBZCustomizationRotateComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

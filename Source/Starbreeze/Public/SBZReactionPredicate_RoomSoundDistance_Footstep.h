@@ -8,5 +8,6 @@ class UDEPRECATED_SBZReactionPredicate_RoomSoundDistance_Footstep : public USBZR
     GENERATED_BODY()
 public:
     UDEPRECATED_SBZReactionPredicate_RoomSoundDistance_Footstep();
+
 };
 

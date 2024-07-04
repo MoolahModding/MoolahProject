@@ -10,5 +10,8 @@ USBZBagType::USBZBagType() {
     this->bIsDegradable = false;
     this->bAllowSecuring = true;
     this->WeightTierOffset = 1.00f;
+    this->MarkerAsset = NULL;
+    this->bIsPersistentMarker = true;
 }
+
 

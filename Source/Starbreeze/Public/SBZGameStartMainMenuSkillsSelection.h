@@ -39,27 +39,28 @@ private:
     
 public:
     USBZGameStartMainMenuSkillsSelection();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDescriptionScrollAxisChanged(float Value);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAlternativeSelectionReleased();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAlternativeSelectionPressed();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAlternativeHoldDurationComplete();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnAlternativeSelectionReleased();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnAlternativeSelectionPressed();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
 public:

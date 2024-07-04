@@ -4,3 +4,4 @@ USBZAIDataProvider_NavQueryFilter_AICharacter::USBZAIDataProvider_NavQueryFilter
     this->NQFClass = NULL;
 }
 
+

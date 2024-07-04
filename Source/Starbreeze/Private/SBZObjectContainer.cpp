@@ -1,5 +1,12 @@
 #include "SBZObjectContainer.h"
 
+USBZObjectContainer::USBZObjectContainer() {
+    this->RestrictedObjectClass = UObject::StaticClass();
+    this->RestrictedInterfaceType = NULL;
+    this->bAllowDuplicates = false;
+    this->bKeepSorted = false;
+}
+
 void USBZObjectContainer::Reset() {
 }
 
@@ -23,10 +30,4 @@ bool USBZObjectContainer::Add(UObject* Object) {
     return false;
 }
 
-USBZObjectContainer::USBZObjectContainer() {
-    this->RestrictedObjectClass = UObject::StaticClass();
-    this->RestrictedInterfaceType = NULL;
-    this->bAllowDuplicates = false;
-    this->bKeepSorted = false;
-}
 

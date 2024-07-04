@@ -11,6 +11,7 @@ class STARBREEZE_API USBZOnlineLobbyFunctionLibrary : public UBlueprintFunctionL
     GENERATED_BODY()
 public:
     USBZOnlineLobbyFunctionLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void TogglePlayerReady(const UObject* WorldContextObject);
     
@@ -20,10 +21,10 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetPlayerReady(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPlayerReady(const UObject* WorldContextObject);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZOnlineSession* GetOnlineSession(const UObject* WorldContextObject);
     
 };

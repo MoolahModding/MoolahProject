@@ -7,6 +7,7 @@ UCLASS(Blueprintable, NonTransient)
 class STARBREEZE_API ASBZOnlineBeaconHostObject : public AOnlineBeaconHostObject {
     GENERATED_BODY()
 public:
-    ASBZOnlineBeaconHostObject();
+    ASBZOnlineBeaconHostObject(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -17,5 +17,6 @@ protected:
     
 public:
     USBZReactionPredicate_RoomType();
+
 };
 

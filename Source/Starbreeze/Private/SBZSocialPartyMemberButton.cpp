@@ -1,5 +1,12 @@
 #include "SBZSocialPartyMemberButton.h"
 
+USBZSocialPartyMemberButton::USBZSocialPartyMemberButton() {
+    this->bIsPartyLeader = false;
+    this->Type = ESBZPartyMemberButtonType::PartyMember;
+    this->PlatformIcon = NULL;
+    this->NebulaIcon = NULL;
+}
+
 void USBZSocialPartyMemberButton::RevokeInvite() {
 }
 
@@ -26,10 +33,4 @@ bool USBZSocialPartyMemberButton::CanShowFriendProfile() {
 void USBZSocialPartyMemberButton::AcceptInvite() {
 }
 
-USBZSocialPartyMemberButton::USBZSocialPartyMemberButton() {
-    this->bIsPartyLeader = false;
-    this->Type = ESBZPartyMemberButtonType::PartyMember;
-    this->PlatformIcon = NULL;
-    this->NebulaIcon = NULL;
-}
 

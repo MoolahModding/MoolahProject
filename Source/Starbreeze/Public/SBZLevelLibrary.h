@@ -12,6 +12,7 @@ class USBZLevelLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZLevelLibrary();
+
     UFUNCTION(BlueprintCallable)
     static ULevel* GetLevel(AActor* InActor);
     

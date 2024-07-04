@@ -8,5 +8,6 @@ class USBZCrouchedNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZCrouchedNotifyState();
+
 };
 

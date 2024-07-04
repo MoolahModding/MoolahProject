@@ -1,9 +1,7 @@
 #include "SBZPlayerAndItemTriggerVolume.h"
 
-void ASBZPlayerAndItemTriggerVolume::SetVolumeEnabled(bool bIsEnabled) {
-}
-
-ASBZPlayerAndItemTriggerVolume::ASBZPlayerAndItemTriggerVolume() {
+ASBZPlayerAndItemTriggerVolume::ASBZPlayerAndItemTriggerVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bNetLoadOnClient = false;
     this->LastOverlapActor = NULL;
     this->bIsVolumeEnabledInitially = false;
     this->bIsVolumeEnabled = false;
@@ -13,4 +11,8 @@ ASBZPlayerAndItemTriggerVolume::ASBZPlayerAndItemTriggerVolume() {
     this->bIsBagsTeleported = true;
     this->bIsClosedOffWhenDisabled = true;
 }
+
+void ASBZPlayerAndItemTriggerVolume::SetVolumeEnabled(bool bIsEnabled) {
+}
+
 

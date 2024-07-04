@@ -11,12 +11,13 @@ UCLASS(Abstract, Blueprintable)
 class ASBZBaseDebris : public AActor {
     GENERATED_BODY()
 public:
-    ASBZBaseDebris();
+    ASBZBaseDebris(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CreateImpactPoint(const FHitResult& Hit);
     
 };

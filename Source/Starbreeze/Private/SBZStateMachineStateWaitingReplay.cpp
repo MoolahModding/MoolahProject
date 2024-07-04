@@ -4,3 +4,4 @@ USBZStateMachineStateWaitingReplay::USBZStateMachineStateWaitingReplay() {
     this->Data = NULL;
 }
 
+

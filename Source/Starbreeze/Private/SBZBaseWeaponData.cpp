@@ -1,15 +1,11 @@
 #include "SBZBaseWeaponData.h"
 
-int32 USBZBaseWeaponData::GetNbStickerPlacements() const {
-    return 0;
-}
-
 USBZBaseWeaponData::USBZBaseWeaponData() {
     this->SwayData = NULL;
     this->HeadbobData = NULL;
     this->ItemProgression = NULL;
     this->bUseSprintMoveData = false;
-    this->TurnInPlaceAdditiveMoveFactor = 4.00f;
+    this->TurnInPlaceAdditiveMoveFactor = 0.10f;
     this->TurnInPlaceAdditiveMoveInterSpeed = 10.00f;
     this->JumpStartAlpha = 1.00f;
     this->JumpStartADSAlpha = 0.20f;
@@ -21,6 +17,8 @@ USBZBaseWeaponData::USBZBaseWeaponData() {
     this->UncrouchADSAlpha = 0.20f;
     this->VaultLandAlpha = 1.00f;
     this->VaultLandADSAlpha = 0.20f;
+    this->TankingData = NULL;
+    this->WallReactionData = NULL;
     this->OverkillProgressionProgress = 100.00f;
     this->TargetingData = NULL;
     this->PitchLookOffsetCurve = NULL;
@@ -31,4 +29,9 @@ USBZBaseWeaponData::USBZBaseWeaponData() {
     this->bShouldApplyWeaponSwitchCooldown = true;
     this->bCanAttackWhileMoving = true;
 }
+
+int32 USBZBaseWeaponData::GetNbStickerPlacements() const {
+    return 0;
+}
+
 

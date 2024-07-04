@@ -12,26 +12,27 @@ UCLASS(Blueprintable, NonTransient)
 class STARBREEZE_API ASBZOnlineBeaconClient : public AOnlineBeaconClient {
     GENERATED_BODY()
 public:
-    ASBZOnlineBeaconClient();
-    UFUNCTION(Reliable, Server, WithValidation)
+    ASBZOnlineBeaconClient(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void VoteToKick(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void SendChatMessage(const FSBZChatMessage& Message);
     
-    UFUNCTION(Client, Reliable, WithValidation)
+    UFUNCTION(BlueprintCallable, Client, Reliable, WithValidation)
     void ReceiveChatMessage(const FSBZChatMessage& Message);
     
-    UFUNCTION(Client, Reliable, WithValidation)
+    UFUNCTION(BlueprintCallable, Client, Reliable, WithValidation)
     void KickingInProgress(FSBZKickingInfo NewKickingInfo);
     
-    UFUNCTION(Client, Reliable, WithValidation)
+    UFUNCTION(BlueprintCallable, Client, Reliable, WithValidation)
     void KickFailed(ESBZKickingError KickingError);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void InitiateKickRequest(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick);
     
-    UFUNCTION(Client, Reliable, WithValidation)
+    UFUNCTION(BlueprintCallable, Client, Reliable, WithValidation)
     void HandleKicked();
     
 };

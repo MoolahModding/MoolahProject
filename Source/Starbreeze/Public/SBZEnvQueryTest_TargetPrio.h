@@ -8,5 +8,6 @@ class USBZEnvQueryTest_TargetPrio : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_TargetPrio();
+
 };
 

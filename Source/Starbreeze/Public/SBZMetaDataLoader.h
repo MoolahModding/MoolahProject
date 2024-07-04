@@ -8,8 +8,9 @@ class USBZMetaDataLoader : public UObject {
     GENERATED_BODY()
 public:
     USBZMetaDataLoader();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRetryGetUserEntitlements();
     
 };

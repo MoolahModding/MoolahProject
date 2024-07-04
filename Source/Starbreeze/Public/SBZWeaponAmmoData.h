@@ -16,5 +16,6 @@ public:
     TSoftObjectPtr<UStaticMesh> LoadedMesh;
     
     USBZWeaponAmmoData();
+
 };
 

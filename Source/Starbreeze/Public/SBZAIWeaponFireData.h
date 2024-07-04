@@ -41,5 +41,6 @@ public:
     bool bSliceProjectiles;
     
     USBZAIWeaponFireData();
+
 };
 

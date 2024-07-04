@@ -111,32 +111,33 @@ private:
     USBZOutlineAsset* ECMOutlineAsset;
     
 public:
-    ASBZAIFBIVan();
+    ASBZAIFBIVan(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnVanArrived(ASBZWheeledVehicle* Vehicle, ASBZSpline* Spline);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTakeDamage(const FSBZDamageEvent& DamageEventData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsFBIActive();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPropDamaged(UActorComponent* PoolComponent, float Health, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayersInEscapeChanged(const FSBZPlayerInEscapeChangedEvent& PlayerInEscapeChangedEventData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerDefeated(ASBZPlayerState* InPlayerState, EPD3DefeatState OldDefeatState, EPD3DefeatState NewDefeatState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 };

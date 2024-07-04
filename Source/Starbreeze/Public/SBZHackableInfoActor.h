@@ -32,23 +32,24 @@ protected:
     bool bShouldResetToGenericHack;
     
 public:
-    ASBZHackableInfoActor();
+    ASBZHackableInfoActor(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ResetHackableActorToGenericHack(const float InDuration, bool bKeepCustomMessage, ESBZHackableActorState ResetState);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistGoneLoud();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ResetHackableActorToGenericHack();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_SetInformation(const FSBZLocationInformation& OutLocationInformation);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnHackingInfoDone();
     
 };

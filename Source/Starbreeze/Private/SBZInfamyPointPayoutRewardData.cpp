@@ -5,5 +5,8 @@ FSBZInfamyPointPayoutRewardData::FSBZInfamyPointPayoutRewardData() {
     this->StealthBonus = 0;
     this->AllBagsBonus = 0;
     this->Total = 0;
+    this->TotalFromBags = 0;
+    this->TotalOnFailedHeist = 0;
+    this->TotalFromSurvivingAssults = 0;
 }
 

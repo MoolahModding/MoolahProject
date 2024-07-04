@@ -4,3 +4,4 @@ USBZUIWeaponStatsAsset::USBZUIWeaponStatsAsset() {
     this->WeaponStatsBlueprintClass = NULL;
 }
 
+

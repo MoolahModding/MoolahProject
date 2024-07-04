@@ -1,5 +1,7 @@
 #include "SBZRoomPathTest.h"
 
-ASBZRoomPathTest::ASBZRoomPathTest() {
+ASBZRoomPathTest::ASBZRoomPathTest(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsEditorOnlyActor = true;
 }
+
 

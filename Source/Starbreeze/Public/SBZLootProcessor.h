@@ -7,7 +7,8 @@ UCLASS(Blueprintable)
 class ASBZLootProcessor : public ASBZLootProcessorBase {
     GENERATED_BODY()
 public:
-    ASBZLootProcessor();
+    ASBZLootProcessor(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void OnTrayOpened();

@@ -2,6 +2,19 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 
+ASBZWinch::ASBZWinch(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
+    this->StartInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("StartInteraction"));
+    this->GrabInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("GrabInteraction"));
+    this->AttachInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AttachInteraction"));
+    this->bIsInterruptedExternally = false;
+    this->bEnableSabotagePointsOnNeedsAdjusting = false;
+    this->Seed = -1;
+    this->CurrentWinchState = ESBZWinchState::None;
+    this->bHasBeenInterrupted = false;
+    this->bIsExternallySabotaged = false;
+}
+
 void ASBZWinch::SetWinchEnabled(bool bEnabled) {
 }
 
@@ -30,15 +43,4 @@ void ASBZWinch::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetim
     DOREPLIFETIME(ASBZWinch, CurrentWinchState);
 }
 
-ASBZWinch::ASBZWinch() {
-    this->StartInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("StartInteraction"));
-    this->GrabInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("GrabInteraction"));
-    this->AttachInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AttachInteraction"));
-    this->bIsInterruptedExternally = false;
-    this->bEnableSabotagePointsOnNeedsAdjusting = false;
-    this->Seed = -1;
-    this->CurrentWinchState = ESBZWinchState::None;
-    this->bHasBeenInterrupted = false;
-    this->bIsExternallySabotaged = false;
-}
 

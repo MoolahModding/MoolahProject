@@ -81,6 +81,7 @@ protected:
     
 public:
     USBZLoginScreenBaseWidget();
+
     UFUNCTION(BlueprintCallable)
     void WidgetReady();
     
@@ -93,47 +94,47 @@ public:
     UFUNCTION(BlueprintCallable)
     void ShowEpilepsyWarningPopup();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetLoginPanelsVisibility(ESlateVisibility InVisibility);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetLoadingPanelVisibility(ESlateVisibility InVisibility);
     
     UFUNCTION(BlueprintCallable)
     void SetLoadingCanvasPanelVisibility(ESlateVisibility InVisibility);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPrivacyPopUpClosed(FName ClosingActionName);
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPrivacyPolicyChoice(FName ClosingActionName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnLoginError(const FText& ErrorMessage);
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInitializeDone();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEULAPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEpilepsyPopUpClosed(FName ClosingActionName);
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void InitializeLoginMenu();
     
     UFUNCTION(BlueprintCallable)
     void InitializeDone();
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     UCanvasPanel* GetLoadingCanvasPanel();
     
 };

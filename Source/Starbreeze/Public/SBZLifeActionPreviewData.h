@@ -29,5 +29,6 @@ public:
     TSoftClassPtr<ASBZEquippable> PreviewEquippableClass;
     
     USBZLifeActionPreviewData();
+
 };
 

@@ -8,5 +8,6 @@ class USBZEnvQueryContext_SquadCenterPos : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_SquadCenterPos();
+
 };
 

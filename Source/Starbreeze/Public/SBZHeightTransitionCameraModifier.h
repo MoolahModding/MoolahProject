@@ -24,5 +24,6 @@ private:
     
 public:
     USBZHeightTransitionCameraModifier();
+
 };
 

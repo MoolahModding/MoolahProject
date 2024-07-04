@@ -1,5 +1,21 @@
 #include "SBZConnectedCableBox.h"
+#include "Components/SceneComponent.h"
 #include "Net/UnrealNetwork.h"
+
+ASBZConnectedCableBox::ASBZConnectedCableBox(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+    this->AllowedChances = 0;
+    this->CurrentSequenceIndex = 0;
+    this->InteractionStates = 0;
+    this->bIsDoorOpen = false;
+    this->DoorInteractable = NULL;
+    this->CurrentCorrectColorIndex = -1;
+    this->bIsCompleted = false;
+    this->FailCounter = 0;
+}
 
 void ASBZConnectedCableBox::SetCorrectColorSequence(const TArray<int32> CorrectSequence) {
 }
@@ -44,14 +60,4 @@ void ASBZConnectedCableBox::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(ASBZConnectedCableBox, FailCounter);
 }
 
-ASBZConnectedCableBox::ASBZConnectedCableBox() {
-    this->AllowedChances = 0;
-    this->CurrentSequenceIndex = 0;
-    this->InteractionStates = 0;
-    this->bIsDoorOpen = false;
-    this->DoorInteractable = NULL;
-    this->CurrentCorrectColorIndex = -1;
-    this->bIsCompleted = false;
-    this->FailCounter = 0;
-}
 

@@ -2,5 +2,5 @@
 #include "CoreMinimal.h"
 #include "OnSafeHouseLoadStartDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSafeHouseLoadStart);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSafeHouseLoadStart);
 

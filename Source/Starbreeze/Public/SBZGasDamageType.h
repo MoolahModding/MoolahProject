@@ -8,5 +8,6 @@ class USBZGasDamageType : public USBZDamageType {
     GENERATED_BODY()
 public:
     USBZGasDamageType();
+
 };
 

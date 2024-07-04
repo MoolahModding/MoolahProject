@@ -10,21 +10,22 @@ class USBZOnlineVoip : public UObject {
     GENERATED_BODY()
 public:
     USBZOnlineVoip();
+
     UFUNCTION(BlueprintCallable)
     void SetCaptureDevice(const FString& DeviceName);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleStateEntered(FName NewState);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetSelectedCaptureDevice();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZOnlineVoip* GetSBZOnlineVoip(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FString> GetCaptureDevices();
     
     UFUNCTION(BlueprintCallable)

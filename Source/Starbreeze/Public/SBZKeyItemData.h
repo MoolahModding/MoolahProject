@@ -16,5 +16,6 @@ public:
     UPaperSprite* KeyItemIcon;
     
     USBZKeyItemData();
+
 };
 

@@ -41,26 +41,27 @@ protected:
     ESBZEventReactorState CurrentState;
     
 public:
-    ASBZPlayerEventReactor();
+    ASBZPlayerEventReactor(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintCallable)
     void SetState(ESBZEventReactorState NewState);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerDefeatStateChanged(const FSBZPlayerDefeatStateChangedData& DefeatStateData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnECMJammerCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZEventReactorState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_PlayAudioReaction(const int32 AudioScreenIndex, ESBZReactionType ReactionType);
     
 };

@@ -4,5 +4,5 @@
 
 class USBZInventoryBaseData;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemButtonSelected, const USBZInventoryBaseData*, ActiveItemData);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemButtonSelected, const USBZInventoryBaseData*, ActiveItemData);
 

@@ -7,3 +7,4 @@ USBZPlaceableTripMineData::USBZPlaceableTripMineData() {
     this->GameplayEffectClass = NULL;
 }
 
+
