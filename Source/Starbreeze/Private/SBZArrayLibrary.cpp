@@ -1,5 +1,8 @@
 #include "SBZArrayLibrary.h"
 
+USBZArrayLibrary::USBZArrayLibrary() {
+}
+
 void USBZArrayLibrary::SortArray(const TArray<UObject*>& Array, TArray<UObject*>& OutArray, const FArraySortDelegate& SortCallback) {
 }
 
@@ -14,6 +17,4 @@ UObject* USBZArrayLibrary::FindArray(const TArray<UObject*>& Array, const FArray
     return NULL;
 }
 
-USBZArrayLibrary::USBZArrayLibrary() {
-}
 

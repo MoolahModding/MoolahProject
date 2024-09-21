@@ -1,5 +1,9 @@
 #include "SBZCivilianManager.h"
 
+USBZCivilianManager::USBZCivilianManager() {
+    this->Settings = NULL;
+}
+
 void USBZCivilianManager::StopStaying() {
 }
 
@@ -17,7 +21,4 @@ USBZCivilianManager* USBZCivilianManager::Get(const UObject* WorldContextObject)
     return NULL;
 }
 
-USBZCivilianManager::USBZCivilianManager() {
-    this->Settings = NULL;
-}
 

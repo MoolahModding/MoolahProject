@@ -1,6 +1,7 @@
 #include "SBZBTTask_MoveTo.h"
 
 USBZBTTask_MoveTo::USBZBTTask_MoveTo() {
+    this->NodeName = TEXT("SBZMoveTo");
     this->bAutoUncrouch = true;
     this->bAutoRun = true;
     this->UncrouchDist = 400.00f;
@@ -12,4 +13,5 @@ USBZBTTask_MoveTo::USBZBTTask_MoveTo() {
     this->bCheckPathEndToGoalHeight = false;
     this->MaxPathEndToGoalHeightDistance = 150.00f;
 }
+
 

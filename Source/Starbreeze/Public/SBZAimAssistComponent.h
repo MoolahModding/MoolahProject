@@ -28,6 +28,7 @@ private:
     float MaxFireTime;
     
 public:
-    USBZAimAssistComponent();
+    USBZAimAssistComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

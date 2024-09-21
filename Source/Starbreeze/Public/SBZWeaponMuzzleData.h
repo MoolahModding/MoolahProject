@@ -17,5 +17,6 @@ public:
     TSoftObjectPtr<UStaticMesh> FireEmitterMesh;
     
     USBZWeaponMuzzleData();
+
 };
 

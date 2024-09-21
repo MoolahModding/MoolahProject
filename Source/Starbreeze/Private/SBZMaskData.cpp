@@ -5,5 +5,7 @@ USBZMaskData::USBZMaskData() {
     this->Material = NULL;
     this->Pattern = NULL;
     this->VFX = NULL;
+    this->bNeedCollisionWithCharacter = false;
 }
+
 

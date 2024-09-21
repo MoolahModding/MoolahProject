@@ -4,3 +4,4 @@ USBZWeaponStickerDataConfig::USBZWeaponStickerDataConfig() {
     this->StickerPositionIndex = 0;
 }
 
+

@@ -12,5 +12,6 @@ public:
     FPostProcessSettings Settings;
     
     USBZPostProcessSettingsPresetDataAsset();
+
 };
 

@@ -19,14 +19,15 @@ protected:
     
 public:
     USBZStateMachineStateOutro();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OutroSequenceTimeout();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleMissionResultReady(const FSBZEndMissionResultData& MissionResultData);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DelayedLeaveOutroSequence();
     
 };

@@ -53,6 +53,7 @@ private:
     
 public:
     USBZMainMenuChallengesWidget();
+
     UFUNCTION(BlueprintCallable)
     void ToggleFilterStatus(EChallengeStatusEnum Status, bool ForceSingleOrNone);
     
@@ -69,16 +70,16 @@ public:
     void PrevPage();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPagesChanged();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNewChallengedFocused(const FSBZChallengeData& InChallengeData);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFilterStatusesChanged();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFilterCategoryChanged();
     
 public:
@@ -86,7 +87,7 @@ public:
     void NextPage();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnChallengeButtonFocusedChanged(USBZMenuButton* InCategoryButton, bool bIsFocused);
     
 public:

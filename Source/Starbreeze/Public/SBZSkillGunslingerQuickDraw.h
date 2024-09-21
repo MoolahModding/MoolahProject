@@ -8,5 +8,6 @@ class USBZSkillGunslingerQuickDraw : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGunslingerQuickDraw();
+
 };
 

@@ -8,5 +8,6 @@ class USBZSignificanceManager : public UObject {
     GENERATED_BODY()
 public:
     USBZSignificanceManager();
+
 };
 

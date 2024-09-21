@@ -7,3 +7,4 @@ USBZPlayerMeleeDamageData::USBZPlayerMeleeDamageData() {
     this->AimAssistSpeed = 2.50f;
 }
 
+

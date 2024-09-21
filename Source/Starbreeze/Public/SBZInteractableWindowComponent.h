@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZInteractableWindowComponent : public USBZInteractableComponent {
     GENERATED_BODY()
 public:
-    USBZInteractableWindowComponent();
+    USBZInteractableWindowComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

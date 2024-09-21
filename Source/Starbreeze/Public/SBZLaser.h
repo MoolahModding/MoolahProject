@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZLaser : public UStaticMeshComponent {
     GENERATED_BODY()
 public:
-    USBZLaser();
+    USBZLaser(const FObjectInitializer& ObjectInitializer);
+
 };
 

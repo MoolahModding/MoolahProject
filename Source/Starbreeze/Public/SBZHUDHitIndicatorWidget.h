@@ -45,8 +45,9 @@ protected:
     
 public:
     USBZHUDHitIndicatorWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
     
 };

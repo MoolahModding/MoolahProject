@@ -20,5 +20,6 @@ public:
     FText DisplayName;
     
     USBZWeaponSightData();
+
 };
 

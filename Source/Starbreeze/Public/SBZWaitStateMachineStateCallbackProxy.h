@@ -21,11 +21,12 @@ private:
     
 public:
     USBZWaitStateMachineStateCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZWaitStateMachineStateCallbackProxy* WaitGameStateMachineState(UObject* NewWorldContextObject, const TEnumAsByte<ESBZGameStateMachineState>& StateToWait);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleStateEntered(FName StateName);
     
 };

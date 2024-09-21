@@ -15,71 +15,72 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_LobbyState, meta=(AllowPrivateAccess=true))
     ASBZLobbyRemoteState* LobbyState;
     
-    ASBZLobbyBeaconClient();
+    ASBZLobbyBeaconClient(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-    UFUNCTION(Reliable, Server)
+
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerUpdateSlot(const FUniqueNetIdRepl& InPlayerId, FSBZSlotData InSlotData);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerUpdatePlayerInfo(const FSBZLobbyCharacterInfo& PlayerInfo);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSetPlayerReady(const FUniqueNetIdRepl& InPlayerId, bool bIsReady);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSetPlayerAcceptedMatch(const FUniqueNetIdRepl& InPlayerId, bool bIsConfirmed);
     
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerReserveSlot(const TArray<FUniqueNetIdRepl>& InPlayerIds);
     
 public:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerRemovePreplanningAsset(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerPlayerToReadyReceive(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ServerPlayerToReady();
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerMoveToServerAck(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerAddPreplanningAsset(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_LobbyState();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void MulticastSlotUpdated(FSBZSlotData InSlotData);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientStopWaitingOtherPlayers();
     
 protected:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientReserveSlotAck(bool bWasSuccessful);
     
 public:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreplanningAssetRemoved(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreplanningAssetRejected();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPreplanningAssetAdded(const FUniqueNetIdRepl& InPlayerId, const FString& AccelByteItemSku);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientInitiateWaitActionPhase();
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientFreeSlot(const FUniqueNetIdRepl& InPlayerId);
     
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientAddSlot(const FUniqueNetIdRepl& InPlayerId);
     
 };

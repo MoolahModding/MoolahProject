@@ -4,6 +4,38 @@
 #include "Components/StaticMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 
+ASBZGrenadeProjectile::ASBZGrenadeProjectile(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bReplicates = true;
+    const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
+    (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    this->RootComponent = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionCapsule"));
+    this->Tags.AddDefaulted(1);
+    this->MarkerAsset = NULL;
+    this->MarkerActivationDelay = 0.50f;
+    this->EquippableIndex = -1;
+    this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
+    this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
+    this->SphereCollision = (USphereComponent*)RootComponent;
+    this->OwnerCharacter = NULL;
+    this->Delay = 3.00f;
+    this->DetonationEvent = NULL;
+    this->FiredEvent = NULL;
+    this->DetonationEffect = NULL;
+    this->DamageGameplayEffectClass = NULL;
+    this->DamageTypeClass = NULL;
+    this->LocalPlayerFeedback = NULL;
+    this->LocalPlayerInstigatorFeedback = NULL;
+    this->Data = NULL;
+    this->RangedWeaponData = NULL;
+    this->bReduceBouncinessPerBounce = false;
+    this->BouncinessReductionValue = 0.70f;
+    this->MaxTimesToReduceBounciness = 3;
+    this->MaxBounces = 10;
+    this->bEnablePhysicsOnStopped = false;
+    this->bWantsLocationRotation = false;
+    this->StaticMesh->SetupAttachment(RootComponent);
+}
+
 void ASBZGrenadeProjectile::OnRep_EquippableIndex() {
 }
 
@@ -32,6 +64,9 @@ void ASBZGrenadeProjectile::Multicast_SetEquippableIndex_Implementation(int32 In
 void ASBZGrenadeProjectile::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
 }
 
+void ASBZGrenadeProjectile::Multicast_OnServerCollision_Implementation(const FVector_NetQuantize& InLocation) {
+}
+
 void ASBZGrenadeProjectile::Multicast_DestroyBreakable_Implementation(const FHitResult& InBreakableHitResult) {
 }
 
@@ -41,28 +76,4 @@ void ASBZGrenadeProjectile::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
     DOREPLIFETIME(ASBZGrenadeProjectile, EquippableIndex);
 }
 
-ASBZGrenadeProjectile::ASBZGrenadeProjectile() {
-    this->MarkerAsset = NULL;
-    this->MarkerActivationDelay = 0.50f;
-    this->EquippableIndex = -1;
-    this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
-    this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
-    this->SphereCollision = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionCapsule"));
-    this->OwnerCharacter = NULL;
-    this->Delay = 3.00f;
-    this->DetonationEvent = NULL;
-    this->FiredEvent = NULL;
-    this->DetonationEffect = NULL;
-    this->DamageGameplayEffectClass = NULL;
-    this->DamageTypeClass = NULL;
-    this->LocalplayerFeedback = NULL;
-    this->Data = NULL;
-    this->RangedWeaponData = NULL;
-    this->bReduceBouncinessPerBounce = false;
-    this->BouncinessReductionValue = 0.70f;
-    this->MaxTimesToReduceBounciness = 3;
-    this->MaxBounces = 10;
-    this->bEnablePhysicsOnStopped = false;
-    this->bWantsLocationRotation = false;
-}
 

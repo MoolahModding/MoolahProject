@@ -57,6 +57,7 @@ protected:
     
 public:
     USBZMainMenuWeaponProgressionDisplayWidget();
+
     UFUNCTION(BlueprintCallable)
     void UpdateWeaponVisuals(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
@@ -67,13 +68,13 @@ public:
     void SetEmpty();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNewWeaponData();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDataEmpty();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnBaseData();
     
 public:

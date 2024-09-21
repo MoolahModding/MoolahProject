@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EFriendStatus.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "SBZUserActivity.h"
 #include "SBZFriendListEntry.generated.h"
 
@@ -29,10 +30,19 @@ public:
     FString PlatformId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZFirstPartyPlatform FirstPartyPlatform;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EFriendStatus FriendStatus;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LevelIdx;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 InfamyLevel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 RenownLevel;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bPlatformBlocked;

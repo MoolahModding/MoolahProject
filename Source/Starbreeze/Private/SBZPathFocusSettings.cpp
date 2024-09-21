@@ -8,3 +8,4 @@ USBZPathFocusSettings::USBZPathFocusSettings() {
     this->MinShotRadius = 700.00f;
 }
 
+

@@ -12,5 +12,6 @@ public:
     ESBZReturnToIISReason ReturnReason;
     
     USBZStateMachineDataIIS();
+
 };
 

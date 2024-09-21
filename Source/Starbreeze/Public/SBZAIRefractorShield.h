@@ -38,14 +38,15 @@ private:
     bool bHasDeployed;
     
 public:
-    ASBZAIRefractorShield();
+    ASBZAIRefractorShield(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_HasDeployed();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPropDamaged(UActorComponent* PoolComponent, float Health, bool bDoCosmetics, const FSBZPropDamageContext& DamageContext);
     
 };

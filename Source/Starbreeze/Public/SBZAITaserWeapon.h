@@ -14,6 +14,7 @@ private:
     USBZVoiceCommentDataAsset* TasingComment;
     
 public:
-    ASBZAITaserWeapon();
+    ASBZAITaserWeapon(const FObjectInitializer& ObjectInitializer);
+
 };
 

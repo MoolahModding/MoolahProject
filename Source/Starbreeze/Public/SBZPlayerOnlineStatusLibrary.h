@@ -8,5 +8,6 @@ class USBZPlayerOnlineStatusLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     USBZPlayerOnlineStatusLibrary();
+
 };
 

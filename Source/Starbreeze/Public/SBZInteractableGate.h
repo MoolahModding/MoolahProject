@@ -28,27 +28,28 @@ protected:
     uint8 bIsMinigameFrontOnly: 1;
     
 public:
-    ASBZInteractableGate();
+    ASBZInteractableGate(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPredictedEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMiniGameStateChanged(EPD3MiniGameState OldState, EPD3MiniGameState NewState, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckRejectedPredictedInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

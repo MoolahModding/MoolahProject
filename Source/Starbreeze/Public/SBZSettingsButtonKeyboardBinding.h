@@ -23,6 +23,7 @@ protected:
     
 public:
     USBZSettingsButtonKeyboardBinding();
+
     UFUNCTION(BlueprintCallable)
     void SetSecondaryBinding(FInputChord InBinding);
     

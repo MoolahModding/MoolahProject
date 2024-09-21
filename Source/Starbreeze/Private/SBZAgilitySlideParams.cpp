@@ -16,3 +16,4 @@ USBZAgilitySlideParams::USBZAgilitySlideParams() {
     this->CancelingBackInputAlpha = -0.90f;
 }
 
+

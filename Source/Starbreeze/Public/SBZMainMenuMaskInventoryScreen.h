@@ -69,70 +69,71 @@ private:
     
 public:
     USBZMainMenuMaskInventoryScreen();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardMaskInSlot(int32 InMaskIndex);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RefreshWidgetVisuals();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryBuyMaskSlot();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSlotPurchaseComplete(bool bWasSuccessful);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSlotPriceChanged(const FSBZInventorySlotStoreItem& Item);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnShowBuySlotPopUpClosed(FName InActionName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDiscarded(bool bWasSuccessful);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnEditButtonPressed(int32 MaskSlotIndex);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDiscardMaskPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnMaskSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnMaskSlotButtonAltSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnMaskDefaultButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnDefaultSet(ESBZMetaRequestResult Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeMaskSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void MaskSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DiscardItemDone(ESBZMetaRequestResult DiscardItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanDiscardMaskInSlot(int32 InMaskIndex) const;
     
 };

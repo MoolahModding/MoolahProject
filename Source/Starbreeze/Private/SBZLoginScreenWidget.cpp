@@ -1,14 +1,7 @@
 #include "SBZLoginScreenWidget.h"
 
-
-void USBZLoginScreenWidget::OnWebPageClosed(const FString& InFinalWebURL) {
-}
-
-
-void USBZLoginScreenWidget::OnCreateAccountBrowserSelected(USBZMenuButton* InSelectedButton) {
-}
-
 USBZLoginScreenWidget::USBZLoginScreenWidget() {
+    this->StackValue = TEXT("Default__SBZLoginScreenWidget");
     this->ProdAccountCreateURLGameSense = TEXT("https://t.paydaythegame.com/c/4k8d2q");
     this->DevAccountCreateURLGameSense = TEXT("https://t.paydaythegame.com/c/0jderb");
     this->ProdAccountCreateURL = TEXT("https://nebula.starbreeze.com/register/");
@@ -19,4 +12,13 @@ USBZLoginScreenWidget::USBZLoginScreenWidget() {
     this->Text_PlatformName = NULL;
     this->Image_PlatformSprite = NULL;
 }
+
+
+void USBZLoginScreenWidget::OnWebPageClosed(const FString& InFinalWebURL) {
+}
+
+
+void USBZLoginScreenWidget::OnCreateAccountBrowserSelected(USBZMenuButton* InSelectedButton) {
+}
+
 

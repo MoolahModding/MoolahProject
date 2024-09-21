@@ -26,6 +26,18 @@ protected:
     FRuntimeFloatCurve SightDetectionCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUsePeripheralMultiplierCurve;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRuntimeFloatCurve PeripheralVisionDetectionMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseMovementAdditiveCurve;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRuntimeFloatCurve MovementAdditiveSightCurve;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bMarkAsCriminalOnSearch;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -51,24 +63,25 @@ private:
     TArray<FSBZVisualDetectionValues> EnemyDetectionValue;
     
 public:
-    USBZAIVisualDetectionComponent();
+    USBZAIVisualDetectionComponent(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnTargetIllegalAction(AActor* Target);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnLifetimeChanged(APawn* TargetPawn);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHostageStateChanged(uint8 HostageState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGameStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleOnNewPawn(APawn* Pawn);
     
 };

@@ -20,6 +20,7 @@ private:
     
 public:
     USBZOnlineGetAvailableRegions();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZOnlineGetAvailableRegions* GetAvailableRegions(UObject* NewWorldContextObject);
     

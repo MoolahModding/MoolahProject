@@ -7,6 +7,7 @@ UCLASS(Blueprintable, EditInlineNew, HideDropdown, ClassGroup=Custom, meta=(Blue
 class USBZGateNavLinkAgilityComponent : public USBZNavLinkAgilityComponent {
     GENERATED_BODY()
 public:
-    USBZGateNavLinkAgilityComponent();
+    USBZGateNavLinkAgilityComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

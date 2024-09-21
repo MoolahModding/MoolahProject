@@ -49,5 +49,6 @@ public:
     int32 CompleteOrderForResults;
     
     USBZAIActionData_LifeAction();
+
 };
 

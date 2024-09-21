@@ -4,3 +4,4 @@ USBZGloveInventorySlotData::USBZGloveInventorySlotData() {
     this->GloveBaseSlot = NULL;
 }
 
+

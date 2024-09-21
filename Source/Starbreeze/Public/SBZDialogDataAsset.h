@@ -35,5 +35,6 @@ public:
     TArray<FSBZVoiceSwitchPerPerformer> VoiceSwitchesPerPerformer;
     
     USBZDialogDataAsset();
+
 };
 

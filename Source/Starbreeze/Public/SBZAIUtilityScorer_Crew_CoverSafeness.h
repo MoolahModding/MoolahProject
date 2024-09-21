@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_Crew_CoverSafeness : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_Crew_CoverSafeness();
+
 };
 

@@ -8,5 +8,6 @@ class USBZSkillScramblerScrambler : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillScramblerScrambler();
+
 };
 

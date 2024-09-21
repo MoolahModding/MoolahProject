@@ -1,5 +1,12 @@
 #include "SBZMainMenuPrePlanningItemSelectionWidget.h"
 
+USBZMainMenuPrePlanningItemSelectionWidget::USBZMainMenuPrePlanningItemSelectionWidget() {
+    this->StackValue = TEXT("Default__SBZMainMenuPrePlanningItemSelectionWidget");
+    this->Panel_ButtonList = NULL;
+    this->PreplanningItemButtonClass = NULL;
+    this->CachedPlayerInventory = NULL;
+}
+
 void USBZMainMenuPrePlanningItemSelectionWidget::UpdateAvailablePrePlanningAssetList() {
 }
 
@@ -20,9 +27,4 @@ void USBZMainMenuPrePlanningItemSelectionWidget::NativePreplanningAssetAddedByPl
 void USBZMainMenuPrePlanningItemSelectionWidget::NativeOnPrePlanningItemButtonSelected(USBZMenuButton* InButton) {
 }
 
-USBZMainMenuPrePlanningItemSelectionWidget::USBZMainMenuPrePlanningItemSelectionWidget() {
-    this->Panel_ButtonList = NULL;
-    this->PreplanningItemButtonClass = NULL;
-    this->CachedPlayerInventory = NULL;
-}
 

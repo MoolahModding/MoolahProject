@@ -8,5 +8,6 @@ class USBZMiniGameActorRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZMiniGameActorRequirement();
+
 };
 

@@ -13,5 +13,6 @@ private:
     
 public:
     USBZBTDecorator_IsEquippedAtIndex();
+
 };
 

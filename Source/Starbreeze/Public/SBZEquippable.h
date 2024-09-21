@@ -57,11 +57,12 @@ protected:
     FName EquipmentState;
     
 public:
-    ASBZEquippable();
+    ASBZEquippable(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_EquippableIndex();
     
 };

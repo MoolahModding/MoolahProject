@@ -8,5 +8,6 @@ class USBZGameplayAbility_CharacterTarget : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZGameplayAbility_CharacterTarget();
+
 };
 

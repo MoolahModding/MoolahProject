@@ -19,33 +19,34 @@ protected:
     
 public:
     USBZMainMenuInventoryMaskSlotButton();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveMaskSlot(bool bIsActiveMaskSlot);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMaskSlotInitialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPresetMaskSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPreconfigMaskSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeMaskSlot(int32 InMaskSlotIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMaskSlotIndex() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZMaskInventorySlot GetMaskSlot() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZMaskData* GetMaskInSlot() const;
     
 };

@@ -33,5 +33,6 @@ private:
     
 public:
     USBZBTTask_ShieldCoverStepOut();
+
 };
 

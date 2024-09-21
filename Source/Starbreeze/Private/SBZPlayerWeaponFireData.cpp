@@ -1,9 +1,8 @@
 #include "SBZPlayerWeaponFireData.h"
 
-void USBZPlayerWeaponFireData::GetDamageOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutDamageArray) const {
-}
-
 USBZPlayerWeaponFireData::USBZPlayerWeaponFireData() {
+    this->CriticalDamageMultiplierDistanceArray.AddDefaulted(1);
+    this->DamageDistanceProjectileArray.AddDefaulted(1);
     this->DamageDistanceArray.AddDefaulted(1);
     this->TimeBetweenBurstsSeconds = 0.00f;
     this->bIsReloadEndCycledEachRound = false;
@@ -14,4 +13,8 @@ USBZPlayerWeaponFireData::USBZPlayerWeaponFireData() {
     this->AmmoInventory = 100;
     this->MuzzleData = NULL;
 }
+
+void USBZPlayerWeaponFireData::GetDamageOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutDamageArray) const {
+}
+
 

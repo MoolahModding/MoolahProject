@@ -1,6 +1,9 @@
 #include "SBZActorPoolManager.h"
 #include "Templates/SubclassOf.h"
 
+USBZActorPoolManager::USBZActorPoolManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+}
+
 void USBZActorPoolManager::ReturnActor(AActor* Actor, float Delay) {
 }
 
@@ -21,6 +24,4 @@ USBZActorPoolManager* USBZActorPoolManager::Get(const UObject* WorldContextObjec
     return NULL;
 }
 
-USBZActorPoolManager::USBZActorPoolManager() {
-}
 

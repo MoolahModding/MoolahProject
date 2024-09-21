@@ -4,5 +4,5 @@
 
 class ASBZPlayerStartGroup;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSpawnGroupChosen, ASBZPlayerStartGroup*, PlayerStartGroup);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnSpawnGroupChosen, ASBZPlayerStartGroup*, PlayerStartGroup);
 

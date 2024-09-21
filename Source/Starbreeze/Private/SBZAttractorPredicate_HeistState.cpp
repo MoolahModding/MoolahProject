@@ -4,3 +4,4 @@ USBZAttractorPredicate_HeistState::USBZAttractorPredicate_HeistState() {
     this->AllowedHeistStates = -1;
 }
 
+

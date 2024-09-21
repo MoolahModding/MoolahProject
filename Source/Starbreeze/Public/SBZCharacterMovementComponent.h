@@ -50,6 +50,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TraversingHalfHeight;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float TraversingMaxAngle;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZCharacterMovementState CharacterMovementState;
     
@@ -57,43 +60,44 @@ protected:
     ASBZCharacter* SBZCharacterOwner;
     
 public:
-    USBZCharacterMovementComponent();
+    USBZCharacterMovementComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_StopZipline(const bool bWasCancelled);
     
 public:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_StopSlide();
     
 protected:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_StartZipline(ASBZZipline* InZipline, const bool bIsMovingZiplineForward, const float InTimeOnZipline);
     
 public:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_StartTraversal(const FSBZMinimalAgilityTraversalTrajectory& MinimalTrajectory);
     
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_StartSlide(const FVector& InSlideDirection, const FVector& InEndSlideLocation);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NetMulticast_StopTraversal();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NetMulticast_StopSlide();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NetMulticast_StartTraversal(const FSBZMinimalAgilityTraversalTrajectory& MinimalTrajectory);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void NetMulticast_StartSlide(const FVector& InSlideDirection, const FVector& InEndSlideLocation);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopZipline(const bool bWasCancelled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartZipline(ASBZZipline* InZipline, const bool bIsMovingZiplineForward, const float InTimeOnZipline);
     
 };

@@ -22,6 +22,7 @@ protected:
     int32 FuzzingSeed;
     
 public:
-    ASBZAirPathTestActor();
+    ASBZAirPathTestActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

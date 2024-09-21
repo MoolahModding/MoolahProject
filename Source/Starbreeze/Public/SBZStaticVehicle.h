@@ -46,9 +46,10 @@ protected:
     UAkAudioEvent* AlarmStopEvent;
     
 public:
-    ASBZStaticVehicle();
+    ASBZStaticVehicle(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void TryActivateAlarm();
     
 private:

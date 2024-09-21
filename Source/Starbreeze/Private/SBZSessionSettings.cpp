@@ -4,3 +4,4 @@ USBZSessionSettings::USBZSessionSettings() {
     this->SessionSettingsManager = NULL;
 }
 
+

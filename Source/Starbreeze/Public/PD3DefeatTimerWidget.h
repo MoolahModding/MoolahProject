@@ -16,8 +16,9 @@ private:
     
 public:
     UPD3DefeatTimerWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
 };

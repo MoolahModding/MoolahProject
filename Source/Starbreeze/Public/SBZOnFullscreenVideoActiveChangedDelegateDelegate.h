@@ -4,5 +4,5 @@
 
 class USBZFullscreenVideoWidget;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZOnFullscreenVideoActiveChangedDelegate, USBZFullscreenVideoWidget*, InWidget, bool, bInIsActive);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSBZOnFullscreenVideoActiveChangedDelegate, USBZFullscreenVideoWidget*, InWidget, bool, bInIsActive);
 

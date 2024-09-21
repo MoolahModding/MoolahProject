@@ -16,25 +16,26 @@ private:
     
 public:
     USBZViewTargetWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SecurityCameraStateChanged(ESBZCameraState CurrentState);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SecurityCameraRuntimeStateChanged(uint8 NewState);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSecurityCameraStateChanged(ESBZCameraState OldState, ESBZCameraState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSecurityCameraRuntimeStateChanged(uint8 NewState);
     
 public:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnNewTarget();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFocusedChanged(bool bIsFocused);
     
 };

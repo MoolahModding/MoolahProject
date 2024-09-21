@@ -31,6 +31,7 @@ protected:
     UCharacterMovementComponent* OwnerCharacterMovementComponent;
     
 public:
-    USBZCharacterMantlingComponent();
+    USBZCharacterMantlingComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

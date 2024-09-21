@@ -8,5 +8,6 @@ class USBZEnvQueryTest_IsInCover : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_IsInCover();
+
 };
 

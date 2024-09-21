@@ -13,5 +13,6 @@ public:
     ASBZCharacter* Target;
     
     USBZAIActionData_Revive();
+
 };
 

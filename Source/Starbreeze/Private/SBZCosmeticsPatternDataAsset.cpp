@@ -6,3 +6,4 @@ USBZCosmeticsPatternDataAsset::USBZCosmeticsPatternDataAsset() {
     this->ActiveChannelCount = 4;
 }
 
+

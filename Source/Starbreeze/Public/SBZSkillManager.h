@@ -26,6 +26,7 @@ private:
     
 public:
     USBZSkillManager();
+
     UFUNCTION(BlueprintCallable)
     bool UnequipSkills(TArray<USBZSkill*>& Skills, FSBZPlayerLoadoutConfig& PlayerLoadoutConfig);
     
@@ -35,19 +36,19 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetResearchMarkerOnSkillLine(const USBZSkillLine* SkillLine);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSkillEquippable(const USBZSkill* Skill, const FSBZPlayerLoadoutConfig& PlayerLoadoutConfig) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSkillPointsFromInfamyLevel(int32 InfamyLevel) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSkillPointsFromInfamyExperience(int32 InfamyExperience) const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZSkillManager* GetSkillManager(const UObject* WorldContextObject);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZSkill* GetProgressingSkill(const USBZSkillLine* SkillLine) const;
     
     UFUNCTION(BlueprintCallable)
@@ -62,10 +63,10 @@ public:
     UFUNCTION(BlueprintCallable)
     USBZSkillLine* GetPlayerSkillLine(const FName& AccelByteSkuNo);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMaxProgressLevel(const USBZSkillLineData* SkillLine) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetEarnedSkillPoints();
     
     UFUNCTION(BlueprintCallable)

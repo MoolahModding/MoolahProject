@@ -14,6 +14,6 @@ enum class ESBZEquippableFamily : uint8 {
     DualWield,
     HandheldItem,
     Last,
-    First = 0x0,
+    First = HandsFree,
 };
 

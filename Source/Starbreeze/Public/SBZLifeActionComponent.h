@@ -43,49 +43,50 @@ protected:
     TArray<ASkeletalMeshActor*> PreviewSkeletals;
     
 public:
-    USBZLifeActionComponent();
+    USBZLifeActionComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotStart(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotReserved(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotReady(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotExited(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSlotEntered(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot);
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCharacterPlayingAction(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsCharacterPendingAction(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FTransform GetSlotTransformForCharacter(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZLifeActionSlot* GetReservedSlotForCharacter(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     ASBZCharacter* GetCharacterInActionSlot(const FGameplayTag& LifeActionSlotTag, const USBZLifeActionInstance* LifeActionInstance) const;
     
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintPure)
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     ASBZCharacter* GetCharacterInAction(const FGameplayTag& LifeActionTag) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZLifeActionInstance* GetActionWithReservedSlotForCharacter(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZLifeActionInstance* GetActionForSlot(const USBZLifeActionSlot* Slot);
     
 };

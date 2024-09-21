@@ -23,12 +23,13 @@ protected:
     
 public:
     USBZSpawnManager();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPawnLifetimeChanged(APawn* Pawn);
     
 public:
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZSpawnManager* Get(const UObject* WorldContextObject);
     
 };

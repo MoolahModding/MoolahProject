@@ -63,6 +63,9 @@ protected:
     FGameplayTagContainer BlockGoDownTagContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer BlockSurrenderOwnedTagContainer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMarkerDataAsset* PingMarkerAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -81,27 +84,28 @@ protected:
     TMap<ESBZShoutActionType, FGameplayTagContainer> ActivationBlockedTags;
     
 public:
-    USBZShoutoutComponent();
+    USBZShoutoutComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void SetMarkLimit(int32 NewLimit);
     
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_Shoutout(AActor* Actor, ESBZShoutActionType Action, USBZShoutTargetComponent* Target);
     
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SendPing(const FVector& Location);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPingComplete();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ShoutoutWithoutTarget(ESBZShoutActionType Action);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Shoutout(AActor* Actor, ESBZShoutActionType Action, USBZShoutTargetComponent* Target);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SendPing(const FVector& Location);
     
 public:

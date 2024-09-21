@@ -1,5 +1,9 @@
 #include "SBZStateMachineStateJobOverview.h"
 
+USBZStateMachineStateJobOverview::USBZStateMachineStateJobOverview() {
+    this->JobOverviewWidget = NULL;
+}
+
 void USBZStateMachineStateJobOverview::WaitForRandomizedRooms() {
 }
 
@@ -28,6 +32,9 @@ void USBZStateMachineStateJobOverview::PlayerDisconnectedAtBeacon(const FUniqueN
 }
 
 void USBZStateMachineStateJobOverview::OnPlayerBeginPlayState(ASBZPlayerController* PlayerController) {
+}
+
+void USBZStateMachineStateJobOverview::OnLocalPlayerStateReady() {
 }
 
 void USBZStateMachineStateJobOverview::OnAllPlayersReady(EBlackScreenTransitionType BlackScreenTransitionType) {
@@ -63,7 +70,4 @@ void USBZStateMachineStateJobOverview::ClientDisconnected(const FUniqueNetIdRepl
 void USBZStateMachineStateJobOverview::AutoReadyTimeout() {
 }
 
-USBZStateMachineStateJobOverview::USBZStateMachineStateJobOverview() {
-    this->JobOverviewWidget = NULL;
-}
 

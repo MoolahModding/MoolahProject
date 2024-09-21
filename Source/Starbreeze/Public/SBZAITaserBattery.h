@@ -16,6 +16,7 @@ private:
     FGameplayTagContainer LawEnforcerTags;
     
 public:
-    USBZAITaserBattery();
+    USBZAITaserBattery(const FObjectInitializer& ObjectInitializer);
+
 };
 

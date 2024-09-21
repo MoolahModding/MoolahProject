@@ -14,8 +14,9 @@ protected:
     
 public:
     USBZBlackMarketConfirmationPopupBody();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDataInitialized();
     
 };

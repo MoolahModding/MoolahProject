@@ -8,5 +8,6 @@ class USBZPocketDrillInteractRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZPocketDrillInteractRequirement();
+
 };
 

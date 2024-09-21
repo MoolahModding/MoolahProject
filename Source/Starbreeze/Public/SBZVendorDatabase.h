@@ -13,5 +13,6 @@ public:
     TArray<USBZVendorData*> VendorArray;
     
     USBZVendorDatabase();
+
 };
 

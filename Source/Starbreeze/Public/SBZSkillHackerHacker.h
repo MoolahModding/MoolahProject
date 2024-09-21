@@ -8,5 +8,6 @@ class USBZSkillHackerHacker : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillHackerHacker();
+
 };
 

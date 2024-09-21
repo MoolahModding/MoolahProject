@@ -4,5 +4,5 @@
 
 class UPD3KeyItemContainer;
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnKeyItemCountChangedDelegate, UPD3KeyItemContainer*, InContainer);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSBZOnKeyItemCountChangedDelegate, UPD3KeyItemContainer*, InContainer);
 

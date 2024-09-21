@@ -8,5 +8,6 @@ class STARBREEZE_API USBZStateMachineStateReplay : public USBZClientStateMachine
     GENERATED_BODY()
 public:
     USBZStateMachineStateReplay();
+
 };
 

@@ -11,6 +11,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZReactionData Reaction;
     
-    USBZReactionDataComponent();
+    USBZReactionDataComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

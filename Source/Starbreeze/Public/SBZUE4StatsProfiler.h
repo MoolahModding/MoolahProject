@@ -10,15 +10,16 @@ class STARBREEZE_API USBZUE4StatsProfiler : public UObject {
     GENERATED_BODY()
 public:
     USBZUE4StatsProfiler();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnExitedActionPhase();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEnteredActionPhase();
     
 public:
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZUE4StatsProfiler* GetUE4StatsProfiler(const UObject* WorldContextObject);
     
 };

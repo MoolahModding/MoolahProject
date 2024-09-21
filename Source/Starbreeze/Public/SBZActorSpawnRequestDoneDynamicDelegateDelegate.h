@@ -6,5 +6,5 @@
 
 class AActor;
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_ThreeParams(FSBZActorSpawnRequestDoneDynamicDelegate, FSBZActorSpawnRequestHandle, RequestHandle, const TArray<AActor*>&, CreatedActorArray, ESBZSpawnRequestStatus, FinalStatus);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_ThreeParams(FSBZActorSpawnRequestDoneDynamicDelegate, FSBZActorSpawnRequestHandle, RequestHandle, const TArray<AActor*>&, CreatedActorArray, ESBZSpawnRequestStatus, FinalStatus);
 

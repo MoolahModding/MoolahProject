@@ -8,5 +8,6 @@ class USBZSkillDemolitionistExtraMunitions : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillDemolitionistExtraMunitions();
+
 };
 

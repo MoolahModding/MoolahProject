@@ -1,5 +1,8 @@
 #include "SBZInfamyManager.h"
 
+USBZInfamyManager::USBZInfamyManager() {
+}
+
 void USBZInfamyManager::HandleOnStateMachineStateEntered(FName StateName) {
 }
 
@@ -42,6 +45,4 @@ int32 USBZInfamyManager::ClientGetCurrentExperience() const {
     return 0;
 }
 
-USBZInfamyManager::USBZInfamyManager() {
-}
 

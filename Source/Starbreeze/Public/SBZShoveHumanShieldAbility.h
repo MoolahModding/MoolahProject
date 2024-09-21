@@ -8,5 +8,6 @@ class USBZShoveHumanShieldAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZShoveHumanShieldAbility();
+
 };
 

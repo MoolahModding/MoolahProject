@@ -8,5 +8,6 @@ class USBZHackingToolStartSynchingNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZHackingToolStartSynchingNotify();
+
 };
 

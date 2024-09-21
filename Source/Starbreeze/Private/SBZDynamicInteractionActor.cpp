@@ -1,5 +1,6 @@
 #include "SBZDynamicInteractionActor.h"
 
-ASBZDynamicInteractionActor::ASBZDynamicInteractionActor() {
+ASBZDynamicInteractionActor::ASBZDynamicInteractionActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

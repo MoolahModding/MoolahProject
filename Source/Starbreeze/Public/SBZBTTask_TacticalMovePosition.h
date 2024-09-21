@@ -37,5 +37,6 @@ private:
     
 public:
     USBZBTTask_TacticalMovePosition();
+
 };
 

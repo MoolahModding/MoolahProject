@@ -8,5 +8,6 @@ class USBZSkillGrifterWalkTheWalk : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillGrifterWalkTheWalk();
+
 };
 

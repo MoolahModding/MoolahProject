@@ -7,11 +7,11 @@ enum class ESBZSuitBaseCPDBits : uint8 {
     NONE,
     BIT0,
     BIT1,
-    BIT2 = 0x4,
-    BIT3 = 0x8,
-    BIT4 = 0x10,
-    BIT5 = 0x20,
-    BIT6 = 0x40,
-    BIT7 = 0x80,
+    BIT2 = 4,
+    BIT3 = 8,
+    BIT4 = 16,
+    BIT5 = 32,
+    BIT6 = 64,
+    BIT7 = 128,
 };
 

@@ -32,6 +32,7 @@ protected:
     bool bCarryOnBreak;
     
 public:
-    USBZDozerFaceArmor();
+    USBZDozerFaceArmor(const FObjectInitializer& ObjectInitializer);
+
 };
 

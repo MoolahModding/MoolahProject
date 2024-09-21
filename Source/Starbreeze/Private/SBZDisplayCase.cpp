@@ -3,6 +3,30 @@
 #include "SBZAIAttractorComponent.h"
 #include "SBZPropDamageComponent.h"
 
+ASBZDisplayCase::ASBZDisplayCase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bHasLock = false;
+    this->bHasAlarm = false;
+    this->bHasLockdown = false;
+    this->bShouldHackLiftLockdown = true;
+    this->bCanBeClosed = false;
+    this->bMustLockpickAllLocks = false;
+    this->bIsLocksDisabledOnLockdown = false;
+    this->SoundRange = 1500.00f;
+    this->bIsLocked = false;
+    this->bIsLarmed = false;
+    this->AttractorComponent = CreateDefaultSubobject<USBZAIAttractorComponent>(TEXT("SBZAIAttractorComponent"));
+    this->AlarmNotificationAsset = NULL;
+    this->ShutterMesh = NULL;
+    this->DefaultLock = NULL;
+    this->DefaultAlarm = NULL;
+    this->CurrentState = ESBZDisplayCaseState::Closed;
+    this->PropDamage = CreateDefaultSubobject<USBZPropDamageComponent>(TEXT("SBZPropDamageComponent"));
+    this->BrokenMesh = NULL;
+    this->PreviousState = ESBZDisplayCaseState::Closed;
+    this->TargetState = ESBZDisplayCaseState::None;
+    this->AttachedLoot = NULL;
+}
+
 void ASBZDisplayCase::SetLockdownEnabled(bool bEnabled) {
 }
 
@@ -52,27 +76,4 @@ void ASBZDisplayCase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZDisplayCase, CurrentState);
 }
 
-ASBZDisplayCase::ASBZDisplayCase() {
-    this->bHasLock = false;
-    this->bHasAlarm = false;
-    this->bHasLockdown = false;
-    this->bShouldHackLiftLockdown = true;
-    this->bCanBeClosed = false;
-    this->bMustLockpickAllLocks = false;
-    this->bIsLocksDisabledOnLockdown = false;
-    this->SoundRange = 1500.00f;
-    this->bIsLocked = false;
-    this->bIsLarmed = false;
-    this->AttractorComponent = CreateDefaultSubobject<USBZAIAttractorComponent>(TEXT("SBZAIAttractorComponent"));
-    this->AlarmNotificationAsset = NULL;
-    this->ShutterMesh = NULL;
-    this->DefaultLock = NULL;
-    this->DefaultAlarm = NULL;
-    this->CurrentState = ESBZDisplayCaseState::Closed;
-    this->PropDamage = CreateDefaultSubobject<USBZPropDamageComponent>(TEXT("SBZPropDamageComponent"));
-    this->BrokenMesh = NULL;
-    this->PreviousState = ESBZDisplayCaseState::Closed;
-    this->TargetState = ESBZDisplayCaseState::None;
-    this->AttachedLoot = NULL;
-}
 

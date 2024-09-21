@@ -4,3 +4,4 @@ USBZMaskInventorySlotData::USBZMaskInventorySlotData() {
     this->MaskMouldSlot = NULL;
 }
 
+

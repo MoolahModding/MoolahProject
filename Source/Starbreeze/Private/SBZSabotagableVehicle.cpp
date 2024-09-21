@@ -5,6 +5,25 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZPredefinedBoxNavModifierComponent.h"
 
+ASBZSabotagableVehicle::ASBZSabotagableVehicle(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
+    this->SabotagePointClass = NULL;
+    this->MovingNavModifier = CreateDefaultSubobject<USBZPredefinedBoxNavModifierComponent>(TEXT("SBZPredefinedBoxNavModifierComponent"));
+    this->SabotagePointInstance = NULL;
+    this->EscortCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
+    this->SpeedPerPlayer = 1.20f;
+    this->PlayersOverlapping = 0;
+    this->bEscortModeEnabled = false;
+    this->bStartWithEscortModeEnabled = false;
+    this->EscortCapsulePreplanningRadius = 800.00f;
+    this->EscortCapsulePreplanningHalfHeight = 800.00f;
+    this->InsideTruckVolume = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
+    this->InsideTruckTeleportLocation = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
+    this->EscortCapsule->SetupAttachment(RootComponent);
+    this->InsideTruckVolume->SetupAttachment(RootComponent);
+    this->InsideTruckTeleportLocation->SetupAttachment(RootComponent);
+}
+
 void ASBZSabotagableVehicle::UpdateSabotageVehicle() {
 }
 
@@ -56,18 +75,4 @@ void ASBZSabotagableVehicle::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(ASBZSabotagableVehicle, bEscortModeEnabled);
 }
 
-ASBZSabotagableVehicle::ASBZSabotagableVehicle() {
-    this->SabotagePointClass = NULL;
-    this->MovingNavModifier = CreateDefaultSubobject<USBZPredefinedBoxNavModifierComponent>(TEXT("SBZPredefinedBoxNavModifierComponent"));
-    this->SabotagePointInstance = NULL;
-    this->EscortCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
-    this->SpeedPerPlayer = 1.20f;
-    this->PlayersOverlapping = 0;
-    this->bEscortModeEnabled = false;
-    this->bStartWithEscortModeEnabled = false;
-    this->EscortCapsulePreplanningRadius = 800.00f;
-    this->EscortCapsulePreplanningHalfHeight = 800.00f;
-    this->InsideTruckVolume = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
-    this->InsideTruckTeleportLocation = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
-}
 

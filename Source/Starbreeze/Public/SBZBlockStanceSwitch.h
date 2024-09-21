@@ -8,5 +8,6 @@ class USBZBlockStanceSwitch : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZBlockStanceSwitch();
+
 };
 

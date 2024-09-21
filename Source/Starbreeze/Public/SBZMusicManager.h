@@ -25,6 +25,7 @@ protected:
     
 public:
     USBZMusicManager();
+
     UFUNCTION(BlueprintCallable)
     void StopMusic();
     
@@ -46,10 +47,10 @@ public:
     UFUNCTION(BlueprintCallable)
     void PlayMusic(UAkAudioEvent* AudioEvent, bool bStopCurrent);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMuted() const;
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZMusicManager* GetMusicManager(const UObject* WorldContextObject);
     
 };

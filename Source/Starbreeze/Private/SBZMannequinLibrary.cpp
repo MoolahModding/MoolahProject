@@ -1,5 +1,8 @@
 #include "SBZMannequinLibrary.h"
 
+USBZMannequinLibrary::USBZMannequinLibrary() {
+}
+
 void USBZMannequinLibrary::SetMainMenuMannequinPose(const UObject* WorldContextObject, UAnimSequenceBase* Pose) {
 }
 
@@ -20,6 +23,4 @@ ASBZMainMenuPlayerCharacter* USBZMannequinLibrary::GetMainMenuMannequin(const UO
     return NULL;
 }
 
-USBZMannequinLibrary::USBZMannequinLibrary() {
-}
 

@@ -13,6 +13,7 @@ class STARBREEZE_API USBZMetaFunctionLibrary : public UBlueprintFunctionLibrary 
     GENERATED_BODY()
 public:
     USBZMetaFunctionLibrary();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static ESBZMetaEventType GetActiveMetaEventType(const UObject* WorldContextObject);
     

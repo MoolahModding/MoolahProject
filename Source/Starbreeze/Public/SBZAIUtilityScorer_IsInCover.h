@@ -13,5 +13,6 @@ private:
     
 public:
     USBZAIUtilityScorer_IsInCover();
+
 };
 

@@ -61,55 +61,56 @@ protected:
     bool bIsLocallyControlled;
     
 public:
-    USBZInteractorComponent();
+    USBZInteractorComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_StopInteraction(USBZBaseInteractableComponent* Interaction);
     
     UFUNCTION(Reliable, Server)
     void Server_StartInteraction(USBZBaseInteractableComponent* Interaction, int32 Id, int8 InModeIndex);
     
 public:
-    UFUNCTION(Reliable, Server)
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_PredictionTimeout(USBZBaseInteractableComponent* Interaction, int32 Id);
     
 protected:
-    UFUNCTION(Reliable, Server, WithValidation)
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_CompleteInteraction(USBZBaseInteractableComponent* Interaction, int32 Id);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ReplicatedData(const FSBZReplicatedInteractionData& OldReplicatedData);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopSimulatedInteraction();
     
     UFUNCTION(NetMulticast, Reliable)
     void Multicast_StartSimulatedInteraction(USBZBaseInteractableComponent* Interaction, int8 InModeIndex);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_CompletedInteraction(USBZBaseInteractableComponent* Interaction, bool bIsInstant);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_AbortInteraction(USBZBaseInteractableComponent* Interaction);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZBaseInteractableComponent* GetCurrentInteraction() const;
     
 protected:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_StopInteraction(USBZBaseInteractableComponent* Interaction, int32 Id);
     
 public:
-    UFUNCTION(Client, Reliable)
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_Removed(USBZBaseInteractableComponent* Interaction, int32 Id);
     
     UFUNCTION(BlueprintCallable)
     float BP_GetProgress();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 BP_GetModeIndex() const;
     
 };

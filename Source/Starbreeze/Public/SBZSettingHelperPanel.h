@@ -13,10 +13,11 @@ protected:
     
 public:
     USBZSettingHelperPanel();
+
     UFUNCTION(BlueprintCallable)
     void SetSettingCategoryName(const FName& InSettingCategoryName);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void RefreshPanelState();
     
 };

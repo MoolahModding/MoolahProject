@@ -16,14 +16,15 @@ protected:
     TArray<UMeshComponent*> MeshArray;
     
 public:
-    ASBZCosmeticProp();
-    UFUNCTION(BlueprintNativeEvent)
+    ASBZCosmeticProp(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnReceiveCPDs(const TArray<FSBZAnimationSpawnedActorCPD>& CPDs);
     
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnDropped();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

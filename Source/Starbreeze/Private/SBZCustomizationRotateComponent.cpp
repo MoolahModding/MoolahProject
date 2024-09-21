@@ -1,6 +1,6 @@
 #include "SBZCustomizationRotateComponent.h"
 
-USBZCustomizationRotateComponent::USBZCustomizationRotateComponent() {
+USBZCustomizationRotateComponent::USBZCustomizationRotateComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CanRotateYaw = true;
     this->CanRotatePitch = true;
     this->RotationYawSpeedRate = 0.10f;
@@ -15,4 +15,5 @@ USBZCustomizationRotateComponent::USBZCustomizationRotateComponent() {
     this->RotationRollLimitMax = 140.00f;
     this->FoundController = NULL;
 }
+
 

@@ -18,8 +18,9 @@ private:
     UAkAudioEvent* NoiseToMake;
     
 public:
-    USBZRandomNoiseComponent();
-    UFUNCTION(NetMulticast, Unreliable)
+    USBZRandomNoiseComponent(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, NetMulticast, Unreliable)
     void MulticastForceSound();
     
 };

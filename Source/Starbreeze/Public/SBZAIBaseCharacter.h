@@ -22,7 +22,6 @@ class ASBZAIBaseCharacter;
 class ASBZRappellingRope;
 class ASBZWheeledVehicle;
 class UAnimMontage;
-class UGameplayEffect;
 class UNavigationQueryFilter;
 class USBZAICharacterAttributeSet;
 class USBZAICharacterMovementComponent;
@@ -152,59 +151,57 @@ private:
     bool bCanDoEvades;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<UGameplayEffect> MarkedGameplayEffectClass;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AdditiveBaseEyeHeightTickRate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CivilianNearRange;
     
 public:
-    ASBZAIBaseCharacter();
+    ASBZAIBaseCharacter(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_AgentId();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnMontageStarted(UAnimMontage* Montage);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Unmark(float InMarkedDuration);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopWarpedRootMotionMontage(UAnimMontage* Montage, bool bCanPlayExit);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopEvade();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopAgilityMontage(UAnimMontage* Montage);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCurrentTarget(AActor* NewTarget);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_PlayWarpedRootMotionMontage(UAnimMontage* Montage, const TArray<FTransform>& WarpingTransforms);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_PlayAgilityMontage(UAnimMontage* Montage, const TArray<FTransform>& WarpingTransforms, ESBZAgilityType AgilityType, const TArray<FSBZAgilityTrajectoryPoint>& TrajectoryPoints);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_PlaceObjectCosmetics(UAnimMontage* Montage);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Evade(ESBZEvadeType EvadeType, UAnimMontage* Montage);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTimeSinceLastAgility() const;
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

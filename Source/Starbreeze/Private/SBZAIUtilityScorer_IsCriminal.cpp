@@ -4,3 +4,4 @@ USBZAIUtilityScorer_IsCriminal::USBZAIUtilityScorer_IsCriminal() {
     this->BlackboardKey = TEXT("Suspect");
 }
 
+

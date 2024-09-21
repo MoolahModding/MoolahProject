@@ -12,3 +12,4 @@ USBZSensorToolData::USBZSensorToolData() {
     this->ScanLineTime = 0.30f;
 }
 
+

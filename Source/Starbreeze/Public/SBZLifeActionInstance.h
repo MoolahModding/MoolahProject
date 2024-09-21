@@ -28,32 +28,33 @@ protected:
     TArray<USBZLifeActionSlot*> Slots;
     
 public:
-    USBZLifeActionInstance();
+    USBZLifeActionInstance(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void StopDialog(bool bReset);
     
     UFUNCTION(BlueprintCallable)
     void StartDialog();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSlotFree(const FGameplayTag& InTag) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FGameplayTag GetTag() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZLifeActionState GetState() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZLifeActionSlot* GetSlotWithTag(const FGameplayTag& InTag) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZLifeActionSlot* GetReservedSlot(const ASBZCharacter* Character) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool ContainsSlot(const USBZLifeActionSlot* InSlot) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool AreAllNeededSlotsReady() const;
     
 };

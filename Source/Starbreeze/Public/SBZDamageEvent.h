@@ -58,6 +58,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer DamageTypeTagContainer;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 EquippableIndex;
+    
     STARBREEZE_API FSBZDamageEvent();
 };
 

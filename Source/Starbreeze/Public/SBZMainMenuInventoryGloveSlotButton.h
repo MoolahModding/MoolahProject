@@ -19,24 +19,25 @@ protected:
     
 public:
     USBZMainMenuInventoryGloveSlotButton();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveGloveSlot(bool bIsActiveGloveSlot);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnGloveSlotInitialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEmpty() const;
     
     UFUNCTION(BlueprintCallable)
     void InitializeGloveSlot(int32 InGloveSlotIndex);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGloveSlotIndex() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZGloveData* GetGloveInSlot() const;
     
 };

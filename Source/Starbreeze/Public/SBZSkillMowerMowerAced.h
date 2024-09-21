@@ -8,5 +8,6 @@ class USBZSkillMowerMowerAced : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillMowerMowerAced();
+
 };
 

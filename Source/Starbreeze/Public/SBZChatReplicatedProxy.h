@@ -8,14 +8,15 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZChatReplicatedProxy : public AActor {
     GENERATED_BODY()
 public:
-    ASBZChatReplicatedProxy();
-    UFUNCTION(Reliable, Server, WithValidation)
+    ASBZChatReplicatedProxy(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSendChatMessage(const FSBZChatMessage& Message);
     
-    UFUNCTION(NetMulticast, Reliable, WithValidation)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable, WithValidation)
     void MulticastReceiveChatMessage(const FSBZChatMessage& Message);
     
-    UFUNCTION(Client, Reliable, WithValidation)
+    UFUNCTION(BlueprintCallable, Client, Reliable, WithValidation)
     void ClientSendChatMessage(const FSBZChatMessage& Message);
     
 };

@@ -7,3 +7,4 @@ USBZCivilianManagerSettings::USBZCivilianManagerSettings() {
     this->PercentOfCiviliansStaying = 20;
 }
 
+

@@ -72,11 +72,12 @@ private:
     USceneComponent* InsideTruckTeleportLocation;
     
 public:
-    ASBZSabotagableVehicle();
+    ASBZSabotagableVehicle(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void UpdateSabotageVehicle();
     
 public:
@@ -92,44 +93,44 @@ public:
     void SetEscortModeEnabled(bool bEnabled);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStopped();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStartedFollowingSpline();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnSabotaged(bool bWasSabotaged);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_EscortModeEnabled();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPlayerInsideTruckBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPathEnded();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEscortCapsuleEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEscortCapsuleBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetRearDoorsState(ESBZVehicleDoorState NewState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEscortModeEnabled(bool bEnabled);
     
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnPlayersInEscortChanged(const int32 PlayersEscorting);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnEscortSizePreplanningApplied();
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnEscortModeChanged(bool bEnabled, bool bDoCosmetics);
     
 };

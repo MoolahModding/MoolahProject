@@ -8,5 +8,6 @@ class USBZSkillCQCSpecialistCoverUp : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillCQCSpecialistCoverUp();
+
 };
 

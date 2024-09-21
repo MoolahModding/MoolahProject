@@ -16,5 +16,6 @@ protected:
     
 public:
     USBZEnvQueryTest_AIVisibilityScore();
+
 };
 

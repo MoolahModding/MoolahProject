@@ -12,5 +12,6 @@ public:
     FLinearColor Value;
     
     USBZColorStyle();
+
 };
 

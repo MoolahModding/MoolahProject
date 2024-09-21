@@ -77,10 +77,17 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float HalfExtentSizeToAdd;
     
-public:
-    ASBZZipline();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float StartForcedDirectionThreshold;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float EndForcedDirectionThreshold;
+    
+public:
+    ASBZZipline(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetZiplineEnabled(bool bEnabled);
     
@@ -88,22 +95,22 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnZiplineEnabledCallback();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnZiplineBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ZiplineEnabled();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnNavLinkReached(AActor* MovingActor, const FVector& DestinationPoint);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ZiplineEnabled(bool bEnabled);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnZiplineEnabledChanged(bool bEnabled, bool bDoCosmetics);
     
 };

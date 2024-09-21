@@ -43,6 +43,7 @@ protected:
     AActor* SpectateTarget;
     
 public:
-    ASBZGameSpectatorPawn();
+    ASBZGameSpectatorPawn(const FObjectInitializer& ObjectInitializer);
+
 };
 

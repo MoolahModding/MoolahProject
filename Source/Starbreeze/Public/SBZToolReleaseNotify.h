@@ -8,5 +8,6 @@ class USBZToolReleaseNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZToolReleaseNotify();
+
 };
 

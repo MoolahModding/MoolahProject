@@ -8,5 +8,6 @@ class USBZDisableSpeedWarpingNotifyState : public UAnimNotifyState {
     GENERATED_BODY()
 public:
     USBZDisableSpeedWarpingNotifyState();
+
 };
 

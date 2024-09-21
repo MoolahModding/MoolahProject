@@ -1,5 +1,6 @@
 #include "SBZActorSpawnVolume.h"
 
-ASBZActorSpawnVolume::ASBZActorSpawnVolume() {
+ASBZActorSpawnVolume::ASBZActorSpawnVolume(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

@@ -4,5 +4,5 @@
 
 class UObject;
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(bool, FArraySelectDelegate, UObject*, Object);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_RetVal_OneParam(bool, FArraySelectDelegate, UObject*, Object);
 

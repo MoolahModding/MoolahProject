@@ -80,6 +80,7 @@ private:
     
 public:
     USBZGameStateMachine();
+
     UFUNCTION(BlueprintCallable)
     void SetMatchmakingSecurityCompanies(const TArray<ESBZSecurityCompany>& InSecurityCompanies);
     
@@ -102,7 +103,7 @@ public:
     void SetIsMatchmakingQuickMatch(bool bInIsQuickMatch);
     
     UFUNCTION(BlueprintCallable)
-    void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx);
+    void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch);
     
     UFUNCTION(BlueprintCallable)
     void RequestReturnToMainMenu(ESBZReturnToMainMenuReason Reason);
@@ -137,7 +138,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void RequestJobOverviewComplete(bool bIsClientReady);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RequestJobOverviewAllReady(EBlackScreenTransitionType BlackScreenTransitionType);
     
     UFUNCTION(BlueprintCallable)
@@ -164,41 +165,44 @@ public:
     UFUNCTION(BlueprintCallable)
     void RemoveMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMatchmakingQuickMatch() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMatchmakingInProgress() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasStartedOutro() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZOnlineSessionPhase GetSessionPhase() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ESBZSecurityCompany> GetMatchmakingSecurityCompanies() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<ESBZSecurityCompany> GetMatchmakingSecuritCompaniesForHeist(UPD3HeistDataAsset* InHeist, ESBZDifficulty InDifficulty) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMatchmakingRandomSeed() const;
     
     UFUNCTION(BlueprintCallable)
     FSBZOnlineMatchmakingParams GetMatchMakingParameters();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetMatchmakingLevelIdx() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     uint8 GetMatchmakingDifficultyIdx() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZDifficulty GetMatchmakingDifficulty() const;
     
     UFUNCTION(BlueprintCallable, Exec)
     void DebugOnlineTravel(const FString& LevelUrl, bool bIsAbsolute);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanRequestSoloGame() const;
     
     UFUNCTION(BlueprintCallable)
     void AddMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany);

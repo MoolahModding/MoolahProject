@@ -24,7 +24,8 @@ private:
     FSBZDronePathUpVectorComputationSettings UpVectorComputationSettings;
     
 public:
-    USBZDronePathFollowingComponent();
+    USBZDronePathFollowingComponent(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void FollowSpline(const USplineComponent* SplineComponent, bool bIsSpawnSpline, bool bIsPathContainingLastPoint);
     

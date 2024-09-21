@@ -8,5 +8,6 @@ class USBZEnvQueryTest_AirNav : public UEnvQueryTest {
     GENERATED_BODY()
 public:
     USBZEnvQueryTest_AirNav();
+
 };
 

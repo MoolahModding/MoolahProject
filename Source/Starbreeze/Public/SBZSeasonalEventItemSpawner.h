@@ -17,6 +17,7 @@ protected:
     int32 NumberToSpawn;
     
 public:
-    ASBZSeasonalEventItemSpawner();
+    ASBZSeasonalEventItemSpawner(const FObjectInitializer& ObjectInitializer);
+
 };
 

@@ -13,5 +13,6 @@ public:
     USBZModularPartSlotBase* SuitBaseSlot;
     
     USBZSuitInventorySlotData();
+
 };
 

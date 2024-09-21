@@ -11,22 +11,23 @@ class USBZSettingsFunctionsKeyboard : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsKeyboard();
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetSecondaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale, FInputChord Binding);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetPrimaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale, FInputChord Binding);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FInputChord GetSecondaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FInputChord GetPrimaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FInputChord GetDefaultSecondaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FInputChord GetDefaultPrimaryKeyboardBinding(UObject* WorldContextObject, FName AxisOrActionName, float Scale);
     
 };

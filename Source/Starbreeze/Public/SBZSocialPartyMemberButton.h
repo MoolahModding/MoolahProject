@@ -38,6 +38,7 @@ public:
     UPaperSprite* NebulaIcon;
     
     USBZSocialPartyMemberButton();
+
     UFUNCTION(BlueprintCallable)
     void RevokeInvite();
     
@@ -47,7 +48,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void PromotePlayer();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReadyToDisplayMember();
     
     UFUNCTION(BlueprintCallable)

@@ -8,5 +8,6 @@ class USBZModularPartApplierOverrideMat : public USBZModularPartApplier {
     GENERATED_BODY()
 public:
     USBZModularPartApplierOverrideMat();
+
 };
 

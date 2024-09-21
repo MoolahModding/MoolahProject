@@ -5,3 +5,4 @@ USBZReactionPredicate_RoomType::USBZReactionPredicate_RoomType() {
     this->AllowedRooms = 4;
 }
 
+

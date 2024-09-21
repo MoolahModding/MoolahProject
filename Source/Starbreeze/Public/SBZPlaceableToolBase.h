@@ -24,15 +24,16 @@ protected:
     USBZInteractableComponent* Interactable;
     
 public:
-    ASBZPlaceableToolBase();
+    ASBZPlaceableToolBase(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnParentActorEndPlay(AActor* OldAttachParentActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlledInteractor);
     
 };

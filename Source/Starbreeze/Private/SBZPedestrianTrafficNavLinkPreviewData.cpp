@@ -5,3 +5,4 @@ USBZPedestrianTrafficNavLinkPreviewData::USBZPedestrianTrafficNavLinkPreviewData
     this->Animation = NULL;
 }
 
+

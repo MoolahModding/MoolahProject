@@ -14,5 +14,6 @@ private:
     
 public:
     USBZAIGasGrenadeData();
+
 };
 

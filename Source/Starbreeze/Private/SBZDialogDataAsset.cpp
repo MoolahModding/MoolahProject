@@ -9,3 +9,4 @@ USBZDialogDataAsset::USBZDialogDataAsset() {
     this->bIsHostageAllowed = false;
 }
 
+

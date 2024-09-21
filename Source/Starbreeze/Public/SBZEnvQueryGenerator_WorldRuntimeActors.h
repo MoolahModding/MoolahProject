@@ -13,5 +13,6 @@ protected:
     
 public:
     USBZEnvQueryGenerator_WorldRuntimeActors();
+
 };
 

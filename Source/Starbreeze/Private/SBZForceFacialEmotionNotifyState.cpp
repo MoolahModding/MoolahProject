@@ -4,3 +4,4 @@ USBZForceFacialEmotionNotifyState::USBZForceFacialEmotionNotifyState() {
     this->FacialEmotion = ESBZFacialEmotion::Neutral;
 }
 
+

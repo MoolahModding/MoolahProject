@@ -1,5 +1,6 @@
 #include "SBZWeaponCharm.h"
 
-ASBZWeaponCharm::ASBZWeaponCharm() {
+ASBZWeaponCharm::ASBZWeaponCharm(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

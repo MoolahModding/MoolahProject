@@ -8,5 +8,6 @@ class USBZSkillDemolitionistBlastShield : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillDemolitionistBlastShield();
+
 };
 

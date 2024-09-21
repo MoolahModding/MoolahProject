@@ -1,5 +1,15 @@
 #include "SBZMainMenuWeaponStatsWidget.h"
 
+USBZMainMenuWeaponStatsWidget::USBZMainMenuWeaponStatsWidget() {
+    this->BaseAmmoLoadedMax = 0;
+    this->BaseAmmoInventoryMax = 0;
+    this->BaseFireType = ESBZFireType::Semi;
+    this->CompareAmmoLoadedMax = 0;
+    this->CompareAmmoInventoryMax = 0;
+    this->CompareFireType = ESBZFireType::Semi;
+    this->UIWeaponStats = NULL;
+}
+
 void USBZMainMenuWeaponStatsWidget::SetEmpty() {
 }
 
@@ -33,13 +43,4 @@ void USBZMainMenuWeaponStatsWidget::CompareWithEquippableData(const USBZEquippab
 void USBZMainMenuWeaponStatsWidget::CompareWithEquippableConfig(const FSBZEquippableConfig& InEquippableConfig) {
 }
 
-USBZMainMenuWeaponStatsWidget::USBZMainMenuWeaponStatsWidget() {
-    this->BaseAmmoLoadedMax = 0;
-    this->BaseAmmoInventoryMax = 0;
-    this->BaseFireType = ESBZFireType::Semi;
-    this->CompareAmmoLoadedMax = 0;
-    this->CompareAmmoInventoryMax = 0;
-    this->CompareFireType = ESBZFireType::Semi;
-    this->UIWeaponStats = NULL;
-}
 

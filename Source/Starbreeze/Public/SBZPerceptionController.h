@@ -14,6 +14,7 @@ private:
     USBZAIVisualDetectionComponent* VisualDetectionComponent;
     
 public:
-    ASBZPerceptionController();
+    ASBZPerceptionController(const FObjectInitializer& ObjectInitializer);
+
 };
 

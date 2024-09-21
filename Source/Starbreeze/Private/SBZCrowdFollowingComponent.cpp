@@ -1,5 +1,6 @@
 #include "SBZCrowdFollowingComponent.h"
 
-USBZCrowdFollowingComponent::USBZCrowdFollowingComponent() {
+USBZCrowdFollowingComponent::USBZCrowdFollowingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

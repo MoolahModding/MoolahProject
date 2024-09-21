@@ -8,5 +8,6 @@ class USBZFortitudeTenacious : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZFortitudeTenacious();
+
 };
 

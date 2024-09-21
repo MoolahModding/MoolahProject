@@ -8,5 +8,6 @@ class USBZBTDecorator_UtilityCallback : public UBTDecorator {
     GENERATED_BODY()
 public:
     USBZBTDecorator_UtilityCallback();
+
 };
 

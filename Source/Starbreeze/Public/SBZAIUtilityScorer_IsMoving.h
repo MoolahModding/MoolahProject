@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_IsMoving : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_IsMoving();
+
 };
 

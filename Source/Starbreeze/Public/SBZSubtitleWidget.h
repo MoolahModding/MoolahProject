@@ -37,8 +37,9 @@ protected:
     
 public:
     USBZSubtitleWidget();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandlePlayerControllerInitialized();
     
 };

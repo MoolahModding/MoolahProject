@@ -19,9 +19,10 @@ private:
     float ClientStateDelay;
     
 public:
-    ASBZReplicatedBinaryStateActor();
+    ASBZReplicatedBinaryStateActor(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(bool bNewState, bool bDoCosmetics);
     
@@ -29,17 +30,17 @@ public:
     void SetLocalState(bool bNewState, bool bDoCosmetics);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStateChanged(bool bStateToChangeTo, bool bDoCosmetics);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_State(bool bOldState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(bool bNewState);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

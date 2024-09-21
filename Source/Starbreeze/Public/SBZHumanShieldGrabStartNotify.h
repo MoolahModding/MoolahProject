@@ -8,5 +8,6 @@ class USBZHumanShieldGrabStartNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZHumanShieldGrabStartNotify();
+
 };
 

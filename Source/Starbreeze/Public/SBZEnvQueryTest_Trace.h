@@ -34,5 +34,6 @@ protected:
     
 public:
     USBZEnvQueryTest_Trace();
+
 };
 

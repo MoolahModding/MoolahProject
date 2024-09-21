@@ -8,5 +8,6 @@ class USBZSkillManipulatorStockholmSyndrome : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillManipulatorStockholmSyndrome();
+
 };
 

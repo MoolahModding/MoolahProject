@@ -4,3 +4,4 @@ USBZAscendState::USBZAscendState() {
     this->StateMachine = NULL;
 }
 
+

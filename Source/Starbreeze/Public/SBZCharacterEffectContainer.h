@@ -28,17 +28,18 @@ private:
     
 public:
     USBZCharacterEffectContainer();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCharacterEffectRemoved(FSBZCharacterEffectRuntime& CharacterRuntime);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCharacterEffectAdded(FSBZCharacterEffectRuntime& CharacterRuntime);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCharactedEffectValueUpdated(FSBZCharacterEffectRuntime& CharacterRuntime);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCharactedEffectCooldownProgressUpdated(FSBZCharacterEffectRuntime& CharacterRuntime);
     
 };

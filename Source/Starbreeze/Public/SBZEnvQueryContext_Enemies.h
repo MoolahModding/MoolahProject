@@ -8,5 +8,6 @@ class USBZEnvQueryContext_Enemies : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_Enemies();
+
 };
 

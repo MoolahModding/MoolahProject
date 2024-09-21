@@ -29,5 +29,6 @@ private:
     
 public:
     USBZBTService_PlaceMines();
+
 };
 

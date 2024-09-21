@@ -8,5 +8,6 @@ class USBZNavArea_AgilityRappel : public UNavArea {
     GENERATED_BODY()
 public:
     USBZNavArea_AgilityRappel();
+
 };
 

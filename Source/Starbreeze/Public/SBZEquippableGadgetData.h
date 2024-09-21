@@ -17,5 +17,6 @@ public:
     FName SpawnSocket;
     
     USBZEquippableGadgetData();
+
 };
 

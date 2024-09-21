@@ -61,62 +61,63 @@ private:
     
 public:
     USBZMainMenuSuitInventoryScreen();
+
 protected:
     UFUNCTION(BlueprintCallable)
     void TryDiscardSuitInSlot(int32 InSuitIndex);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SuitSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void RefreshWidgetVisuals();
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnTryBuySuitSlot();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSlotPurchaseComplete(bool bWasSuccessful);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSlotPriceChanged(const FSBZInventorySlotStoreItem& Item);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnShowBuySlotPopUpClosed(FName InActionName);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDiscarded(bool bWasSuccessful);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDiscardSuitPopUpClosed(FName ClosingActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeSuitSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnSuitSlotButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnSuitDefaultButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnDefaultSet(ESBZMetaRequestResult Result);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DiscardItemDone(ESBZMetaRequestResult DiscardItemResult, FGuid ItemId);
     
 protected:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanDiscardSuitInSlot(int32 IndexToDiscard) const;
     
 };

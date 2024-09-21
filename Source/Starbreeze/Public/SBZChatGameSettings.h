@@ -29,5 +29,6 @@ public:
     int32 MaxTotalDisplayedMessages;
     
     USBZChatGameSettings();
+
 };
 

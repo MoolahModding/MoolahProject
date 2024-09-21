@@ -8,5 +8,6 @@ class USBZSkillTankDisengage : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillTankDisengage();
+
 };
 

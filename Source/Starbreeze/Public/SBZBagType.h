@@ -1,14 +1,16 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "GameplayTagContainer.h"
 #include "SBZCarryType.h"
 #include "SBZGameplayEffectData.h"
 #include "Templates/SubclassOf.h"
 #include "SBZBagType.generated.h"
 
-class AActor;
 class ASBZBagItem;
 class ASBZCarriedBag;
+class ASBZSecuredBag;
+class USBZMarkerDataAsset;
 
 UCLASS(Blueprintable)
 class USBZBagType : public USBZCarryType {
@@ -27,7 +29,7 @@ public:
     TSubclassOf<ASBZCarriedBag> BackItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<AActor> SecuredItem;
+    TSubclassOf<ASBZSecuredBag> SecuredItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer Tags;
@@ -53,6 +55,19 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeightTierOffset;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZMarkerDataAsset* MarkerAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector MarkerOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPersistentMarker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString SecureStatisticCode;
+    
     USBZBagType();
+
 };
 

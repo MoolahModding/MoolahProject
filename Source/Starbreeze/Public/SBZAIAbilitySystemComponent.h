@@ -8,8 +8,9 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class STARBREEZE_API USBZAIAbilitySystemComponent : public USBZAbilitySystemComponent {
     GENERATED_BODY()
 public:
-    USBZAIAbilitySystemComponent();
-    UFUNCTION(NetMulticast, Reliable)
+    USBZAIAbilitySystemComponent(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ApplyHurtInterrupt(const FSBZHurtReactionPrediction& HurtReactionPrediction);
     
 };

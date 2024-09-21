@@ -29,15 +29,16 @@ private:
     
 public:
     USBZMainMenuInventoryItemSlotButton();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetActiveItem(bool bIsActiveItem);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDataInitialized();
     
 public:
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAvailable() const;
     
     UFUNCTION(BlueprintCallable)
@@ -46,16 +47,16 @@ public:
     UFUNCTION(BlueprintCallable)
     void InitializeInventoryItem(const FSBZPlayerUiItemInfo& InItemData);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetSkillName() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZUIItemSource GetItemSource() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZInventoryBaseData* GetItemData() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetInfamyLevel() const;
     
 };

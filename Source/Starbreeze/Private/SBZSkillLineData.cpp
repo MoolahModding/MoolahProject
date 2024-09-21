@@ -6,3 +6,4 @@ USBZSkillLineData::USBZSkillLineData() {
     this->AcedBaseSkill = NULL;
 }
 
+

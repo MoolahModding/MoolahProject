@@ -5,7 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "SBZRandomizedRoom.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, Config=Engine)
 class STARBREEZE_API ASBZRandomizedRoom : public AActor {
     GENERATED_BODY()
 public:
@@ -26,6 +26,7 @@ protected:
     TArray<AActor*> PreviewActors;
     
 public:
-    ASBZRandomizedRoom();
+    ASBZRandomizedRoom(const FObjectInitializer& ObjectInitializer);
+
 };
 

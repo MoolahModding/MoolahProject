@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EPD3DispatchCallerReason.h"
 #include "SBZAIOrder.h"
 #include "SBZAIOrder_Escalate.generated.h"
 
@@ -11,6 +12,9 @@ class USBZAIOrder_Escalate : public USBZAIOrder {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EPD3DispatchCallerReason DispatcherReason;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZActionNotificationAsset* DefaultReason;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -21,8 +25,9 @@ protected:
     
 public:
     USBZAIOrder_Escalate();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 };

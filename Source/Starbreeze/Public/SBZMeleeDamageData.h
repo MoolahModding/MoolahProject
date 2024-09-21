@@ -36,6 +36,9 @@ public:
     float HitboxViewRotation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverHealDamageMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -69,7 +72,8 @@ public:
     float Duration;
     
     USBZMeleeDamageData();
-    
+
+
     // Fix for true pure virtual functions not being implemented
 };
 

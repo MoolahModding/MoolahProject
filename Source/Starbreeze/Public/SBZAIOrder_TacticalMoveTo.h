@@ -56,5 +56,6 @@ protected:
     
 public:
     USBZAIOrder_TacticalMoveTo();
+
 };
 

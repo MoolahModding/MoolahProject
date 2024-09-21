@@ -14,5 +14,6 @@ public:
     float GlobalCooldown;
     
     USBZAIMeleeDamageData();
+
 };
 

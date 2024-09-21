@@ -19,8 +19,9 @@ private:
     
 public:
     USBZServerStatBatcher();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleMissionEnd(const int32 OutroVariation);
     
 };

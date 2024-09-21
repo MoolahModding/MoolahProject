@@ -8,5 +8,6 @@ enum class ESBZHurtReactionDirection : uint8 {
     Right,
     Backward,
     Left,
+    MAX,
 };
 

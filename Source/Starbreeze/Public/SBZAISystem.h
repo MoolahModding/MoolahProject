@@ -14,6 +14,7 @@ protected:
     USBZAirPathFinder* AirPathFinder;
 
 public:
-    USBZAISystem(const class FObjectInitializer& ObjectInitializer);
+    USBZAISystem(const FObjectInitializer& ObjectInitializer);
+
 };
 

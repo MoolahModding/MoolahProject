@@ -23,15 +23,16 @@ protected:
     TArray<FSBZComponentSelector> SpawnLocationArray;
     
 public:
-    USBZSecuredBagVisualizeComponent();
+    USBZSecuredBagVisualizeComponent(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_BagTypes();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_AddBagType(const USBZBagType* BagType);
     
 public:

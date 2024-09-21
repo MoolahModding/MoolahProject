@@ -4,3 +4,4 @@ USBZWeaponCharmSlot::USBZWeaponCharmSlot() {
     this->SpawnPriority = 1;
 }
 
+

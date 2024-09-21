@@ -11,6 +11,8 @@
 #include "PD3DramaSettings.h"
 #include "PD3AssaultSettings.generated.h"
 
+class UPD3SecuritySettingDataModifiers;
+
 UCLASS(Blueprintable)
 class UPD3AssaultSettings : public UDataAsset {
     GENERATED_BODY()
@@ -66,9 +68,6 @@ public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FPD3DramaSettings DramaDifficultySettingsArray[4];
     
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFloatInterval SpawnGroupCooldownSeconds;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PreferredSpawnDistance;
     
@@ -100,8 +99,12 @@ public:
     uint8 MaxNrAttackers[4];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPD3SecuritySettingDataModifiers* SecuritySettingDataModifiers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, int32> TypeLimits;
     
     UPD3AssaultSettings();
+
 };
 

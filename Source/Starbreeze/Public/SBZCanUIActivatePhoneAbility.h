@@ -8,5 +8,6 @@ class USBZCanUIActivatePhoneAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZCanUIActivatePhoneAbility();
+
 };
 

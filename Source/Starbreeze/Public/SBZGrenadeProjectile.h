@@ -6,6 +6,7 @@
 #include "Engine/EngineTypes.h"
 #include "Curves/CurveFloat.h"
 #include "Engine/NetSerialization.h"
+#include "Engine/NetSerialization.h"
 #include "SBZExplosionResult.h"
 #include "SBZExplosive.h"
 #include "SBZExplosivePhysicsEffectData.h"
@@ -78,7 +79,10 @@ protected:
     TSubclassOf<USBZDamageType> DamageTypeClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> LocalplayerFeedback;
+    TSubclassOf<USBZLocalPlayerFeedback> LocalPlayerFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> LocalPlayerInstigatorFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PlayerFeedbackCurve;
@@ -112,46 +116,50 @@ private:
     FSBZExplosivePhysicsEffectData PostDamagePhysicsEffectData;
     
 public:
-    ASBZGrenadeProjectile();
+    ASBZGrenadeProjectile(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_EquippableIndex();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnProjectileStopped(const FHitResult& InHitResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnProjectileBounce(const FHitResult& InHitResult, const FVector& ImpactVelocity);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnProjectileBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnOwnerEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnFired();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCollisionComponentHit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetGrenadeProjectileVelocity(const FVector_NetQuantizeNormal& ProjectileDirection);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEquippableIndex(int32 InIndex);
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_OnServerCollision(const FVector_NetQuantize& InLocation);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DestroyBreakable(const FHitResult& InBreakableHitResult);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

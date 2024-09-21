@@ -4,3 +4,4 @@ USBZAIFragGrenadeData::USBZAIFragGrenadeData() {
     this->DamageModifierCurve = NULL;
 }
 
+

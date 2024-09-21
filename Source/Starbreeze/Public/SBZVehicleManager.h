@@ -19,12 +19,13 @@ private:
     TArray<FSBZVehicleInfo> VehicleInfos;
     
 public:
-    USBZVehicleManager();
+    USBZVehicleManager(const FObjectInitializer& ObjectInitializer);
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnExitedActionPhase();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEnteredActionPhase(UWorld* World);
     
 };

@@ -8,8 +8,9 @@ class USBZMainMenuDebug : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuDebug();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMatchmakingGroupChange(int32 MMakingGroup);
     
 };

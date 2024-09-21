@@ -20,5 +20,6 @@ protected:
     
 public:
     USBZReactionPredicate_CanScream();
+
 };
 

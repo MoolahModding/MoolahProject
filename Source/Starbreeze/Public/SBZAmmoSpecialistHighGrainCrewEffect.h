@@ -8,5 +8,6 @@ class USBZAmmoSpecialistHighGrainCrewEffect : public UGameplayEffect {
     GENERATED_BODY()
 public:
     USBZAmmoSpecialistHighGrainCrewEffect();
+
 };
 

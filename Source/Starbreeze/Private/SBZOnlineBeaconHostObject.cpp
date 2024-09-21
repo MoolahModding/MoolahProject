@@ -1,5 +1,6 @@
 #include "SBZOnlineBeaconHostObject.h"
 
-ASBZOnlineBeaconHostObject::ASBZOnlineBeaconHostObject() {
+ASBZOnlineBeaconHostObject::ASBZOnlineBeaconHostObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

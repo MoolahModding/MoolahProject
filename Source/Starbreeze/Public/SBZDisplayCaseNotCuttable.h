@@ -7,6 +7,7 @@ UCLASS(Blueprintable)
 class ASBZDisplayCaseNotCuttable : public ASBZDisplayCase {
     GENERATED_BODY()
 public:
-    ASBZDisplayCaseNotCuttable();
+    ASBZDisplayCaseNotCuttable(const FObjectInitializer& ObjectInitializer);
+
 };
 

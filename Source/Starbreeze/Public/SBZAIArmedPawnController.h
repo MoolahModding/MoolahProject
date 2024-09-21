@@ -13,6 +13,7 @@ private:
     FSBZFactionIdHelper Faction;
     
 public:
-    ASBZAIArmedPawnController();
+    ASBZAIArmedPawnController(const FObjectInitializer& ObjectInitializer);
+
 };
 

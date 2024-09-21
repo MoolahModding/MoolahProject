@@ -23,8 +23,9 @@ private:
     TMap<int32, USBZWindReceiverComponent*> ReceiversPerID;
     
 public:
-    USBZWindManager();
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    USBZWindManager(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZWindManager* Get(UObject* WorldContextObject);
     
 };

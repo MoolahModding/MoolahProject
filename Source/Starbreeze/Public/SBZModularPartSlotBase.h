@@ -33,10 +33,11 @@ protected:
     
 public:
     USBZModularPartSlotBase();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetDisplayName(FText& OutDisplayName, bool& OutHasText) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZModularPartApplier* GetApplierInstance() const;
     
 };

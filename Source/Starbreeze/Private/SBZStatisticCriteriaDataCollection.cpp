@@ -12,5 +12,6 @@ FSBZStatisticCriteriaDataCollection::FSBZStatisticCriteriaDataCollection() {
     this->ColorMeSurprised = NULL;
     this->SpecOps = NULL;
     this->NoBagOnGround = NULL;
+    this->BranchBankNoDyePackExploded = NULL;
 }
 

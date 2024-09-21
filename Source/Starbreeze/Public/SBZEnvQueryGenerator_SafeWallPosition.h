@@ -33,5 +33,6 @@ private:
     
 public:
     USBZEnvQueryGenerator_SafeWallPosition();
+
 };
 

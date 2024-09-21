@@ -1,5 +1,10 @@
 #include "SBZStateMachineStateWaitingActionPhaseBase.h"
 
+USBZStateMachineStateWaitingActionPhaseBase::USBZStateMachineStateWaitingActionPhaseBase() {
+    this->TransitionTimeOutTime = 20.00f;
+    this->WaitActionPhaseData = NULL;
+}
+
 void USBZStateMachineStateWaitingActionPhaseBase::HandleTransitionGameModeReady() {
 }
 
@@ -21,8 +26,4 @@ void USBZStateMachineStateWaitingActionPhaseBase::HandleBeaconNetworkError(ESBZO
 void USBZStateMachineStateWaitingActionPhaseBase::DelayedNetworkBeaconError() {
 }
 
-USBZStateMachineStateWaitingActionPhaseBase::USBZStateMachineStateWaitingActionPhaseBase() {
-    this->TransitionTimeOutTime = 20.00f;
-    this->WaitActionPhaseData = NULL;
-}
 

@@ -33,7 +33,8 @@ protected:
     ASBZMask* SpawnedMask;
     
 public:
-    ASBZStandaloneMaskDisplayDebug();
+    ASBZStandaloneMaskDisplayDebug(const FObjectInitializer& ObjectInitializer);
+
     UFUNCTION(BlueprintCallable)
     void UpdateSprayCanTextureSizePlus();
     

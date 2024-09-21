@@ -21,16 +21,17 @@ private:
     
 public:
     USBZStateMachineStateJobOverviewDropIn();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void OnHandleBeginPlayState(ASBZPlayerController* PlayerController);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void NetworkDisconnected();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void EnableReadyButton();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void ClientShowBlackScreen(EBlackScreenTransitionType BlackScreenTransitionType);
     
 };

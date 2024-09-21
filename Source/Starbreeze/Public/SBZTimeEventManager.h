@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "UObject/Object.h"
 #include "SBZTimeEventManager.generated.h"
 
@@ -10,13 +11,17 @@ class STARBREEZE_API USBZTimeEventManager : public UObject {
     GENERATED_BODY()
 public:
     USBZTimeEventManager();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void RequestTimeEventCheck();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetNextResetTime();
     
-    UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FDateTime GetLastKnownServerTime() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZTimeEventManager* Get(const UObject* WorldContextObject);
     
 };

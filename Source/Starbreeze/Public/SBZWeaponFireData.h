@@ -28,6 +28,9 @@ public:
     uint32 ProjectilesPerFiredRound;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint32 BurstRoundCount;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 MaximumPenetrationCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -41,6 +44,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AdditionalPlayerRange;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverHealDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetration;
@@ -82,6 +88,9 @@ public:
     int32 AmmoVisibleMax;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 AmmoVisibleMaxPreviewOverride;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsEmptyAmmoEjected;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -93,16 +102,32 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsChamberRotatedEachReloadedRound;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingRemoveMagazineCycle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingInsertMagazine;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingInsertMagazineCycle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingInsertAmmoCycle1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsUsingInsertAmmoCycle2;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RoundsPerMinute;
     
 public:
     USBZWeaponFireData();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetProjectilesPerFiredRound() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     void GetCriticalMultipliersOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutMultiplierArray) const;
     
 };

@@ -12,5 +12,6 @@ public:
     FGameplayTagContainer AffectedAITypes;
     
     USBZSkillEnforcerShockAndAwe();
+
 };
 

@@ -1,5 +1,6 @@
 #include "SBZRappellingRopeComponent.h"
 
-USBZRappellingRopeComponent::USBZRappellingRopeComponent() {
+USBZRappellingRopeComponent::USBZRappellingRopeComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

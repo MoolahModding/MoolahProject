@@ -18,6 +18,7 @@ protected:
     USBZRappellingRopeData* RappellingRopeData;
     
 public:
-    ASBZRappellingRope();
+    ASBZRappellingRope(const FObjectInitializer& ObjectInitializer);
+
 };
 

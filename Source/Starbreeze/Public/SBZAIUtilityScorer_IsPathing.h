@@ -8,5 +8,6 @@ class USBZAIUtilityScorer_IsPathing : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
     USBZAIUtilityScorer_IsPathing();
+
 };
 

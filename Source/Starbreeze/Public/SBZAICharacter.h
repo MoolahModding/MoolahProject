@@ -19,9 +19,11 @@
 #include "SBZOnHumanShieldDelegate.h"
 #include "SBZOnPlayerMeleeHitReceivedDelegate.h"
 #include "SBZTagStanceMapping.h"
+#include "SBZTripperMarkedInfo.h"
 #include "Templates/SubclassOf.h"
 #include "SBZAICharacter.generated.h"
 
+class AController;
 class ASBZAIPointOfInterest;
 class ASBZAIPointOfInterestDeadBody;
 class ASBZAmmoPickup;
@@ -266,6 +268,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bHasGuardBehavior: 1;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint8 bIsHogTiedOnce: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* LastTieHandsInstigatorPlayerState;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZPagerData* PagerData;
     
@@ -308,21 +316,43 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString MarkGuard;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString MarkSpecials;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString MarkEnemy;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString StatisticsMarkEnemyCamera;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString StatisticsMarkEnemyMicroCamera;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCanBeSeenByThermalScope;
+    
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<uint32> CQCSpecialistPinPullerDoneSet;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<uint32> CQCSpecialistSoftAssetsDoneSet;
     
-public:
-    ASBZAICharacter();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZTripperMarkedInfo> TripperMarkedInfoArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AController* KillInstigatorController;
+    
+public:
+    ASBZAICharacter(const FObjectInitializer& ObjectInitializer);
+
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     ASBZCarriedStaticInteractionActor* SpawnLootOnCharacter(TSubclassOf<ASBZCarriedStaticInteractionActor> ClassTOSpawn);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void SetStartRoomLabel();
     
 public:
@@ -330,100 +360,100 @@ public:
     void RemoveMarkerFromAsObjective();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_VariationCategory();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_TelegraphAttack();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_IsSurrendered();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_HostageState(uint8 OldHostageState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_BehaviorCategory();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_AsObjectiveState();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPredictedEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPredictedAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnNegotiationTradeTypeChanged(ESBZNegotiationTradeType OldType, ESBZNegotiationTradeType NewType);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnEndInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAttachedLootTaken(USBZBaseInteractableComponent* BaseInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlledInteractor);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckRejectedPredictedInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Surrender();
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopRoomScanning(ESBZRoomScanningType RoomScanningType);
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetVariationCategory(ESBZAICharacterVariationCategory Category);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetInCover(bool bInIsInCover);
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHacked(float Duration);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetBehaviorCategory(ESBZAIBehaviorCategory RepCategory);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetAsObjectiveState(uint8 NewAsObjectiveState);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RoomScanning(ESBZRoomScanningType RoomScanningType, int32 AnimationIndex);
     
 private:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_HostageState(uint8 InHostageState);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DropAttachedLoot();
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
@@ -432,10 +462,10 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DisableAsObjective();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnTagReactionPlayed();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

@@ -28,6 +28,7 @@ private:
     
 public:
     USBZClientStateMachine();
+
     UFUNCTION(BlueprintCallable)
     void RequestTravelToServer();
     
@@ -35,7 +36,7 @@ public:
     void RequestSteamLogin();
     
     UFUNCTION(BlueprintCallable)
-    void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx);
+    void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch);
     
     UFUNCTION(BlueprintCallable)
     void RequestReturnToMainMenu(ESBZReturnToMainMenuReason Reason);
@@ -95,36 +96,39 @@ public:
     void RemoveAppliedPreplanningAsset();
     
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnUserSwitchDuringInvite();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPopUpClosedIsNotPartyLeader(FName ActionName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPartyHostEnteredMatchmaking();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPartyHostEnteredMainMenu();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnPartyHostEnteredLobby();
     
 public:
     UFUNCTION(BlueprintCallable)
     bool isPreMatchAsyncLoadingDone();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsMatchmakingInProgress() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasStartedOutro() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZOnlineSessionPhase GetSessionPhase() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetCurrentStateNameString();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanRequestSoloGame() const;
     
     UFUNCTION(BlueprintCallable)
     void ApplyPreplanningAsset(const FString& ItemSku);

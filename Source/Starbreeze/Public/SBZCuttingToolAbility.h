@@ -38,14 +38,15 @@ private:
     
 public:
     USBZCuttingToolAbility();
+
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnGateStateChanged(ASBZGate* Gate, ESBZGateState OldState, ESBZGateState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnDisplayCaseStateChanged(ESBZDisplayCaseState NewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnCuttableActorEndPlay(AActor* OldAttachParentActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
     
 };

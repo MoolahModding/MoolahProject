@@ -13,3 +13,4 @@ USBZPlaceableData::USBZPlaceableData() {
     this->bUseLinetraceInitially = false;
 }
 
+

@@ -19,5 +19,6 @@ private:
     
 public:
     USBZAIAction_BumpedByCharacter();
+
 };
 

@@ -9,6 +9,7 @@ class STARBREEZE_API USBZNodesFunctionLibrary : public UBlueprintFunctionLibrary
     GENERATED_BODY()
 public:
     USBZNodesFunctionLibrary();
+
     UFUNCTION(BlueprintCallable)
     static int32 RollRNG(const FRandomStream& RandomStream, int32 LastOutputPinIndex, int32 Min, int32 Max);
     

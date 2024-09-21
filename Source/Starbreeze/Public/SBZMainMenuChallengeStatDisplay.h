@@ -11,17 +11,18 @@ class USBZMainMenuChallengeStatDisplay : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZMainMenuChallengeStatDisplay();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void StatInitialized(const FSBZChallengeData& InChallenge, const FSBZChallengeProgressStat& InProgressStat);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ItemInitialized(const FSBZChallengeProgressItem& InProgressItem);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ChallengeInitialized(const FSBZChallengeData& InChallenge);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ChallengeIdInitialized(const FString& InChallengeId);
     
 };

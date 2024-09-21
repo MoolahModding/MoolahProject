@@ -15,6 +15,7 @@ protected:
     TSubclassOf<ASBZSentryGun> SentryClassToSpawn;
     
 public:
-    ASBZPlaceableSentry();
+    ASBZPlaceableSentry(const FObjectInitializer& ObjectInitializer);
+
 };
 

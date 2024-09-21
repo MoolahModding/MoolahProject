@@ -23,13 +23,14 @@ protected:
     
 public:
     USBZAIWeakPointAttributeSet();
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_WeakPointHealth(const FGameplayAttributeData& OldValue);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetWeakPointHealth(float NewCurrentValue);
     
 };

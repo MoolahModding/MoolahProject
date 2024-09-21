@@ -31,30 +31,31 @@ protected:
     FSBZTimedBagConverterDelegate OnBagConverted;
     
 public:
-    ASBZTimedBagConverter();
+    ASBZTimedBagConverter(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bInEnabled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractableComponent, USBZInteractorComponent* Interactor, bool bIsLocallyControlled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnServerBagPickedUp();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InInteractableComponent, bool bNewState);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnECMJammedChanged(bool bIsJammed);
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnBagConverted();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

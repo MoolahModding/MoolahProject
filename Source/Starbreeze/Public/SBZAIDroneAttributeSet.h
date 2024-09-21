@@ -8,5 +8,6 @@ class USBZAIDroneAttributeSet : public USBZPawnAttributeSet {
     GENERATED_BODY()
 public:
     USBZAIDroneAttributeSet();
+
 };
 

@@ -85,24 +85,25 @@ protected:
     FSBZHurtReactionData HurtReactionData;
     
 public:
-    ASBZMicroCamera();
+    ASBZMicroCamera(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnAICharacterKilled(APawn* InAIPawn);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmed();
     
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
 public:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OverloadMicroCamera();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

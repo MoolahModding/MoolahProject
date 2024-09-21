@@ -67,21 +67,22 @@ private:
     ASBZSmallCosmeticDestruction* Spawned;
     
 public:
-    ASBZAITaserMine();
+    ASBZAITaserMine(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnWalkedOnTarget(AActor* OtherActor);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnWalkedOn();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void DamageRejected();
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

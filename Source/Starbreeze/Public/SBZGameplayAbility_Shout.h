@@ -8,5 +8,6 @@ class USBZGameplayAbility_Shout : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZGameplayAbility_Shout();
+
 };
 

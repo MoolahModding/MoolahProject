@@ -1,6 +1,23 @@
 #include "SBZVehicleSplineFollowingComponent.h"
 #include "Net/UnrealNetwork.h"
 
+USBZVehicleSplineFollowingComponent::USBZVehicleSplineFollowingComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->VehicleManager = NULL;
+    this->TargetSpeed = 0.00f;
+    this->Speed = 0.00f;
+    this->StopBeginSpeed = 0.00f;
+    this->StopBeginDistance = 0.00f;
+    this->StopEndDistance = 0.00f;
+    this->DecelDuration = 0.00f;
+    this->DecelTime = 0.00f;
+    this->CruisingSpeed = 30.00f;
+    this->TurnCruisingSpeed = 15.00f;
+    this->Acceleration = 500.00f;
+    this->Deceleration = -1500.00f;
+    this->bIsStopping = false;
+    this->bIsStopRequestedByUser = false;
+}
+
 void USBZVehicleSplineFollowingComponent::Stop() {
 }
 
@@ -135,20 +152,4 @@ void USBZVehicleSplineFollowingComponent::GetLifetimeReplicatedProps(TArray<FLif
     DOREPLIFETIME(USBZVehicleSplineFollowingComponent, bIsStopRequestedByUser);
 }
 
-USBZVehicleSplineFollowingComponent::USBZVehicleSplineFollowingComponent() {
-    this->VehicleManager = NULL;
-    this->TargetSpeed = 0.00f;
-    this->Speed = 0.00f;
-    this->StopBeginSpeed = 0.00f;
-    this->StopBeginDistance = 0.00f;
-    this->StopEndDistance = 0.00f;
-    this->DecelDuration = 0.00f;
-    this->DecelTime = 0.00f;
-    this->CruisingSpeed = 30.00f;
-    this->TurnCruisingSpeed = 15.00f;
-    this->Acceleration = 500.00f;
-    this->Deceleration = -1500.00f;
-    this->bIsStopping = false;
-    this->bIsStopRequestedByUser = false;
-}
 

@@ -68,5 +68,6 @@ enum class ESBZMetaRequestResult : uint8 {
     FailedToGetReceipts,
     HaveNotReceivedInitialRewards,
     MissingEnitlementPermission,
+    VendorItemLocked,
 };
 

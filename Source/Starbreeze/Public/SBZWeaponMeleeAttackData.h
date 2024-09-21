@@ -8,5 +8,6 @@ class USBZWeaponMeleeAttackData : public USBZWeaponBaseAttackData {
     GENERATED_BODY()
 public:
     USBZWeaponMeleeAttackData();
+
 };
 

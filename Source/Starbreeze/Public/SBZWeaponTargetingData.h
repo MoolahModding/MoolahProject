@@ -56,5 +56,6 @@ public:
     USBZTargetingHeadbobData* HeadbobData;
     
     USBZWeaponTargetingData();
+
 };
 

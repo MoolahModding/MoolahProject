@@ -8,5 +8,6 @@ class USBZUnblockMeleeNotify : public UAnimNotify {
     GENERATED_BODY()
 public:
     USBZUnblockMeleeNotify();
+
 };
 

@@ -17,5 +17,6 @@ public:
     USBZInventoryBaseData* InventoryBaseData;
     
     USBZItemDataContainer();
+
 };
 

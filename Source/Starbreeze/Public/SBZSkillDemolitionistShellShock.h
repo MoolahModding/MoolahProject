@@ -12,5 +12,6 @@ public:
     FGameplayTagContainer PawnTypeContainer;
     
     USBZSkillDemolitionistShellShock();
+
 };
 

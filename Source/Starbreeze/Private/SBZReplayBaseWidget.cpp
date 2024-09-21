@@ -1,5 +1,12 @@
 #include "SBZReplayBaseWidget.h"
 
+USBZReplayBaseWidget::USBZReplayBaseWidget() {
+    this->PlayerController = NULL;
+    this->ReplaySpeed = 1.00f;
+    this->GameInstance = NULL;
+    this->ReplayFilePlayer = NULL;
+}
+
 bool USBZReplayBaseWidget::StopReplay() {
     return false;
 }
@@ -63,10 +70,4 @@ void USBZReplayBaseWidget::CycleNextPlayerView() {
 void USBZReplayBaseWidget::CycleNextCameraView() {
 }
 
-USBZReplayBaseWidget::USBZReplayBaseWidget() {
-    this->PlayerController = NULL;
-    this->ReplaySpeed = 1.00f;
-    this->GameInstance = NULL;
-    this->ReplayFilePlayer = NULL;
-}
 

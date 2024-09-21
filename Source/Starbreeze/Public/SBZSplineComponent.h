@@ -36,6 +36,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZSplineType SplineType;
     
-    USBZSplineComponent();
+    USBZSplineComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

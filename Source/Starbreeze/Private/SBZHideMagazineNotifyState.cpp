@@ -4,3 +4,4 @@ USBZHideMagazineNotifyState::USBZHideMagazineNotifyState() {
     this->bIsSpawnAllowed = true;
 }
 
+

@@ -21,8 +21,9 @@ private:
     
 public:
     USBZStateMachineStateP2PHost();
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void PostLoadMap(UWorld* NewWorld);
     
 };

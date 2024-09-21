@@ -8,5 +8,6 @@ class USBZSkillStrategistMarkedForDeath : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillStrategistMarkedForDeath();
+
 };
 

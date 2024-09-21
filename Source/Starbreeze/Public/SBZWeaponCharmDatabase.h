@@ -13,5 +13,6 @@ public:
     TArray<USBZWeaponCharmData*> WeaponCharmArray;
     
     USBZWeaponCharmDatabase();
+
 };
 

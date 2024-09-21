@@ -6,3 +6,4 @@ UPD3SpawnSquadPawn::UPD3SpawnSquadPawn() {
     this->bIsRespectingMaxAILimit = true;
 }
 
+

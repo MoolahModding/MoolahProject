@@ -8,5 +8,6 @@ class USBZSkillManipulatorNegotiator : public USBZSkillData {
     GENERATED_BODY()
 public:
     USBZSkillManipulatorNegotiator();
+
 };
 

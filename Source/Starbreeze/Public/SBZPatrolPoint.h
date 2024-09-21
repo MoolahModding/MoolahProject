@@ -27,8 +27,9 @@ protected:
     bool bIsTesting;
     
 public:
-    ASBZPatrolPoint();
-    UFUNCTION(BlueprintPure)
+    ASBZPatrolPoint(const FObjectInitializer& ObjectInitializer);
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsTestingPoint() const;
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)

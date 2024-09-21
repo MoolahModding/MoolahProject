@@ -15,7 +15,7 @@ class USBZAIAction;
 class USBZAIConfig;
 class USBZAIOrder;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class STARBREEZE_API USBZAIConfig : public UObject {
     GENERATED_BODY()
 public:
@@ -103,10 +103,11 @@ private:
     
 public:
     USBZAIConfig();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZCoverShootingPoints> GetShootingPoints() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static USBZAIConfig* Get();
     
 };

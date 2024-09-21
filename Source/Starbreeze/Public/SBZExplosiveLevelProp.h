@@ -17,6 +17,7 @@
 
 class UAkAudioEvent;
 class UGameplayEffect;
+class UNiagaraComponent;
 class UNiagaraSystem;
 class USBZDamageType;
 class USBZLocalPlayerFeedback;
@@ -83,8 +84,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* ExplosionInstigator;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UNiagaraComponent* ExplosionEffectComponent;
+    
 public:
-    ASBZExplosiveLevelProp();
+    ASBZExplosiveLevelProp(const FObjectInitializer& ObjectInitializer);
+
 protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetExplosionInstigator(AActor* InInstigator);
@@ -95,16 +100,16 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ServerStartExplosionTimer();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DebugServerStartExplosionTimer();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnExplosion(bool bDoCosmetics);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

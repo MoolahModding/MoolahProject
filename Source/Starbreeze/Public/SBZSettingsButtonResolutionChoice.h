@@ -14,6 +14,7 @@ protected:
     
 public:
     USBZSettingsButtonResolutionChoice();
+
     UFUNCTION(BlueprintCallable)
     void SetOptionResolutions(const TArray<FIntPoint>& InOptionResolutions);
     

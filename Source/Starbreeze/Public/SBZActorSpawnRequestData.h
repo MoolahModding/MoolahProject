@@ -14,5 +14,6 @@ public:
     TArray<TSubclassOf<AActor>> ClassVariationArray;
     
     USBZActorSpawnRequestData();
+
 };
 

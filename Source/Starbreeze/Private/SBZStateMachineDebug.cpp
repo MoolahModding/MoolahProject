@@ -1,5 +1,7 @@
 #include "SBZStateMachineDebug.h"
 
-ASBZStateMachineDebug::ASBZStateMachineDebug() {
+ASBZStateMachineDebug::ASBZStateMachineDebug(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->DebugDisplay.AddDefaulted(1);
 }
+
 

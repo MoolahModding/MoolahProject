@@ -37,36 +37,37 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ShouldUseSecondaryType, meta=(AllowPrivateAccess=true))
     bool bIsSecondaryTypeUsed;
     
-    ASBZSingleBagGenerator();
+    ASBZSingleBagGenerator(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetInteractionEnabled(bool bEnabled);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetEnabled(bool bEnabled);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_ShouldUseSecondaryType();
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ChangeToSecondaryType();
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleInteractionEnabledStateChanged(const USBZBaseInteractableComponent* InteractableComponent, bool bEnabled);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleInteraction(USBZBaseInteractableComponent* Comp, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ChangeToSecondaryType();
     
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnChangedToSecondaryType(bool bDoCosmetics);
     
-    
+
     // Fix for true pure virtual functions not being implemented
 };
 

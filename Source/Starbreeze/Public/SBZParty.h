@@ -10,7 +10,7 @@
 class USBZPartyClient;
 class USBZPartyHost;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, NotPlaceable, Transient, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, NotPlaceable, Transient, Config=Starbreeze)
 class STARBREEZE_API USBZParty : public UObject {
     GENERATED_BODY()
 public:
@@ -41,36 +41,37 @@ protected:
     
 public:
     USBZParty();
-    UFUNCTION()
+
+    UFUNCTION(BlueprintCallable)
     void UpdatePartyState(const FSBZPartyData& InPartyState);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void JoinPartyComplete(const ESBZOnlineCode& Result);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HostPartySession(const FSBZOnlineSessionParams& Params);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HostPartyComplete(const ESBZOnlineCode& Result);
     
 public:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToPartyHost();
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleGameStateLeft(FName StateName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void HandleGameStateEnter(FName StateName);
     
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     FSBZPartyData GetPartyData() const;
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void CancelPartyRestore();
     
 };

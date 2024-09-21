@@ -4,3 +4,4 @@ USBZMaskDatabase::USBZMaskDatabase() {
     this->CustomizableMask = NULL;
 }
 
+

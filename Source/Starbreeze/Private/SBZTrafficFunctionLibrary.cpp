@@ -1,6 +1,9 @@
 #include "SBZTrafficFunctionLibrary.h"
 #include "Templates/SubclassOf.h"
 
+USBZTrafficFunctionLibrary::USBZTrafficFunctionLibrary() {
+}
+
 void USBZTrafficFunctionLibrary::SpawnEscapeVanWithRoute(UObject* WorldContextObject, TSubclassOf<ASBZWheeledVehicle> EscapeVanActorClass, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo) {
 }
 
@@ -43,6 +46,4 @@ bool USBZTrafficFunctionLibrary::AppendEscapeVanRoute(UObject* WorldContextObjec
     return false;
 }
 
-USBZTrafficFunctionLibrary::USBZTrafficFunctionLibrary() {
-}
 

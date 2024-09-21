@@ -1,5 +1,13 @@
 #include "SBZAIUtilityDecider.h"
 
+USBZAIUtilityDecider::USBZAIUtilityDecider() {
+    this->Behavior = NULL;
+    this->Category = ESBZAIBehaviorCategory::None;
+    this->AIController = NULL;
+    this->bEnabled = true;
+    this->MaxUtility = 1.00f;
+}
+
 
 void USBZAIUtilityDecider::OnSelected() {
 }
@@ -21,11 +29,4 @@ void USBZAIUtilityDecider::OnDeactivated(TEnumAsByte<EBTNodeResult::Type> NodeRe
 void USBZAIUtilityDecider::OnActivated() {
 }
 
-USBZAIUtilityDecider::USBZAIUtilityDecider() {
-    this->Behavior = NULL;
-    this->Category = ESBZAIBehaviorCategory::None;
-    this->AIController = NULL;
-    this->bEnabled = true;
-    this->MaxUtility = 1.00f;
-}
 

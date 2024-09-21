@@ -15,3 +15,4 @@ USBZToolCuttingData::USBZToolCuttingData() {
     this->MinCuttableTier = ESBZCuttingMaterialTier::None;
 }
 
+

@@ -4,7 +4,7 @@
 #include "SBZGamepadBindingsPreset.h"
 #include "SBZGamepadBindingsPresetsConfig.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Starbreeze)
+UCLASS(Blueprintable, DefaultConfig, Config=Starbreeze)
 class STARBREEZE_API USBZGamepadBindingsPresetsConfig : public UObject {
     GENERATED_BODY()
 public:
@@ -12,5 +12,6 @@ public:
     TArray<FSBZGamepadBindingsPreset> GamepadBindingsPresets;
     
     USBZGamepadBindingsPresetsConfig();
+
 };
 

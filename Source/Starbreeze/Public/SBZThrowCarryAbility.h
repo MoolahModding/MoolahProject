@@ -8,5 +8,6 @@ class USBZThrowCarryAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
     USBZThrowCarryAbility();
+
 };
 

@@ -7,6 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZPawnSpawnEditorMeshComponent : public UPrimitiveComponent {
     GENERATED_BODY()
 public:
-    USBZPawnSpawnEditorMeshComponent();
+    USBZPawnSpawnEditorMeshComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

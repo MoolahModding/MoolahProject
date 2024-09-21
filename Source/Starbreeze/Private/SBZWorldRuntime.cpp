@@ -6,12 +6,9 @@
 #include "SBZObservableActorContainer.h"
 #include "SBZSignificanceManager.h"
 
-USBZWorldRuntime* USBZWorldRuntime::Get(const UObject* WorldContextObject) {
-    return NULL;
-}
-
 USBZWorldRuntime::USBZWorldRuntime() {
     this->AllPawns = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllPawns"));
+    this->AllAlivePawns = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllAlivePawns"));
     this->AllPlayerCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllPlayerCharacters"));
     this->AllAlivePlayerCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllAlivePlayerCharacters"));
     this->AllAliveAICrewCharacters = CreateDefaultSubobject<USBZObservableActorContainer>(TEXT("AllAliveAICrewCharacters"));
@@ -25,7 +22,7 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllSecurityRooms = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllSecurityRooms"));
     this->AllSecurityCameras = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllSecurityCameras"));
     this->AllDespawnVolumes = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllDespawnVolumes"));
-    this->AllArmedGrenades = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllArmedGrenades"));
+    this->AllArmedPlayerGrenades = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllArmedGrenades"));
     this->AllRoomVolumes = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllRoomVolumes"));
     this->AllProtectPoints = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllProtectPoints"));
     this->AllDefensePoints = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllDefensePoints"));
@@ -41,7 +38,8 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->RagdollActorsBuffer = CreateDefaultSubobject<USBZActorRingBuffer>(TEXT("ActiveRagdolls"));
     this->DebrisActorsBuffer = CreateDefaultSubobject<USBZActorRingBuffer>(TEXT("ActiveDebris"));
     this->AllAIAttractors = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllAIAttractors"));
-    this->AllAIObjectives = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllAIObjectives"));
+    this->AllAIObjectives = NULL;
+    this->AllBrainslugs = NULL;
     this->ImpactManager = CreateDefaultSubobject<USBZImpactManager>(TEXT("ImpactManager"));
     this->DebugDrawingManager = NULL;
     this->SignificanceManager = CreateDefaultSubobject<USBZSignificanceManager>(TEXT("SBZSignificanceManager"));
@@ -53,4 +51,9 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllCrewAILifeActionComponents = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllCrewAILifeActionComponents"));
     this->AllAITowerHideLifeActionObjects = CreateDefaultSubobject<USBZObjectContainer>(TEXT("AllAITowerHideLifeActionComponents"));
 }
+
+USBZWorldRuntime* USBZWorldRuntime::Get(const UObject* WorldContextObject) {
+    return NULL;
+}
+
 

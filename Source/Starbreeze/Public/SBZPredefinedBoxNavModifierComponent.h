@@ -16,6 +16,7 @@ private:
     float ForwardOffset;
     
 public:
-    USBZPredefinedBoxNavModifierComponent();
+    USBZPredefinedBoxNavModifierComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

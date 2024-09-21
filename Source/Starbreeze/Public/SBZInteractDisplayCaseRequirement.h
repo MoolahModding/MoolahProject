@@ -8,5 +8,6 @@ class USBZInteractDisplayCaseRequirement : public USBZBaseInteractRequirement {
     GENERATED_BODY()
 public:
     USBZInteractDisplayCaseRequirement();
+
 };
 

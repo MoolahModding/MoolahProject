@@ -8,5 +8,6 @@ class USBZEnvQueryContext_EnemyRoom : public UEnvQueryContext {
     GENERATED_BODY()
 public:
     USBZEnvQueryContext_EnemyRoom();
+
 };
 

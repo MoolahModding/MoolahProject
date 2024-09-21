@@ -1,5 +1,9 @@
 #include "SBZInventoryBaseData.h"
 
+USBZInventoryBaseData::USBZInventoryBaseData() {
+    this->ItemRarity = ESBZItemRarity::NoRarity;
+}
+
 FText USBZInventoryBaseData::GetFormattedDescriptionText() const {
     return FText::GetEmpty();
 }
@@ -7,7 +11,4 @@ FText USBZInventoryBaseData::GetFormattedDescriptionText() const {
 void USBZInventoryBaseData::GetDisplayName(FText& OutDisplayName, bool& OutHasText) const {
 }
 
-USBZInventoryBaseData::USBZInventoryBaseData() {
-    this->ItemRarity = ESBZItemRarity::NoRarity;
-}
 

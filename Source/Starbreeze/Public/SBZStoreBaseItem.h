@@ -92,6 +92,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZItemCategory ItemCategory;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsMaskOfTheWeek;
+    
     STARBREEZE_API FSBZStoreBaseItem();
 };
 

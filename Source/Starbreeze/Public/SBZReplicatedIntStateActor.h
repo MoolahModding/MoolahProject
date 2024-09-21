@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "SBZBreakableInterface.h"
 #include "SBZReplicatedIntStateActor.generated.h"
 
 UCLASS(Blueprintable)
-class ASBZReplicatedIntStateActor : public AActor {
+class ASBZReplicatedIntStateActor : public AActor, public ISBZBreakableInterface {
     GENERATED_BODY()
 public:
 private:
@@ -18,9 +19,10 @@ private:
     float ClientStateDelay;
     
 public:
-    ASBZReplicatedIntStateActor();
+    ASBZReplicatedIntStateActor(const FObjectInitializer& ObjectInitializer);
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(int32 NewState, bool bDoCosmetics);
     
@@ -28,14 +30,14 @@ public:
     void SetLocalState(int32 NewState, bool bDoCosmetics);
     
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnStateChanged(int32 OldState, int32 NewState, bool bDoCosmetics);
     
 private:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     void OnRep_State(int32 OldState);
     
-    UFUNCTION(NetMulticast, Reliable)
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(int32 NewState);
     
 public:
@@ -45,5 +47,7 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DecreaseState(bool bDoCosmetics);
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

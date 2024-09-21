@@ -17,6 +17,7 @@ protected:
     bool bIsSingleUse;
     
 public:
-    ASBZCarriedStaticInteractionActor();
+    ASBZCarriedStaticInteractionActor(const FObjectInitializer& ObjectInitializer);
+
 };
 

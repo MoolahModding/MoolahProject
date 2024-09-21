@@ -1,5 +1,11 @@
 #include "SBZMainMenuCrimeNetHeistButton.h"
 
+USBZMainMenuCrimeNetHeistButton::USBZMainMenuCrimeNetHeistButton() {
+    this->HeistData = NULL;
+    this->HeistCollectionIndex = -1;
+    this->HeistIndex = -1;
+}
+
 
 
 void USBZMainMenuCrimeNetHeistButton::InitializeHeistDataFromSoftObjectPath(const FSoftObjectPath& InHeistSoftObjectPath) {
@@ -13,9 +19,4 @@ UPD3HeistDataAsset* USBZMainMenuCrimeNetHeistButton::GetHeistData() const {
     return NULL;
 }
 
-USBZMainMenuCrimeNetHeistButton::USBZMainMenuCrimeNetHeistButton() {
-    this->HeistData = NULL;
-    this->HeistCollectionIndex = -1;
-    this->HeistIndex = -1;
-}
 

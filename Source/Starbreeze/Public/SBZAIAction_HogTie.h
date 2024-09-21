@@ -11,5 +11,6 @@ public:
     bool bForceGoDownOnGround;
     
     USBZAIAction_HogTie();
+
 };
 

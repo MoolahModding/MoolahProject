@@ -33,9 +33,10 @@ protected:
     float PhaseShift;
     
 public:
-    USBZLaserSightComponent();
+    USBZLaserSightComponent(const FObjectInitializer& ObjectInitializer);
+
 protected:
-    UFUNCTION()
+    UFUNCTION(BlueprintCallable)
     FRotator ModifyWeaponRotation(const FRotator& InOutRotation);
     
 };

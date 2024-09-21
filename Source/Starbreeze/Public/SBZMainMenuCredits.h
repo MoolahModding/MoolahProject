@@ -47,5 +47,6 @@ private:
     
 public:
     USBZMainMenuCredits();
+
 };
 

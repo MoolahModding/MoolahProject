@@ -8,5 +8,6 @@ class USBZPlaceableAmmoData : public USBZPlaceableData {
     GENERATED_BODY()
 public:
     USBZPlaceableAmmoData();
+
 };
 

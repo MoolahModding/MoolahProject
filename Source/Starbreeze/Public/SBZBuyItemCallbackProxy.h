@@ -21,6 +21,7 @@ private:
     
 public:
     USBZBuyItemCallbackProxy();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZBuyItemCallbackProxy* BuyItem(UObject* NewWorldContextObject, FGuid ItemId, int32 Price, int32 DiscountedPrice, int32 Quantity, const FString& CurrencyCode);
     

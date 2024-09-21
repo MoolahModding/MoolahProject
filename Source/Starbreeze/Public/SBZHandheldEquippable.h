@@ -7,6 +7,7 @@ UCLASS(Abstract, Blueprintable)
 class STARBREEZE_API ASBZHandheldEquippable : public ASBZEquippable {
     GENERATED_BODY()
 public:
-    ASBZHandheldEquippable();
+    ASBZHandheldEquippable(const FObjectInitializer& ObjectInitializer);
+
 };
 

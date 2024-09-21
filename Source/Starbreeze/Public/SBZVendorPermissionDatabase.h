@@ -13,5 +13,6 @@ public:
     TArray<USBZVendorPermissionData*> VendorPermissionArray;
     
     USBZVendorPermissionDatabase();
+
 };
 

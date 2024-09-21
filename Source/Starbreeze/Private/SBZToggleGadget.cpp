@@ -1,5 +1,6 @@
 #include "SBZToggleGadget.h"
 
-ASBZToggleGadget::ASBZToggleGadget() {
+ASBZToggleGadget::ASBZToggleGadget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
+
 

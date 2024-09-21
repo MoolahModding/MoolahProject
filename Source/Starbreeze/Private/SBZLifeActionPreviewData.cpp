@@ -7,3 +7,4 @@ USBZLifeActionPreviewData::USBZLifeActionPreviewData() {
     this->PreviewEquippableFamily = ESBZEquippableFamily::First;
 }
 
+

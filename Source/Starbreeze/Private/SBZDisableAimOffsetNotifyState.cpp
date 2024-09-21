@@ -4,3 +4,4 @@ USBZDisableAimOffsetNotifyState::USBZDisableAimOffsetNotifyState() {
     this->DisableAimOffsetType = ESBZDisabledAimOffsetType::All;
 }
 
+

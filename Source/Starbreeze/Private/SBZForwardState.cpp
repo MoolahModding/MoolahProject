@@ -4,3 +4,4 @@ USBZForwardState::USBZForwardState() {
     this->StateMachine = NULL;
 }
 
+

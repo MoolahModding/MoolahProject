@@ -9,7 +9,8 @@ class USBZJobOverviewPlayerStatusWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZJobOverviewPlayerStatusWidget();
-    UFUNCTION(BlueprintImplementableEvent)
+
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetPlayerInfo(const FSBZPlayerReadyInfo& InPlayerReadyInfo);
     
 };

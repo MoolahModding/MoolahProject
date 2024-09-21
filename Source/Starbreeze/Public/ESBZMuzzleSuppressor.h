@@ -9,6 +9,6 @@ enum class ESBZMuzzleSuppressor : uint8 {
     Medium,
     Large,
     MAX,
-    Last = 0x3,
+    Last = Large,
 };
 

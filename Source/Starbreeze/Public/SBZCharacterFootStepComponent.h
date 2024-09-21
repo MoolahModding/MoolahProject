@@ -56,6 +56,7 @@ protected:
     UCharacterMovementComponent* OwnerCharacterMovementComponent;
     
 public:
-    USBZCharacterFootStepComponent();
+    USBZCharacterFootStepComponent(const FObjectInitializer& ObjectInitializer);
+
 };
 

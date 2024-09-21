@@ -8,5 +8,6 @@ class STARBREEZE_API USBZMaskPatternData : public USBZCosmeticsPatternDataAsset 
     GENERATED_BODY()
 public:
     USBZMaskPatternData();
+
 };
 

@@ -4,3 +4,4 @@ USBZAssaultCountStatisticCriteriaData::USBZAssaultCountStatisticCriteriaData() {
     this->NumberOfAssaultsCompleted = 4;
 }
 
+

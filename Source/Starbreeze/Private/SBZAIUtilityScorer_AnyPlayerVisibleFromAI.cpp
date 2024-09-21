@@ -5,3 +5,4 @@ USBZAIUtilityScorer_AnyPlayerVisibleFromAI::USBZAIUtilityScorer_AnyPlayerVisible
     this->bUseIntimidationRagne = false;
 }
 
+

@@ -1,5 +1,8 @@
 #include "SBZPartyManager.h"
 
+USBZPartyManager::USBZPartyManager() {
+}
+
 void USBZPartyManager::SetLobbyType(ESBZOnlineJoinType InLobbyType, bool bIsSaved) {
 }
 
@@ -27,7 +30,7 @@ int32 USBZPartyManager::GetPartyPlayersNumber() const {
     return 0;
 }
 
-USBZPartyManager* USBZPartyManager::GetPartyManager(UObject* WorldContextObject) {
+USBZPartyManager* USBZPartyManager::GetPartyManager(const UObject* WorldContextObject) {
     return NULL;
 }
 
@@ -39,6 +42,4 @@ ESBZOnlineJoinType USBZPartyManager::GetLobbyType() const {
     return ESBZOnlineJoinType::Debug;
 }
 
-USBZPartyManager::USBZPartyManager() {
-}
 

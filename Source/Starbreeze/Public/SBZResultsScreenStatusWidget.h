@@ -8,14 +8,15 @@ class USBZResultsScreenStatusWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     USBZResultsScreenStatusWidget();
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartExpireTimerUpdated(float InNewTime);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartCountdownTimerUpdated(float InNewTime);
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartAcceptTimerUpdated(float InNewTime);
     
 };

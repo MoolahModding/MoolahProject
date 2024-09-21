@@ -21,31 +21,35 @@ protected:
     
 public:
     USBZProgressionSaveGame();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZWeaponInventorySlot> GetWeaponInventorySlotArray(ESBZEquippableLoadoutSlot EquippableSlot) const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZSuitInventorySlot> GetUncheckedSuitInventorySlotArray() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZMaskInventorySlot> GetUncheckedMaskInventorySlotArray() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZGloveInventorySlot> GetUncheckedGloveInventorySlotArray() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZSuitInventorySlot> GetSuitInventorySlotArray() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FSBZPlayerCosmeticsConfig GetPlayerCosmeticsConfigArrayForPlatform();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZMaskInventorySlot> GetMaskInventorySlotArray() const;
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZGloveInventorySlot> GetGloveInventorySlotArray() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetEquippedWeaponInventorySlotIndex(const int32 LoadoutIndex, ESBZEquippableLoadoutSlot ItemSlot) const;
     
+
     // Fix for true pure virtual functions not being implemented
 };
 

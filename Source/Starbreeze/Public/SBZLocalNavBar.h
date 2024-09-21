@@ -15,6 +15,7 @@ public:
     FOnIndexChanged OnIndexChanged;
     
     USBZLocalNavBar();
+
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void RebuildNavbar();
     

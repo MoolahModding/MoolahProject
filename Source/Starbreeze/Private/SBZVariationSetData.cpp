@@ -7,3 +7,4 @@ USBZVariationSetData::USBZVariationSetData() {
     this->CDPFormat = NULL;
 }
 
+

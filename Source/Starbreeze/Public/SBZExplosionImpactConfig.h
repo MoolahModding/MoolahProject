@@ -8,5 +8,6 @@ class USBZExplosionImpactConfig : public USBZImpactConfig {
     GENERATED_BODY()
 public:
     USBZExplosionImpactConfig();
+
 };
 

@@ -11,6 +11,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZNavLinkWaitSlot> Slots;
     
-    USBZNavLinkWaitSlotRoot();
+    USBZNavLinkWaitSlotRoot(const FObjectInitializer& ObjectInitializer);
+
 };
 

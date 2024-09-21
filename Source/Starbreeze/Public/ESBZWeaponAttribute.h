@@ -42,7 +42,7 @@ enum class ESBZWeaponAttribute : uint8 {
     OverallSpreadRadius,
     OverallHurtBuildup,
     MAX,
-    ATTRIBUTE_START = 0x1,
-    PARENT_START = 0x1F,
+    ATTRIBUTE_START = VerticalRecoil,
+    PARENT_START = OverallRecoil,
 };
 

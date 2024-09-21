@@ -29,5 +29,6 @@ public:
     TArray<USBZSkill*> Skills;
     
     USBZSkillLine();
+
 };
 
