@@ -31,7 +31,7 @@ public class Starbreeze : ModuleRules {
             "PhysXVehicles",
             "PhysicsCore",
             "ReplicationGraph",
-            "SBZAnalytics",
+            "SBZAnalyticsLegacy",
             "SBZStateMachineBase",
             "SBZUtilityPlugin",
             "SBZWorldRuntime",

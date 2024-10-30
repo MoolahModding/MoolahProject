@@ -63,7 +63,11 @@ USBZGameInstance::USBZGameInstance() {
     this->UE4StatsProfiler = NULL;
     this->GameplayManager = NULL;
     this->MergePartyManager = NULL;
+    this->PartyMemberDataManager = NULL;
     this->FGRLManager = NULL;
+    this->LazyLoadingManager = NULL;
+    this->UserManager = NULL;
+    this->RequestFeedbackManager = NULL;
     this->PlatformUserManager = NULL;
 }
 

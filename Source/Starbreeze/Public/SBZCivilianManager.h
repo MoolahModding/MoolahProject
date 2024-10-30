@@ -38,6 +38,12 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
+    UFUNCTION(BlueprintCallable)
+    void OnExitedActionPhase();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnEnteredActionPhase();
+    
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool IsAllowedToFlee(ASBZAIController* AIController);

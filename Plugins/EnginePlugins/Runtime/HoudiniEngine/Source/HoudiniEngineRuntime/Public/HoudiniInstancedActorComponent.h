@@ -18,7 +18,7 @@ private:
     TArray<AActor*> InstancedActors;
     
 public:
-    UHoudiniInstancedActorComponent();
+    UHoudiniInstancedActorComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

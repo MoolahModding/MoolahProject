@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "SBZMenuButton.h"
 #include "SBZStoreItemUIData.h"
-#include "SBZWidgetBase.h"
 #include "SBZMaskOfTheWeekWidget.generated.h"
 
 UCLASS(Blueprintable, EditInlineNew)
-class STARBREEZE_API USBZMaskOfTheWeekWidget : public USBZWidgetBase {
+class STARBREEZE_API USBZMaskOfTheWeekWidget : public USBZMenuButton {
     GENERATED_BODY()
 public:
 protected:

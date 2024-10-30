@@ -7,10 +7,11 @@
 #include "SBZBTTask_MoveTo.generated.h"
 
 USTRUCT(BlueprintType)
-struct FSBZPathOffset {
+struct FSBZPathOffset
+{
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (AllowPrivateAccess = true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Offset;
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (AllowPrivateAccess = true))

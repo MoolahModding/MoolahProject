@@ -3,6 +3,7 @@
 #include "NavAreas/NavArea_Null.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZAIAttractorComponent.h"
+#include "SBZAcousticPortalConnectorComponent.h"
 
 ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bReplicates = true;
@@ -34,13 +35,13 @@ ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->CloseSound = NULL;
     this->BreachSound = NULL;
     this->UnlockSound = NULL;
-    this->PortalObject = NULL;
     this->bUseBreachPOIandSound = false;
     this->NavAreaClass = UNavArea_Null::StaticClass();
     this->ToolSnapData = NULL;
     this->SoundRange = 1500.00f;
     this->SoundRangeSlammedOpen = 1500.00f;
     this->AttractorComponent = CreateDefaultSubobject<USBZAIAttractorComponent>(TEXT("SBZAIAttractorComponent"));
+    this->AcousticPortalConnector = CreateDefaultSubobject<USBZAcousticPortalConnectorComponent>(TEXT("SBZAcousticPortalConnectorComponent"));
     this->LeftNavlinkOffset = 75.00f;
     this->RightNavlinkOffset = 75.00f;
     this->TraversableBehaviorCategoryBitmask = 14;
@@ -58,9 +59,6 @@ bool ASBZGate::SetState(ESBZGateState InState) {
 }
 
 void ASBZGate::SetAttractorInstigator(APawn* InInstigator) {
-}
-
-void ASBZGate::SetAllowPortalStateChange(bool bValue) {
 }
 
 void ASBZGate::OnStateDone() {
@@ -93,14 +91,6 @@ bool ASBZGate::IsOpenForwardFromLocation(const FVector& Location) const {
 }
 
 bool ASBZGate::IsOpenForwardFromDirection(const FVector& Direction) const {
-    return false;
-}
-
-ASBZAkAcousticPortal* ASBZGate::GetPortalObject() const {
-    return NULL;
-}
-
-bool ASBZGate::GetAllowPortalStateChange() {
     return false;
 }
 

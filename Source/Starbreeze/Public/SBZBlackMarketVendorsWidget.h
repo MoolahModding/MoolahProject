@@ -119,7 +119,7 @@ protected:
     void OnVendorItemButtonFocused(USBZMenuButton* InButton, bool bIsFocused);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnVendorChanged(const FSBZBlackMarketUIVendorData& NewVendor);
+    void OnVendorChanged(const FSBZBlackMarketUIVendorData& NewVendor, bool bIsRefresh);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnVendorButtonFocused(USBZMenuButton* InButton, bool bIsFocused);

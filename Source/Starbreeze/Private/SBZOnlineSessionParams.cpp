@@ -3,7 +3,7 @@
 FSBZOnlineSessionParams::FSBZOnlineSessionParams() {
     this->SessionPhase = ESBZOnlineSessionPhase::Undefined;
     this->bIsParty = false;
-    this->JoinType = ESBZOnlineJoinType::Debug;
+    this->JoinType = ESBZOnlineJoinType::Debug_DEPRECATED;
     this->LevelIdx = 0;
     this->DifficultyIdx = 0;
     this->bIsDebugSession = false;

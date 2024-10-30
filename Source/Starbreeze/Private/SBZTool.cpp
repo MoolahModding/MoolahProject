@@ -44,6 +44,7 @@ void ASBZTool::Server_SetEquippedAnimationFullyPlayed_Implementation(bool bInIsE
 void ASBZTool::Server_CallReady_Implementation() {
 }
 
+
 void ASBZTool::OnRep_ToolState(ESBZToolState OldToolState) {
 }
 

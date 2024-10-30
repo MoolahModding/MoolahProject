@@ -91,6 +91,12 @@ public:
     void Multicast_Landed(const FSBZFallDamageTargetData& TargetData);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_FireWeaponBuildupEnded();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_FireWeaponBuildup();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_FireProjectileSentry(const FSBZProjectileTargetData& TargetData);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

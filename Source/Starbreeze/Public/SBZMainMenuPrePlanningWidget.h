@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZDifficulty.h"
+#include "ESBZOnlineTacticType.h"
 #include "SBZMenuStackWidget.h"
 #include "SBZMainMenuPrePlanningWidget.generated.h"
 
@@ -24,6 +25,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable)
     bool IsAsyncLoadingDone();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZOnlineTacticType GetTacticTypeFromGameSession() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZDifficulty GetDifficulty() const;

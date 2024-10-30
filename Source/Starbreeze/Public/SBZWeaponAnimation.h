@@ -12,7 +12,7 @@ class UAnimSequenceBase;
 class USBZEquippableAnimationCollection;
 
 UCLASS(Blueprintable, NonTransient)
-class USBZWeaponAnimation : public UAnimInstance {
+class STARBREEZE_API USBZWeaponAnimation : public UAnimInstance {
     GENERATED_BODY()
 public:
 protected:

@@ -35,7 +35,7 @@ protected:
     TMap<FGuid, FGuid> CachedInputNodes;
     
 public:
-    UHoudiniAssetBlueprintComponent();
+    UHoudiniAssetBlueprintComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void SetToggleValueAt(const FString& Name, bool Value, int32 Index);

@@ -13,7 +13,7 @@ class USBZOutlineComponent;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Abstract, Blueprintable)
-class ASBZPlaceableBase : public ASBZEquippable, public ISBZAIAttractorInterface, public ISBZAIActionInteractableInterface {
+class STARBREEZE_API ASBZPlaceableBase : public ASBZEquippable, public ISBZAIAttractorInterface, public ISBZAIActionInteractableInterface {
     GENERATED_BODY()
 public:
 protected:

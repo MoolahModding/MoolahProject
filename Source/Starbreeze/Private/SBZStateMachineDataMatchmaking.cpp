@@ -5,7 +5,7 @@ USBZStateMachineDataMatchmaking::USBZStateMachineDataMatchmaking() {
     this->bCrossPlayEnabled = true;
     this->bInCrossPlayLobby = false;
     this->bCrossPlayAllowed = true;
-    this->JoinType = ESBZOnlineJoinType::Debug;
+    this->JoinType = ESBZOnlineJoinType::Debug_DEPRECATED;
 }
 
 

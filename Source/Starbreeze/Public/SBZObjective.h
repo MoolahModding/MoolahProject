@@ -4,12 +4,14 @@
 #include "GameplayTagContainer.h"
 #include "ESBZObjectiveGroup.h"
 #include "ESBZObjectiveState.h"
+#include "ESBZObjectiveType.h"
 #include "ESBZProgressTextDisplayOption.h"
 #include "ESBZSubobjectiveComplete.h"
 #include "SBZOnObjectiveDelegate.h"
 #include "SBZObjective.generated.h"
 
 class ASBZObjective;
+class ASBZTickingLootManager;
 class ISBZTimedObjectiveInterface;
 class USBZTimedObjectiveInterface;
 class UObject;
@@ -27,6 +29,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsOptional;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZObjectiveType ObjectiveType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUIUseProgressBar;
@@ -109,6 +114,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<AActor*> InfoActorArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ASBZTickingLootManager* TickingLootManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMarkerDataAsset* MarkerAsset;

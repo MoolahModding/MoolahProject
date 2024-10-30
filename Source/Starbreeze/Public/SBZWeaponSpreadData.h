@@ -8,7 +8,7 @@
 #include "SBZWeaponSpreadData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZWeaponSpreadData : public UDataAsset {
+class STARBREEZE_API USBZWeaponSpreadData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -31,6 +31,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FireSpreadDecayRate;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float FireSpreadMinCap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FireSpreadCap;

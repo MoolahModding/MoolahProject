@@ -17,6 +17,9 @@ void ASBZOnlineSlotsSync::UpdatePlatform(ASBZPlayerState* InPlayerState) {
 void ASBZOnlineSlotsSync::UpdateInfamyLevel(ASBZPlayerState* InPlayerState) {
 }
 
+void ASBZOnlineSlotsSync::UpdateEOSProductUserId(ASBZPlayerState* InPlayerState) {
+}
+
 void ASBZOnlineSlotsSync::UniqueIdUpdated(ASBZPlayerState* InPlayerState) {
 }
 

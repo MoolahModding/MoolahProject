@@ -16,7 +16,6 @@ USBZMainMenuWidget::USBZMainMenuWidget() {
     this->Widget_Cosmetic = NULL;
     this->Widget_HeistInspect = NULL;
     this->Widget_FullscreenVideo = NULL;
-    this->Widget_MainMenuNavbar = NULL;
     this->CosmeticItemButtonClass = NULL;
     this->CrossplayPopupWidgetClass = NULL;
     this->TutorialPopupWidgetClass = NULL;

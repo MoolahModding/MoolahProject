@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Engine/EngineTypes.h"
+#include "GameplayTagContainer.h"
 #include "ESBZLootProcessorState.h"
 #include "SBZBagFilter.h"
 #include "SBZBagHandle.h"
@@ -38,6 +39,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMarkerDataAsset* MarkerAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTag DurationPreplanningTag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PreplanningProcessDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZInteractableComponent* ClaimBagInteractable;
@@ -132,6 +139,11 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCurrentProcessingIndex(uint8 Index);
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetProcessDuration() const;
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnRunningStateChanged(ESBZLootProcessorState NewState, bool bDoCosmetics, bool bIsDedicatedServer);
     

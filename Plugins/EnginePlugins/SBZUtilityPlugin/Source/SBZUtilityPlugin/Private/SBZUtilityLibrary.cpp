@@ -3,7 +3,7 @@
 USBZUtilityLibrary::USBZUtilityLibrary() {
 }
 
-APlayerController* USBZUtilityLibrary::GetLocalPlayerController(UObject* WorldContextObject) {
+APlayerController* USBZUtilityLibrary::GetLocalPlayerController(const UObject* WorldContextObject) {
     return NULL;
 }
 

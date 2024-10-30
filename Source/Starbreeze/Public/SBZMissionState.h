@@ -29,6 +29,7 @@ class ASBZAICrewState;
 class ASBZCharacter;
 class ASBZMissionState;
 class ASBZPowerUp;
+class ASBZTickingLootManager;
 class UAkAudioBank;
 class UObject;
 class UPD3HeistDataAsset;
@@ -101,6 +102,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_BlockedBagMarkers, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer BlockedBagMarkers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPD3HeistDataAsset* CurrentHeistData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<ASBZTickingLootManager> TickingLootManager;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -180,9 +187,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverkillWeaponCooldown;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    UPD3HeistDataAsset* CurrentHeistData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZPlayerCharacterData* TutorialPlayerCharacterData;
@@ -267,6 +271,10 @@ protected:
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_BlockedBagMarkers();
+    
+public:
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void OnInstantLootTaken(const FString& LootName);
     
 protected:
     UFUNCTION(BlueprintCallable)

@@ -5,6 +5,7 @@
 #include "ESBZCurrencyCode.h"
 #include "ESBZDebugNetEmulationTarget.h"
 #include "ESBZDebugNetEmulationType.h"
+#include "ESBZFirstPartyPlatform.h"
 #include "ESBZGameMachineStateError.h"
 #include "SBZDebugSelection.h"
 #include "SBZCheatManagerBase.generated.h"
@@ -70,10 +71,16 @@ public:
     void SimulateLobbyCloseConnection();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ShowSidebarNotification(const FString& TableName, const FString& Key, const FString& Header, float DisplayTime);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetPaused(bool bIsPaused);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetPartyMemberCount(int32 Count, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetNetEmulationType(ESBZDebugNetEmulationType Type, ESBZDebugNetEmulationTarget Target);
@@ -92,6 +99,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetInfamyExperience(int32 Amount, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetFirstPartyPlatform(ESBZFirstPartyPlatform Platform, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetDebugEarnedExperiencePoints(int32 EarnedExperiencePoints);
@@ -167,6 +177,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void RemoveCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void RefreshFriendList();
     
     UFUNCTION(BlueprintCallable, Exec)
     void PrintWarning(const FString& Text, bool bIsDecodingNeeded) const;
@@ -271,9 +284,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DebugIncrementPlayerStat(const FString& StatCode, int32 Increment);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void DebugChallengeRecords(const FString& Tag, const FString& Status, int32 Offset, int32 Limit);
     
     UFUNCTION(BlueprintCallable, Exec)
     void CompleteChallenge(int32 Count, int32 PlayerIndex);

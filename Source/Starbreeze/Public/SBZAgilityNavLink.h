@@ -22,6 +22,13 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZNavLinkAgilityComponent* NavLinkAgilityComponent;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHeistStateDependant;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint16 AllowedHeistStates;
+    
 public:
     ASBZAgilityNavLink(const FObjectInitializer& ObjectInitializer);
 

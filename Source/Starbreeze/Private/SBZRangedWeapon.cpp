@@ -18,10 +18,17 @@ ASBZRangedWeapon::ASBZRangedWeapon(const FObjectInitializer& ObjectInitializer) 
     this->FPEnterTargetingEvent = NULL;
     this->FPExitTargetingEvent = NULL;
     this->DryFireEvent = NULL;
+    this->StartFireBuildupBeginEvent = NULL;
+    this->StartFireBuildupEndEvent = NULL;
     this->CurrentAmmoData = NULL;
     this->AmmoEquipped = 0;
     this->AmmoLoaded = 0;
     this->DroppedAmmoLoaded = 0;
+    this->FireBuildupScale = 0.00f;
+    this->StartFireBuildupScale = 0.00f;
+    this->bIsStartFireBuildupRotatingBarrel = false;
 }
+
+
 
 

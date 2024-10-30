@@ -156,6 +156,11 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMitigationBuffTime(float Time);
     
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetEncumbered();
+    
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDamageBuffTime(float Time);
     
@@ -169,6 +174,9 @@ private:
     void Multicast_ResetDamageBuffTime();
     
 public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_RemoveEncumbered();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MarkTarget(APawn* MarkedPawn, float InDuration);
     

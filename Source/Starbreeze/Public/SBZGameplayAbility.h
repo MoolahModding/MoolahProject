@@ -6,7 +6,7 @@
 #include "SBZGameplayAbility.generated.h"
 
 UCLASS(Blueprintable)
-class USBZGameplayAbility : public UGameplayAbility {
+class STARBREEZE_API USBZGameplayAbility : public UGameplayAbility {
     GENERATED_BODY()
 public:
 protected:

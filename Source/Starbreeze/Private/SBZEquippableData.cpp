@@ -14,6 +14,7 @@ USBZEquippableData::USBZEquippableData() {
     this->EquippableFamily = ESBZEquippableFamily::HandGun1H;
     this->CompatibleStances = 2147483647;
     this->WeightTierOffset = 0.00f;
+    this->OverskillData = NULL;
     this->EquippableMenuAnimCollection = NULL;
 }
 

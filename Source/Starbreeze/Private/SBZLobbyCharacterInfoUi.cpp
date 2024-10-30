@@ -11,5 +11,6 @@ FSBZLobbyCharacterInfoUi::FSBZLobbyCharacterInfoUi() {
     this->Platform = ESBZPlatform::Unknown;
     this->FirstPartyPlatform = ESBZFirstPartyPlatform::Unknown;
     this->InfamyLevel = 0;
+    this->RenownLevel = 0;
 }
 

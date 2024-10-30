@@ -52,6 +52,12 @@ FSoftObjectPath USBZOnlineFunctionLibrary::LevelIdxToPath(const UObject* WorldCo
     return FSoftObjectPath{};
 }
 
+void USBZOnlineFunctionLibrary::KickPlayerFromGameSession(UObject* WorldContextObject, const FString& InPlayerToKickId, const FString& InPlayerToKickPlatformId) {
+}
+
+void USBZOnlineFunctionLibrary::JoinMatchmakingSessionByID(const UObject* WorldContextObject, const FString& SessionID, int32 LevelIdx) {
+}
+
 bool USBZOnlineFunctionLibrary::IsWinGDKActive() {
     return false;
 }
@@ -77,6 +83,14 @@ bool USBZOnlineFunctionLibrary::IsSoloGame(UObject* WorldContextObject) {
 }
 
 bool USBZOnlineFunctionLibrary::IsShippingBuild() {
+    return false;
+}
+
+bool USBZOnlineFunctionLibrary::IsSessionHosted(const UObject* WorldContextObject, FString& OutHostId) {
+    return false;
+}
+
+bool USBZOnlineFunctionLibrary::IsServerBrowserEnabled() {
     return false;
 }
 
@@ -116,6 +130,10 @@ bool USBZOnlineFunctionLibrary::IsPartyOwner(UObject* WorldContextObject) {
     return false;
 }
 
+bool USBZOnlineFunctionLibrary::IsPartyHost(UObject* WorldContextObject) {
+    return false;
+}
+
 bool USBZOnlineFunctionLibrary::IsPartyClient(UObject* WorldContextObject) {
     return false;
 }
@@ -133,6 +151,10 @@ bool USBZOnlineFunctionLibrary::IsNoHud() {
 }
 
 bool USBZOnlineFunctionLibrary::IsNoChallenges() {
+    return false;
+}
+
+bool USBZOnlineFunctionLibrary::IsLocalPlayerSessionHost(const UObject* WorldContextObject) {
     return false;
 }
 
@@ -188,6 +210,9 @@ bool USBZOnlineFunctionLibrary::IsAccelByteMatchmakingDisabled() {
     return false;
 }
 
+void USBZOnlineFunctionLibrary::HostRequestRestartLevel(UObject* WorldContextObject) {
+}
+
 void USBZOnlineFunctionLibrary::HideSessionFromJoin(UObject* WorldContextObject) {
 }
 
@@ -218,7 +243,7 @@ USBZOnlineSession* USBZOnlineFunctionLibrary::GetSBZOnline(const UObject* WorldC
     return NULL;
 }
 
-int32 USBZOnlineFunctionLibrary::GetPlayersCount(UObject* WorldContextObject) {
+int32 USBZOnlineFunctionLibrary::GetPlayersCount(const UObject* WorldContextObject) {
     return 0;
 }
 
@@ -232,6 +257,10 @@ UTexture2D* USBZOnlineFunctionLibrary::GetPlayerAvatarByUniqueId(UObject* WorldC
 
 UTexture2D* USBZOnlineFunctionLibrary::GetPlayerAvatar(UObject* WorldContextObject, int32 PlayerIndex) {
     return NULL;
+}
+
+ESBZPlatform USBZOnlineFunctionLibrary::GetPlatformFromFirstPartyPlatformType(ESBZFirstPartyPlatform FirstPartyPlatform) {
+    return ESBZPlatform::Unknown;
 }
 
 ESBZPlatform USBZOnlineFunctionLibrary::GetPlatformFromAccelbytePlatformId(const FString& AccelbytePlatformId) {
@@ -255,7 +284,7 @@ UTexture2D* USBZOnlineFunctionLibrary::GetPartyMemberAvatar(UObject* WorldContex
 }
 
 ESBZOnlineJoinType USBZOnlineFunctionLibrary::GetPartyJoinType(UObject* WorldContextObject) {
-    return ESBZOnlineJoinType::Debug;
+    return ESBZOnlineJoinType::Debug_DEPRECATED;
 }
 
 bool USBZOnlineFunctionLibrary::GetPartyData(UObject* WorldContextObject, FSBZPartyData& OutPartyData) {
@@ -322,7 +351,7 @@ FSBZLoginFieldInfo USBZOnlineFunctionLibrary::GetDebugLoginAndPassword(const UOb
     return FSBZLoginFieldInfo{};
 }
 
-int32 USBZOnlineFunctionLibrary::GetConnectionsCount(UObject* WorldContextObject) {
+int32 USBZOnlineFunctionLibrary::GetConnectionsCount(const UObject* WorldContextObject) {
     return 0;
 }
 

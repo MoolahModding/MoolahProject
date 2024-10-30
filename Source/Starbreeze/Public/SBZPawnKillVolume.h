@@ -17,5 +17,8 @@ protected:
 public:
     ASBZPawnKillVolume(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetVolumeEnabled(bool bEnabled);
+    
 };
 

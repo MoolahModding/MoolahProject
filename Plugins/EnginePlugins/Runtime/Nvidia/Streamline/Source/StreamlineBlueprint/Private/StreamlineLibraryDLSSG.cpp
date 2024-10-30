@@ -6,8 +6,8 @@ UStreamlineLibraryDLSSG::UStreamlineLibraryDLSSG() {
 void UStreamlineLibraryDLSSG::SetDLSSGMode(UStreamlineDLSSGMode DLSSGMode) {
 }
 
-UStreamlineDLSSGSupport UStreamlineLibraryDLSSG::QueryDLSSGSupport() {
-    return UStreamlineDLSSGSupport::Supported;
+UStreamlineFeatureSupport UStreamlineLibraryDLSSG::QueryDLSSGSupport() {
+    return UStreamlineFeatureSupport::Supported;
 }
 
 bool UStreamlineLibraryDLSSG::IsDLSSGSupported() {
@@ -24,9 +24,6 @@ TArray<UStreamlineDLSSGMode> UStreamlineLibraryDLSSG::GetSupportedDLSSGModes() {
 
 UStreamlineDLSSGMode UStreamlineLibraryDLSSG::GetDLSSGMode() {
     return UStreamlineDLSSGMode::Off;
-}
-
-void UStreamlineLibraryDLSSG::GetDLSSGMinimumDriverVersion(int32& MinDriverVersionMajor, int32& MinDriverVersionMinor) {
 }
 
 void UStreamlineLibraryDLSSG::GetDLSSGFrameTiming(float& FrameRateInHertz, int32& FramesPresented) {

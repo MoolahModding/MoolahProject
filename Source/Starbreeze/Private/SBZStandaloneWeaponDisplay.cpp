@@ -10,10 +10,10 @@ ASBZStandaloneWeaponDisplay::ASBZStandaloneWeaponDisplay(const FObjectInitialize
     this->SpawnedPivotPoint = NULL;
 }
 
-void ASBZStandaloneWeaponDisplay::SetupWeaponData(const USBZBaseWeaponData* InWeaponData) {
+void ASBZStandaloneWeaponDisplay::SetupWeaponData(const USBZBaseWeaponData* InWeaponData, bool bIsRotationReset) {
 }
 
-void ASBZStandaloneWeaponDisplay::SetupWeaponConfig(const FSBZEquippableConfig& InWeaponConfig) {
+void ASBZStandaloneWeaponDisplay::SetupWeaponConfig(const FSBZEquippableConfig& InWeaponConfig, bool bIsRotationReset) {
 }
 
 void ASBZStandaloneWeaponDisplay::SetPart(const USBZModularPartSlotBase* Slot, const USBZEquippablePartDataAsset* PartAsset, USBZEquippablePartConfig* PartConfig) {

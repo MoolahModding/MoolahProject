@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "Components/SlateWrapperTypes.h"
 #include "ChatDisabledSettingChangedEventDelegate.h"
 #include "SBZChatMessage.h"
 #include "SBZWidgetBase.h"
@@ -16,6 +17,12 @@ public:
     FChatDisabledSettingChangedEvent OnChatDisableSettingChangedEvent;
     
 protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESlateVisibility DisabledChatVisibility;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESlateVisibility EnabledChatVisibility;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableLobbyChat;
     

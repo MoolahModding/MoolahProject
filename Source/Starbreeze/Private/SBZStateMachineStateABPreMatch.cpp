@@ -7,6 +7,15 @@ USBZStateMachineStateABPreMatch::USBZStateMachineStateABPreMatch() {
 void USBZStateMachineStateABPreMatch::OnPlayerReadyStatusUpdated(bool bIsReady) {
 }
 
+void USBZStateMachineStateABPreMatch::OnJoinVoiceSessionComplete(const FString& SessionName, bool bWasSuccessful) {
+}
+
+void USBZStateMachineStateABPreMatch::OnGetVoiceSessionStateComplete(const FString& SessionName, const ETLMVoiceSessionState VoiceSessionState) {
+}
+
+void USBZStateMachineStateABPreMatch::OnCreateVoiceSessionComplete(const FString& SessionName, const FString& SharedSessionName, bool bWasSuccessful) {
+}
+
 void USBZStateMachineStateABPreMatch::HandleReceivedPlayerReadyAck() {
 }
 

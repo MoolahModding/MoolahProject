@@ -22,8 +22,11 @@ ULevelStreamingDynamic* ASBZLevelScriptActor::SBZPlaceRandomSublevel(UObject* Wo
 
 
 
+
+
 void ASBZLevelScriptActor::OnRandomizedRoomShown() {
 }
+
 
 
 
@@ -40,7 +43,13 @@ void ASBZLevelScriptActor::OnOptionalObjectiveComplete(const int32 ObjectiveNumb
 
 
 
+void ASBZLevelScriptActor::HandlePlayersCarryBagChanged(const FSBZPlayersCarryBagChangedEvent& CarryBagChangedEventData) {
+}
+
 void ASBZLevelScriptActor::HandleOutroSequenceStarted(const int32 OutroVariation) {
+}
+
+void ASBZLevelScriptActor::HandleKeyItemCountChanged(const FSBZKeyItemCountChangedEvent& KeyItemCountChangedEventData) {
 }
 
 void ASBZLevelScriptActor::HandleIntroSequenceChanged(bool bIsStarted) {

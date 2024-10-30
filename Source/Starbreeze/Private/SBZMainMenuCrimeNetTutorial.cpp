@@ -2,8 +2,6 @@
 
 USBZMainMenuCrimeNetTutorial::USBZMainMenuCrimeNetTutorial() {
     this->StackValue = TEXT("Default__SBZMainMenuCrimeNetTutorial");
-    this->HeistButtonClass = NULL;
-    this->VerticalBox_HeistButtons = NULL;
     this->SelectedHeistButton = NULL;
     this->bHasDisabledButtons = false;
 }
@@ -11,13 +9,7 @@ USBZMainMenuCrimeNetTutorial::USBZMainMenuCrimeNetTutorial() {
 
 
 
-void USBZMainMenuCrimeNetTutorial::NativeOnHeistButtonSelected(USBZMenuButton* InSelectedButton) {
-}
-
-void USBZMainMenuCrimeNetTutorial::NativeOnHeistButtonFocused(USBZMenuButton* InFocusedButton, bool bIsFocused) {
-}
-
-void USBZMainMenuCrimeNetTutorial::NativeOnDisabledHeistButtonSelected(USBZMenuButton* InSelectedButton) {
+void USBZMainMenuCrimeNetTutorial::InitializeTutorialButton(int32 InLevelIndex) {
 }
 
 void USBZMainMenuCrimeNetTutorial::HandlePartyChanged() {

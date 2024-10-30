@@ -9,6 +9,7 @@ ASBZObjective::ASBZObjective(const FObjectInitializer& ObjectInitializer) : Supe
     this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
     this->DisplayOrder = 0;
     this->bIsOptional = false;
+    this->ObjectiveType = ESBZObjectiveType::OneShot;
     this->bUIUseProgressBar = false;
     this->bReverseProgressBar = false;
     this->bUIReverseTimer = false;
@@ -28,6 +29,7 @@ ASBZObjective::ASBZObjective(const FObjectInitializer& ObjectInitializer) : Supe
     this->MaxProgressPerDifficulty[3] = -1;
     this->bCanEverReplicateMaxProgress = false;
     this->StartTimeSeconds = 0.00f;
+    this->TickingLootManager = NULL;
     this->MarkerAsset = NULL;
 }
 

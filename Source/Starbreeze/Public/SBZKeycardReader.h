@@ -3,7 +3,6 @@
 #include "SBZModuleActor.h"
 #include "SBZKeycardReader.generated.h"
 
-class USBZAIObjectiveComponent;
 class USBZBaseInteractableComponent;
 class USBZInteractableComponent;
 class USBZInteractorComponent;
@@ -19,9 +18,6 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZOutlineComponent* OutlineComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZAIObjectiveComponent* AIOjectiveComponent;
     
 public:
     ASBZKeycardReader(const FObjectInitializer& ObjectInitializer);

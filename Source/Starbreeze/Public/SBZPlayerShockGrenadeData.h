@@ -4,7 +4,7 @@
 #include "SBZPlayerShockGrenadeData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZPlayerShockGrenadeData : public USBZShockGrenadeData {
+class STARBREEZE_API USBZPlayerShockGrenadeData : public USBZShockGrenadeData {
     GENERATED_BODY()
 public:
     USBZPlayerShockGrenadeData();

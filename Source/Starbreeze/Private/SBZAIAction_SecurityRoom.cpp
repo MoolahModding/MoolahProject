@@ -2,6 +2,7 @@
 
 USBZAIAction_SecurityRoom::USBZAIAction_SecurityRoom() {
     this->bIsInstanced = false;
+    this->bShouldDisableAI = true;
     this->SecurityRoom = NULL;
     this->OwnerController = NULL;
     this->SecurityRoomVolume = NULL;

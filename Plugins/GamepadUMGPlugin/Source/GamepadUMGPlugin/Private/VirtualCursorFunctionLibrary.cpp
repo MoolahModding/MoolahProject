@@ -1,5 +1,8 @@
 #include "VirtualCursorFunctionLibrary.h"
 
+UVirtualCursorFunctionLibrary::UVirtualCursorFunctionLibrary() {
+}
+
 bool UVirtualCursorFunctionLibrary::IsUsingAnalogCursor() {
     return false;
 }
@@ -22,6 +25,4 @@ void UVirtualCursorFunctionLibrary::EnableVirtualCursor(APlayerController* PC) {
 void UVirtualCursorFunctionLibrary::DisableVirtualCursor(APlayerController* PC) {
 }
 
-UVirtualCursorFunctionLibrary::UVirtualCursorFunctionLibrary() {
-}
 

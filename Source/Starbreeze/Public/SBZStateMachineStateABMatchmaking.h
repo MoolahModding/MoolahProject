@@ -20,6 +20,10 @@ private:
 public:
     USBZStateMachineStateABMatchmaking();
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnPopupSessionDoesNotExistClosed(FName CloseActionName);
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void HandleBeaconDisconnect();

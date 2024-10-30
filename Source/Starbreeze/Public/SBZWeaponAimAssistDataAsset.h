@@ -5,7 +5,7 @@
 #include "SBZWeaponAimAssistDataAsset.generated.h"
 
 UCLASS(Blueprintable)
-class USBZWeaponAimAssistDataAsset : public UDataAsset {
+class STARBREEZE_API USBZWeaponAimAssistDataAsset : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

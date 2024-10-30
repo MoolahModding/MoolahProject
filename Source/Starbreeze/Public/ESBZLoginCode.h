@@ -12,5 +12,6 @@ enum class ESBZLoginCode : uint8 {
     LoginLinkingTokenNotFound,
     LoginLinkingDiffNAccount,
     LoginPlayerBanned,
+    LoginHttpError500,
 };
 

@@ -21,6 +21,9 @@ public:
     FOnMenuButtonStateChanged OnButtonFocusedChanged;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnMenuButtonStateChanged OnButtonFocusChanging;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnMenuButtonStateChanged OnButtonHoveredChanged;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -60,7 +63,7 @@ public:
     bool bShouldTriggerLastFocused;
     
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDisabled;
     
 public:
@@ -79,6 +82,11 @@ protected:
     UFUNCTION(BlueprintCallable)
     void NativeOnAlternativeSelectionInputPressed();
     
+public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsButtonDisabled() const;
+    
+protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void DisabledButtonSelected();
     
@@ -93,6 +101,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonFocusedChanged(bool bInHasFocus);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ButtonFocusChanging(bool bInHasFocus);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ButtonDisabledChanged(bool bInIsDisabled);

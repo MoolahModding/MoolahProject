@@ -101,7 +101,7 @@ ESBZOnlineSessionPhase USBZClientStateMachine::GetSessionPhase() const {
     return ESBZOnlineSessionPhase::Undefined;
 }
 
-FString USBZClientStateMachine::GetCurrentStateNameString() {
+FString USBZClientStateMachine::GetCurrentStateNameString() const {
     return TEXT("");
 }
 

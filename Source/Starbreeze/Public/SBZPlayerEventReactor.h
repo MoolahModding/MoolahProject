@@ -29,7 +29,7 @@ protected:
     float LastPlayedTime;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZEventReactionData EventReactionArray[28];
+    FSBZEventReactionData EventReactionArray[29];
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkStateValue* ReactorStateArray[5];

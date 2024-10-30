@@ -13,6 +13,10 @@ ESBZPlayDialogResult USBZVoiceLibrary::PlayDialogWithSuitablePlayers(UObject* Wo
     return ESBZPlayDialogResult::Successful;
 }
 
+ESBZPlayDialogResult USBZVoiceLibrary::PlayDialogLocally(UObject* WorldContextObject, const USBZDialogDataAsset* DialogDataAsset, const TArray<AActor*>& Performers, AActor* DialogInstigator, bool bCanBeQueued) {
+    return ESBZPlayDialogResult::Successful;
+}
+
 ESBZPlayDialogResult USBZVoiceLibrary::PlayDialog(UObject* WorldContextObject, const USBZDialogDataAsset* DialogDataAsset, const TArray<AActor*>& Performers, const FBPOnDialogEnded_Delegate& OnDialogEnded, AActor* DialogInstigator, bool bCanBeQueued) {
     return ESBZPlayDialogResult::Successful;
 }

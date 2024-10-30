@@ -6,5 +6,7 @@ FSBZOnlineMatchmakingParams::FSBZOnlineMatchmakingParams() {
     this->DifficultyIdx = 0;
     this->MatchmakingRandomSeed = 0;
     this->Command = ESBZMatchmakingCommand::RegularMatchmaking;
+    this->bIsHost = false;
+    this->TacticType = ESBZOnlineTacticType::Default;
 }
 

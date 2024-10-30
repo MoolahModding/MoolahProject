@@ -7,6 +7,7 @@ ASBZPlayerControllerBase::ASBZPlayerControllerBase(const FObjectInitializer& Obj
     this->CheatClass = USBZCheatManagerBase::StaticClass();
     this->ClickEventKeys.AddDefaulted(1);
     this->SBZPlayerState = NULL;
+    this->bIsPausedPreferred = false;
 }
 
 void ASBZPlayerControllerBase::SetPausedPreferred(bool bIsPaused) {

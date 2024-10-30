@@ -6,5 +6,6 @@ UENUM(BlueprintType)
 enum class UStreamlineDLSSGMode : uint8 {
     Off,
     On,
+    Auto,
 };
 

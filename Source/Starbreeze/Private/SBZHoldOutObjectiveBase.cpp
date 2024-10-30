@@ -4,6 +4,7 @@ USBZHoldOutObjectiveBase::USBZHoldOutObjectiveBase() {
     this->bReverseCondition = false;
     this->bIsOptional = false;
     this->bBroadcastProgressChanged = true;
+    this->bEnableUIObjectiveOnSelected = false;
     this->UIObjective = NULL;
 }
 

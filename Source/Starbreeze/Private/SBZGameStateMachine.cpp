@@ -4,6 +4,9 @@ USBZGameStateMachine::USBZGameStateMachine() {
     this->StateMachine = NULL;
 }
 
+void USBZGameStateMachine::SetMatchmakingTacticType(ESBZOnlineTacticType InTacticType) {
+}
+
 void USBZGameStateMachine::SetMatchmakingSecurityCompanies(const TArray<ESBZSecurityCompany>& InSecurityCompanies) {
 }
 
@@ -23,6 +26,9 @@ void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty,
 }
 
 void USBZGameStateMachine::SetIsMatchmakingQuickMatch(bool bInIsQuickMatch) {
+}
+
+void USBZGameStateMachine::SetIsMatchmakingHost(bool bIsHost) {
 }
 
 void USBZGameStateMachine::RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch) {

@@ -8,15 +8,19 @@ UCLASS(Blueprintable)
 class ASBZReplicatedIntStateActor : public AActor, public ISBZBreakableInterface {
     GENERATED_BODY()
 public:
-private:
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_State, meta=(AllowPrivateAccess=true))
     int32 State;
     
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bClientDelayStateFromServer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ClientStateDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<AActor*> IntStateReactorArray;
     
 public:
     ASBZReplicatedIntStateActor(const FObjectInitializer& ObjectInitializer);

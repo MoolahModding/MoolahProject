@@ -13,7 +13,7 @@ public:
     USBZUtilityLibrary();
 
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static APlayerController* GetLocalPlayerController(UObject* WorldContextObject);
+    static APlayerController* GetLocalPlayerController(const UObject* WorldContextObject);
     
 };
 

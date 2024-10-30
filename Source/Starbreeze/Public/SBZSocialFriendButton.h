@@ -1,21 +1,22 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESBZPartyRequestFeedbackType.h"
 #include "ESBZRequestFeedbackType.h"
 #include "ESocialFriendButtonType.h"
 #include "SBZFriendListEntry.h"
+#include "SBZLazyObject.h"
 #include "SBZMenuButton.h"
 #include "SBZReportPlayerInfo.h"
+#include "SBZUser.h"
 #include "SBZSocialFriendButton.generated.h"
 
 class USBZSocialFriendButtonContainer;
 
 UCLASS(Blueprintable, EditInlineNew)
-class USBZSocialFriendButton : public USBZMenuButton {
+class USBZSocialFriendButton : public USBZMenuButton, public ISBZLazyObject {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZFriendListEntry FriendListEntry;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -61,17 +62,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnRequestStatusPopupClosed(FName ActionName);
     
-    UFUNCTION(BlueprintCallable)
-    void OnRequestFeedback(ESBZRequestFeedbackType FeedbackType, bool bResult, const FString& ErrorCode);
-    
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnPlayerDataInitialized(const FSBZFriendListEntry& InFriendListEntry);
+    void OnPlayerDataInitialized(const FSBZUser& InFriendListEntry);
     
 private:
-    UFUNCTION(BlueprintCallable)
-    void OnPartyRequestFeedback(ESBZPartyRequestFeedbackType FeedbackType, bool bResult, const FString& ErrorCode);
-    
     UFUNCTION(BlueprintCallable)
     void OnConfirmationPopupClosed(FName ActionName);
     
@@ -81,6 +76,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void JoinLobby();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsUserValid() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FSBZUser GetUser() const;
     
     UFUNCTION(BlueprintCallable)
     void FriendProfileAction();
@@ -115,5 +116,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void AcceptFriendRequest();
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

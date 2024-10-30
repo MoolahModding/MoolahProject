@@ -1,7 +1,7 @@
 #include "SBZChallengeToAchievementSettings.h"
 
 USBZChallengeToAchievementSettings::USBZChallengeToAchievementSettings() {
-    this->AchievementObjectiveStatCodeArray.AddDefaulted(22);
+    this->AchievementObjectiveStatCodeArray.AddDefaulted(32);
 }
 
 TMap<FName, FName> USBZChallengeToAchievementSettings::GetChallengeToAchievementSettings() {

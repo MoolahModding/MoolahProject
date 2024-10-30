@@ -32,10 +32,16 @@ public:
     TSubclassOf<USBZCustomizationRotateComponent> MaskRotationComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector SpawnOffsetForCameraFromMask;
+    FVector CenteredSpawnOffsetForCameraFromMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FRotator StartRotationForMask;
+    FRotator CenteredStartRotationForMask;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector RightSidedSpawnOffsetForCameraFromMask;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRotator RightSidedStartRotationForMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<AActor> MannequinToSpawn;
@@ -90,7 +96,7 @@ public:
     void ShowMainMenuMannequin();
     
     UFUNCTION(BlueprintCallable)
-    void ShowGlobalMask();
+    void ShowGlobalMask(const bool InCentered);
     
     UFUNCTION(BlueprintCallable)
     void ShowCustomizableWeapon();

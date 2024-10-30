@@ -20,7 +20,7 @@ void ASBZCustomizationManager::SpawnGlobalMask(const USBZMaskData* MaskData) {
 void ASBZCustomizationManager::ShowMainMenuMannequin() {
 }
 
-void ASBZCustomizationManager::ShowGlobalMask() {
+void ASBZCustomizationManager::ShowGlobalMask(const bool InCentered) {
 }
 
 void ASBZCustomizationManager::ShowCustomizableWeapon() {

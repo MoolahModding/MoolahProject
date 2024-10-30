@@ -31,6 +31,21 @@ USBZGasVolumeComponent::USBZGasVolumeComponent(const FObjectInitializer& ObjectI
     this->OverdrawOptimisationPoolID = 2;
 }
 
+void USBZGasVolumeComponent::OnRep_GasVolumeComponentData() {
+}
+
+void USBZGasVolumeComponent::Multicast_SetRadius_Implementation(float Radius) {
+}
+
+void USBZGasVolumeComponent::Multicast_SetDuration_Implementation(float InDuration) {
+}
+
+void USBZGasVolumeComponent::Multicast_Init_Implementation() {
+}
+
+void USBZGasVolumeComponent::Multicast_AddExpansionScalar_Implementation(float InScalar) {
+}
+
 bool USBZGasVolumeComponent::IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const {
     return false;
 }
@@ -52,8 +67,7 @@ void USBZGasVolumeComponent::FeedNiagaraWithParticleLocations(UNiagaraComponent*
 void USBZGasVolumeComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedLocalLocations);
-    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedLocalBorderLocations);
+    DOREPLIFETIME(USBZGasVolumeComponent, ReplicatedData);
 }
 
 

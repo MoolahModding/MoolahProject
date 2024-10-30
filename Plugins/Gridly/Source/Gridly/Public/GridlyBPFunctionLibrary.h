@@ -9,10 +9,11 @@ class UGridlyBPFunctionLibrary : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UGridlyBPFunctionLibrary();
+
     UFUNCTION(BlueprintCallable)
     static void UpdateLocalizationPreview(const TArray<FPolyglotTextData>& PolyglotTextDatas);
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetLocalizationPreviewCulture();
     
     UFUNCTION(BlueprintCallable)

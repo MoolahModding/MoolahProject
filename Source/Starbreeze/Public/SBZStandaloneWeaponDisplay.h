@@ -48,10 +48,10 @@ public:
     ASBZStandaloneWeaponDisplay(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    void SetupWeaponData(const USBZBaseWeaponData* InWeaponData);
+    void SetupWeaponData(const USBZBaseWeaponData* InWeaponData, bool bIsRotationReset);
     
     UFUNCTION(BlueprintCallable)
-    void SetupWeaponConfig(const FSBZEquippableConfig& InWeaponConfig);
+    void SetupWeaponConfig(const FSBZEquippableConfig& InWeaponConfig, bool bIsRotationReset);
     
     UFUNCTION(BlueprintCallable)
     void SetPart(const USBZModularPartSlotBase* Slot, const USBZEquippablePartDataAsset* PartAsset, USBZEquippablePartConfig* PartConfig);

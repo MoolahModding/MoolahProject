@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "EChallengeStatusEnum.h"
 #include "SBZChallengeData.h"
-#include "SBZMenuStackScreenWidgetWithTutorial.h"
+#include "SBZWidgetBase.h"
 #include "Templates/SubclassOf.h"
 #include "SBZMainMenuChallengesWidget.generated.h"
 
@@ -10,10 +10,9 @@ class UPanelWidget;
 class USBZChallengeCategoryData;
 class USBZMainMenuBaseChallengeButton;
 class USBZMenuButton;
-class USBZWidgetBase;
 
 UCLASS(Blueprintable, EditInlineNew)
-class USBZMainMenuChallengesWidget : public USBZMenuStackScreenWidgetWithTutorial {
+class USBZMainMenuChallengesWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
 protected:
@@ -64,6 +63,9 @@ public:
     void SetFilterCategory(const USBZChallengeCategoryData* Category);
     
     UFUNCTION(BlueprintCallable)
+    void SetCurrentFilter(EChallengeStatusEnum NewFilter, bool bResetToAll);
+    
+    UFUNCTION(BlueprintCallable)
     void ResetFilterStatuses();
     
     UFUNCTION(BlueprintCallable)
@@ -93,6 +95,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable)
     void CycleFilterStatuses();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CategoryHasChallenges(const USBZChallengeCategoryData* Category) const;
     
 };
 

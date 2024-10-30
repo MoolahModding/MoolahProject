@@ -200,7 +200,7 @@ protected:
     double LastTickTime;
     
 public:
-    UHoudiniAssetComponent();
+    UHoudiniAssetComponent(const FObjectInitializer& ObjectInitializer);
 
 
     // Fix for true pure virtual functions not being implemented

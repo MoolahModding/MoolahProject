@@ -6,7 +6,7 @@
 class UStaticMesh;
 
 UCLASS(Blueprintable)
-class USBZWeaponAmmoData : public USBZEquippablePartCustomData {
+class STARBREEZE_API USBZWeaponAmmoData : public USBZEquippablePartCustomData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

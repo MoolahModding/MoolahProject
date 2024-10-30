@@ -14,6 +14,7 @@ USBZSettingsCategoryScreen::USBZSettingsCategoryScreen() {
     this->SettingsButtonClassSlider = NULL;
     this->SettingsButtonClassKeyboardBinding = NULL;
     this->SettingsButtonClassGamepadBinding = NULL;
+    this->SettingsButtonClassFrameInterpolatorChoice = NULL;
 }
 
 

@@ -64,6 +64,7 @@ ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->SentryHackDamageInterval[1] = 0.00f;
     this->SentryHackDamageInterval[2] = 0.00f;
     this->SentryHackDamageInterval[3] = 0.00f;
+    this->bIsDeathAllowed = true;
     this->bShouldTelegraphAttack = false;
     this->bIsHackingSentry = false;
     this->HackingSentryEffectComponent = NULL;
@@ -129,6 +130,11 @@ void ASBZAIDrone::Multicast_OnKill_Implementation() {
 
 
 void ASBZAIDrone::AddForce(const FVector& LinearForce) {
+}
+
+UAbilitySystemComponent* ASBZAIDrone::GetAbilitySystemComponent() const
+{
+     return nullptr;
 }
 
 void ASBZAIDrone::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

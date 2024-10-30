@@ -8,7 +8,7 @@
 class UGameplayEffect;
 
 UCLASS(Blueprintable)
-class USBZPlaceableTripMineData : public USBZToolData {
+class STARBREEZE_API USBZPlaceableTripMineData : public USBZToolData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

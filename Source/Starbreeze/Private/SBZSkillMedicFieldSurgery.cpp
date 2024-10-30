@@ -1,7 +1,7 @@
 #include "SBZSkillMedicFieldSurgery.h"
 
 USBZSkillMedicFieldSurgery::USBZSkillMedicFieldSurgery() {
-    this->FloatArray.AddDefaulted(2);
+    this->IntArray.AddDefaulted(1);
 }
 
 

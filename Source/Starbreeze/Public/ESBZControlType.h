@@ -13,6 +13,7 @@ enum class ESBZControlType : uint8 {
     AntiAliasingModeChoice,
     UpscalerChoice,
     UpscalingModeChoice,
+    FrameInterpolatorChoice,
     Slider,
     KeyboardInputBinding,
     GamepadInputBinding,

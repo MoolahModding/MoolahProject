@@ -17,6 +17,7 @@ UPD3HUDPlayerStatusWidget::UPD3HUDPlayerStatusWidget() {
     this->Widget_RequestOverkillWeapon = NULL;
     this->Widget_Placeable = NULL;
     this->Widget_ToolStatus = NULL;
+    this->Widget_ConsumableStatus = NULL;
     this->Widget_RoomStatus = NULL;
     this->Widget_Interaction = NULL;
     this->Widget_DetectionMeterContainer = NULL;
@@ -25,5 +26,9 @@ UPD3HUDPlayerStatusWidget::UPD3HUDPlayerStatusWidget() {
 }
 
 
+
+FString UPD3HUDPlayerStatusWidget::GetUserId() const {
+    return TEXT("");
+}
 
 

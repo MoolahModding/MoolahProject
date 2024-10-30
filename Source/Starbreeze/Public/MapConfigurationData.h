@@ -6,6 +6,7 @@
 #include "SBZLootValueArray.h"
 #include "SBZPerformanceBonusArray.h"
 #include "SBZPlayerStatisticArray.h"
+#include "SBZTickingLootValues.h"
 #include "MapConfigurationData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -50,6 +51,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZInstantLootValues InstantLootValues;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZTickingLootValues TickingLootValues;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FString, float> ObjectivesToExperienceRewardMap;

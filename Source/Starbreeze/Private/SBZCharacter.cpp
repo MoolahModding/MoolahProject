@@ -30,6 +30,7 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->MaxCarryBagCount = 1;
     this->bIsAlive = true;
     this->bIsRagdolled = false;
+    this->bIsDeathAllowed = true;
     this->bIsLocallyControlled = false;
     this->bIsRunning = false;
     this->bIsJumping = false;
@@ -185,6 +186,9 @@ void ASBZCharacter::SetStance(ESBZCharacterStance InStance) {
 void ASBZCharacter::Server_TransferBagFrom_Implementation(ASBZCharacter* ToCharacter) {
 }
 
+void ASBZCharacter::Server_ThrowBag_Implementation(const FVector& ReplicatedVelocity) {
+}
+
 void ASBZCharacter::Server_SetEquipStateAndIndex_Implementation(uint8 InEquipStateAndIndex) {
 }
 
@@ -234,6 +238,9 @@ void ASBZCharacter::OnRep_Seed() {
 }
 
 void ASBZCharacter::OnRep_ReplicatedReloadState(const FSBZReplicatedReloadState& OldReplicatedReloadState) {
+}
+
+void ASBZCharacter::OnRep_ReplicatedEquippableState() {
 }
 
 void ASBZCharacter::OnRep_RandomMeshScaleEnabled() {
@@ -332,7 +339,7 @@ void ASBZCharacter::Multicast_PlayMontage_Implementation(UAnimMontage* Montage, 
 void ASBZCharacter::Multicast_OverrideMaxWalkSpeed_Implementation(float MaxWalkSpeed) {
 }
 
-void ASBZCharacter::Multicast_OnThrowCarryActor_Implementation(uint32 NetID) {
+void ASBZCharacter::Multicast_OnThrowCarryActor_Implementation(uint32 NetID, bool bInIsCarriedLastHitByIgnored) {
 }
 
 void ASBZCharacter::Multicast_OnPickupCarryActor_Implementation(uint32 NetID) {
@@ -405,6 +412,7 @@ void ASBZCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZCharacter, bIsAlive);
     DOREPLIFETIME(ASBZCharacter, bIsTargeting);
     DOREPLIFETIME(ASBZCharacter, ReplicatedReloadState);
+    DOREPLIFETIME(ASBZCharacter, ReplicatedEquippableState);
     DOREPLIFETIME(ASBZCharacter, Stance);
     DOREPLIFETIME(ASBZCharacter, RemoteViewYaw);
     DOREPLIFETIME(ASBZCharacter, EquipStateAndIndex);
@@ -414,6 +422,11 @@ void ASBZCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZCharacter, CurrentPlaceableIndex);
     DOREPLIFETIME(ASBZCharacter, HumanShieldInstigatorState);
     DOREPLIFETIME(ASBZCharacter, Seed);
+}
+
+UAbilitySystemComponent* ASBZCharacter::GetAbilitySystemComponent() const
+{
+    return nullptr; 
 }
 
 

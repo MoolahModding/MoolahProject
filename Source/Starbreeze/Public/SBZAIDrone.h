@@ -5,6 +5,7 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Character.h"
 #include "Curves/CurveFloat.h"
+#include "GameFramework/OnlineReplStructs.h"
 #include "AbilitySystemInterface.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagAssetInterface.h"
@@ -23,6 +24,7 @@
 #include "SBZPawnInterface.h"
 #include "SBZPawnLifetime.h"
 #include "SBZProjectileInterface.h"
+#include "SBZReplicatedEquippableState.h"
 #include "SBZRoomVolumeInterface.h"
 #include "SBZRuntimeInterface.h"
 #include "SBZTypeInterface.h"
@@ -77,7 +79,7 @@ protected:
     float PreferredRangeBuffer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UAbilitySystemComponent* AbilitySystemComponent;
+    USBZAbilitySystemComponent* AbilitySystemComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAICharacterAbilityData* AbilityData;
@@ -217,6 +219,9 @@ protected:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float SentryHackDamageInterval[4];
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsDeathAllowed: 1;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldTelegraphAttack;
@@ -244,6 +249,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UAkAudioEvent* HackingSentryEventStop;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZReplicatedEquippableState ReplicatedEquippableState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FUniqueNetIdRepl> HackedByPlayerArray;
     
 public:
     ASBZAIDrone(const FObjectInitializer& ObjectInitializer);
@@ -335,9 +346,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
 
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
-    {
-        return AbilitySystemComponent;
-    }
+    UFUNCTION(BlueprintCallable)
+    UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 };
 

@@ -9,7 +9,7 @@
 class ASBZWeaponCharm;
 
 UCLASS(Blueprintable)
-class USBZWeaponCharmData : public USBZCosmeticsDataAsset, public ISBZModularMeshContainer {
+class STARBREEZE_API USBZWeaponCharmData : public USBZCosmeticsDataAsset, public ISBZModularMeshContainer {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

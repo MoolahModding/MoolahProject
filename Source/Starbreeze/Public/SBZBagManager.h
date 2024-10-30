@@ -34,7 +34,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnRep_Bags();
+    void OnRep_Bags(const TArray<FSBZBagPersistentData>& OldBags);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SecureBag(const int32 BagId, const bool bClearClaim);

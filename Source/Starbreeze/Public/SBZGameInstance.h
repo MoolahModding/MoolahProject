@@ -32,15 +32,18 @@ class USBZInfamyManager;
 class USBZInstantLootManager;
 class USBZInventoryManager;
 class USBZItemProgressionManager;
+class USBZLazyLoadingManager;
 class USBZListenerManager;
 class USBZLoadoutManager;
 class USBZMergePartyManager;
 class USBZMusicManager;
 class USBZOnlineEventBroker;
+class USBZPartyMemberDataManager;
 class USBZPlatformUserManager;
 class USBZPlayerStatisticsManager;
 class USBZPreplanningAssetManager;
 class USBZReplayManager;
+class USBZRequestFeedbackManager;
 class USBZSafeHouseManager;
 class USBZSaveManager;
 class USBZServerStatusManager;
@@ -51,6 +54,7 @@ class USBZStoreManager;
 class USBZTimeEventManager;
 class USBZUE4StatsProfiler;
 class USBZUIManager;
+class USBZUserManager;
 class USBZVolumeManager;
 class USBZWeaponConfigManager;
 class USBZWeaponProgressionManager;
@@ -250,7 +254,19 @@ private:
     USBZMergePartyManager* MergePartyManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZPartyMemberDataManager* PartyMemberDataManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZFineGrainedRateLimitManager* FGRLManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZLazyLoadingManager* LazyLoadingManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZUserManager* UserManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZRequestFeedbackManager* RequestFeedbackManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlatformUserManager* PlatformUserManager;

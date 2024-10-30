@@ -34,6 +34,12 @@ void USBZAbilitySystemComponent::Multicast_MaskOn_Implementation() {
 void USBZAbilitySystemComponent::Multicast_Landed_Implementation(const FSBZFallDamageTargetData& TargetData) {
 }
 
+void USBZAbilitySystemComponent::Multicast_FireWeaponBuildupEnded_Implementation() {
+}
+
+void USBZAbilitySystemComponent::Multicast_FireWeaponBuildup_Implementation() {
+}
+
 void USBZAbilitySystemComponent::Multicast_FireProjectileSentry_Implementation(const FSBZProjectileTargetData& TargetData) {
 }
 

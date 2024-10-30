@@ -5,7 +5,11 @@ ASBZPawnSpawnPredefined::ASBZPawnSpawnPredefined(const FObjectInitializer& Objec
     this->bOverrideSpawningMethod = false;
     this->OverridenSpawningMethod = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
     this->bEnableRandomMeshScale = false;
+    this->SpawnLootClass = NULL;
     this->PredefinedRequestActionActorRef = NULL;
+}
+
+void ASBZPawnSpawnPredefined::SpawnPredefinedMulti() {
 }
 
 void ASBZPawnSpawnPredefined::SpawnPredefinedLatent(FLatentActionInfo LatentInfo) {

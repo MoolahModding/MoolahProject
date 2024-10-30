@@ -1,5 +1,4 @@
 #include "SBZAIOrder_LifeAction.h"
-#include "ESBZAIBehaviorCategory.h"
 #include "ESBZAIOrderMode.h"
 
 USBZAIOrder_LifeAction::USBZAIOrder_LifeAction() {
@@ -21,6 +20,9 @@ void USBZAIOrder_LifeAction::OnCharacterSlotFreed(ASBZCharacter* Character, USBZ
 }
 
 void USBZAIOrder_LifeAction::OnBlockingSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result) {
+}
+
+void USBZAIOrder_LifeAction::OnBehaviorCategoryChanged(ESBZAIBehaviorCategory OldCategory, ESBZAIBehaviorCategory NewCategory) {
 }
 
 void USBZAIOrder_LifeAction::ClearDelegates() {

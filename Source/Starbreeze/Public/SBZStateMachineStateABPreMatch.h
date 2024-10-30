@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZOnlineCode.h"
+#include "ETLMVoiceSessionState.h"
 #include "SBZClientStateMachineState.h"
 #include "SBZStateMachineStateABPreMatch.generated.h"
 
@@ -20,6 +21,15 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     void OnPlayerReadyStatusUpdated(bool bIsReady);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnJoinVoiceSessionComplete(const FString& SessionName, bool bWasSuccessful);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnGetVoiceSessionStateComplete(const FString& SessionName, const ETLMVoiceSessionState VoiceSessionState);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnCreateVoiceSessionComplete(const FString& SessionName, const FString& SharedSessionName, bool bWasSuccessful);
     
     UFUNCTION(BlueprintCallable)
     void HandleReceivedPlayerReadyAck();

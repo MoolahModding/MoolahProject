@@ -28,6 +28,11 @@ void USBZMenuButton::NativeOnSelectionInputPressed() {
 void USBZMenuButton::NativeOnAlternativeSelectionInputPressed() {
 }
 
+bool USBZMenuButton::IsButtonDisabled() const {
+    return false;
+}
+
+
 
 
 

@@ -5,6 +5,7 @@
 
 class ASBZPlayerState;
 class UImage;
+class UPD3ConsumableStatusWidget;
 class UPD3DefeatTimerWidget;
 class UPD3DetectionMeterContainer;
 class UPD3HUDPlayerCarryWidget;
@@ -77,6 +78,9 @@ protected:
     UPD3ToolStatusWidget* Widget_ToolStatus;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    UPD3ConsumableStatusWidget* Widget_ConsumableStatus;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPD3HUDRoomStatusWidget* Widget_RoomStatus;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -100,6 +104,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInfamyLevelChanged(ASBZPlayerState* InPlayerState);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetUserId() const;
     
 };
 

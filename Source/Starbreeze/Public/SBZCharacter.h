@@ -35,6 +35,7 @@
 #include "SBZPawnInterface.h"
 #include "SBZPawnLifetime.h"
 #include "SBZProjectileInterface.h"
+#include "SBZReplicatedEquippableState.h"
 #include "SBZReplicatedMontage.h"
 #include "SBZReplicatedReloadState.h"
 #include "SBZRoomVolumeInterface.h"
@@ -181,6 +182,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsRagdolled: 1;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsDeathAllowed: 1;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsLocallyControlled: 1;
     
@@ -213,6 +217,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReplicatedReloadState, meta=(AllowPrivateAccess=true))
     FSBZReplicatedReloadState ReplicatedReloadState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReplicatedEquippableState, meta=(AllowPrivateAccess=true))
+    FSBZReplicatedEquippableState ReplicatedEquippableState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZReloadState StartReloadState;
@@ -254,7 +261,7 @@ protected:
     uint8 RemoteViewYaw;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    UAbilitySystemComponent* AbilitySystem;
+    USBZAbilitySystemComponent* AbilitySystem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZEquippableConfig> EquippableConfigArray;
@@ -571,6 +578,9 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_TransferBagFrom(ASBZCharacter* ToCharacter);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_ThrowBag(const FVector& ReplicatedVelocity);
+    
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetEquipStateAndIndex(uint8 InEquipStateAndIndex);
@@ -623,6 +633,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_ReplicatedReloadState(const FSBZReplicatedReloadState& OldReplicatedReloadState);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ReplicatedEquippableState();
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -739,7 +752,7 @@ public:
     
 protected:
     UFUNCTION(NetMulticast, Reliable)
-    void Multicast_OnThrowCarryActor(uint32 NetID);
+    void Multicast_OnThrowCarryActor(uint32 NetID, bool bInIsCarriedLastHitByIgnored);
     
     UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnPickupCarryActor(uint32 NetID);
@@ -817,11 +830,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
-    {
-        return AbilitySystem;
-    }
+    
+    UFUNCTION(BlueprintCallable)
+    UAbilitySystemComponent* GetAbilitySystemComponent() const override;
     
 };
 

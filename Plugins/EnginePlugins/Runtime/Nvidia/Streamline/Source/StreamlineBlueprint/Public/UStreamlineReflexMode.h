@@ -6,6 +6,6 @@ UENUM(BlueprintType)
 enum class UStreamlineReflexMode : uint8 {
     Disabled,
     Enabled,
-    EnabledPlusBoost = 0x3,
+    EnabledPlusBoost = 3,
 };
 

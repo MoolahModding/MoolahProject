@@ -7,7 +7,7 @@ USBZShockGrenadeData::USBZShockGrenadeData() {
     this->ChainRange = 200.00f;
     this->ChainSpeed = 1000.00f;
     this->MaxChainCount = 7;
-    this->StunDuration = 4.00f;
+    this->StunDuration = 1.00f;
     this->StunDurationCrewInstigator = 0.50f;
     this->StunDurationCrew = 0.00f;
     this->StunGameplayEffectClass = NULL;

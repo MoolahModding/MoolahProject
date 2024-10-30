@@ -41,10 +41,16 @@ void USBZCheatManagerBase::SimulateLobbyConnectSuccess() {
 void USBZCheatManagerBase::SimulateLobbyCloseConnection() {
 }
 
+void USBZCheatManagerBase::ShowSidebarNotification(const FString& TableName, const FString& Key, const FString& Header, float DisplayTime) {
+}
+
 void USBZCheatManagerBase::SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::SetPaused(bool bIsPaused) {
+}
+
+void USBZCheatManagerBase::SetPartyMemberCount(int32 Count, int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::SetNetEmulationType(ESBZDebugNetEmulationType Type, ESBZDebugNetEmulationTarget Target) {
@@ -63,6 +69,9 @@ void USBZCheatManagerBase::SetInfamyLevel(int32 Amount, int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::SetInfamyExperience(int32 Amount, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::SetFirstPartyPlatform(ESBZFirstPartyPlatform Platform, int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::SetDebugEarnedExperiencePoints(int32 EarnedExperiencePoints) {
@@ -138,6 +147,9 @@ void USBZCheatManagerBase::RequestGameError(ESBZGameMachineStateError State, int
 }
 
 void USBZCheatManagerBase::RemoveCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::RefreshFriendList() {
 }
 
 void USBZCheatManagerBase::PrintWarning(const FString& Text, bool bIsDecodingNeeded) const {
@@ -240,9 +252,6 @@ void USBZCheatManagerBase::DebugVoteInit() {
 }
 
 void USBZCheatManagerBase::DebugIncrementPlayerStat(const FString& StatCode, int32 Increment) {
-}
-
-void USBZCheatManagerBase::DebugChallengeRecords(const FString& Tag, const FString& Status, int32 Offset, int32 Limit) {
 }
 
 void USBZCheatManagerBase::CompleteChallenge(int32 Count, int32 PlayerIndex) {

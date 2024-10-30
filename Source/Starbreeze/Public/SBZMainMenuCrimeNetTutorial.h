@@ -1,36 +1,24 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "Layout/Margin.h"
 #include "SBZMenuStackScreenWidget.h"
-#include "Templates/SubclassOf.h"
 #include "SBZMainMenuCrimeNetTutorial.generated.h"
 
 class USBZMainMenuCrimeNetHeistButton;
 class USBZMenuButton;
-class UVerticalBox;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZMainMenuCrimeNetTutorial : public USBZMenuStackScreenWidget {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZMainMenuCrimeNetHeistButton> HeistButtonClass;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UVerticalBox* VerticalBox_HeistButtons;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FMargin HeistButtonPadding;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZMainMenuCrimeNetHeistButton* SelectedHeistButton;
     
-private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCrimeNetHeistButton*> HeistButtonPool;
     
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSoftObjectPath> TutorialLevelPaths;
     
@@ -50,16 +38,11 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisabledHeistButtonSelected(USBZMainMenuCrimeNetHeistButton* SelectedButton);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void InitializeTutorialButton(int32 InLevelIndex);
+    
 private:
-    UFUNCTION(BlueprintCallable)
-    void NativeOnHeistButtonSelected(USBZMenuButton* InSelectedButton);
-    
-    UFUNCTION(BlueprintCallable)
-    void NativeOnHeistButtonFocused(USBZMenuButton* InFocusedButton, bool bIsFocused);
-    
-    UFUNCTION(BlueprintCallable)
-    void NativeOnDisabledHeistButtonSelected(USBZMenuButton* InSelectedButton);
-    
     UFUNCTION(BlueprintCallable)
     void HandlePartyChanged();
     

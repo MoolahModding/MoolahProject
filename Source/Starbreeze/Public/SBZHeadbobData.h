@@ -8,7 +8,7 @@ class UCurveVector;
 class USBZTargetingHeadbobData;
 
 UCLASS(Blueprintable, Const)
-class USBZHeadbobData : public UDataAsset {
+class STARBREEZE_API USBZHeadbobData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

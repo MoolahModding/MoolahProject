@@ -1,8 +1,7 @@
 #include "SBZBagItem.h"
 #include "AkComponent.h"
-#include "Components/BoxComponent.h"
 #include "Net/UnrealNetwork.h"
-#include "SBZAIObjectiveComponent.h"
+#include "SBZBagBoxComponent.h"
 #include "SBZInteractableComponent.h"
 #include "SBZSimplePhysicsCorrector.h"
 #include "SBZZiplineAudioController.h"
@@ -11,18 +10,17 @@ ASBZBagItem::ASBZBagItem(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->bReplicates = true;
     const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
     (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
-    this->RootComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
-    this->Tags.AddDefaulted(2);
+    this->RootComponent = CreateDefaultSubobject<USBZBagBoxComponent>(TEXT("BoxComponent"));
+    this->Tags.AddDefaulted(3);
     this->AudioComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->ZiplineAudioController = CreateDefaultSubobject<USBZZiplineAudioController>(TEXT("SBZZiplineAudioController"));
     this->OverrideImpactEvent = NULL;
     this->MinimumImpactVelocity = 5.00f;
     this->ZiplineMotorClass = NULL;
     this->CurrentZiplineMotor = NULL;
-    this->BoxComponent = (UBoxComponent*)RootComponent;
+    this->BoxComponent = (USBZBagBoxComponent*)RootComponent;
     this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("PickupInteract"));
     this->PhysicsCorrector = CreateDefaultSubobject<USBZSimplePhysicsCorrector>(TEXT("SimplePhysicsCorrector"));
-    this->ObjectiveComponent = CreateDefaultSubobject<USBZAIObjectiveComponent>(TEXT("SBZAIObjectiveComponent"));
     this->CurrentZipLine = NULL;
     this->TimeOnZipline = 0.00f;
     this->bIsMovingOnZiplineForward = false;

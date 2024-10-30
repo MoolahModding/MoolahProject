@@ -65,7 +65,7 @@ private:
     FString PartName;
     
 public:
-    UHoudiniSplineComponent();
+    UHoudiniSplineComponent(const FObjectInitializer& ObjectInitializer);
 
 
     // Fix for true pure virtual functions not being implemented

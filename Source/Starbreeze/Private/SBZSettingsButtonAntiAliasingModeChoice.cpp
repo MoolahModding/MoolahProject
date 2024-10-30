@@ -4,7 +4,7 @@ USBZSettingsButtonAntiAliasingModeChoice::USBZSettingsButtonAntiAliasingModeChoi
     this->OptionNames.AddDefaulted(4);
 }
 
-void USBZSettingsButtonAntiAliasingModeChoice::SetOptionAntiAliasingModes(const TArray<int64>& InOptionAntiAliasingModes) {
+void USBZSettingsButtonAntiAliasingModeChoice::SetOptionAntiAliasingModes(const TArray<ESBZAntiAliasingMode>& InOptionAntiAliasingModes) {
 }
 
 

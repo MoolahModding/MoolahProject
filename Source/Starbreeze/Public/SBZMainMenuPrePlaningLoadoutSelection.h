@@ -1,12 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "OnPlayerLoadoutConfigChangedDelegate.h"
-#include "SBZMenuButton.h"
 #include "SBZPlayerLoadoutConfig.h"
+#include "SBZWidgetBase.h"
 #include "SBZMainMenuPrePlaningLoadoutSelection.generated.h"
 
 UCLASS(Blueprintable, EditInlineNew)
-class USBZMainMenuPrePlaningLoadoutSelection : public USBZMenuButton {
+class USBZMainMenuPrePlaningLoadoutSelection : public USBZWidgetBase {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

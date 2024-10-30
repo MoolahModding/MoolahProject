@@ -81,6 +81,12 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FSoftObjectPath LevelIdxToPath(const UObject* WorldContextObject);
     
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void KickPlayerFromGameSession(UObject* WorldContextObject, const FString& InPlayerToKickId, const FString& InPlayerToKickPlatformId);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void JoinMatchmakingSessionByID(const UObject* WorldContextObject, const FString& SessionID, int32 LevelIdx);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsWinGDKActive();
     
@@ -101,6 +107,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsShippingBuild();
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsSessionHosted(const UObject* WorldContextObject, FString& OutHostId);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsServerBrowserEnabled();
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsServerAcceptingSlots(UObject* WorldContextObject);
@@ -130,6 +142,9 @@ public:
     static bool IsPartyOwner(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsPartyHost(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPartyClient(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -143,6 +158,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNoChallenges();
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsLocalPlayerSessionHost(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsLocalPlayerInDropInLobby(UObject* WorldContextObject);
@@ -184,6 +202,9 @@ public:
     static bool IsAccelByteMatchmakingDisabled();
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void HostRequestRestartLevel(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void HideSessionFromJoin(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -208,7 +229,7 @@ public:
     static USBZOnlineSession* GetSBZOnline(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static int32 GetPlayersCount(UObject* WorldContextObject);
+    static int32 GetPlayersCount(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FString GetPlayerDisplayNameByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
@@ -218,6 +239,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UTexture2D* GetPlayerAvatar(UObject* WorldContextObject, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static ESBZPlatform GetPlatformFromFirstPartyPlatformType(ESBZFirstPartyPlatform FirstPartyPlatform);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static ESBZPlatform GetPlatformFromAccelbytePlatformId(const FString& AccelbytePlatformId);
@@ -286,7 +310,7 @@ public:
     static FSBZLoginFieldInfo GetDebugLoginAndPassword(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static int32 GetConnectionsCount(UObject* WorldContextObject);
+    static int32 GetConnectionsCount(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetBeaconMissionInfo(UObject* WorldContextObject, FSBZMissionInfo& OutInfo);

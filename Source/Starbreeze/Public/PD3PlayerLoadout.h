@@ -1,8 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZArmorChunkType.h"
 #include "PD3ModifiableLoadoutData.h"
 #include "SBZEquippableConfig.h"
 #include "SBZMaskConfig.h"
+#include "SBZOverskillLoadoutConfig.h"
+#include "SBZOverskillProgressData.h"
 #include "SBZSuitConfig.h"
 #include "SBZThrowableConfig.h"
 #include "PD3PlayerLoadout.generated.h"
@@ -30,6 +33,9 @@ private:
     FSBZEquippableConfig OverkillWeaponConfig;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOverskillLoadoutConfig OverskillLoadoutConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZThrowableConfig> ThrowableConfigArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -51,10 +57,16 @@ private:
     USBZArmorData* ArmorData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ESBZArmorChunkType> ArmorChunkTypeArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZSkillData*> SkillArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FPD3ModifiableLoadoutData> ModifiableLoadoutDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZOverskillProgressData> OverskillProgressDataArray;
     
     UPROPERTY(EditAnywhere, NotReplicated, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
     int8 PendingValidationCount;

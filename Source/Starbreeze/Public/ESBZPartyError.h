@@ -8,5 +8,16 @@ enum class ESBZPartyError : uint8 {
     FriendNotFound,
     PartyLeaderLeft,
     DifferentHostingProvider,
+    JoinedCrossPlatformSession,
+    SessionIsFull,
+    SessionDoesNotExist,
+    AlreadyInSession,
+    InvalidFriendship,
+    InvalidCode,
+    MaxActiveSessionReached,
+    InvalidJoinability,
+    InactiveTimeout,
+    MemberBlock,
+    UnknownError,
 };
 

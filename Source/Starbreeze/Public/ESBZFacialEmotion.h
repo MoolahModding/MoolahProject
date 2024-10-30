@@ -20,5 +20,6 @@ enum class ESBZFacialEmotion : uint8 {
     Tough,
     Rage,
     HumanShieldVictim,
+    Sleep,
 };
 

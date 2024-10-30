@@ -11,7 +11,7 @@ UCLASS(Blueprintable)
 class USBZPlaceItemAbility : public USBZGameplayAbility {
     GENERATED_BODY()
 public:
-private:
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZCharacter* OwnerCharacter;
     

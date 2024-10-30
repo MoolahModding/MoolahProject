@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "UStreamlineFeatureSupport.h"
 #include "UStreamlineReflexMode.h"
-#include "UStreamlineReflexSupport.h"
 #include "StreamlineLibraryReflex.generated.h"
 
 UCLASS(Blueprintable, MinimalAPI)
@@ -15,7 +15,7 @@ public:
     static void SetReflexMode(const UStreamlineReflexMode Mode);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static UStreamlineReflexSupport QueryReflexSupport();
+    static UStreamlineFeatureSupport QueryReflexSupport();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsReflexSupported();

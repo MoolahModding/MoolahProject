@@ -4,7 +4,7 @@
 #include "SBZPlaceableSentryData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZPlaceableSentryData : public USBZPlaceableData {
+class STARBREEZE_API USBZPlaceableSentryData : public USBZPlaceableData {
     GENERATED_BODY()
 public:
     USBZPlaceableSentryData();

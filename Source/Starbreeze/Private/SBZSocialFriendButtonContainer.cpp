@@ -56,14 +56,7 @@ int32 USBZSocialFriendButtonContainer::GetPartyMembersNum() {
     return 0;
 }
 
-TArray<FSBZPartyMember> USBZSocialFriendButtonContainer::GetPartyMembers() const {
-    return TArray<FSBZPartyMember>();
-}
-
 void USBZSocialFriendButtonContainer::BuildPartyMembersList() {
-}
-
-void USBZSocialFriendButtonContainer::AddPartyMember(FSBZPartyMember NewMember) {
 }
 
 

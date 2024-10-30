@@ -1,8 +1,7 @@
 #include "SBZGameUserSettings.h"
 
 USBZGameUserSettings::USBZGameUserSettings() {
-    this->SBZVersion = 3;
-    this->bUseDLSSG = false;
+    this->SBZVersion = 5;
     this->ReflexMode = ESBZReflexMode::On;
     this->CameraVerticalFoV = 90;
     this->FramerateMode = ESBZFramerateMode::Performance;
@@ -14,10 +13,11 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->bUseMotionBlur = true;
     this->bUseDepthOfField = false;
     this->bUseChromaticAberration = true;
-    this->AntiAliasingMode = 0;
+    this->AntiAliasingMode = ESBZAntiAliasingMode::Performance;
     this->UpscalingMode = ESBZUpscalingMode::Quality;
     this->UpscalingSharpness = 0.05f;
     this->Upscaler = ESBZUpscaler::DLSSSR;
+    this->FrameInterpolator = ESBZFrameInterpolator::None;
     this->CapsuleShadowQuality = 3;
     this->bUseOutlines = true;
     this->bUseSubtitles = true;
@@ -33,12 +33,17 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->HitIndicatorScale = 32.00f;
     this->bEnableStoryVideoButtons = false;
     this->LobbyType = ESBZOnlineJoinType::Private;
-    this->MatchmakingDifficulty = ESBZDifficulty::Overkill;
+    this->TacticType = ESBZOnlineTacticType::Default;
+    this->DropInType = ESBZOnlineDropInType::Default;
+    this->MatchmakingDifficulty = ESBZDifficulty::Default;
     this->MasterVolume = 100.00f;
-    this->MusicVolume = 100.00f;
+    this->MusicVolume = 0.00f;
     this->VOVolume = 75.00f;
     this->SFXVolume = 100.00f;
+    this->bVoIPEnabled = true;
+    this->bPushToTalkEnabled = false;
     this->VoipVolume = 100.00f;
+    this->VoipMicVolume = 100.00f;
     this->CinematicVolume = 100.00f;
     this->bUseContractorAudioBriefing = false;
     this->MouseSensitivityMultiplier = 1.00f;
@@ -87,6 +92,12 @@ void USBZGameUserSettings::SetVOVolume(float Volume) {
 void USBZGameUserSettings::SetVoIPVolume(float Volume) {
 }
 
+void USBZGameUserSettings::SetVoIPMicVolume(float Volume) {
+}
+
+void USBZGameUserSettings::SetVoIPEnabled(bool bIsEnabled) {
+}
+
 void USBZGameUserSettings::SetVideoToDefaults() {
 }
 
@@ -108,6 +119,9 @@ void USBZGameUserSettings::SetTelemetryEnabled(bool bIsEnabled) {
 void USBZGameUserSettings::SetTargetingSensitivityMultiplier(float Sensitivity) {
 }
 
+void USBZGameUserSettings::SetTacticType(ESBZOnlineTacticType InTacticType, bool bIsSaved) {
+}
+
 void USBZGameUserSettings::SetSwitchWeaponAutomaticallyEnabled(bool bEnable) {
 }
 
@@ -127,6 +141,9 @@ void USBZGameUserSettings::SetSecondaryKeyboardBinding(FName AxisOrActionName, f
 }
 
 void USBZGameUserSettings::SetReticleEnabled(bool bEnable) {
+}
+
+void USBZGameUserSettings::SetPushToTalkEnabled(bool bIsEnabled) {
 }
 
 void USBZGameUserSettings::SetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale, FKey Key) {
@@ -225,10 +242,16 @@ void USBZGameUserSettings::SetGamepadHorizontalSensitivityMultiplier(float Sensi
 void USBZGameUserSettings::SetGamepadBindingsPreset(int32 Preset) {
 }
 
+void USBZGameUserSettings::SetFrameInterpolator(ESBZFrameInterpolator Type) {
+}
+
 void USBZGameUserSettings::SetFPSDisplayEnabled(bool bEnable) {
 }
 
 void USBZGameUserSettings::SetForceFeedbackEnabled(bool bEnable) {
+}
+
+void USBZGameUserSettings::SetDropInType(ESBZOnlineDropInType InDropInType, bool bIsSaved) {
 }
 
 void USBZGameUserSettings::SetDepthOfFieldEnabled(bool bEnable) {
@@ -291,18 +314,26 @@ void USBZGameUserSettings::SetBrightness(float Value) {
 void USBZGameUserSettings::SetAudioToDefaults() {
 }
 
-void USBZGameUserSettings::SetAntiAliasingMode(int32 Mode) {
+void USBZGameUserSettings::SetAntiAliasingMode(ESBZAntiAliasingMode Mode) {
+}
+
+bool USBZGameUserSettings::IsVoIPEnabled() const {
+    return false;
 }
 
 bool USBZGameUserSettings::IsSwitchWeaponAutomaticallyEnabled() const {
     return false;
 }
 
-bool USBZGameUserSettings::IsStoryVideoButtonsEnabled() {
+bool USBZGameUserSettings::IsStoryVideoButtonsEnabled() const {
     return false;
 }
 
 bool USBZGameUserSettings::IsReticleEnabled() const {
+    return false;
+}
+
+bool USBZGameUserSettings::IsPushToTalkEnabled() const {
     return false;
 }
 
@@ -374,6 +405,10 @@ float USBZGameUserSettings::GetVoIPVolume() const {
     return 0.0f;
 }
 
+float USBZGameUserSettings::GetVoIPMicVolume() const {
+    return 0.0f;
+}
+
 float USBZGameUserSettings::GetUpscalingSharpness() const {
     return 0.0f;
 }
@@ -392,6 +427,10 @@ bool USBZGameUserSettings::GetTelemetryEnabled() const {
 
 float USBZGameUserSettings::GetTargetingSensitivityMultiplier() const {
     return 0.0f;
+}
+
+ESBZOnlineTacticType USBZGameUserSettings::GetTacticType() const {
+    return ESBZOnlineTacticType::Default;
 }
 
 int32 USBZGameUserSettings::GetSubtitlesSize() const {
@@ -443,7 +482,7 @@ float USBZGameUserSettings::GetMasterVolume() const {
 }
 
 ESBZOnlineJoinType USBZGameUserSettings::GetLobbyType() const {
-    return ESBZOnlineJoinType::Debug;
+    return ESBZOnlineJoinType::Debug_DEPRECATED;
 }
 
 FSBZHitIndicatorSettings USBZGameUserSettings::GetHitIndicatorSettings() {
@@ -484,6 +523,14 @@ float USBZGameUserSettings::GetGamepadHorizontalSensitivityMultiplier() const {
 
 int32 USBZGameUserSettings::GetGamepadBindingsPreset() const {
     return 0;
+}
+
+ESBZFrameInterpolator USBZGameUserSettings::GetFrameInterpolator() const {
+    return ESBZFrameInterpolator::None;
+}
+
+ESBZOnlineDropInType USBZGameUserSettings::GetDropInType() const {
+    return ESBZOnlineDropInType::Default;
 }
 
 FSBZCrosshairSettings USBZGameUserSettings::GetCrosshairSettings() {
@@ -542,8 +589,8 @@ float USBZGameUserSettings::GetBrightness() const {
     return 0.0f;
 }
 
-int32 USBZGameUserSettings::GetAntiAliasingMode() const {
-    return 0;
+ESBZAntiAliasingMode USBZGameUserSettings::GetAntiAliasingMode() const {
+    return ESBZAntiAliasingMode::Off;
 }
 
 USBZGameUserSettings* USBZGameUserSettings::Get() {

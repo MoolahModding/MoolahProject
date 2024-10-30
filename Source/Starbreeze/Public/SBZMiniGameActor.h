@@ -42,6 +42,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UWidgetComponent* WidgetComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHandlingOutlineMesh;
+    
 public:
     ASBZMiniGameActor(const FObjectInitializer& ObjectInitializer);
 

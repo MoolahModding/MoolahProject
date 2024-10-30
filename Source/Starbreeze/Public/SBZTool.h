@@ -109,6 +109,9 @@ public:
     void Server_CallReady();
     
 protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnToolDestroyed();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_ToolState(ESBZToolState OldToolState);
     

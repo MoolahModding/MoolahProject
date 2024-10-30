@@ -1,8 +1,10 @@
 #include "SBZModularCharacterComponent.h"
+#include "Components/SkinnedMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "SBZCustomizableSuitMeshComponent.h"
 
 USBZModularCharacterComponent::USBZModularCharacterComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::OnlyTickMontagesWhenNotRendered;
     this->SuitCapsuleShadowingData = NULL;
     this->SuitMeshComponent = CreateDefaultSubobject<USBZCustomizableSuitMeshComponent>(TEXT("SuitSkeletalMesh"));
     this->GlovesMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GlovesSkeletalMesh"));

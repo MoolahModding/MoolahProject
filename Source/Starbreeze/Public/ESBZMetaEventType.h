@@ -7,6 +7,8 @@ enum class ESBZMetaEventType : uint8 {
     None,
     IncreasedXP,
     IncreasedCash,
+    IncreasedInfamy,
+    FreeHeist,
     NewYear,
     Halloween,
     AprilsFool,

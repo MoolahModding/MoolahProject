@@ -12,6 +12,7 @@
 #include "SBZAIActionInteractableInterface.h"
 #include "SBZAIAttractorInterface.h"
 #include "SBZAgilityObstacleInterface.h"
+#include "SBZBreakableInterface.h"
 #include "SBZExplosionResult.h"
 #include "SBZExplosive.h"
 #include "SBZGateExplosionData.h"
@@ -24,17 +25,17 @@
 
 class APawn;
 class ASBZAIBaseCharacter;
-class ASBZAkAcousticPortal;
 class UAkAudioEvent;
 class UNavArea;
 class USBZAIAttractorComponent;
+class USBZAcousticPortalConnectorComponent;
 class USBZGateNavLinkAgilityComponent;
 class USBZGateNavLinkComponent;
 class USBZToolSnapData;
 class USceneComponent;
 
 UCLASS(Abstract, Blueprintable)
-class STARBREEZE_API ASBZGate : public AActor, public ISBZExplosive, public INavRelevantInterface, public INavLinkHostInterface, public ISBZAIActionInteractableInterface, public IAISightTargetInterface, public ISBZToolSnapInterface, public ISBZAgilityObstacleInterface, public ISBZHurtReactionDataInterface, public ISBZAIAttractorInterface {
+class STARBREEZE_API ASBZGate : public AActor, public ISBZExplosive, public INavRelevantInterface, public INavLinkHostInterface, public ISBZAIActionInteractableInterface, public IAISightTargetInterface, public ISBZToolSnapInterface, public ISBZAgilityObstacleInterface, public ISBZHurtReactionDataInterface, public ISBZAIAttractorInterface, public ISBZBreakableInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -135,9 +136,6 @@ protected:
     UAkAudioEvent* UnlockSound;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ASBZAkAcousticPortal* PortalObject;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseBreachPOIandSound;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -157,6 +155,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZAIAttractorComponent* AttractorComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZAcousticPortalConnectorComponent* AcousticPortalConnector;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float LeftNavlinkOffset;
@@ -197,11 +198,6 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetAttractorInstigator(APawn* InInstigator);
     
-public:
-    UFUNCTION(BlueprintCallable)
-    void SetAllowPortalStateChange(bool bValue);
-    
-protected:
     UFUNCTION(BlueprintCallable)
     void OnStateDone();
     
@@ -237,12 +233,6 @@ protected:
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     bool IsOpenForwardFromDirection(const FVector& Direction) const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    ASBZAkAcousticPortal* GetPortalObject() const;
-    
-    UFUNCTION(BlueprintCallable)
-    bool GetAllowPortalStateChange();
     
 
     // Fix for true pure virtual functions not being implemented

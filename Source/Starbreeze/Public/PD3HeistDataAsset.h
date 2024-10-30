@@ -7,6 +7,7 @@
 #include "GameplayTagContainer.h"
 #include "ESBZDifficulty.h"
 #include "ESBZHeistComplexity.h"
+#include "ESBZHeistPlaystyle.h"
 #include "SBZInventoryBaseData.h"
 #include "SBZStorymodeStruct.h"
 #include "PD3HeistDataAsset.generated.h"
@@ -40,6 +41,9 @@ public:
     ESBZHeistComplexity HeistComplexity;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZHeistPlaystyle HeistPlaystyle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bHasIntroSequence;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -65,6 +69,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText HeistDescription;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText HeistInspectDescription;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UPaperSprite> HeistDisplayIcon;
@@ -115,10 +122,16 @@ public:
     TArray<USBZPersonalStatisticCriteriaData*> PersonalStatisticCriteriaDataArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZStatisticCriteriaData* HostageTradeStatistiCriteriaData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZPlayerCharacterData*> LockedCharacterArray;
     
     UPD3HeistDataAsset();
 
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    void GetOverallPayout(int32& OutMin, int32& OutMax) const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetHeistTimeShort() const;
     

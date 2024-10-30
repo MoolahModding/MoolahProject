@@ -6,7 +6,7 @@
 #include "SBZWeaponMagazineData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZWeaponMagazineData : public USBZEquippablePartCustomData {
+class STARBREEZE_API USBZWeaponMagazineData : public USBZEquippablePartCustomData {
     GENERATED_BODY()
 public:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))

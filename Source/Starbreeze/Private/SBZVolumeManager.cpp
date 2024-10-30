@@ -5,6 +5,9 @@ USBZVolumeManager::USBZVolumeManager() {
     this->ResumeEvent = NULL;
 }
 
+void USBZVolumeManager::UpdateVOIPVolumeOnEOSLogin(int32 InUserIndex, const FString& NativePlatformUserId, const FString& EOSPlatformProductUserId, bool bLoginSuccess) {
+}
+
 USBZVolumeManager* USBZVolumeManager::GetVolumeManager(UObject* WorldContextObject) {
     return NULL;
 }

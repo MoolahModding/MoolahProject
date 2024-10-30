@@ -3,7 +3,6 @@
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
-#include "GameplayTagContainer.h"
 #include "ColliderDataContainer.h"
 #include "EAIObjectiveInteractionTypes.h"
 #include "EAIObjectivePriority.h"
@@ -36,12 +35,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EAIObjectivePriority InteractionPriority;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTagContainer HasIteractionItems;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTagContainer DoesNotHaveIteractionItems;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TWeakObjectPtr<ASBZAIController> CurrentUser;

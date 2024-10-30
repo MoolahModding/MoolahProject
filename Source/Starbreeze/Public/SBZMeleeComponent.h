@@ -28,7 +28,7 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetEnforcerSolidNetIDArray(const TArray<int32>& InEnforcerSolidNetIDArray);
+    void Multicast_SetRemoveStaggeredTagNetIDArray(const TArray<int32>& InRemoveStaggeredTagNetIDArray);
     
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

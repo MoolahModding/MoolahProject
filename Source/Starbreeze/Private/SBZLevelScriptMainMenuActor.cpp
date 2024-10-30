@@ -4,15 +4,16 @@ ASBZLevelScriptMainMenuActor::ASBZLevelScriptMainMenuActor(const FObjectInitiali
     this->MainMenuMannequin = NULL;
     this->CustomizationManager = NULL;
     this->MainMenuCameraManager = NULL;
+    this->bIsPartyVisibleHACK = true;
 }
 
 void ASBZLevelScriptMainMenuActor::PostInitializeComponents() {
 }
 
-void ASBZLevelScriptMainMenuActor::OnLobbyUpdate(ESBZOnlineCode ErrorCode) {
+void ASBZLevelScriptMainMenuActor::OnPartyInfoUpdated() {
 }
 
-void ASBZLevelScriptMainMenuActor::OnLoadoutChangedSolo(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray) {
+void ASBZLevelScriptMainMenuActor::OnLobbyUpdate(ESBZOnlineCode ErrorCode) {
 }
 
 void ASBZLevelScriptMainMenuActor::OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray) {

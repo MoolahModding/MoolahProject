@@ -8,8 +8,11 @@ USBZObjectiveWidget::USBZObjectiveWidget() {
     this->Panel_SubObjectivesContainer = NULL;
     this->bIsActive = false;
     this->bIsTimed = false;
+    this->TickingLootManagerPtr = NULL;
+    this->ObjectiveType = ESBZObjectiveType::OneShot;
     this->Objective = NULL;
 }
+
 
 void USBZObjectiveWidget::OnObjectiveUpdated() {
 }

@@ -13,12 +13,20 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZAkAcousticPortal* ConnectedPortal;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsOpenState;
+    
 public:
     USBZAcousticPortalConnectorComponent(const FObjectInitializer& ObjectInitializer);
 
-protected:
     UFUNCTION(BlueprintCallable, BlueprintCosmetic)
-    void SetPortalOpenState(bool bIsOpen);
+    void SetPortalOpenState(bool bIsOpen, bool bIsInstant);
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic)
+    void SetAllowPortalStateChange(bool bIsAllowed);
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintPure)
+    bool IsPortalStateChangeAllowed() const;
     
 };
 

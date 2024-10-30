@@ -20,6 +20,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZDialogDataAsset* OverkillFailedDialog;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDialogDataAsset* OverkillStealthDialog;
+    
 public:
     USBZRequestOverkillWeaponAbility();
 

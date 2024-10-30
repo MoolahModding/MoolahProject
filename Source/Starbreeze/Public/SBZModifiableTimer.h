@@ -42,6 +42,9 @@ protected:
     ASBZSabotagePoint* SabotagePoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ASBZSabotagePoint*> SabotagePointArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NextProgressionToPostIndex;
     
 public:

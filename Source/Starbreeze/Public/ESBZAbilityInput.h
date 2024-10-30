@@ -42,6 +42,7 @@ enum class ESBZAbilityInput : uint8 {
     ToolNavRight,
     RequestOverkillWeapon,
     AnticipateExplosion,
+    UseConsumable,
     MAX,
 };
 

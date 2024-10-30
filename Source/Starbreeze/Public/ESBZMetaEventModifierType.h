@@ -6,5 +6,6 @@ UENUM(BlueprintType)
 enum class ESBZMetaEventModifierType : uint8 {
     XP,
     Cash,
+    Infamy,
 };
 

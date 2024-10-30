@@ -15,6 +15,9 @@ private:
 public:
     USBZPlatformUserManager();
 
+    UFUNCTION(BlueprintCallable)
+    void OnVoiceChatLoginComplete(int32 InUserIndex, const FString& NativePlatformUserId, const FString& EOSPlatformProductUserId, bool bLoginSuccess);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnPopUpClosedConfirmChanges(FName ActionName);

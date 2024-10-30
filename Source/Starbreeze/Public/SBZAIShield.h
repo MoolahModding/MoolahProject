@@ -69,6 +69,24 @@ private:
     FVector DedicatedServerAttachmentOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<int32> ShieldDamageCPDIndexArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentMaterialHitCountArray, meta=(AllowPrivateAccess=true))
+    TArray<int32> CurrentMaterialHitCountArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaxCosmeticDamageHits;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CosmeticExplosionDamageModifier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float CosmeticDamageModifier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MinDistanceToCosmeticHit;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ExplosionBlockDegrees;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -125,6 +143,8 @@ private:
 public:
     USBZAIShield(const FObjectInitializer& ObjectInitializer);
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 protected:
     UFUNCTION(BlueprintCallable)
     void OnShieldEndPlay(AActor* InActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
@@ -132,6 +152,9 @@ protected:
 private:
     UFUNCTION(BlueprintCallable)
     void OnRep_ShieldBreak();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_CurrentMaterialHitCountArray();
     
 protected:
     UFUNCTION(BlueprintCallable)

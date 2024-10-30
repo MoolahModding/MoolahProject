@@ -8,7 +8,7 @@ USBZCurrencyWidget::USBZCurrencyWidget() {
     this->bIsAfforded = true;
 }
 
-void USBZCurrencyWidget::SetCurrencyValue(int32 InValue) {
+void USBZCurrencyWidget::SetCurrencyValue(int64 InValue) {
 }
 
 void USBZCurrencyWidget::SetCurrencyType(ESBZCurrencyCode InCurrencyType) {

@@ -1,0 +1,17 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Starbreeze Analytics Provider",
+	"Description": "Plugin used to add the Starbreeze Analytics provider to the project to send telemetry data to Starbreeze servers",
+	"Category": "Analytics",
+	"CreatedBy": "Starbreeze AB.",
+	"CreatedByURL": "https://starbreeze.com/",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false
+}

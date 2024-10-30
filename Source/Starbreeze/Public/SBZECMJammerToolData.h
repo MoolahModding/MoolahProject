@@ -4,7 +4,7 @@
 #include "SBZECMJammerToolData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZECMJammerToolData : public USBZToolData {
+class STARBREEZE_API USBZECMJammerToolData : public USBZToolData {
     GENERATED_BODY()
 public:
     USBZECMJammerToolData();

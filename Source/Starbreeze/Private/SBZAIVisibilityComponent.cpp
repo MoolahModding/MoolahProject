@@ -10,6 +10,7 @@ USBZAIVisibilityComponent::USBZAIVisibilityComponent(const FObjectInitializer& O
     this->MaxSubRaycastSideDistFromCenter = 35.00f;
     this->NbSubRaycastPerPolarCoordCoverPoint = 3;
     this->MaxSubRaycastSideDistFromCenterCoverPoint = 5.00f;
+    this->bProcessMeshInstances = false;
     this->bHasFinishedBuilding = false;
     this->bIsParsingDynNode = false;
     this->bDynVerticesHavedBeenTransformed = false;

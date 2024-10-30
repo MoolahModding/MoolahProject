@@ -3,7 +3,7 @@
 #include "UObject/Object.h"
 #include "StreamlineSettings.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig)
+UCLASS(Blueprintable, DefaultConfig, Config=Engine)
 class STREAMLINERHI_API UStreamlineSettings : public UObject {
     GENERATED_BODY()
 public:

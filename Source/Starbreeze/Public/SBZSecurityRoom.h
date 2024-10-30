@@ -26,6 +26,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZPawnSpawnPredefined* GuardRoomSpawner;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    AActor* FocusActor;
+    
 public:
     ASBZSecurityRoom(const FObjectInitializer& ObjectInitializer);
 

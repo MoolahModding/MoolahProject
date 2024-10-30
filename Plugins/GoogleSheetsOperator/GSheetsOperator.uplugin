@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "4.27.2.2",
+	"FriendlyName": "GSheets Operator",
+	"Description": "Interface with private Google Sheets, import and export to and from Google Sheets, edit in-game spreadsheets and more!",
+	"Category": "DataTable",
+	"CreatedBy": "Jared Therriault",
+	"CreatedByURL": "http://www.jaredtherriault.com",
+	"DocsURL": "https://docs.google.com/document/d/1ijPhz0llClfoB1JP8wMzM_YmqkbxRJnSk9WAEqtJIZU",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/aa61e3df41fa46629d73ab59cacf9429",
+	"SupportURL": "https://forums.unrealengine.com/t/plugins-support-google-sheets-operator-control-google-sheets-directly-from-unreal-engine/498008",
+	"EngineVersion": "4.27.0",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true
+}

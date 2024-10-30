@@ -14,12 +14,13 @@
 
 ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RandomSeed = -1;
-    this->ServerChangelist = 705542;
+    this->ServerChangelist = 748847;
     this->Difficulty = ESBZDifficulty::Default;
     this->PredictionTimeOutSeconds = 1.00f;
     this->ServerUnblockAbilityEarlierSeconds = 0.25f;
     this->MissionStartTime = 0;
     this->BagManager = CreateDefaultSubobject<USBZBagManager>(TEXT("BagManager"));
+    this->CurrentHeistData = NULL;
     this->DialogManager = CreateDefaultSubobject<USBZDialogManager>(TEXT("SBZDialogManager"));
     this->AgentManager = CreateDefaultSubobject<USBZAgentManager>(TEXT("SBZAgentManager"));
     this->RagdollSyncManager = CreateDefaultSubobject<USBZRagdollSyncManager>(TEXT("SBZRagdollSyncManager"));
@@ -40,7 +41,6 @@ ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) 
     this->SeasonalEventItemCount = 0;
     this->DSChallengeManager = NULL;
     this->OverkillWeaponCooldown = 45.00f;
-    this->CurrentHeistData = NULL;
     this->TutorialPlayerCharacterData = NULL;
     this->bIsAmmoSpecialistHighGrainSkillActive = false;
     this->AmmoSpecialistHighGrainSkillTime = -1.00f;
@@ -100,6 +100,9 @@ void ASBZMissionState::OnRep_Difficulty() {
 }
 
 void ASBZMissionState::OnRep_BlockedBagMarkers() {
+}
+
+void ASBZMissionState::OnInstantLootTaken(const FString& LootName) {
 }
 
 void ASBZMissionState::OnBlackScreenStarted() {

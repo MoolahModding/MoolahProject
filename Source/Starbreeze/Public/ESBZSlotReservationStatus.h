@@ -9,5 +9,7 @@ enum class ESBZSlotReservationStatus : uint8 {
     SlotAlreadyReserved,
     NoFreeSlots,
     InvalidPlayerIdReceived,
+    ServerInWrongState,
+    SlotsNumberMismatch,
 };
 

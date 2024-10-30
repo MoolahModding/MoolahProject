@@ -118,6 +118,9 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_RequestMergeParty(bool bIsSelected, const TArray<FString>& PartyMemberPlayerIdArray);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
+    void Server_HostRestartRequested(FUniqueNetIdRepl PlayerID);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_DebugTeleportTo(const FVector& Location, const float Yaw);
     

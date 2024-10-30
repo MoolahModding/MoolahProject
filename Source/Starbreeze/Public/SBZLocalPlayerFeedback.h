@@ -15,11 +15,12 @@ class UCameraShakeBase;
 class UForceFeedbackEffect;
 class UNiagaraComponent;
 class UNiagaraSystem;
+class USBZChromaEffectDataAsset;
 class USBZPostProcessSettingsPresetDataAsset;
 class USBZTransformCameraModifier;
 
 UCLASS(Abstract, Blueprintable)
-class USBZLocalPlayerFeedback : public UObject {
+class STARBREEZE_API USBZLocalPlayerFeedback : public UObject {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -103,6 +104,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UForceFeedbackEffect* ForceFeedbackEffect;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZChromaEffectDataAsset* ChromaEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AudioRTPC;

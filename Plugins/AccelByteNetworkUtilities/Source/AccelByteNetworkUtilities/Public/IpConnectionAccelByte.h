@@ -8,5 +8,6 @@ class UIpConnectionAccelByte : public UIpConnection {
     GENERATED_BODY()
 public:
     UIpConnectionAccelByte();
+
 };
 

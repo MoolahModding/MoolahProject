@@ -18,6 +18,9 @@ void USBZAnalyticsManager::SendNotOwningHeistDetected(const FString& AccelByteUs
 void USBZAnalyticsManager::SendInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience) {
 }
 
+void USBZAnalyticsManager::SendEntitlementsLoadedEvent(const FSBZEntitlementsTelemetryPayload& Payload) {
+}
+
 void USBZAnalyticsManager::SendCheaterDetected(const ESBZCheaterPolicyType AntiCheatAction, const bool bIsCheatActionSuccessful, const FString& CheatTypeString, const FString& AdditionalInformation) {
 }
 

@@ -4,6 +4,7 @@
 #include "ESBZVoicePriority.h"
 #include "SBZVoiceCommentNotify.generated.h"
 
+class UAkAudioEvent;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable, CollapseCategories)
@@ -13,6 +14,12 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZVoiceCommentDataAsset* VoiceComment;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseDialogEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* DialogEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZVoicePriority VoicePriority;

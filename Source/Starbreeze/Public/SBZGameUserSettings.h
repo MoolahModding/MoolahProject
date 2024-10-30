@@ -5,9 +5,13 @@
 #include "GameFramework/GameUserSettings.h"
 #include "InputCoreTypes.h"
 #include "Rendering/RenderingCommon.h"
+#include "ESBZAntiAliasingMode.h"
 #include "ESBZDifficulty.h"
+#include "ESBZFrameInterpolator.h"
 #include "ESBZFramerateMode.h"
+#include "ESBZOnlineDropInType.h"
 #include "ESBZOnlineJoinType.h"
+#include "ESBZOnlineTacticType.h"
 #include "ESBZPopupType.h"
 #include "ESBZReflexMode.h"
 #include "ESBZUpscaler.h"
@@ -31,9 +35,6 @@ public:
 protected:
     UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 SBZVersion;
-    
-    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 bUseDLSSG: 1;
     
     UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZReflexMode ReflexMode;
@@ -69,7 +70,7 @@ protected:
     bool bUseChromaticAberration;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 AntiAliasingMode;
+    ESBZAntiAliasingMode AntiAliasingMode;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZUpscalingMode UpscalingMode;
@@ -79,6 +80,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZUpscaler Upscaler;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZFrameInterpolator FrameInterpolator;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CapsuleShadowQuality;
@@ -141,7 +145,16 @@ protected:
     ESBZOnlineJoinType LobbyType;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZOnlineTacticType TacticType;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZOnlineDropInType DropInType;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZDifficulty MatchmakingDifficulty;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSet<FName> PlayerCardPlatformIncludedSet;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MasterVolume;
@@ -156,7 +169,16 @@ protected:
     float SFXVolume;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bVoIPEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bPushToTalkEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float VoipVolume;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float VoipMicVolume;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CinematicVolume;
@@ -298,6 +320,12 @@ public:
     void SetVoIPVolume(float Volume);
     
     UFUNCTION(BlueprintCallable)
+    void SetVoIPMicVolume(float Volume);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetVoIPEnabled(bool bIsEnabled);
+    
+    UFUNCTION(BlueprintCallable)
     void SetVideoToDefaults();
     
     UFUNCTION(BlueprintCallable)
@@ -319,6 +347,9 @@ public:
     void SetTargetingSensitivityMultiplier(float Sensitivity);
     
     UFUNCTION(BlueprintCallable)
+    void SetTacticType(ESBZOnlineTacticType InTacticType, bool bIsSaved);
+    
+    UFUNCTION(BlueprintCallable)
     void SetSwitchWeaponAutomaticallyEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
@@ -338,6 +369,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetReticleEnabled(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetPushToTalkEnabled(bool bIsEnabled);
     
     UFUNCTION(BlueprintCallable)
     void SetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale, FKey Key);
@@ -436,10 +470,16 @@ public:
     void SetGamepadBindingsPreset(int32 Preset);
     
     UFUNCTION(BlueprintCallable)
+    void SetFrameInterpolator(ESBZFrameInterpolator Type);
+    
+    UFUNCTION(BlueprintCallable)
     void SetFPSDisplayEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
     void SetForceFeedbackEnabled(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetDropInType(ESBZOnlineDropInType InDropInType, bool bIsSaved);
     
     UFUNCTION(BlueprintCallable)
     void SetDepthOfFieldEnabled(bool bEnable);
@@ -502,16 +542,22 @@ public:
     void SetAudioToDefaults();
     
     UFUNCTION(BlueprintCallable)
-    void SetAntiAliasingMode(int32 Mode);
+    void SetAntiAliasingMode(ESBZAntiAliasingMode Mode);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsVoIPEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSwitchWeaponAutomaticallyEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsStoryVideoButtonsEnabled();
+    bool IsStoryVideoButtonsEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsReticleEnabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsPushToTalkEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPopupShown(ESBZPopupType PopupType) const;
@@ -565,6 +611,9 @@ public:
     float GetVoIPVolume() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetVoIPMicVolume() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetUpscalingSharpness() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -578,6 +627,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTargetingSensitivityMultiplier() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZOnlineTacticType GetTacticType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetSubtitlesSize() const;
@@ -648,6 +700,12 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGamepadBindingsPreset() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZFrameInterpolator GetFrameInterpolator() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZOnlineDropInType GetDropInType() const;
+    
     UFUNCTION(BlueprintCallable)
     FSBZCrosshairSettings GetCrosshairSettings();
     
@@ -691,7 +749,7 @@ public:
     float GetBrightness() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetAntiAliasingMode() const;
+    ESBZAntiAliasingMode GetAntiAliasingMode() const;
     
     UFUNCTION(BlueprintCallable)
     static USBZGameUserSettings* Get();

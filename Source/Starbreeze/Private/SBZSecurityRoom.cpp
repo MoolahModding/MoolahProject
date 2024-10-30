@@ -5,6 +5,7 @@ ASBZSecurityRoom::ASBZSecurityRoom(const FObjectInitializer& ObjectInitializer) 
     this->ShadeCameraDownVO = NULL;
     this->ShadeCameraUpVO = NULL;
     this->GuardRoomSpawner = NULL;
+    this->FocusActor = NULL;
 }
 
 void ASBZSecurityRoom::OnPlayableLevelInitialized(UWorld* World) {

@@ -1,6 +1,6 @@
 #include "HoudiniStaticMeshComponent.h"
 
-UHoudiniStaticMeshComponent::UHoudiniStaticMeshComponent() {
+UHoudiniStaticMeshComponent::UHoudiniStaticMeshComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Mesh = NULL;
     this->bHoudiniIconVisible = true;
 }

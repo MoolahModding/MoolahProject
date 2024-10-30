@@ -16,6 +16,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName MenuStackValue;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPaused;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsMenuShown;
@@ -27,8 +30,14 @@ protected:
     UFUNCTION(BlueprintCallable)
     void ToggleShowMenu();
     
+    UFUNCTION(BlueprintCallable)
+    void SetMenuShown(bool bIsShown);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMenuShown(bool bIsShown);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnPausedChanged(bool bInIsPaused);
     
 };
 

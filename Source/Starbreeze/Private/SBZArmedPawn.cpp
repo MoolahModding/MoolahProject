@@ -13,6 +13,7 @@ ASBZArmedPawn::ASBZArmedPawn(const FObjectInitializer& ObjectInitializer) : Supe
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
     this->RangedWeapon = NULL;
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
+    this->bIsDeathAllowed = true;
 }
 
 void ASBZArmedPawn::Multicast_PredictedRagdollDenied_Implementation(int32 HurtReactionIndex) {
@@ -22,6 +23,11 @@ void ASBZArmedPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZArmedPawn, TeamId);
+}
+
+UAbilitySystemComponent* ASBZArmedPawn::GetAbilitySystemComponent() const
+{
+    return nullptr;
 }
 
 

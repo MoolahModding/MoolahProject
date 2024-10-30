@@ -18,7 +18,6 @@ USBZThrowableData::USBZThrowableData() {
     this->ThrowLocationDeviation = 100.00f;
     this->Cooldown = 30.00f;
     this->DroppedComment = NULL;
-    this->bUseThrowCalculation = true;
     this->MaxThrowAngle = 30.00f;
     this->WeaponSelectionScorer = NULL;
     this->AimAssistData = NULL;

@@ -1,5 +1,8 @@
 #include "GridlyBPFunctionLibrary.h"
 
+UGridlyBPFunctionLibrary::UGridlyBPFunctionLibrary() {
+}
+
 void UGridlyBPFunctionLibrary::UpdateLocalizationPreview(const TArray<FPolyglotTextData>& PolyglotTextDatas) {
 }
 
@@ -10,6 +13,4 @@ FString UGridlyBPFunctionLibrary::GetLocalizationPreviewCulture() {
 void UGridlyBPFunctionLibrary::EnableLocalizationPreview(const FString& Culture) {
 }
 
-UGridlyBPFunctionLibrary::UGridlyBPFunctionLibrary() {
-}
 

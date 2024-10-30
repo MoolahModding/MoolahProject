@@ -2,6 +2,7 @@
 
 USBZBTTask_ThrowBag::USBZBTTask_ThrowBag() {
     this->NodeName = TEXT("Throw Bag");
+    this->bShouldForceDrop = false;
 }
 
 

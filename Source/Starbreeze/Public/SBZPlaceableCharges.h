@@ -74,15 +74,16 @@ public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetPlaceableChargeState(ESBZPlaceableChargeState NewPlaceableChargeState);
     
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void Placed();
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnThrown();
     
-private:
     UFUNCTION(BlueprintCallable)
     void OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
-protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_PlaceableChargeState(ESBZPlaceableChargeState OldPlaceableChargeState);
     
@@ -114,7 +115,6 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPlaceableChargeState(ESBZPlaceableChargeState NewPlaceableChargeState);
     
-private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCharges(float NewCharges);
     

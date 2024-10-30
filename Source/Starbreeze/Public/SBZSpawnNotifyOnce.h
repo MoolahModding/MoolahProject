@@ -5,6 +5,7 @@
 
 class AActor;
 class APawn;
+class ASBZCarriedStaticInteractionActor;
 class ASBZPawnSpawnPredefined;
 
 UCLASS(Blueprintable)
@@ -26,7 +27,7 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnSpawnComplete(APawn* SpawnedPawn);
+    void OnSpawnComplete(APawn* SpawnedPawn, ASBZCarriedStaticInteractionActor* SpawnedLoot);
     
 };
 

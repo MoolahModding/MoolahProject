@@ -2,6 +2,7 @@
 #include "EHoudiniParameterType.h"
 
 UHoudiniParameterMultiParm::UHoudiniParameterMultiParm() {
+    this->ParmType = EHoudiniParameterType::MultiParm;
     this->bIsShown = false;
     this->Value = 0;
     this->MultiparmValue = 0;
@@ -10,7 +11,6 @@ UHoudiniParameterMultiParm::UHoudiniParameterMultiParm() {
     this->MultiParmInstanceCount = 0;
     this->InstanceStartOffset = 0;
     this->DefaultInstanceCount = 0;
-    this->ParmType = EHoudiniParameterType::MultiParm;
 }
 
 

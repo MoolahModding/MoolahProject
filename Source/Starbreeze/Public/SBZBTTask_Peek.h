@@ -34,6 +34,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldCareAboutNeighbors;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float StandingWeight;
+    
 public:
     USBZBTTask_Peek();
 
