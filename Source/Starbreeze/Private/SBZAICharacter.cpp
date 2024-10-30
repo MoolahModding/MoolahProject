@@ -42,6 +42,7 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->LastInteractorCharacter = NULL;
     this->ShotBlockedDownTime = 6.00f;
     this->SurrenderedNavFilter = NULL;
+    this->DialogAllowedBehaviorCategory = 2;
     this->bTelegraphAttack = false;
     this->FireWeaponComment = NULL;
     this->OnKilledComment = NULL;
@@ -60,8 +61,6 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->bIsCarriedKillInteraction = false;
     this->bIsBeingHogTied = false;
     this->bHasBeenHogtied = false;
-    this->bIsInCover = false;
-    this->bWantsCoverPose = false;
     this->bIsInDownOnGroundPose = false;
     this->bIsPagerSnatched = false;
     this->bIsScramblerSignalScanSkillActive = false;
@@ -165,9 +164,6 @@ void ASBZAICharacter::Multicast_StopRoomScanning_Implementation(ESBZRoomScanning
 void ASBZAICharacter::Multicast_SetVariationCategory_Implementation(ESBZAICharacterVariationCategory Category) {
 }
 
-void ASBZAICharacter::Multicast_SetInCover_Implementation(bool bInIsInCover) {
-}
-
 void ASBZAICharacter::Multicast_SetHacked_Implementation(float Duration) {
 }
 
@@ -191,7 +187,6 @@ void ASBZAICharacter::EnableAsObjective(bool bImmediately, float Distance) {
 
 void ASBZAICharacter::DisableAsObjective() {
 }
-
 
 void ASBZAICharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);

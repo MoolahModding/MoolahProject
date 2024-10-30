@@ -8,8 +8,8 @@ struct FSBZAgentStateBase : public FSBZAgentStateVariables {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 Id;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint32 Id;
     
 public:
     STARBREEZE_API FSBZAgentStateBase();

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZMatchmakingCommand.h"
+#include "ESBZOnlineTacticType.h"
 #include "ESBZSecurityCompany.h"
 #include "SBZOnlineMatchmakingParams.generated.h"
 
@@ -25,6 +26,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZMatchmakingCommand Command;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHost;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZOnlineTacticType TacticType;
     
     FSBZOnlineMatchmakingParams();
 };

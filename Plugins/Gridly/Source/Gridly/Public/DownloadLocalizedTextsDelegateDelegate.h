@@ -4,5 +4,5 @@
 #include "GridlyResult.h"
 #include "DownloadLocalizedTextsDelegateDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FDownloadLocalizedTextsDelegate, const TArray<FPolyglotTextData>&, PolyglotTextDatas, float, Progress, const FGridlyResult&, Error);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FDownloadLocalizedTextsDelegate, const TArray<FPolyglotTextData>&, PolyglotTextDatas, float, Progress, const FGridlyResult&, Error);
 

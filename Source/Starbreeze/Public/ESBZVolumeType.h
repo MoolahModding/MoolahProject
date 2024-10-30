@@ -10,6 +10,7 @@ enum class ESBZVolumeType : uint8 {
     SFX,
     HUD,
     VOIP,
+    VOIPMic,
     Cinematic,
 };
 

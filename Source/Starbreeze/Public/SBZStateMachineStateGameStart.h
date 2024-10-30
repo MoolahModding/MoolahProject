@@ -27,6 +27,9 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnPopUpKickedFromHeistClosed(FName CloseActionName);
+    
+    UFUNCTION(BlueprintCallable)
     void HandleLostConnectionToPartyHost(ESBZOnlineCode ErrorCode);
     
 };

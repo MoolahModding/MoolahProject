@@ -21,6 +21,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZOnlineSession* OnlineSession;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FString VoiceSessionId;
+    
 public:
     ASBZOnlineSlotsSync(const FObjectInitializer& ObjectInitializer);
 
@@ -35,6 +38,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void UpdateInfamyLevel(ASBZPlayerState* InPlayerState);
+    
+    UFUNCTION(BlueprintCallable)
+    void UpdateEOSProductUserId(ASBZPlayerState* InPlayerState);
     
     UFUNCTION(BlueprintCallable)
     void UniqueIdUpdated(ASBZPlayerState* InPlayerState);

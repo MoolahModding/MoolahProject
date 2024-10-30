@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "ESBZDifficulty.h"
+#include "SBZSpawnWaveFilteredBehavior.h"
 #include "SBZSpawnWaveFilteredOrder.h"
 #include "SBZSpawnWaveSettings.h"
 #include "SBZSpawnWaveManager.generated.h"
@@ -33,6 +34,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetDifficulty(ESBZDifficulty NewDifficulty);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetBehaviorOnSpawnedPawns(const FSBZSpawnWaveFilteredBehavior& FilteredBehavior);
     
     UFUNCTION(BlueprintCallable)
     static void PopulateSpawnTypeLimitsOnWave(UPARAM(Ref) FSBZSpawnWaveSettings& WaveSettings);

@@ -16,7 +16,7 @@
 #include "PublicMessageReceivedDelegateDelegate.h"
 #include "PublicMessageSendStatusDelegateDelegate.h"
 #include "SBZPartyInvitation.h"
-#include "SBZPartyMember.h"
+#include "SBZUser.h"
 #include "SBZPartyManager.generated.h"
 
 class USBZPartyManager;
@@ -25,9 +25,6 @@ UCLASS(Blueprintable)
 class USBZPartyManager : public UObject {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FSBZPartyMember> PartyMembers;
-    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FChatChannelJoinDelegate OnChatChannelJoinEvent;
     
@@ -48,6 +45,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPartyMessageReceivedDelegate OnPartyMessageReceived;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FPartyMessageReceivedDelegate OnPartyControlMessageReceived;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FPartyInvitationReceivedDelegate OnPartyInvitiationReceived;
@@ -104,11 +104,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetPartyPlayersNumber() const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool GetPartyMember(const FString& UserId, FSBZUser& OutPartyMemberUser) const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZPartyManager* GetPartyManager(const UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    FSBZPartyMember GetPartyLeader() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZOnlineJoinType GetLobbyType() const;

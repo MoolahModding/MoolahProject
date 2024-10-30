@@ -10,11 +10,11 @@ class STARBREEZE_API USBZAISystem : public UAISystem {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta = (AllowPrivateAccess = true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZAirPathFinder* AirPathFinder;
-
+    
 public:
-    USBZAISystem(const FObjectInitializer& ObjectInitializer);
+    USBZAISystem(const class FObjectInitializer& ObjectInitializer);
 
 };
 

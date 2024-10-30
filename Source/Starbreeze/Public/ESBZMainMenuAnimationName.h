@@ -8,5 +8,9 @@ enum class ESBZMainMenuAnimationName : uint8 {
     PrePlanningSequence,
     SuitVisualization,
     GloveVisualization,
+    MainScreenMontageSlot_0,
+    MainScreenMontageSlot_1,
+    MainScreenMontageSlot_2,
+    MainScreenMontageSlot_3,
 };
 

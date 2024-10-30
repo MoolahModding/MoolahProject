@@ -30,16 +30,16 @@ int32 USBZPartyManager::GetPartyPlayersNumber() const {
     return 0;
 }
 
+bool USBZPartyManager::GetPartyMember(const FString& UserId, FSBZUser& OutPartyMemberUser) const {
+    return false;
+}
+
 USBZPartyManager* USBZPartyManager::GetPartyManager(const UObject* WorldContextObject) {
     return NULL;
 }
 
-FSBZPartyMember USBZPartyManager::GetPartyLeader() const {
-    return FSBZPartyMember{};
-}
-
 ESBZOnlineJoinType USBZPartyManager::GetLobbyType() const {
-    return ESBZOnlineJoinType::Debug;
+    return ESBZOnlineJoinType::Debug_DEPRECATED;
 }
 
 

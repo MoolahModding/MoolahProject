@@ -81,6 +81,9 @@ void USBZCheatManagerMainMenu::RemoveCharacterFromSelectedSlot(int32 SlotIndex) 
 void USBZCheatManagerMainMenu::RemoveAsset() {
 }
 
+void USBZCheatManagerMainMenu::RefreshDailyChallenges() {
+}
+
 void USBZCheatManagerMainMenu::QueryAchivements() {
 }
 
@@ -88,6 +91,9 @@ void USBZCheatManagerMainMenu::PurchaseRealMoneyItems(const FString& ItemId) {
 }
 
 void USBZCheatManagerMainMenu::PurchaseItem(const FString& ItemId) {
+}
+
+void USBZCheatManagerMainMenu::PrintNews(ESBZOnlineCode ErrorCode, const TArray<FSBZNewsDataUIEntry>& NewsFeedList) {
 }
 
 void USBZCheatManagerMainMenu::LockCharacterForTutorial() {
@@ -126,6 +132,9 @@ void USBZCheatManagerMainMenu::DumpWeaponWeaponPartProgressionArray(const FStrin
 void USBZCheatManagerMainMenu::DumpWeaponSlotToWeaponPartMap(const FString& ItemId) {
 }
 
+void USBZCheatManagerMainMenu::DumpWeaponSlotEntitlementSkuDlcMap() const {
+}
+
 void USBZCheatManagerMainMenu::DumpSteamItems() {
 }
 
@@ -150,10 +159,16 @@ void USBZCheatManagerMainMenu::DumpPlayerSkills() {
 void USBZCheatManagerMainMenu::DumpPlayerSkillPoints() {
 }
 
+void USBZCheatManagerMainMenu::DumpPartyMemberLoadout() {
+}
+
 void USBZCheatManagerMainMenu::DumpOwnedHeists() {
 }
 
 void USBZCheatManagerMainMenu::DumpNextResetTime() {
+}
+
+void USBZCheatManagerMainMenu::DumpNews() {
 }
 
 void USBZCheatManagerMainMenu::DumpMaskOfTheWeek() {

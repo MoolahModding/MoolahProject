@@ -12,11 +12,11 @@ UDLSSSettings::UDLSSSettings() {
     this->NVIDIANGXApplicationId = 0;
     this->bCustomDLSSBinaryExists = false;
     this->bAllowOTAUpdate = true;
-    this->DLAAPreset = EDLSSPreset::A;
-    this->DLSSQualityPreset = EDLSSPreset::A;
-    this->DLSSBalancedPreset = EDLSSPreset::B;
+    this->DLAAPreset = EDLSSPreset::F;
+    this->DLSSQualityPreset = EDLSSPreset::C;
+    this->DLSSBalancedPreset = EDLSSPreset::C;
     this->DLSSPerformancePreset = EDLSSPreset::C;
-    this->DLSSUltraPerformancePreset = EDLSSPreset::D;
+    this->DLSSUltraPerformancePreset = EDLSSPreset::F;
 }
 
 

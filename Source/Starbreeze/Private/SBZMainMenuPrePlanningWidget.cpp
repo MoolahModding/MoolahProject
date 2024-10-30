@@ -13,6 +13,10 @@ bool USBZMainMenuPrePlanningWidget::IsAsyncLoadingDone() {
     return false;
 }
 
+ESBZOnlineTacticType USBZMainMenuPrePlanningWidget::GetTacticTypeFromGameSession() const {
+    return ESBZOnlineTacticType::Default;
+}
+
 ESBZDifficulty USBZMainMenuPrePlanningWidget::GetDifficulty() const {
     return ESBZDifficulty::Default;
 }

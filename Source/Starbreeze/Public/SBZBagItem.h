@@ -10,8 +10,7 @@ class ASBZZipline;
 class ASBZZiplineMotor;
 class UAkAudioEvent;
 class UAkComponent;
-class UBoxComponent;
-class USBZAIObjectiveComponent;
+class USBZBagBoxComponent;
 class USBZBaseInteractableComponent;
 class USBZInteractableComponent;
 class USBZInteractorComponent;
@@ -43,16 +42,13 @@ public:
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UBoxComponent* BoxComponent;
+    USBZBagBoxComponent* BoxComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZInteractableComponent* Interactable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZSimplePhysicsCorrector* PhysicsCorrector;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZAIObjectiveComponent* ObjectiveComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZBagHandle Bag;

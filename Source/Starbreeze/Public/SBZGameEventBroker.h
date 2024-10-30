@@ -28,6 +28,7 @@
 #include "SBZPlayerChatMessageEventDelegate.h"
 #include "SBZPlayerDefeatStateChangedData.h"
 #include "SBZPlayerDefeatStateChangedDelegateDelegate.h"
+#include "SBZPlayersCarryBagChangedDelegateDelegate.h"
 #include "SBZPreMatchAsyncLoadingCancelDelegate.h"
 #include "SBZPreMatchAsyncLoadingDoneDelegate.h"
 #include "SBZPreMatchAsyncLoadingProgressDelegate.h"
@@ -105,6 +106,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZAICrewDefeatStateChangedDelegate OnAICrewDefeatStateChangedDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZPlayersCarryBagChangedDelegate OnPlayersCarryBagChanged;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZGameEventSignature OnWaitActionPhaseEntered;

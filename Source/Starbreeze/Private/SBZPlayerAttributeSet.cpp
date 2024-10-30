@@ -20,7 +20,6 @@ USBZPlayerAttributeSet::USBZPlayerAttributeSet() {
     this->PrimaryToolAmmoInventoryServer = -1.00f;
     this->SecondaryToolAmmoInventoryServer = -1.00f;
     this->TertiaryToolAmmoInventoryServer = -1.00f;
-    this->ArmorData = NULL;
     this->AbilityData = NULL;
 }
 
@@ -85,6 +84,9 @@ void USBZPlayerAttributeSet::OnRep_DownedCount(const FGameplayAttributeData& Old
 }
 
 void USBZPlayerAttributeSet::OnRep_Dodge(const FGameplayAttributeData& OldDodge) {
+}
+
+void USBZPlayerAttributeSet::OnRep_ConsumableCount(const FGameplayAttributeData& OldConsumableCount) {
 }
 
 void USBZPlayerAttributeSet::OnRep_ArmorTrauma(const FGameplayAttributeData& OldArmorTrauma) {
@@ -156,6 +158,9 @@ void USBZPlayerAttributeSet::Multicast_SetDownedCount_Implementation(float NewCu
 void USBZPlayerAttributeSet::Multicast_SetDodge_Implementation(float NewCurrentValue) {
 }
 
+void USBZPlayerAttributeSet::Multicast_SetConsumableCount_Implementation(float NewCurrentValue) {
+}
+
 void USBZPlayerAttributeSet::Multicast_SetArmorTrauma_Implementation(float NewCurrentValue) {
 }
 
@@ -188,6 +193,7 @@ void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(USBZPlayerAttributeSet, ArmorChunkCount);
     DOREPLIFETIME(USBZPlayerAttributeSet, ArmorTrauma);
     DOREPLIFETIME(USBZPlayerAttributeSet, HealthTrauma);
+    DOREPLIFETIME(USBZPlayerAttributeSet, ConsumableCount);
 }
 
 

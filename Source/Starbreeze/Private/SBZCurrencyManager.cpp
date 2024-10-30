@@ -4,13 +4,13 @@ USBZCurrencyManager::USBZCurrencyManager() {
     this->GetCurrencyRequestQueue = NULL;
 }
 
-void USBZCurrencyManager::SubtractCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int32 Amount) {
+void USBZCurrencyManager::SubtractCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int64 Amount) {
 }
 
-void USBZCurrencyManager::SetCurrency(ESBZCurrencyCode Type, int32 Cost) {
+void USBZCurrencyManager::SetCurrency(ESBZCurrencyCode Type, int64 Cost) {
 }
 
-int32 USBZCurrencyManager::GetCurrentAmount(ESBZCurrencyCode Type) const {
+int64 USBZCurrencyManager::GetCurrentAmount(ESBZCurrencyCode Type) const {
     return 0;
 }
 
@@ -18,11 +18,11 @@ USBZCurrencyManager* USBZCurrencyManager::GetCurrencyManager(const UObject* Worl
     return NULL;
 }
 
-bool USBZCurrencyManager::CanAfford(ESBZCurrencyCode Type, int32 Cost) const {
+bool USBZCurrencyManager::CanAfford(ESBZCurrencyCode Type, int64 Cost) const {
     return false;
 }
 
-void USBZCurrencyManager::AddCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int32 Amount) {
+void USBZCurrencyManager::AddCurrency(ASBZPlayerState* SBZPlayerState, ESBZCurrencyCode Type, int64 Amount) {
 }
 
 

@@ -2,7 +2,6 @@
 	"BuildId": "17155196",
 	"Modules": 
 	{
-		"TimeEnhancements": "UE4Editor-TimeEnhancements.dll",
-		"TimeEnhancementsEditor": "UE4Editor-TimeEnhancementsEditor.dll"
+		"TimeEnhancements": "UE4Editor-TimeEnhancements.dll"
 	}
 }

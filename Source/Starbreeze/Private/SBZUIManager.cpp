@@ -32,6 +32,7 @@ USBZUIManager::USBZUIManager() {
     this->LastFocusedWidget = NULL;
     this->LastUIStackUpdate = 0.00f;
     this->bSetFocusOnUnlock = false;
+    this->bSavePushedUIStackValues = false;
     this->UIData = NULL;
 }
 
@@ -51,10 +52,10 @@ void USBZUIManager::ShowTutorialPopUp(const UObject* WorldContextObject, const U
 void USBZUIManager::ShowSidebarNotification(FSBZSideBarNotificationData InSideBarNotificationData) {
 }
 
-void USBZUIManager::ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed) {
+void USBZUIManager::ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents) {
 }
 
-void USBZUIManager::ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed) {
+void USBZUIManager::ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents) {
 }
 
 void USBZUIManager::ShowMetaNotification(FSBZMetaNotification InMetaNotification) {

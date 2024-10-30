@@ -37,7 +37,7 @@ public:
     USBZInventoryBaseData* GetItemData() const;
     
     UFUNCTION(BlueprintCallable)
-    void GetItemCost(int32& Price, ESBZCurrencyCode& Currency);
+    void GetItemCost(int64& Price, ESBZCurrencyCode& Currency);
     
 };
 

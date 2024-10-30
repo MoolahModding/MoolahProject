@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "GameFramework/OnlineReplStructs.h"
 #include "GameplayTagContainer.h"
 #include "ESBZAIBehaviorCategory.h"
 #include "ESBZAICharacterVariationCategory.h"
@@ -19,7 +20,6 @@
 #include "SBZOnHumanShieldDelegate.h"
 #include "SBZOnPlayerMeleeHitReceivedDelegate.h"
 #include "SBZTagStanceMapping.h"
-#include "SBZTripperMarkedInfo.h"
 #include "Templates/SubclassOf.h"
 #include "SBZAICharacter.generated.h"
 
@@ -60,6 +60,9 @@ class STARBREEZE_API ASBZAICharacter : public ASBZAIBaseCharacter, public ISBZAI
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer BlockGoDownTagContainer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer StunTagContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BulletMagnetismSocketName;
@@ -195,6 +198,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZTagStanceMapping> TagToStanceMappingTable;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 DialogAllowedBehaviorCategory;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TelegraphAttack, meta=(AllowPrivateAccess=true))
     bool bTelegraphAttack;
@@ -249,12 +255,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bHasBeenHogtied: 1;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    uint8 bIsInCover: 1;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    uint8 bWantsCoverPose: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsInDownOnGroundPose: 1;
@@ -338,10 +338,10 @@ private:
     TSet<uint32> CQCSpecialistSoftAssetsDoneSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FSBZTripperMarkedInfo> TripperMarkedInfoArray;
+    AController* KillInstigatorController;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    AController* KillInstigatorController;
+    TArray<FUniqueNetIdRepl> HackedByPlayerArray;
     
 public:
     ASBZAICharacter(const FObjectInitializer& ObjectInitializer);
@@ -430,11 +430,6 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetVariationCategory(ESBZAICharacterVariationCategory Category);
     
-public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetInCover(bool bInIsInCover);
-    
-private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHacked(float Duration);
     
@@ -461,9 +456,6 @@ public:
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void DisableAsObjective();
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void BP_OnTagReactionPlayed();
     
 
     // Fix for true pure virtual functions not being implemented

@@ -7,7 +7,7 @@ UCLASS(Blueprintable, MinimalAPI, ClassGroup=Custom, meta=(BlueprintSpawnableCom
 class USBZIrradianceOccluderComponent : public USceneComponent {
     GENERATED_BODY()
 public:
-    USBZIrradianceOccluderComponent();
+    USBZIrradianceOccluderComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

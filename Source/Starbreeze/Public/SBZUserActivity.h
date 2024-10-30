@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "ESBZHostingProvider.h"
 #include "ESBZOnlineJoinType.h"
+#include "ESBZOnlineTacticType.h"
 #include "SBZUserActivity.generated.h"
 
 USTRUCT(BlueprintType)
@@ -30,6 +31,9 @@ public:
     FString PartyCode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString GameSessionCode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString BuildVersion;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -54,13 +58,25 @@ public:
     int32 PartySessionMembers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 InfamyLevel;
+    int32 InfamyPoints;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 RenownLevel;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZHostingProvider HostingProvider;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsHost;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString HeistOwner;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 DifficultyIdx;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZOnlineTacticType TacticIdx;
     
     STARBREEZE_API FSBZUserActivity();
 };

@@ -9,7 +9,7 @@
 class ASBZEquippable;
 
 UCLASS(Blueprintable)
-class USBZPlayerAnimationCollectionFPP : public USBZBaseCharacterAnimationCollection {
+class STARBREEZE_API USBZPlayerAnimationCollectionFPP : public USBZBaseCharacterAnimationCollection {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

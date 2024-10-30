@@ -2,6 +2,7 @@
 #include "EHoudiniParameterType.h"
 
 UHoudiniParameterInt::UHoudiniParameterInt() {
+    this->ParmType = EHoudiniParameterType::Int;
     this->bHasMin = false;
     this->bHasMax = false;
     this->bHasUIMin = false;
@@ -11,7 +12,6 @@ UHoudiniParameterInt::UHoudiniParameterInt() {
     this->Max = 0;
     this->UIMin = 0;
     this->UIMax = 0;
-    this->ParmType = EHoudiniParameterType::Int;
 }
 
 

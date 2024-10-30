@@ -3,6 +3,7 @@
 #include "UObject/Object.h"
 #include "GameplayTagContainer.h"
 #include "EPD3HeistState.h"
+#include "SBZHostageTradeData.h"
 #include "SBZNegotiationManager.generated.h"
 
 class USBZNegotiationSettings;
@@ -17,6 +18,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZNegotiationSettings* Settings;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZHostageTradeData> HostageTradeDataArray;
     
 public:
     USBZNegotiationManager();

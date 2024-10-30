@@ -1,6 +1,10 @@
 #include "HoudiniAssetComponent.h"
 
-UHoudiniAssetComponent::UHoudiniAssetComponent() {
+UHoudiniAssetComponent::UHoudiniAssetComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bCanEverAffectNavigation = true;
+    this->Mobility = EComponentMobility::Static;
+    this->bUseAsOccluder = true;
+    this->CastShadow = true;
     this->HoudiniAsset = NULL;
     this->bCookOnParameterChange = true;
     this->bUploadTransformsToHoudiniEngine = true;
@@ -40,10 +44,6 @@ UHoudiniAssetComponent::UHoudiniAssetComponent() {
     this->bBakeAfterNextCook = false;
     this->bCachedIsPreview = false;
     this->LastTickTime = 0.00f;
-    this->bUseAsOccluder = true;
-    this->CastShadow = true;
-    this->Mobility = EComponentMobility::Static;
-    this->bCanEverAffectNavigation = true;
 }
 
 

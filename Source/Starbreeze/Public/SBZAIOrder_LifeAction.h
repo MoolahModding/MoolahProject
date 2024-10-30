@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
+#include "ESBZAIBehaviorCategory.h"
 #include "ESBZLifeActionStopReason.h"
 #include "SBZAIOrder.h"
 #include "SBZComponentSelector.h"
@@ -70,6 +71,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnBlockingSlotFreed(ASBZCharacter* Character, USBZLifeActionInstance* ActionInstance, USBZLifeActionSlot* ActionSlot, ESBZLifeActionStopReason Result);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnBehaviorCategoryChanged(ESBZAIBehaviorCategory OldCategory, ESBZAIBehaviorCategory NewCategory);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void ClearDelegates();
     

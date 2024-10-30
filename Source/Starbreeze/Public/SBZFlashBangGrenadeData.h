@@ -9,7 +9,7 @@
 class UGameplayEffect;
 
 UCLASS(Blueprintable)
-class USBZFlashBangGrenadeData : public USBZGrenadeData {
+class STARBREEZE_API USBZFlashBangGrenadeData : public USBZGrenadeData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

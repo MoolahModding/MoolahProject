@@ -6,4 +6,7 @@ ASBZPawnKillVolume::ASBZPawnKillVolume(const FObjectInitializer& ObjectInitializ
     this->bShouldAffectDrones = false;
 }
 
+void ASBZPawnKillVolume::SetVolumeEnabled(bool bEnabled) {
+}
+
 

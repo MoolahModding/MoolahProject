@@ -12,6 +12,7 @@ ASBZLootProcessorBase::ASBZLootProcessorBase(const FObjectInitializer& ObjectIni
     this->ProcessDuration = 30.00f;
     this->bCanQueueProcessing = true;
     this->MarkerAsset = NULL;
+    this->PreplanningProcessDuration = 20.00f;
     this->ClaimBagInteractable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("ClaimBagInteractable"));
     this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
     this->CurrentState = ESBZLootProcessorState::Inactive;
@@ -62,6 +63,10 @@ void ASBZLootProcessorBase::Multicast_SetState_Implementation(ESBZLootProcessorS
 }
 
 void ASBZLootProcessorBase::Multicast_SetCurrentProcessingIndex_Implementation(uint8 Index) {
+}
+
+float ASBZLootProcessorBase::GetProcessDuration() const {
+    return 0.0f;
 }
 
 

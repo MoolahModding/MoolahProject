@@ -32,6 +32,9 @@ protected:
     FSBZVolumeTypeSetting VoipVolumeSetting;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZVolumeTypeSetting VoipMicVolumeSetting;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZVolumeTypeSetting CinematicVolumeSetting;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -46,6 +49,9 @@ protected:
 public:
     USBZVolumeManager();
 
+    UFUNCTION(BlueprintCallable)
+    void UpdateVOIPVolumeOnEOSLogin(int32 InUserIndex, const FString& NativePlatformUserId, const FString& EOSPlatformProductUserId, bool bLoginSuccess);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZVolumeManager* GetVolumeManager(UObject* WorldContextObject);
     

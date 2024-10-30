@@ -12,6 +12,7 @@ class UAnimSequenceBase;
 class USBZEquippableAnimationCollection;
 class USBZEquippableMenuAnimationCollection;
 class USBZGameplayAbility;
+class USBZOverskillData;
 class USBZPlayerAnimationCollectionFPP;
 class USBZTagReactionAsset;
 
@@ -84,6 +85,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FVector BoundsOffsetHack;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZOverskillData* OverskillData;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

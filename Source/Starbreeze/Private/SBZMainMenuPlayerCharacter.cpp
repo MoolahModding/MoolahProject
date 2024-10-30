@@ -1,5 +1,6 @@
 #include "SBZMainMenuPlayerCharacter.h"
 #include "Components/SceneComponent.h"
+#include "Components/WidgetComponent.h"
 #include "SBZCharacterComponent.h"
 #include "SBZModularCharacterComponent.h"
 
@@ -11,6 +12,10 @@ ASBZMainMenuPlayerCharacter::ASBZMainMenuPlayerCharacter(const FObjectInitialize
     this->MaskDataEquipped = NULL;
     this->CharacterComponent = CreateDefaultSubobject<USBZCharacterComponent>(TEXT("CharacterComponent"));
     this->PlayerCharacterData = NULL;
+    this->StartMontageName = ESBZMainMenuAnimationName::IdleSequence;
+    this->PreferredEquippableIndex = 0;
+    this->NameplateWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("NameplateWidget"));
+    this->NameplateWidgetComponent->SetupAttachment(Mesh);
     this->Mesh->SetupAttachment(RootComponent);
 }
 

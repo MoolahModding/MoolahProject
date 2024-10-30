@@ -1,9 +1,9 @@
 {
 	"FileVersion": 3,
-	"Version": 16,
-	"VersionName": "3.1.11a",
-	"FriendlyName": "NVIDIA DLSS Super Resolution/DLAA",
-	"Description": "NVIDIA Deep Learning Super Sampling Super Resolution",
+	"Version": 20,
+	"VersionName": "3.7.0a",
+	"FriendlyName": "NVIDIA DLSS Super Resolution/Ray Reconstruction/DLAA",
+	"Description": "NVIDIA Deep Learning Super Sampling Super Resolution and Ray Reconstruction",
 	"Category": "Rendering",
 	"CreatedBy": "NVIDIA",
 	"CreatedByURL": "https://developer.nvidia.com/dlss",
@@ -21,7 +21,8 @@
 			"Type": "Runtime",
 			"LoadingPhase": "PostEngineInit",
 			"WhitelistPlatforms": [
-				"Win64"
+				"Win64",
+				"WinGDK"
 			]
 		},
 		{

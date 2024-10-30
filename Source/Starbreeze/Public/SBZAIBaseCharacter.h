@@ -31,6 +31,7 @@ class USBZAIUtilityData;
 class USBZAbilitySystemComponent;
 class USBZAgentManager;
 class USBZAgilityQueryParams;
+class USBZLifeActionSlot;
 class USBZNavLinkAgilityComponent;
 class USBZPathFocusSettings;
 class USBZStanceTransitionDataAsset;
@@ -73,6 +74,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     AActor* CurrentTarget;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    USBZLifeActionSlot* CurrentLifeActionSlot;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAgilityQueryParams* AgilityQueryParam;
@@ -119,6 +123,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZPathFocusSettings* PathFocusSettings;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ThrowableNearRange;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint8 bWantsCoverPose: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint8 bIsInCover: 1;
+    
 private:
     UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnRep_AgentId, meta=(AllowPrivateAccess=true))
     uint32 AgentId;
@@ -156,6 +169,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float CivilianNearRange;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsSlowedAllowed;
+    
 public:
     ASBZAIBaseCharacter(const FObjectInitializer& ObjectInitializer);
 
@@ -181,9 +197,15 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopAgilityMontage(UAnimMontage* Montage);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetInCover(bool bInIsInCover);
+    
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCurrentTarget(AActor* NewTarget);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetCurrentLifeActionSlot(USBZLifeActionSlot* LifeActionSlot);
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -200,6 +222,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetTimeSinceLastAgility() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnTagReactionPlayed();
     
 
     // Fix for true pure virtual functions not being implemented

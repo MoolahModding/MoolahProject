@@ -64,6 +64,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     float CurrentThreatLevel;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsMaskOnOverridden;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentHeistState, meta=(AllowPrivateAccess=true))
     EPD3HeistState CurrentHeistState;
@@ -182,6 +185,11 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static EPD3HeistState StealthBranch(UObject* WorldContextObject, ESBZStealthBranch& OutputPins);
     
+private:
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    void SetMaskOnOverride(UObject* WorldContextObject);
+    
+public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetHeistState(EPD3HeistState HeistState);
     
@@ -221,6 +229,9 @@ private:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetNegotiationEndTime(float EndTime);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetMaskOnOverride();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHostagesDemand(uint8 Count);

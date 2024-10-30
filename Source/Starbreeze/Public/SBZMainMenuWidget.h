@@ -32,7 +32,6 @@ class USBZMainMenuSuitCustomization;
 class USBZMainMenuWeaponInventoryScreen;
 class USBZMainMenuWeaponModifierScreen;
 class USBZMainMenuWeaponProgressionScreen;
-class USBZMenuNavBar;
 class USBZSuitPartConfig;
 class USBZWeaponPartSlot;
 class USBZWidgetBase;
@@ -86,9 +85,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZFullscreenVideoWidget* Widget_FullscreenVideo;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZMenuNavBar* Widget_MainMenuNavbar;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZMainMenuCosmeticItemButton> CosmeticItemButtonClass;

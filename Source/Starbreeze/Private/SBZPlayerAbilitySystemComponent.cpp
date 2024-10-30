@@ -96,6 +96,9 @@ void USBZPlayerAbilitySystemComponent::Multicast_SetSpeedBuffTime_Implementation
 void USBZPlayerAbilitySystemComponent::Multicast_SetMitigationBuffTime_Implementation(float Time) {
 }
 
+void USBZPlayerAbilitySystemComponent::Multicast_SetEncumbered_Implementation() {
+}
+
 void USBZPlayerAbilitySystemComponent::Multicast_SetDamageBuffTime_Implementation(float Time) {
 }
 
@@ -106,6 +109,9 @@ void USBZPlayerAbilitySystemComponent::Multicast_ResetMitigationBuffTime_Impleme
 }
 
 void USBZPlayerAbilitySystemComponent::Multicast_ResetDamageBuffTime_Implementation() {
+}
+
+void USBZPlayerAbilitySystemComponent::Multicast_RemoveEncumbered_Implementation() {
 }
 
 void USBZPlayerAbilitySystemComponent::Multicast_MarkTarget_Implementation(APawn* MarkedPawn, float InDuration) {

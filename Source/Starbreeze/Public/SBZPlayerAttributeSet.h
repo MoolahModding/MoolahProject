@@ -1,10 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "AttributeSet.h"
+#include "SBZArmorChunkTypeData.h"
 #include "SBZCharacterAttributeSet.h"
+#include "SBZWeightTagData.h"
 #include "SBZPlayerAttributeSet.generated.h"
 
-class USBZArmorData;
 class USBZPlayerAbilityData;
 
 UCLASS(Blueprintable)
@@ -177,9 +178,6 @@ public:
     FGameplayAttributeData ArmorTrauma;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayAttributeData ArmorTraumaScale;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData LoadoutWeight;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -212,12 +210,21 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_HealthTrauma, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData HealthTrauma;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData MaxConsumableCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ConsumableCount, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData ConsumableCount;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZArmorData* ArmorData;
+    USBZPlayerAbilityData* AbilityData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZWeightTagData> WeightTagDataArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZPlayerAbilityData* AbilityData;
+    TArray<FSBZArmorChunkTypeData> ArmorChunkTypeDataArray;
     
 public:
     USBZPlayerAttributeSet();
@@ -289,6 +296,9 @@ protected:
     void OnRep_Dodge(const FGameplayAttributeData& OldDodge);
     
     UFUNCTION(BlueprintCallable)
+    void OnRep_ConsumableCount(const FGameplayAttributeData& OldConsumableCount);
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_ArmorTrauma(const FGameplayAttributeData& OldArmorTrauma);
     
     UFUNCTION(BlueprintCallable)
@@ -356,6 +366,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDodge(float NewCurrentValue);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetConsumableCount(float NewCurrentValue);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmorTrauma(float NewCurrentValue);

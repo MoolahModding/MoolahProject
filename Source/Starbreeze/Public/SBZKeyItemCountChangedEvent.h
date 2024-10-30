@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "SBZGameEventStructBase.h"
 #include "SBZKeyItemCountChangedEvent.generated.h"
 
@@ -12,6 +13,9 @@ struct FSBZKeyItemCountChangedEvent : public FSBZGameEventStructBase {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     APlayerState* PlayerState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTag KeyTag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName KeyTagName;

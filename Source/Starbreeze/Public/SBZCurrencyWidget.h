@@ -12,8 +12,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZCurrencyCode CurrencyType;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 CurrencyValue;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 CurrencyValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsOwnerCurrency;
@@ -29,13 +29,13 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
-    void SetCurrencyValue(int32 InValue);
+    void SetCurrencyValue(int64 InValue);
     
     UFUNCTION(BlueprintCallable)
     void SetCurrencyType(ESBZCurrencyCode InCurrencyType);
     
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnCurrencyValueChanged(int32 NewValue, bool bIsInitial);
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnCurrencyValueChanged(int64 NewValue, bool bIsInitial);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCurrencyTypeChanged(ESBZCurrencyCode InCurrencyType, bool bIsInitial);

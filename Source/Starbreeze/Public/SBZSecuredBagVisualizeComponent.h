@@ -6,6 +6,7 @@
 #include "SBZSecuredBagVisualizeBagAddedSignatureDelegate.h"
 #include "SBZSecuredBagVisualizeComponent.generated.h"
 
+class ASBZSecuredBag;
 class USBZBagType;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -21,6 +22,10 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZComponentSelector> SpawnLocationArray;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ASBZSecuredBag*> SecuredBagArray;
     
 public:
     USBZSecuredBagVisualizeComponent(const FObjectInitializer& ObjectInitializer);

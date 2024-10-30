@@ -3,8 +3,8 @@
 #include "EHoudiniCurveType.generated.h"
 
 UENUM()
-enum class EHoudiniCurveType : uint8 {
-    Invalid = 0xFF,
+enum class EHoudiniCurveType : int8 {
+    Invalid = -1,
     Polygon = 0,
     Nurbs,
     Bezier,

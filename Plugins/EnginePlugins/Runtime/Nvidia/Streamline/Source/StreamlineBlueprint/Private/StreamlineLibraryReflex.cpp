@@ -6,8 +6,8 @@ UStreamlineLibraryReflex::UStreamlineLibraryReflex() {
 void UStreamlineLibraryReflex::SetReflexMode(const UStreamlineReflexMode Mode) {
 }
 
-UStreamlineReflexSupport UStreamlineLibraryReflex::QueryReflexSupport() {
-    return UStreamlineReflexSupport::Supported;
+UStreamlineFeatureSupport UStreamlineLibraryReflex::QueryReflexSupport() {
+    return UStreamlineFeatureSupport::Supported;
 }
 
 bool UStreamlineLibraryReflex::IsReflexSupported() {

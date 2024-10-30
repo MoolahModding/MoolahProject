@@ -54,6 +54,12 @@ void ASBZPlayerController::Server_RestartLevel_Implementation() {
 void ASBZPlayerController::Server_RequestMergeParty_Implementation(bool bIsSelected, const TArray<FString>& PartyMemberPlayerIdArray) {
 }
 
+void ASBZPlayerController::Server_HostRestartRequested_Implementation(FUniqueNetIdRepl PlayerID) {
+}
+bool ASBZPlayerController::Server_HostRestartRequested_Validate(FUniqueNetIdRepl PlayerID) {
+    return true;
+}
+
 void ASBZPlayerController::Server_DebugTeleportTo_Implementation(const FVector& Location, const float Yaw) {
 }
 

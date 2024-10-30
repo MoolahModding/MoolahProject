@@ -35,6 +35,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->bIsLoadoutLoaded = false;
     this->bIsApplyingLoadout = false;
     this->CurrentCharacterData = NULL;
+    this->AppliedLoadoutArmorData = NULL;
     this->PlayerMicroCamera = NULL;
     this->bIsSaveLoadoutPending = false;
     this->SpectateDurationArray[0] = 60.00f;
@@ -50,6 +51,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->ReducedCustodyTime = 0.00f;
     this->SpectateDurationModification = 0.00f;
     this->ECMGUIEffectData = NULL;
+    this->PrecisionShotGUIEffectData = NULL;
     this->SkillTankDisengageActivatedTimeSeconds = -1.00f;
     this->SurrenderedEnemy = NULL;
     this->EnforcerSkillKillCount = 0;
@@ -67,9 +69,22 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->CurrentTradeReduction = 0;
     this->bServerIsHardBargainCustody = false;
     this->bIsMergePartySelected = false;
+    this->PickupConsumableCooldownTime = 0.80f;
 }
 
 void ASBZPlayerState::SetSkipIntroSequence(bool bInIsSkipIntroSequence) {
+}
+
+void ASBZPlayerState::Server_VoiceSessionLeft_Implementation() {
+}
+
+void ASBZPlayerState::Server_VoiceSessionJoined_Implementation() {
+}
+
+void ASBZPlayerState::Server_VoiceSessionCreateFailed_Implementation() {
+}
+
+void ASBZPlayerState::Server_VoiceSessionCreated_Implementation(const FString& SessionId) {
 }
 
 void ASBZPlayerState::Server_UpdateGameSession_Implementation() {
@@ -90,7 +105,16 @@ void ASBZPlayerState::Server_SetMiniGameState_Implementation(EPD3MiniGameState I
 void ASBZPlayerState::Server_SetEquipStateAndIndex_Implementation(uint8 InEquipStateAndIndex) {
 }
 
+void ASBZPlayerState::Server_SetEOSProductUserId_Implementation(const FString& InEOSProductUserId) {
+}
+
 void ASBZPlayerState::Server_SetDropPlaceableEquippableData_Implementation(const FSBZDropPlaceableEquippableData& Data) {
+}
+
+void ASBZPlayerState::Server_RequestVoiceSessionLeave_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+}
+
+void ASBZPlayerState::Server_RequestVoiceSessionJoin_Implementation(const FUniqueNetIdRepl& InPlayerId) {
 }
 
 void ASBZPlayerState::Server_PickupAmmo_Implementation(uint32 ID, bool bIsSimulatedPickup) {
@@ -165,7 +189,10 @@ void ASBZPlayerState::OnRep_InfamyLevel() {
 void ASBZPlayerState::OnRep_FirstPartyPlatform() {
 }
 
-void ASBZPlayerState::OnRep_EquipStateAndIndex() {
+void ASBZPlayerState::OnRep_EquipStateAndIndex(uint8 OldEquipStateAndIndex) {
+}
+
+void ASBZPlayerState::OnRep_EOSProductUserId(const FString& OldEOSProductUserId) {
 }
 
 void ASBZPlayerState::OnRep_DefeatState(EPD3DefeatState OldDefeatState) {
@@ -190,6 +217,9 @@ void ASBZPlayerState::OnIsSkipIntroSequenceChanged() {
 }
 
 void ASBZPlayerState::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive) {
+}
+
+void ASBZPlayerState::MulticastNotifyClientsHostRestart_Implementation(int32 ServerRestartTimeInSeconds) {
 }
 
 void ASBZPlayerState::Multicast_StopTargeting_Implementation() {
@@ -229,6 +259,9 @@ void ASBZPlayerState::Multicast_SetLastArrestedByGuard_Implementation(bool bInIs
 }
 
 void ASBZPlayerState::Multicast_SetEquipStateAndIndex_Implementation(uint8 InEquipStateAndIndex) {
+}
+
+void ASBZPlayerState::Multicast_SetEOSProductUserId_Implementation(const FString& InEOSProductUserId) {
 }
 
 void ASBZPlayerState::Multicast_SetDefeatState_Implementation(EPD3DefeatState InDefeatState) {
@@ -276,6 +309,10 @@ int32 ASBZPlayerState::GetInfamyLevel() const {
     return 0;
 }
 
+FString ASBZPlayerState::GetEOSProductUserId() const {
+    return TEXT("");
+}
+
 UPaperSprite* ASBZPlayerState::GetCharacterIcon() const {
     return NULL;
 }
@@ -302,6 +339,11 @@ void ASBZPlayerState::EquipEquippableToLoadoutAt(const USBZEquippableData* Equip
 void ASBZPlayerState::EquipCuttingToolToLoadout(USBZToolCuttingData* ItemToEquip) {
 }
 
+UAbilitySystemComponent* ASBZPlayerState::GetAbilitySystemComponent() const
+{
+    return nullptr;
+}
+
 void ASBZPlayerState::Client_SetSurrenderedEnemy_Implementation(ASBZAICharacter* InSurrenderedEnemy) {
 }
 
@@ -323,6 +365,18 @@ void ASBZPlayerState::Client_PickupAmmo_Implementation(uint32 ID) {
 void ASBZPlayerState::Client_OnSaveLoadoutPending_Implementation() {
 }
 
+void ASBZPlayerState::Client_LeaveVoiceSession_Implementation() {
+}
+
+void ASBZPlayerState::Client_JoinVoiceSession_Implementation(const FSBZVoiceSessionData& VoiceSessionData) {
+}
+
+void ASBZPlayerState::Client_DestroyVoiceSession_Implementation() {
+}
+
+void ASBZPlayerState::Client_CreateVoiceSession_Implementation() {
+}
+
 void ASBZPlayerState::Client_CheatSetInfiniteAmmo_Implementation(bool bInHasInifiniteAmmo) {
 }
 
@@ -339,6 +393,7 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, AccelByteDisplayName);
     DOREPLIFETIME(ASBZPlayerState, AccelByteUserName);
     DOREPLIFETIME(ASBZPlayerState, AccelByteUserId);
+    DOREPLIFETIME(ASBZPlayerState, EOSProductUserId);
     DOREPLIFETIME(ASBZPlayerState, bIsSkipIntroSequence);
     DOREPLIFETIME(ASBZPlayerState, PlayerSlotId);
     DOREPLIFETIME(ASBZPlayerState, ReplicatedStartReplenishDodgeServerTime);

@@ -8,7 +8,7 @@
 class AActor;
 
 UCLASS(Abstract, Blueprintable)
-class USBZPlaceableData : public USBZEquippableData {
+class STARBREEZE_API USBZPlaceableData : public USBZEquippableData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

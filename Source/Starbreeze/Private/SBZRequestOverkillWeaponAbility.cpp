@@ -8,6 +8,7 @@ USBZRequestOverkillWeaponAbility::USBZRequestOverkillWeaponAbility() {
     this->OwnerCharacter = NULL;
     this->OverkillSuccessDialog = NULL;
     this->OverkillFailedDialog = NULL;
+    this->OverkillStealthDialog = NULL;
 }
 
 

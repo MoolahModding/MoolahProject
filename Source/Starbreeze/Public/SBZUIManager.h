@@ -17,9 +17,11 @@
 #include "SBZHUDNotificationData.h"
 #include "SBZInfoPopupText.h"
 #include "SBZMetaNotification.h"
+#include "SBZOnCultureChangedDelegateDelegate.h"
 #include "SBZOnDisplayHUDNotificationDelegate.h"
 #include "SBZOnHUDContextChangedDelegate.h"
 #include "SBZOnInstallStateChangedDelegate.h"
+#include "SBZOnLanguageChangedDelegateDelegate.h"
 #include "SBZOnPopUpWidgetClosedDelegate.h"
 #include "SBZOnUIStackLockChangedDelegate.h"
 #include "SBZOnUIStackStateChangedDelegate.h"
@@ -109,6 +111,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer UIGameplayTags;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnLanguageChangedDelegate OnLanguageChangedDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnCultureChangedDelegate OnCultureChangedDelegate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZSubtitleWidget> SubtitleWidgetClass;
@@ -205,6 +213,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bSetFocusOnUnlock;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bSavePushedUIStackValues;
+    
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnInstallStateChanged OnInstallStateChanged;
@@ -232,10 +243,10 @@ public:
     void ShowSidebarNotification(FSBZSideBarNotificationData InSideBarNotificationData);
     
     UFUNCTION(BlueprintCallable)
-    void ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed);
+    void ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents);
     
     UFUNCTION(BlueprintCallable)
-    void ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed);
+    void ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents);
     
     UFUNCTION(BlueprintCallable)
     void ShowMetaNotification(FSBZMetaNotification InMetaNotification);

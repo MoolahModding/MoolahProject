@@ -38,6 +38,16 @@
 			"Enabled": true
 		},
 		{
+			"Name": "EOSShared",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
 			"Name": "OnlineSubsystem",
 			"Enabled": true
 		},
@@ -47,6 +57,16 @@
 		},
 		{
 			"Name": "OnlineSubsystemSteam",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemEOS",
 			"Enabled": true,
 			"WhitelistPlatforms": [
 				"Win32",
@@ -128,7 +148,7 @@
 		},
 		{
 			"Name": "MfMedia",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "Niagara",
@@ -173,6 +193,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "SBZAnalyticsLegacy",
+			"Enabled": true
+		},
+		{
 			"Name": "AccelByteUe4Sdk",
 			"Enabled": true
 		},
@@ -210,17 +234,8 @@
 			"Enabled": true
 		},
 		{
-			"Name": "SBZWeaponTool",
-			"Enabled": true
-		},
-		{
 			"Name": "Volumetrics",
 			"Enabled": true
-		},
-		{
-			"Name": "UniversalVoiceChatPro",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/eda7d893311147d1b7a6e8084be096c4"
 		},
 		{
 			"Name": "BinkMedia",
@@ -229,26 +244,9 @@
 		{
 			"Name": "DLSS",
 			"Enabled": true,
-			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/nvidia-dlss"
-		},
-		{
-			"Name": "OnlineSubsystemEOS",
-			"Enabled": true,
+			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/nvidia-dlss",
 			"WhitelistPlatforms": [
-				"Win32",
-				"Win64",
-				"Linux",
-				"Mac"
-			]
-		},
-		{
-			"Name": "EOSShared",
-			"Enabled": true,
-			"WhitelistPlatforms": [
-				"Win32",
-				"Win64",
-				"Linux",
-				"Mac"
+				"Win64"
 			]
 		},
 		{
@@ -259,11 +257,15 @@
 		{
 			"Name": "NIS",
 			"Enabled": true,
-			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/nvidia-dlss"
+			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/nvidia-dlss",
+			"WhitelistPlatforms": [
+				"Win64"
+			]
 		},
 		{
 			"Name": "Streamline",
 			"Enabled": true,
+			"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/nvidia-dlss",
 			"WhitelistPlatforms": [
 				"Win32",
 				"Win64"
@@ -349,14 +351,156 @@
 		},
 		{
 			"Name": "XeSS",
-			"Enabled": false,
+			"Enabled": true,
 			"WhitelistPlatforms": [
 				"Win64"
 			]
 		},
 		{
-			"Name": "SBZTools",
+			"Name": "FSR3",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"WinGDK"
+			]
+		},
+		{
+			"Name": "SBZShotgrid",
 			"Enabled": true
+		},
+		{
+			"Name": "GSheetsOperator",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/aa61e3df41fa46629d73ab59cacf9429"
+		},
+		{
+			"Name": "RuntimeDataTable",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4c7c4f8d523f4c90b2e26d23502c526c"
+		},
+		{
+			"Name": "EdgeGapMatchmaker",
+			"Enabled": true
+		},
+		{
+			"Name": "SBZBackendProxy",
+			"Enabled": true
+		},
+		{
+			"Name": "TLMVoiceChat",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"WinGDK",
+				"PS5",
+				"XSX"
+			]
+		},
+		{
+			"Name": "ChromaSDKPlugin",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"WinGDK"
+			]
+		},
+		{
+			"Name": "GooglePAD",
+			"Enabled": false
+		},
+		{
+			"Name": "OnlineSubsystemGooglePlay",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Android"
+			]
+		},
+		{
+			"Name": "AndroidPermission",
+			"Enabled": false
+		},
+		{
+			"Name": "AndroidMoviePlayer",
+			"Enabled": false
+		},
+		{
+			"Name": "AndroidDeviceProfileSelector",
+			"Enabled": false
+		},
+		{
+			"Name": "MobileLauncherProfileWizard",
+			"Enabled": false
+		},
+		{
+			"Name": "WindowsMoviePlayer",
+			"Enabled": false
+		},
+		{
+			"Name": "OnlineSubsystemIOS",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"IOS",
+				"TVOS"
+			]
+		},
+		{
+			"Name": "MobilePatchingUtils",
+			"Enabled": false
+		},
+		{
+			"Name": "LocationServicesBPLibrary",
+			"Enabled": false
+		},
+		{
+			"Name": "LuminPlatformFeatures",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Lumin"
+			]
+		},
+		{
+			"Name": "MLSDK",
+			"Enabled": false
+		},
+		{
+			"Name": "MacGraphicsSwitching",
+			"Enabled": false
+		},
+		{
+			"Name": "IOSDeviceProfileSelector",
+			"Enabled": false
+		},
+		{
+			"Name": "GoogleCloudMessaging",
+			"Enabled": false
+		},
+		{
+			"Name": "ExampleDeviceProfileSelector",
+			"Enabled": false
+		},
+		{
+			"Name": "DatasmithContent",
+			"Enabled": false
+		},
+		{
+			"Name": "ChaosNiagara",
+			"Enabled": false
+		},
+		{
+			"Name": "ChaosEditor",
+			"Enabled": false
+		},
+		{
+			"Name": "ChaosSolverPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "ChaosClothEditor",
+			"Enabled": false
+		},
+		{
+			"Name": "ChaosCloth",
+			"Enabled": false
 		}
 	],
 	"TargetPlatforms": [

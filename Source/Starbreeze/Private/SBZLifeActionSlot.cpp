@@ -4,6 +4,7 @@ USBZLifeActionSlot::USBZLifeActionSlot(const FObjectInitializer& ObjectInitializ
     this->bMustBeOccupied = true;
     this->bNeedOtherSlotsReadyToBeReserved = false;
     this->bOpenForRandomReservation = true;
+    this->bIgnoreAffinityListCheck = false;
     this->bUseAcceptableRadius = true;
     this->AcceptableRadius = 0.00f;
     this->bUseAcceptableAngle = true;
@@ -19,6 +20,7 @@ USBZLifeActionSlot::USBZLifeActionSlot(const FObjectInitializer& ObjectInitializ
     this->bUseExitAnimation = false;
     this->bSnapExitPointToGround = false;
     this->bExitOnlyIfActionAnimationIsPlaying = false;
+    this->bUseRandomExit = false;
     this->PlayingActionMontage = NULL;
     this->PlayingEnterMontage = NULL;
     this->PlayingExitMontage = NULL;

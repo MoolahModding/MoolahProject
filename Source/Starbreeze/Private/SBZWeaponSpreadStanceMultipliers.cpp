@@ -4,6 +4,7 @@ FSBZWeaponSpreadStanceMultipliers::FSBZWeaponSpreadStanceMultipliers() {
     this->Spread = 0.00f;
     this->TasedSpread = 0.00f;
     this->Start = 0.00f;
+    this->MinCap = 0.00f;
     this->Cap = 0.00f;
     this->Increment = 0.00f;
     this->ResetTime = 0.00f;

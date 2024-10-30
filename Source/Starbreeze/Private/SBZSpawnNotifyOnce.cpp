@@ -5,7 +5,7 @@ ASBZSpawnNotifyOnce::ASBZSpawnNotifyOnce(const FObjectInitializer& ObjectInitial
     this->Spawner = NULL;
 }
 
-void ASBZSpawnNotifyOnce::OnSpawnComplete(APawn* SpawnedPawn) {
+void ASBZSpawnNotifyOnce::OnSpawnComplete(APawn* SpawnedPawn, ASBZCarriedStaticInteractionActor* SpawnedLoot) {
 }
 
 

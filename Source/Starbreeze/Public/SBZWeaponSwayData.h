@@ -5,7 +5,7 @@
 #include "SBZWeaponSwayData.generated.h"
 
 UCLASS(Blueprintable, Const)
-class USBZWeaponSwayData : public UDataAsset {
+class STARBREEZE_API USBZWeaponSwayData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

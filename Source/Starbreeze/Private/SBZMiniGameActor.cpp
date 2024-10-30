@@ -19,6 +19,7 @@ ASBZMiniGameActor::ASBZMiniGameActor(const FObjectInitializer& ObjectInitializer
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
     this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
     this->WidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetComponent"));
+    this->bIsHandlingOutlineMesh = true;
     this->StaticMesh->SetupAttachment(RootComponent);
     this->WidgetComponent->SetupAttachment(RootComponent);
 }

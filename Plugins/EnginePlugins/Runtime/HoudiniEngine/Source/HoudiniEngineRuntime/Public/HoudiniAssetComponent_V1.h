@@ -56,7 +56,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText TempCookFolder;
     
-    UHoudiniAssetComponent_V1();
+    UHoudiniAssetComponent_V1(const FObjectInitializer& ObjectInitializer);
 
 };
 

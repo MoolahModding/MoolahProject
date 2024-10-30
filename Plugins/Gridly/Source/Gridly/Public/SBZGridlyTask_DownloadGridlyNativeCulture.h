@@ -21,6 +21,7 @@ public:
     FDownloadGridlyNativeCultureDelegate OnFail;
     
     USBZGridlyTask_DownloadGridlyNativeCulture();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static USBZGridlyTask_DownloadGridlyNativeCulture* DownloadLocalizedTexts(const UObject* WorldContextObject);
     

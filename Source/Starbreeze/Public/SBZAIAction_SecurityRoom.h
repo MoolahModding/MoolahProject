@@ -15,6 +15,9 @@ class USBZAIAction_SecurityRoom : public USBZAIAction_Order {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldDisableAI;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZSecurityRoom* SecurityRoom;
     

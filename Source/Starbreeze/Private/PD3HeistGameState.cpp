@@ -7,6 +7,7 @@
 APD3HeistGameState::APD3HeistGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CurrentSuspenseValue = 0;
     this->CurrentThreatLevel = 0.00f;
+    this->bIsMaskOnOverridden = false;
     this->CurrentHeistState = EPD3HeistState::Stealth;
     this->GameIntensityAnalyzer = CreateDefaultSubobject<UPD3GameIntensityAnalyzer>(TEXT("GameIntensityAnalyzer"));
     this->Dispatcher = CreateDefaultSubobject<UPD3Dispatcher>(TEXT("PD3Dispatcher"));
@@ -40,6 +41,9 @@ APD3HeistGameState::APD3HeistGameState(const FObjectInitializer& ObjectInitializ
 
 EPD3HeistState APD3HeistGameState::StealthBranch(UObject* WorldContextObject, ESBZStealthBranch& OutputPins) {
     return EPD3HeistState::Stealth;
+}
+
+void APD3HeistGameState::SetMaskOnOverride(UObject* WorldContextObject) {
 }
 
 void APD3HeistGameState::SetHeistState(EPD3HeistState HeistState) {
@@ -76,6 +80,9 @@ void APD3HeistGameState::Multicast_SetNegotiationTradeType_Implementation(ESBZNe
 }
 
 void APD3HeistGameState::Multicast_SetNegotiationEndTime_Implementation(float EndTime) {
+}
+
+void APD3HeistGameState::Multicast_SetMaskOnOverride_Implementation() {
 }
 
 void APD3HeistGameState::Multicast_SetHostagesDemand_Implementation(uint8 Count) {
@@ -128,6 +135,7 @@ void APD3HeistGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     
     DOREPLIFETIME(APD3HeistGameState, CurrentSuspenseValue);
     DOREPLIFETIME(APD3HeistGameState, CurrentThreatLevel);
+    DOREPLIFETIME(APD3HeistGameState, bIsMaskOnOverridden);
     DOREPLIFETIME(APD3HeistGameState, CurrentHeistState);
     DOREPLIFETIME(APD3HeistGameState, SpawnedCarryDataArray);
     DOREPLIFETIME(APD3HeistGameState, NegotiationEndTime);

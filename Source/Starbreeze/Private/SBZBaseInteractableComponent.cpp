@@ -29,7 +29,6 @@ USBZBaseInteractableComponent::USBZBaseInteractableComponent(const FObjectInitia
     this->StartComment = NULL;
     this->CompletedComment = NULL;
     this->CancelComment = NULL;
-    this->LastInteractor = NULL;
     this->ModeIndex = 0;
     this->AnimationName = TEXT("Interact_Equipped_Montage");
     this->AnimatedInteractionData = NULL;

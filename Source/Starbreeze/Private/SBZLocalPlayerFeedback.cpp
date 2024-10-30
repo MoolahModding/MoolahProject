@@ -22,6 +22,7 @@ USBZLocalPlayerFeedback::USBZLocalPlayerFeedback() {
     this->AkStopEvent = NULL;
     this->AkStopEventTime = 0.00f;
     this->ForceFeedbackEffect = NULL;
+    this->ChromaEffect = NULL;
     this->AudioRTPCValue = 100.00f;
     this->Priority = -1;
     this->OverridenFOVPriority = -1;

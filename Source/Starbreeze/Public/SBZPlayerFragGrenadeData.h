@@ -5,7 +5,7 @@
 #include "SBZPlayerFragGrenadeData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZPlayerFragGrenadeData : public USBZFragGrenadeData {
+class STARBREEZE_API USBZPlayerFragGrenadeData : public USBZFragGrenadeData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

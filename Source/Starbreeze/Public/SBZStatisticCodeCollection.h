@@ -79,7 +79,13 @@ public:
     FString EnemyKillsOverkillWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString EnemyDoubleKillsMarksmanWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString EnemyKillsLastBullet;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString EnemyKillsNoReload;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString ZipTie;
@@ -160,7 +166,7 @@ public:
     FString CutWindows;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString ThreeEnemyGrenadeKills;
+    FString EnemyGrenadeMultiKill;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString KillEnemySnipersWithMarksman;

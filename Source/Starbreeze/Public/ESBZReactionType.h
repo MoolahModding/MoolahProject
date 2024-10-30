@@ -12,6 +12,7 @@ enum class ESBZReactionType : uint8 {
     PlaceECMJammer,
     PlaceSensorTool,
     PlaceTripMine,
+    Tripper,
     PlayerDowned,
     PlayerRevived,
     PlayerFlashed,

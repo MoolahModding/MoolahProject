@@ -29,6 +29,10 @@ bool USBZUIStatics::IsWidgetActuallyVisible(UWidget* Widget) {
     return false;
 }
 
+bool USBZUIStatics::IsPauseSupported(const UObject* WorldContextObject) {
+    return false;
+}
+
 bool USBZUIStatics::IsInputTypeController() {
     return false;
 }
@@ -39,6 +43,10 @@ int32 USBZUIStatics::GetWidgetZOrderValue(ESBZWidgetZOrdering ZOrder) {
 
 USBZUIManager* USBZUIStatics::GetUIManager(const UObject* WorldContextObject) {
     return NULL;
+}
+
+float USBZUIStatics::GetTimerRemainingNonPausableTimeByHandle(const UObject* WorldContextObject, const FTimerHandle& Handle, bool bIsWorldTimer) {
+    return 0.0f;
 }
 
 uint8 USBZUIStatics::GetMaxDifficultyCount() {

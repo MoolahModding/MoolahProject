@@ -1,5 +1,6 @@
 #include "SBZAIShield.h"
 #include "Components/SphereComponent.h"
+#include "Net/UnrealNetwork.h"
 
 USBZAIShield::USBZAIShield(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ComponentTags.AddDefaulted(1);
@@ -27,6 +28,12 @@ USBZAIShield::USBZAIShield(const FObjectInitializer& ObjectInitializer) : Super(
     this->VisorCPDIndex = 22;
     this->VisorCPDVal = 1000000.00f;
     this->VisorDamageSteps = 4;
+    this->ShieldDamageCPDIndexArray.AddDefaulted(6);
+    this->CurrentMaterialHitCountArray.AddDefaulted(6);
+    this->MaxCosmeticDamageHits = 5;
+    this->CosmeticExplosionDamageModifier = 3.00f;
+    this->CosmeticDamageModifier = 0.50f;
+    this->MinDistanceToCosmeticHit = 45.00f;
     this->ExplosionBlockDegrees = 45.00f;
     this->ExplosionBlockDot = 0.71f;
     this->LightConeWidthDegrees = 30.00f;
@@ -50,6 +57,9 @@ void USBZAIShield::OnShieldEndPlay(AActor* InActor, TEnumAsByte<EEndPlayReason::
 void USBZAIShield::OnRep_ShieldBreak() {
 }
 
+void USBZAIShield::OnRep_CurrentMaterialHitCountArray() {
+}
+
 void USBZAIShield::OnPlayerEndPlay(AActor* InActor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
 }
 
@@ -63,6 +73,12 @@ void USBZAIShield::OnCharacterAnimEventActive(const FGameplayTag& EventTag, bool
 }
 
 void USBZAIShield::Multicast_ShieldBreak_Implementation() {
+}
+
+void USBZAIShield::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(USBZAIShield, CurrentMaterialHitCountArray);
 }
 
 

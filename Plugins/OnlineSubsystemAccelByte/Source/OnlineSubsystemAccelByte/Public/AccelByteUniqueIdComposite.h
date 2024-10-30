@@ -3,7 +3,7 @@
 #include "AccelByteUniqueIdComposite.generated.h"
 
 USTRUCT(BlueprintType)
-struct FAccelByteUniqueIdComposite {
+struct ONLINESUBSYSTEMACCELBYTE_API FAccelByteUniqueIdComposite {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -15,6 +15,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString PlatformId;
     
-    ONLINESUBSYSTEMACCELBYTE_API FAccelByteUniqueIdComposite();
+    FAccelByteUniqueIdComposite();
 };
 

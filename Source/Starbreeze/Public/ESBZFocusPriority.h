@@ -4,8 +4,9 @@
 
 UENUM(BlueprintType)
 enum class ESBZFocusPriority : uint8 {
-    AI = 0x3,
+    AI = 3,
     Attack,
     Override,
     Default = 0,
 };
+

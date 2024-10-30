@@ -1,6 +1,6 @@
 #include "HoudiniSplineComponent.h"
 
-UHoudiniSplineComponent::UHoudiniSplineComponent() {
+UHoudiniSplineComponent::UHoudiniSplineComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CurvePoints.AddDefaulted(2);
     this->DisplayPoints.AddDefaulted(2);
     this->bClosed = false;

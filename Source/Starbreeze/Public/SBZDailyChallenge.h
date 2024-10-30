@@ -10,7 +10,7 @@ public:
     FName ChallengeId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 ChallengeCompletion;
+    int32 CreationObjectiveStartStatValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool ChallengeCompleted;

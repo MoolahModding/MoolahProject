@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "UStreamlineDLSSGMode.h"
-#include "UStreamlineDLSSGSupport.h"
+#include "UStreamlineFeatureSupport.h"
 #include "StreamlineLibraryDLSSG.generated.h"
 
 UCLASS(Blueprintable, MinimalAPI)
@@ -15,7 +15,7 @@ public:
     static void SetDLSSGMode(UStreamlineDLSSGMode DLSSGMode);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static UStreamlineDLSSGSupport QueryDLSSGSupport();
+    static UStreamlineFeatureSupport QueryDLSSGSupport();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsDLSSGSupported();
@@ -28,9 +28,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static UStreamlineDLSSGMode GetDLSSGMode();
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    static void GetDLSSGMinimumDriverVersion(int32& MinDriverVersionMajor, int32& MinDriverVersionMinor);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static void GetDLSSGFrameTiming(float& FrameRateInHertz, int32& FramesPresented);

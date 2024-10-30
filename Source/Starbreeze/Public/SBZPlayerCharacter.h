@@ -15,6 +15,7 @@
 #include "SBZDetectionData.h"
 #include "SBZEjectableByVehicleInterface.h"
 #include "SBZEmoteInterface.h"
+#include "SBZEquippableConfig.h"
 #include "SBZEquippableInspectInterface.h"
 #include "SBZLastAttackerData.h"
 #include "SBZLocalPlayerFeedbackParameters.h"
@@ -317,6 +318,9 @@ private:
     FGameplayTagContainer IgnoreMovementTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer ForbidLandSlideTagContainer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OnTopBaseFOV;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
@@ -540,6 +544,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ReflectorShieldCooldownTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZEquippableConfig> StoredConsumableConfigArray;
     
 public:
     ASBZPlayerCharacter(const FObjectInitializer& ObjectInitializer);

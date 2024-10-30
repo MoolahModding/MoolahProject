@@ -2,6 +2,7 @@
 #include "EHoudiniParameterType.h"
 
 UHoudiniParameterFloat::UHoudiniParameterFloat() {
+    this->ParmType = EHoudiniParameterType::Float;
     this->bNoSwap = false;
     this->bHasMin = false;
     this->bHasMax = false;
@@ -13,7 +14,6 @@ UHoudiniParameterFloat::UHoudiniParameterFloat() {
     this->UIMin = -340282346638528859811704183484516925440.00f;
     this->UIMax = 340282346638528859811704183484516925440.00f;
     this->bIsChildOfRamp = false;
-    this->ParmType = EHoudiniParameterType::Float;
 }
 
 

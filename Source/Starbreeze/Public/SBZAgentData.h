@@ -19,8 +19,8 @@ USTRUCT(BlueprintType)
 struct FSBZAgentData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<uint8> Id;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<uint32> Id;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<APawn*> Pawn;

@@ -83,6 +83,9 @@ void USBZCheatManager::SetTargetEquippableIndex(int32 EquippableIndex, int32 Pla
 void USBZCheatManager::SetTargetCharacterStance(ESBZCharacterStance Stance, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetTargetAttributeValue(const FName& Name, float Value, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetSkill(const FName& SkillDataName, bool bIsAcquired, int32 PlayerIndex) {
 }
 
@@ -110,6 +113,12 @@ void USBZCheatManager::SetPlayerGlove(const FName& PlayerMaskName, int32 PlayerI
 void USBZCheatManager::SetPlayerCharacter(const FName& CharacterClassName, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetPlayerArmorChunkTypeCount(int32 ChunkTypeCount, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::SetPlayerArmorChunkType(int32 ChunkTypeIndex, ESBZArmorChunkType ChunkType, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetPlayerArmor(const FName& PlayerArmorName, int32 PlayerIndex) {
 }
 
@@ -131,7 +140,13 @@ void USBZCheatManager::SetPlaceableAmmo(int32 Count, int32 PlaceableIndex, int32
 void USBZCheatManager::SetPlaceable(const FName& PlaceableDataName, int32 PlaceableIndex, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetOverskillLoadout(const FName& DataName, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetOverkillWeaponProgress(float InProgress, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::SetOverkillWeaponLoadout(const FName& DataName, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetOptionalMilestonePassed(const FString& OptionalMilestoneName) {
@@ -218,6 +233,9 @@ void USBZCheatManager::SetDifficulty(ESBZDifficulty Difficulty) {
 void USBZCheatManager::SetCrouchedTarget(bool bIsCrouched, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetAttributeValue(const FName& Name, float Value, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetAssaultLevelProgression(float Progression) {
 }
 
@@ -263,13 +281,16 @@ void USBZCheatManager::ResetCVars() {
 void USBZCheatManager::ResearchAllSkills(int32 PlayerIndex) {
 }
 
-void USBZCheatManager::RequestMissionSuccess() {
+void USBZCheatManager::RequestMissionTimeOut(int32 PlayersInEscapeVolume) {
+}
+
+void USBZCheatManager::RequestMissionSuccess(int32 PlayersInEscapeVolume) {
 }
 
 void USBZCheatManager::RequestMissionFail() {
 }
 
-void USBZCheatManager::RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation) {
+void USBZCheatManager::RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation, int32 PlayersInEscapeVolume) {
 }
 
 void USBZCheatManager::ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked) {

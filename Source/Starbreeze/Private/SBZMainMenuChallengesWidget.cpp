@@ -1,7 +1,6 @@
 #include "SBZMainMenuChallengesWidget.h"
 
 USBZMainMenuChallengesWidget::USBZMainMenuChallengesWidget() {
-    this->StackValue = TEXT("Default__SBZMainMenuChallengesWidget");
     this->Panel_ChallengeButtons = NULL;
     this->Widget_Loading = NULL;
     this->ChallengeButtonClass = NULL;
@@ -22,6 +21,9 @@ void USBZMainMenuChallengesWidget::SetPage(int32 Index) {
 void USBZMainMenuChallengesWidget::SetFilterCategory(const USBZChallengeCategoryData* Category) {
 }
 
+void USBZMainMenuChallengesWidget::SetCurrentFilter(EChallengeStatusEnum NewFilter, bool bResetToAll) {
+}
+
 void USBZMainMenuChallengesWidget::ResetFilterStatuses() {
 }
 
@@ -39,6 +41,10 @@ void USBZMainMenuChallengesWidget::NativeOnChallengeButtonFocusedChanged(USBZMen
 }
 
 void USBZMainMenuChallengesWidget::CycleFilterStatuses() {
+}
+
+bool USBZMainMenuChallengesWidget::CategoryHasChallenges(const USBZChallengeCategoryData* Category) const {
+    return false;
 }
 
 

@@ -117,8 +117,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZVoiceCommentDataAsset* CancelComment;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    USBZInteractorComponent* LastInteractor;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, Transient, meta=(AllowPrivateAccess=true))
+    TWeakObjectPtr<USBZInteractorComponent> LastInteractor;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int8 ModeIndex;

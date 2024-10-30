@@ -4,7 +4,7 @@
 #include "SBZTripperToolData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZTripperToolData : public USBZToolData {
+class STARBREEZE_API USBZTripperToolData : public USBZToolData {
     GENERATED_BODY()
 public:
     USBZTripperToolData();

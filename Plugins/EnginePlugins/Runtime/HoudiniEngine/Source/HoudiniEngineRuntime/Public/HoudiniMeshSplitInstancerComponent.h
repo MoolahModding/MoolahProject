@@ -22,7 +22,7 @@ private:
     UStaticMesh* InstancedMesh;
     
 public:
-    UHoudiniMeshSplitInstancerComponent();
+    UHoudiniMeshSplitInstancerComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

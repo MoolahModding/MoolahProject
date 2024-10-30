@@ -1,6 +1,6 @@
 #include "HoudiniMeshSplitInstancerComponent.h"
 
-UHoudiniMeshSplitInstancerComponent::UHoudiniMeshSplitInstancerComponent() {
+UHoudiniMeshSplitInstancerComponent::UHoudiniMeshSplitInstancerComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->InstancedMesh = NULL;
 }
 

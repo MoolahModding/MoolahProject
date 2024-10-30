@@ -9,6 +9,9 @@ class USBZPartyManagerABV2 : public USBZPartyManagerAB {
 public:
     USBZPartyManagerABV2();
 
+    UFUNCTION(BlueprintCallable)
+    void OnStateEntered(FName StateName);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnConfirmPartyLeaderLeft(FName ClosingActionName);

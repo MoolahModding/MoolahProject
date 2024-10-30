@@ -11,6 +11,9 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
+    void OnUIStackLockChangedAfterPrivilegesCheck(bool bIsUIStackLocked);
+    
+    UFUNCTION(BlueprintCallable)
     void HandlePlatformUserLoginComplete(bool bSuccess);
     
 };

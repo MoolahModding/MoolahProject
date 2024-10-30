@@ -7,6 +7,7 @@
 #include "EPD3DispatchCallerReason.h"
 #include "EPD3HeistState.h"
 #include "ESBZAIOrderMode.h"
+#include "ESBZArmorChunkType.h"
 #include "ESBZCharacterStance.h"
 #include "ESBZDamageWeight.h"
 #include "ESBZDifficulty.h"
@@ -123,6 +124,9 @@ public:
     void SetTargetCharacterStance(ESBZCharacterStance Stance, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetTargetAttributeValue(const FName& Name, float Value, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetSkill(const FName& SkillDataName, bool bIsAcquired, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -150,6 +154,12 @@ public:
     void SetPlayerCharacter(const FName& CharacterClassName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetPlayerArmorChunkTypeCount(int32 ChunkTypeCount, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetPlayerArmorChunkType(int32 ChunkTypeIndex, ESBZArmorChunkType ChunkType, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerArmor(const FName& PlayerArmorName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -171,7 +181,13 @@ public:
     void SetPlaceable(const FName& PlaceableDataName, int32 PlaceableIndex, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetOverskillLoadout(const FName& DataName, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetOverkillWeaponProgress(float InProgress, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetOverkillWeaponLoadout(const FName& DataName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetOptionalMilestonePassed(const FString& OptionalMilestoneName);
@@ -258,6 +274,9 @@ public:
     void SetCrouchedTarget(bool bIsCrouched, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetAttributeValue(const FName& Name, float Value, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetAssaultLevelProgression(float Progression);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -303,13 +322,16 @@ public:
     void ResearchAllSkills(int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void RequestMissionSuccess();
+    void RequestMissionTimeOut(int32 PlayersInEscapeVolume);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void RequestMissionSuccess(int32 PlayersInEscapeVolume);
     
     UFUNCTION(BlueprintCallable, Exec)
     void RequestMissionFail();
     
     UFUNCTION(BlueprintCallable, Exec)
-    void RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation);
+    void RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation, int32 PlayersInEscapeVolume);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked);

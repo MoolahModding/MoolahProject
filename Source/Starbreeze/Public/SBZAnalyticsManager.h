@@ -5,6 +5,7 @@
 #include "ESBZCheaterPolicyType.h"
 #include "ESBZNotOwningHeistPolicyType.h"
 #include "SBZChallengeData.h"
+#include "SBZEntitlementsTelemetryPayload.h"
 #include "SBZAnalyticsManager.generated.h"
 
 class USBZAnalyticsProvider;
@@ -41,6 +42,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SendInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience);
+    
+    UFUNCTION(BlueprintCallable)
+    void SendEntitlementsLoadedEvent(const FSBZEntitlementsTelemetryPayload& Payload);
     
     UFUNCTION(BlueprintCallable)
     void SendCheaterDetected(const ESBZCheaterPolicyType AntiCheatAction, const bool bIsCheatActionSuccessful, const FString& CheatTypeString, const FString& AdditionalInformation);

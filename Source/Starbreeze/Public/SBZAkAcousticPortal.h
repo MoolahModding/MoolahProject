@@ -4,7 +4,6 @@
 #include "SBZAkAcousticPortal.generated.h"
 
 class AActor;
-class ASBZGate;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API ASBZAkAcousticPortal : public AAkAcousticPortal {
@@ -12,9 +11,6 @@ class STARBREEZE_API ASBZAkAcousticPortal : public AAkAcousticPortal {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<AActor*> AffectedActors;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ASBZGate* ConnectedGate;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DebugScreenTimer;

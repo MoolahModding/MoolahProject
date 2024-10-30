@@ -27,6 +27,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 TotalFromSurvivingAssults;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 InfamyPointsFromTickingLoot;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 MaxInfamyPointsFromTickingLoot;
+    
     STARBREEZE_API FSBZInfamyPointPayoutRewardData();
 };
 

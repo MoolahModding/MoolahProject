@@ -2,6 +2,7 @@
 
 USBZHUDHitIndicatorWidget::USBZHUDHitIndicatorWidget() {
     this->Image_HitIndicator = NULL;
+    this->bIsUsedInHUD = false;
     this->EnemyHitAudioEvent = NULL;
     this->CriticalHitAudioEvent = NULL;
     this->EnemyKilledAudioEvent = NULL;

@@ -5,6 +5,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "GameFramework/PlayerState.h"
+#include "GameFramework/OnlineReplStructs.h"
 #include "AbilitySystemInterface.h"
 #include "GameplayEffectTypes.h"
 #include "GameplayTagContainer.h"
@@ -18,10 +19,11 @@
 #include "SBZAmmoPickupLookup.h"
 #include "SBZCrewStateInterface.h"
 #include "SBZDropPlaceableEquippableData.h"
-#include "SBZEffectHandleArray.h"
 #include "SBZOnInfamyLevelChangedDynamicDelegate.h"
 #include "SBZPlayerEndMissionResultData.h"
+#include "SBZPlayerSkillEffectData.h"
 #include "SBZReplicatedReloadState.h"
+#include "SBZVoiceSessionData.h"
 #include "Templates/SubclassOf.h"
 #include "SBZPlayerState.generated.h"
 
@@ -33,9 +35,11 @@ class ASBZPlayerMicroCamera;
 class ASBZPlayerState;
 class ASBZTool;
 class UPaperSprite;
+class USBZArmorData;
 class USBZCharacterEffectDataAsset;
 class USBZEquippableData;
 class USBZMaskData;
+class USBZOverskillData;
 class USBZPingCallAsset;
 class USBZPlaceableData;
 class USBZPlayerAbilitySystemComponent;
@@ -77,6 +81,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FString AccelByteSessionId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_EOSProductUserId, meta=(AllowPrivateAccess=true))
+    FString EOSProductUserId;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZProgressionSaveGame* ProgressionSaveGame;
     
@@ -97,7 +104,7 @@ protected:
     USBZPlayerAttributeSet* AttributeSet;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UAbilitySystemComponent* AbilitySystem;
+    USBZPlayerAbilitySystemComponent* AbilitySystem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZUICharacterEffectComponent* UICharacterEffects;
@@ -113,12 +120,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZPingCallAsset*> EquippablePings;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGameplayTag, USBZSkillData*> SkillDataLookupMap;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSet<FGameplayTag> SkillTagSet;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReplicatedStartReplenishDodgeServerTime, meta=(AllowPrivateAccess=true))
@@ -206,10 +207,16 @@ private:
     TArray<ASBZPlayerCharacter*> PlayerCharacterArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FActiveGameplayEffectHandle> AppliedLoadoutEffectArray;
+    TMap<USBZSkillData*, FSBZPlayerSkillEffectData> AppliedLoadoutSkillEffectMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<USBZSkillData*, FSBZEffectHandleArray> AppliedCrewSkillEffectMap;
+    USBZArmorData* AppliedLoadoutArmorData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FActiveGameplayEffectHandle AppliedLoadoutArmorEffectHandle;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<USBZSkillData*, FSBZPlayerSkillEffectData> AppliedCrewSkillEffectMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZPlayerMicroCamera* PlayerMicroCamera;
@@ -240,6 +247,15 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZCharacterEffectDataAsset* ECMGUIEffectData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZCharacterEffectDataAsset* PrecisionShotGUIEffectData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayTag, USBZCharacterEffectDataAsset*> TagGUIDataMap;
+    
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayTag, uint32> TagGUIDataHandleMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float SkillTankDisengageActivatedTimeSeconds;
@@ -298,6 +314,15 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_MergePartySelected, meta=(AllowPrivateAccess=true))
     bool bIsMergePartySelected;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PickupConsumableCooldownTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZOverskillData*> EquippedOverskillArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZSkillData*> EquippedOverskillSkillDataArray;
+    
 public:
     ASBZPlayerState(const FObjectInitializer& ObjectInitializer);
 
@@ -306,6 +331,19 @@ public:
 protected:
     UFUNCTION(BlueprintCallable)
     void SetSkipIntroSequence(bool bInIsSkipIntroSequence);
+    
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_VoiceSessionLeft();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_VoiceSessionJoined();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_VoiceSessionCreateFailed();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_VoiceSessionCreated(const FString& SessionId);
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -330,10 +368,21 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetEquipStateAndIndex(uint8 InEquipStateAndIndex);
     
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_SetEOSProductUserId(const FString& InEOSProductUserId);
+    
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetDropPlaceableEquippableData(const FSBZDropPlaceableEquippableData& Data);
     
+private:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_RequestVoiceSessionLeave(const FUniqueNetIdRepl& InPlayerId);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_RequestVoiceSessionJoin(const FUniqueNetIdRepl& InPlayerId);
+    
+public:
     UFUNCTION(Reliable, Server)
     void Server_PickupAmmo(uint32 ID, bool bIsSimulatedPickup);
     
@@ -409,7 +458,10 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnRep_EquipStateAndIndex();
+    void OnRep_EquipStateAndIndex(uint8 OldEquipStateAndIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_EOSProductUserId(const FString& OldEOSProductUserId);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_DefeatState(EPD3DefeatState OldDefeatState);
@@ -440,6 +492,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void MulticastNotifyClientsHostRestart(int32 ServerRestartTimeInSeconds);
+    
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopTargeting();
     
@@ -484,6 +541,9 @@ private:
     void Multicast_SetEquipStateAndIndex(uint8 InEquipStateAndIndex);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetEOSProductUserId(const FString& InEOSProductUserId);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDefeatState(EPD3DefeatState InDefeatState);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -524,6 +584,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetInfamyLevel() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetEOSProductUserId() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetCharacterIcon() const;
@@ -574,16 +637,31 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_OnSaveLoadoutPending();
     
+private:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_LeaveVoiceSession();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_JoinVoiceSession(const FSBZVoiceSessionData& VoiceSessionData);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_DestroyVoiceSession();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_CreateVoiceSession();
+    
+public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_CheatSetInfiniteAmmo(bool bInHasInifiniteAmmo);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_ChallengeCompleted(const FChallengeNotifPayload& ChallengeNotifPayload);
     
+
     // Fix for true pure virtual functions not being implemented
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
-    {
-        return AbilitySystem;
-    }
+
+    UFUNCTION(BlueprintCallable)
+    UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+    
 };
 

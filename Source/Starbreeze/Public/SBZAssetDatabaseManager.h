@@ -8,6 +8,7 @@
 class USBZBaseWeaponData;
 class USBZItemDataContainer;
 class USBZMaskData;
+class USBZNewsData;
 class USBZPayDayCreditData;
 class USBZPlayerCharacterData;
 class USBZPreplanningAssetData;
@@ -63,6 +64,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZPayDayCreditData*> AllPayDayCredits;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZNewsData*> NewsItemArray;
     
 public:
     USBZAssetDatabaseManager();

@@ -2,6 +2,7 @@
 
 USBZStateMachineStateSoloPreMatch::USBZStateMachineStateSoloPreMatch() {
     this->MatchmakingData = NULL;
+    this->LoadingScreen = NULL;
 }
 
 bool USBZStateMachineStateSoloPreMatch::SetPlayerReady() {

@@ -21,6 +21,7 @@ public:
     FDownloadLocalizedTextsDelegate OnFail;
     
     UGridlyTask_DownloadLocalizedTexts();
+
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static UGridlyTask_DownloadLocalizedTexts* DownloadLocalizedTexts(const UObject* WorldContextObject);
     

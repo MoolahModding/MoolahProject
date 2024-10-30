@@ -54,6 +54,9 @@ void USBZSettingsFunctionsVideo::SetFramerateMode(UObject* WorldContextObject, E
 void USBZSettingsFunctionsVideo::SetFramerateLimit(UObject* WorldContextObject, int32 Limit) {
 }
 
+void USBZSettingsFunctionsVideo::SetFrameInterpolator(UObject* WorldContextObject, ESBZFrameInterpolator FrameInterpolator) {
+}
+
 void USBZSettingsFunctionsVideo::SetFoliageQuality(UObject* WorldContextObject, int32 Value) {
 }
 
@@ -84,7 +87,7 @@ void USBZSettingsFunctionsVideo::SetCameraVerticalFieldOfView(UObject* WorldCont
 void USBZSettingsFunctionsVideo::SetBrightness(UObject* WorldContextObject, float Brightness) {
 }
 
-void USBZSettingsFunctionsVideo::SetAntiAliasingMode(UObject* WorldContextObject, int32 Mode) {
+void USBZSettingsFunctionsVideo::SetAntiAliasingMode(UObject* WorldContextObject, ESBZAntiAliasingMode Mode) {
 }
 
 bool USBZSettingsFunctionsVideo::IsVSyncEnabledByDefault(UObject* WorldContextObject) {
@@ -183,6 +186,10 @@ int32 USBZSettingsFunctionsVideo::GetFramerateLimit(UObject* WorldContextObject)
     return 0;
 }
 
+ESBZFrameInterpolator USBZSettingsFunctionsVideo::GetFrameInterpolator(UObject* WorldContextObject) {
+    return ESBZFrameInterpolator::None;
+}
+
 int32 USBZSettingsFunctionsVideo::GetFoliageQuality(UObject* WorldContextObject) {
     return 0;
 }
@@ -247,6 +254,10 @@ int32 USBZSettingsFunctionsVideo::GetDefaultFramerateLimit(UObject* WorldContext
     return 0;
 }
 
+ESBZFrameInterpolator USBZSettingsFunctionsVideo::GetDefaultFrameInterpolator(UObject* WorldContextObject) {
+    return ESBZFrameInterpolator::None;
+}
+
 int32 USBZSettingsFunctionsVideo::GetDefaultFoliageQuality(UObject* WorldContextObject) {
     return 0;
 }
@@ -275,8 +286,8 @@ float USBZSettingsFunctionsVideo::GetDefaultBrightness(UObject* WorldContextObje
     return 0.0f;
 }
 
-int32 USBZSettingsFunctionsVideo::GetDefaultAntiAliasingMode(UObject* WorldContextObject) {
-    return 0;
+ESBZAntiAliasingMode USBZSettingsFunctionsVideo::GetDefaultAntiAliasingMode(UObject* WorldContextObject) {
+    return ESBZAntiAliasingMode::Off;
 }
 
 float USBZSettingsFunctionsVideo::GetContrast(UObject* WorldContextObject) {
@@ -323,8 +334,8 @@ float USBZSettingsFunctionsVideo::GetBrightness(UObject* WorldContextObject) {
     return 0.0f;
 }
 
-int32 USBZSettingsFunctionsVideo::GetAntiAliasingMode(UObject* WorldContextObject) {
-    return 0;
+ESBZAntiAliasingMode USBZSettingsFunctionsVideo::GetAntiAliasingMode(UObject* WorldContextObject) {
+    return ESBZAntiAliasingMode::Off;
 }
 
 

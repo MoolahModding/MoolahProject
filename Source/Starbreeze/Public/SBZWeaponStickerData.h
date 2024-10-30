@@ -6,7 +6,7 @@
 class UTexture2D;
 
 UCLASS(Blueprintable)
-class USBZWeaponStickerData : public USBZCosmeticsDataAsset {
+class STARBREEZE_API USBZWeaponStickerData : public USBZCosmeticsDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

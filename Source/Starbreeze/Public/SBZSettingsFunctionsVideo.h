@@ -1,6 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "ESBZAntiAliasingMode.h"
+#include "ESBZFrameInterpolator.h"
 #include "ESBZFramerateMode.h"
 #include "ESBZReflexMode.h"
 #include "ESBZUpscaler.h"
@@ -68,6 +70,9 @@ public:
     static void SetFramerateLimit(UObject* WorldContextObject, int32 Limit);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetFrameInterpolator(UObject* WorldContextObject, ESBZFrameInterpolator FrameInterpolator);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetFoliageQuality(UObject* WorldContextObject, int32 Value);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -98,7 +103,7 @@ public:
     static void SetBrightness(UObject* WorldContextObject, float Brightness);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void SetAntiAliasingMode(UObject* WorldContextObject, int32 Mode);
+    static void SetAntiAliasingMode(UObject* WorldContextObject, ESBZAntiAliasingMode Mode);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsVSyncEnabledByDefault(UObject* WorldContextObject);
@@ -173,6 +178,9 @@ public:
     static int32 GetFramerateLimit(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static ESBZFrameInterpolator GetFrameInterpolator(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static int32 GetFoliageQuality(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -221,6 +229,9 @@ public:
     static int32 GetDefaultFramerateLimit(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static ESBZFrameInterpolator GetDefaultFrameInterpolator(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static int32 GetDefaultFoliageQuality(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -242,7 +253,7 @@ public:
     static float GetDefaultBrightness(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static int32 GetDefaultAntiAliasingMode(UObject* WorldContextObject);
+    static ESBZAntiAliasingMode GetDefaultAntiAliasingMode(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetContrast(UObject* WorldContextObject);
@@ -278,7 +289,7 @@ public:
     static float GetBrightness(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static int32 GetAntiAliasingMode(UObject* WorldContextObject);
+    static ESBZAntiAliasingMode GetAntiAliasingMode(UObject* WorldContextObject);
     
 };
 

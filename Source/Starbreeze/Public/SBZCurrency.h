@@ -11,8 +11,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZCurrencyCode CurrencyType;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 Amount;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 Amount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 LifetimeAmount;

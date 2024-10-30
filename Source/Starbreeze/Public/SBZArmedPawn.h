@@ -13,6 +13,7 @@
 #include "SBZPawnInterface.h"
 #include "SBZPawnLifetime.h"
 #include "SBZProjectileInterface.h"
+#include "SBZReplicatedEquippableState.h"
 #include "SBZRoomVolumeInterface.h"
 #include "SBZTypeInterface.h"
 #include "Templates/SubclassOf.h"
@@ -39,7 +40,7 @@ protected:
     TArray<ASBZEquippable*> EquippableArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UAbilitySystemComponent* AbilitySystemComponent;
+    USBZAbilitySystemComponent* AbilitySystemComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAICharacterAbilityData* AbilityData;
@@ -71,6 +72,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<ASBZRoomVolume*> RoomVolumes;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsDeathAllowed: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZReplicatedEquippableState ReplicatedEquippableState;
+    
 public:
     ASBZArmedPawn(const FObjectInitializer& ObjectInitializer);
 
@@ -94,11 +101,8 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override PURE_VIRTUAL(GetOwnedGameplayTags,);
-
-    virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
-    {
-        return AbilitySystemComponent;
-    }
     
+    UFUNCTION(BlueprintCallable)
+    UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 };
 

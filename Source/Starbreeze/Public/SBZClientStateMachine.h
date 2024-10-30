@@ -125,7 +125,7 @@ public:
     ESBZOnlineSessionPhase GetSessionPhase() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FString GetCurrentStateNameString();
+    FString GetCurrentStateNameString() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool CanRequestSoloGame() const;

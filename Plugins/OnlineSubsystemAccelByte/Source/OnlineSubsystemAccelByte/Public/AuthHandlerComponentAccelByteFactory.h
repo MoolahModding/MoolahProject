@@ -8,5 +8,6 @@ class UAuthHandlerComponentAccelByteFactory : public UHandlerComponentFactory {
     GENERATED_BODY()
 public:
     UAuthHandlerComponentAccelByteFactory();
+
 };
 

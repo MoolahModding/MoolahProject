@@ -5,7 +5,7 @@ USBZMeleeComponent::USBZMeleeComponent(const FObjectInitializer& ObjectInitializ
     this->bIsFriendlyFireAllowedOverride = false;
 }
 
-void USBZMeleeComponent::Multicast_SetEnforcerSolidNetIDArray_Implementation(const TArray<int32>& InEnforcerSolidNetIDArray) {
+void USBZMeleeComponent::Multicast_SetRemoveStaggeredTagNetIDArray_Implementation(const TArray<int32>& InRemoveStaggeredTagNetIDArray) {
 }
 
 void USBZMeleeComponent::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {

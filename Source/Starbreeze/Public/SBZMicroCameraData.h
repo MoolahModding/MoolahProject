@@ -6,7 +6,7 @@
 class USBZOutlineAsset;
 
 UCLASS(Blueprintable)
-class USBZMicroCameraData : public USBZToolData {
+class STARBREEZE_API USBZMicroCameraData : public USBZToolData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

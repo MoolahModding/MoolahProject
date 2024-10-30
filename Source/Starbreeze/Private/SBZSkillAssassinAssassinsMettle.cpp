@@ -1,7 +1,7 @@
 #include "SBZSkillAssassinAssassinsMettle.h"
 
 USBZSkillAssassinAssassinsMettle::USBZSkillAssassinAssassinsMettle() {
-    this->FloatArray.AddDefaulted(1);
+    this->FloatArray.AddDefaulted(3);
 }
 
 

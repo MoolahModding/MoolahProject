@@ -7,9 +7,11 @@
 #include "SBZPawnSpawnRequest.h"
 #include "SBZPawnSpawnRequestHandle.h"
 #include "SBZSpawnRequestCompletedDelegateDelegate.h"
+#include "Templates/SubclassOf.h"
 #include "SBZPawnSpawnPredefined.generated.h"
 
 class AActor;
+class ASBZCarriedStaticInteractionActor;
 
 UCLASS(Blueprintable)
 class ASBZPawnSpawnPredefined : public ASBZPawnSpawnBase {
@@ -28,6 +30,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bEnableRandomMeshScale;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<ASBZCarriedStaticInteractionActor> SpawnLootClass;
+    
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZKilledPawnSpawnPredefinedDelegate KilledPawnDelegate;
     
@@ -43,6 +48,9 @@ public:
     
     ASBZPawnSpawnPredefined(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintCallable)
+    void SpawnPredefinedMulti();
+    
     UFUNCTION(BlueprintCallable, meta=(Latent, LatentInfo="LatentInfo"))
     void SpawnPredefinedLatent(FLatentActionInfo LatentInfo);
     

@@ -6,6 +6,5 @@ UENUM(BlueprintType)
 enum class ESBZGlobalLobbyRequestResult : uint8 {
     Success,
     LobbyConnectionFailed,
-    SetupChallengesFailed,
 };
 

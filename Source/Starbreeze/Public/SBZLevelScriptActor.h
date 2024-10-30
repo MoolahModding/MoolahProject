@@ -5,12 +5,15 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "GameplayTagContainer.h"
+#include "GameplayTagContainer.h"
 #include "EPD3DefeatState.h"
 #include "EPD3HeistState.h"
 #include "ESBZDifficulty.h"
 #include "ESBZSecurityCompany.h"
 #include "SBZBagHandle.h"
+#include "SBZKeyItemCountChangedEvent.h"
 #include "SBZLevelScriptActorBase.h"
+#include "SBZPlayersCarryBagChangedEvent.h"
 #include "SBZLevelScriptActor.generated.h"
 
 class ASBZInstantLoot;
@@ -51,6 +54,12 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OutroSequenceStarted(const int32 OutroVariation);
     
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
+    void OnServerKeyItemTagAdded(FGameplayTag KeyTag);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintImplementableEvent)
+    void OnServerKeyItemCountChanged(const FSBZKeyItemCountChangedEvent& KeyItemCountChangedEventData);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRandomSublevelPlaced();
     
@@ -64,6 +73,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPreplanningAssetsTagsApplied(const FGameplayTagContainer& PreplanningTagContainer);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPlayersCarryBagChanged(const FSBZPlayersCarryBagChangedEvent& Data);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerPickedUpBag(FSBZBagHandle BagHandle);
@@ -103,7 +115,13 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
+    void HandlePlayersCarryBagChanged(const FSBZPlayersCarryBagChangedEvent& CarryBagChangedEventData);
+    
+    UFUNCTION(BlueprintCallable)
     void HandleOutroSequenceStarted(const int32 OutroVariation);
+    
+    UFUNCTION(BlueprintCallable)
+    void HandleKeyItemCountChanged(const FSBZKeyItemCountChangedEvent& KeyItemCountChangedEventData);
     
     UFUNCTION(BlueprintCallable)
     void HandleIntroSequenceChanged(bool bIsStarted);

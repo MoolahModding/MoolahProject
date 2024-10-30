@@ -4,6 +4,7 @@
 #include "ESBZSabotagePointState.h"
 #include "SBZAIActionInteractableInterface.h"
 #include "SBZAIAttractorInterface.h"
+#include "SBZBreakableInterface.h"
 #include "SBZRoomVolumeInterface.h"
 #include "SBZSabotagePointDelegateDelegate.h"
 #include "SBZSabotagePoint.generated.h"
@@ -21,7 +22,7 @@ class USBZMarkerDataAsset;
 class USBZOutlineComponent;
 
 UCLASS(Blueprintable)
-class ASBZSabotagePoint : public AActor, public ISBZRoomVolumeInterface, public ISBZAIActionInteractableInterface, public ISBZAIAttractorInterface {
+class ASBZSabotagePoint : public AActor, public ISBZRoomVolumeInterface, public ISBZAIActionInteractableInterface, public ISBZAIAttractorInterface, public ISBZBreakableInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintAuthorityOnly, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

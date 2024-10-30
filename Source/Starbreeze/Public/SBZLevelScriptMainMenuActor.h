@@ -25,16 +25,24 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ASBZMainMenuCameraManager* MainMenuCameraManager;
     
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ASBZMainMenuPlayerCharacter*> PartyMannequinArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPartyVisibleHACK;
+    
+public:
     ASBZLevelScriptMainMenuActor(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void PostInitializeComponents();
     
     UFUNCTION(BlueprintCallable)
-    void OnLobbyUpdate(ESBZOnlineCode ErrorCode);
+    void OnPartyInfoUpdated();
     
     UFUNCTION(BlueprintCallable)
-    void OnLoadoutChangedSolo(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);
+    void OnLobbyUpdate(ESBZOnlineCode ErrorCode);
     
     UFUNCTION(BlueprintCallable)
     void OnLoadoutChanged(const TArray<FSBZLobbyCharacterInfoUi>& LobbyInfoArray);

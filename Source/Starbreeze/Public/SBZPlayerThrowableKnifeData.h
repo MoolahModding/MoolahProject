@@ -7,7 +7,7 @@ class UAkAudioEvent;
 class UNiagaraSystem;
 
 UCLASS(Blueprintable)
-class USBZPlayerThrowableKnifeData : public USBZThrowableProjectileData {
+class STARBREEZE_API USBZPlayerThrowableKnifeData : public USBZThrowableProjectileData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

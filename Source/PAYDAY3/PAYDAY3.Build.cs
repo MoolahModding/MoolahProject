@@ -48,7 +48,7 @@ public class PAYDAY3 : ModuleRules {
             "ReplicationGraph",
             "Starbreeze",
             "SBZWorldRuntime",
-            "SBZAnalytics",
+            "SBZAnalyticsLegacy",
             "SBZStateMachineBase",
             "SBZUtilityPlugin",
             "Slate",

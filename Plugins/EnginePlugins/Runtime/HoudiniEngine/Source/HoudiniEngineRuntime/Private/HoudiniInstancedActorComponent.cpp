@@ -1,9 +1,9 @@
 #include "HoudiniInstancedActorComponent.h"
 
-UHoudiniInstancedActorComponent::UHoudiniInstancedActorComponent() {
-    this->InstancedObject = NULL;
-    this->Mobility = EComponentMobility::Static;
+UHoudiniInstancedActorComponent::UHoudiniInstancedActorComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bCanEverAffectNavigation = true;
+    this->Mobility = EComponentMobility::Static;
+    this->InstancedObject = NULL;
 }
 
 

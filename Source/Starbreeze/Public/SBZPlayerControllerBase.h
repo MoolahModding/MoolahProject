@@ -15,6 +15,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZPlayerState* SBZPlayerState;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPausedPreferred;
+    
 public:
     ASBZPlayerControllerBase(const FObjectInitializer& ObjectInitializer);
 

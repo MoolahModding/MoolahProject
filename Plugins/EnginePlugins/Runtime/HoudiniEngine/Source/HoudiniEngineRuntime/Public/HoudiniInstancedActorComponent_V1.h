@@ -7,7 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UHoudiniInstancedActorComponent_V1 : public USceneComponent {
     GENERATED_BODY()
 public:
-    UHoudiniInstancedActorComponent_V1();
+    UHoudiniInstancedActorComponent_V1(const FObjectInitializer& ObjectInitializer);
 
 };
 

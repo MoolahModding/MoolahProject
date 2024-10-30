@@ -34,12 +34,6 @@ void USBZSocialFriendButton::QuaternaryAction() {
 void USBZSocialFriendButton::OnRequestStatusPopupClosed(FName ActionName) {
 }
 
-void USBZSocialFriendButton::OnRequestFeedback(ESBZRequestFeedbackType FeedbackType, bool bResult, const FString& ErrorCode) {
-}
-
-
-void USBZSocialFriendButton::OnPartyRequestFeedback(ESBZPartyRequestFeedbackType FeedbackType, bool bResult, const FString& ErrorCode) {
-}
 
 void USBZSocialFriendButton::OnConfirmationPopupClosed(FName ActionName) {
 }
@@ -48,6 +42,14 @@ void USBZSocialFriendButton::JoinParty() {
 }
 
 void USBZSocialFriendButton::JoinLobby() {
+}
+
+bool USBZSocialFriendButton::IsUserValid() const {
+    return false;
+}
+
+FSBZUser USBZSocialFriendButton::GetUser() const {
+    return FSBZUser{};
 }
 
 void USBZSocialFriendButton::FriendProfileAction() {

@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
-	"Version": 28,
-	"VersionName": "0.8.11",
+	"Version": 74,
+	"VersionName": "0.12.1-2",
 	"FriendlyName": "Online Subsystem AccelByte",
 	"Description": "Online Subsystem implementation for AccelByte Cloud services",
 	"Category": "Online Platform",
@@ -45,6 +45,22 @@
 				"Win32",
 				"Win64",
 				"Linux"
+			]
+		},
+		{
+			"Name": "EOSShared",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemEOS",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win32",
+				"Win64"
 			]
 		}
 	]

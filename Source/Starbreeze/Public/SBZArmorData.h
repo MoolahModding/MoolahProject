@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
-#include "SBZArmorDamageScaleOverrideData.h"
+#include "ESBZArmorChunkType.h"
 #include "SBZInventoryBaseData.h"
 #include "Templates/SubclassOf.h"
 #include "SBZArmorData.generated.h"
@@ -18,22 +17,19 @@ protected:
     TArray<TSubclassOf<UGameplayEffect>> GameplayEffectArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FSBZArmorDamageScaleOverrideData> ArmorDamageScaleOverrideDataArray;
+    TArray<ESBZArmorChunkType> ChunkTypeArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bOverrideArmorColor;
+    float ReplenishDelay;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLinearColor OverridenBackgroundColor;
+    float MaxDownCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLinearColor OverridenMainColor;
+    float LoadoutWeight;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLinearColor OverridenLaggingColor;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FLinearColor OverridenTraumaColor;
+    float ConsumableCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString ArmorDescriptionStatColorName;

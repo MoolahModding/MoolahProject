@@ -2,8 +2,8 @@
 #include "EHoudiniParameterType.h"
 
 UHoudiniParameterFile::UHoudiniParameterFile() {
-    this->bIsReadOnly = false;
     this->ParmType = EHoudiniParameterType::File;
+    this->bIsReadOnly = false;
 }
 
 

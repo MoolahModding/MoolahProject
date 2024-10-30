@@ -18,6 +18,13 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->OverHealDamageMultiplier = 1.00f;
     this->ArmorPenetration = 0.00f;
     this->ImpactType = ESBZProjectileImpactType::Light;
+    this->FireBuildupIncrease = 0.00f;
+    this->FireBuildupShotIncrease = 0.00f;
+    this->FireBuildupDecrease = 0.00f;
+    this->StartFireBuildupIncrease = 0.00f;
+    this->StartFireBuildupShotIncrease = 0.00f;
+    this->StartFireBuildupDecrease = 0.00f;
+    this->StartFireMinBuildup = 0.00f;
     this->AmmoVisibilityType = ESBZWeaponAmmoVisibilityType::Never;
     this->ArmorPenetrationProjectile = 2.00f;
     this->FriendlyPlayerDamageScale = 0.25f;

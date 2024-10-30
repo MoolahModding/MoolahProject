@@ -8,6 +8,7 @@ USBZWeaponSpreadData::USBZWeaponSpreadData() {
     this->FireSpreadIncrease = 0.40f;
     this->FireSpreadResetTime = 0.40f;
     this->FireSpreadDecayRate = 0.40f;
+    this->FireSpreadMinCap = 0.00f;
     this->FireSpreadCap = 6.15f;
     this->SpreadRecoveryMode = ESBZWeaponSpreadRecoveryMode::ResetTime;
     this->DeviationHipFireMultiplier = 1.50f;

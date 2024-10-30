@@ -4,6 +4,7 @@ UPD3HeistDataAsset::UPD3HeistDataAsset() {
     this->Hour = 14;
     this->Minute = 30;
     this->HeistComplexity = ESBZHeistComplexity::Low;
+    this->HeistPlaystyle = ESBZHeistPlaystyle::Hybrid;
     this->bHasIntroSequence = false;
     this->bHasOutroSequence = false;
     this->bIsTutorialLevel = false;
@@ -13,6 +14,10 @@ UPD3HeistDataAsset::UPD3HeistDataAsset() {
     this->HeistResultSuccessStealthPlayEvent = NULL;
     this->HeistResultSuccessLoudPlayEvent = NULL;
     this->HeistResultFailurePlayEvent = NULL;
+    this->HostageTradeStatistiCriteriaData = NULL;
+}
+
+void UPD3HeistDataAsset::GetOverallPayout(int32& OutMin, int32& OutMax) const {
 }
 
 FText UPD3HeistDataAsset::GetHeistTimeShort() const {

@@ -4,6 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "SBZAIAttractorInterface.h"
 #include "SBZAgilityObstacleInterface.h"
+#include "SBZBreakableInterface.h"
 #include "SBZPropDamageContext.h"
 #include "SBZAIAttractorDestruction.generated.h"
 
@@ -13,7 +14,7 @@ class USBZAIAttractorComponent;
 class USBZPropDamageComponent;
 
 UCLASS(Blueprintable)
-class ASBZAIAttractorDestruction : public AActor, public ISBZAIAttractorInterface, public IAISightTargetInterface, public ISBZAgilityObstacleInterface {
+class ASBZAIAttractorDestruction : public AActor, public ISBZAIAttractorInterface, public IAISightTargetInterface, public ISBZAgilityObstacleInterface, public ISBZBreakableInterface {
     GENERATED_BODY()
 public:
 protected:

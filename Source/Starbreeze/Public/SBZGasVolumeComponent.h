@@ -5,6 +5,7 @@
 #include "ESBZGasCellGrowMode.h"
 #include "SBZGasCellHitData.h"
 #include "SBZLocalGasLocations.h"
+#include "SBZReplicatedGasVolumeComponentData.h"
 #include "SBZGasVolumeComponent.generated.h"
 
 class ASBZCharacter;
@@ -18,6 +19,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     ULineBatchComponent* LineBatchComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_GasVolumeComponentData, meta=(AllowPrivateAccess=true))
+    FSBZReplicatedGasVolumeComponentData ReplicatedData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bInitOnBeginPlay;
@@ -97,11 +101,11 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 OverdrawOptimisationPoolID;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FSBZLocalGasLocations ReplicatedLocalLocations;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZLocalGasLocations LocalGasLocations;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    FSBZLocalGasLocations ReplicatedLocalBorderLocations;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZLocalGasLocations LocalGasBorderLocations;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZGasCellHitData> CellHitData;
@@ -111,6 +115,21 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+    UFUNCTION(BlueprintCallable)
+    void OnRep_GasVolumeComponentData();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetRadius(float Radius);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetDuration(float InDuration);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_Init();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_AddExpansionScalar(float InScalar);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSegmentOverlapping(const FVector& Start, const FVector& End, bool bQuickOverlap, bool bUseLineTrace) const;
     

@@ -3,6 +3,9 @@
 USBZPartyManagerABV2::USBZPartyManagerABV2() {
 }
 
+void USBZPartyManagerABV2::OnStateEntered(FName StateName) {
+}
+
 void USBZPartyManagerABV2::OnConfirmPartyLeaderLeft(FName ClosingActionName) {
 }
 

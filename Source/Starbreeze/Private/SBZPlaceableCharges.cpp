@@ -21,6 +21,9 @@ ASBZPlaceableCharges::ASBZPlaceableCharges(const FObjectInitializer& ObjectIniti
 void ASBZPlaceableCharges::Server_SetPlaceableChargeState_Implementation(ESBZPlaceableChargeState NewPlaceableChargeState) {
 }
 
+void ASBZPlaceableCharges::Placed() {
+}
+
 
 void ASBZPlaceableCharges::OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {
 }

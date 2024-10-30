@@ -10,6 +10,7 @@ class USBZSettingHelperPanel;
 class USBZSettingsButton;
 class USBZSettingsButtonActionClick;
 class USBZSettingsButtonAntiAliasingModeChoice;
+class USBZSettingsButtonFrameInterpolatorChoice;
 class USBZSettingsButtonGamepadBinding;
 class USBZSettingsButtonKeyboardBinding;
 class USBZSettingsButtonMultipleChoice;
@@ -63,6 +64,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZSettingsButtonGamepadBinding> SettingsButtonClassGamepadBinding;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSettingsButtonFrameInterpolatorChoice> SettingsButtonClassFrameInterpolatorChoice;
     
 public:
     USBZSettingsCategoryScreen();

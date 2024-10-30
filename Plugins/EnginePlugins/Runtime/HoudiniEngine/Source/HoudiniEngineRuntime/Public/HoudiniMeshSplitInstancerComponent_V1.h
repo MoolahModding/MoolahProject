@@ -7,7 +7,7 @@ UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class UHoudiniMeshSplitInstancerComponent_V1 : public USceneComponent {
     GENERATED_BODY()
 public:
-    UHoudiniMeshSplitInstancerComponent_V1();
+    UHoudiniMeshSplitInstancerComponent_V1(const FObjectInitializer& ObjectInitializer);
 
 };
 

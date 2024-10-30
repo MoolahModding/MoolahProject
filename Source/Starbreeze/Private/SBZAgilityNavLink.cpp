@@ -6,6 +6,8 @@ ASBZAgilityNavLink::ASBZAgilityNavLink(const FObjectInitializer& ObjectInitializ
     this->LeftRoom = NULL;
     this->RightRoom = NULL;
     this->NavLinkAgilityComponent = CreateDefaultSubobject<USBZNavLinkAgilityComponent>(TEXT("SBZNavLinkAgilityComponent"));
+    this->bIsHeistStateDependant = false;
+    this->AllowedHeistStates = 0;
 }
 
 

@@ -8,8 +8,8 @@ class USBZAIUtilityScorer_HeistState : public USBZAIUtilityScorer {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    uint8 AllowedStates;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint16 AllowedStates;
     
 public:
     USBZAIUtilityScorer_HeistState();

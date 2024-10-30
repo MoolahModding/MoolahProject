@@ -5,6 +5,7 @@
 #include "ESBZDifficulty.h"
 #include "ESBZGameMachineStateError.h"
 #include "ESBZOnlineSessionPhase.h"
+#include "ESBZOnlineTacticType.h"
 #include "ESBZReturnToIISReason.h"
 #include "ESBZReturnToLoginReason.h"
 #include "ESBZReturnToMainMenuReason.h"
@@ -82,6 +83,9 @@ public:
     USBZGameStateMachine();
 
     UFUNCTION(BlueprintCallable)
+    void SetMatchmakingTacticType(ESBZOnlineTacticType InTacticType);
+    
+    UFUNCTION(BlueprintCallable)
     void SetMatchmakingSecurityCompanies(const TArray<ESBZSecurityCompany>& InSecurityCompanies);
     
     UFUNCTION(BlueprintCallable)
@@ -101,6 +105,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetIsMatchmakingQuickMatch(bool bInIsQuickMatch);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetIsMatchmakingHost(bool bIsHost);
     
     UFUNCTION(BlueprintCallable)
     void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch);

@@ -10,16 +10,17 @@ class GAMEPADUMGPLUGIN_API UVirtualCursorFunctionLibrary : public UBlueprintFunc
     GENERATED_BODY()
 public:
     UVirtualCursorFunctionLibrary();
-    UFUNCTION(BlueprintPure)
+
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsUsingAnalogCursor();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsMoving();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsEnabled();
     
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsCursorOverInteractableWidget();
     
     UFUNCTION(BlueprintCallable)

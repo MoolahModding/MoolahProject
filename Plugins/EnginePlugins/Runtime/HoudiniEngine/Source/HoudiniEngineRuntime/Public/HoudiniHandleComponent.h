@@ -27,7 +27,7 @@ private:
     FString HandleName;
     
 public:
-    UHoudiniHandleComponent();
+    UHoudiniHandleComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

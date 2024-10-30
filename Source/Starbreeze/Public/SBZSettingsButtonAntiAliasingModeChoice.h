@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZAntiAliasingMode.h"
 #include "SBZSettingsButtonMultipleChoice.h"
 #include "SBZSettingsButtonAntiAliasingModeChoice.generated.h"
 
@@ -8,14 +9,14 @@ class USBZSettingsButtonAntiAliasingModeChoice : public USBZSettingsButtonMultip
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<int64> OptionAntiAliasingModes;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ESBZAntiAliasingMode> OptionAntiAliasingModes;
     
 public:
     USBZSettingsButtonAntiAliasingModeChoice();
 
     UFUNCTION(BlueprintCallable)
-    void SetOptionAntiAliasingModes(const TArray<int64>& InOptionAntiAliasingModes);
+    void SetOptionAntiAliasingModes(const TArray<ESBZAntiAliasingMode>& InOptionAntiAliasingModes);
     
 };
 

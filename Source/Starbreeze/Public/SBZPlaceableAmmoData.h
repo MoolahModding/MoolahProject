@@ -4,7 +4,7 @@
 #include "SBZPlaceableAmmoData.generated.h"
 
 UCLASS(Blueprintable)
-class USBZPlaceableAmmoData : public USBZPlaceableData {
+class STARBREEZE_API USBZPlaceableAmmoData : public USBZPlaceableData {
     GENERATED_BODY()
 public:
     USBZPlaceableAmmoData();

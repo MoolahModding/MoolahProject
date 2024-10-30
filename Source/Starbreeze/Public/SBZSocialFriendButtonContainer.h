@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZMenuStackWidget.h"
-#include "SBZPartyMember.h"
 #include "Templates/SubclassOf.h"
 #include "SBZSocialFriendButtonContainer.generated.h"
 
@@ -131,15 +130,8 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 GetPartyMembersNum();
     
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    TArray<FSBZPartyMember> GetPartyMembers() const;
-    
     UFUNCTION(BlueprintCallable)
     void BuildPartyMembersList();
-    
-private:
-    UFUNCTION(BlueprintCallable)
-    void AddPartyMember(FSBZPartyMember NewMember);
     
 };
 

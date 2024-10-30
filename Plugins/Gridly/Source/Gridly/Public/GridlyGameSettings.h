@@ -4,7 +4,7 @@
 #include "GridlyColumnInfo.h"
 #include "GridlyGameSettings.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Game)
+UCLASS(Blueprintable, DefaultConfig, Config=Game)
 class GRIDLY_API UGridlyGameSettings : public UObject {
     GENERATED_BODY()
 public:
@@ -63,5 +63,6 @@ public:
     bool bExportTextTypeAsPath;
     
     UGridlyGameSettings();
+
 };
 

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "SBZHoldOutDroneFogSettings.h"
+#include "SBZHoldOutFogTargetValueChangedDelegate.h"
 #include "SBZHoldOutFogApplierComponent.generated.h"
 
 class AExponentialHeightFog;
@@ -11,6 +12,9 @@ class USBZHoldOutFogApplierComponent : public UActorComponent {
     GENERATED_BODY()
 public:
 protected:
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZHoldOutFogTargetValueChanged OnFogTargetValueChanged;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZHoldOutDroneFogSettings LocalFogSettings;
     

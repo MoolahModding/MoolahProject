@@ -3,6 +3,7 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "EnvironmentQuery/EnvQueryTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "SBZBTTask_TacticalMovePosition.generated.h"
 
 class AActor;
@@ -25,6 +26,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxPointDistance;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseNavProjection;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector NavigationProjectionExtent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZAIController* AIController;

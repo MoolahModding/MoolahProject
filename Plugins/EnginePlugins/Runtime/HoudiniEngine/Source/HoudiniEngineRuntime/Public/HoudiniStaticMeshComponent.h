@@ -21,7 +21,7 @@ protected:
     bool bHoudiniIconVisible;
     
 public:
-    UHoudiniStaticMeshComponent();
+    UHoudiniStaticMeshComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void SetMesh(UHoudiniStaticMesh* InMesh);

@@ -1,0 +1,18 @@
+{
+	"FileVersion": 3,
+	"Version": 4,
+	"VersionName": "4.27.2.7 (Maui)",
+	"FriendlyName": "Runtime DataTable",
+	"Description": "This plugin will load a text csv or download a public Google Sheet and add parsed values to matching FStructs or UObjects at Runtime. All data types supported by the built-in UE4 DataTable are supported by this plugin. New in this version is Google Sheets export!",
+	"Category": "DataTable",
+	"CreatedBy": "Jared Therriault",
+	"CreatedByURL": "http://www.jaredtherriault.com",
+	"DocsURL": "https://docs.google.com/document/d/1ijPhz0llClfoB1JP8wMzM_YmqkbxRJnSk9WAEqtJIZU",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4c7c4f8d523f4c90b2e26d23502c526c",
+	"SupportURL": "https://forums.unrealengine.com/unreal-engine/marketplace/1677414-runtime-datatable-import-text-csv-or-google-sheet-at-runtime-and-fill-an-array-of-structs",
+	"EngineVersion": "4.27.0",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true
+}

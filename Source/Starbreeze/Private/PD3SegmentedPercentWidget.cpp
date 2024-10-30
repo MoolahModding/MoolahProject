@@ -3,9 +3,7 @@
 UPD3SegmentedPercentWidget::UPD3SegmentedPercentWidget() {
     this->NumberOfChunks = 0;
     this->bIsHealthBar = false;
-    this->bIsArmorColorOverriden = false;
 }
-
 
 
 
