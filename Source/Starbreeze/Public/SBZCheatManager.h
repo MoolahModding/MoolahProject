@@ -145,6 +145,9 @@ public:
     void SetPlayerMergePartySelected(bool bIsMergePartySelected);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetPlayerMaskMould(const FName& PlayerMaskMouldName, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerMask(const FName& PlayerMaskName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -188,6 +191,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetOverkillWeaponLoadout(const FName& DataName, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetOverkillEnabled(bool bIsEnabled, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetOptionalMilestonePassed(const FString& OptionalMilestoneName);
@@ -479,7 +485,7 @@ public:
     void FindBlocker(bool bIsComplex, float TraceDistance, float TraceRadius, float OverlapDistance, float OverlapRadius, int32 MaxHitCountTrace, int32 MaxHitCountOverlap, float DrawDuration, bool bIsDrawPersistent);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void EquipOverkillWeapon(int32 PlayerIndex);
+    void EquipOverkillWeapon(bool bIsFirstEquip, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpPlayersMergePartyStatus();

@@ -15,7 +15,7 @@ void USBZAnalyticsManager::SendStayAsPartySelected(const bool bIsPartyLeader) {
 void USBZAnalyticsManager::SendNotOwningHeistDetected(const FString& AccelByteUserId, const ESBZNotOwningHeistPolicyType NotOwningHeistAction, const bool bIsActionSuccessful, const FString& Description, const FString& AdditionalInformation) {
 }
 
-void USBZAnalyticsManager::SendInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience) {
+void USBZAnalyticsManager::SendInfamyChanged(const int32 NewInfamyExperience, const int32 PreviousInfamyExperience, const int32 NewRenownLevel, const int32 PreviousRenownLevel) {
 }
 
 void USBZAnalyticsManager::SendEntitlementsLoadedEvent(const FSBZEntitlementsTelemetryPayload& Payload) {

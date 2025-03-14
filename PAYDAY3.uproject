@@ -76,6 +76,33 @@
 			]
 		},
 		{
+			"Name": "OnlineSubsystemPS4",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"PS4"
+			],
+			"SupportedTargetPlatforms": [
+				"PS4"
+			]
+		},
+		{
+			"Name": "PS4Media",
+			"Enabled": false,
+			"WhitelistPlatforms": [
+				"PS4"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemLive",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"XboxOne"
+			],
+			"SupportedTargetPlatforms": [
+				"XboxOne"
+			]
+		},
+		{
 			"Name": "OnlineSubsystemNull",
 			"Enabled": true
 		},
@@ -120,6 +147,11 @@
 			"Enabled": true
 		},
 		{
+			"Name": "PlayFab",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/217fdf581b784571af03d3fb6580368f"
+		},
+		{
 			"Name": "Prefabricator",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/39ccbbf668e84847890992df9922e355"
@@ -148,7 +180,9 @@
 		},
 		{
 			"Name": "MfMedia",
-			"Enabled": false
+			"Enabled": false,
+			"BlacklistPlatforms": [
+			]
 		},
 		{
 			"Name": "Niagara",
@@ -193,10 +227,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "SBZAnalyticsLegacy",
-			"Enabled": true
-		},
-		{
 			"Name": "AccelByteUe4Sdk",
 			"Enabled": true
 		},
@@ -216,7 +246,7 @@
 			"Name": "WinDualShock",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
-				"Win64"
+				"Win64",
 			]
 		},
 		{
@@ -236,6 +266,11 @@
 		{
 			"Name": "Volumetrics",
 			"Enabled": true
+		},
+		{
+			"Name": "UniversalVoiceChatPro",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/eda7d893311147d1b7a6e8084be096c4"
 		},
 		{
 			"Name": "BinkMedia",
@@ -360,8 +395,7 @@
 			"Name": "FSR3",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
-				"Win64",
-				"WinGDK"
+				"Win64"
 			]
 		},
 		{
@@ -383,6 +417,10 @@
 			"Enabled": true
 		},
 		{
+			"Name": "EdgeGap",
+			"Enabled": false
+		},
+		{
 			"Name": "SBZBackendProxy",
 			"Enabled": true
 		},
@@ -390,18 +428,14 @@
 			"Name": "TLMVoiceChat",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
-				"Win64",
-				"WinGDK",
-				"PS5",
-				"XSX"
+				"Win64"
 			]
 		},
 		{
 			"Name": "ChromaSDKPlugin",
 			"Enabled": true,
 			"SupportedTargetPlatforms": [
-				"Win64",
-				"WinGDK"
+				"Win64"
 			]
 		},
 		{

@@ -4,6 +4,7 @@
 #include "Net/UnrealNetwork.h"
 
 ASBZTripper::ASBZTripper(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
     this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
     this->LaserEffectComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("NiagaraComponent"));
     this->MaxDistance = 10000.00f;

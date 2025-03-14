@@ -19,6 +19,7 @@ class USBZChallengeCategoryManager;
 class USBZChallengeManager;
 class USBZCharacterManager;
 class USBZCosmeticsManager;
+class USBZCosmeticsPartSlot;
 class USBZCurrencyManager;
 class USBZDSChallengeManager;
 class USBZExperienceManager;
@@ -34,8 +35,10 @@ class USBZInventoryManager;
 class USBZItemProgressionManager;
 class USBZLazyLoadingManager;
 class USBZListenerManager;
+class USBZLoadProgressionManager;
 class USBZLoadoutManager;
 class USBZMergePartyManager;
+class USBZMetaDataLoader;
 class USBZMusicManager;
 class USBZOnlineEventBroker;
 class USBZPartyMemberDataManager;
@@ -70,6 +73,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZOnlineEventBroker* OnlineEventBroker;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZCosmeticsPartSlot* MaskMouldSlot;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZMatchmakingProvider MatchmakingProvider;
@@ -221,6 +227,9 @@ private:
     USBZInstantLootManager* InstantLootManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZLoadProgressionManager* LoadProgressionManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZInfamyManager* InfamyManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -270,6 +279,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlatformUserManager* PlatformUserManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZMetaDataLoader* MetaDataLoader;
     
 public:
     USBZGameInstance();

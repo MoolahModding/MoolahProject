@@ -79,6 +79,9 @@ public:
     FOnOnlineUiEventDelegate OnMatchmakingStarted;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FOnOnlineUiEventDelegate OnMatchmakingCanceled;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FOnOnlineUiEventDelegate OnMatchFound;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -218,8 +221,8 @@ private:
 public:
     USBZOnlineSession();
 
-    UFUNCTION(BlueprintCallable)
-    void SetLocalClientReady(bool bIsClientReady);
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    void SetLocalClientReady(bool bIsClientReady) const;
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -239,7 +242,7 @@ public:
     int32 GetPlayersCount();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetPartyMembersCount();
+    int32 GetPartyMembersCount() const;
     
     UFUNCTION(BlueprintCallable)
     void GetMenuEvent(const FString& EventName);
@@ -248,13 +251,13 @@ public:
     FString GetMatchmakingRegion() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    USBZLobbyLocalState* GetLobbyState();
+    USBZLobbyLocalState* GetLobbyState() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetFoundPlayersCount();
+    int32 GetFoundPlayersCount() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FSBZMissionInfo GetBeaconMissionInfo();
+    FSBZMissionInfo GetBeaconMissionInfo() const;
     
 };
 

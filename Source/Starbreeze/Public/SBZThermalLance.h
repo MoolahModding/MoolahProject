@@ -57,6 +57,9 @@ private:
     ASBZBagTriggerVolume* BagTriggerVolume;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bStartWithBagTriggerEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZBagType* RequiredBagType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -77,6 +80,9 @@ private:
 public:
     ASBZThermalLance(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetTriggerVolumeEnabled(bool bEnabled);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnServerRemovedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);

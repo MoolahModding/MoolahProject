@@ -4,11 +4,11 @@
 #include "SBZPawnInterface.generated.h"
 
 UINTERFACE()
-class USBZPawnInterface : public UInterface {
+class STARBREEZE_API USBZPawnInterface : public UInterface {
     GENERATED_BODY()
 };
 
-class ISBZPawnInterface : public IInterface {
+class STARBREEZE_API ISBZPawnInterface : public IInterface {
     GENERATED_BODY()
 public:
 };

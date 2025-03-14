@@ -1,10 +1,8 @@
 #include "SBZAIDrone.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "AkComponent.h"
-#include "Engine/EngineTypes.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZAIDroneAttributeSet.h"
-#include "SBZAIDroneMovementComponent.h"
 #include "SBZAbilitySystemComponent.h"
 #include "SBZApplyMarkedTagEffect.h"
 #include "SBZCharacterVoiceComponent.h"
@@ -13,8 +11,7 @@
 #include "SBZShoutTargetComponent.h"
 #include "SBZSkeletalMeshComponentBudgeted.h"
 
-ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0")).SetDefaultSubobjectClass<USBZAIDroneMovementComponent>(TEXT("CharMoveComp"))) {
-    this->AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->AttributeSet = CreateDefaultSubobject<USBZAIDroneAttributeSet>(TEXT("SBZAIDroneAttributeSet"));
     this->DestroyedEffect = NULL;
     this->DestroyedEvent = NULL;
@@ -56,6 +53,7 @@ ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->MarkedOutline = NULL;
     this->AKComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    const FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
     this->SentryHackDamageAmount[0] = 0.00f;
     this->SentryHackDamageAmount[1] = 0.00f;
     this->SentryHackDamageAmount[2] = 0.00f;
@@ -74,8 +72,7 @@ ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->TraceEndBone = TEXT("TurretPitch");
     this->HackingSentryEventStart = NULL;
     this->HackingSentryEventStop = NULL;
-    const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
+    //this->AKComponent->SetupAttachment(p_Mesh_Parent->ContainerPtrToValuePtr<USBZSkeletalMeshComponentBudgeted>(this));
 }
 
 void ASBZAIDrone::OnServerAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {
@@ -132,11 +129,6 @@ void ASBZAIDrone::Multicast_OnKill_Implementation() {
 void ASBZAIDrone::AddForce(const FVector& LinearForce) {
 }
 
-UAbilitySystemComponent* ASBZAIDrone::GetAbilitySystemComponent() const
-{
-     return nullptr;
-}
-
 void ASBZAIDrone::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -146,4 +138,7 @@ void ASBZAIDrone::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
     DOREPLIFETIME(ASBZAIDrone, bIsHackingSentry);
 }
 
+UAbilitySystemComponent* ASBZAIDrone::GetAbilitySystemComponent() const {
+  return nullptr;
+}
 

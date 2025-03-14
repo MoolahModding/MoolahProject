@@ -55,4 +55,7 @@ UPD3AssaultManager* UPD3AssaultManager::Get(const UObject* WorldContextObject) {
     return NULL;
 }
 
+void UPD3AssaultManager::ForceSpawnSquad(const TArray<UPD3SpawnSquadPawn*>& PawnArray, APD3PawnSpawnGroup* SpawnGroup, bool bIsTypeLimitUsed, bool bIsTypeCooldownUsed, const AActor* TargetActor, bool bIsOutsideAssaultAllowed) {
+}
+
 

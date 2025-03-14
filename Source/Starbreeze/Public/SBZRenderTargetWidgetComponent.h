@@ -10,13 +10,18 @@ UCLASS(Blueprintable, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class USBZRenderTargetWidgetComponent : public UWidgetComponent {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OwnerRenderTimeDelay;
+    
+public:
     USBZRenderTargetWidgetComponent(const FObjectInitializer& ObjectInitializer);
 
 protected:
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic)
     void SetWidgetAsTextureParameter(UMaterialInstanceDynamic* Target, const FName& ParameterName);
     
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic)
     UUserWidget* GetUserWidgetInitialized();
     
 };

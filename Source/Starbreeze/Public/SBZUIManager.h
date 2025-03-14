@@ -49,7 +49,7 @@ class USBZUIData;
 class USBZWidgetBase;
 
 UCLASS(Blueprintable)
-class USBZUIManager : public UObject, public IGameplayTagAssetInterface {
+class STARBREEZE_API USBZUIManager : public UObject, public IGameplayTagAssetInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

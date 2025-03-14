@@ -2,20 +2,17 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
-#include "Animation/AnimInstance.h"
+#include "SBZAIDroneBaseAnimation.h"
 #include "SBZAIDroneAnimation.generated.h"
 
 class ASBZAIDrone;
 class UAnimMontage;
 
 UCLASS(Blueprintable, NonTransient)
-class USBZAIDroneAnimation : public UAnimInstance {
+class USBZAIDroneAnimation : public USBZAIDroneBaseAnimation {
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float MaxLeanAngle;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float RotorMaxSpeed;
     
@@ -29,16 +26,10 @@ protected:
     TArray<UAnimMontage*> HurtReactions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FRotator RootRotation;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FRotator WeaponRotation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FRotator RotorRotation;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsHovering;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsFiring;
@@ -47,16 +38,10 @@ protected:
     bool bIsDamaged;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FVector LocalVelocity;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FVector LocalHurtForce;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    float YawSpeed;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZAIDrone* Drone;
+    ASBZAIDrone* AIDrone;
     
 public:
     USBZAIDroneAnimation();

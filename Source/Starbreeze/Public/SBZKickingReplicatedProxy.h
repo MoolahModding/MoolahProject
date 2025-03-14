@@ -14,7 +14,7 @@ public:
     ASBZKickingReplicatedProxy(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void VoteToKick(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick);
+    void VoteToKick(const FUniqueNetIdRepl& PlayerIdToKick, const FUniqueNetIdRepl& PlayerProposingKick, ESBZKickingMode ModeKick);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void ServerSendKickingInfo(FSBZKickingInfo NewKickingInfo);
@@ -26,13 +26,13 @@ public:
     void MulticastReceiveKickingInfo(const FSBZKickingInfo& NewKickingInfo);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void KickPlayerFinal(FUniqueNetIdRepl PlayerIdToKick, ESBZKickingMode ModeKick);
+    void KickPlayerFinal(const FUniqueNetIdRepl& PlayerIdToKick, ESBZKickingMode ModeKick);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable, WithValidation)
-    void KickFailed(FUniqueNetIdRepl PlayerProposed, ESBZKickingError ErrorCode);
+    void KickFailed(const FUniqueNetIdRepl& PlayerProposed, ESBZKickingError ErrorCode);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void InitiateKicking(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick);
+    void InitiateKicking(const FUniqueNetIdRepl& PlayerIdToKick, const FUniqueNetIdRepl& PlayerProposingKick, ESBZKickingMode ModeKick);
     
 };
 

@@ -7,7 +7,7 @@ class USBZSuitBaseData;
 class USBZSuitData;
 
 USTRUCT(BlueprintType)
-struct FSBZSuitConfig {
+struct STARBREEZE_API FSBZSuitConfig {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -22,6 +22,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZSuitConfigModDataMap> ModDataMapArray;
     
-    STARBREEZE_API FSBZSuitConfig();
+    FSBZSuitConfig();
 };
 

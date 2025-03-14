@@ -9,6 +9,8 @@ APD3HeistGameState::APD3HeistGameState(const FObjectInitializer& ObjectInitializ
     this->CurrentThreatLevel = 0.00f;
     this->bIsMaskOnOverridden = false;
     this->CurrentHeistState = EPD3HeistState::Stealth;
+    this->HeistStateWidgetClass = NULL;
+    this->HeistInfoRightWidgetClass = NULL;
     this->GameIntensityAnalyzer = CreateDefaultSubobject<UPD3GameIntensityAnalyzer>(TEXT("GameIntensityAnalyzer"));
     this->Dispatcher = CreateDefaultSubobject<UPD3Dispatcher>(TEXT("PD3Dispatcher"));
     this->RoomPathFinder = CreateDefaultSubobject<USBZRoomPathFinder>(TEXT("SBZRoomPathFinder"));

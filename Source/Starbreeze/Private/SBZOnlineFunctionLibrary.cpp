@@ -3,7 +3,7 @@
 USBZOnlineFunctionLibrary::USBZOnlineFunctionLibrary() {
 }
 
-void USBZOnlineFunctionLibrary::UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+void USBZOnlineFunctionLibrary::UnmutePlayer(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
 }
 
 void USBZOnlineFunctionLibrary::SetSoloGameEnabled(UObject* WorldContextObject) {
@@ -45,7 +45,10 @@ void USBZOnlineFunctionLibrary::RequestDirectJoin(UObject* WorldContextObject) {
 void USBZOnlineFunctionLibrary::RequestCreateAccount(UObject* WorldContextObject, const FSBZRegistrationFieldInfo& RegistrationFieldInfo) {
 }
 
-void USBZOnlineFunctionLibrary::MutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+void USBZOnlineFunctionLibrary::OpenPlatformUrl(const FString& InUrl) {
+}
+
+void USBZOnlineFunctionLibrary::MutePlayer(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
 }
 
 FSoftObjectPath USBZOnlineFunctionLibrary::LevelIdxToPath(const UObject* WorldContextObject) {
@@ -78,7 +81,7 @@ bool USBZOnlineFunctionLibrary::IsSoloGameEnabled(const UObject* WorldContextObj
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsSoloGame(UObject* WorldContextObject) {
+bool USBZOnlineFunctionLibrary::IsSoloGame(const UObject* WorldContextObject) {
     return false;
 }
 
@@ -102,7 +105,7 @@ bool USBZOnlineFunctionLibrary::IsSecurityCompaniesProvided() {
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsSameUniqueId(FUniqueNetIdRepl UniqueNetIdA, FUniqueNetIdRepl UniqueNetIdB) {
+bool USBZOnlineFunctionLibrary::IsSameUniqueId(const FUniqueNetIdRepl& UniqueNetIdA, const FUniqueNetIdRepl& UniqueNetIdB) {
     return false;
 }
 
@@ -114,15 +117,15 @@ bool USBZOnlineFunctionLibrary::IsProductOwned(int32 ProductId) {
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsPlayerPartyOwner(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+bool USBZOnlineFunctionLibrary::IsPlayerPartyOwner(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsPlayerMuted(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+bool USBZOnlineFunctionLibrary::IsPlayerMuted(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsPlayerInParty(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+bool USBZOnlineFunctionLibrary::IsPlayerInParty(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
     return false;
 }
 
@@ -138,7 +141,7 @@ bool USBZOnlineFunctionLibrary::IsPartyClient(UObject* WorldContextObject) {
     return false;
 }
 
-bool USBZOnlineFunctionLibrary::IsOwnUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+bool USBZOnlineFunctionLibrary::IsOwnUniqueId(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
     return false;
 }
 
@@ -247,11 +250,11 @@ int32 USBZOnlineFunctionLibrary::GetPlayersCount(const UObject* WorldContextObje
     return 0;
 }
 
-FString USBZOnlineFunctionLibrary::GetPlayerDisplayNameByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+FString USBZOnlineFunctionLibrary::GetPlayerDisplayNameByUniqueId(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
     return TEXT("");
 }
 
-UTexture2D* USBZOnlineFunctionLibrary::GetPlayerAvatarByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId) {
+UTexture2D* USBZOnlineFunctionLibrary::GetPlayerAvatarByUniqueId(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId) {
     return NULL;
 }
 
@@ -387,7 +390,7 @@ bool USBZOnlineFunctionLibrary::CanVoteForStayInParty(UObject* WorldContextObjec
 void USBZOnlineFunctionLibrary::ActivateSessionInviteOverlay(UObject* WorldContextObject) {
 }
 
-void USBZOnlineFunctionLibrary::ActivateProfileOverlay(UObject* WorldContextObject, FUniqueNetIdRepl PlayerId) {
+void USBZOnlineFunctionLibrary::ActivateProfileOverlay(UObject* WorldContextObject, const FUniqueNetIdRepl& PlayerId) {
 }
 
 void USBZOnlineFunctionLibrary::ActivatePartyInviteOverlay(UObject* WorldContextObject) {

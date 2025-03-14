@@ -4,8 +4,6 @@
 #include "SBZWidgetBase.h"
 #include "SBZRewardWidget.generated.h"
 
-class USBZInfamyManager;
-
 UCLASS(Blueprintable, EditInlineNew)
 class USBZRewardWidget : public USBZWidgetBase {
     GENERATED_BODY()
@@ -14,7 +12,7 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void OnInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience);
+    void OnInfamyChanged(const int32 NewInfamyExperience, const int32 PreviousInfamyExperience, const int32 NewRenownLevel, const int32 PreviousRenownLevel);
     
     UFUNCTION(BlueprintCallable)
     void OnChallengeCompleted(const FSBZChallengeData& ChallengeData);

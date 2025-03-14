@@ -108,7 +108,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void Server_RestartRequested(FUniqueNetIdRepl PlayerID);
+    void Server_RestartRequested(const FUniqueNetIdRepl& PlayerID);
     
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -119,7 +119,10 @@ public:
     void Server_RequestMergeParty(bool bIsSelected, const TArray<FString>& PartyMemberPlayerIdArray);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
-    void Server_HostRestartRequested(FUniqueNetIdRepl PlayerID);
+    void Server_HostRestartRequested(const FUniqueNetIdRepl& PlayerID);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_Disband_OnPartyCreated(bool bWasSuccessful, const FString& PartyCode, const FString& LeaderID, const TArray<FString>& NonLeaderPartyMembersStillInGameSession);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_DebugTeleportTo(const FVector& Location, const float Yaw);
@@ -168,6 +171,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RestartAccepted(const FUniqueNetIdRepl& PlayerID);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_Disband_LeaveJoinParty(const FString& PartyCode);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_Disband_LeaveCreateParty(const FString& LeaderID, const TArray<FString>& NonLeaderPartyMembersStillInGameSession);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_CheckIfPartyLeaderResponse(bool bIsPartyLeader, const FString& PartyCode);

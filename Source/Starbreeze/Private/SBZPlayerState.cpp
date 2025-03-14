@@ -5,8 +5,8 @@
 #include "SBZUICharacterEffectComponent.h"
 
 ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->ReadyStatus = EPlayerReadyStatusValue::Loading;
     this->InfamyLevel = 1;
+    this->RenownLevel = 0;
     this->Platform = ESBZPlatform::Unknown;
     this->FirstPartyPlatform = ESBZFirstPartyPlatform::Unknown;
     this->ProgressionSaveGame = NULL;
@@ -52,12 +52,14 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->SpectateDurationModification = 0.00f;
     this->ECMGUIEffectData = NULL;
     this->PrecisionShotGUIEffectData = NULL;
+    this->ArmorReductionGUIEffectData = NULL;
     this->SkillTankDisengageActivatedTimeSeconds = -1.00f;
     this->SurrenderedEnemy = NULL;
     this->EnforcerSkillKillCount = 0;
     this->EnforcerSkillLastKillTime = 0.00f;
     this->EnforcerAcedSkillKillCount = 0;
-    this->OverkillWeaponProgress = 0.00f;
+    this->bIsFirstOverkillWeaponEquip = true;
+    this->OverkillInstantLootIncrease = 1.00f;
     this->OverkillWeaponProgressKillIncrease = 1.00f;
     this->OverkillWeaponProgressHeadshotAdditionalIncrease = 1.00f;
     this->OverkillWeaponProgressObjectiveIncrease = 5.00f;
@@ -68,8 +70,14 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->CustodyReleaseCost = 1;
     this->CurrentTradeReduction = 0;
     this->bServerIsHardBargainCustody = false;
+    this->bIsOverkillEnabled = true;
+    this->bIsOverskillLoadoutTicking = false;
     this->bIsMergePartySelected = false;
     this->PickupConsumableCooldownTime = 0.80f;
+    this->OverskillDamageModifier[0] = 1.00f;
+    this->OverskillDamageModifier[1] = 1.00f;
+    this->OverskillDamageModifier[2] = 1.00f;
+    this->OverskillDamageModifier[3] = 1.00f;
 }
 
 void ASBZPlayerState::SetSkipIntroSequence(bool bInIsSkipIntroSequence) {
@@ -114,7 +122,7 @@ void ASBZPlayerState::Server_SetDropPlaceableEquippableData_Implementation(const
 void ASBZPlayerState::Server_RequestVoiceSessionLeave_Implementation(const FUniqueNetIdRepl& InPlayerId) {
 }
 
-void ASBZPlayerState::Server_RequestVoiceSessionJoin_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+void ASBZPlayerState::Server_RequestVoiceSessionJoin_Implementation(const FUniqueNetIdRepl& InPlayerId, bool bMakeVoiceEnabled) {
 }
 
 void ASBZPlayerState::Server_PickupAmmo_Implementation(uint32 ID, bool bIsSimulatedPickup) {
@@ -156,13 +164,13 @@ void ASBZPlayerState::OnRep_ServerReloadState() {
 void ASBZPlayerState::OnRep_ReplicatedStartReplenishDodgeServerTime() {
 }
 
-void ASBZPlayerState::OnRep_ReadyStatus() {
+void ASBZPlayerState::OnRep_RenownLevel() {
 }
 
 void ASBZPlayerState::OnRep_Platform() {
 }
 
-void ASBZPlayerState::OnRep_OverkillWeaponProgress() {
+void ASBZPlayerState::OnRep_PlaceableToolsArray() {
 }
 
 void ASBZPlayerState::OnRep_OnKillNetID() {
@@ -178,6 +186,9 @@ void ASBZPlayerState::OnRep_Loadout(const FPD3PlayerLoadout& InOldLoadout) {
 }
 
 void ASBZPlayerState::OnRep_IsTargeting() {
+}
+
+void ASBZPlayerState::OnRep_IsOverkillEnabled() {
 }
 
 void ASBZPlayerState::OnRep_IsMaskOn() {
@@ -216,7 +227,13 @@ void ASBZPlayerState::OnRep_AccelByteDisplayName() {
 void ASBZPlayerState::OnIsSkipIntroSequenceChanged() {
 }
 
+void ASBZPlayerState::OnIsOverskillLoadoutTickingChanged() {
+}
+
 void ASBZPlayerState::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive) {
+}
+
+void ASBZPlayerState::MulticastReceiveLocalizedChatMessage_Implementation(const FString& TableId, const FString& LocaleKey) {
 }
 
 void ASBZPlayerState::MulticastNotifyClientsHostRestart_Implementation(int32 ServerRestartTimeInSeconds) {
@@ -243,19 +260,40 @@ void ASBZPlayerState::Multicast_SetSkipIntroSequence_Implementation(bool bInIsSk
 void ASBZPlayerState::Multicast_SetServerReloadState_Implementation(const FSBZReplicatedReloadState& InServerReloadState) {
 }
 
+void ASBZPlayerState::Multicast_SetRenownLevel_Implementation(const int32 InRenownLevel) {
+}
+
 void ASBZPlayerState::Multicast_SetPlayerSlotId_Implementation(uint8 NewSlotId) {
 }
 
 void ASBZPlayerState::Multicast_SetPlayerId_Implementation(int32 InPlayerId) {
 }
 
+void ASBZPlayerState::Multicast_SetPlatform_Implementation(const ESBZPlatform InPlatform) {
+}
+
+void ASBZPlayerState::Multicast_SetOverskillLoadoutTicking_Implementation(bool bInIsTicking) {
+}
+
 void ASBZPlayerState::Multicast_SetMiniGameState_Implementation(EPD3MiniGameState InMiniGameState, ASBZPlayerState* InWinningParticipant) {
+}
+
+void ASBZPlayerState::Multicast_SetMergePartySelected_Implementation(const bool bIsSelected) {
 }
 
 void ASBZPlayerState::Multicast_SetLoadout_Implementation(const FPD3PlayerLoadout& InLoadout) {
 }
 
 void ASBZPlayerState::Multicast_SetLastArrestedByGuard_Implementation(bool bInIsLastArrestedByGuard) {
+}
+
+void ASBZPlayerState::Multicast_SetInfamyLevel_Implementation(const int32 InInfamyLevel) {
+}
+
+void ASBZPlayerState::Multicast_SetFirstPartyPlatform_Implementation(const ESBZFirstPartyPlatform InFirstPartyPlatform) {
+}
+
+void ASBZPlayerState::Multicast_SetFirstOverkillWeaponEquip_Implementation(bool bIsFirstEquip) {
 }
 
 void ASBZPlayerState::Multicast_SetEquipStateAndIndex_Implementation(uint8 InEquipStateAndIndex) {
@@ -276,6 +314,9 @@ void ASBZPlayerState::Multicast_SetAccelByteUserName_Implementation(const FStrin
 void ASBZPlayerState::Multicast_SetAccelByteUserId_Implementation(const FString& InAccelByteUserId) {
 }
 
+void ASBZPlayerState::Multicast_SetAccelByteDisplayName_Implementation(const FString& InDisplayName) {
+}
+
 void ASBZPlayerState::Multicast_RejectEquipStateAndIndex_Implementation(uint8 InEquipStateAndIndex) {
 }
 
@@ -283,6 +324,9 @@ void ASBZPlayerState::Multicast_OnKill_Implementation(uint32 NetID) {
 }
 
 void ASBZPlayerState::Multicast_DebugConsoleCommand_Implementation(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex) {
+}
+
+void ASBZPlayerState::Multicast_CheatSetOverkillEnabled_Implementation(bool bIsEnabled) {
 }
 
 bool ASBZPlayerState::IsSkipIntroSequence() const {
@@ -293,12 +337,24 @@ bool ASBZPlayerState::IsPlayerDisplayNameReady() const {
     return false;
 }
 
+int32 ASBZPlayerState::GetRenownLevel() const {
+    return 0;
+}
+
 FText ASBZPlayerState::GetPlayerDisplayName() const {
     return FText::GetEmpty();
 }
 
 ESBZPlatform ASBZPlayerState::GetPlatform() const {
     return ESBZPlatform::Unknown;
+}
+
+TArray<FSBZOverskillProgressResultData> ASBZPlayerState::GetOverskillProgressResultData(const TArray<FName>& InProgressLevelIDArray) const {
+    return TArray<FSBZOverskillProgressResultData>();
+}
+
+float ASBZPlayerState::GetOverskillProgress(const FName& InProgressLevelID) const {
+    return 0.0f;
 }
 
 bool ASBZPlayerState::GetMergePartySelected() const {
@@ -339,11 +395,6 @@ void ASBZPlayerState::EquipEquippableToLoadoutAt(const USBZEquippableData* Equip
 void ASBZPlayerState::EquipCuttingToolToLoadout(USBZToolCuttingData* ItemToEquip) {
 }
 
-UAbilitySystemComponent* ASBZPlayerState::GetAbilitySystemComponent() const
-{
-    return nullptr;
-}
-
 void ASBZPlayerState::Client_SetSurrenderedEnemy_Implementation(ASBZAICharacter* InSurrenderedEnemy) {
 }
 
@@ -356,9 +407,6 @@ void ASBZPlayerState::Client_SetCustodyReleaseCost_Implementation(int32 InNewCus
 void ASBZPlayerState::Client_SendPlayerReloadProgressionSaveGame_Implementation() {
 }
 
-void ASBZPlayerState::Client_SendOverkillWeaponProgress_Implementation(float InOverkillWeaponProgress) {
-}
-
 void ASBZPlayerState::Client_PickupAmmo_Implementation(uint32 ID) {
 }
 
@@ -369,6 +417,9 @@ void ASBZPlayerState::Client_LeaveVoiceSession_Implementation() {
 }
 
 void ASBZPlayerState::Client_JoinVoiceSession_Implementation(const FSBZVoiceSessionData& VoiceSessionData) {
+}
+
+void ASBZPlayerState::Client_DisableOverskill_Implementation() {
 }
 
 void ASBZPlayerState::Client_DestroyVoiceSession_Implementation() {
@@ -386,8 +437,8 @@ void ASBZPlayerState::Client_ChallengeCompleted_Implementation(const FChallengeN
 void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
-    DOREPLIFETIME(ASBZPlayerState, ReadyStatus);
     DOREPLIFETIME(ASBZPlayerState, InfamyLevel);
+    DOREPLIFETIME(ASBZPlayerState, RenownLevel);
     DOREPLIFETIME(ASBZPlayerState, Platform);
     DOREPLIFETIME(ASBZPlayerState, FirstPartyPlatform);
     DOREPLIFETIME(ASBZPlayerState, AccelByteDisplayName);
@@ -409,11 +460,16 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, SpectateTime);
     DOREPLIFETIME(ASBZPlayerState, ReducedCustodyTime);
     DOREPLIFETIME(ASBZPlayerState, SpectateDurationModification);
-    DOREPLIFETIME(ASBZPlayerState, OverkillWeaponProgress);
+    DOREPLIFETIME(ASBZPlayerState, bIsFirstOverkillWeaponEquip);
     DOREPLIFETIME(ASBZPlayerState, bIsLastArrestedByGuard);
     DOREPLIFETIME(ASBZPlayerState, bIsTargeting);
     DOREPLIFETIME(ASBZPlayerState, CustodyReleaseCost);
+    DOREPLIFETIME(ASBZPlayerState, bIsOverkillEnabled);
+    DOREPLIFETIME(ASBZPlayerState, bIsOverskillLoadoutTicking);
     DOREPLIFETIME(ASBZPlayerState, bIsMergePartySelected);
 }
 
 
+UAbilitySystemComponent* ASBZPlayerState::GetAbilitySystemComponent() const {
+  return nullptr;
+}

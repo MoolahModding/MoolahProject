@@ -11,7 +11,6 @@ class ASBZEquippable;
 class ASBZMainMenuPlayerCharacter;
 class UObject;
 class USBZCharacterComponent;
-class USBZMaskData;
 class USBZModularCharacterComponent;
 class USBZPlayerCharacterData;
 class UWidgetComponent;
@@ -33,9 +32,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZMaskConfig MaskConfigEquipped;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZMaskData* MaskDataEquipped;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZCharacterComponent* CharacterComponent;
@@ -67,9 +63,17 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UWidgetComponent* NameplateWidgetComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 RandomSeed;
+    
 public:
     ASBZMainMenuPlayerCharacter(const FObjectInitializer& ObjectInitializer);
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnChunkInstall(bool bIsGameInstallPending);
+    
+public:
     UFUNCTION(BlueprintCallable)
     void DestroyEquippable();
     

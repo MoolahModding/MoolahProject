@@ -2,6 +2,7 @@
 
 USBZMeleeComponent::USBZMeleeComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->OwningCharacter = NULL;
+    this->AimAssistTargetActor = NULL;
     this->bIsFriendlyFireAllowedOverride = false;
 }
 

@@ -42,9 +42,9 @@ void ASBZPlayerController::Server_SetCurrentViewTargetIndex_Implementation(int32
 void ASBZPlayerController::Server_SetCurrentSpectateTargetPlayerID_Implementation(int32 InID) {
 }
 
-void ASBZPlayerController::Server_RestartRequested_Implementation(FUniqueNetIdRepl PlayerID) {
+void ASBZPlayerController::Server_RestartRequested_Implementation(const FUniqueNetIdRepl& PlayerID) {
 }
-bool ASBZPlayerController::Server_RestartRequested_Validate(FUniqueNetIdRepl PlayerID) {
+bool ASBZPlayerController::Server_RestartRequested_Validate(const FUniqueNetIdRepl& PlayerID) {
     return true;
 }
 
@@ -54,10 +54,13 @@ void ASBZPlayerController::Server_RestartLevel_Implementation() {
 void ASBZPlayerController::Server_RequestMergeParty_Implementation(bool bIsSelected, const TArray<FString>& PartyMemberPlayerIdArray) {
 }
 
-void ASBZPlayerController::Server_HostRestartRequested_Implementation(FUniqueNetIdRepl PlayerID) {
+void ASBZPlayerController::Server_HostRestartRequested_Implementation(const FUniqueNetIdRepl& PlayerID) {
 }
-bool ASBZPlayerController::Server_HostRestartRequested_Validate(FUniqueNetIdRepl PlayerID) {
+bool ASBZPlayerController::Server_HostRestartRequested_Validate(const FUniqueNetIdRepl& PlayerID) {
     return true;
+}
+
+void ASBZPlayerController::Server_Disband_OnPartyCreated_Implementation(bool bWasSuccessful, const FString& PartyCode, const FString& LeaderID, const TArray<FString>& NonLeaderPartyMembersStillInGameSession) {
 }
 
 void ASBZPlayerController::Server_DebugTeleportTo_Implementation(const FVector& Location, const float Yaw) {
@@ -103,6 +106,12 @@ void ASBZPlayerController::Client_RestartInitiate_Implementation(float SecondsRe
 }
 
 void ASBZPlayerController::Client_RestartAccepted_Implementation(const FUniqueNetIdRepl& PlayerID) {
+}
+
+void ASBZPlayerController::Client_Disband_LeaveJoinParty_Implementation(const FString& PartyCode) {
+}
+
+void ASBZPlayerController::Client_Disband_LeaveCreateParty_Implementation(const FString& LeaderID, const TArray<FString>& NonLeaderPartyMembersStillInGameSession) {
 }
 
 void ASBZPlayerController::Client_CheckIfPartyLeaderResponse_Implementation(bool bIsPartyLeader, const FString& PartyCode) {

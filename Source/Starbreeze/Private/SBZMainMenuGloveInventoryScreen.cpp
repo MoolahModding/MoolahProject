@@ -25,6 +25,9 @@ void USBZMainMenuGloveInventoryScreen::OnShowBuySlotPopUpClosed(FName InActionNa
 }
 
 
+void USBZMainMenuGloveInventoryScreen::OnGameInstallStateChanged(bool bIsInstallPending) {
+}
+
 void USBZMainMenuGloveInventoryScreen::OnDiscardGlovePopUpClosed(FName ClosingActionName) {
 }
 

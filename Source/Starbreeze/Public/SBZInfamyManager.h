@@ -41,6 +41,9 @@ public:
     void ClientGetProgressInfo(int32& OutProgressTowardsNextLevelUp, int32& OutPointsRequiredForNextLevelUp);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 ClientGetPreviousRenownLevel() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 ClientGetPreviousExperience() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

@@ -8,31 +8,31 @@ ASBZVotingReplicatedProxy::ASBZVotingReplicatedProxy(const FObjectInitializer& O
     this->bDummy = false;
 }
 
-void ASBZVotingReplicatedProxy::Server_NotifySendVoteRecall_Implementation(FUniqueNetIdRepl PlayerId) {
+void ASBZVotingReplicatedProxy::Server_NotifySendVoteRecall_Implementation(const FUniqueNetIdRepl& PlayerId) {
 }
 
-void ASBZVotingReplicatedProxy::Server_NotifySendVoteInitiate_Implementation(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, FUniqueNetIdRepl PlayerTargeted, bool bVotePositive) {
+void ASBZVotingReplicatedProxy::Server_NotifySendVoteInitiate_Implementation(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, const FUniqueNetIdRepl& PlayerInitiated, const FUniqueNetIdRepl& PlayerTargeted, bool bVotePositive) {
 }
 
-void ASBZVotingReplicatedProxy::Server_NotifySendVoteAnswer_Implementation(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer) {
+void ASBZVotingReplicatedProxy::Server_NotifySendVoteAnswer_Implementation(const FUniqueNetIdRepl& PlayerId, ESBZVotingAnswer VotingAnswer) {
 }
 
-void ASBZVotingReplicatedProxy::Server_NotifyClientDisconnected_Implementation(FUniqueNetIdRepl PlayerId) {
+void ASBZVotingReplicatedProxy::Server_NotifyClientDisconnected_Implementation(const FUniqueNetIdRepl& PlayerId) {
 }
 
-void ASBZVotingReplicatedProxy::MulticastReceiveVoteRecall_Implementation(FUniqueNetIdRepl PlayerId) {
+void ASBZVotingReplicatedProxy::MulticastReceiveVoteRecall_Implementation(const FUniqueNetIdRepl& PlayerId) {
 }
 
-void ASBZVotingReplicatedProxy::MulticastReceiveVoteInitiate_Implementation(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, FUniqueNetIdRepl PlayerInitiated, FUniqueNetIdRepl PlayerTargeted, FDateTime TimeStarted, const TArray<FUniqueNetIdRepl>& PlayersPending) {
+void ASBZVotingReplicatedProxy::MulticastReceiveVoteInitiate_Implementation(ESBZVotingType VoteType, const TArray<FString>& VoteInitArgs, const FUniqueNetIdRepl& PlayerInitiated, const FUniqueNetIdRepl& PlayerTargeted, FDateTime TimeStarted, const TArray<FUniqueNetIdRepl>& PlayersPending) {
 }
 
-void ASBZVotingReplicatedProxy::MulticastReceiveVoteAnswer_Implementation(FUniqueNetIdRepl PlayerId, ESBZVotingAnswer VotingAnswer) {
+void ASBZVotingReplicatedProxy::MulticastReceiveVoteAnswer_Implementation(const FUniqueNetIdRepl& PlayerId, ESBZVotingAnswer VotingAnswer) {
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveLocalizedChatMessage_Implementation(const FString& FormatTableId, const FString& FormatLocaleKey, const TArray<FString>& ExportedArgsNames, const TArray<FString>& ExportedArgsStrings, const TArray<FString>& ArgsToLocalizeNames, const TArray<FString>& ArgsToLocalizeTableIds, const TArray<FString>& ArgsToLocalizeLocaleKeys) {
 }
 
-void ASBZVotingReplicatedProxy::MulticastReceiveClientDisconnected_Implementation(FUniqueNetIdRepl PlayerId) {
+void ASBZVotingReplicatedProxy::MulticastReceiveClientDisconnected_Implementation(const FUniqueNetIdRepl& PlayerId) {
 }
 
 void ASBZVotingReplicatedProxy::MulticastReceiveChatMessage_Implementation(const FString& Message) {

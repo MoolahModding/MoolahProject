@@ -5,6 +5,7 @@
 #include "SBZPlayerCharacterData.generated.h"
 
 class ASBZPlayerCharacter;
+class UPaperSprite;
 class USBZGloveData;
 class USBZMaskData;
 class USBZPlayerMenuAnimationCollection;
@@ -37,17 +38,44 @@ public:
     TSoftObjectPtr<USkeletalMesh> SkeletalMesh1P;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UPaperSprite> MaskedOnIcon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UPaperSprite> MaskedOffIcon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText CharacterBio;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterRole;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText CharacterNationality;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterAge;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterPersonality;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterSpeciality;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterLikes;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText CharacterDislike;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EPlayerCharacterSizeCategory SizeCategory;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZPlayerMenuAnimationCollection* MainMenuAnimationCollection;
+    USBZPlayerMenuAnimationCollection* PlayerMainMenuAnimationCollection;
     
 public:
     USBZPlayerCharacterData();

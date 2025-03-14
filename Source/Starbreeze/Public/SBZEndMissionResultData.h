@@ -52,6 +52,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsFinalAssaultTriggered;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bAllCiviliansAlive;
+    
     STARBREEZE_API FSBZEndMissionResultData();
 };
 

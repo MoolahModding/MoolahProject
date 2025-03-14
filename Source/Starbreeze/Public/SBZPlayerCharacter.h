@@ -9,6 +9,7 @@
 #include "GameplayTagContainer.h"
 #include "EPD3DefeatState.h"
 #include "EPD3MiniGameState.h"
+#include "ESBZMaskType.h"
 #include "SBZAIVisualDetectionGeneratorInterface.h"
 #include "SBZCharacter.h"
 #include "SBZControlsReference.h"
@@ -30,6 +31,7 @@ class ASBZCuttingTool;
 class ASBZPlayerState;
 class ASBZTool;
 class ASBZZiplineMotor;
+class UAkAudioEvent;
 class UCameraModifier;
 class UNiagaraComponent;
 class UObject;
@@ -240,6 +242,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> ShieldFlashFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> OverskillDepletedFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> OverskillDamageFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FVector_NetQuantize DesiredAcceleration;
@@ -513,6 +521,18 @@ private:
     float HumanShieldStartTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector DropPlaceableEquippableAngularForce;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector DropPlaceableEquippableVelocity;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float DropPlaceableEquippableForwardScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float DropPlaceableEquippableBackwardScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZControlsReference DefeatControlsReference;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -548,6 +568,18 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZEquippableConfig> StoredConsumableConfigArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZEquippableConfig> SafeEquippableConfigArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* ThePunchActivatedEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* ThePunchEndedEvent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* OperatorActivatedEvent;
+    
 public:
     ASBZPlayerCharacter(const FObjectInitializer& ObjectInitializer);
 
@@ -563,9 +595,6 @@ public:
     bool SetCameraFeedbackIntensity(int32 CameraFeedbackID, float Intensity);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ServerStartEquipOverkillWeapon();
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_StopCurrentEmoteMontage(float BlendOutTime);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -576,6 +605,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_OnMaskInputAbilityComplete();
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_MarkHET5Actor(ASBZAICharacter* InCharacter, bool bInMark) const;
     
     UFUNCTION(BlueprintCallable)
     bool RemoveCameraFeedback(int32 RemoveID);
@@ -652,6 +684,9 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_OnOperatorActivated();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_AbortPhoneInteraction(bool bWasCompleted);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -671,6 +706,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool FadeOutCameraFeedback(int32 RemoveID, bool bIsAutoRemoved);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void DebugServerStartEquipOverkillWeapon(bool bIsFirstEquip);
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -699,6 +737,12 @@ protected:
     
     UFUNCTION(BlueprintCallable, Client, Unreliable)
     void Client_PlayOverHealGainedEffect();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_MaskOn(float AnimationDuration, ESBZMaskType MaskType, const FName& MorphTargetName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_MaskOff(float AnimationDuration, const FName& MorphTargetName);
     
 public:
     UFUNCTION(BlueprintCallable)

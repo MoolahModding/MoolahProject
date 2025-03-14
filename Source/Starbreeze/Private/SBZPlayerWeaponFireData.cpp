@@ -12,6 +12,8 @@ USBZPlayerWeaponFireData::USBZPlayerWeaponFireData() {
     this->AmmoInventoryMax = 100;
     this->AmmoInventory = 100;
     this->MuzzleData = NULL;
+    this->OverallReloadPlayRateAmmoLoadedCurve = NULL;
+    this->EndCycleReloadPlayRateAmmoLoadedCurve = NULL;
 }
 
 void USBZPlayerWeaponFireData::GetDamageOnEachDistance(float MinDistance, float MaxDistance, float DistanceStep, TArray<float>& OutDamageArray) const {

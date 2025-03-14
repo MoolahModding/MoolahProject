@@ -25,9 +25,9 @@ void ASBZArmedPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZArmedPawn, TeamId);
 }
 
-UAbilitySystemComponent* ASBZArmedPawn::GetAbilitySystemComponent() const
-{
-    return nullptr;
+
+UAbilitySystemComponent* ASBZArmedPawn::GetAbilitySystemComponent() const {
+  return nullptr;
 }
 
 

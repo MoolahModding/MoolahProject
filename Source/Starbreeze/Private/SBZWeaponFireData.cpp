@@ -32,6 +32,9 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->bUseInstigatorPlayerDamageScale = false;
     this->bIsFriendlyFireAllowed = true;
     this->DamageDistanceProjectileArray.AddDefaulted(1);
+    this->ClusterDamageModifier = 1.00f;
+    this->ClusterGrenadeSpawnDegrees = 40.00f;
+    this->ClusterGrenadestoSpawn = 0;
     this->AmmoLoadedMax = 10;
     this->AmmoPerReload = 10;
     this->AmmoVisibleMax = 10;

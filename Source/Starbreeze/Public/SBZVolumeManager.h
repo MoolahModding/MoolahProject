@@ -26,6 +26,9 @@ protected:
     FSBZVolumeTypeSetting VOVolumeSetting;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZVolumeTypeSetting OperatorVOVolumeSetting;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZVolumeTypeSetting HUDVolumeSetting;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

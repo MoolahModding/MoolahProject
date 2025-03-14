@@ -13,7 +13,7 @@ void USBZStateMachineStateWaitingActionPhaseHost::HandlePlayerRegister(APlayerSt
 void USBZStateMachineStateWaitingActionPhaseHost::HandlePlayerControllerReady() {
 }
 
-void USBZStateMachineStateWaitingActionPhaseHost::HandlePlayerAckReceived(FUniqueNetIdRepl PlayerId) {
+void USBZStateMachineStateWaitingActionPhaseHost::HandlePlayerAckReceived(const FUniqueNetIdRepl& PlayerId) {
 }
 
 void USBZStateMachineStateWaitingActionPhaseHost::DestinationMapLoaded(UWorld* NewWorld) {

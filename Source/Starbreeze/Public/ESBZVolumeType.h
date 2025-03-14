@@ -7,6 +7,7 @@ enum class ESBZVolumeType : uint8 {
     Master,
     Music,
     VO,
+    OperatorVO,
     SFX,
     HUD,
     VOIP,

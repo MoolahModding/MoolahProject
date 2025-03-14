@@ -30,6 +30,9 @@ public:
     static void SetPushToTalkEnabled(UObject* WorldContextObject, bool bIsEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetOperatorVOVolume(UObject* WorldContextObject, float Volume);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetMusicVolume(UObject* WorldContextObject, float Volume);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -63,6 +66,9 @@ public:
     static float GetSFXVolume(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static float GetOperatorVOVolume(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetMusicVolume(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -79,6 +85,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultSFXVolume(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static float GetDefaultOperatorVOVolume(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultMusicVolume(UObject* WorldContextObject);

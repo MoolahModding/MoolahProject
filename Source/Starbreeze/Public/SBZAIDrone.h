@@ -3,7 +3,6 @@
 #include "GenericTeamAgentInterface.h"
 #include "GenericTeamAgentInterface.h"
 #include "UObject/NoExportTypes.h"
-#include "GameFramework/Character.h"
 #include "Curves/CurveFloat.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "AbilitySystemInterface.h"
@@ -12,6 +11,7 @@
 #include "GameplayTagContainer.h"
 #include "ESBZAIVisibilityNodeComputationFrequency.h"
 #include "ESBZRuntimeState.h"
+#include "SBZAIDroneBase.h"
 #include "SBZAIVisibilityRelevant.h"
 #include "SBZAutoAimInterface.h"
 #include "SBZEquippableConfig.h"
@@ -56,7 +56,7 @@ class USBZShoutTargetComponent;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable)
-class ASBZAIDrone : public ACharacter, public ISBZPawnInterface, public IAbilitySystemInterface, public IGenericTeamAgentInterface, public ISBZPawnLifetime, public ISBZProjectileInterface, public ISBZTypeInterface, public ISBZAIVisibilityRelevant, public ISBZRoomVolumeInterface, public IGameplayTagAssetInterface, public ISBZRuntimeInterface, public ISBZExplosive, public ISBZHurtReactionDataInterface, public ISBZVoiceComponentInterface, public ISBZAutoAimInterface, public ISBZMarkableInterface {
+class ASBZAIDrone : public ASBZAIDroneBase, public ISBZPawnInterface, public IAbilitySystemInterface, public IGenericTeamAgentInterface, public ISBZPawnLifetime, public ISBZProjectileInterface, public ISBZTypeInterface, public ISBZAIVisibilityRelevant, public ISBZRoomVolumeInterface, public IGameplayTagAssetInterface, public ISBZRuntimeInterface, public ISBZExplosive, public ISBZHurtReactionDataInterface, public ISBZVoiceComponentInterface, public ISBZAutoAimInterface, public ISBZMarkableInterface {
     GENERATED_BODY()
 public:
 protected:

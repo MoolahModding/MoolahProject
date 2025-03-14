@@ -11,6 +11,6 @@ enum class ESBZAntiAliasingMode : uint8 {
     DLAA,
     FSR3,
     XeSS,
-    Max,
+    MAX,
 };
 

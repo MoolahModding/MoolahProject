@@ -21,8 +21,7 @@
 			"Type": "Runtime",
 			"LoadingPhase": "PostEngineInit",
 			"WhitelistPlatforms": [
-				"Win64",
-				"WinGDK"
+				"Win64"
 			]
 		},
 		{

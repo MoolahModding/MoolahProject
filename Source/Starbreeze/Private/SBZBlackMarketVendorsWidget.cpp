@@ -40,6 +40,9 @@ void USBZBlackMarketVendorsWidget::OnRefreshCurrentVendor() {
 void USBZBlackMarketVendorsWidget::OnPurchaseItemPopUpClosed(FName ClosingActionName) {
 }
 
+void USBZBlackMarketVendorsWidget::OnGameInstallStateChanged(bool bIsInstallPending) {
+}
+
 void USBZBlackMarketVendorsWidget::OnBuyRealMoneyItemCompleted(ESBZMetaRequestResult Result) {
 }
 

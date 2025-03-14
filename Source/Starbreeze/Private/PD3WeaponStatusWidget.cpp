@@ -4,6 +4,7 @@
 UPD3WeaponStatusWidget::UPD3WeaponStatusWidget() {
     this->Visibility = ESlateVisibility::Hidden;
     this->WeaponIndex = 0;
+    this->bIsInfiniteAmmo = false;
 }
 
 

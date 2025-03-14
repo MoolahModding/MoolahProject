@@ -3,8 +3,6 @@
 #include "SBZWidgetBase.h"
 #include "SBZInfamyWidget.generated.h"
 
-class USBZInfamyManager;
-
 UCLASS(Blueprintable, EditInlineNew)
 class USBZInfamyWidget : public USBZWidgetBase {
     GENERATED_BODY()
@@ -33,7 +31,7 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void RefreshCurrentInfamyData(USBZInfamyManager* InfamyManager);
+    void RefreshCurrentInfamyData();
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -41,7 +39,7 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnInfamyAdded(USBZInfamyManager* InfamyManager, int32 InLevelValue, int32 InExpirienceValue);
+    void OnInfamyAdded(const int32 InLevelValue, const int32 InExpirienceValue, const int32 NewRenownLevel, const int32 PreviousRenownLevel);
     
 };
 

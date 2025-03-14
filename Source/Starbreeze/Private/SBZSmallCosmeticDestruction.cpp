@@ -3,6 +3,7 @@
 
 ASBZSmallCosmeticDestruction::ASBZSmallCosmeticDestruction(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UStaticMeshComponent>(TEXT("StaticMeshComponent0"))) {
     this->Tags.AddDefaulted(1);
+    //this->bWantsDetailedDamageEvents = true;
     this->bMoveToDebris = true;
     this->bDestroyWhenActivated = false;
     this->bCanBeActivatedByPlayerOverlap = true;

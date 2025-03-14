@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "Layout/Margin.h"
 #include "ESBZHeistType.h"
-#include "ESBZServerBrowserSessionsType.h"
 #include "OnHostableHeistDataUpdatedDelegateDelegate.h"
 #include "SBZJoinableHeistData.h"
 #include "SBZMenuStackScreenWidget.h"
@@ -121,7 +120,7 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnServersUpdated(TEnumAsByte<ESBZServerBrowserSessionsType> SessionsType);
+    void OnServersUpdated();
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

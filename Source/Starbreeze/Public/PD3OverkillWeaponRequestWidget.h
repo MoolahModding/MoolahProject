@@ -13,6 +13,15 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZAbilityInputActionWidget* Widget_AbilityAction;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverkillProgressionScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsOverskillLoadoutTicking;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsReady;
+    
 public:
     UPD3OverkillWeaponRequestWidget();
 
@@ -24,7 +33,16 @@ protected:
     void OnOverkillWeaponRequestNotReady();
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void OnOverkillRequested();
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnOverkillProgressChanged(float NewProgress);
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void OnOverkillDisabled();
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_OnOverskillLoadoutTickingChanged(bool bInIsTicking);
     
 };
 

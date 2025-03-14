@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/MeshComponent.h"
 #include "SBZEquippableConfig.h"
 #include "Templates/SubclassOf.h"
 #include "SBZEquippable.generated.h"
@@ -8,7 +9,6 @@
 class UAkAudioEvent;
 class UAkComponent;
 class UAkRtpc;
-class UMeshComponent;
 class USBZLocalPlayerFeedback;
 class USBZModGripAnimData;
 

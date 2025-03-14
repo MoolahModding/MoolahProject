@@ -5,6 +5,7 @@
 #include "SBZArmorInventoryItem.h"
 #include "SBZGloveInventoryItem.h"
 #include "SBZOverkillWeaponInventoryItem.h"
+#include "SBZOverskillLoadoutInventoryItem.h"
 #include "SBZPlaceableInventoryItem.h"
 #include "SBZPlayerCharacterInventoryItem.h"
 #include "SBZPreplanningInventoryItem.h"
@@ -20,6 +21,9 @@ class USBZPlayerInventory : public UObject {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FSBZOverkillWeaponInventoryItem> OverkillWeaponInventoryItemMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FSBZOverskillLoadoutInventoryItem> OverskillLoadoutInventoryItemMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FSBZPreplanningInventoryItem> PreplanningInventoryItemMap;

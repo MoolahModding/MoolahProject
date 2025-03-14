@@ -3,6 +3,7 @@
 #include "SBZDeveloperSettings.h"
 #include "SBZSaveGameSettings.generated.h"
 
+class USBZPlayerLoadoutAsset;
 class USBZProgressionSaveChallenges;
 class USBZProgressionSaveGame;
 
@@ -12,6 +13,9 @@ class USBZSaveGameSettings : public USBZDeveloperSettings {
 public:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<USBZProgressionSaveGame> DefaultProgressionSaveGame;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USBZPlayerLoadoutAsset> DefaultTutorialLoadoutAsset;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<USBZProgressionSaveChallenges> DefaultProgressionSaveChallenges;

@@ -22,6 +22,9 @@ private:
     bool bIsAvailable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsLockedByDLC;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZUIItemSource ItemSource;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -38,6 +41,9 @@ protected:
     void OnItemDataInitialized();
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLockedByDLC() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsAvailable() const;
     

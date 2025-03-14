@@ -17,13 +17,7 @@ protected:
     UCurveFloat* ProgressionCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    float SpreadMod;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 CurrentEquippableIndex;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float MaxSpreadAngle;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -33,7 +27,7 @@ private:
     USBZWeaponSpreadData* SpreadData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    float CurrentScale;
+    float CurrentSpreadAngle;
     
 public:
     USBZReticleWidget();

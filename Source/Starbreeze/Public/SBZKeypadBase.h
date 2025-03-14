@@ -14,9 +14,9 @@ class UPrimitiveComponent;
 class USBZBaseInteractableComponent;
 class USBZInteractableComponent;
 class USBZInteractorComponent;
+class USBZRenderTargetWidgetComponent;
 class USkeletalMeshComponent;
 class UStaticMeshComponent;
-class UWidgetComponent;
 
 UCLASS(Blueprintable)
 class ASBZKeypadBase : public ASBZModuleActor {
@@ -42,7 +42,7 @@ protected:
     UStaticMeshComponent* BaseKeypadMesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UWidgetComponent* CodeWidget;
+    USBZRenderTargetWidgetComponent* CodeWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCapsuleComponent* LanternCapsule;

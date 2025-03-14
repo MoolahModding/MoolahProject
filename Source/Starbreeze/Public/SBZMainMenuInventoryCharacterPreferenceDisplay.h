@@ -41,6 +41,9 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnGameInstallStateChanged(bool bIsInstallPending);
+    
+    UFUNCTION(BlueprintCallable)
     void NativeOnPreferredCharacterSlotButtonSelected(USBZCharacterPreferenceCharacterSlotButton* SelectedPreferredCharacterSlotButton);
     
 public:

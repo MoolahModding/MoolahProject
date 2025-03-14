@@ -7,8 +7,11 @@ FSBZInteractableModeData::FSBZInteractableModeData() {
     this->bIsAllowedInCasing = false;
     this->bIsSignalInteract = false;
     this->bIsIllegal = false;
+    this->bIsEncumberedAllowed = false;
+    this->bIsDistanceCheck2D = false;
     this->Priority = 0;
     this->AnimatedInteractionData = NULL;
+    this->bUseOverriddenShapes = false;
     this->OnStart2DAudioEvent = NULL;
     this->OnStart3DAudioEvent = NULL;
     this->OnFinish2DAudioEvent = NULL;

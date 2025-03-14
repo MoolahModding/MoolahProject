@@ -134,6 +134,11 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnPurchaseItemPopUpClosed(FName ClosingActionName);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnGameInstallStateChanged(bool bIsInstallPending);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnBuyRealMoneyItemCompleted(ESBZMetaRequestResult Result);
     

@@ -137,6 +137,12 @@ void ASBZSecurityCamera::OnPredictedAbortInteraction(USBZBaseInteractableCompone
 void ASBZSecurityCamera::OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus) {
 }
 
+void ASBZSecurityCamera::OnOperatorSkillUsed(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence) {
+}
+
+void ASBZSecurityCamera::OnOperatorSkillDeactivated(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence) {
+}
+
 void ASBZSecurityCamera::OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState) {
 }
 

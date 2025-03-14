@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZAIEquipmentData.h"
+#include "SBZMaskConfig.h"
 #include "SBZAICrewEquipmentData.generated.h"
 
 class USBZMaskData;
@@ -11,6 +12,9 @@ class USBZAICrewEquipmentData : public USBZAIEquipmentData {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMaskData* MaskData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZMaskConfig MaskConfig;
     
     USBZAICrewEquipmentData();
 

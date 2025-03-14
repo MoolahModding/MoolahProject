@@ -47,5 +47,6 @@ enum class ESBZItemCategory : uint8 {
     Heist,
     VendorPermission,
     WeaponPartAttachment,
+    OverskillLoadout,
 };
 

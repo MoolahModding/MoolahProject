@@ -3,6 +3,7 @@
 USBZSaveManager::USBZSaveManager() {
     this->ProgressionSaveGame = NULL;
     this->DefaultProgressionSaveGame = NULL;
+    this->DefaultTutorialLoadoutAsset = NULL;
     this->ProgressionSaveChallenges = NULL;
     this->DefaultProgressionSaveChallenges = NULL;
 }

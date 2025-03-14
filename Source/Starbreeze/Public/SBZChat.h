@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AccelByteModelsChatNotif.h"
 #include "UObject/Object.h"
 #include "GameFramework/OnlineReplStructs.h"
 #include "ChatMessageReceivedDelegate.h"
@@ -30,9 +29,6 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void SendSessionMessage(const FSBZChatMessage& InMessage);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnSessionMessageReceived(const FAccelByteModelsChatNotif& Result);
     
 };
 

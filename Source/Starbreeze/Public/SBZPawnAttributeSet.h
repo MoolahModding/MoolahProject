@@ -9,7 +9,7 @@ class USBZDamageType;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Blueprintable)
-class USBZPawnAttributeSet : public UAttributeSet {
+class STARBREEZE_API USBZPawnAttributeSet : public UAttributeSet {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -48,6 +48,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData OverHealMax;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ArmorDamageReduction, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData ArmorDamageReduction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData ArmorDamageReductionMax;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDamageType* LastDamageTypeCDO;
@@ -77,6 +83,9 @@ protected:
     void OnRep_Health(const FGameplayAttributeData& OldHealth);
     
     UFUNCTION(BlueprintCallable)
+    void OnRep_ArmorDamageReduction(const FGameplayAttributeData& OldArmorDamageReduction);
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_Armor(const FGameplayAttributeData& OldArmor);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -84,6 +93,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHealth(float NewCurrentValue);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetArmorDamageReduction(float NewCurrentValue);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmor(float NewCurrentValue);

@@ -16,6 +16,8 @@ USBZInteractableComponent::USBZInteractableComponent(const FObjectInitializer& O
     this->bClearInteractorsOnComplete = true;
     this->bIsAllowedInCasing = false;
     this->bIsIllegal = true;
+    this->bIsEncumberedAllowed = false;
+    this->bIsDistanceCheck2D = false;
 }
 
 void USBZInteractableComponent::Stop3DSound(UAkAudioEvent* AudioEvent) {

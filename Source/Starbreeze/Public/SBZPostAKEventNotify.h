@@ -4,6 +4,7 @@
 #include "SBZPostAKEventNotify.generated.h"
 
 class UAkAudioEvent;
+class USBZChromaSensaEffectDataAsset;
 
 UCLASS(Blueprintable, CollapseCategories)
 class USBZPostAKEventNotify : public UAnimNotify {
@@ -18,6 +19,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString EventName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZChromaSensaEffectDataAsset* ChromaSensaEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bFollow;

@@ -42,6 +42,10 @@ USBZInventoryBaseData* USBZLoadoutLibrary::GetGloveData(const UObject* WorldCont
     return NULL;
 }
 
+FSBZArmorConfig USBZLoadoutLibrary::GetArmorConfigSlot(const UObject* WorldContextObject, int32 InArmorSlotIndex) {
+    return FSBZArmorConfig{};
+}
+
 int32 USBZLoadoutLibrary::GetActivePlayerLoadoutIndex(const UObject* WorldContextObject) {
     return 0;
 }

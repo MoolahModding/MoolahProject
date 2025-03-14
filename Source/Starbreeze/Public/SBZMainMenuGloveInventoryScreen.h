@@ -88,6 +88,9 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemDiscarded(bool bWasSuccessful);
     
+    UFUNCTION(BlueprintCallable)
+    void OnGameInstallStateChanged(bool bIsInstallPending);
+    
 private:
     UFUNCTION(BlueprintCallable)
     void OnDiscardGlovePopUpClosed(FName ClosingActionName);

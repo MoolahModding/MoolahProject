@@ -378,6 +378,12 @@ private:
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
     
     UFUNCTION(BlueprintCallable)
+    void OnOperatorSkillUsed(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOperatorSkillDeactivated(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence);
+    
+    UFUNCTION(BlueprintCallable)
     void OnHeistStateChanged(EPD3HeistState OldState, EPD3HeistState NewState);
     
     UFUNCTION(BlueprintCallable)

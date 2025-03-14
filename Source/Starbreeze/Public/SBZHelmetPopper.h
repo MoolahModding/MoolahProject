@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
 #include "ESBZVariationValue.h"
 #include "SBZComponentSelector.h"
@@ -9,6 +8,7 @@
 #include "SBZHelmetPopper.generated.h"
 
 class UNiagaraSystem;
+class USBZHelmetPopperData;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class USBZHelmetPopper : public UActorComponent {
@@ -18,19 +18,7 @@ public:
     FSBZComponentSelector HelmetSelector;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector MinStartVelocity;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector MaxStartVelocity;
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFloatInterval HitDirectionSpeed;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector MoveOffset;
-    
-    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
-    FFloatInterval TorqueStrength;
+    USBZHelmetPopperData* HelmetPopperData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UNiagaraSystem* PopEffect;

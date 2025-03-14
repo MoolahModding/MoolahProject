@@ -9,11 +9,12 @@
 #include "ESBZDifficulty.h"
 #include "ESBZFrameInterpolator.h"
 #include "ESBZFramerateMode.h"
+#include "ESBZLagReduction.h"
+#include "ESBZLagReductionMode.h"
 #include "ESBZOnlineDropInType.h"
 #include "ESBZOnlineJoinType.h"
 #include "ESBZOnlineTacticType.h"
 #include "ESBZPopupType.h"
-#include "ESBZReflexMode.h"
 #include "ESBZUpscaler.h"
 #include "ESBZUpscalingMode.h"
 #include "SBZCrosshairSettings.h"
@@ -35,9 +36,6 @@ public:
 protected:
     UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 SBZVersion;
-    
-    UPROPERTY(Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ESBZReflexMode ReflexMode;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CameraVerticalFoV;
@@ -82,6 +80,12 @@ protected:
     ESBZUpscaler Upscaler;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZLagReduction LagReduction;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZLagReductionMode LagReductionMode;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZFrameInterpolator FrameInterpolator;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -112,10 +116,10 @@ protected:
     float CrosshairsDotSize;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float MinCrosshairsScale;
+    bool bCrosshairsShowAccuracy;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float MaxCrosshairsScale;
+    float CrosshairsCenterGap;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     FLinearColor CrosshairsBarColor;
@@ -164,6 +168,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float VOVolume;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OperatorVOVolume;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float SFXVolume;
@@ -332,15 +339,6 @@ public:
     void SetUserInterfaceToDefaults();
     
     UFUNCTION(BlueprintCallable)
-    void SetUpscalingSharpness(float Sharpness);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetUpscalingMode(ESBZUpscalingMode Mode);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetUpscaler(ESBZUpscaler Type);
-    
-    UFUNCTION(BlueprintCallable)
     void SetTelemetryEnabled(bool bIsEnabled);
     
     UFUNCTION(BlueprintCallable)
@@ -383,6 +381,9 @@ public:
     void SetOutlinesEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
+    void SetOperatorVOVolume(float Volume);
+    
+    UFUNCTION(BlueprintCallable)
     void SetMusicVolume(float Volume);
     
     UFUNCTION(BlueprintCallable)
@@ -396,12 +397,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetMotionBlurEnabled(bool bEnable);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetMinCrosshairsScale(float Scale);
-    
-    UFUNCTION(BlueprintCallable)
-    void SetMaxCrosshairsScale(float Scale);
     
     UFUNCTION(BlueprintCallable)
     void SetMatchmakingDifficulty(ESBZDifficulty InDifficulty);
@@ -470,9 +465,6 @@ public:
     void SetGamepadBindingsPreset(int32 Preset);
     
     UFUNCTION(BlueprintCallable)
-    void SetFrameInterpolator(ESBZFrameInterpolator Type);
-    
-    UFUNCTION(BlueprintCallable)
     void SetFPSDisplayEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
@@ -491,6 +483,9 @@ public:
     void SetCrossplayDisabled(bool bDisable);
     
     UFUNCTION(BlueprintCallable)
+    void SetCrosshairsShowAccuracy(bool bShowAccuracy);
+    
+    UFUNCTION(BlueprintCallable)
     void SetCrosshairSettings(const FSBZCrosshairSettings& CrosshairSettings);
     
     UFUNCTION(BlueprintCallable)
@@ -498,6 +493,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetCrosshairsDotColor(FLinearColor Color);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetCrosshairsCenterGap(float Gap);
     
     UFUNCTION(BlueprintCallable)
     void SetCrosshairsBarWidth(float Width);
@@ -540,9 +538,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetAudioToDefaults();
-    
-    UFUNCTION(BlueprintCallable)
-    void SetAntiAliasingMode(ESBZAntiAliasingMode Mode);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsVoIPEnabled() const;
@@ -614,15 +609,6 @@ public:
     float GetVoIPMicVolume() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetUpscalingSharpness() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    ESBZUpscalingMode GetUpscalingMode() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    ESBZUpscaler GetUpscaler() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetTelemetryEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -647,6 +633,9 @@ public:
     FKey GetPrimaryKeyboardBinding(FName AxisOrActionName, float Scale);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetOperatorVOVolume() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMusicVolume() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
@@ -654,12 +643,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetMouseSensitivity() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetMinCrosshairsScale() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetMaxCrosshairsScale() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZDifficulty GetMatchmakingDifficulty() const;
@@ -701,10 +684,10 @@ public:
     int32 GetGamepadBindingsPreset() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    ESBZFrameInterpolator GetFrameInterpolator() const;
+    ESBZOnlineDropInType GetDropInType() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    ESBZOnlineDropInType GetDropInType() const;
+    bool GetCrosshairsShowAccuracy() const;
     
     UFUNCTION(BlueprintCallable)
     FSBZCrosshairSettings GetCrosshairSettings();
@@ -714,6 +697,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FLinearColor GetCrosshairsDotColor() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetCrosshairsCenterGap() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCrosshairsBarWidth() const;
@@ -747,9 +733,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetBrightness() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    ESBZAntiAliasingMode GetAntiAliasingMode() const;
     
     UFUNCTION(BlueprintCallable)
     static USBZGameUserSettings* Get();

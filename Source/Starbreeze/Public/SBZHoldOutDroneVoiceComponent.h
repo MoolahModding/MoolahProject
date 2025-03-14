@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "SBZHoldOutDroneVOPlayingStateChangedDelegate.h"
 #include "SBZHoldOutDroneVoiceComponent.generated.h"
 
 class UAkAudioEvent;
@@ -16,6 +17,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<UAkAudioEvent*, float> CoolDowns;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZHoldOutDroneVOPlayingStateChanged OnPlayingVOStateChanged;
     
 public:
     USBZHoldOutDroneVoiceComponent(const FObjectInitializer& ObjectInitializer);

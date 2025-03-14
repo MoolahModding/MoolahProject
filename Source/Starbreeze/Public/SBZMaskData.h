@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZMaskType.h"
 #include "SBZInventoryBaseData.h"
 #include "SBZMaskData.generated.h"
 
@@ -10,13 +11,29 @@ class USBZMaskMaterialData;
 class USBZMaskMouldData;
 class USBZMaskPatternData;
 class USBZMaskVFXData;
+class USkeletalMesh;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZMaskData : public USBZInventoryBaseData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZMaskType Type;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName EquipMorphTargetName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName UnequipMorphTargetName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftClassPtr<ASBZMask> MaskClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USkeletalMesh> SkeletalMesh;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USkeletalMesh> StrapMesh;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<UAnimMontage> EquipAnimationCharacterFP;

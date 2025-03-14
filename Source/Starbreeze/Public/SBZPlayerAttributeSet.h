@@ -7,6 +7,7 @@
 #include "SBZPlayerAttributeSet.generated.h"
 
 class USBZPlayerAbilityData;
+class USBZPlayerMovementWeightAsset;
 
 UCLASS(Blueprintable)
 class USBZPlayerAttributeSet : public USBZCharacterAttributeSet {
@@ -216,12 +217,21 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ConsumableCount, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData ConsumableCount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OverskillProgression, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData OverskillProgression;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData OverskillProgressionMax;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerAbilityData* AbilityData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZWeightTagData> WeightTagDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZPlayerMovementWeightAsset* WeightAssetOverride;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZArmorChunkTypeData> ArmorChunkTypeDataArray;
@@ -285,6 +295,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_PrimaryEquippableAmmoInventory(const FGameplayAttributeData& OldData);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_OverskillProgression(const FGameplayAttributeData& OldOverSkillProgression);
     
     UFUNCTION(BlueprintCallable)
     void OnRep_HealthTrauma(const FGameplayAttributeData& OldArmorTrauma);
@@ -358,6 +371,11 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPrimaryEquippableAmmoInventory(float NewCurrentValue);
     
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetOverskillProgression(float NewCurrentValue);
+    
+protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHealthTrauma(float NewCurrentValue);
     

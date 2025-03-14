@@ -4,6 +4,7 @@
 #include "Net/UnrealNetwork.h"
 
 ASBZPlaceableSensorTool::ASBZPlaceableSensorTool(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
     this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
     this->SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
     this->AutoMarkTickInterval = 2.00f;

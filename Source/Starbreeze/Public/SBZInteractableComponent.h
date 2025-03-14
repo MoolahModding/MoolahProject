@@ -109,6 +109,12 @@ public:
     uint8 bIsIllegal: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsEncumberedAllowed: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsDistanceCheck2D: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer SharedKeyItemTags;
     
     USBZInteractableComponent(const FObjectInitializer& ObjectInitializer);

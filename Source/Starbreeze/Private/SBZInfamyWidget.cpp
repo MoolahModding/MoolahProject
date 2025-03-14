@@ -9,11 +9,11 @@ USBZInfamyWidget::USBZInfamyWidget() {
     this->bIsMaxLevel = false;
 }
 
-void USBZInfamyWidget::RefreshCurrentInfamyData(USBZInfamyManager* InfamyManager) {
+void USBZInfamyWidget::RefreshCurrentInfamyData() {
 }
 
 
-void USBZInfamyWidget::OnInfamyAdded(USBZInfamyManager* InfamyManager, int32 InLevelValue, int32 InExpirienceValue) {
+void USBZInfamyWidget::OnInfamyAdded(const int32 InLevelValue, const int32 InExpirienceValue, const int32 NewRenownLevel, const int32 PreviousRenownLevel) {
 }
 
 

@@ -8,6 +8,7 @@
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Character.h"
 #include "Engine/EngineTypes.h"
+#include "Engine/EngineTypes.h"
 #include "AbilitySystemInterface.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagAssetInterface.h"
@@ -595,6 +596,9 @@ protected:
     void Server_HumanShieldInstigatorSlotReached();
     
 public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_ExitMeleeMontage();
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count);
     
@@ -763,6 +767,11 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_HumanShieldInstigatorSlotReached();
     
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ExitMeleeMontage();
+    
+protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_EnableThrowState();
     
@@ -777,7 +786,10 @@ public:
     void Multicast_ApplyHurtReaction(const FSBZHurtReactionPrediction& HurtReactionPrediction);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_ActivateMelee();
+    void Multicast_ActivateMelee(bool bIsHeavy, int32 InAnimationIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void HandleTakeRadialDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, const TArray<FHitResult>& HitInfos, const FRadialDamageParams& Params, const FVector& Origin, const UDamageType* DamageType, AActor* DamageCauser);
     
     UFUNCTION(BlueprintCallable)
     void HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser);

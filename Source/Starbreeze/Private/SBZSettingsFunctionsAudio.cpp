@@ -21,6 +21,9 @@ void USBZSettingsFunctionsAudio::SetSFXVolume(UObject* WorldContextObject, float
 void USBZSettingsFunctionsAudio::SetPushToTalkEnabled(UObject* WorldContextObject, bool bIsEnabled) {
 }
 
+void USBZSettingsFunctionsAudio::SetOperatorVOVolume(UObject* WorldContextObject, float Volume) {
+}
+
 void USBZSettingsFunctionsAudio::SetMusicVolume(UObject* WorldContextObject, float Volume) {
 }
 
@@ -62,6 +65,10 @@ float USBZSettingsFunctionsAudio::GetSFXVolume(UObject* WorldContextObject) {
     return 0.0f;
 }
 
+float USBZSettingsFunctionsAudio::GetOperatorVOVolume(UObject* WorldContextObject) {
+    return 0.0f;
+}
+
 float USBZSettingsFunctionsAudio::GetMusicVolume(UObject* WorldContextObject) {
     return 0.0f;
 }
@@ -83,6 +90,10 @@ float USBZSettingsFunctionsAudio::GetDefaultVoIPMicVolume(UObject* WorldContextO
 }
 
 float USBZSettingsFunctionsAudio::GetDefaultSFXVolume(UObject* WorldContextObject) {
+    return 0.0f;
+}
+
+float USBZSettingsFunctionsAudio::GetDefaultOperatorVOVolume(UObject* WorldContextObject) {
     return 0.0f;
 }
 

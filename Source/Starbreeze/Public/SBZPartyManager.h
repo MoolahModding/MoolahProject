@@ -22,7 +22,7 @@
 class USBZPartyManager;
 
 UCLASS(Blueprintable)
-class USBZPartyManager : public UObject {
+class STARBREEZE_API USBZPartyManager : public UObject {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

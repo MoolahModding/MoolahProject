@@ -30,9 +30,6 @@ void USBZSettingsFunctionsVideo::SetShadowQuality(UObject* WorldContextObject, i
 void USBZSettingsFunctionsVideo::SetResolution(UObject* WorldContextObject, FIntPoint Resolution) {
 }
 
-void USBZSettingsFunctionsVideo::SetReflexMode(UObject* WorldContextObject, ESBZReflexMode Mode) {
-}
-
 void USBZSettingsFunctionsVideo::SetRecommendedQuality(UObject* WorldContextObject) {
 }
 
@@ -43,6 +40,15 @@ void USBZSettingsFunctionsVideo::SetMotionBlurEnabled(UObject* WorldContextObjec
 }
 
 void USBZSettingsFunctionsVideo::SetMaterialsQuality(UObject* WorldContextObject, int32 Value) {
+}
+
+void USBZSettingsFunctionsVideo::SetLagReductionMode(UObject* WorldContextObject, ESBZLagReductionMode Mode) {
+}
+
+void USBZSettingsFunctionsVideo::SetLagReduction(UObject* WorldContextObject, ESBZLagReduction Mode) {
+}
+
+void USBZSettingsFunctionsVideo::SetGPUCrashDebuggingEnabled(UObject* WorldContextObject, bool bEnable) {
 }
 
 void USBZSettingsFunctionsVideo::SetGamma(UObject* WorldContextObject, float Gamma) {
@@ -61,9 +67,6 @@ void USBZSettingsFunctionsVideo::SetFoliageQuality(UObject* WorldContextObject, 
 }
 
 void USBZSettingsFunctionsVideo::SetEffectsQuality(UObject* WorldContextObject, int32 Value) {
-}
-
-void USBZSettingsFunctionsVideo::SetDLSSGEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
 void USBZSettingsFunctionsVideo::SetDepthOfFieldEnabled(UObject* WorldContextObject, bool bEnabled) {
@@ -106,11 +109,7 @@ bool USBZSettingsFunctionsVideo::IsMotionBlurEnabled(UObject* WorldContextObject
     return false;
 }
 
-bool USBZSettingsFunctionsVideo::IsDLSSGEnabledByDefault(UObject* WorldContextObject) {
-    return false;
-}
-
-bool USBZSettingsFunctionsVideo::IsDLSSGEnabled(UObject* WorldContextObject) {
+bool USBZSettingsFunctionsVideo::IsGPUCrashDebuggingEnabled(UObject* WorldContextObject) {
     return false;
 }
 
@@ -162,16 +161,20 @@ FIntPoint USBZSettingsFunctionsVideo::GetResolution(UObject* WorldContextObject)
     return FIntPoint{};
 }
 
-ESBZReflexMode USBZSettingsFunctionsVideo::GetReflexMode(UObject* WorldContextObject) {
-    return ESBZReflexMode::Off;
-}
-
 int32 USBZSettingsFunctionsVideo::GetPostProcessingQuality(UObject* WorldContextObject) {
     return 0;
 }
 
 int32 USBZSettingsFunctionsVideo::GetMaterialsQuality(UObject* WorldContextObject) {
     return 0;
+}
+
+ESBZLagReductionMode USBZSettingsFunctionsVideo::GetLagReductionMode(UObject* WorldContextObject) {
+    return ESBZLagReductionMode::Off;
+}
+
+ESBZLagReduction USBZSettingsFunctionsVideo::GetLagReduction(UObject* WorldContextObject) {
+    return ESBZLagReduction::None;
 }
 
 float USBZSettingsFunctionsVideo::GetGamma(UObject* WorldContextObject) {
@@ -230,16 +233,24 @@ FIntPoint USBZSettingsFunctionsVideo::GetDefaultResolution(UObject* WorldContext
     return FIntPoint{};
 }
 
-ESBZReflexMode USBZSettingsFunctionsVideo::GetDefaultReflexMode(UObject* WorldContextObject) {
-    return ESBZReflexMode::Off;
-}
-
 int32 USBZSettingsFunctionsVideo::GetDefaultPostProcessingQuality(UObject* WorldContextObject) {
     return 0;
 }
 
 int32 USBZSettingsFunctionsVideo::GetDefaultMaterialsQuality(UObject* WorldContextObject) {
     return 0;
+}
+
+ESBZLagReductionMode USBZSettingsFunctionsVideo::GetDefaultLagReductionMode(UObject* WorldContextObject) {
+    return ESBZLagReductionMode::Off;
+}
+
+ESBZLagReduction USBZSettingsFunctionsVideo::GetDefaultLagReduction(UObject* WorldContextObject) {
+    return ESBZLagReduction::None;
+}
+
+bool USBZSettingsFunctionsVideo::GetDefaultIsGPUCrashDebuggingEnabled(UObject* WorldContextObject) {
+    return false;
 }
 
 float USBZSettingsFunctionsVideo::GetDefaultGamma(UObject* WorldContextObject) {
@@ -318,15 +329,19 @@ bool USBZSettingsFunctionsVideo::GetButtonVisibilityUpscalingMode(UObject* World
     return false;
 }
 
-bool USBZSettingsFunctionsVideo::GetButtonVisibilityReflexMode(UObject* WorldContextObject) {
+bool USBZSettingsFunctionsVideo::GetButtonVisibilityLagReductionMode(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsVideo::GetButtonVisibilityLagReduction(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsVideo::GetButtonVisibilityGPUCrashDebugging(UObject* WorldContextObject) {
     return false;
 }
 
 bool USBZSettingsFunctionsVideo::GetButtonVisibilityFramerateMode(UObject* WorldContextObject) {
-    return false;
-}
-
-bool USBZSettingsFunctionsVideo::GetButtonVisibilityDLSSG(UObject* WorldContextObject) {
     return false;
 }
 

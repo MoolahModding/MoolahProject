@@ -15,6 +15,7 @@
 #include "SBZGrenadeProjectile.generated.h"
 
 class ASBZCharacter;
+class ASBZGrenadeProjectile;
 class UAkAudioEvent;
 class UGameplayEffect;
 class UMeshComponent;
@@ -110,6 +111,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bWantsLocationRotation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ASBZGrenadeProjectile*> ClusterGrenadeArray;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

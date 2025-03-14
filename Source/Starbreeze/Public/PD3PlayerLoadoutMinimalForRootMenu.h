@@ -6,9 +6,7 @@
 #include "PD3PlayerLoadoutMinimalForRootMenu.generated.h"
 
 class USBZGloveData;
-class USBZMaskData;
 class USBZPlayerCharacterData;
-class USBZSuitData;
 
 USTRUCT(BlueprintType)
 struct STARBREEZE_API FPD3PlayerLoadoutMinimalForRootMenu {
@@ -19,12 +17,6 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZEquippableConfig> EquippableConfigArray;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZMaskData* MaskData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZSuitData* SuitData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZGloveData* GloveData;

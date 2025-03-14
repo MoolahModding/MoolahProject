@@ -4,6 +4,7 @@ ASBZJobOverviewSync::ASBZJobOverviewSync(const FObjectInitializer& ObjectInitial
     this->bReplicates = true;
     const FProperty* p_RemoteRole = GetClass()->FindPropertyByName("RemoteRole");
     (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
+    //this->bEnableNetReadyEvent = true;
 }
 
 void ASBZJobOverviewSync::UpdateReadyClientStatusReceived_Implementation(const FSBZPlayersReadyStatusStateArray& PlayersReadyStatus) {

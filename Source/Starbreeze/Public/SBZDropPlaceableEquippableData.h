@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/NetSerialization.h"
+#include "Engine/NetSerialization.h"
 #include "SBZQuat_NetQuantizeNormal.h"
 #include "SBZDropPlaceableEquippableData.generated.h"
 
@@ -18,7 +19,7 @@ public:
     FVector_NetQuantize LinearVelocity;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FVector_NetQuantize AngularVelocity;
+    FVector_NetQuantize100 AngularVelocity;
     
     STARBREEZE_API FSBZDropPlaceableEquippableData();
 };

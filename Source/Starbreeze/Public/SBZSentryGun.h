@@ -14,6 +14,7 @@
 #include "SBZExplosivePhysicsEffectData.h"
 #include "SBZHurtReactionData.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "SBZSpawnClosetDestructionInterface.h"
 #include "Templates/SubclassOf.h"
 #include "SBZSentryGun.generated.h"
 
@@ -38,7 +39,7 @@ class USBZSentryInteractableComponent;
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
-class ASBZSentryGun : public ASBZArmedPawn, public ISBZExplosive, public ISBZHurtReactionDataInterface, public IAISightTargetInterface {
+class ASBZSentryGun : public ASBZArmedPawn, public ISBZExplosive, public ISBZHurtReactionDataInterface, public IAISightTargetInterface, public ISBZSpawnClosetDestructionInterface {
     GENERATED_BODY()
 public:
 protected:

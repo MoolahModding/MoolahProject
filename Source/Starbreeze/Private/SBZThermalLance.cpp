@@ -11,11 +11,15 @@ ASBZThermalLance::ASBZThermalLance(const FObjectInitializer& ObjectInitializer) 
     this->bNeedsDisassemblyWhenFinished = true;
     this->bShouldSpawnBagsWhenCompleted = true;
     this->BagTriggerVolume = NULL;
+    this->bStartWithBagTriggerEnabled = true;
     this->RequiredBagType = NULL;
     this->DisassembleInteractionWaitTime = 2.00f;
     this->BoltedEvent = NULL;
     this->RemoveCannisterEvent = NULL;
     this->AddCannisterEvent = NULL;
+}
+
+void ASBZThermalLance::SetTriggerVolumeEnabled(bool bEnabled) {
 }
 
 void ASBZThermalLance::OnServerRemovedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled) {

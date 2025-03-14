@@ -3,6 +3,7 @@
 #include "Components/BoxComponent.h"
 
 ASBZPlaceableTripMine::ASBZPlaceableTripMine(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
     this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
     this->ExplosionInstigator = NULL;
     this->PlaceableTripMineEffectClass = NULL;
@@ -12,7 +13,7 @@ ASBZPlaceableTripMine::ASBZPlaceableTripMine(const FObjectInitializer& ObjectIni
     this->PlayerExplosionRange = 300.00f;
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->BoxComponent->SetupAttachment(RootComponent);
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZPlaceableTripMine::Server_SetUnarmed_Implementation() {

@@ -10,7 +10,9 @@ FSBZUserActivity::FSBZUserActivity() {
     this->JoinType = ESBZOnlineJoinType::Debug_DEPRECATED;
     this->GameSessionMembers = 0;
     this->PartySessionMembers = 0;
+    this->bAreInfamyPointsValid = false;
     this->InfamyPoints = 0;
+    this->bIsRenownLevelValid = false;
     this->RenownLevel = 0;
     this->HostingProvider = ESBZHostingProvider::Accelbyte;
     this->bIsHost = false;

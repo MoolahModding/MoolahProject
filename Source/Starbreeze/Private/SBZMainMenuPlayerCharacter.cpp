@@ -9,14 +9,17 @@ ASBZMainMenuPlayerCharacter::ASBZMainMenuPlayerCharacter(const FObjectInitialize
     this->Mesh = CreateDefaultSubobject<USBZModularCharacterComponent>(TEXT("UIPlayerCharacterMesh"));
     this->Equippable = NULL;
     this->MaskEquipped = NULL;
-    this->MaskDataEquipped = NULL;
     this->CharacterComponent = CreateDefaultSubobject<USBZCharacterComponent>(TEXT("CharacterComponent"));
     this->PlayerCharacterData = NULL;
     this->StartMontageName = ESBZMainMenuAnimationName::IdleSequence;
     this->PreferredEquippableIndex = 0;
     this->NameplateWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("NameplateWidget"));
-    this->NameplateWidgetComponent->SetupAttachment(Mesh);
+    this->RandomSeed = -1;
     this->Mesh->SetupAttachment(RootComponent);
+    this->NameplateWidgetComponent->SetupAttachment(Mesh);
+}
+
+void ASBZMainMenuPlayerCharacter::OnChunkInstall(bool bIsGameInstallPending) {
 }
 
 void ASBZMainMenuPlayerCharacter::DestroyEquippable() {

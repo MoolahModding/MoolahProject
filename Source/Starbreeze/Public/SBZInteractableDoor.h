@@ -7,6 +7,7 @@
 
 class ASBZRoomVolume;
 class UActorComponent;
+class USBZPropDamageComponent;
 
 UCLASS(Blueprintable)
 class ASBZInteractableDoor : public ASBZInteractableGate {
@@ -21,6 +22,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZComponentSelector BreachPropDamageSelector;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZPropDamageComponent* PropDamageComponent;
     
 public:
     ASBZInteractableDoor(const FObjectInitializer& ObjectInitializer);

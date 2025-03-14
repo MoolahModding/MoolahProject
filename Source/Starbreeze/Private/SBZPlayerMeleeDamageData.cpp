@@ -5,6 +5,8 @@ USBZPlayerMeleeDamageData::USBZPlayerMeleeDamageData() {
     this->PropDamage = 10.00f;
     this->MaximumAimAssistAngleDifference = 65.00f;
     this->AimAssistSpeed = 2.50f;
+    this->MaximumAimAssistAngleDifferenceWhenActive = 65.00f;
+    this->MaximumAimAssistDistance = 175.00f;
 }
 
 

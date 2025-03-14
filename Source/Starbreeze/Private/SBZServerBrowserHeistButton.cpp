@@ -13,6 +13,16 @@ USBZServerBrowserHeistButton::USBZServerBrowserHeistButton() {
 void USBZServerBrowserHeistButton::ToggleHeistButtonInnerNavigation(bool bEnableInnerNavigation) {
 }
 
+bool USBZServerBrowserHeistButton::ShouldBeJoinedThroughFriend() {
+    return false;
+}
+
+void USBZServerBrowserHeistButton::OnSessionChangedPopupClosed(FName ActionName) {
+}
+
+void USBZServerBrowserHeistButton::JoinMatchThroughFriend() {
+}
+
 FString USBZServerBrowserHeistButton::GetHeistSessionID() const {
     return TEXT("");
 }

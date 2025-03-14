@@ -7,10 +7,10 @@ enum class ESBZHackableActorState : uint8 {
     Inactive,
     Active,
     Hacking,
+    PendingSabotage,
     Sabotaged,
     NeedClearance,
     Unlocked,
     GainedAccess,
-    PendingSabotage,
 };
 

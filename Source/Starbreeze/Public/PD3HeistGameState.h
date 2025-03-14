@@ -32,6 +32,7 @@ class UObject;
 class UPD3Dispatcher;
 class UPD3GameIntensityAnalyzer;
 class USBZRoomPathFinder;
+class UUserWidget;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API APD3HeistGameState : public ASBZMissionState {
@@ -70,6 +71,12 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentHeistState, meta=(AllowPrivateAccess=true))
     EPD3HeistState CurrentHeistState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UUserWidget> HeistStateWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<UUserWidget> HeistInfoRightWidgetClass;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))

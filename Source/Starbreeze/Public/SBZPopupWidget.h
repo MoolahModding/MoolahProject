@@ -10,7 +10,7 @@ class USBZControlsReferenceWidget;
 class UTextBlock;
 
 UCLASS(Blueprintable, EditInlineNew)
-class USBZPopupWidget : public USBZWidgetBase, public ISBZPopupWidgetInterface {
+class STARBREEZE_API USBZPopupWidget : public USBZWidgetBase, public ISBZPopupWidgetInterface {
     GENERATED_BODY()
 public:
 protected:

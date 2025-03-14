@@ -21,6 +21,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ESBZMeleeImpactType, TSubclassOf<USBZLocalPlayerFeedback>> MeleeTypeFeedbackOverride;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsBloodSplatter;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsExtraBloodSpawned;
+    
     USBZMeleeImpactConfig();
 
 };

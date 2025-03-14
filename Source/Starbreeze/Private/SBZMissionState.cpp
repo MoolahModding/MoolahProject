@@ -14,7 +14,7 @@
 
 ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RandomSeed = -1;
-    this->ServerChangelist = 748847;
+    this->ServerChangelist = 790407;
     this->Difficulty = ESBZDifficulty::Default;
     this->PredictionTimeOutSeconds = 1.00f;
     this->ServerUnblockAbilityEarlierSeconds = 0.25f;
@@ -38,6 +38,8 @@ ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) 
     this->KillingSpreeAmount = 5;
     this->DropKillingSpreeWaitTime = 2.00f;
     this->MaxQueuedCosmeticDestruction = 10;
+    this->DroneDeliverySquadPawn = NULL;
+    this->LastOverkillWeaponCaller = NULL;
     this->SeasonalEventItemCount = 0;
     this->DSChallengeManager = NULL;
     this->OverkillWeaponCooldown = 45.00f;
@@ -133,6 +135,12 @@ void ASBZMissionState::Multicast_SetEscapeTimeLeft_Implementation(const int32 Ne
 }
 
 void ASBZMissionState::Multicast_SetBlockedBagMarkers_Implementation(const FGameplayTagContainer& InBlockedBagMarkers) {
+}
+
+void ASBZMissionState::Multicast_ServerOverskillOperatorDeactivated_Implementation(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence) {
+}
+
+void ASBZMissionState::Multicast_ServerOverskillOperatorActivated_Implementation(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence) {
 }
 
 void ASBZMissionState::Multicast_OnAmmoSpecialistHighGrainSkillDeactivated_Implementation() {

@@ -49,6 +49,14 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void UpdateCharacterSlotButtonControlsReference(ESBZCharacterPreferenceButtonSelectionAction SelectionAction);
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void RefreshWidgetVisuals();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnGameInstallStateChanged(bool bIsInstallPending);
+    
+protected:
     UFUNCTION(BlueprintCallable)
     void NativeOnClearPreferredCharactersInputPressed();
     

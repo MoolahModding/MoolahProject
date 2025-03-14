@@ -8,6 +8,8 @@ class ASBZObjective;
 class UObject;
 class UPanelWidget;
 class USBZObjectiveWidget;
+class UUMGSequencePlayer;
+class UWidgetAnimation;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZObjectiveContainerWidget : public USBZWidgetBase {
@@ -22,6 +24,13 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZObjectiveWidget> ObjectiveWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPaused;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UUMGSequencePlayer*> PausedSequencePlayerArray;
     
 public:
     USBZObjectiveContainerWidget();
@@ -39,6 +48,12 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ObjectiveAdded(ASBZObjective* Objective);
+    
+    UFUNCTION(BlueprintCallable)
+    void CheckDelayPausedAnimation(UWidgetAnimation* InAnimation);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnPausedChanged(bool bInIsPaused);
     
 };
 
