@@ -16,6 +16,7 @@ USBZBaseInteractableComponent::USBZBaseInteractableComponent(const FObjectInitia
     this->bOverrideScreenInteractAngle = false;
     this->bOverrideScreenInteractPendingDelay = false;
     this->bIsRequirementsCheckedEveryTick = false;
+    this->bIsHidden = false;
     this->ScreenInteractDistance = 1000.00f;
     this->MinScreenInteractDegrees = 30.00f;
     this->MinScreenInteractDot = 0.87f;

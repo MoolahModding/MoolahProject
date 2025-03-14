@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZMaskType.h"
 #include "SBZCosmeticsDataAsset.h"
 #include "SBZMaskMouldData.generated.h"
 
+class UAnimMontage;
 class USkeletalMesh;
-class UStaticMesh;
-class UTexture2D;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZMaskMouldData : public USBZCosmeticsDataAsset {
@@ -13,16 +13,34 @@ class STARBREEZE_API USBZMaskMouldData : public USBZCosmeticsDataAsset {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UStaticMesh* StaticMesh;
+    bool bIsTypeOverridden;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USkeletalMesh* SkeletalMesh;
+    ESBZMaskType TypeOverride;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UTexture2D> BaseTexture;
+    FName EquipMorphTargetName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<UTexture2D> NormalTexture;
+    FName UnequipMorphTargetName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USkeletalMesh> SkeletalMesh;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USkeletalMesh> StrapMesh;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UAnimMontage> EquipAnimationCharacterFP;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UAnimMontage> EquipAnimationCharacterTP;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UAnimMontage> EquipAnimationFP;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<UAnimMontage> EquipAnimationTP;
     
 public:
     USBZMaskMouldData();

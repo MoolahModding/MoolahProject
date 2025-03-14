@@ -1,8 +1,8 @@
 #include "SBZGameUserSettings.h"
 
 USBZGameUserSettings::USBZGameUserSettings() {
-    this->SBZVersion = 5;
-    this->ReflexMode = ESBZReflexMode::On;
+    this->bUseVSync = true;
+    this->SBZVersion = 6;
     this->CameraVerticalFoV = 90;
     this->FramerateMode = ESBZFramerateMode::Performance;
     this->Brightness = 1.00f;
@@ -10,43 +10,46 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->Gamma = 1.00f;
     this->ColorBlindMode = EColorVisionDeficiency::NormalVision;
     this->ColorBlindStrength = 0.50f;
-    this->bUseMotionBlur = true;
+    this->bUseMotionBlur = false;
     this->bUseDepthOfField = false;
-    this->bUseChromaticAberration = true;
+    this->bUseChromaticAberration = false;
     this->AntiAliasingMode = ESBZAntiAliasingMode::Performance;
-    this->UpscalingMode = ESBZUpscalingMode::Quality;
-    this->UpscalingSharpness = 0.05f;
-    this->Upscaler = ESBZUpscaler::DLSSSR;
+    this->UpscalingMode = ESBZUpscalingMode::None;
+    this->UpscalingSharpness = 0.20f;
+    this->Upscaler = ESBZUpscaler::None;
+    this->LagReduction = ESBZLagReduction::None;
+    this->LagReductionMode = ESBZLagReductionMode::On;
     this->FrameInterpolator = ESBZFrameInterpolator::None;
     this->CapsuleShadowQuality = 3;
     this->bUseOutlines = true;
     this->bUseSubtitles = true;
     this->SubtitlesSize = 16;
-    this->bUseFPSDisplay = false;
+    this->bUseFPSDisplay = true;
     this->bUseReticle = true;
     this->CrosshairsBarWidth = 2.00f;
     this->CrosshairsBarLength = 8.00f;
     this->CrosshairsDotSize = 2.00f;
-    this->MinCrosshairsScale = 2.00f;
-    this->MaxCrosshairsScale = 48.00f;
+    this->bCrosshairsShowAccuracy = true;
+    this->CrosshairsCenterGap = 4.00f;
     this->bUseHitIndicators = true;
     this->HitIndicatorScale = 32.00f;
     this->bEnableStoryVideoButtons = false;
-    this->LobbyType = ESBZOnlineJoinType::Private;
-    this->TacticType = ESBZOnlineTacticType::Default;
+    this->LobbyType = ESBZOnlineJoinType::Default;
+    this->TacticType = ESBZOnlineTacticType::Loud;
     this->DropInType = ESBZOnlineDropInType::Default;
     this->MatchmakingDifficulty = ESBZDifficulty::Default;
-    this->MasterVolume = 100.00f;
-    this->MusicVolume = 0.00f;
-    this->VOVolume = 75.00f;
-    this->SFXVolume = 100.00f;
+    this->MasterVolume = 65.00f;
+    this->MusicVolume = 65.00f;
+    this->VOVolume = 100.00f;
+    this->OperatorVOVolume = 100.00f;
+    this->SFXVolume = 65.00f;
     this->bVoIPEnabled = true;
     this->bPushToTalkEnabled = false;
     this->VoipVolume = 100.00f;
     this->VoipMicVolume = 100.00f;
-    this->CinematicVolume = 100.00f;
-    this->bUseContractorAudioBriefing = false;
-    this->MouseSensitivityMultiplier = 1.00f;
+    this->CinematicVolume = 65.00f;
+    this->bUseContractorAudioBriefing = true;
+    this->MouseSensitivityMultiplier = 3.00f;
     this->bUseMouseSmoothing = true;
     this->bIsGamepadLookSensitivityCurveEnabled = true;
     this->GamepadLookAccelerationMultiplier = 3.00f;
@@ -64,7 +67,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->bIsHoldToSlide = false;
     this->bUseSwitchWeaponAutomatically = true;
     this->bIsChatDisabled = false;
-    this->bIsCrossplayDisabled = false;
+    this->bIsCrossplayDisabled = true;
     this->MouseSensitivity = 0.07f;
     this->bUseHoldForTabMenu = false;
     this->bIsRememberSkipIntroSequence = true;
@@ -73,16 +76,16 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->ActionKeyboardBindings.AddDefaulted(34);
     this->GamepadBindingsPreset = 0;
     this->PopupsShownBitmask = 2;
-    this->AdapterName = TEXT("NVIDIA GeForce RTX 3060");
-    this->CPUPerfIndex = 228.93f;
-    this->GPUPerfIndex = 276.45f;
-    this->OptimalViewDistanceQuality = 2;
-    this->OptimalShadowQuality = 2;
-    this->OptimalOptimalPostProcessQuality = 2;
-    this->OptimalTextureQuality = 2;
-    this->OptimalEffectsQuality = 2;
-    this->OptimalFoliageQuality = 2;
-    this->OptimalShadingQuality = 2;
+    this->AdapterName = TEXT("AMD Radeon RX 7800 XT");
+    this->CPUPerfIndex = 222.61f;
+    this->GPUPerfIndex = 844.85f;
+    this->OptimalViewDistanceQuality = 3;
+    this->OptimalShadowQuality = 3;
+    this->OptimalOptimalPostProcessQuality = 3;
+    this->OptimalTextureQuality = 3;
+    this->OptimalEffectsQuality = 3;
+    this->OptimalFoliageQuality = 3;
+    this->OptimalShadingQuality = 3;
     this->GameInstance = NULL;
 }
 
@@ -102,15 +105,6 @@ void USBZGameUserSettings::SetVideoToDefaults() {
 }
 
 void USBZGameUserSettings::SetUserInterfaceToDefaults() {
-}
-
-void USBZGameUserSettings::SetUpscalingSharpness(float Sharpness) {
-}
-
-void USBZGameUserSettings::SetUpscalingMode(ESBZUpscalingMode Mode) {
-}
-
-void USBZGameUserSettings::SetUpscaler(ESBZUpscaler Type) {
 }
 
 void USBZGameUserSettings::SetTelemetryEnabled(bool bIsEnabled) {
@@ -155,6 +149,9 @@ void USBZGameUserSettings::SetPopupShown(ESBZPopupType PopupType, bool bIsShown)
 void USBZGameUserSettings::SetOutlinesEnabled(bool bEnable) {
 }
 
+void USBZGameUserSettings::SetOperatorVOVolume(float Volume) {
+}
+
 void USBZGameUserSettings::SetMusicVolume(float Volume) {
 }
 
@@ -168,12 +165,6 @@ void USBZGameUserSettings::SetMouseSensitivity(float Sensitivity) {
 }
 
 void USBZGameUserSettings::SetMotionBlurEnabled(bool bEnable) {
-}
-
-void USBZGameUserSettings::SetMinCrosshairsScale(float Scale) {
-}
-
-void USBZGameUserSettings::SetMaxCrosshairsScale(float Scale) {
 }
 
 void USBZGameUserSettings::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty) {
@@ -242,9 +233,6 @@ void USBZGameUserSettings::SetGamepadHorizontalSensitivityMultiplier(float Sensi
 void USBZGameUserSettings::SetGamepadBindingsPreset(int32 Preset) {
 }
 
-void USBZGameUserSettings::SetFrameInterpolator(ESBZFrameInterpolator Type) {
-}
-
 void USBZGameUserSettings::SetFPSDisplayEnabled(bool bEnable) {
 }
 
@@ -263,6 +251,9 @@ void USBZGameUserSettings::SetCustomVideoToDefaults() {
 void USBZGameUserSettings::SetCrossplayDisabled(bool bDisable) {
 }
 
+void USBZGameUserSettings::SetCrosshairsShowAccuracy(bool bShowAccuracy) {
+}
+
 void USBZGameUserSettings::SetCrosshairSettings(const FSBZCrosshairSettings& CrosshairSettings) {
 }
 
@@ -270,6 +261,9 @@ void USBZGameUserSettings::SetCrosshairsDotSize(float Size) {
 }
 
 void USBZGameUserSettings::SetCrosshairsDotColor(FLinearColor Color) {
+}
+
+void USBZGameUserSettings::SetCrosshairsCenterGap(float Gap) {
 }
 
 void USBZGameUserSettings::SetCrosshairsBarWidth(float Width) {
@@ -312,9 +306,6 @@ void USBZGameUserSettings::SetBrightness(float Value) {
 }
 
 void USBZGameUserSettings::SetAudioToDefaults() {
-}
-
-void USBZGameUserSettings::SetAntiAliasingMode(ESBZAntiAliasingMode Mode) {
 }
 
 bool USBZGameUserSettings::IsVoIPEnabled() const {
@@ -409,18 +400,6 @@ float USBZGameUserSettings::GetVoIPMicVolume() const {
     return 0.0f;
 }
 
-float USBZGameUserSettings::GetUpscalingSharpness() const {
-    return 0.0f;
-}
-
-ESBZUpscalingMode USBZGameUserSettings::GetUpscalingMode() const {
-    return ESBZUpscalingMode::None;
-}
-
-ESBZUpscaler USBZGameUserSettings::GetUpscaler() const {
-    return ESBZUpscaler::None;
-}
-
 bool USBZGameUserSettings::GetTelemetryEnabled() const {
     return false;
 }
@@ -453,6 +432,10 @@ FKey USBZGameUserSettings::GetPrimaryKeyboardBinding(FName AxisOrActionName, flo
     return FKey{};
 }
 
+float USBZGameUserSettings::GetOperatorVOVolume() const {
+    return 0.0f;
+}
+
 float USBZGameUserSettings::GetMusicVolume() const {
     return 0.0f;
 }
@@ -462,14 +445,6 @@ float USBZGameUserSettings::GetMouseSensitivityMultiplier() const {
 }
 
 float USBZGameUserSettings::GetMouseSensitivity() const {
-    return 0.0f;
-}
-
-float USBZGameUserSettings::GetMinCrosshairsScale() const {
-    return 0.0f;
-}
-
-float USBZGameUserSettings::GetMaxCrosshairsScale() const {
     return 0.0f;
 }
 
@@ -525,12 +500,12 @@ int32 USBZGameUserSettings::GetGamepadBindingsPreset() const {
     return 0;
 }
 
-ESBZFrameInterpolator USBZGameUserSettings::GetFrameInterpolator() const {
-    return ESBZFrameInterpolator::None;
-}
-
 ESBZOnlineDropInType USBZGameUserSettings::GetDropInType() const {
     return ESBZOnlineDropInType::Default;
+}
+
+bool USBZGameUserSettings::GetCrosshairsShowAccuracy() const {
+    return false;
 }
 
 FSBZCrosshairSettings USBZGameUserSettings::GetCrosshairSettings() {
@@ -543,6 +518,10 @@ float USBZGameUserSettings::GetCrosshairsDotSize() const {
 
 FLinearColor USBZGameUserSettings::GetCrosshairsDotColor() const {
     return FLinearColor{};
+}
+
+float USBZGameUserSettings::GetCrosshairsCenterGap() const {
+    return 0.0f;
 }
 
 float USBZGameUserSettings::GetCrosshairsBarWidth() const {
@@ -587,10 +566,6 @@ int32 USBZGameUserSettings::GetCameraHorizontalFoV(bool bUseLastConfirmedResolut
 
 float USBZGameUserSettings::GetBrightness() const {
     return 0.0f;
-}
-
-ESBZAntiAliasingMode USBZGameUserSettings::GetAntiAliasingMode() const {
-    return ESBZAntiAliasingMode::Off;
 }
 
 USBZGameUserSettings* USBZGameUserSettings::Get() {

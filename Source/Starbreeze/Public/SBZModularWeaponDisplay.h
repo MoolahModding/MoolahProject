@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/MeshComponent.h"
 #include "SBZEquippableConfig.h"
 #include "SBZEquippablePartConfigGroup.h"
 #include "SBZModularWeaponDisplay.generated.h"
 
-class UMeshComponent;
 class USBZBaseWeaponData;
 class USBZEquippablePartDataAsset;
 class USBZModularMeshComponent;

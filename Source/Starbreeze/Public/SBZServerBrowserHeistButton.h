@@ -35,6 +35,9 @@ protected:
     bool bIsFriendHeist;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FString FirstPlatformPurchaseUrl;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsHeistButtonInnerNavigated;
     
 public:
@@ -42,6 +45,17 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void ToggleHeistButtonInnerNavigation(bool bEnableInnerNavigation);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool ShouldBeJoinedThroughFriend();
+    
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnSessionChangedPopupClosed(FName ActionName);
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void JoinMatchThroughFriend();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetHeistSessionID() const;

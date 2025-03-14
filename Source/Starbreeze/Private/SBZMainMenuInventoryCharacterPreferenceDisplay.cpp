@@ -9,6 +9,9 @@ USBZMainMenuInventoryCharacterPreferenceDisplay::USBZMainMenuInventoryCharacterP
 void USBZMainMenuInventoryCharacterPreferenceDisplay::SetActiveIndex(int32 NewActiveIndex) {
 }
 
+void USBZMainMenuInventoryCharacterPreferenceDisplay::OnGameInstallStateChanged(bool bIsInstallPending) {
+}
+
 void USBZMainMenuInventoryCharacterPreferenceDisplay::NativeOnPreferredCharacterSlotButtonSelected(USBZCharacterPreferenceCharacterSlotButton* SelectedPreferredCharacterSlotButton) {
 }
 

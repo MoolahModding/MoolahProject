@@ -13,5 +13,6 @@ enum class ESBZMetaEventType : uint8 {
     Halloween,
     AprilsFool,
     Midsummer,
+    FreeDlc,
 };
 

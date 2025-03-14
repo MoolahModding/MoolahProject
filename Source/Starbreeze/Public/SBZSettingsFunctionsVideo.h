@@ -4,7 +4,8 @@
 #include "ESBZAntiAliasingMode.h"
 #include "ESBZFrameInterpolator.h"
 #include "ESBZFramerateMode.h"
-#include "ESBZReflexMode.h"
+#include "ESBZLagReduction.h"
+#include "ESBZLagReductionMode.h"
 #include "ESBZUpscaler.h"
 #include "ESBZUpscalingMode.h"
 #include "SBZSettingsFunctions.h"
@@ -45,9 +46,6 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetResolution(UObject* WorldContextObject, FIntPoint Resolution);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
-    static void SetReflexMode(UObject* WorldContextObject, ESBZReflexMode Mode);
-    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetRecommendedQuality(UObject* WorldContextObject);
     
@@ -59,6 +57,15 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetMaterialsQuality(UObject* WorldContextObject, int32 Value);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetLagReductionMode(UObject* WorldContextObject, ESBZLagReductionMode Mode);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetLagReduction(UObject* WorldContextObject, ESBZLagReduction Mode);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetGPUCrashDebuggingEnabled(UObject* WorldContextObject, bool bEnable);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetGamma(UObject* WorldContextObject, float Gamma);
@@ -77,9 +84,6 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetEffectsQuality(UObject* WorldContextObject, int32 Value);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void SetDLSSGEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetDepthOfFieldEnabled(UObject* WorldContextObject, bool bEnabled);
@@ -118,10 +122,7 @@ public:
     static bool IsMotionBlurEnabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool IsDLSSGEnabledByDefault(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool IsDLSSGEnabled(UObject* WorldContextObject);
+    static bool IsGPUCrashDebuggingEnabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsDepthOfFieldEnabledByDefault(UObject* WorldContextObject);
@@ -159,14 +160,17 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FIntPoint GetResolution(UObject* WorldContextObject);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
-    static ESBZReflexMode GetReflexMode(UObject* WorldContextObject);
-    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static int32 GetPostProcessingQuality(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static int32 GetMaterialsQuality(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static ESBZLagReductionMode GetLagReductionMode(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static ESBZLagReduction GetLagReduction(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetGamma(UObject* WorldContextObject);
@@ -210,14 +214,20 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FIntPoint GetDefaultResolution(UObject* WorldContextObject);
     
-    UFUNCTION(meta=(WorldContext="WorldContextObject"))
-    static ESBZReflexMode GetDefaultReflexMode(UObject* WorldContextObject);
-    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static int32 GetDefaultPostProcessingQuality(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static int32 GetDefaultMaterialsQuality(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static ESBZLagReductionMode GetDefaultLagReductionMode(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static ESBZLagReduction GetDefaultLagReduction(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool GetDefaultIsGPUCrashDebuggingEnabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultGamma(UObject* WorldContextObject);
@@ -277,13 +287,16 @@ public:
     static bool GetButtonVisibilityUpscalingMode(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool GetButtonVisibilityReflexMode(UObject* WorldContextObject);
+    static bool GetButtonVisibilityLagReductionMode(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool GetButtonVisibilityLagReduction(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool GetButtonVisibilityGPUCrashDebugging(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool GetButtonVisibilityFramerateMode(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static bool GetButtonVisibilityDLSSG(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetBrightness(UObject* WorldContextObject);

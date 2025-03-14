@@ -51,6 +51,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float PendingOnScreenTime;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZInteractDisplayDataCollection ModifiedSelected;
+    
 public:
     USBZPlayerInteractorComponent(const FObjectInitializer& ObjectInitializer);
 

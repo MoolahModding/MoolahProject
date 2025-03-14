@@ -8,11 +8,13 @@
 #include "Templates/SubclassOf.h"
 #include "PD3AssaultManager.generated.h"
 
+class AActor;
 class APD3PawnSpawnGroup;
 class APawn;
 class ASBZSpline;
 class UPD3AssaultManager;
 class UPD3AssaultSettings;
+class UPD3SpawnSquadPawn;
 class USBZAISquadOrder;
 class USBZAssaultVehicleSpawnerData;
 class USBZSpawnManager;
@@ -92,6 +94,9 @@ public:
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UPD3AssaultManager* Get(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void ForceSpawnSquad(const TArray<UPD3SpawnSquadPawn*>& PawnArray, APD3PawnSpawnGroup* SpawnGroup, bool bIsTypeLimitUsed, bool bIsTypeCooldownUsed, const AActor* TargetActor, bool bIsOutsideAssaultAllowed);
     
 };
 

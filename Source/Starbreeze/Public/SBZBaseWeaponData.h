@@ -15,6 +15,7 @@ class UCurveTable;
 class UCurveVector;
 class USBZAIScorer;
 class USBZHeadbobData;
+class USBZHelmetPopperData;
 class USBZWeaponPartSlot;
 class USBZWeaponPatternAreaData;
 class USBZWeaponProgressionData;
@@ -97,9 +98,6 @@ public:
     USBZWeaponWallReactionData* WallReactionData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float OverkillProgressionProgress;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FTransform CrouchHandRigTransform;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -152,6 +150,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<USBZWeaponPatternAreaData*, FSBZWeaponPatternAreaDefinition> PatternAreas;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZHelmetPopperData* HelmetPopperData;
     
     USBZBaseWeaponData();
 

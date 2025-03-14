@@ -6,7 +6,7 @@
 class UObject;
 
 UCLASS(Blueprintable)
-class USBZSettingsFunctionsGameplay : public USBZSettingsFunctions {
+class STARBREEZE_API USBZSettingsFunctionsGameplay : public USBZSettingsFunctions {
     GENERATED_BODY()
 public:
     USBZSettingsFunctionsGameplay();

@@ -7,6 +7,7 @@
 #include "ESBZPlaceableChargeState.h"
 #include "SBZOnPlaceableReachedTargetDelegateDelegate.h"
 #include "SBZPlaceableBase.h"
+#include "SBZSpawnClosetDestructionInterface.h"
 #include "Templates/SubclassOf.h"
 #include "SBZPlaceableCharges.generated.h"
 
@@ -19,7 +20,7 @@ class USBZInteractorComponent;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Abstract, Blueprintable)
-class ASBZPlaceableCharges : public ASBZPlaceableBase {
+class STARBREEZE_API ASBZPlaceableCharges : public ASBZPlaceableBase, public ISBZSpawnClosetDestructionInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -125,5 +126,7 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_Fall(const FVector& InStartLocation, const FVector& InTargetLocation, const FQuat& InTargetQuat);
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

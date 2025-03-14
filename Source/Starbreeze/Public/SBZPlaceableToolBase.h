@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
+#include "SBZSpawnClosetDestructionInterface.h"
 #include "SBZTool.h"
 #include "SBZPlaceableToolBase.generated.h"
 
@@ -10,7 +11,7 @@ class USBZInteractableComponent;
 class USBZInteractorComponent;
 
 UCLASS(Blueprintable)
-class ASBZPlaceableToolBase : public ASBZTool {
+class ASBZPlaceableToolBase : public ASBZTool, public ISBZSpawnClosetDestructionInterface {
     GENERATED_BODY()
 public:
 protected:
@@ -36,5 +37,7 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bIsLocallyControlledInteractor);
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

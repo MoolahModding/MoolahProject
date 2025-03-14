@@ -9,7 +9,6 @@
 #include "SBZAnalyticsManager.generated.h"
 
 class USBZAnalyticsProvider;
-class USBZInfamyManager;
 
 UCLASS(Blueprintable)
 class USBZAnalyticsManager : public UObject {
@@ -41,7 +40,7 @@ public:
     void SendNotOwningHeistDetected(const FString& AccelByteUserId, const ESBZNotOwningHeistPolicyType NotOwningHeistAction, const bool bIsActionSuccessful, const FString& Description, const FString& AdditionalInformation);
     
     UFUNCTION(BlueprintCallable)
-    void SendInfamyChanged(USBZInfamyManager* InfamyManager, int32 NewInfamyExperience, int32 PreviousInfamyExperience);
+    void SendInfamyChanged(const int32 NewInfamyExperience, const int32 PreviousInfamyExperience, const int32 NewRenownLevel, const int32 PreviousRenownLevel);
     
     UFUNCTION(BlueprintCallable)
     void SendEntitlementsLoadedEvent(const FSBZEntitlementsTelemetryPayload& Payload);

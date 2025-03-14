@@ -12,6 +12,9 @@ public:
     TArray<FSBZPlayerItemInfo> OverkillWeaponInventoryItemArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZPlayerItemInfo> OverskillLoadoutInventoryItemArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZPlayerItemInfo> PlaceableInventoryItemArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

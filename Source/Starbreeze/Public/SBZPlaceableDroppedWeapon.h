@@ -4,6 +4,7 @@
 #include "SBZPlaceableDroppedWeapon.generated.h"
 
 class ASBZWeapon;
+class USBZSimplePhysicsCorrector;
 class USceneComponent;
 
 UCLASS(Blueprintable)
@@ -16,6 +17,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZWeapon* AttachedWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZSimplePhysicsCorrector* PhysicsCorrector;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     int32 AmmoLoadedLeft;

@@ -16,7 +16,7 @@ public:
     USBZMissionResultLibrary();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static int32 GetTotalNumberOfSecuredBags(const FSBZEndMissionResultData& Resultdata);
+    static int32 GetTotalNumberOfSecuredBags(const FSBZEndMissionResultData& Resultdata, bool bCountSecretBags);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FSBZPlayerEndMissionResultData GetPlayerData(const FSBZEndMissionResultData& ResultData, int32 PlayerId);

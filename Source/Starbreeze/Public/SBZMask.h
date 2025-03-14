@@ -6,7 +6,6 @@
 
 class UAnimMontage;
 class USkeletalMeshComponent;
-class UStaticMeshComponent;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API ASBZMask : public AActor {
@@ -15,9 +14,6 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USkeletalMeshComponent* MaskSkeletalMeshComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UStaticMeshComponent* MaskStaticMeshComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USkeletalMeshComponent* StrapSkeletalMeshComponent;

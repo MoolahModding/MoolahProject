@@ -1,11 +1,12 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "Engine/DataAsset.h"
 #include "ESBZDamageWeight.h"
+#include "ESBZImpactConfigType.h"
 #include "ESBZMeleeAttackCategory.h"
 #include "ESBZMeleeImpactType.h"
 #include "SBZHurtReactionDataInterface.h"
+#include "SBZMeleeHitBoxData.h"
 #include "Templates/SubclassOf.h"
 #include "SBZMeleeDamageData.generated.h"
 
@@ -27,15 +28,6 @@ public:
     float HurtReactionWeightModifier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector HitboxSize;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector HitboxViewOffset;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float HitboxViewRotation;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverHealDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -54,9 +46,6 @@ public:
     float Cooldown;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 MaxTargetsPerHit;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaximumAngleDifference;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -69,7 +58,13 @@ public:
     ESBZMeleeAttackCategory AttackCategory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZImpactConfigType ImpactConfigType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float Duration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZMeleeHitBoxData HitBoxData;
     
     USBZMeleeDamageData();
 

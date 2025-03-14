@@ -19,6 +19,7 @@ class USBZMaskPreconfigDatabase;
 class USBZMaskPresetDatabase;
 class USBZMaskVFXDatabase;
 class USBZNewsItemDatabase;
+class USBZOverskillLoadoutDatabase;
 class USBZPayDayCreditDatabase;
 class USBZPlaceableDatabase;
 class USBZPlayerCharacterDatabase;
@@ -55,6 +56,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZWeaponDatabase> OverkillWeapons;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftObjectPtr<USBZOverskillLoadoutDatabase> OverskillLoadouts;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSoftObjectPtr<USBZMaskDatabase> Masks;

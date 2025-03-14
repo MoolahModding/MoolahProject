@@ -6,7 +6,7 @@ USBZKickingManager::USBZKickingManager() {
     this->bWasClientRecentlyKicked = false;
 }
 
-void USBZKickingManager::KickPlayer(const UObject* WorldContextObject, FUniqueNetIdRepl PlayerIdToKick, ESBZKickingMode ModeKick) {
+void USBZKickingManager::KickPlayer(const UObject* WorldContextObject, const FUniqueNetIdRepl& PlayerIdToKick, ESBZKickingMode ModeKick) {
 }
 
 

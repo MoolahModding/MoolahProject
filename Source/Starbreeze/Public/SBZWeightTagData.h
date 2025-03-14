@@ -3,6 +3,8 @@
 #include "GameplayTagContainer.h"
 #include "SBZWeightTagData.generated.h"
 
+class USBZPlayerMovementWeightAsset;
+
 USTRUCT(BlueprintType)
 struct FSBZWeightTagData {
     GENERATED_BODY()
@@ -21,6 +23,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeightTierOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZPlayerMovementWeightAsset* WeightOverride;
     
     STARBREEZE_API FSBZWeightTagData();
 };

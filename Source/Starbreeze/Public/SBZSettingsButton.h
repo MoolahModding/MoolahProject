@@ -21,6 +21,12 @@ protected:
     FText SettingNameLocalized;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText SettingDescriptionLocalized;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText SettingDescriptionSecondaryLocalized;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCanResetSetting;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -51,6 +57,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetSettingHelperPanelName(const FName& InSettingHelperPanelName);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetSettingDescriptionSecondaryLocalized(const FText& InSettingDescriptionSecondaryLocalized);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetSettingDescriptionLocalized(const FText& InSettingDescriptionLocalized);
     
     UFUNCTION(BlueprintCallable)
     void SetSettingCategoryName(const FName& InSettingCategoryName);

@@ -137,6 +137,12 @@ void ASBZAICharacter::OnPredictedEndInteraction(USBZBaseInteractableComponent* I
 void ASBZAICharacter::OnPredictedAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled) {
 }
 
+void ASBZAICharacter::OnOperatorSkillUsed(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence) {
+}
+
+void ASBZAICharacter::OnOperatorSkillDeactivated(bool bIsBaseActive, bool bIsUpgrade1, bool bIsUpgrade5, bool bIsUpgrade3) {
+}
+
 void ASBZAICharacter::OnNegotiationTradeTypeChanged(ESBZNegotiationTradeType OldType, ESBZNegotiationTradeType NewType) {
 }
 
@@ -174,6 +180,9 @@ void ASBZAICharacter::Multicast_SetAsObjectiveState_Implementation(uint8 NewAsOb
 }
 
 void ASBZAICharacter::Multicast_RoomScanning_Implementation(ESBZRoomScanningType RoomScanningType, int32 AnimationIndex) {
+}
+
+void ASBZAICharacter::Multicast_RemoveHacked_Implementation() {
 }
 
 void ASBZAICharacter::Multicast_HostageState_Implementation(uint8 InHostageState) {

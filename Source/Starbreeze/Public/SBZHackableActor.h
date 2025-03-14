@@ -12,8 +12,8 @@
 #include "SBZGameplayEffectData.h"
 #include "SBZHackableActorDelegateDelegate.h"
 #include "SBZHackableActorInterruptedDelegateDelegate.h"
+#include "SBZHackableActorReplicatedData.h"
 #include "SBZHackableDisplayText.h"
-#include "SBZHackableProgressData.h"
 #include "SBZObjectiveInformationInterface.h"
 #include "SBZRoomVolumeInterface.h"
 #include "SBZHackableActor.generated.h"
@@ -93,6 +93,12 @@ protected:
     ESBZHackableActorUnlockMode UnlockMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float StealthDurationSeconds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LoudDurationSeconds;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DurationSeconds;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -113,11 +119,20 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText CustomSuccessText;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_CurrentState, meta=(AllowPrivateAccess=true))
-    ESBZHackableActorState CurrentState;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsResetToGenericScreen;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ProgressData, meta=(AllowPrivateAccess=true))
-    FSBZHackableProgressData ProgressData;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bCanResetIfHackCompleted;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsResetOnLoud;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZHackableActorState ResetToState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ReplicatedData, meta=(AllowPrivateAccess=true))
+    FSBZHackableActorReplicatedData ReplicatedData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<ASBZRoomVolume*> RoomVolumes;
@@ -139,12 +154,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CodeEmailIndex;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_DisplayTextIndex, meta=(AllowPrivateAccess=true))
-    uint8 CurrentDisplayTextIndex;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsDisplayTextAdded, meta=(AllowPrivateAccess=true))
-    bool bIsDisplayTextAdded;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FText ObjectiveInfo;
@@ -169,23 +178,14 @@ public:
     void SetInteractionEnabled(bool bEnabled);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
-    void ResetHackableActor(const float InDuration, bool bKeepCustomMessage, ESBZHackableActorState ResetState);
+    void ResetHackableActor(ESBZHackableActorState ResetState);
     
 protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_UnlockMode();
     
     UFUNCTION(BlueprintCallable)
-    void OnRep_ProgressData();
-    
-    UFUNCTION(BlueprintCallable)
-    void OnRep_IsDisplayTextAdded();
-    
-    UFUNCTION(BlueprintCallable)
-    void OnRep_DisplayTextIndex();
-    
-    UFUNCTION(BlueprintCallable)
-    void OnRep_CurrentState(ESBZHackableActorState OldState);
+    void OnRep_ReplicatedData(const FSBZHackableActorReplicatedData& OldData);
     
     UFUNCTION(BlueprintCallable)
     void OnInteractionStateChanged(const USBZBaseInteractableComponent* InInteractableComponent, bool bInNewState);
@@ -194,16 +194,13 @@ protected:
     void OnAckCompleteInteraction(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetUpdateFrequency(float NewUpdateFrequency);
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetUnlockMode(ESBZHackableActorUnlockMode InUnlockMode);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetState(ESBZHackableActorState NewState);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_ResetHackableActor(bool bKeepCustomMessage);
+    void Multicast_ResetHackableActor(ESBZHackableActorState ResetState);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_AddDisplayText();
@@ -211,6 +208,9 @@ protected:
 public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void InterruptHacking(ESBZHackableActorInterruptReason InReason);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetDuration() const;
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

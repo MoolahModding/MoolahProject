@@ -19,6 +19,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AimAssistSpeed;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MaximumAimAssistAngleDifferenceWhenActive;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MaximumAimAssistDistance;
+    
     USBZPlayerMeleeDamageData();
 
 };

@@ -12,7 +12,7 @@ ASBZStaticVehicle::ASBZStaticVehicle(const FObjectInitializer& ObjectInitializer
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->AlarmStartEvent = NULL;
     this->AlarmStopEvent = NULL;
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZStaticVehicle::TryActivateAlarm_Implementation() {

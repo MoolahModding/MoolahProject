@@ -4,7 +4,13 @@
 UPD3OverkillWeaponRequestWidget::UPD3OverkillWeaponRequestWidget() {
     this->Visibility = ESlateVisibility::Visible;
     this->Widget_AbilityAction = NULL;
+    this->OverkillProgressionScale = 0.00f;
+    this->bIsOverskillLoadoutTicking = false;
+    this->bIsReady = false;
 }
+
+
+
 
 
 

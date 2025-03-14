@@ -3,6 +3,7 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZOverskillData.generated.h"
 
+class USBZGameplayAbility;
 class USBZSkillData;
 
 UCLASS(Blueprintable)
@@ -14,6 +15,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZSkillData*> SkillArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MaxActivationThreshold;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsActivatedOnce;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<USBZGameplayAbility> OverskillAbilityClass;
     
     USBZOverskillData();
 

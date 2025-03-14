@@ -65,6 +65,9 @@ public:
     FGameplayTagContainer StunTagContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer OperatorHackedTagContainer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName BulletMagnetismSocketName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -399,6 +402,14 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnPredictedAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
     
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnOperatorSkillUsed(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOperatorSkillDeactivated(bool bIsBaseActive, bool bIsUpgrade1, bool bIsUpgrade5, bool bIsUpgrade3);
+    
+private:
     UFUNCTION(BlueprintCallable)
     void OnNegotiationTradeTypeChanged(ESBZNegotiationTradeType OldType, ESBZNegotiationTradeType NewType);
     
@@ -444,6 +455,9 @@ public:
     void Multicast_RoomScanning(ESBZRoomScanningType RoomScanningType, int32 AnimationIndex);
     
 private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_RemoveHacked();
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_HostageState(uint8 InHostageState);
     

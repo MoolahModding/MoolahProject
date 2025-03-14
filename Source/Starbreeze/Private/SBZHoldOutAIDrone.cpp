@@ -1,17 +1,13 @@
 #include "SBZHoldOutAIDrone.h"
 #include "AkComponent.h"
-#include "Engine/EngineTypes.h"
 #include "Net/UnrealNetwork.h"
-#include "SBZAIDroneMovementComponent.h"
 #include "SBZAbilitySystemComponent.h"
 #include "SBZHoldOutDroneVoiceComponent.h"
 #include "SBZHoldOutEventReactorComponent.h"
 #include "SBZHoldOutFogApplierComponent.h"
-#include "SBZSkeletalMeshComponentBudgeted.h"
 #include "Templates/SubclassOf.h"
 
-ASBZHoldOutAIDrone::ASBZHoldOutAIDrone(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0")).SetDefaultSubobjectClass<USBZAIDroneMovementComponent>(TEXT("CharMoveComp"))) {
-    this->AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+ASBZHoldOutAIDrone::ASBZHoldOutAIDrone(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->FollowDroneObjective = NULL;
     this->AbilitySystemComponent = CreateDefaultSubobject<USBZAbilitySystemComponent>(TEXT("SBZAbilitySystemComponent"));
     this->FogApplierComponent = CreateDefaultSubobject<USBZHoldOutFogApplierComponent>(TEXT("SBZHoldOutFogApplierComponent"));
@@ -20,12 +16,12 @@ ASBZHoldOutAIDrone::ASBZHoldOutAIDrone(const FObjectInitializer& ObjectInitializ
     this->VOCollection = NULL;
     this->AKComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->InitHoldOutAreaIndex = 0;
+    this->bIsEscapeArea = false;
     this->PayoutValue = 0;
     this->CurrentDifficulty = ESBZHoldOutModeDifficulty::Default;
-    this->CurrentHoldOutAreaIndex = -1;
-    const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
-    (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
-    this->AKComponent->SetupAttachment(RootComponent);
+    this->UnwrappedCurrentAreaIndex = -1;
+    this->TotalPayout = 0;
+    //this->AKComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZHoldOutAIDrone::StopOverrideFogSettings() {
@@ -73,6 +69,9 @@ void ASBZHoldOutAIDrone::OnAreaCompletedCallBack(bool bSuccess, ASBZHoldOutArea*
 void ASBZHoldOutAIDrone::Multicast_SpawnTagReactionsForTag_Implementation(const FGameplayTag& Tag, int32 OldTagCount, int32 TagCount) {
 }
 
+void ASBZHoldOutAIDrone::Multicast_SetTotalPayout_Implementation(int64 InTotalPayout) {
+}
+
 void ASBZHoldOutAIDrone::Multicast_SetCurrentHoldOutAreaIndex_Implementation(int32 InCurrentHoldOutAreaIndex) {
 }
 
@@ -82,12 +81,32 @@ void ASBZHoldOutAIDrone::Multicast_ApplyGamePlayEffectOnEnemies_Implementation(T
 void ASBZHoldOutAIDrone::MoveToNextHoldOutArea() {
 }
 
+bool ASBZHoldOutAIDrone::IsEscapeArea() {
+    return false;
+}
+
+int64 ASBZHoldOutAIDrone::GetTotalPayout() const {
+    return 0;
+}
+
+ASBZHoldOutArea* ASBZHoldOutAIDrone::GetNextArea(bool bExcludeEscapeAreas) const {
+    return NULL;
+}
+
 int32 ASBZHoldOutAIDrone::GetGameplayTagCount(const FGameplayTag& InTag) const {
+    return 0;
+}
+
+int32 ASBZHoldOutAIDrone::GetCurrentAreaIndex(bool bExcludeEscapeAreas) const {
     return 0;
 }
 
 ASBZHoldOutArea* ASBZHoldOutAIDrone::GetCurrentArea() const {
     return NULL;
+}
+
+int32 ASBZHoldOutAIDrone::GetAreaIndex(const ASBZHoldOutArea* Area, bool bExcludeEscapeAreas) const {
+    return 0;
 }
 
 void ASBZHoldOutAIDrone::ClearTagsForCurrentObjectives() {
@@ -100,7 +119,8 @@ void ASBZHoldOutAIDrone::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZHoldOutAIDrone, GameplayTagCounterArray);
-    DOREPLIFETIME(ASBZHoldOutAIDrone, CurrentHoldOutAreaIndex);
+    DOREPLIFETIME(ASBZHoldOutAIDrone, UnwrappedCurrentAreaIndex);
+    DOREPLIFETIME(ASBZHoldOutAIDrone, TotalPayout);
 }
 
 

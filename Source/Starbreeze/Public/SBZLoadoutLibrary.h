@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "ESBZEquippableLoadoutSlot.h"
+#include "SBZArmorConfig.h"
 #include "SBZEquippablePartConfigGroup.h"
 #include "SBZGloveInventorySlot.h"
 #include "SBZPlayerLoadoutConfig.h"
@@ -54,6 +55,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZInventoryBaseData* GetGloveData(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FSBZArmorConfig GetArmorConfigSlot(const UObject* WorldContextObject, int32 InArmorSlotIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetActivePlayerLoadoutIndex(const UObject* WorldContextObject);

@@ -14,7 +14,7 @@ class USBZInteractorComponent;
 class USBZVoiceCommentDataAsset;
 
 UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class USBZBaseInteractableComponent : public UActorComponent {
+class STARBREEZE_API USBZBaseInteractableComponent : public UActorComponent {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -71,6 +71,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bIsRequirementsCheckedEveryTick: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsHidden: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ScreenInteractDistance;

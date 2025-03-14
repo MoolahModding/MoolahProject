@@ -20,6 +20,7 @@ enum class ESBZImpactConfigType : uint8 {
     DebrisImpact,
     DebrisRolling,
     BagItem,
+    ThePunch,
     Last,
     First = Default,
 };

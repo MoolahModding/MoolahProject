@@ -13,5 +13,6 @@ enum class EPD3DefeatState : uint8 {
     InCustody,
     Subdued,
     CuffedSubdued,
+    EnragedSubdued,
 };
 

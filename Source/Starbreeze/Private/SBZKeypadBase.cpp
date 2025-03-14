@@ -1,15 +1,15 @@
 #include "SBZKeypadBase.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "SBZRenderTargetWidgetComponent.h"
 
 ASBZKeypadBase::ASBZKeypadBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->GuessedCode = 0;
     this->Inputs = 0;
     this->KeypadInteractableComponentArray.AddDefaulted(12);
     this->BaseKeypadMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BaseKeypadMesh"));
-    this->CodeWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("CodeWidget"));
+    this->CodeWidget = CreateDefaultSubobject<USBZRenderTargetWidgetComponent>(TEXT("CodeWidget"));
     this->LanternCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("LanternCapsule"));
     this->bIsInteractable = false;
     this->IncorrectCodeWaitTime = 20.00f;

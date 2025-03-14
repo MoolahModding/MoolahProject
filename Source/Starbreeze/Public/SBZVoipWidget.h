@@ -16,7 +16,7 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnPlayerTalkingChanged(FUniqueNetIdRepl PlayerId, bool IsTalking);
+    void OnPlayerTalkingChanged(const FUniqueNetIdRepl& PlayerId, bool IsTalking);
     
 };
 

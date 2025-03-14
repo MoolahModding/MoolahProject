@@ -2,15 +2,16 @@
 #include "CoreMinimal.h"
 #include "AITypes.h"
 #include "Navigation/PathFollowingComponent.h"
-#include "GameFramework/Character.h"
 #include "GameplayTagContainer.h"
 #include "GameplayTagContainer.h"
 #include "ESBZHoldOutModeDifficulty.h"
 #include "ESBZHoldOutObjectiveResult.h"
 #include "SBZAIConfigDPSData.h"
+#include "SBZAIDroneBase.h"
 #include "SBZGameplayTagCounterArray.h"
 #include "SBZGameplayTagCounterArrayOwnerInterface.h"
 #include "SBZHoldOutAreaCompleteDelegate.h"
+#include "SBZHoldOutAreaIndexChangedDelegate.h"
 #include "SBZHoldOutDifficultyIncreasedDelegate.h"
 #include "SBZHoldOutDroneFogSettings.h"
 #include "SBZHoldOutDroneMoveToAreaDelegate.h"
@@ -21,6 +22,7 @@
 #include "SBZHoldOutObjectiveResultDelegate.h"
 #include "SBZHoldOutObjectiveSelectedDelegate.h"
 #include "SBZHoldOutObjectiveStartedDelegate.h"
+#include "SBZHoldOutTotalPayoutChangedDelegate.h"
 #include "Templates/SubclassOf.h"
 #include "SBZHoldOutAIDrone.generated.h"
 
@@ -36,7 +38,7 @@ class USBZHoldOutFogApplierComponent;
 class USBZHoldOutObjectiveBase;
 
 UCLASS(Blueprintable)
-class ASBZHoldOutAIDrone : public ACharacter, public ISBZGameplayTagCounterArrayOwnerInterface, public ISBZHoldOutEventReactorReceiverInterface {
+class ASBZHoldOutAIDrone : public ASBZAIDroneBase, public ISBZGameplayTagCounterArrayOwnerInterface, public ISBZHoldOutEventReactorReceiverInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -59,6 +61,12 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZHoldOutDifficultyIncreased OnDifficultyIncreased;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZHoldOutAreaIndexChanged OnAreaIndexChanged;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZHoldOutTotalPayoutChanged OnTotalPayoutChanged;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -107,6 +115,9 @@ private:
     int32 InitHoldOutAreaIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsEscapeArea;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString PayoutLootName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -116,7 +127,10 @@ private:
     ESBZHoldOutModeDifficulty CurrentDifficulty;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
-    int32 CurrentHoldOutAreaIndex;
+    int32 UnwrappedCurrentAreaIndex;
+    
+    UPROPERTY(EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    int64 TotalPayout;
     
 public:
     ASBZHoldOutAIDrone(const FObjectInitializer& ObjectInitializer);
@@ -171,6 +185,9 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SpawnTagReactionsForTag(const FGameplayTag& Tag, int32 OldTagCount, int32 TagCount);
     
+    UFUNCTION(NetMulticast, Reliable)
+    void Multicast_SetTotalPayout(int64 InTotalPayout);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCurrentHoldOutAreaIndex(int32 InCurrentHoldOutAreaIndex);
     
@@ -182,10 +199,25 @@ public:
     void MoveToNextHoldOutArea();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEscapeArea();
+    
+    UFUNCTION(BlueprintPure)
+    int64 GetTotalPayout() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ASBZHoldOutArea* GetNextArea(bool bExcludeEscapeAreas) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGameplayTagCount(const FGameplayTag& InTag) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentAreaIndex(bool bExcludeEscapeAreas) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     ASBZHoldOutArea* GetCurrentArea() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetAreaIndex(const ASBZHoldOutArea* Area, bool bExcludeEscapeAreas) const;
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void ClearTagsForCurrentObjectives();

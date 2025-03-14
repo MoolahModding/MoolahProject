@@ -25,6 +25,10 @@ int32 USBZInfamyManager::GetExperienceForLevel(const int32 InLevel) const {
 void USBZInfamyManager::ClientGetProgressInfo(int32& OutProgressTowardsNextLevelUp, int32& OutPointsRequiredForNextLevelUp) {
 }
 
+int32 USBZInfamyManager::ClientGetPreviousRenownLevel() const {
+    return 0;
+}
+
 int32 USBZInfamyManager::ClientGetPreviousExperience() const {
     return 0;
 }

@@ -12,7 +12,6 @@
 
 class ASBZAICrewState;
 class ASBZCharacter;
-class ASBZPlayerCharacter;
 class ASBZSecurityCamera;
 class UGameplayEffect;
 class USBZAICrewEquipmentData;
@@ -102,7 +101,7 @@ private:
     USBZDialogDataAsset* SubduedDialog;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZPlayerCharacter* CurrentWard;
+    ASBZCharacter* CurrentWard;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsMaskOn;

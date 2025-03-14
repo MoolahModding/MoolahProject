@@ -34,7 +34,7 @@ public:
     USBZOnlineFunctionLibrary();
 
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void UnmutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static void UnmutePlayer(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetSoloGameEnabled(UObject* WorldContextObject);
@@ -75,8 +75,11 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestCreateAccount(UObject* WorldContextObject, const FSBZRegistrationFieldInfo& RegistrationFieldInfo);
     
+    UFUNCTION(BlueprintCallable)
+    static void OpenPlatformUrl(const FString& InUrl);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void MutePlayer(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static void MutePlayer(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static FSoftObjectPath LevelIdxToPath(const UObject* WorldContextObject);
@@ -103,7 +106,7 @@ public:
     static bool IsSoloGameEnabled(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool IsSoloGame(UObject* WorldContextObject);
+    static bool IsSoloGame(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsShippingBuild();
@@ -121,7 +124,7 @@ public:
     static bool IsSecurityCompaniesProvided();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    static bool IsSameUniqueId(FUniqueNetIdRepl UniqueNetIdA, FUniqueNetIdRepl UniqueNetIdB);
+    static bool IsSameUniqueId(const FUniqueNetIdRepl& UniqueNetIdA, const FUniqueNetIdRepl& UniqueNetIdB);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsRequestInProgress(UObject* WorldContextObject);
@@ -130,13 +133,13 @@ public:
     static bool IsProductOwned(int32 ProductId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool IsPlayerPartyOwner(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static bool IsPlayerPartyOwner(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool IsPlayerMuted(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static bool IsPlayerMuted(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool IsPlayerInParty(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static bool IsPlayerInParty(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsPartyOwner(UObject* WorldContextObject);
@@ -148,7 +151,7 @@ public:
     static bool IsPartyClient(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static bool IsOwnUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static bool IsOwnUniqueId(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNoSteam();
@@ -232,10 +235,10 @@ public:
     static int32 GetPlayersCount(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static FString GetPlayerDisplayNameByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static FString GetPlayerDisplayNameByUniqueId(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static UTexture2D* GetPlayerAvatarByUniqueId(UObject* WorldContextObject, FUniqueNetIdRepl UniqueNetId);
+    static UTexture2D* GetPlayerAvatarByUniqueId(UObject* WorldContextObject, const FUniqueNetIdRepl& UniqueNetId);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static UTexture2D* GetPlayerAvatar(UObject* WorldContextObject, int32 PlayerIndex);
@@ -340,7 +343,7 @@ public:
     static void ActivateSessionInviteOverlay(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void ActivateProfileOverlay(UObject* WorldContextObject, FUniqueNetIdRepl PlayerId);
+    static void ActivateProfileOverlay(UObject* WorldContextObject, const FUniqueNetIdRepl& PlayerId);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void ActivatePartyInviteOverlay(UObject* WorldContextObject);

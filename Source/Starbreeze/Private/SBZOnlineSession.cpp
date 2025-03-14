@@ -28,7 +28,7 @@ USBZOnlineSession::USBZOnlineSession() {
     this->AvatarCache = NULL;
 }
 
-void USBZOnlineSession::SetLocalClientReady(bool bIsClientReady) {
+void USBZOnlineSession::SetLocalClientReady(bool bIsClientReady) const {
 }
 
 void USBZOnlineSession::OnNetworkStatus(ESBZServiceStatus ServiceStatus) {
@@ -49,7 +49,7 @@ int32 USBZOnlineSession::GetPlayersCount() {
     return 0;
 }
 
-int32 USBZOnlineSession::GetPartyMembersCount() {
+int32 USBZOnlineSession::GetPartyMembersCount() const {
     return 0;
 }
 
@@ -60,15 +60,15 @@ FString USBZOnlineSession::GetMatchmakingRegion() const {
     return TEXT("");
 }
 
-USBZLobbyLocalState* USBZOnlineSession::GetLobbyState() {
+USBZLobbyLocalState* USBZOnlineSession::GetLobbyState() const {
     return NULL;
 }
 
-int32 USBZOnlineSession::GetFoundPlayersCount() {
+int32 USBZOnlineSession::GetFoundPlayersCount() const {
     return 0;
 }
 
-FSBZMissionInfo USBZOnlineSession::GetBeaconMissionInfo() {
+FSBZMissionInfo USBZOnlineSession::GetBeaconMissionInfo() const {
     return FSBZMissionInfo{};
 }
 

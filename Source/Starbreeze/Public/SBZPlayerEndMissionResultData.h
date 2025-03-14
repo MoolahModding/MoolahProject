@@ -3,6 +3,7 @@
 #include "SBZCashRewardData.h"
 #include "SBZCharacterEndMissionExpBonusData.h"
 #include "SBZCharacterEndMissionResultData.h"
+#include "SBZEquippableEndMissionResultData.h"
 #include "SBZInfamyPointPayoutRewardData.h"
 #include "SBZPlayerStatisticsValue.h"
 #include "SBZRandomItemReward.h"
@@ -49,6 +50,15 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 SurvivedAssaultWaves;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 AmmoPickupCreated;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 AmmoPickupRemoved;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZEquippableEndMissionResultData ThrowableData;
     
     STARBREEZE_API FSBZPlayerEndMissionResultData();
 };

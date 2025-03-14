@@ -7,5 +7,6 @@ enum class ESBZMeleeImpactType : uint8 {
     Blunt,
     Slash,
     Pierce,
+    Trauma,
 };
 

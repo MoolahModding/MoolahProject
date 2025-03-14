@@ -47,6 +47,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZAgilitySlideParams* SlideData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 Priority;
+    
     USBZPlayerMovementWeightAsset();
 
 };

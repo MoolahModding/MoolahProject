@@ -2,6 +2,7 @@
 #include "SBZInteractableComponent.h"
 
 ASBZPlaceableToolBase::ASBZPlaceableToolBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->Tags.AddDefaulted(1);
     this->DetonationTickInterval = 2.00f;
     this->DetonationRange = 500.00f;
     this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));

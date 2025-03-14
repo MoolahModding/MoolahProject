@@ -5,6 +5,8 @@
 #include "SBZEquippablePartCustomData.h"
 #include "SBZWeaponMagazineData.generated.h"
 
+class UCurveFloat;
+
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZWeaponMagazineData : public USBZEquippablePartCustomData {
     GENERATED_BODY()
@@ -29,6 +31,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZWeaponAmmoVisibilityType AmmoVisibilityType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UCurveFloat* OverallReloadPlayRateAmmoLoadedCurve;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UCurveFloat* EndCycleReloadPlayRateAmmoLoadedCurve;
     
     USBZWeaponMagazineData();
 

@@ -97,10 +97,10 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ServerRequestVoiceSessionLeave(const FUniqueNetIdRepl& InPlayerId);
+    void ServerRequestVoiceSessionLeave(const FUniqueNetIdRepl& InPlayerId, bool bMakeVoiceDisabled);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ServerRequestVoiceSessionJoin(const FUniqueNetIdRepl& InPlayerId);
+    void ServerRequestVoiceSessionJoin(const FUniqueNetIdRepl& InPlayerId, bool bMakeVoiceEnabled);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerRequestVoiceSessionInfo();

@@ -3,6 +3,7 @@
 #include "GameplayTagContainer.h"
 #include "ESBZPlayerAbilityBuffType.h"
 #include "SBZAbilitySystemComponent.h"
+#include "SBZHET5BlackOverskillTargetData.h"
 #include "SBZPlayerAbilitySystemComponent.generated.h"
 
 class APawn;
@@ -105,6 +106,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZSkillData* LastManStandingSkillData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ArmorDamageReductionDegradationTickInterval;
+    
 public:
     USBZPlayerAbilitySystemComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -120,6 +124,11 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetDamageBuffTime(const FGameplayTag& SkillTag, float Time);
     
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_SetCurrentThePunchAnimationIndex(int32 InIndex);
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_ResetSpeedBuffTime();
     
@@ -147,6 +156,14 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_UnblockSkillTankLastManStanding();
     
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ThePunchDeactivated(bool bInHeavy);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ThePunchActivated(bool bInHeavy);
+    
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetTacticalDroneBuffBlockCooldown(float Cooldown);
     
@@ -182,6 +199,9 @@ public:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MarkedForDeath(const TArray<ASBZAIBaseCharacter*>& AICharacters);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_FireHET5AOE(const FSBZHET5BlackOverskillTargetData& InTargetData);
     
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

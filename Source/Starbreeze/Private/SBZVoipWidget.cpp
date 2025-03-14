@@ -4,7 +4,7 @@ USBZVoipWidget::USBZVoipWidget() {
 }
 
 
-void USBZVoipWidget::OnPlayerTalkingChanged(FUniqueNetIdRepl PlayerId, bool IsTalking) {
+void USBZVoipWidget::OnPlayerTalkingChanged(const FUniqueNetIdRepl& PlayerId, bool IsTalking) {
 }
 
 

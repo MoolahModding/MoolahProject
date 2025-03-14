@@ -7,6 +7,7 @@ enum class ESBZFrameInterpolator : uint8 {
     None,
     DLSSG,
     FFXFI,
+    XeFG,
     MAX,
 };
 

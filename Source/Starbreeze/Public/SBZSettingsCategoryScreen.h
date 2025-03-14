@@ -13,6 +13,8 @@ class USBZSettingsButtonAntiAliasingModeChoice;
 class USBZSettingsButtonFrameInterpolatorChoice;
 class USBZSettingsButtonGamepadBinding;
 class USBZSettingsButtonKeyboardBinding;
+class USBZSettingsButtonLagReductionChoice;
+class USBZSettingsButtonLagReductionModeChoice;
 class USBZSettingsButtonMultipleChoice;
 class USBZSettingsButtonResolutionChoice;
 class USBZSettingsButtonSlider;
@@ -55,6 +57,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZSettingsButtonUpscalingModeChoice> SettingsButtonClassUpscalingModeChoice;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSettingsButtonLagReductionChoice> SettingsButtonClassLagReductionChoice;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZSettingsButtonLagReductionModeChoice> SettingsButtonClassLagReductionModeChoice;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZSettingsButtonSlider> SettingsButtonClassSlider;

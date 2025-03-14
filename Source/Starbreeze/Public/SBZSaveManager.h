@@ -4,6 +4,7 @@
 #include "SBZSaveManagerInterface.h"
 #include "SBZSaveManager.generated.h"
 
+class USBZPlayerLoadoutAsset;
 class USBZProgressionSaveChallenges;
 class USBZProgressionSaveGame;
 class USBZSaveManager;
@@ -18,6 +19,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZProgressionSaveGame* DefaultProgressionSaveGame;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZPlayerLoadoutAsset* DefaultTutorialLoadoutAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZProgressionSaveChallenges* ProgressionSaveChallenges;

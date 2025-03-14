@@ -4,7 +4,7 @@
 #include "SBZPartyManagerABV2.generated.h"
 
 UCLASS(Blueprintable)
-class USBZPartyManagerABV2 : public USBZPartyManagerAB {
+class STARBREEZE_API USBZPartyManagerABV2 : public USBZPartyManagerAB {
     GENERATED_BODY()
 public:
     USBZPartyManagerABV2();

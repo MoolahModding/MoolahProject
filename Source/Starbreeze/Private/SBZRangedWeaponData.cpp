@@ -15,8 +15,6 @@ USBZRangedWeaponData::USBZRangedWeaponData() {
     this->NormalMagnification = 1.00f;
     this->DOFData = NULL;
     this->WeaponBoxClass = NULL;
-    this->SprintEnterPlayRate = 1.00f;
-    this->SprintExitPlayRate = 1.00f;
     this->EquipNotifyTime = 0.00f;
     this->UnequipNotifyTime = 0.00f;
     this->SprintExitNotifyTime = 0.00f;

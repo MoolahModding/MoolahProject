@@ -21,6 +21,7 @@ USBZPlayerAttributeSet::USBZPlayerAttributeSet() {
     this->SecondaryToolAmmoInventoryServer = -1.00f;
     this->TertiaryToolAmmoInventoryServer = -1.00f;
     this->AbilityData = NULL;
+    this->WeightAssetOverride = NULL;
 }
 
 void USBZPlayerAttributeSet::OnRep_TertiaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData) {
@@ -75,6 +76,9 @@ void USBZPlayerAttributeSet::OnRep_PrimaryEquippableAmmoLoaded(const FGameplayAt
 }
 
 void USBZPlayerAttributeSet::OnRep_PrimaryEquippableAmmoInventory(const FGameplayAttributeData& OldData) {
+}
+
+void USBZPlayerAttributeSet::OnRep_OverskillProgression(const FGameplayAttributeData& OldOverSkillProgression) {
 }
 
 void USBZPlayerAttributeSet::OnRep_HealthTrauma(const FGameplayAttributeData& OldArmorTrauma) {
@@ -149,6 +153,9 @@ void USBZPlayerAttributeSet::Multicast_SetPrimaryEquippableAmmoLoaded_Implementa
 void USBZPlayerAttributeSet::Multicast_SetPrimaryEquippableAmmoInventory_Implementation(float NewCurrentValue) {
 }
 
+void USBZPlayerAttributeSet::Multicast_SetOverskillProgression_Implementation(float NewCurrentValue) {
+}
+
 void USBZPlayerAttributeSet::Multicast_SetHealthTrauma_Implementation(float NewCurrentValue) {
 }
 
@@ -194,6 +201,7 @@ void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(USBZPlayerAttributeSet, ArmorTrauma);
     DOREPLIFETIME(USBZPlayerAttributeSet, HealthTrauma);
     DOREPLIFETIME(USBZPlayerAttributeSet, ConsumableCount);
+    DOREPLIFETIME(USBZPlayerAttributeSet, OverskillProgression);
 }
 
 

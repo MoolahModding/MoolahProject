@@ -35,7 +35,7 @@ ASBZBreachingEquipmentBase::ASBZBreachingEquipmentBase(const FObjectInitializer&
     this->DoneEvent = NULL;
     this->LifeActionInstance->SetupAttachment(RootComponent);
     this->LifeActionSlot->SetupAttachment(LifeActionInstance);
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZBreachingEquipmentBase::UpdateMarker(USBZMarkerDataAsset* MarkerAsset, const FVector MarkerLocation) {

@@ -9,6 +9,7 @@ class USBZBaseWeaponData;
 class USBZItemDataContainer;
 class USBZMaskData;
 class USBZNewsData;
+class USBZOverskillLoadoutData;
 class USBZPayDayCreditData;
 class USBZPlayerCharacterData;
 class USBZPreplanningAssetData;
@@ -52,6 +53,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZBaseWeaponData*> AllOverkillWeapons;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZOverskillLoadoutData*> AllOverskillLoadouts;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZWeaponCharmData*> AllWeaponCharms;

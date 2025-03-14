@@ -16,13 +16,6 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZEquippableLoadoutSlot EquippableSlot;
     
-private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponStoreItem> WeaponStoreMap;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponPresetStoreItem> WeaponPresetStoreMap;
-    
 public:
     USBZMainMenuWeaponVendorWidget();
 

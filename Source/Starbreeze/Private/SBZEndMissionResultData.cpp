@@ -7,5 +7,6 @@ FSBZEndMissionResultData::FSBZEndMissionResultData() {
     this->BagTotal = 0;
     this->CompletedAssaultWaveCount = 0;
     this->bIsFinalAssaultTriggered = false;
+    this->bAllCiviliansAlive = false;
 }
 

@@ -3,7 +3,7 @@
 USBZMissionResultLibrary::USBZMissionResultLibrary() {
 }
 
-int32 USBZMissionResultLibrary::GetTotalNumberOfSecuredBags(const FSBZEndMissionResultData& Resultdata) {
+int32 USBZMissionResultLibrary::GetTotalNumberOfSecuredBags(const FSBZEndMissionResultData& Resultdata, bool bCountSecretBags) {
     return 0;
 }
 

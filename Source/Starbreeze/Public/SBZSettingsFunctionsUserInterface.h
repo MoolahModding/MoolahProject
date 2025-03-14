@@ -22,12 +22,6 @@ public:
     static void SetReticleEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void SetMinCrosshairsScale(UObject* WorldContextObject, float Scale);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void SetMaxCrosshairsScale(UObject* WorldContextObject, float Scale);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetHitIndicatorsEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -46,10 +40,16 @@ public:
     static void SetFPSCountEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetCrosshairsShowAccuracy(UObject* WorldContextObject, bool bShowAccuracy);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetCrosshairsDotSize(UObject* WorldContextObject, float Size);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetCrosshairsDotColor(UObject* WorldContextObject, FLinearColor Color);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetCrosshairsCenterGap(UObject* WorldContextObject, float CenterGap);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetCrosshairsBarWidth(UObject* WorldContextObject, float Width);
@@ -76,12 +76,6 @@ public:
     static float GetSubtitlesSize(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static float GetMinCrosshairsScale(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static float GetMaxCrosshairsScale(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetHitIndicatorScale(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -97,12 +91,6 @@ public:
     static float GetDefaultSubtitlesSize(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static float GetDefaultMinCrosshairsScale(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
-    static float GetDefaultMaxCrosshairsScale(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultHitIndicatorScale(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
@@ -115,10 +103,16 @@ public:
     static FLinearColor GetDefaultHitIndicatorColorCrit(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetDefaultCrosshairsShowAccuracy(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultCrosshairsDotSize(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FLinearColor GetDefaultCrosshairsDotColor(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static float GetDefaultCrosshairsCenterGap(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultCrosshairsBarWidth(UObject* WorldContextObject);
@@ -130,10 +124,16 @@ public:
     static FLinearColor GetDefaultCrosshairsBarColor(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool GetCrosshairsShowAccuracy(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetCrosshairsDotSize(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FLinearColor GetCrosshairsDotColor(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static float GetCrosshairsCenterGap(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static float GetCrosshairsBarWidth(UObject* WorldContextObject);
@@ -143,6 +143,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FLinearColor GetCrosshairsBarColor(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    bool GetButtonVisibilityCrosshairsCenterGap(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool AreSubtitlesEnabledByDefault(UObject* WorldContextObject);

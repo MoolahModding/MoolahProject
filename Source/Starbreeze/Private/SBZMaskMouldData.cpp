@@ -1,8 +1,8 @@
 #include "SBZMaskMouldData.h"
 
 USBZMaskMouldData::USBZMaskMouldData() {
-    this->StaticMesh = NULL;
-    this->SkeletalMesh = NULL;
+    this->bIsTypeOverridden = false;
+    this->TypeOverride = ESBZMaskType::Strap;
 }
 
 

@@ -3,6 +3,7 @@
 USBZGameInstance::USBZGameInstance() {
     this->GameEventBroker = NULL;
     this->OnlineEventBroker = NULL;
+    this->MaskMouldSlot = NULL;
     this->MatchmakingProvider = ESBZMatchmakingProvider::Accelbyte;
     this->HostingProvider = ESBZHostingProvider::EdgeGap;
     this->WwiseInitBank = NULL;
@@ -52,6 +53,7 @@ USBZGameInstance::USBZGameInstance() {
     this->CurrencyManager = NULL;
     this->ExperienceManager = NULL;
     this->InstantLootManager = NULL;
+    this->LoadProgressionManager = NULL;
     this->InfamyManager = NULL;
     this->SkillManager = NULL;
     this->PreplanningAssetManager = NULL;
@@ -69,6 +71,7 @@ USBZGameInstance::USBZGameInstance() {
     this->UserManager = NULL;
     this->RequestFeedbackManager = NULL;
     this->PlatformUserManager = NULL;
+    this->MetaDataLoader = NULL;
 }
 
 void USBZGameInstance::SetDifficulty(ESBZDifficulty InDifficulty) {

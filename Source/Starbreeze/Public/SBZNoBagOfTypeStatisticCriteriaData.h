@@ -15,6 +15,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NumberOfRequiredSecuredBags;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIncludeSecretBags;
+    
 public:
     USBZNoBagOfTypeStatisticCriteriaData();
 

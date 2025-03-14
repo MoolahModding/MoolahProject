@@ -104,6 +104,9 @@ void USBZCheatManager::SetPlayerName(const FString& Name, int32 PlayerIndex) {
 void USBZCheatManager::SetPlayerMergePartySelected(bool bIsMergePartySelected) {
 }
 
+void USBZCheatManager::SetPlayerMaskMould(const FName& PlayerMaskMouldName, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetPlayerMask(const FName& PlayerMaskName, int32 PlayerIndex) {
 }
 
@@ -147,6 +150,9 @@ void USBZCheatManager::SetOverkillWeaponProgress(float InProgress, int32 PlayerI
 }
 
 void USBZCheatManager::SetOverkillWeaponLoadout(const FName& DataName, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::SetOverkillEnabled(bool bIsEnabled, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetOptionalMilestonePassed(const FString& OptionalMilestoneName) {
@@ -434,7 +440,7 @@ void USBZCheatManager::FindClassReferences(const FName& ClassName, bool bIsSubCl
 void USBZCheatManager::FindBlocker(bool bIsComplex, float TraceDistance, float TraceRadius, float OverlapDistance, float OverlapRadius, int32 MaxHitCountTrace, int32 MaxHitCountOverlap, float DrawDuration, bool bIsDrawPersistent) {
 }
 
-void USBZCheatManager::EquipOverkillWeapon(int32 PlayerIndex) {
+void USBZCheatManager::EquipOverkillWeapon(bool bIsFirstEquip, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::DumpPlayersMergePartyStatus() {

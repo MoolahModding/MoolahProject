@@ -13,7 +13,7 @@ ASBZSoundEnvironment::ASBZSoundEnvironment(const FObjectInitializer& ObjectIniti
     this->DebugTimer = 5.00f;
     this->LateReverbComponent->SetupAttachment(RootComponent);
     this->RoomComponent->SetupAttachment(RootComponent);
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZSoundEnvironment::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {

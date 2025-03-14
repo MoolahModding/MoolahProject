@@ -11,6 +11,12 @@ USBZMainMenuInventoryCharacterPreferenceScreen::USBZMainMenuInventoryCharacterPr
 }
 
 
+void USBZMainMenuInventoryCharacterPreferenceScreen::RefreshWidgetVisuals() {
+}
+
+void USBZMainMenuInventoryCharacterPreferenceScreen::OnGameInstallStateChanged(bool bIsInstallPending) {
+}
+
 void USBZMainMenuInventoryCharacterPreferenceScreen::NativeOnClearPreferredCharactersInputPressed() {
 }
 

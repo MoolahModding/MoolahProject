@@ -53,7 +53,7 @@ protected:
     USBZSurfaceTypesConfig* OwnedSurfaceType;
     
 public:
-    USBZDynamicPhysicsAudioComponent();
+    USBZDynamicPhysicsAudioComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void UpdateRollingVelocity(float Value);

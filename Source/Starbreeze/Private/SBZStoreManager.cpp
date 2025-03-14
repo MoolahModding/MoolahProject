@@ -11,7 +11,7 @@ USBZStoreManager* USBZStoreManager::GetStoreManager(const UObject* WorldContextO
     return NULL;
 }
 
-int32 USBZStoreManager::GetMaxPriceProgressionLevel(const FString& PriceProgressionGroup) {
+int32 USBZStoreManager::GetMaxPriceProgressionLevel(const FString& PriceProgressionGroup) const {
     return 0;
 }
 

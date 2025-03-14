@@ -26,6 +26,9 @@ void USBZMainMenuSuitInventoryScreen::OnShowBuySlotPopUpClosed(FName InActionNam
 }
 
 
+void USBZMainMenuSuitInventoryScreen::OnGameInstallStateChanged(bool bIsInstallPending) {
+}
+
 void USBZMainMenuSuitInventoryScreen::OnDiscardSuitPopUpClosed(FName ClosingActionName) {
 }
 

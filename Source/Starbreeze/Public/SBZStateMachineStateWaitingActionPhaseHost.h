@@ -29,7 +29,7 @@ protected:
     void HandlePlayerControllerReady();
     
     UFUNCTION(BlueprintCallable)
-    void HandlePlayerAckReceived(FUniqueNetIdRepl PlayerId);
+    void HandlePlayerAckReceived(const FUniqueNetIdRepl& PlayerId);
     
     UFUNCTION(BlueprintCallable)
     void DestinationMapLoaded(UWorld* NewWorld);

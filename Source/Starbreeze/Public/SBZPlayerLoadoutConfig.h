@@ -4,6 +4,7 @@
 
 class USBZArmorData;
 class USBZEquippableData;
+class USBZOverskillLoadoutData;
 class USBZPlaceableData;
 class USBZSkillData;
 class USBZThrowableData;
@@ -24,6 +25,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZEquippableData* OverkillWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZOverskillLoadoutData* OverskillLoadout;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZThrowableData* Throwable;

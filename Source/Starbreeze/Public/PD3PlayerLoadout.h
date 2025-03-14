@@ -1,7 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ESBZArmorChunkType.h"
 #include "PD3ModifiableLoadoutData.h"
+#include "SBZArmorConfig.h"
 #include "SBZEquippableConfig.h"
 #include "SBZMaskConfig.h"
 #include "SBZOverskillLoadoutConfig.h"
@@ -12,11 +12,9 @@
 
 class USBZArmorData;
 class USBZGloveData;
-class USBZMaskData;
 class USBZPlayerAbilityData;
 class USBZPlayerCharacterData;
 class USBZSkillData;
-class USBZSuitData;
 
 USTRUCT(BlueprintType)
 struct STARBREEZE_API FPD3PlayerLoadout {
@@ -39,12 +37,6 @@ private:
     TArray<FSBZThrowableConfig> ThrowableConfigArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZMaskData* MaskData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZSuitData* SuitData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZGloveData* GloveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -54,10 +46,10 @@ private:
     FSBZSuitConfig SuitConfig;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZArmorData* ArmorData;
+    FSBZArmorConfig ArmorConfig;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<ESBZArmorChunkType> ArmorChunkTypeArray;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
+    USBZArmorData* ArmorData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZSkillData*> SkillArray;
@@ -73,6 +65,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
     bool bIsSkillArrayValidated;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsOverskillArrayValidated;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerAbilityData* AbilityData;

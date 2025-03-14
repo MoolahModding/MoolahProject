@@ -3,6 +3,7 @@
 USBZPlayerAbilityData::USBZPlayerAbilityData() {
     this->InitialMaxDownedCount = 3;
     this->InitialMaxConsumableCount = 3;
+    this->InitialArmorDamageReduction = 0.90f;
     this->InitialDownedHealth = 40.00f;
     this->InitialReviveHealth = 30.00f;
     this->InitialDefeatDownedTime = 20.00f;

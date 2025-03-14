@@ -5,6 +5,8 @@ USBZMainMenuWidget::USBZMainMenuWidget() {
     this->Widget_WeaponCustomization = NULL;
     this->Widget_WeaponCustomizationTemp = NULL;
     this->Widget_WeaponInventory = NULL;
+    this->Widget_ArmorCustomization = NULL;
+    this->Widget_ArmorModifiers = NULL;
     this->Widget_ItemInventory = NULL;
     this->Widget_SkillsSelection = NULL;
     this->Widget_WeaponProgression = NULL;
@@ -118,6 +120,10 @@ bool USBZMainMenuWidget::DisplayBlackmarketInspectScreen(USBZInventoryBaseData* 
     return false;
 }
 
+bool USBZMainMenuWidget::DisplayArmorModiferScreen(int32 InArmorSlotIndex, int32 InArmorChunkIndex) {
+    return false;
+}
+
 bool USBZMainMenuWidget::CustomizeWeaponInSlotTemp(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex) {
     return false;
 }
@@ -127,6 +133,10 @@ bool USBZMainMenuWidget::CustomizeWeaponInSlot(ESBZEquippableLoadoutSlot InEquip
 }
 
 void USBZMainMenuWidget::CustomizeLoadout(int32 InLoadoutIndex) {
+}
+
+bool USBZMainMenuWidget::CustomizeArmorInSlot(int32 InLoadoutIndex) {
+    return false;
 }
 
 bool USBZMainMenuWidget::CanInspectInventoryItem(USBZInventoryBaseData* InspectData) {

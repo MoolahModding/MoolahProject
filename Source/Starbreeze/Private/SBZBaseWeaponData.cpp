@@ -19,7 +19,6 @@ USBZBaseWeaponData::USBZBaseWeaponData() {
     this->VaultLandADSAlpha = 0.20f;
     this->TankingData = NULL;
     this->WallReactionData = NULL;
-    this->OverkillProgressionProgress = 100.00f;
     this->TargetingData = NULL;
     this->PitchLookOffsetCurve = NULL;
     this->AttributeModification = NULL;
@@ -28,6 +27,7 @@ USBZBaseWeaponData::USBZBaseWeaponData() {
     this->WeaponDeselectionTimer = 0.00f;
     this->bShouldApplyWeaponSwitchCooldown = true;
     this->bCanAttackWhileMoving = true;
+    this->HelmetPopperData = NULL;
 }
 
 int32 USBZBaseWeaponData::GetNbStickerPlacements() const {

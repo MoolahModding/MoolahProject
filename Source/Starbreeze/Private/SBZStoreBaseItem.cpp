@@ -7,6 +7,7 @@ FSBZStoreBaseItem::FSBZStoreBaseItem() {
     this->AvailableAtInfamyLevel = 0;
     this->AvailableToBuy = false;
     this->ItemLockReason = ESBZItemLockReason::NotLocked;
+    this->ItemNotLockedReason = ESBZItemNotLockedReason::OwningItem;
     this->MaxCountPerUser = 0;
     this->PriceProgression = 0;
     this->DiscountPercentage = 0;

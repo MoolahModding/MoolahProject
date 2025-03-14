@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "ESBZMetaRequestResult.h"
 #include "SBZMenuStackScreenWidget.h"
-#include "SBZPayDayCreditStoreItem.h"
 #include "Templates/SubclassOf.h"
 #include "SBZBlackMarketPaydayStoreScreen.generated.h"
 
@@ -20,9 +19,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZBlackMarketStoreRealMoneyItemButton> RealMoneyStoreItemButtonClass;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FString, FSBZPayDayCreditStoreItem> PaydayCreditStoreItems;
     
 public:
     USBZBlackMarketPaydayStoreScreen();

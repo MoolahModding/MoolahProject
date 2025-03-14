@@ -114,7 +114,7 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void HandleBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure);
+    void HandleBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure, int32 SecuredSecretCount, int32 TotalSecretLeftToSecure);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))

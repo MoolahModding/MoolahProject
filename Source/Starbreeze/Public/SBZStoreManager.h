@@ -41,7 +41,7 @@ public:
     static USBZStoreManager* GetStoreManager(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetMaxPriceProgressionLevel(const FString& PriceProgressionGroup);
+    int32 GetMaxPriceProgressionLevel(const FString& PriceProgressionGroup) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetInfamyLevelItemUnlockCount(int32 InfamyLevel) const;

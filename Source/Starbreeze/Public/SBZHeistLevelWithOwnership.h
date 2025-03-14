@@ -13,6 +13,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsOwned;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FString FirstPlatformPurchaseUrl;
+    
     STARBREEZE_API FSBZHeistLevelWithOwnership();
 };
 

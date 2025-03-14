@@ -17,6 +17,8 @@ FSBZReconnectPlayerStateData::FSBZReconnectPlayerStateData() {
     this->CustodyReleaseCost = 0;
     this->CurrentTradeReduction = 0;
     this->bServerIsHardBargainCustody = false;
+    this->bIsARGESRestorationActivatable = false;
+    this->bIsOverkillEnabled = false;
     this->DefeatState = EPD3DefeatState::None;
     this->bIsLastArrestedByGuard = false;
     this->bIsSkillTankLastManStandingBlocking = false;

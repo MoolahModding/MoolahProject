@@ -20,10 +20,12 @@ class USBZGameStartMainMenuSkillsSelection;
 class USBZGameStartMainMenuWeaponCustomizationWidget;
 class USBZInventoryBaseData;
 class USBZLoginScreenInfoPopupWidget;
+class USBZMainMenuArmorModifierScreen;
 class USBZMainMenuCosmetic;
 class USBZMainMenuCosmeticItemButton;
 class USBZMainMenuCrimeNetHeistInspectScreen;
 class USBZMainMenuItemInventoryScreen;
+class USBZMainMenuLoadoutArmorModCategoryWidget;
 class USBZMainMenuLoadoutCustomization;
 class USBZMainMenuLoadoutWeaponModCategoryWidget;
 class USBZMainMenuMaskCustomization;
@@ -52,6 +54,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZMainMenuWeaponInventoryScreen* Widget_WeaponInventory;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZMainMenuLoadoutArmorModCategoryWidget* Widget_ArmorCustomization;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZMainMenuArmorModifierScreen* Widget_ArmorModifiers;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZMainMenuItemInventoryScreen* Widget_ItemInventory;
@@ -252,6 +260,9 @@ public:
     bool DisplayBlackmarketInspectScreen(USBZInventoryBaseData* InspectData);
     
     UFUNCTION(BlueprintCallable)
+    bool DisplayArmorModiferScreen(int32 InArmorSlotIndex, int32 InArmorChunkIndex);
+    
+    UFUNCTION(BlueprintCallable)
     bool CustomizeWeaponInSlotTemp(ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
     UFUNCTION(BlueprintCallable)
@@ -259,6 +270,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void CustomizeLoadout(int32 InLoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    bool CustomizeArmorInSlot(int32 InLoadoutIndex);
     
     UFUNCTION(BlueprintCallable)
     bool CanInspectInventoryItem(USBZInventoryBaseData* InspectData);

@@ -24,6 +24,12 @@ void USBZSettingsButton::SetSettingName(const FName& InSettingName) {
 void USBZSettingsButton::SetSettingHelperPanelName(const FName& InSettingHelperPanelName) {
 }
 
+void USBZSettingsButton::SetSettingDescriptionSecondaryLocalized(const FText& InSettingDescriptionSecondaryLocalized) {
+}
+
+void USBZSettingsButton::SetSettingDescriptionLocalized(const FText& InSettingDescriptionLocalized) {
+}
+
 void USBZSettingsButton::SetSettingCategoryName(const FName& InSettingCategoryName) {
 }
 

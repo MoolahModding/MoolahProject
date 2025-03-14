@@ -23,6 +23,7 @@ USBZWorldRuntime::USBZWorldRuntime() {
     this->AllSecurityCameras = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllSecurityCameras"));
     this->AllDespawnVolumes = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllDespawnVolumes"));
     this->AllArmedPlayerGrenades = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllArmedGrenades"));
+    this->AllOverkillWeaponDropPoints = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllOverkillWeaponDropPoints"));
     this->AllRoomVolumes = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllRoomVolumes"));
     this->AllProtectPoints = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllProtectPoints"));
     this->AllDefensePoints = CreateDefaultSubobject<USBZActorContainer>(TEXT("AllDefensePoints"));

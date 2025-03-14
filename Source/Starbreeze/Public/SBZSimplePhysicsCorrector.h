@@ -5,6 +5,8 @@
 #include "SBZSimplePhysicsState.h"
 #include "SBZSimplePhysicsCorrector.generated.h"
 
+class UPrimitiveComponent;
+
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZSimplePhysicsCorrector : public UActorComponent {
     GENERATED_BODY()
@@ -22,6 +24,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FSBZSimplePhysicsState LastState;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UPrimitiveComponent* Root;
+    
 public:
     USBZSimplePhysicsCorrector(const FObjectInitializer& ObjectInitializer);
 
@@ -29,6 +34,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void SetVelocity(FVector Vel);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetAngularVelocity(const FVector& AngularVelocity);
     
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)

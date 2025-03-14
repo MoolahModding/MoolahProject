@@ -11,6 +11,8 @@ USBZSettingsCategoryScreen::USBZSettingsCategoryScreen() {
     this->SettingsButtonClassAntiAliasingModeChoice = NULL;
     this->SettingsButtonClassUpscalerChoice = NULL;
     this->SettingsButtonClassUpscalingModeChoice = NULL;
+    this->SettingsButtonClassLagReductionChoice = NULL;
+    this->SettingsButtonClassLagReductionModeChoice = NULL;
     this->SettingsButtonClassSlider = NULL;
     this->SettingsButtonClassKeyboardBinding = NULL;
     this->SettingsButtonClassGamepadBinding = NULL;

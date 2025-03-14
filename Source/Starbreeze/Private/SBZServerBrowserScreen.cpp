@@ -43,7 +43,7 @@ void USBZServerBrowserScreen::QueryFilters() {
 }
 
 
-void USBZServerBrowserScreen::OnServersUpdated(TEnumAsByte<ESBZServerBrowserSessionsType> SessionsType) {
+void USBZServerBrowserScreen::OnServersUpdated() {
 }
 
 

@@ -15,7 +15,7 @@ class UCameraShakeBase;
 class UForceFeedbackEffect;
 class UNiagaraComponent;
 class UNiagaraSystem;
-class USBZChromaEffectDataAsset;
+class USBZChromaSensaEffectDataAsset;
 class USBZPostProcessSettingsPresetDataAsset;
 class USBZTransformCameraModifier;
 
@@ -106,7 +106,7 @@ protected:
     UForceFeedbackEffect* ForceFeedbackEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZChromaEffectDataAsset* ChromaEffect;
+    USBZChromaSensaEffectDataAsset* ChromaSensaEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AudioRTPC;

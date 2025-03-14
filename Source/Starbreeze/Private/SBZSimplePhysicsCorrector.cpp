@@ -3,9 +3,13 @@
 
 USBZSimplePhysicsCorrector::USBZSimplePhysicsCorrector(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->TeleportDistance = 200.00f;
+    this->Root = NULL;
 }
 
 void USBZSimplePhysicsCorrector::SetVelocity(FVector Vel) {
+}
+
+void USBZSimplePhysicsCorrector::SetAngularVelocity(const FVector& AngularVelocity) {
 }
 
 void USBZSimplePhysicsCorrector::Multicast_SyncState_Implementation(const FSBZSimplePhysicsState& State) {

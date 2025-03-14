@@ -12,7 +12,6 @@
 #include "GameplayTagContainer.h"
 #include "EPD3DefeatState.h"
 #include "EPD3MiniGameState.h"
-#include "EPlayerReadyStatusValue.h"
 #include "ESBZFirstPartyPlatform.h"
 #include "ESBZPlatform.h"
 #include "PD3PlayerLoadout.h"
@@ -20,6 +19,7 @@
 #include "SBZCrewStateInterface.h"
 #include "SBZDropPlaceableEquippableData.h"
 #include "SBZOnInfamyLevelChangedDynamicDelegate.h"
+#include "SBZOverskillProgressResultData.h"
 #include "SBZPlayerEndMissionResultData.h"
 #include "SBZPlayerSkillEffectData.h"
 #include "SBZReplicatedReloadState.h"
@@ -36,6 +36,7 @@ class ASBZPlayerState;
 class ASBZTool;
 class UPaperSprite;
 class USBZArmorData;
+class USBZBagType;
 class USBZCharacterEffectDataAsset;
 class USBZEquippableData;
 class USBZMaskData;
@@ -57,11 +58,11 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZPlayerState : public APlayerState, public ISBZCrewStateInterface, public IAbilitySystemInterface {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ReadyStatus, meta=(AllowPrivateAccess=true))
-    EPlayerReadyStatusValue ReadyStatus;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_InfamyLevel, meta=(AllowPrivateAccess=true))
     int32 InfamyLevel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_RenownLevel, meta=(AllowPrivateAccess=true))
+    int32 RenownLevel;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Platform, meta=(AllowPrivateAccess=true))
     ESBZPlatform Platform;
@@ -92,6 +93,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnInfamyLevelChangedDynamic OnInfamyLevelChangedDynamic;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnInfamyLevelChangedDynamic OnRenownLevelChangedDynamic;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnIsSkipIntroSequenceChanged, meta=(AllowPrivateAccess=true))
@@ -197,7 +201,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerCharacterData* CurrentCharacterData;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PlaceableToolsArray, meta=(AllowPrivateAccess=true))
     TArray<ASBZTool*> PlaceableToolsArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -252,6 +256,9 @@ private:
     USBZCharacterEffectDataAsset* PrecisionShotGUIEffectData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZCharacterEffectDataAsset* ArmorReductionGUIEffectData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGameplayTag, USBZCharacterEffectDataAsset*> TagGUIDataMap;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -278,8 +285,11 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSoftObjectPath SelectedCharacter;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OverkillWeaponProgress, meta=(AllowPrivateAccess=true))
-    float OverkillWeaponProgress;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsFirstOverkillWeaponEquip;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverkillInstantLootIncrease;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverkillWeaponProgressKillIncrease;
@@ -311,6 +321,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bServerIsHardBargainCustody;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsOverkillEnabled, meta=(AllowPrivateAccess=true))
+    bool bIsOverkillEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnIsOverskillLoadoutTickingChanged, meta=(AllowPrivateAccess=true))
+    bool bIsOverskillLoadoutTicking;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_MergePartySelected, meta=(AllowPrivateAccess=true))
     bool bIsMergePartySelected;
     
@@ -318,10 +334,22 @@ private:
     float PickupConsumableCooldownTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<USBZOverskillData*> EquippedOverskillArray;
+    TArray<USBZOverskillData*> EquippedOverskillDataArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<USBZSkillData*> EquippedOverskillSkillDataArray;
+    TMap<FGameplayTag, USBZSkillData*> EquippedOverskillSkillDataMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FString, int32> IndividualInstantLootMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<USBZBagType*, int32> IndividualSecuredBagMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayTag CurrentEquippableTag;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OverskillDamageModifier[4];
     
 public:
     ASBZPlayerState(const FObjectInitializer& ObjectInitializer);
@@ -380,7 +408,7 @@ private:
     void Server_RequestVoiceSessionLeave(const FUniqueNetIdRepl& InPlayerId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_RequestVoiceSessionJoin(const FUniqueNetIdRepl& InPlayerId);
+    void Server_RequestVoiceSessionJoin(const FUniqueNetIdRepl& InPlayerId, bool bMakeVoiceEnabled);
     
 public:
     UFUNCTION(Reliable, Server)
@@ -420,17 +448,18 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnRep_ReplicatedStartReplenishDodgeServerTime();
     
-    UFUNCTION(BlueprintCallable)
-    void OnRep_ReadyStatus();
-    
 public:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_RenownLevel();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_Platform();
     
-private:
+protected:
     UFUNCTION(BlueprintCallable)
-    void OnRep_OverkillWeaponProgress();
+    void OnRep_PlaceableToolsArray();
     
+private:
     UFUNCTION(BlueprintCallable)
     void OnRep_OnKillNetID();
     
@@ -445,6 +474,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsTargeting();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IsOverkillEnabled();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsMaskOn();
@@ -490,9 +522,15 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
+    void OnIsOverskillLoadoutTickingChanged();
+    
+    UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
 public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void MulticastReceiveLocalizedChatMessage(const FString& TableId, const FString& LocaleKey);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastNotifyClientsHostRestart(int32 ServerRestartTimeInSeconds);
     
@@ -521,13 +559,25 @@ private:
     void Multicast_SetServerReloadState(const FSBZReplicatedReloadState& InServerReloadState);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetRenownLevel(const int32 InRenownLevel);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPlayerSlotId(uint8 NewSlotId);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetPlayerId(int32 InPlayerId);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetPlatform(const ESBZPlatform InPlatform);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetOverskillLoadoutTicking(bool bInIsTicking);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMiniGameState(EPD3MiniGameState InMiniGameState, ASBZPlayerState* InWinningParticipant);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetMergePartySelected(const bool bIsSelected);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetLoadout(const FPD3PlayerLoadout& InLoadout);
@@ -537,6 +587,15 @@ public:
     void Multicast_SetLastArrestedByGuard(bool bInIsLastArrestedByGuard);
     
 private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetInfamyLevel(const int32 InInfamyLevel);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetFirstPartyPlatform(const ESBZFirstPartyPlatform InFirstPartyPlatform);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetFirstOverkillWeaponEquip(bool bIsFirstEquip);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetEquipStateAndIndex(uint8 InEquipStateAndIndex);
     
@@ -558,6 +617,9 @@ private:
     void Multicast_SetAccelByteUserId(const FString& InAccelByteUserId);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetAccelByteDisplayName(const FString& InDisplayName);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_RejectEquipStateAndIndex(uint8 InEquipStateAndIndex);
     
     UFUNCTION(NetMulticast, Reliable)
@@ -567,6 +629,9 @@ private:
     void Multicast_DebugConsoleCommand(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex);
     
 public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_CheatSetOverkillEnabled(bool bIsEnabled);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSkipIntroSequence() const;
     
@@ -574,10 +639,19 @@ public:
     bool IsPlayerDisplayNameReady() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetRenownLevel() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetPlayerDisplayName() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZPlatform GetPlatform() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    TArray<FSBZOverskillProgressResultData> GetOverskillProgressResultData(const TArray<FName>& InProgressLevelIDArray) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    float GetOverskillProgress(const FName& InProgressLevelID) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetMergePartySelected() const;
@@ -626,11 +700,6 @@ public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_SendPlayerReloadProgressionSaveGame();
     
-private:
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void Client_SendOverkillWeaponProgress(float InOverkillWeaponProgress);
-    
-public:
     UFUNCTION(Client, Reliable)
     void Client_PickupAmmo(uint32 ID);
     
@@ -643,6 +712,9 @@ private:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_JoinVoiceSession(const FSBZVoiceSessionData& VoiceSessionData);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_DisableOverskill();
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_DestroyVoiceSession();
@@ -662,6 +734,6 @@ public:
 
     UFUNCTION(BlueprintCallable)
     UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-    
+
 };
 

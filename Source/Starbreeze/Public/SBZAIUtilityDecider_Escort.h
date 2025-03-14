@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "SBZAIEscortStateData.h"
 #include "SBZAIUtilityDecider.h"
 #include "SBZSuspectData.h"
@@ -20,6 +21,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZSuspectData> Suspects;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer TagsToIgnore;
     
 public:
     USBZAIUtilityDecider_Escort();

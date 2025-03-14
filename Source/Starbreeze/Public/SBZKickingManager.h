@@ -41,7 +41,7 @@ public:
     USBZKickingManager();
 
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void KickPlayer(const UObject* WorldContextObject, FUniqueNetIdRepl PlayerIdToKick, ESBZKickingMode ModeKick);
+    static void KickPlayer(const UObject* WorldContextObject, const FUniqueNetIdRepl& PlayerIdToKick, ESBZKickingMode ModeKick);
     
 };
 

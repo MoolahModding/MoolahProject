@@ -68,10 +68,10 @@ bool ASBZBeaconActionPhaseClient::ServerReserveSlot_Validate(const TArray<FSBZPl
     return true;
 }
 
-void ASBZBeaconActionPhaseClient::ServerRequestVoiceSessionLeave_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+void ASBZBeaconActionPhaseClient::ServerRequestVoiceSessionLeave_Implementation(const FUniqueNetIdRepl& InPlayerId, bool bMakeVoiceDisabled) {
 }
 
-void ASBZBeaconActionPhaseClient::ServerRequestVoiceSessionJoin_Implementation(const FUniqueNetIdRepl& InPlayerId) {
+void ASBZBeaconActionPhaseClient::ServerRequestVoiceSessionJoin_Implementation(const FUniqueNetIdRepl& InPlayerId, bool bMakeVoiceEnabled) {
 }
 
 void ASBZBeaconActionPhaseClient::ServerRequestVoiceSessionInfo_Implementation() {

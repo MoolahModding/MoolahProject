@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameplayTagContainer.h"
+#include "ESBZBagCategory.h"
 #include "SBZCarryType.h"
 #include "SBZGameplayEffectData.h"
 #include "Templates/SubclassOf.h"
@@ -11,6 +12,7 @@ class ASBZBagItem;
 class ASBZCarriedBag;
 class ASBZSecuredBag;
 class USBZMarkerDataAsset;
+class USBZPlayerMovementWeightAsset;
 
 UCLASS(Blueprintable)
 class USBZBagType : public USBZCarryType {
@@ -41,19 +43,19 @@ public:
     FName BagState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bShouldShowOnEndScreen;
+    ESBZBagCategory BagCategory;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDegradable;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bAllowSecuring;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<float> DegradeTimeArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float WeightTierOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZPlayerMovementWeightAsset* WeightOverride;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMarkerDataAsset* MarkerAsset;
@@ -66,6 +68,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString SecureStatisticCode;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bShouldShowOnEndScreen;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bAllowSecuring;
     
     USBZBagType();
 

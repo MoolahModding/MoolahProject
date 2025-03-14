@@ -49,6 +49,7 @@ USBZPlayerAbilitySystemComponent::USBZPlayerAbilitySystemComponent(const FObject
     this->BuffBlockCooldownTimeArray[1] = 0.00f;
     this->BuffBlockCooldownTimeArray[2] = 0.00f;
     this->LastManStandingSkillData = NULL;
+    this->ArmorDamageReductionDegradationTickInterval = 1.00f;
 }
 
 void USBZPlayerAbilitySystemComponent::Server_SetSpeedBuffTime_Implementation(const FGameplayTag& SkillTag, float Time) {
@@ -58,6 +59,9 @@ void USBZPlayerAbilitySystemComponent::Server_SetMitigationBuffTime_Implementati
 }
 
 void USBZPlayerAbilitySystemComponent::Server_SetDamageBuffTime_Implementation(const FGameplayTag& SkillTag, float Time) {
+}
+
+void USBZPlayerAbilitySystemComponent::Server_SetCurrentThePunchAnimationIndex_Implementation(int32 InIndex) {
 }
 
 void USBZPlayerAbilitySystemComponent::Server_ResetSpeedBuffTime_Implementation() {
@@ -85,6 +89,12 @@ void USBZPlayerAbilitySystemComponent::OnBuffBlockCooldownTimeArrayChanged() {
 }
 
 void USBZPlayerAbilitySystemComponent::Multicast_UnblockSkillTankLastManStanding_Implementation() {
+}
+
+void USBZPlayerAbilitySystemComponent::Multicast_ThePunchDeactivated_Implementation(bool bInHeavy) {
+}
+
+void USBZPlayerAbilitySystemComponent::Multicast_ThePunchActivated_Implementation(bool bInHeavy) {
 }
 
 void USBZPlayerAbilitySystemComponent::Multicast_SetTacticalDroneBuffBlockCooldown_Implementation(float Cooldown) {
@@ -118,6 +128,9 @@ void USBZPlayerAbilitySystemComponent::Multicast_MarkTarget_Implementation(APawn
 }
 
 void USBZPlayerAbilitySystemComponent::Multicast_MarkedForDeath_Implementation(const TArray<ASBZAIBaseCharacter*>& AICharacters) {
+}
+
+void USBZPlayerAbilitySystemComponent::Multicast_FireHET5AOE_Implementation(const FSBZHET5BlackOverskillTargetData& InTargetData) {
 }
 
 void USBZPlayerAbilitySystemComponent::Multicast_BlockSkillTankLastManStanding_Implementation(float ImmuneTime) {

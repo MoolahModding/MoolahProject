@@ -8,6 +8,7 @@ ASBZCookingStation::ASBZCookingStation(const FObjectInitializer& ObjectInitializ
     this->TertiaryBagType = NULL;
     this->SabotagableStateBitmask = 0;
     this->Seed = -1;
+    this->bIsOrderStatic = false;
     this->IncreasedCookedDuration = 10.00f;
     this->CurrentState = ESBZCookingState::Inactive;
     this->ExplosionSoundEvent = NULL;
@@ -43,6 +44,7 @@ void ASBZCookingStation::Multicast_SetState_Implementation(ESBZCookingState NewS
 
 void ASBZCookingStation::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
 }
+
 
 
 

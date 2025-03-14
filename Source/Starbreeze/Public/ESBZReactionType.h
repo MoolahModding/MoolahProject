@@ -12,7 +12,6 @@ enum class ESBZReactionType : uint8 {
     PlaceECMJammer,
     PlaceSensorTool,
     PlaceTripMine,
-    Tripper,
     PlayerDowned,
     PlayerRevived,
     PlayerFlashed,
@@ -33,6 +32,7 @@ enum class ESBZReactionType : uint8 {
     HeisterPearlIdle,
     HeisterWolfIdle,
     HeisterUnkownIdle,
+    PlaceTripper,
     MAX,
 };
 

@@ -5,6 +5,7 @@
 #include "SBZWeaponFireData.h"
 #include "SBZPlayerWeaponFireData.generated.h"
 
+class UCurveFloat;
 class USBZWeaponMuzzleData;
 
 UCLASS(Blueprintable)
@@ -40,6 +41,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZWeaponMuzzleData* MuzzleData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UCurveFloat* OverallReloadPlayRateAmmoLoadedCurve;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UCurveFloat* EndCycleReloadPlayRateAmmoLoadedCurve;
     
     USBZPlayerWeaponFireData();
 

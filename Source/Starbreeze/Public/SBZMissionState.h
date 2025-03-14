@@ -15,6 +15,7 @@
 #include "SBZEquippableConfig.h"
 #include "SBZGameStateBase.h"
 #include "SBZOnFBIActivationChangedDelegate.h"
+#include "SBZOnOperatorSkillUsedDelegate.h"
 #include "SBZPlayerStateRemovedEvent.h"
 #include "SBZPreplanningAsset.h"
 #include "SBZRepSharedKeyItemTags.h"
@@ -33,6 +34,7 @@ class ASBZTickingLootManager;
 class UAkAudioBank;
 class UObject;
 class UPD3HeistDataAsset;
+class UPD3SpawnSquadPawn;
 class USBZActorPoolManager;
 class USBZAgentManager;
 class USBZBagManager;
@@ -57,6 +59,12 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnFBIActivationChanged OnFBIActivationChanged;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnOperatorSkillUsed OnOperatorSkillUsed;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnOperatorSkillUsed OnOperatorSkillDeactivated;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZStatisticCodeCollection StatisticCodeCollection;
     
@@ -75,6 +83,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnSecurityCompaniesChanged, meta=(AllowPrivateAccess=true))
     TArray<ESBZSecurityCompany> SecurityCompanies;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer AppliedPreplanningTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     TArray<FSBZRepSharedKeyItemTags> ReplicatedSharedKeyItemTagCount;
@@ -169,6 +180,12 @@ private:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatInterval TimeBetweenQueuedCosmeticDestruction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPD3SpawnSquadPawn* DroneDeliverySquadPawn;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* LastOverkillWeaponCaller;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZCosmeticDestructionComponent*> QueuedCosmeticDestructionExplosions;
@@ -312,6 +329,14 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetBlockedBagMarkers(const FGameplayTagContainer& InBlockedBagMarkers);
     
+protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ServerOverskillOperatorDeactivated(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ServerOverskillOperatorActivated(bool bIsBase, bool bIsMarkMania, bool bIsWhoYouGonnaCall, bool bIsRadioSilence);
+    
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OnAmmoSpecialistHighGrainSkillDeactivated();
     

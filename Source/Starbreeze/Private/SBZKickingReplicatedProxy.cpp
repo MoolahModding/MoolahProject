@@ -7,9 +7,9 @@ ASBZKickingReplicatedProxy::ASBZKickingReplicatedProxy(const FObjectInitializer&
     (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
 }
 
-void ASBZKickingReplicatedProxy::VoteToKick_Implementation(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
+void ASBZKickingReplicatedProxy::VoteToKick_Implementation(const FUniqueNetIdRepl& PlayerIdToKick, const FUniqueNetIdRepl& PlayerProposingKick, ESBZKickingMode ModeKick) {
 }
-bool ASBZKickingReplicatedProxy::VoteToKick_Validate(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
+bool ASBZKickingReplicatedProxy::VoteToKick_Validate(const FUniqueNetIdRepl& PlayerIdToKick, const FUniqueNetIdRepl& PlayerProposingKick, ESBZKickingMode ModeKick) {
     return true;
 }
 
@@ -31,21 +31,21 @@ bool ASBZKickingReplicatedProxy::MulticastReceiveKickingInfo_Validate(const FSBZ
     return true;
 }
 
-void ASBZKickingReplicatedProxy::KickPlayerFinal_Implementation(FUniqueNetIdRepl PlayerIdToKick, ESBZKickingMode ModeKick) {
+void ASBZKickingReplicatedProxy::KickPlayerFinal_Implementation(const FUniqueNetIdRepl& PlayerIdToKick, ESBZKickingMode ModeKick) {
 }
-bool ASBZKickingReplicatedProxy::KickPlayerFinal_Validate(FUniqueNetIdRepl PlayerIdToKick, ESBZKickingMode ModeKick) {
+bool ASBZKickingReplicatedProxy::KickPlayerFinal_Validate(const FUniqueNetIdRepl& PlayerIdToKick, ESBZKickingMode ModeKick) {
     return true;
 }
 
-void ASBZKickingReplicatedProxy::KickFailed_Implementation(FUniqueNetIdRepl PlayerProposed, ESBZKickingError ErrorCode) {
+void ASBZKickingReplicatedProxy::KickFailed_Implementation(const FUniqueNetIdRepl& PlayerProposed, ESBZKickingError ErrorCode) {
 }
-bool ASBZKickingReplicatedProxy::KickFailed_Validate(FUniqueNetIdRepl PlayerProposed, ESBZKickingError ErrorCode) {
+bool ASBZKickingReplicatedProxy::KickFailed_Validate(const FUniqueNetIdRepl& PlayerProposed, ESBZKickingError ErrorCode) {
     return true;
 }
 
-void ASBZKickingReplicatedProxy::InitiateKicking_Implementation(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
+void ASBZKickingReplicatedProxy::InitiateKicking_Implementation(const FUniqueNetIdRepl& PlayerIdToKick, const FUniqueNetIdRepl& PlayerProposingKick, ESBZKickingMode ModeKick) {
 }
-bool ASBZKickingReplicatedProxy::InitiateKicking_Validate(FUniqueNetIdRepl PlayerIdToKick, FUniqueNetIdRepl PlayerProposingKick, ESBZKickingMode ModeKick) {
+bool ASBZKickingReplicatedProxy::InitiateKicking_Validate(const FUniqueNetIdRepl& PlayerIdToKick, const FUniqueNetIdRepl& PlayerProposingKick, ESBZKickingMode ModeKick) {
     return true;
 }
 

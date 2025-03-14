@@ -16,7 +16,7 @@ ASBZEquippable::ASBZEquippable(const FObjectInitializer& ObjectInitializer) : Su
     this->EquippingEventRtpc = NULL;
     this->UnequippingEventRtpc = NULL;
     this->bReplicateRootAttachment = false;
-    this->EquippableAkComponent->SetupAttachment(RootComponent);
+    //this->EquippableAkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZEquippable::OnRep_EquippableIndex() {

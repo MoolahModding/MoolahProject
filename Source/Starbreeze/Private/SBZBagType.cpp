@@ -6,12 +6,14 @@ USBZBagType::USBZBagType() {
     this->WorldItem = NULL;
     this->BackItem = NULL;
     this->SecuredItem = NULL;
-    this->bShouldShowOnEndScreen = true;
+    this->BagCategory = ESBZBagCategory::None;
     this->bIsDegradable = false;
-    this->bAllowSecuring = true;
     this->WeightTierOffset = 1.00f;
+    this->WeightOverride = NULL;
     this->MarkerAsset = NULL;
     this->bIsPersistentMarker = true;
+    this->bShouldShowOnEndScreen = true;
+    this->bAllowSecuring = true;
 }
 
 

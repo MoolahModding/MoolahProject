@@ -6,6 +6,7 @@
 #include "ESBZItemCategory.h"
 #include "ESBZItemCurrencyType.h"
 #include "ESBZItemLockReason.h"
+#include "ESBZItemNotLockedReason.h"
 #include "ESBZItemRarity.h"
 #include "ESBZStoreItemPlatform.h"
 #include "SBZStoreItemUICategory.h"
@@ -40,6 +41,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZItemLockReason ItemLockReason;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZItemNotLockedReason ItemNotLockedReason;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxCountPerUser;
@@ -97,6 +101,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bReportsTelemetry;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString FirstPlatformPurchaseUrl;
     
     STARBREEZE_API FSBZStoreBaseItem();
 };

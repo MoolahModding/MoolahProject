@@ -99,7 +99,7 @@ public:
     void OnDifficultyModifierApplied(ESBZDifficulty InDifficulty);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure);
+    void OnBagSecured(const FSBZBagHandle& BagHandle, int32 SecuredCount, int32 TotalLeftToSecure, int32 SecuredSecretCount, int32 TotalSecretLeftToSecure);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAllRandomizedRoomsPlaced();

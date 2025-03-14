@@ -4,9 +4,9 @@
 
 UENUM(BlueprintType)
 enum class ESBZFocusPriority : uint8 {
+    FakeDefaultValueSoUnrealCompilesDontUseThis = 0,
     AI = 3,
     Attack,
     Override,
-    Default = 0,
 };
 

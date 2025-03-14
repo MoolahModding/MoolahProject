@@ -12,12 +12,6 @@ void USBZSettingsFunctionsUserInterface::SetSubtitlesEnabled(UObject* WorldConte
 void USBZSettingsFunctionsUserInterface::SetReticleEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
-void USBZSettingsFunctionsUserInterface::SetMinCrosshairsScale(UObject* WorldContextObject, float Scale) {
-}
-
-void USBZSettingsFunctionsUserInterface::SetMaxCrosshairsScale(UObject* WorldContextObject, float Scale) {
-}
-
 void USBZSettingsFunctionsUserInterface::SetHitIndicatorsEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
@@ -36,10 +30,16 @@ void USBZSettingsFunctionsUserInterface::SetHitIndicatorColorCrit(UObject* World
 void USBZSettingsFunctionsUserInterface::SetFPSCountEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
+void USBZSettingsFunctionsUserInterface::SetCrosshairsShowAccuracy(UObject* WorldContextObject, bool bShowAccuracy) {
+}
+
 void USBZSettingsFunctionsUserInterface::SetCrosshairsDotSize(UObject* WorldContextObject, float Size) {
 }
 
 void USBZSettingsFunctionsUserInterface::SetCrosshairsDotColor(UObject* WorldContextObject, FLinearColor Color) {
+}
+
+void USBZSettingsFunctionsUserInterface::SetCrosshairsCenterGap(UObject* WorldContextObject, float CenterGap) {
 }
 
 void USBZSettingsFunctionsUserInterface::SetCrosshairsBarWidth(UObject* WorldContextObject, float Width) {
@@ -71,14 +71,6 @@ float USBZSettingsFunctionsUserInterface::GetSubtitlesSize(UObject* WorldContext
     return 0.0f;
 }
 
-float USBZSettingsFunctionsUserInterface::GetMinCrosshairsScale(UObject* WorldContextObject) {
-    return 0.0f;
-}
-
-float USBZSettingsFunctionsUserInterface::GetMaxCrosshairsScale(UObject* WorldContextObject) {
-    return 0.0f;
-}
-
 float USBZSettingsFunctionsUserInterface::GetHitIndicatorScale(UObject* WorldContextObject) {
     return 0.0f;
 }
@@ -99,14 +91,6 @@ float USBZSettingsFunctionsUserInterface::GetDefaultSubtitlesSize(UObject* World
     return 0.0f;
 }
 
-float USBZSettingsFunctionsUserInterface::GetDefaultMinCrosshairsScale(UObject* WorldContextObject) {
-    return 0.0f;
-}
-
-float USBZSettingsFunctionsUserInterface::GetDefaultMaxCrosshairsScale(UObject* WorldContextObject) {
-    return 0.0f;
-}
-
 float USBZSettingsFunctionsUserInterface::GetDefaultHitIndicatorScale(UObject* WorldContextObject) {
     return 0.0f;
 }
@@ -123,12 +107,20 @@ FLinearColor USBZSettingsFunctionsUserInterface::GetDefaultHitIndicatorColorCrit
     return FLinearColor{};
 }
 
+bool USBZSettingsFunctionsUserInterface::GetDefaultCrosshairsShowAccuracy(UObject* WorldContextObject) {
+    return false;
+}
+
 float USBZSettingsFunctionsUserInterface::GetDefaultCrosshairsDotSize(UObject* WorldContextObject) {
     return 0.0f;
 }
 
 FLinearColor USBZSettingsFunctionsUserInterface::GetDefaultCrosshairsDotColor(UObject* WorldContextObject) {
     return FLinearColor{};
+}
+
+float USBZSettingsFunctionsUserInterface::GetDefaultCrosshairsCenterGap(UObject* WorldContextObject) {
+    return 0.0f;
 }
 
 float USBZSettingsFunctionsUserInterface::GetDefaultCrosshairsBarWidth(UObject* WorldContextObject) {
@@ -143,12 +135,20 @@ FLinearColor USBZSettingsFunctionsUserInterface::GetDefaultCrosshairsBarColor(UO
     return FLinearColor{};
 }
 
+bool USBZSettingsFunctionsUserInterface::GetCrosshairsShowAccuracy(UObject* WorldContextObject) {
+    return false;
+}
+
 float USBZSettingsFunctionsUserInterface::GetCrosshairsDotSize(UObject* WorldContextObject) {
     return 0.0f;
 }
 
 FLinearColor USBZSettingsFunctionsUserInterface::GetCrosshairsDotColor(UObject* WorldContextObject) {
     return FLinearColor{};
+}
+
+float USBZSettingsFunctionsUserInterface::GetCrosshairsCenterGap(UObject* WorldContextObject) {
+    return 0.0f;
 }
 
 float USBZSettingsFunctionsUserInterface::GetCrosshairsBarWidth(UObject* WorldContextObject) {
@@ -161,6 +161,10 @@ float USBZSettingsFunctionsUserInterface::GetCrosshairsBarLength(UObject* WorldC
 
 FLinearColor USBZSettingsFunctionsUserInterface::GetCrosshairsBarColor(UObject* WorldContextObject) {
     return FLinearColor{};
+}
+
+bool USBZSettingsFunctionsUserInterface::GetButtonVisibilityCrosshairsCenterGap(UObject* WorldContextObject) {
+    return false;
 }
 
 bool USBZSettingsFunctionsUserInterface::AreSubtitlesEnabledByDefault(UObject* WorldContextObject) {

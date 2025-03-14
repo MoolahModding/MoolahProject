@@ -26,6 +26,7 @@ public class Starbreeze : ModuleRules {
             "JsonUtilities",
             "NavigationSystem",
             "Niagara",
+            "NiagaraAnimNotifies",
             "OnlineSubsystemUtils",
             "Paper2D",
             "PhysXVehicles",

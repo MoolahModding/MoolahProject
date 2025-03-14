@@ -15,6 +15,7 @@
 #include "SBZZiplineAudioController.h"
 
 ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<USBZSkeletalMeshComponentBudgeted>(TEXT("CharacterMesh0"))) {
+    //this->bWantsDetailedDamageEvents = true;
     this->MarkedVoiceComment = NULL;
     this->MarkedOutline = NULL;
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
@@ -204,6 +205,9 @@ bool ASBZCharacter::Server_HumanShieldInstigatorSlotReached_Validate() {
     return true;
 }
 
+void ASBZCharacter::Server_ExitMeleeMontage_Implementation() {
+}
+
 void ASBZCharacter::RemoveLooseGameplayTags(const FGameplayTagContainer& GameplayTags, int32 Count) {
 }
 
@@ -351,6 +355,9 @@ void ASBZCharacter::Multicast_OnKill_Implementation() {
 void ASBZCharacter::Multicast_HumanShieldInstigatorSlotReached_Implementation() {
 }
 
+void ASBZCharacter::Multicast_ExitMeleeMontage_Implementation() {
+}
+
 void ASBZCharacter::Multicast_EnableThrowState_Implementation() {
 }
 
@@ -363,7 +370,10 @@ void ASBZCharacter::Multicast_CancelMelee_Implementation() {
 void ASBZCharacter::Multicast_ApplyHurtReaction_Implementation(const FSBZHurtReactionPrediction& HurtReactionPrediction) {
 }
 
-void ASBZCharacter::Multicast_ActivateMelee_Implementation() {
+void ASBZCharacter::Multicast_ActivateMelee_Implementation(bool bIsHeavy, int32 InAnimationIndex) {
+}
+
+void ASBZCharacter::HandleTakeRadialDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, const TArray<FHitResult>& HitInfos, const FRadialDamageParams& Params, const FVector& Origin, const UDamageType* DamageType, AActor* DamageCauser) {
 }
 
 void ASBZCharacter::HandleTakePointDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, FVector HitLocation, UPrimitiveComponent* HitComponent, FName BoneName, FVector ShotFromDirection, const UDamageType* DamageType, AActor* DamageCauser) {

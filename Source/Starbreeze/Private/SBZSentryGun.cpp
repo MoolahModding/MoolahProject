@@ -10,7 +10,7 @@
 
 ASBZSentryGun::ASBZSentryGun(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RootComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
-    this->Tags.AddDefaulted(1);
+    this->Tags.AddDefaulted(2);
     this->FireCooldown = 3.00f;
     this->FireTime = 3.00f;
     this->YawRotation = 170.00f;

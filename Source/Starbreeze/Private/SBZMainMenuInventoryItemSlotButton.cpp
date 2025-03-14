@@ -4,10 +4,15 @@ USBZMainMenuInventoryItemSlotButton::USBZMainMenuInventoryItemSlotButton() {
     this->ItemData = NULL;
     this->InfamyLevel = 0;
     this->bIsAvailable = false;
+    this->bIsLockedByDLC = false;
     this->ItemSource = ESBZUIItemSource::InfamyLevel;
 }
 
 
+
+bool USBZMainMenuInventoryItemSlotButton::IsLockedByDLC() const {
+    return false;
+}
 
 bool USBZMainMenuInventoryItemSlotButton::IsAvailable() const {
     return false;
