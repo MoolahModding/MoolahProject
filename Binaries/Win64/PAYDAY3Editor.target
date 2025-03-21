@@ -860,6 +860,14 @@
 			"Type": "SymbolFile"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/DummyFactories/Binaries/Win64/UE4Editor-DummyFactories.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/DummyFactories/Binaries/Win64/UE4Editor-DummyFactories.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/EnginePlugins/ACLPlugin/Binaries/Win64/UE4Editor-ACLPlugin.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -5156,6 +5164,10 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/DummyFactories/Binaries/Win64/UE4Editor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/EnginePlugins/ACLPlugin/Binaries/Win64/UE4Editor.modules",
 			"Type": "RequiredResource"
 		},
@@ -5787,6 +5799,10 @@
 		},
 		{
 			"Path": "$(ProjectDir)/Plugins/ChromaSDKPlugin/ChromaSDKPlugin.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/DummyFactories/DummyFactories.uplugin",
 			"Type": "UFS"
 		},
 		{
