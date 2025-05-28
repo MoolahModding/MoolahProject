@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZEquippableEndMissionResultData.h"
+#include "SBZNamedEquippableEndMissionResultData.h"
 #include "SBZCharacterEndMissionResultData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -9,6 +10,9 @@ struct FSBZCharacterEndMissionResultData {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZEquippableEndMissionResultData> EquippableArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZNamedEquippableEndMissionResultData> OverkillEquippableArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 BeenDefeatedCount;

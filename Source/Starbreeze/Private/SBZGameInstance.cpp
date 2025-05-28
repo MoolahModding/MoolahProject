@@ -20,11 +20,13 @@ USBZGameInstance::USBZGameInstance() {
     this->UIManagerClass = NULL;
     this->GlobalItemDatabaseClass = NULL;
     this->GlobalQuickStartItemDatabaseClass = NULL;
+    this->ChromaSensaIdleAnimationEffect = NULL;
     this->GameStateMachine = NULL;
     this->FramerateLimitOutOfFocus = 30.00f;
     this->SaveManager = NULL;
     this->SettingsMenuManager = NULL;
     this->WeaponConfigManager = NULL;
+    this->ArmorManager = NULL;
     this->WeaponCosmeticsManager = NULL;
     this->WeaponProgressionManager = NULL;
     this->AssetDatabaseManager = NULL;
@@ -106,6 +108,10 @@ ESBZDifficulty USBZGameInstance::GetDifficulty() const {
 }
 
 FString USBZGameInstance::GetBuiltFromChangelist() {
+    return TEXT("");
+}
+
+FString USBZGameInstance::GetBranch() {
     return TEXT("");
 }
 

@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsGroup.h"
 
+UAccelByteBlueprintsGroup::UAccelByteBlueprintsGroup() {
+}
+
 void UAccelByteBlueprintsGroup::UpdateGroupPredefinedRule(const FString& GroupId, const EAccelByteAllowedAction& AllowedAction, const FAccelByteModelsUpdateGroupPredefinedRuleRequest& RequestContent, const UAccelByteBlueprintsGroup::FUpdateGroupPredefinedRuleSuccess& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -27,6 +30,4 @@ void UAccelByteBlueprintsGroup::DeleteGroup(const FString& GroupId, const UAccel
 void UAccelByteBlueprintsGroup::CreateGroup(const FAccelByteModelsCreateGroupRequest& RequestContent, const UAccelByteBlueprintsGroup::FCreateGroupSuccess& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UAccelByteBlueprintsGroup::UAccelByteBlueprintsGroup() {
-}
 

@@ -24,8 +24,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString CurrencyCode;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 Balance;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 Balance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString BalanceOrigin;
@@ -39,11 +39,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDateTime UpdatedAt;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 TotalPermanentBalance;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 TotalPermanentBalance;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 TotalTimeLimitedBalance;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 TotalTimeLimitedBalance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EAccelByteItemStatus Status;

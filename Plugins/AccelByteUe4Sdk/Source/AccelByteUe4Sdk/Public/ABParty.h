@@ -45,6 +45,7 @@ class UABParty : public UObject {
     GENERATED_BODY()
 public:
     UABParty();
+
     UFUNCTION(BlueprintCallable)
     void WritePartyStorage(const FWritePartyStorageRequest& Request, FDPartyWriteDataResponse OnResponse, FDErrorHandler OnError);
     

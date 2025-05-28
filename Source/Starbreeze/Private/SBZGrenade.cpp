@@ -14,7 +14,7 @@ void ASBZGrenade::OnCollisionComponentHit(UPrimitiveComponent* OverlappedComp, A
 void ASBZGrenade::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
 }
 
-void ASBZGrenade::Multicast_OnServerCollision_Implementation(const FVector_NetQuantize& InLocation) {
+void ASBZGrenade::Multicast_OnServerCollision_Implementation(bool bInIsExplodedOnCharacter, const FVector_NetQuantize& InLocation) {
 }
 
 void ASBZGrenade::Multicast_ExplosionInHand_Implementation() {

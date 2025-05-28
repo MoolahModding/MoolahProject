@@ -13,6 +13,7 @@ class UABServerDSM : public UObject {
     GENERATED_BODY()
 public:
     UABServerDSM();
+
     UFUNCTION(BlueprintCallable)
     void SetServerType(UEnumServerType Type);
     

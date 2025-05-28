@@ -8,6 +8,7 @@ ASBZStandaloneWeaponDisplay::ASBZStandaloneWeaponDisplay(const FObjectInitialize
     this->bForceWithoutPivotPoint = false;
     this->FOVMultiplier = 0.85f;
     this->SpawnedPivotPoint = NULL;
+    this->RotateComponent = NULL;
 }
 
 void ASBZStandaloneWeaponDisplay::SetupWeaponData(const USBZBaseWeaponData* InWeaponData, bool bIsRotationReset) {

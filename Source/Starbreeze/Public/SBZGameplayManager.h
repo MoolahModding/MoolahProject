@@ -28,7 +28,7 @@ private:
     void OnOutroSequenceStarted(const int32 OutroVariation);
     
     UFUNCTION(BlueprintCallable)
-    void OnBlackScreenStarted();
+    void OnBlackScreenStarted(const bool bIsRestart);
     
     UFUNCTION(BlueprintCallable)
     void OnActionPhaseStarted();

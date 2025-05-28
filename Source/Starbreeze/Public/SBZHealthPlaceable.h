@@ -3,6 +3,8 @@
 #include "SBZPlaceableCharges.h"
 #include "SBZHealthPlaceable.generated.h"
 
+class ASBZPlayerState;
+
 UCLASS(Abstract, Blueprintable)
 class ASBZHealthPlaceable : public ASBZPlaceableCharges {
     GENERATED_BODY()
@@ -16,6 +18,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bAllowPartialCharges;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* EmpathicHealingPlayerState;
     
 public:
     ASBZHealthPlaceable(const FObjectInitializer& ObjectInitializer);

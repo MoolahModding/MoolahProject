@@ -1,5 +1,8 @@
 #include "ABServerMatchmaking.h"
 
+UABServerMatchmaking::UABServerMatchmaking() {
+}
+
 void UABServerMatchmaking::RemoveUserFromSession(const FString& ChannelName, const FString& MatchId, const FString& UserId, const FAccelByteModelsMatchmakingResult& OptionalBody, FDHandler OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -24,6 +27,4 @@ void UABServerMatchmaking::AddUserToSession(const FString& ChannelName, const FS
 void UABServerMatchmaking::ActivateSessionStatusPolling(const FString& MatchId, int32 IntervalSec, FDMatchmakingResultDelegate OnSuccess, FDErrorHandler OnError) {
 }
 
-UABServerMatchmaking::UABServerMatchmaking() {
-}
 

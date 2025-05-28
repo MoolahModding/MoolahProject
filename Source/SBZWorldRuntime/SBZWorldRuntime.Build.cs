@@ -10,6 +10,7 @@ public class SBZWorldRuntime : ModuleRules {
             "Core",
             "CoreUObject",
             "Engine",
+            //"Starbreeze",
         });
     }
 }

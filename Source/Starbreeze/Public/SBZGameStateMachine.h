@@ -17,6 +17,7 @@
 #include "OnStateMachineExitedStateDelegateDelegate.h"
 #include "SBZEndMissionRequestData.h"
 #include "SBZOnSecurityCompaniesChangedDelegate.h"
+#include "SBZOnServerBrowserJoinErrorDelegate.h"
 #include "SBZOnlineMatchmakingParams.h"
 #include "SBZPlayerPressedReadyEventDelegate.h"
 #include "SBZPlayerPressedRestartLevelEventDelegate.h"
@@ -75,6 +76,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnSecurityCompaniesChanged OnSecurityCompaniesChanged;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnServerBrowserJoinError OnServerBrowserJoinError;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZCommonStateMachine* StateMachine;
@@ -106,8 +110,11 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetIsMatchmakingQuickMatch(bool bInIsQuickMatch);
     
-    UFUNCTION(BlueprintCallable)
-    void SetIsMatchmakingHost(bool bIsHost);
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    void SetIsMatchmakingHost(bool bIsHost) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure=false)
+    void SetIsJoiningFromServerBrowser(bool bJoiningFromServerBrowser) const;
     
     UFUNCTION(BlueprintCallable)
     void RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch);

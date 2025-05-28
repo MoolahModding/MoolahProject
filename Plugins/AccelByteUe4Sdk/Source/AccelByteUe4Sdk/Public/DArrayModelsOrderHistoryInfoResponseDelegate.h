@@ -3,5 +3,5 @@
 #include "ArrayModelsOrderHistoryInfo.h"
 #include "DArrayModelsOrderHistoryInfoResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDArrayModelsOrderHistoryInfoResponse, FArrayModelsOrderHistoryInfo, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDArrayModelsOrderHistoryInfoResponse, FArrayModelsOrderHistoryInfo, Response);
 

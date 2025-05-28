@@ -1,5 +1,8 @@
 #include "ABUGC.h"
 
+UABUGC::UABUGC() {
+}
+
 void UABUGC::UploadContentScreenshotV2(const FString& ContentId, FAccelByteModelsUGCUploadScreenshotsRequestV2 ScreenshotsRequest, const FDModelsUGCUpdateContentScreenshotResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -141,6 +144,4 @@ void UABUGC::BulkGetContentByShareCode(const TArray<FString>& ShareCodes, const 
 void UABUGC::AddDownloadContentCountV2(const FString& ContentId, const FDModelsUGCAddDownloadContentCountResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABUGC::UABUGC() {
-}
 

@@ -35,7 +35,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnSelectionOptionChanged(int32 InCurrentIndex);
+    void OnSelectionOptionChanged(int32 InCurrentIndex, bool bOverrideReadOnly);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSelectedRight();

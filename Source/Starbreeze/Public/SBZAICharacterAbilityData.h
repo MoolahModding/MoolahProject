@@ -10,6 +10,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorHardness;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ArmorDifficultyScaleArray[4];
+    
     USBZAICharacterAbilityData();
 
 };

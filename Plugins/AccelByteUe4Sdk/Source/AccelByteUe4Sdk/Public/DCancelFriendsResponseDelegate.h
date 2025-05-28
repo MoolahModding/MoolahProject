@@ -3,5 +3,5 @@
 #include "AccelByteModelsCancelFriendsResponse.h"
 #include "DCancelFriendsResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDCancelFriendsResponse, FAccelByteModelsCancelFriendsResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDCancelFriendsResponse, FAccelByteModelsCancelFriendsResponse, Response);
 

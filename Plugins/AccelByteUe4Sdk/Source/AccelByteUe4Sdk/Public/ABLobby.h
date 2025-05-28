@@ -16,6 +16,7 @@ class UABLobby : public UObject {
     GENERATED_BODY()
 public:
     UABLobby();
+
     UFUNCTION(BlueprintCallable)
     void UnbindEvent();
     

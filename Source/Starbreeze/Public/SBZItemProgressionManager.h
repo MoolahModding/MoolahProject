@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
+#include "SBZChallengeObjectiveInfo.h"
 #include "SBZOnInitializedItemProgressionDoneDelegate.h"
 #include "SBZItemProgressionManager.generated.h"
 
@@ -17,6 +18,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerItemProgression* PlayerItemProgression;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FString, FSBZChallengeObjectiveInfo> PlayerNonInventoryItemInfoMap;
     
 public:
     USBZItemProgressionManager();

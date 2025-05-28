@@ -1,7 +1,7 @@
 #include "SBZRangedWeaponExecutionCalculation.h"
 
 USBZRangedWeaponExecutionCalculation::USBZRangedWeaponExecutionCalculation() {
-    this->RelevantAttributesToCapture.AddDefaulted(3);
+    this->RelevantAttributesToCapture.AddDefaulted(4);
 }
 
 

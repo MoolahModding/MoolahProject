@@ -8,6 +8,7 @@ enum class ESBZLoginCode : uint8 {
     LoginFailed,
     NebulaConnectionFailed,
     LoginBadRequest,
+    LoginUnauthorized,
     LoginWrongCreds,
     LoginLinkingTokenNotFound,
     LoginLinkingDiffNAccount,

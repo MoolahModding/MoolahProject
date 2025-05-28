@@ -6,6 +6,7 @@ UPD3MiniGameWidgetBase::UPD3MiniGameWidgetBase() {
     this->UpdateWaitTime = 0.30f;
     this->XAxisLastUpdateTime = 0.00f;
     this->YAxisLastUpdateTime = 0.00f;
+    this->PlayerState = NULL;
 }
 
 void UPD3MiniGameWidgetBase::SetMiniGameState(EPD3MiniGameState NewState) {

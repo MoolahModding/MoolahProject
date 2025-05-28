@@ -2,6 +2,8 @@
 #include "Net/UnrealNetwork.h"
 
 USBZMarkerManager::USBZMarkerManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->MaxDamageStatusMarkerCount = 10;
+    this->DamageStatusMarkerDurationSeconds = 3.00f;
 }
 
 void USBZMarkerManager::OnRep_ReplicatedMarkers() {

@@ -1,7 +1,9 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "ESBZItemLoadoutSlot.h"
 #include "ESBZMetaRequestResult.h"
+#include "SBZInventorySlotStoreItem.h"
 #include "SBZMenuStackScreenWidgetWithTutorial.h"
 #include "Templates/SubclassOf.h"
 #include "SBZMainMenuItemInventoryScreen.generated.h"
@@ -35,9 +37,26 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuInventoryItemSlotButton*> ItemSlotButtonPool;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZInventorySlotStoreItem SlotItem;
+    
 public:
     USBZMainMenuItemInventoryScreen();
 
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnTryBuyArmorSlot();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnSlotPurchaseComplete(bool bWasSuccessful);
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnSlotPriceChanged(const FSBZInventorySlotStoreItem& Item);
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnShowBuySlotPopUpClosed(FName InActionName);
+    
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemSlotsUpdated();
@@ -50,6 +69,13 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnItemSlotButtonFocusedChanged(USBZMenuButton* SelectedButton, bool bIsFocused);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnGameInstallStateChanged(bool bIsInstallPending);
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
     
 private:
     UFUNCTION(BlueprintCallable)

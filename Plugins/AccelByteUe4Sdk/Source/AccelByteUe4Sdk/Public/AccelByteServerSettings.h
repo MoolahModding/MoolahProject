@@ -3,7 +3,7 @@
 #include "UObject/Object.h"
 #include "AccelByteServerSettings.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig)
+UCLASS(Blueprintable, DefaultConfig, Config=Engine)
 class ACCELBYTEUE4SDK_API UAccelByteServerSettings : public UObject {
     GENERATED_BODY()
 public:
@@ -92,5 +92,6 @@ public:
     bool bSendPredefinedEvent;
     
     UAccelByteServerSettings();
+
 };
 

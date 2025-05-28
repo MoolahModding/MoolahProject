@@ -33,7 +33,7 @@ private:
     UAkAcousticTextureSetComponent* GeometryComponent;
     
 public:
-    UAkRoomComponent();
+    UAkRoomComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void SetGeometryComponent(UAkAcousticTextureSetComponent* textureSetComponent);

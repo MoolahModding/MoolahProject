@@ -1,5 +1,8 @@
 #include "ABServerStatistic.h"
 
+UABServerStatistic::UABServerStatistic() {
+}
+
 void UABServerStatistic::IncrementUserStatItems(const FString& UserId, const TArray<FAccelByteModelsBulkStatItemInc>& Data, FDArrayBulkStatItemOperationDelegate OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -21,6 +24,4 @@ void UABServerStatistic::CreateUserStatItems(const FString& UserId, const TArray
 void UABServerStatistic::BulkFetchStatItemsValue(const FString& StatCode, const TArray<FString>& UserIds, FDFetchUserStatistic OnSuccess, FDErrorHandler OnError) {
 }
 
-UABServerStatistic::UABServerStatistic() {
-}
 

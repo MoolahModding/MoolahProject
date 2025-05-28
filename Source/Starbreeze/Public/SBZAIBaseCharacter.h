@@ -31,6 +31,7 @@ class USBZAIUtilityData;
 class USBZAbilitySystemComponent;
 class USBZAgentManager;
 class USBZAgilityQueryParams;
+class USBZDamageStatusMarkerDataAsset;
 class USBZLifeActionSlot;
 class USBZNavLinkAgilityComponent;
 class USBZPathFocusSettings;
@@ -171,6 +172,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsSlowedAllowed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDamageStatusMarkerDataAsset* DamageStatusMarkerAsset;
     
 public:
     ASBZAIBaseCharacter(const FObjectInitializer& ObjectInitializer);

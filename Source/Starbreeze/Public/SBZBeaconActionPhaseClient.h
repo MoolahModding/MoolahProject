@@ -13,6 +13,7 @@
 #include "SBZLobbyCharacterInfo.h"
 #include "SBZMissionInfo.h"
 #include "SBZOnlineBeaconClient.h"
+#include "SBZPlayerLoadoutConfig.h"
 #include "SBZPlayerSlotInfo.h"
 #include "SBZSlotData.h"
 #include "SBZVoiceSessionData.h"
@@ -146,7 +147,10 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
+    void OnLocalPlayerLoadoutChanged(const FSBZPlayerLoadoutConfig& PlayerLoadout, int32 PlayerLoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnActiveLoadoutIndexChanged(int32 NewActiveLoadoutIndex);
     
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable)

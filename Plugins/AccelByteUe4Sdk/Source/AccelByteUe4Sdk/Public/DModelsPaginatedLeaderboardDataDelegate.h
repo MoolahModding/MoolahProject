@@ -3,5 +3,5 @@
 #include "AccelByteModelsPaginatedLeaderboardData.h"
 #include "DModelsPaginatedLeaderboardDataDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedLeaderboardData, FAccelByteModelsPaginatedLeaderboardData, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedLeaderboardData, FAccelByteModelsPaginatedLeaderboardData, Response);
 

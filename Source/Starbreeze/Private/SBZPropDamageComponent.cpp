@@ -2,9 +2,10 @@
 #include "Net/UnrealNetwork.h"
 
 USBZPropDamageComponent::USBZPropDamageComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bIsRejectHandled = false;
 }
 
-void USBZPropDamageComponent::OnRep_DamagePools() {
+void USBZPropDamageComponent::OnRep_DamagePools(const TArray<FSBZPropDamagePool>& OldDamagePool) {
 }
 
 void USBZPropDamageComponent::HandleTakeRadialDamage(AActor* DamagedActor, float Damage, AController* InstigatedBy, const TArray<FHitResult>& HitInfos, const FRadialDamageParams& Params, const FVector& Origin, const UDamageType* DamageType, AActor* DamageCauser) {

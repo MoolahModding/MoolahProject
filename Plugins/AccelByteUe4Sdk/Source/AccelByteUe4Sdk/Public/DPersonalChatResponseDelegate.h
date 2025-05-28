@@ -3,5 +3,5 @@
 #include "AccelByteModelsPersonalMessageResponse.h"
 #include "DPersonalChatResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPersonalChatResponse, FAccelByteModelsPersonalMessageResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPersonalChatResponse, FAccelByteModelsPersonalMessageResponse, Response);
 

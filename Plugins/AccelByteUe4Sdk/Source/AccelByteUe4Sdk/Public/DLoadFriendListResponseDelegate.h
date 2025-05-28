@@ -3,5 +3,5 @@
 #include "AccelByteModelsLoadFriendListResponse.h"
 #include "DLoadFriendListResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDLoadFriendListResponse, FAccelByteModelsLoadFriendListResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDLoadFriendListResponse, FAccelByteModelsLoadFriendListResponse, Response);
 

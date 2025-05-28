@@ -22,6 +22,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MoveGoalActorUpdateDistance;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPartialPathAllowed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsPartialPathUpdatingMoveToLocation;
+    
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FEQSParametrizedQueryExecutionRequest EQSRequest;
     

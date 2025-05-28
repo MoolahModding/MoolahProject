@@ -14,6 +14,7 @@ class UABServerUGC : public UObject {
     GENERATED_BODY()
 public:
     UABServerUGC();
+
     UFUNCTION(BlueprintCallable)
     void SearchContentsSpecificToChannel(const FString& ChannelId, const FAccelByteModelsUGCSearchContentsRequest& Request, const FDModelsUGCSearchContentsResponse& OnSuccess, const FDErrorHandler& OnError, int32 Limit, int32 Offset);
     

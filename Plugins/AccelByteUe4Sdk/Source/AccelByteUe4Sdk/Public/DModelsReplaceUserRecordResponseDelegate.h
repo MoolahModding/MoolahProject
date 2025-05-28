@@ -3,5 +3,5 @@
 #include "AccelByteModelsReplaceUserRecordResponse.h"
 #include "DModelsReplaceUserRecordResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsReplaceUserRecordResponse, FAccelByteModelsReplaceUserRecordResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsReplaceUserRecordResponse, FAccelByteModelsReplaceUserRecordResponse, Response);
 

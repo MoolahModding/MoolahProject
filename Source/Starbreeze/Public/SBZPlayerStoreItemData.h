@@ -66,6 +66,9 @@ public:
     TMap<FGuid, FSBZInventorySlotStoreItem> SecondaryInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGuid, FSBZInventorySlotStoreItem> ArmorInventorySlotMap;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<FGuid, FSBZInventorySlotStoreItem> MaskInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

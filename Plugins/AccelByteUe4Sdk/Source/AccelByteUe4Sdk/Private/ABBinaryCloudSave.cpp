@@ -1,5 +1,8 @@
 #include "ABBinaryCloudSave.h"
 
+UABBinaryCloudSave::UABBinaryCloudSave() {
+}
+
 void UABBinaryCloudSave::UpdateUserBinaryRecordMetadata(const FString& Key, bool bIsPublic, const FDModelsUserBinaryRecord& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -45,6 +48,4 @@ void UABBinaryCloudSave::BulkGetGameBinaryRecords(const TArray<FString>& Keys, c
 void UABBinaryCloudSave::BulkGetCurrentUserBinaryRecords(const TArray<FString>& Keys, const FDModelsListUserBinaryRecords& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABBinaryCloudSave::UABBinaryCloudSave() {
-}
 

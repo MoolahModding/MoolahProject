@@ -12,6 +12,7 @@ class ACCELBYTEUE4SDK_API UABCredentials : public UObject {
     GENERATED_BODY()
 public:
     UABCredentials();
+
     UFUNCTION(BlueprintCallable)
     void SetUserEmailAddress(const FString& EmailAddress);
     

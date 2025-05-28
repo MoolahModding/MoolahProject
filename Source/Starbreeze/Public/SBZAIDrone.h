@@ -47,6 +47,7 @@ class USBZAIDroneAttributeSet;
 class USBZAbilitySystemComponent;
 class USBZBaseInteractableComponent;
 class USBZCharacterVoiceComponent;
+class USBZDamageStatusMarkerDataAsset;
 class USBZHackableInteractableComponent;
 class USBZInteractorComponent;
 class USBZLocalPlayerFeedback;
@@ -221,6 +222,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bIsDeathAllowed: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDamageStatusMarkerDataAsset* DamageStatusMarkerAsset;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

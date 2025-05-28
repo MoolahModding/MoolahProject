@@ -8,6 +8,7 @@ class UAccelByteBlueprintsCredentials : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsCredentials();
+
     UFUNCTION(BlueprintCallable)
     static FString GetUserSessionId();
     

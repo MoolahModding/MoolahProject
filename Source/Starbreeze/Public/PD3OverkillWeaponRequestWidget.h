@@ -4,6 +4,7 @@
 #include "PD3OverkillWeaponRequestWidget.generated.h"
 
 class USBZAbilityInputActionWidget;
+class USBZInventoryBaseData;
 
 UCLASS(Blueprintable, EditInlineNew)
 class UPD3OverkillWeaponRequestWidget : public USBZPlayerStatePawnWidgetBase {
@@ -21,6 +22,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsReady;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZInventoryBaseData* OverkillData;
     
 public:
     UPD3OverkillWeaponRequestWidget();
@@ -40,6 +44,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnOverkillDisabled();
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void OnOverkillDataChanged();
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnOverskillLoadoutTickingChanged(bool bInIsTicking);

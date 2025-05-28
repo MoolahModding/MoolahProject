@@ -4,9 +4,9 @@
 
 UENUM(BlueprintType)
 enum class ERelationshipStatusCode : uint8 {
-    Friend = 0x3,
-    Incoming = 0x2,
-    Outgoing = 0x1,
-    NotFriend = 0x0,
+    Friend = 3,
+    Incoming = 2,
+    Outgoing = 1,
+    NotFriend = 0,
 };
 

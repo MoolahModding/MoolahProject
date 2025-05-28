@@ -15,6 +15,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsCategory();
+
     UFUNCTION(BlueprintCallable)
     static void GetRootCategories(const FString& Language, const UAccelByteBlueprintsCategory::FGetRootCategoriesSuccess& OnSuccess, const UAccelByteBlueprintsCategory::FBlueprintErrorHandler& OnError);
     

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "SBZClientStateMachineState.h"
+#include "SBZPlayerLoadoutConfig.h"
 #include "SBZStateMachineStateSoloPreMatch.generated.h"
 
 class USBZLoadingScreen;
@@ -29,7 +30,10 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void OnActiveLoadoutChanged(int32 NewActiveLoadoutIndex);
+    void OnLocalPlayerLoadoutChanged(const FSBZPlayerLoadoutConfig& PlayerLoadout, int32 PlayerLoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnActiveLoadoutIndexChanged(int32 NewActiveLoadoutIndex);
     
 };
 

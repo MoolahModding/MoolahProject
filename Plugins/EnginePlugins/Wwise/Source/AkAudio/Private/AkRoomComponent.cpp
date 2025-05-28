@@ -1,6 +1,7 @@
 #include "AkRoomComponent.h"
 
-UAkRoomComponent::UAkRoomComponent() {
+UAkRoomComponent::UAkRoomComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bUseAttachParentBound = true;
     this->bEnable = true;
     this->bDynamic = false;
     this->Priority = 0.00f;
@@ -8,7 +9,6 @@ UAkRoomComponent::UAkRoomComponent() {
     this->AuxSendLevel = 0.00f;
     this->AutoPost = false;
     this->GeometryComponent = NULL;
-    this->bUseAttachParentBound = true;
 }
 
 void UAkRoomComponent::SetGeometryComponent(UAkAcousticTextureSetComponent* textureSetComponent) {

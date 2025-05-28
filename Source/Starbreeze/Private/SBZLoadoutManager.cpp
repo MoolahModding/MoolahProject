@@ -3,6 +3,10 @@
 USBZLoadoutManager::USBZLoadoutManager() {
 }
 
+bool USBZLoadoutManager::SetOverskillSkillRemoved(const USBZSkillData* Data, bool bIsRemoved) {
+    return false;
+}
+
 void USBZLoadoutManager::SetLoadoutAtIndex(int32 LoadoutIndex, const FSBZPlayerLoadoutConfig& InLoadoutConfig) {
 }
 
@@ -11,6 +15,10 @@ ESBZMetaRequestResult USBZLoadoutManager::SetActiveLoadoutIndex(int32 ActiveLoad
 }
 
 void USBZLoadoutManager::SendLoadoutName(const int32 LoadoutIndex, const FString& LoadoutName) {
+}
+
+bool USBZLoadoutManager::IsOverskillSkillRemoved(const USBZSkillData* Data) const {
+    return false;
 }
 
 TArray<FSBZPlayerLoadoutConfig> USBZLoadoutManager::GetPlayerLoadouts() {

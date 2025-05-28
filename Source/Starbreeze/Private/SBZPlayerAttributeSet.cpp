@@ -78,7 +78,10 @@ void USBZPlayerAttributeSet::OnRep_PrimaryEquippableAmmoLoaded(const FGameplayAt
 void USBZPlayerAttributeSet::OnRep_PrimaryEquippableAmmoInventory(const FGameplayAttributeData& OldData) {
 }
 
-void USBZPlayerAttributeSet::OnRep_OverskillProgression(const FGameplayAttributeData& OldOverSkillProgression) {
+void USBZPlayerAttributeSet::OnRep_OverskillProgression(const FGameplayAttributeData& OldValue) {
+}
+
+void USBZPlayerAttributeSet::OnRep_OutgoingArmorPenetration(const FGameplayAttributeData& OldValue) {
 }
 
 void USBZPlayerAttributeSet::OnRep_HealthTrauma(const FGameplayAttributeData& OldArmorTrauma) {
@@ -87,16 +90,10 @@ void USBZPlayerAttributeSet::OnRep_HealthTrauma(const FGameplayAttributeData& Ol
 void USBZPlayerAttributeSet::OnRep_DownedCount(const FGameplayAttributeData& OldDownedCount) {
 }
 
-void USBZPlayerAttributeSet::OnRep_Dodge(const FGameplayAttributeData& OldDodge) {
-}
-
 void USBZPlayerAttributeSet::OnRep_ConsumableCount(const FGameplayAttributeData& OldConsumableCount) {
 }
 
 void USBZPlayerAttributeSet::OnRep_ArmorTrauma(const FGameplayAttributeData& OldArmorTrauma) {
-}
-
-void USBZPlayerAttributeSet::OnRep_ArmorChunkCount(const FGameplayAttributeData& OldArmorChunkCount) {
 }
 
 void USBZPlayerAttributeSet::Multicast_SetTertiaryToolPlaceableAmmoInventory_Implementation(float NewCurrentValue) {
@@ -156,22 +153,19 @@ void USBZPlayerAttributeSet::Multicast_SetPrimaryEquippableAmmoInventory_Impleme
 void USBZPlayerAttributeSet::Multicast_SetOverskillProgression_Implementation(float NewCurrentValue) {
 }
 
+void USBZPlayerAttributeSet::Multicast_SetOutgoingArmorPenetration_Implementation(float NewCurrentValue) {
+}
+
 void USBZPlayerAttributeSet::Multicast_SetHealthTrauma_Implementation(float NewCurrentValue) {
 }
 
 void USBZPlayerAttributeSet::Multicast_SetDownedCount_Implementation(float NewCurrentValue) {
 }
 
-void USBZPlayerAttributeSet::Multicast_SetDodge_Implementation(float NewCurrentValue) {
-}
-
 void USBZPlayerAttributeSet::Multicast_SetConsumableCount_Implementation(float NewCurrentValue) {
 }
 
 void USBZPlayerAttributeSet::Multicast_SetArmorTrauma_Implementation(float NewCurrentValue) {
-}
-
-void USBZPlayerAttributeSet::Multicast_SetArmorChunkCount_Implementation(float NewCurrentValue) {
 }
 
 void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -196,12 +190,11 @@ void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(USBZPlayerAttributeSet, SecondaryToolAmmoInventory);
     DOREPLIFETIME(USBZPlayerAttributeSet, TertiaryToolAmmoInventory);
     DOREPLIFETIME(USBZPlayerAttributeSet, DownedCount);
-    DOREPLIFETIME(USBZPlayerAttributeSet, Dodge);
-    DOREPLIFETIME(USBZPlayerAttributeSet, ArmorChunkCount);
     DOREPLIFETIME(USBZPlayerAttributeSet, ArmorTrauma);
     DOREPLIFETIME(USBZPlayerAttributeSet, HealthTrauma);
     DOREPLIFETIME(USBZPlayerAttributeSet, ConsumableCount);
     DOREPLIFETIME(USBZPlayerAttributeSet, OverskillProgression);
+    DOREPLIFETIME(USBZPlayerAttributeSet, OutgoingArmorPenetration);
 }
 
 

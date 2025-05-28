@@ -26,6 +26,7 @@ class UABUser : public UObject {
     GENERATED_BODY()
 public:
     UABUser();
+
     UFUNCTION(BlueprintCallable)
     void Verify(const FString& VerificationCode, FDHandler OnSuccess, FDErrorHandler OnError);
     

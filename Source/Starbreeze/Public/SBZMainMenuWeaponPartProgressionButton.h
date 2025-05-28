@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZWeaponPartApplyStatus.h"
+#include "ESBZWeaponPartLockReason.h"
 #include "SBZMenuButton.h"
 #include "SBZWeaponPartProgressionCurrent.h"
 #include "SBZMainMenuWeaponPartProgressionButton.generated.h"
@@ -57,6 +58,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ESBZWeaponPartApplyStatus GetPartApplyStatus() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    ESBZWeaponPartLockReason GetLockReason() const;
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

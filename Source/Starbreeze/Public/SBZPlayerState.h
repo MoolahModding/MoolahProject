@@ -126,15 +126,6 @@ protected:
     TArray<USBZPingCallAsset*> EquippablePings;
     
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReplicatedStartReplenishDodgeServerTime, meta=(AllowPrivateAccess=true))
-    float ReplicatedStartReplenishDodgeServerTime;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    float StartReplenishDodgeServerTime;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    float StartReplenishDodgeValue;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsMaskOn, meta=(AllowPrivateAccess=true))
     bool bIsMaskOn;
     
@@ -185,6 +176,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsPendingReconnectData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPendingInitRespawnAttributeSet;
     
     UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<uint32, FSBZAmmoPickupLookup> AmmoPickupLookupMap;
@@ -445,9 +439,6 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnRep_ServerReloadState();
     
-    UFUNCTION(BlueprintCallable)
-    void OnRep_ReplicatedStartReplenishDodgeServerTime();
-    
 public:
     UFUNCTION(BlueprintCallable)
     void OnRep_RenownLevel();
@@ -540,9 +531,6 @@ private:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartTargeting();
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_StartDodgeReplenish(float InStartReplenishDodgeServerTime);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSpectateTime(float Time);

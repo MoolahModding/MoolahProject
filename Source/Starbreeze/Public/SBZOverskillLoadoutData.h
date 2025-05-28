@@ -10,10 +10,10 @@ class USBZOverskillLoadoutData : public USBZOverskillData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<USBZEquippableData> RequestEquippableData;
+    USBZEquippableData* RequestEquippableData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSoftObjectPtr<USBZEquippableData> PoseEquippableData;
+    USBZEquippableData* PoseEquippableData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DrainTickRate;

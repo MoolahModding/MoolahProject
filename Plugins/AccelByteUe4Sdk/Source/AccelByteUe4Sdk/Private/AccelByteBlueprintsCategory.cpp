@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsCategory.h"
 
+UAccelByteBlueprintsCategory::UAccelByteBlueprintsCategory() {
+}
+
 void UAccelByteBlueprintsCategory::GetRootCategories(const FString& Language, const UAccelByteBlueprintsCategory::FGetRootCategoriesSuccess& OnSuccess, const UAccelByteBlueprintsCategory::FBlueprintErrorHandler& OnError) {
 }
 
@@ -12,6 +15,4 @@ void UAccelByteBlueprintsCategory::GetChildCategories(const FString& Language, c
 void UAccelByteBlueprintsCategory::GetCategory(const FString& ParentPath, const FString& Language, const UAccelByteBlueprintsCategory::FGetCategorySuccess& OnSuccess, const UAccelByteBlueprintsCategory::FBlueprintErrorHandler& OnError) {
 }
 
-UAccelByteBlueprintsCategory::UAccelByteBlueprintsCategory() {
-}
 

@@ -3,5 +3,5 @@
 #include "AccelByteModelsEntitlementOwnership.h"
 #include "DAccelByteModelsEntitlementOwnershipResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsEntitlementOwnershipResponse, FAccelByteModelsEntitlementOwnership, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsEntitlementOwnershipResponse, FAccelByteModelsEntitlementOwnership, Response);
 

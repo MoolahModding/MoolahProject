@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsCredentials.h"
 
+UAccelByteBlueprintsCredentials::UAccelByteBlueprintsCredentials() {
+}
+
 FString UAccelByteBlueprintsCredentials::GetUserSessionId() {
     return TEXT("");
 }
@@ -32,6 +35,4 @@ FString UAccelByteBlueprintsCredentials::GetOAuthClientId() {
     return TEXT("");
 }
 
-UAccelByteBlueprintsCredentials::UAccelByteBlueprintsCredentials() {
-}
 

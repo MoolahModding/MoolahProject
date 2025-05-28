@@ -7,7 +7,7 @@ UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableCompo
 class AKAUDIO_API UAkAudioInputComponent : public UAkComponent {
     GENERATED_BODY()
 public:
-    UAkAudioInputComponent();
+    UAkAudioInputComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable, BlueprintCosmetic)
     int32 PostAssociatedAudioInputEvent();

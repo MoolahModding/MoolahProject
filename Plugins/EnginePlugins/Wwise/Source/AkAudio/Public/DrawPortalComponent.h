@@ -7,7 +7,7 @@ UCLASS(Blueprintable, CollapseCategories, EditInlineNew, MinimalAPI, ClassGroup=
 class UDrawPortalComponent : public UPrimitiveComponent {
     GENERATED_BODY()
 public:
-    UDrawPortalComponent();
+    UDrawPortalComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

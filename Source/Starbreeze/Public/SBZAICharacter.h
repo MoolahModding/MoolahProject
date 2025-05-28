@@ -14,6 +14,7 @@
 #include "SBZAIVisualDetectorInterface.h"
 #include "SBZAutoAimInterface.h"
 #include "SBZBehaviorCategoryChangedDelegateDelegate.h"
+#include "SBZKilledContextData.h"
 #include "SBZMarkableInterface.h"
 #include "SBZOnEnabledAsObjectiveDelegate.h"
 #include "SBZOnHogTiedDelegate.h"
@@ -345,6 +346,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FUniqueNetIdRepl> HackedByPlayerArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZKilledContextData KillContextData;
     
 public:
     ASBZAICharacter(const FObjectInitializer& ObjectInitializer);

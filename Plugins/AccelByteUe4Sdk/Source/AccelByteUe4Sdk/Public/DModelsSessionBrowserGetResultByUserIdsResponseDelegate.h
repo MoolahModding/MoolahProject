@@ -3,5 +3,5 @@
 #include "AccelByteModelsSessionBrowserGetByUserIdsResult.h"
 #include "DModelsSessionBrowserGetResultByUserIdsResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsSessionBrowserGetResultByUserIdsResponse, FAccelByteModelsSessionBrowserGetByUserIdsResult, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsSessionBrowserGetResultByUserIdsResponse, FAccelByteModelsSessionBrowserGetByUserIdsResult, Response);
 

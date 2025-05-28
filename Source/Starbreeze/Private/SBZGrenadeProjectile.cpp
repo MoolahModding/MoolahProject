@@ -58,9 +58,6 @@ void ASBZGrenadeProjectile::OnCollisionComponentHit(UPrimitiveComponent* Overlap
 void ASBZGrenadeProjectile::Multicast_SetGrenadeProjectileVelocity_Implementation(const FVector_NetQuantizeNormal& ProjectileDirection) {
 }
 
-void ASBZGrenadeProjectile::Multicast_SetEquippableIndex_Implementation(int32 InIndex) {
-}
-
 void ASBZGrenadeProjectile::Multicast_ReplicateExplosion_Implementation(const FSBZExplosionResult& Result) {
 }
 

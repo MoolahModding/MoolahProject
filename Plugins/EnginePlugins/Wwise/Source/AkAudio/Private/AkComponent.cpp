@@ -1,6 +1,7 @@
 #include "AkComponent.h"
 
-UAkComponent::UAkComponent() {
+UAkComponent::UAkComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bAutoActivate = true;
     this->bUseSpatialAudio = false;
     this->OcclusionCollisionChannel = ECC_Visibility;
     this->EnableSpotReflectors = false;
@@ -25,7 +26,6 @@ UAkComponent::UAkComponent() {
     this->AttenuationScalingFactor = 1.00f;
     this->OcclusionRefreshInterval = 0.50f;
     this->bUseReverbVolumes = true;
-    this->bAutoActivate = true;
 }
 
 void UAkComponent::UseReverbVolumes(bool inUseReverbVolumes) {

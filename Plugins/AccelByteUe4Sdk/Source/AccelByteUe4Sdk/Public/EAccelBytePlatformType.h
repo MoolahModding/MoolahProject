@@ -25,6 +25,6 @@ enum class EAccelBytePlatformType : uint8 {
     SnapChat,
     EAOrigin,
     PS4Web,
-    Unset = 0xFF,
+    Unset = 255,
 };
 

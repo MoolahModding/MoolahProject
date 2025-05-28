@@ -1,6 +1,6 @@
 #include "SBZDynamicPhysicsAudioComponent.h"
 
-USBZDynamicPhysicsAudioComponent::USBZDynamicPhysicsAudioComponent(const FObjectInitializer& ObjectInitializer) : Super() {
+USBZDynamicPhysicsAudioComponent::USBZDynamicPhysicsAudioComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RootComponent = NULL;
     this->RollingStartEvent = NULL;
     this->RollingStopEvent = NULL;

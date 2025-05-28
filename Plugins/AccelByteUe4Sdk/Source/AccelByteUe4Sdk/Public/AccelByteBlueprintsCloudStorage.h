@@ -17,6 +17,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsCloudStorage();
+
     UFUNCTION(BlueprintCallable)
     static void UpdateSlotMetadata(const FString& SlotId, const FString& FileName, const TArray<FString>& Tags, const FString& Label, const FString& CustomAttribute, const UAccelByteBlueprintsCloudStorage::FUpdateSlotMetadataSuccess& OnSuccess, const UAccelByteBlueprintsCloudStorage::FBlueprintErrorHandler& OnError);
     

@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "PD3PlayerLoadout.h"
+#include "SBZArmorConfigInventorySaveData.h"
 #include "SBZGloveConfigInventorySaveData.h"
 #include "SBZInfamySaveData.h"
 #include "SBZItemConfigInventorySaveData.h"
@@ -33,9 +34,6 @@ public:
     TArray<FSBZPlayerLoadoutConfigArray> PlayerLoadoutConfigPerPlatformArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZPlayerCosmeticsConfig PlayerCosmeticsConfig;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZPlayerCosmeticsConfig> PlayerCosmeticsConfigPerPlatformArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -46,6 +44,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZItemConfigInventorySaveData ItemConfigInventorySaveData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZArmorConfigInventorySaveData ArmorConfigInventorySaveData;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZMaskConfigInventorySaveData MaskConfigInventorySaveData;

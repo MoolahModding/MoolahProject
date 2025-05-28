@@ -17,6 +17,7 @@ class UABBinaryCloudSave : public UObject {
     GENERATED_BODY()
 public:
     UABBinaryCloudSave();
+
     UFUNCTION(BlueprintCallable)
     void UpdateUserBinaryRecordMetadata(const FString& Key, bool bIsPublic, const FDModelsUserBinaryRecord& OnSuccess, const FDErrorHandler& OnError);
     

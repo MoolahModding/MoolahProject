@@ -39,4 +39,8 @@ int32 USBZProgressionSaveGame::GetEquippedWeaponInventorySlotIndex(const int32 L
     return 0;
 }
 
+TArray<FSBZArmorInventorySlot> USBZProgressionSaveGame::GetArmorInventorySlotArray() const {
+    return TArray<FSBZArmorInventorySlot>();
+}
+
 

@@ -3,5 +3,5 @@
 #include "AccelByteModelsGetGroupListResponse.h"
 #include "GetGroupsByGroupIdsSuccessDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FGetGroupsByGroupIdsSuccess, const FAccelByteModelsGetGroupListResponse&, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FGetGroupsByGroupIdsSuccess, const FAccelByteModelsGetGroupListResponse&, Response);
 

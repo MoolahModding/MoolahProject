@@ -29,6 +29,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FGetAchievementSuccess, const FAccelByteModelsMultiLanguageAchievement&, Result);
     
     UAccelByteBlueprintsAchievement();
+
     UFUNCTION(BlueprintCallable)
     static void UnlockAchievement(const FString& AchievementCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
     

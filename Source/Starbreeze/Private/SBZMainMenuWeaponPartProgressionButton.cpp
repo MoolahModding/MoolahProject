@@ -36,5 +36,9 @@ ESBZWeaponPartApplyStatus USBZMainMenuWeaponPartProgressionButton::GetPartApplyS
     return ESBZWeaponPartApplyStatus::NotAllowed;
 }
 
+ESBZWeaponPartLockReason USBZMainMenuWeaponPartProgressionButton::GetLockReason() const {
+    return ESBZWeaponPartLockReason::None;
+}
+
 
 

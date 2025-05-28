@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsCloudStorage.h"
 
+UAccelByteBlueprintsCloudStorage::UAccelByteBlueprintsCloudStorage() {
+}
+
 void UAccelByteBlueprintsCloudStorage::UpdateSlotMetadata(const FString& SlotId, const FString& FileName, const TArray<FString>& Tags, const FString& Label, const FString& CustomAttribute, const UAccelByteBlueprintsCloudStorage::FUpdateSlotMetadataSuccess& OnSuccess, const UAccelByteBlueprintsCloudStorage::FBlueprintErrorHandler& OnError) {
 }
 
@@ -18,6 +21,4 @@ void UAccelByteBlueprintsCloudStorage::DeleteSlot(const FString& SlotId, const U
 void UAccelByteBlueprintsCloudStorage::CreateSlot(const TArray<uint8>& Data, const FString& FileName, const TArray<FString>& Tags, const FString& Label, const FString& CustomAttribute, const UAccelByteBlueprintsCloudStorage::FCreateSlotsSuccess& OnSuccess, const UAccelByteBlueprintsCloudStorage::FBlueprintErrorHandler& OnError) {
 }
 
-UAccelByteBlueprintsCloudStorage::UAccelByteBlueprintsCloudStorage() {
-}
 

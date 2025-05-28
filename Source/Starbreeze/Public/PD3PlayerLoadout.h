@@ -10,7 +10,6 @@
 #include "SBZThrowableConfig.h"
 #include "PD3PlayerLoadout.generated.h"
 
-class USBZArmorData;
 class USBZGloveData;
 class USBZPlayerAbilityData;
 class USBZPlayerCharacterData;
@@ -48,17 +47,17 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZArmorConfig ArmorConfig;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
-    USBZArmorData* ArmorData;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZSkillData*> SkillArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FPD3ModifiableLoadoutData> ModifiableLoadoutDataArray;
+    TArray<USBZSkillData*> RemovedOverskillSkillArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZOverskillProgressData> OverskillProgressDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FPD3ModifiableLoadoutData> ModifiableLoadoutDataArray;
     
     UPROPERTY(EditAnywhere, NotReplicated, SkipSerialization, Transient, meta=(AllowPrivateAccess=true))
     int8 PendingValidationCount;

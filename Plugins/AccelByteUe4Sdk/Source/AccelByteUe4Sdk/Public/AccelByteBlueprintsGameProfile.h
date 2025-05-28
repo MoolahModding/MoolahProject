@@ -22,6 +22,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FBatchGetPublicGameProfilesSuccess, const TArray<FAccelByteModelsPublicGameProfile>&, Result);
     
     UAccelByteBlueprintsGameProfile();
+
     UFUNCTION(BlueprintCallable)
     static void UpdateGameProfileAttribute(const FString& ProfileId, const FAccelByteModelsGameProfileAttribute& Attribute, const UAccelByteBlueprintsGameProfile::FUpdateGameProfileAttributeSuccess& OnSuccess, const UAccelByteBlueprintsGameProfile::FBlueprintErrorHandler& OnError);
     

@@ -1,5 +1,8 @@
 #include "ABParty.h"
 
+UABParty::UABParty() {
+}
+
 void UABParty::WritePartyStorage(const FWritePartyStorageRequest& Request, FDPartyWriteDataResponse OnResponse, FDErrorHandler OnError) {
 }
 
@@ -84,6 +87,4 @@ void UABParty::GetPartyData(const FGetPartyDataRequest& Request, FDPartyGetDataR
 void UABParty::CreateParty(FDPartyCreateResponse OnResponse, FDErrorHandler OnError) {
 }
 
-UABParty::UABParty() {
-}
 

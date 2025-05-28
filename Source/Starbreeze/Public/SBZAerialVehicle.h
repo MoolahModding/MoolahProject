@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/SkeletalMeshComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Curves/CurveFloat.h"
 #include "ESBZAerialVehicleDoor.h"
@@ -23,6 +22,7 @@ class USBZAerialVehicleSplineFollowingComponent;
 class USBZAerialVehicleStateMachine;
 class USBZVehicleSpawnComponent;
 class USBZVehicleSplineFollowingComponent;
+class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API ASBZAerialVehicle : public APawn, public ISBZVehicleInterface {

@@ -20,6 +20,7 @@ class UABMessage : public UObject {
     GENERATED_BODY()
 public:
     UABMessage();
+
     UFUNCTION(BlueprintCallable)
     void SetPrivateMessageNotifDelegate(FDPersonalChatNotif OnNotif);
     

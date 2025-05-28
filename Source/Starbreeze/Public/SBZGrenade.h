@@ -48,7 +48,7 @@ protected:
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_OnServerCollision(const FVector_NetQuantize& InLocation);
+    void Multicast_OnServerCollision(bool bInIsExplodedOnCharacter, const FVector_NetQuantize& InLocation);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ExplosionInHand();

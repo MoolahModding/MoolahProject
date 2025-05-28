@@ -34,7 +34,6 @@ class UAkRtpc;
 class UAkStateValue;
 class UAkSwitchValue;
 class UAkTrigger;
-class UClass;
 class UObject;
 class USceneComponent;
 

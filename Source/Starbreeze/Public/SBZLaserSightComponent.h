@@ -14,8 +14,8 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UNiagaraComponent* LaserEffectComponent;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float FocusTime;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float DifficultyFocusTimeArray[4];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaxHorizontalOffset;

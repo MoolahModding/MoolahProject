@@ -7,6 +7,7 @@
 #include "SBZMainMenuLoadoutDisplayWidget.generated.h"
 
 class USBZMainMenuInventoryItemSlotButton;
+class USBZMainMenuLoadoutArmorSlotButton;
 class USBZMainMenuLoadoutWeaponSlotButton;
 class USBZMenuButton;
 
@@ -25,7 +26,7 @@ protected:
     USBZMainMenuInventoryItemSlotButton* Button_OverkillWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZMainMenuInventoryItemSlotButton* Button_Armour;
+    USBZMainMenuLoadoutArmorSlotButton* Button_Armour;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZMainMenuInventoryItemSlotButton* Button_Throwable;

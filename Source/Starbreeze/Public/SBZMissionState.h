@@ -48,6 +48,7 @@ class USBZPlayerCharacterData;
 class USBZRagdollSyncManager;
 class USBZSmallTalkManager;
 class USBZStateMachineSharedState;
+class USBZStatisticCriteriaData;
 class USBZVariationSetData;
 class USBZVehicleManager;
 class USBZWindManager;
@@ -80,6 +81,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Difficulty, meta=(AllowPrivateAccess=true))
     ESBZDifficulty Difficulty;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PickupDifficultyModifierArray[4];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnSecurityCompaniesChanged, meta=(AllowPrivateAccess=true))
     TArray<ESBZSecurityCompany> SecurityCompanies;
@@ -202,6 +206,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZDSChallengeManager* DSChallengeManager;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZStatisticCriteriaData*> LevelCriteriaCompletedArray;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverkillWeaponCooldown;
     
@@ -295,7 +302,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnBlackScreenStarted();
+    void OnBlackScreenStarted(const bool bIsRestart);
     
 private:
     UFUNCTION(BlueprintCallable)

@@ -16,6 +16,7 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->Range = 10000;
     this->AdditionalPlayerRange = 0.00f;
     this->OverHealDamageMultiplier = 1.00f;
+    this->HealthDamageMultiplier = 1.00f;
     this->ArmorPenetration = 0.00f;
     this->ImpactType = ESBZProjectileImpactType::Light;
     this->FireBuildupIncrease = 0.00f;
@@ -32,9 +33,7 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->bUseInstigatorPlayerDamageScale = false;
     this->bIsFriendlyFireAllowed = true;
     this->DamageDistanceProjectileArray.AddDefaulted(1);
-    this->ClusterDamageModifier = 1.00f;
     this->ClusterGrenadeSpawnDegrees = 40.00f;
-    this->ClusterGrenadestoSpawn = 0;
     this->AmmoLoadedMax = 10;
     this->AmmoPerReload = 10;
     this->AmmoVisibleMax = 10;

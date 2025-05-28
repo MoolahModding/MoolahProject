@@ -224,6 +224,9 @@ void UChromaSDKPluginBPLibrary::SetKeyboardKeyColor(TEnumAsByte<EChromaSDKKeyboa
 void UChromaSDKPluginBPLibrary::SetIdleAnimationName(const FString& animationName) {
 }
 
+void UChromaSDKPluginBPLibrary::SetIdleAnimation(int32 AnimationId) {
+}
+
 int32 UChromaSDKPluginBPLibrary::SetEventName(const FString& name) {
     return 0;
 }

@@ -150,9 +150,6 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetGrenadeProjectileVelocity(const FVector_NetQuantizeNormal& ProjectileDirection);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetEquippableIndex(int32 InIndex);
-    
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);

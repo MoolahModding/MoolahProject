@@ -273,6 +273,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetOverrideAccelbyteGameMode();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FString GetNetworkVersion();
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static TArray<FSBZMergePlayerData> GetMergePartyInformation(UObject* WorldContextObject);
     
@@ -314,6 +317,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static int32 GetConnectionsCount(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FString GetBuildVersion();
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetBeaconMissionInfo(UObject* WorldContextObject, FSBZMissionInfo& OutInfo);

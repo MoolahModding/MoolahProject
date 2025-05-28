@@ -11,6 +11,7 @@ class UABCurrency : public UObject {
     GENERATED_BODY()
 public:
     UABCurrency();
+
     UFUNCTION(BlueprintCallable)
     void GetCurrencyList(FDArrayModelsCurrencyListResponse OnSuccess, FDErrorHandler OnError, EAccelByteCurrencyType CurrencyType);
     

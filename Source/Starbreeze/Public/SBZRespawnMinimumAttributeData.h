@@ -19,13 +19,13 @@ public:
     int32 DownedCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 WeaponAmmoMagazineCount;
+    float WeaponAmmoScale;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 ThrowableAmmo;
+    float ThrowableAmmoScale;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 EquippableAmmo;
+    float PlaceableAmmoScale;
     
     STARBREEZE_API FSBZRespawnMinimumAttributeData();
 };

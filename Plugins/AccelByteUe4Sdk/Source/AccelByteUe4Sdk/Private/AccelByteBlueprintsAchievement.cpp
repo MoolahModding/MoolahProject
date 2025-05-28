@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsAchievement.h"
 
+UAccelByteBlueprintsAchievement::UAccelByteBlueprintsAchievement() {
+}
+
 void UAccelByteBlueprintsAchievement::UnlockAchievement(const FString& AchievementCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -27,6 +30,4 @@ void UAccelByteBlueprintsAchievement::GetAchievement(const FString& AchievementC
 void UAccelByteBlueprintsAchievement::ClaimGlobalAchievements(const FString& AchievementCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UAccelByteBlueprintsAchievement::UAccelByteBlueprintsAchievement() {
-}
 

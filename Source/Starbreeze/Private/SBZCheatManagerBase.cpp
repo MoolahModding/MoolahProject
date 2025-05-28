@@ -170,6 +170,12 @@ void USBZCheatManagerBase::PrintSelectionHierarchy(bool bIsChildActorIncluded, i
 void USBZCheatManagerBase::PrintSelection(int32 PlayerIndex) {
 }
 
+void USBZCheatManagerBase::PrintPlayerStateArrayBothCurrent() {
+}
+
+void USBZCheatManagerBase::PrintPlayerStateArray() {
+}
+
 void USBZCheatManagerBase::PrintLog(const FString& Text, bool bIsDecodingNeeded) const {
 }
 

@@ -1,11 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
 #include "Engine/EngineTypes.h"
+#include "Components/PrimitiveComponent.h"
 #include "SBZAIVisibilityComponent.generated.h"
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
-class STARBREEZE_API USBZAIVisibilityComponent : public UActorComponent {
+class STARBREEZE_API USBZAIVisibilityComponent : public UPrimitiveComponent {
     GENERATED_BODY()
 public:
 protected:

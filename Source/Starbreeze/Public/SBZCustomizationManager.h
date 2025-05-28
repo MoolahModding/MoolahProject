@@ -3,6 +3,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
+#include "SBZArmorConfig.h"
 #include "SBZMaskConfig.h"
 #include "Templates/SubclassOf.h"
 #include "SBZCustomizationManager.generated.h"
@@ -10,6 +11,7 @@
 class ASBZCustomizationManager;
 class ASBZMainMenuPlayerCharacter;
 class ASBZMask;
+class ASBZMenuArmor;
 class ASBZStandaloneWeaponDisplay;
 class UObject;
 class USBZCustomizationRotateComponent;
@@ -19,6 +21,22 @@ UCLASS(Blueprintable)
 class STARBREEZE_API ASBZCustomizationManager : public AActor {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName WeaponCustomizationCameraName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZCustomizationRotateComponent> WeaponRotationComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FVector SpawnOffsetForCameraFromWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRotator StartRotationForWeapon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ASBZStandaloneWeaponDisplay* StandaloneWeaponDisplay;
+    
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRotator StartRotationForMannequin;
     
@@ -59,29 +77,56 @@ public:
     FRotator StartRotationForSuit;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FName WeaponCustomizationCameraName;
+    FName InspectArmorCameraName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZCustomizationRotateComponent> WeaponRotationComponent;
+    FVector InspectArmorCameraOffset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FVector SpawnOffsetForCameraFromWeapon;
+    FRotator InspectArmorRotation;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FRotator StartRotationForWeapon;
+    FName CustomizeArmorCameraName;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ASBZStandaloneWeaponDisplay* StandaloneWeaponDisplay;
+    FVector CustomizeArmorCameraOffset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRotator CustomizeArmorRotation;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZMask* GlobalMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZMenuArmor* GlobalArmor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZMainMenuPlayerCharacter* Mannequin;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZMaskConfig MaskConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZArmorConfig ArmorConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 ArmorVariationIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsArmorVariationChunkType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsArmorChunkTypeCPD;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FName> ArmorChunkMaterialNameArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName ArmorChunkTypeVariableName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ArmorChunkTypeCPDIndex;
     
 public:
     ASBZCustomizationManager(const FObjectInitializer& ObjectInitializer);
@@ -96,16 +141,28 @@ public:
     void ShowMainMenuMannequin();
     
     UFUNCTION(BlueprintCallable)
-    void ShowGlobalMask(const bool InCentered);
-    
-    UFUNCTION(BlueprintCallable)
-    void ShowCustomizableWeapon();
+    void ShowGlobalMask(bool InCentered);
     
     UFUNCTION(BlueprintCallable)
     void ShowCustomizableMannequin();
     
     UFUNCTION(BlueprintCallable)
+    void SetWeaponInspect(bool bInIsInspect);
+    
+    UFUNCTION(BlueprintCallable)
     void SetMainMenuMannequinRotationEnabled(bool bEnabled);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetArmorVisible(bool bInIsVisible);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetArmorVariationIndex(int32 Index);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetArmorInspect(bool bIsInspect);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetArmorConfig(const FSBZArmorConfig& Config);
     
     UFUNCTION(BlueprintCallable)
     void HideMainMenuMannequin();

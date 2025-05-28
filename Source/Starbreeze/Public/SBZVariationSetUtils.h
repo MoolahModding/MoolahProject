@@ -4,6 +4,7 @@
 #include "SBZVariationSetUtils.generated.h"
 
 class AActor;
+class UMeshComponent;
 class USBZVariationSetData;
 class USkeletalMeshComponent;
 class UStaticMeshComponent;
@@ -15,13 +16,16 @@ public:
     USBZVariationSetUtils();
 
     UFUNCTION(BlueprintCallable)
-    static void ApplyVariationToStatic(UStaticMeshComponent* StatComponent, USBZVariationSetData* VariationSet, int32 VariationIdx);
+    static bool ApplyVariationToStatic(UStaticMeshComponent* StatComponent, const USBZVariationSetData* VariationSet, int32 VariationIdx);
     
     UFUNCTION(BlueprintCallable)
-    static void ApplyVariationToSkeletal(USkeletalMeshComponent* SkelComponent, USBZVariationSetData* VariationSet, int32 VariationIdx);
+    static bool ApplyVariationToSkeletal(USkeletalMeshComponent* SkelComponent, const USBZVariationSetData* VariationSet, int32 VariationIdx);
     
     UFUNCTION(BlueprintCallable)
-    static void ApplyVariation(AActor* Actor, USBZVariationSetData* VariationSet, int32 VariationIdx);
+    static bool ApplyVariationToMesh(UMeshComponent* MeshComponent, const USBZVariationSetData* VariationSet, int32 VariationIdx);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool ApplyVariation(AActor* Actor, const USBZVariationSetData* VariationSet, int32 VariationIdx);
     
 };
 

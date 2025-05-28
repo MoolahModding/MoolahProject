@@ -3,5 +3,5 @@
 #include "AccelByteModelsPaginatedUserGlobalAchievement.h"
 #include "DModelsPaginatedUserGlobalAchievementResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedUserGlobalAchievementResponse, FAccelByteModelsPaginatedUserGlobalAchievement, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedUserGlobalAchievementResponse, FAccelByteModelsPaginatedUserGlobalAchievement, Response);
 

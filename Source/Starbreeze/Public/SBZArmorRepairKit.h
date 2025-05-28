@@ -1,10 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SBZPlaceableCharges.h"
+#include "SBZPlaceableArmorCharges.h"
 #include "SBZArmorRepairKit.generated.h"
 
 UCLASS(Abstract, Blueprintable)
-class ASBZArmorRepairKit : public ASBZPlaceableCharges {
+class ASBZArmorRepairKit : public ASBZPlaceableArmorCharges {
     GENERATED_BODY()
 public:
     ASBZArmorRepairKit(const FObjectInitializer& ObjectInitializer);

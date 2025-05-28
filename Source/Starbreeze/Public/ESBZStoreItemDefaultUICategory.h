@@ -5,6 +5,7 @@
 UENUM(BlueprintType)
 enum class ESBZStoreItemDefaultUICategory : uint8 {
     None,
+    Armor,
     PayDayCredits,
     Bundle,
     PremiumPresetWeapon,

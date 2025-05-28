@@ -42,7 +42,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->MusicVolume = 65.00f;
     this->VOVolume = 100.00f;
     this->OperatorVOVolume = 100.00f;
-    this->SFXVolume = 65.00f;
+    this->SFXVolume = 80.00f;
     this->bVoIPEnabled = true;
     this->bPushToTalkEnabled = false;
     this->VoipVolume = 100.00f;
@@ -60,6 +60,8 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->GamepadVerticalSensitivity = 1.00f;
     this->bUseInvertedYAxis = false;
     this->bUseForceFeedback = true;
+    this->bEnableChromaSensa = false;
+    this->bBypassChromaDeviceDetection = false;
     this->TargetingSensitivityMultiplier = 1.00f;
     this->bUseHoldToRun = true;
     this->bUseHoldToCrouch = false;
@@ -293,6 +295,9 @@ void USBZGameUserSettings::SetCinematicVolume(float Volume) {
 void USBZGameUserSettings::SetChromaticAberrationEnabled(bool bEnable) {
 }
 
+void USBZGameUserSettings::SetChromaSensaEnabled(bool bEnable) {
+}
+
 void USBZGameUserSettings::SetChatDisabled(bool bDisable) {
 }
 
@@ -300,6 +305,9 @@ void USBZGameUserSettings::SetCapsuleShadowQuality(int32 Quality) {
 }
 
 void USBZGameUserSettings::SetCameraVerticalFoV(int32 Value) {
+}
+
+void USBZGameUserSettings::SetBypassChromaDeviceDetection(bool bEnable) {
 }
 
 void USBZGameUserSettings::SetBrightness(float Value) {
@@ -384,7 +392,15 @@ bool USBZGameUserSettings::IsChromaticAberrationEnabled() const {
     return false;
 }
 
+bool USBZGameUserSettings::IsChromaSensaEnabled() const {
+    return false;
+}
+
 bool USBZGameUserSettings::IsChatDisabled() const {
+    return false;
+}
+
+bool USBZGameUserSettings::IsBypassChromaDeviceDetectionEnabled() const {
     return false;
 }
 

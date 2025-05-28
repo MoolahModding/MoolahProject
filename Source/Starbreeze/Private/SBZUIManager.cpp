@@ -40,6 +40,10 @@ bool USBZUIManager::TryRemoveFromStack(const FName& StackValue) {
     return false;
 }
 
+bool USBZUIManager::TriggerWindowsFlash(bool bTriggerOnlyOnWindowNotActive, uint8 BlinkCount) {
+    return false;
+}
+
 void USBZUIManager::SwitchUIStack(const FName& StackValueToSwitch) {
 }
 

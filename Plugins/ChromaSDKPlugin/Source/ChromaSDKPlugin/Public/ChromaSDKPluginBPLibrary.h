@@ -233,6 +233,9 @@ public:
     static void SetIdleAnimationName(const FString& animationName);
     
     UFUNCTION(BlueprintCallable)
+    static void SetIdleAnimation(int32 AnimationId);
+    
+    UFUNCTION(BlueprintCallable)
     static int32 SetEventName(const FString& name);
     
     UFUNCTION(BlueprintCallable)

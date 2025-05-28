@@ -1,18 +1,19 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "GameplayTagContainer.h"
-#include "SBZArmorDamageScaleOverrideData.generated.h"
+#include "SBZSkillTreePair.generated.h"
+
+class USBZSkillData;
 
 USTRUCT(BlueprintType)
-struct FSBZArmorDamageScaleOverrideData {
+struct FSBZSkillTreePair {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGameplayTag Tag;
+    USBZSkillData* Base;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float Override;
+    USBZSkillData* Aced;
     
-    STARBREEZE_API FSBZArmorDamageScaleOverrideData();
+    STARBREEZE_API FSBZSkillTreePair();
 };
 

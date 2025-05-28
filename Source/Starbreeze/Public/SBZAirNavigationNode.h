@@ -25,6 +25,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZAirNodeNeighborInfo> NeighborInfo;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<uint16> NavLinkIDArray;
+    
     STARBREEZE_API FSBZAirNavigationNode();
 };
 

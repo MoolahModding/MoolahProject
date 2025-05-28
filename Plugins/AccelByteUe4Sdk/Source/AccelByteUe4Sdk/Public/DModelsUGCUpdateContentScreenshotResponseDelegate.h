@@ -3,5 +3,5 @@
 #include "AccelByteModelsUGCUpdateContentScreenshotResponse.h"
 #include "DModelsUGCUpdateContentScreenshotResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCUpdateContentScreenshotResponse, FAccelByteModelsUGCUpdateContentScreenshotResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCUpdateContentScreenshotResponse, FAccelByteModelsUGCUpdateContentScreenshotResponse, Response);
 

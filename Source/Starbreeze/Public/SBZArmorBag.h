@@ -1,10 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "SBZPlaceableCharges.h"
+#include "SBZPlaceableArmorCharges.h"
 #include "SBZArmorBag.generated.h"
 
 UCLASS(Abstract, Blueprintable)
-class ASBZArmorBag : public ASBZPlaceableCharges {
+class ASBZArmorBag : public ASBZPlaceableArmorCharges {
     GENERATED_BODY()
 public:
 protected:

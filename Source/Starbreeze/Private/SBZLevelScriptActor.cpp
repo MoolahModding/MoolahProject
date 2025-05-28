@@ -4,6 +4,9 @@ ASBZLevelScriptActor::ASBZLevelScriptActor(const FObjectInitializer& ObjectIniti
     this->Seed = -1;
 }
 
+void ASBZLevelScriptActor::SetLevelCriteriaCompleted(const USBZStatisticCriteriaData* StatisticData, bool bIsCompleted) {
+}
+
 void ASBZLevelScriptActor::SetBagMarkerEnabledByTags(const FGameplayTagContainer& BagGameplayTagContainer, bool bEnabled) {
 }
 
@@ -55,7 +58,7 @@ void ASBZLevelScriptActor::HandleKeyItemCountChanged(const FSBZKeyItemCountChang
 void ASBZLevelScriptActor::HandleIntroSequenceChanged(bool bIsStarted) {
 }
 
-void ASBZLevelScriptActor::HandleBlackScreenStarted() {
+void ASBZLevelScriptActor::HandleBlackScreenStarted(const bool bIsRestar) {
 }
 
 void ASBZLevelScriptActor::HandleActionPhaseStarted() {

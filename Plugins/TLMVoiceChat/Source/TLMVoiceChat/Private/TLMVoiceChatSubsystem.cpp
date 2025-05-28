@@ -54,6 +54,10 @@ bool UTLMVoiceChatSubsystem::GetPlayerBlocked(const FString& EOSUserId) {
     return false;
 }
 
+FString UTLMVoiceChatSubsystem::GetCurrentUserId() const {
+    return TEXT("");
+}
+
 float UTLMVoiceChatSubsystem::GetAudioOutputVolume() {
     return 0.0f;
 }

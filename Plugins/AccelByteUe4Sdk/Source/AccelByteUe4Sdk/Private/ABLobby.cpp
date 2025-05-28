@@ -1,5 +1,8 @@
 #include "ABLobby.h"
 
+UABLobby::UABLobby() {
+}
+
 void UABLobby::UnbindEvent() {
 }
 
@@ -39,6 +42,4 @@ void UABLobby::Disconnect() {
 void UABLobby::Connect() {
 }
 
-UABLobby::UABLobby() {
-}
 

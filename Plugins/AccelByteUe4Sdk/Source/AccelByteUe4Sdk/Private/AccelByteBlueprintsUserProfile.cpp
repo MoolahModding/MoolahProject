@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsUserProfile.h"
 
+UAccelByteBlueprintsUserProfile::UAccelByteBlueprintsUserProfile() {
+}
+
 void UAccelByteBlueprintsUserProfile::UpdateUserProfile(const FAccelByteModelsUserProfileUpdateRequest& ProfileUpdateRequest, const UAccelByteBlueprintsUserProfile::FUpdateUserProfileSuccess& OnSuccess, const UAccelByteBlueprintsUserProfile::FBlueprintErrorHandler& OnError) {
 }
 
@@ -21,6 +24,4 @@ void UAccelByteBlueprintsUserProfile::GenerateUploadURL(const FString& Folder, E
 void UAccelByteBlueprintsUserProfile::CreateUserProfile(const FAccelByteModelsUserProfileCreateRequest& ProfileCreateRequest, const UAccelByteBlueprintsUserProfile::FCreateUserProfileSuccess& OnSuccess, const UAccelByteBlueprintsUserProfile::FBlueprintErrorHandler& OnError) {
 }
 
-UAccelByteBlueprintsUserProfile::UAccelByteBlueprintsUserProfile() {
-}
 

@@ -9,10 +9,10 @@ enum class AkCodecId : uint8 {
     ADPCM,
     XMA,
     Vorbis,
-    AAC = 0xA,
-    ATRAC9 = 0xC,
-    OpusNX = 0x11,
-    AkOpus = 0x13,
+    AAC = 10,
+    ATRAC9 = 12,
+    OpusNX = 17,
+    AkOpus = 19,
     AkOpusWEM,
 };
 

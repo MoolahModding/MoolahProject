@@ -1,6 +1,6 @@
 #include "DrawPortalComponent.h"
 
-UDrawPortalComponent::UDrawPortalComponent() {
+UDrawPortalComponent::UDrawPortalComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 

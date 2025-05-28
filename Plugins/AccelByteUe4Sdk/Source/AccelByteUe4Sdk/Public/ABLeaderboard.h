@@ -16,6 +16,7 @@ class UABLeaderboard : public UObject {
     GENERATED_BODY()
 public:
     UABLeaderboard();
+
     UFUNCTION(BlueprintCallable)
     void GetUserRankingV3(const FString& UserId, const FString& LeaderboardCode, const FDModelsUserRankingDataV3& OnSuccess, const FDErrorHandler& OnError);
     

@@ -1,5 +1,8 @@
 #include "ABServerSessionBrowser.h"
 
+UABServerSessionBrowser::UABServerSessionBrowser() {
+}
+
 void UABServerSessionBrowser::UpdateGameSessionByStruct(const FString& SessionId, const FAccelByteModelsSessionBrowserUpdateRequest& UpdateSessionRequest, const FDServerSessionBrowserDataResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -48,6 +51,4 @@ void UABServerSessionBrowser::CreateGameSessionPublic(const FString& GameMode, c
 void UABServerSessionBrowser::CreateGameSessionPrivate(const FString& GameMode, const FString& GameMapName, const FString& GameVersion, int32 BotCount, int32 MaxPlayer, int32 MaxSpectator, const FString& Password, FJsonObjectWrapper OtherSettings, const FDServerSessionBrowserDataResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABServerSessionBrowser::UABServerSessionBrowser() {
-}
 

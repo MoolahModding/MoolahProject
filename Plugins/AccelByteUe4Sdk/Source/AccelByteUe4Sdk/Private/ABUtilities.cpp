@@ -1,5 +1,8 @@
 #include "ABUtilities.h"
 
+UABUtilities::UABUtilities() {
+}
+
 bool UABUtilities::GetJsonValueAsString(const FJsonObjectWrapper& ObjectWrapper, const FString& Key, FString& OutString) {
     return false;
 }
@@ -36,6 +39,4 @@ void UABUtilities::AddOrReplaceJsonBoolValue(FJsonObjectWrapper& ObjectWrapper, 
 void UABUtilities::AddOrReplaceJsonArrayValue(FJsonObjectWrapper& ObjectWrapper, const FString& Key, const TArray<FString>& Value) {
 }
 
-UABUtilities::UABUtilities() {
-}
 

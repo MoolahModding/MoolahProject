@@ -21,5 +21,6 @@ FSBZStoreBaseItem::FSBZStoreBaseItem() {
     this->ItemCategory = ESBZItemCategory::PrimaryWeapon;
     this->bIsMaskOfTheWeek = false;
     this->bReportsTelemetry = false;
+    this->bIsVendorPermissionRequired = false;
 }
 

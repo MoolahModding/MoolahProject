@@ -1,6 +1,6 @@
 #include "AkAudioInputComponent.h"
 
-UAkAudioInputComponent::UAkAudioInputComponent() {
+UAkAudioInputComponent::UAkAudioInputComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 int32 UAkAudioInputComponent::PostAssociatedAudioInputEvent() {

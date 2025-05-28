@@ -29,6 +29,7 @@ class UAkAudioEvent;
 class UNavArea;
 class USBZAIAttractorComponent;
 class USBZAcousticPortalConnectorComponent;
+class USBZAirNavLinkComponent;
 class USBZGateNavLinkAgilityComponent;
 class USBZGateNavLinkComponent;
 class USBZToolSnapData;
@@ -83,6 +84,9 @@ protected:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint16 NavlinkEnabledMask;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint16 AirNavLinkEnabledMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<USBZGateNavLinkComponent*> NavLinkComponentArray;
@@ -140,6 +144,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTag BreachSoundTag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZAirNavLinkComponent* AirNavLinkComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UNavArea> NavAreaClass;

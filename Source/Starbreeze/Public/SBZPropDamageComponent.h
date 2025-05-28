@@ -4,7 +4,9 @@
 #include "Components/ActorComponent.h"
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
+#include "SBZPropDamageHealthRejectSignatureDelegate.h"
 #include "SBZPropDamageHealthSignatureDelegate.h"
+#include "SBZPropDamageHitsRejectSignatureDelegate.h"
 #include "SBZPropDamageHitsSignatureDelegate.h"
 #include "SBZPropDamagePool.h"
 #include "SBZPropDamageComponent.generated.h"
@@ -19,14 +21,24 @@ class USBZPropDamageComponent : public UActorComponent {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZPropDamageHealthSignature OnPropDamageHealth;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZPropDamageHitsSignature OnPropDamageHits;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZPropDamageHealthSignature OnPropDamageHealth;
+    FSBZPropDamageHealthRejectSignature OnPropDamageHealthReject;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZPropDamageHitsRejectSignature OnPropDamageHitsReject;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_DamagePools, meta=(AllowPrivateAccess=true))
     TArray<FSBZPropDamagePool> DamagePools;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsRejectHandled;
     
 public:
     USBZPropDamageComponent(const FObjectInitializer& ObjectInitializer);
@@ -35,7 +47,7 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void OnRep_DamagePools();
+    void OnRep_DamagePools(const TArray<FSBZPropDamagePool>& OldDamagePool);
     
 public:
     UFUNCTION(BlueprintCallable)

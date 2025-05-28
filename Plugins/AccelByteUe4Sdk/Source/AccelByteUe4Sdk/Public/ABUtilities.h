@@ -10,6 +10,7 @@ class UABUtilities : public UObject {
     GENERATED_BODY()
 public:
     UABUtilities();
+
     UFUNCTION(BlueprintCallable)
     static bool GetJsonValueAsString(const FJsonObjectWrapper& ObjectWrapper, const FString& Key, FString& OutString);
     

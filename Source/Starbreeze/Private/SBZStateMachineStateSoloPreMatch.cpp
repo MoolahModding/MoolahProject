@@ -12,7 +12,10 @@ bool USBZStateMachineStateSoloPreMatch::SetPlayerReady() {
 void USBZStateMachineStateSoloPreMatch::OnPlayerReady() {
 }
 
-void USBZStateMachineStateSoloPreMatch::OnActiveLoadoutChanged(int32 NewActiveLoadoutIndex) {
+void USBZStateMachineStateSoloPreMatch::OnLocalPlayerLoadoutChanged(const FSBZPlayerLoadoutConfig& PlayerLoadout, int32 PlayerLoadoutIndex) {
+}
+
+void USBZStateMachineStateSoloPreMatch::OnActiveLoadoutIndexChanged(int32 NewActiveLoadoutIndex) {
 }
 
 

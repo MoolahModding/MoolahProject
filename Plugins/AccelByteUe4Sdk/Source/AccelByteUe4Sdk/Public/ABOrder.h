@@ -13,6 +13,7 @@ class UABOrder : public UObject {
     GENERATED_BODY()
 public:
     UABOrder();
+
     UFUNCTION(BlueprintCallable)
     void GetUserOrders(const int32& Page, const int32& Size, FDAccelByteModelsPagedOrderInfoResponse OnSuccess, FDErrorHandler OnError);
     

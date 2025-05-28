@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameFramework/OnlineReplStructs.h"
 #include "SBZGameEventStructBase.h"
 #include "SBZPlayerStateRemovedEvent.generated.h"
 
@@ -14,6 +15,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString Name;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FUniqueNetIdRepl PlayerId;
     
     STARBREEZE_API FSBZPlayerStateRemovedEvent();
 };

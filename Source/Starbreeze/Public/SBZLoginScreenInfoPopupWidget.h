@@ -3,6 +3,7 @@
 #include "SBZWidgetBase.h"
 #include "SBZLoginScreenInfoPopupWidget.generated.h"
 
+class USBZMenuButton;
 class UScrollBox;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -15,6 +16,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ScrollSpeed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USBZMenuButton* Button_PrivacyPolicy;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FName AxisName;

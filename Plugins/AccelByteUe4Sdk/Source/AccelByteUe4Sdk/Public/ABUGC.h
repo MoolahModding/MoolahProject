@@ -50,6 +50,7 @@ class UABUGC : public UObject {
     GENERATED_BODY()
 public:
     UABUGC();
+
     UFUNCTION(BlueprintCallable)
     void UploadContentScreenshotV2(const FString& ContentId, FAccelByteModelsUGCUploadScreenshotsRequestV2 ScreenshotsRequest, const FDModelsUGCUpdateContentScreenshotResponse& OnSuccess, const FDErrorHandler& OnError);
     

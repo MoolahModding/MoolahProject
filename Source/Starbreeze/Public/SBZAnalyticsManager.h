@@ -8,16 +8,11 @@
 #include "SBZEntitlementsTelemetryPayload.h"
 #include "SBZAnalyticsManager.generated.h"
 
-class USBZAnalyticsProvider;
-
 UCLASS(Blueprintable)
 class USBZAnalyticsManager : public UObject {
     GENERATED_BODY()
 public:
 private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZAnalyticsProvider* AnalyticsProvider;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FDateTime GameLaunchedTimestamp;
     

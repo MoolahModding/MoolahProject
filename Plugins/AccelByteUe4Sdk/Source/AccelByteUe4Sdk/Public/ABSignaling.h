@@ -10,6 +10,7 @@ class UABSignaling : public UObject {
     GENERATED_BODY()
 public:
     UABSignaling();
+
     UFUNCTION(BlueprintCallable)
     void SetSignalingP2PNotif(FDSignalingP2PNotif OnNotif);
     

@@ -26,6 +26,7 @@ class UAIPerceptionStimuliSourceComponent;
 class UGameplayEffect;
 class USBZAICharacterAbilityData;
 class USBZAbilitySystemComponent;
+class USBZDamageStatusMarkerDataAsset;
 class USBZOutlineComponent;
 
 UCLASS(Abstract, Blueprintable)
@@ -74,6 +75,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bIsDeathAllowed: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZDamageStatusMarkerDataAsset* DamageStatusMarkerAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZReplicatedEquippableState ReplicatedEquippableState;

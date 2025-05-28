@@ -20,7 +20,7 @@ void USBZMainMenuInventoryCharacterPreferenceScreen::OnGameInstallStateChanged(b
 void USBZMainMenuInventoryCharacterPreferenceScreen::NativeOnClearPreferredCharactersInputPressed() {
 }
 
-void USBZMainMenuInventoryCharacterPreferenceScreen::NativeOnCharacterPreferenceUpdated() {
+void USBZMainMenuInventoryCharacterPreferenceScreen::NativeOnCharacterPreferenceUpdated(int32 SlotIndex) {
 }
 
 void USBZMainMenuInventoryCharacterPreferenceScreen::NativeOnActiveCharacterSlotIndexChanged(int32 NewIndex) {

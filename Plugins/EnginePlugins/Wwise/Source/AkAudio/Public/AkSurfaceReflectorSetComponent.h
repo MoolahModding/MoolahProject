@@ -25,7 +25,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     AActor* AssociatedRoom;
     
-    UAkSurfaceReflectorSetComponent();
+    UAkSurfaceReflectorSetComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void UpdateSurfaceReflectorSet();

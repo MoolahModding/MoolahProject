@@ -6,5 +6,6 @@ FSBZAirPathConfig::FSBZAirPathConfig() {
     this->NumNodesExpandedPerSliceCheck = 0;
     this->MaxNumNodes = 0;
     this->MinNodeHalfSize = 0;
+    this->AirNavLinkModifier = 0.00f;
 }
 

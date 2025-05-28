@@ -30,6 +30,9 @@ public:
     static void SetMouseSensitivityMultiplier(UObject* WorldContextObject, float Sensitivity);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetLoadAllRazerChromaForAllDevicesEnabled(UObject* WorldContextObject, bool bEnabled);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetInvertedYAxisEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -84,6 +87,9 @@ public:
     static void SetControllerVibrationsEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetChromaSensaEnabled(UObject* WorldContextObject, bool bEnabled);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetChatDisabled(UObject* WorldContextObject, bool bDisabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -109,6 +115,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsMouseSmoothingEnabled(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsLoadAllRazerChromaForAllDevicesEnabledByDefault(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsLoadAllRazerChromaForAllDevicesEnabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsInvertedYAxisEnabledByDefault(UObject* WorldContextObject);
@@ -163,6 +175,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsCrossplayDisabled(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsChromaSensaEnabledByDefault(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsChromaSensaEnabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsChatDisabledByDefault(UObject* WorldContextObject);
@@ -229,6 +247,9 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetDefaultGamepadHorizontalSensitivityMultiplier(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool GetButtonVisibilityLoadAllRazerChromaForAllDevices(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool AreControllerVibrationsEnabledByDefault(UObject* WorldContextObject);

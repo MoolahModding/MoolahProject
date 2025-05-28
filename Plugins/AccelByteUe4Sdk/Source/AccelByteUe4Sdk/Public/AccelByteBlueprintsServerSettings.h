@@ -9,6 +9,7 @@ class UAccelByteBlueprintsServerSettings : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsServerSettings();
+
     UFUNCTION(BlueprintCallable)
     static void SetUGCServerUrl(const FString& UGCServerUrl);
     

@@ -3,5 +3,5 @@
 #include "AccelByteModelsItemPagingSlicedResult.h"
 #include "DModelsItemPagingSlicedResultResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsItemPagingSlicedResultResponse, FAccelByteModelsItemPagingSlicedResult, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsItemPagingSlicedResultResponse, FAccelByteModelsItemPagingSlicedResult, Response);
 

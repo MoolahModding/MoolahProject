@@ -4,6 +4,7 @@
 #include "SBZGrenade.h"
 #include "SBZFragGrenade.generated.h"
 
+class ASBZFragGrenade;
 class USphereComponent;
 
 UCLASS(Abstract, Blueprintable)
@@ -13,6 +14,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USphereComponent* SphereCollision;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ASBZFragGrenade*> ClusterGrenadeArray;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

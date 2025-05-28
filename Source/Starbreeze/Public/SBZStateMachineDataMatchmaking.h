@@ -28,10 +28,13 @@ public:
     bool bCrossPlayAllowed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FString BuildVersion;
+    FString NetVersion;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZOnlineJoinType JoinType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsRestart;
     
     USBZStateMachineDataMatchmaking();
 

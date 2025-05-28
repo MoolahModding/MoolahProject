@@ -3,5 +3,5 @@
 #include "AccelByteModelsBlockPlayerNotif.h"
 #include "DBlockPlayerNotifDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDBlockPlayerNotif, FAccelByteModelsBlockPlayerNotif, Notif);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDBlockPlayerNotif, FAccelByteModelsBlockPlayerNotif, Notif);
 

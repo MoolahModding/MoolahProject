@@ -3,5 +3,5 @@
 #include "AccelByteModelsRequestFriendsResponse.h"
 #include "DRequestFriendsResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDRequestFriendsResponse, FAccelByteModelsRequestFriendsResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDRequestFriendsResponse, FAccelByteModelsRequestFriendsResponse, Response);
 

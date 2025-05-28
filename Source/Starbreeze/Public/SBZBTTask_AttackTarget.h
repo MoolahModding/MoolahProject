@@ -3,6 +3,7 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "GameplayTagContainer.h"
+#include "SBZAttackTargetDifficultySettings.h"
 #include "SBZBTTask_AttackTarget.generated.h"
 
 UCLASS(Blueprintable)
@@ -12,6 +13,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FBlackboardKeySelector TargetActorBBKey;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZAttackTargetDifficultySettings DifficultySettingsArray[4];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AttackTime;

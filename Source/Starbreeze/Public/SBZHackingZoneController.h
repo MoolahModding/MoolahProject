@@ -7,6 +7,7 @@
 #include "SBZHackingZoneController.generated.h"
 
 class ASBZHackingZone;
+class ASBZInteractionActor;
 class USBZBaseInteractableComponent;
 class USBZInteractableComponent;
 class USBZInteractorComponent;
@@ -31,6 +32,9 @@ protected:
     USBZOutlineComponent* OutlineComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bUseHackingZones;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<ASBZHackingZone*> HackingZoneArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -46,6 +50,15 @@ protected:
     TArray<float> PlayerMultiplierArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ASBZInteractionActor*> InteractionActorArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<float> SpeedIncreasePerInteractionArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 NumberOfInteractionsForInstantComplete;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZLoudOptions LoudOptions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -53,6 +66,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 NumberOfZonesOccupied;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 NumberOfInteractionsDone;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZHackingZoneData> HackingZoneDataArray;
@@ -67,6 +83,9 @@ public:
     void SetInteractionEnabled(bool bEnabled);
     
 protected:
+    UFUNCTION(BlueprintCallable)
+    void OnInteractionActorServerCompleteInteraction(ASBZInteractionActor* Interactable, USBZInteractorComponent* Interactor);
+    
     UFUNCTION(BlueprintCallable)
     void OnHeistGoneLoud();
     

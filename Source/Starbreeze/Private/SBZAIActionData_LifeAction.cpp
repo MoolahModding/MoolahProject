@@ -11,6 +11,8 @@ USBZAIActionData_LifeAction::USBZAIActionData_LifeAction() {
     this->bOverrideIsPersistent = false;
     this->bIsPersistent = false;
     this->CompleteOrderForResults = -1;
+    this->bOverrideWaitForEquipped = false;
+    this->bWaitForEquipped = false;
 }
 
 

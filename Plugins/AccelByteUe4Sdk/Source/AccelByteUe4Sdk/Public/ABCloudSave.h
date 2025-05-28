@@ -19,6 +19,7 @@ class UABCloudSave : public UObject {
     GENERATED_BODY()
 public:
     UABCloudSave();
+
     UFUNCTION(BlueprintCallable)
     void SaveUserRecord(const FString& Key, FJsonObjectWrapper RecordRequest, bool IsPublic, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
     

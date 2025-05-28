@@ -3,5 +3,5 @@
 #include "AccelByteModelsPlatformValidateUserItemPurchaseResponse.h"
 #include "DAccelByteModelsPlatformValidateUserItemPurchaseResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsPlatformValidateUserItemPurchaseResponse, TArray<FAccelByteModelsPlatformValidateUserItemPurchaseResponse>, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDAccelByteModelsPlatformValidateUserItemPurchaseResponse, TArray<FAccelByteModelsPlatformValidateUserItemPurchaseResponse>, Response);
 

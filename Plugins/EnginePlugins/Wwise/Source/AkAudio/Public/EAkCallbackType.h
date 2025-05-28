@@ -5,10 +5,10 @@
 UENUM(BlueprintType)
 enum class EAkCallbackType : uint8 {
     EndOfEvent,
-    Marker = 0x2,
+    Marker = 2,
     Duration,
-    Starvation = 0x5,
-    MusicPlayStarted = 0x7,
+    Starvation = 5,
+    MusicPlayStarted = 7,
     MusicSyncBeat,
     MusicSyncBar,
     MusicSyncEntry,
@@ -16,6 +16,6 @@ enum class EAkCallbackType : uint8 {
     MusicSyncGrid,
     MusicSyncUserCue,
     MusicSyncPoint,
-    MIDIEvent = 0x10,
+    MIDIEvent = 16,
 };
 

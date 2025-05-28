@@ -16,6 +16,7 @@ class UBPUser : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UBPUser();
+
     UFUNCTION(BlueprintCallable)
     static void Verify(const FString& VerificationCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError);
     

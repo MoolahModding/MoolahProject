@@ -45,7 +45,7 @@ private:
     TMap<int32, double> SurfaceAreas;
     
 public:
-    UAkGeometryComponent();
+    UAkGeometryComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void UpdateGeometry();

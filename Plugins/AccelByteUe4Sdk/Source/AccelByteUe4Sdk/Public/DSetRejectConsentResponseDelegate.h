@@ -3,5 +3,5 @@
 #include "AccelByteModelsRejectConsentRequest.h"
 #include "DSetRejectConsentResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDSetRejectConsentResponse, FAccelByteModelsRejectConsentRequest, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDSetRejectConsentResponse, FAccelByteModelsRejectConsentRequest, Response);
 

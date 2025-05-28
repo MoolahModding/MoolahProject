@@ -5,8 +5,8 @@ FSBZRespawnMinimumAttributeData::FSBZRespawnMinimumAttributeData() {
     this->Health = 0.00f;
     this->PercentOfMaxChunkCount = 0.00f;
     this->DownedCount = 0;
-    this->WeaponAmmoMagazineCount = 0;
-    this->ThrowableAmmo = 0;
-    this->EquippableAmmo = 0;
+    this->WeaponAmmoScale = 0.00f;
+    this->ThrowableAmmoScale = 0.00f;
+    this->PlaceableAmmoScale = 0.00f;
 }
 

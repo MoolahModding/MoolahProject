@@ -3,5 +3,5 @@
 #include "AccelByteModelsCategoryInfo.h"
 #include "DModelsCategoryInfoResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsCategoryInfoResponse, FAccelByteModelsCategoryInfo, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsCategoryInfoResponse, FAccelByteModelsCategoryInfo, Response);
 

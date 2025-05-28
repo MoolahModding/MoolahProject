@@ -21,6 +21,9 @@ void USBZSettingsFunctionsGameplay::SetMouseSmoothingEnabled(UObject* WorldConte
 void USBZSettingsFunctionsGameplay::SetMouseSensitivityMultiplier(UObject* WorldContextObject, float Sensitivity) {
 }
 
+void USBZSettingsFunctionsGameplay::SetLoadAllRazerChromaForAllDevicesEnabled(UObject* WorldContextObject, bool bEnabled) {
+}
+
 void USBZSettingsFunctionsGameplay::SetInvertedYAxisEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
@@ -75,6 +78,9 @@ void USBZSettingsFunctionsGameplay::SetCrossplayDisabled(UObject* WorldContextOb
 void USBZSettingsFunctionsGameplay::SetControllerVibrationsEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
+void USBZSettingsFunctionsGameplay::SetChromaSensaEnabled(UObject* WorldContextObject, bool bEnabled) {
+}
+
 void USBZSettingsFunctionsGameplay::SetChatDisabled(UObject* WorldContextObject, bool bDisabled) {
 }
 
@@ -107,6 +113,14 @@ bool USBZSettingsFunctionsGameplay::IsMouseSmoothingEnabledByDefault(UObject* Wo
 }
 
 bool USBZSettingsFunctionsGameplay::IsMouseSmoothingEnabled(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsLoadAllRazerChromaForAllDevicesEnabledByDefault(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsLoadAllRazerChromaForAllDevicesEnabled(UObject* WorldContextObject) {
     return false;
 }
 
@@ -179,6 +193,14 @@ bool USBZSettingsFunctionsGameplay::IsCrossplayDisabledByDefault(UObject* WorldC
 }
 
 bool USBZSettingsFunctionsGameplay::IsCrossplayDisabled(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsChromaSensaEnabledByDefault(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsGameplay::IsChromaSensaEnabled(UObject* WorldContextObject) {
     return false;
 }
 
@@ -268,6 +290,10 @@ float USBZSettingsFunctionsGameplay::GetDefaultGamepadVerticalSensitivityMultipl
 
 float USBZSettingsFunctionsGameplay::GetDefaultGamepadHorizontalSensitivityMultiplier(UObject* WorldContextObject) {
     return 0.0f;
+}
+
+bool USBZSettingsFunctionsGameplay::GetButtonVisibilityLoadAllRazerChromaForAllDevices(UObject* WorldContextObject) {
+    return false;
 }
 
 bool USBZSettingsFunctionsGameplay::AreControllerVibrationsEnabledByDefault(UObject* WorldContextObject) {

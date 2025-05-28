@@ -70,6 +70,9 @@ public:
     UFUNCTION(BlueprintCallable)
     bool GetPlayerBlocked(const FString& EOSUserId);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    FString GetCurrentUserId() const;
+    
     UFUNCTION(BlueprintCallable)
     float GetAudioOutputVolume();
     

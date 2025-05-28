@@ -1,6 +1,6 @@
 #include "DrawRoomComponent.h"
 
-UDrawRoomComponent::UDrawRoomComponent() {
+UDrawRoomComponent::UDrawRoomComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 

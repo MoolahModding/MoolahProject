@@ -10,6 +10,7 @@ class UABMultiRegistry : public UBlueprintFunctionLibrary {
     GENERATED_BODY()
 public:
     UABMultiRegistry();
+
     UFUNCTION(BlueprintCallable)
     static UABApiClient* GetApiClient(const FString& Key);
     

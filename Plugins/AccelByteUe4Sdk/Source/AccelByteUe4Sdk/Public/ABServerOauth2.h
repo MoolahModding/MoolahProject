@@ -11,6 +11,7 @@ class UABServerOauth2 : public UObject {
     GENERATED_BODY()
 public:
     UABServerOauth2();
+
     UFUNCTION(BlueprintCallable)
     void LoginWithClientCredentials(FDHandler OnSuccess, FDErrorHandler OnError);
     

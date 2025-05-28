@@ -10,6 +10,7 @@ enum class ESBZAkPoolType : uint8 {
     WeaponImpact,
     EnvironmentImpact,
     Interaction,
+    Melee,
     Max,
 };
 

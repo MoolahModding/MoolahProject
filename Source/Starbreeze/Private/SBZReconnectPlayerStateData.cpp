@@ -21,6 +21,7 @@ FSBZReconnectPlayerStateData::FSBZReconnectPlayerStateData() {
     this->bIsOverkillEnabled = false;
     this->DefeatState = EPD3DefeatState::None;
     this->bIsLastArrestedByGuard = false;
+    this->RepairArmorInteractionImmuneTime = 0.00f;
     this->bIsSkillTankLastManStandingBlocking = false;
     this->SkillTankLastManStandingImmuneTime = 0.00f;
 }

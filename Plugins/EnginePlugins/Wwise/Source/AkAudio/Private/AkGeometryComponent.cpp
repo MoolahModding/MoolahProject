@@ -1,6 +1,6 @@
 #include "AkGeometryComponent.h"
 
-UAkGeometryComponent::UAkGeometryComponent() {
+UAkGeometryComponent::UAkGeometryComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->MeshType = AkMeshType::CollisionMesh;
     this->LOD = 0;
     this->WeldingThreshold = 0.00f;

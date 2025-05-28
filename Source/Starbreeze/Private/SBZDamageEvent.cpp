@@ -8,6 +8,7 @@ FSBZDamageEvent::FSBZDamageEvent() {
     this->ThrowableData = NULL;
     this->Damage = 0.00f;
     this->ArmorDamage = 0.00f;
+    this->Armor = 0.00f;
     this->HealthDamage = 0.00f;
     this->OverHealDamage = 0.00f;
     this->OverskillProgressionDamage = 0.00f;

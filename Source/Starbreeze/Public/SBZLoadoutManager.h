@@ -8,6 +8,7 @@
 #include "SBZLoadoutManager.generated.h"
 
 class USBZLoadoutManager;
+class USBZSkillData;
 
 UCLASS(Blueprintable)
 class USBZLoadoutManager : public UObject {
@@ -22,6 +23,9 @@ public:
     USBZLoadoutManager();
 
     UFUNCTION(BlueprintCallable)
+    bool SetOverskillSkillRemoved(const USBZSkillData* Data, bool bIsRemoved);
+    
+    UFUNCTION(BlueprintCallable)
     void SetLoadoutAtIndex(int32 LoadoutIndex, const FSBZPlayerLoadoutConfig& InLoadoutConfig);
     
     UFUNCTION(BlueprintCallable)
@@ -29,6 +33,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SendLoadoutName(const int32 LoadoutIndex, const FString& LoadoutName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsOverskillSkillRemoved(const USBZSkillData* Data) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZPlayerLoadoutConfig> GetPlayerLoadouts();

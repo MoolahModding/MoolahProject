@@ -22,7 +22,13 @@
 			"Type": "Runtime",
 			"LoadingPhase": "PreDefault",
 			"WhitelistPlatforms": [
-				"Win64"
+				"Win64",
+				"Win32",
+				"PS4",
+				"PS5",
+				"XboxOne",
+				"XSX",
+				"Linux"
 			]
 		}
 	]

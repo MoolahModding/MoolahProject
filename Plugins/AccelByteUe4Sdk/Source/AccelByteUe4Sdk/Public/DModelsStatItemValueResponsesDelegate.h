@@ -3,5 +3,5 @@
 #include "AccelByteModelsStatItemValueResponse.h"
 #include "DModelsStatItemValueResponsesDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsStatItemValueResponses, TArray<FAccelByteModelsStatItemValueResponse>, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsStatItemValueResponses, TArray<FAccelByteModelsStatItemValueResponse>, Response);
 

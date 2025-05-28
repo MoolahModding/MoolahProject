@@ -34,7 +34,7 @@ public:
     FString GameSessionCode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString BuildVersion;
+    FString NetVersion;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bCrossPlayEnabled;

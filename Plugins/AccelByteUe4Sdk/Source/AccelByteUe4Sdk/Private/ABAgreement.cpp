@@ -1,5 +1,8 @@
 #include "ABAgreement.h"
 
+UABAgreement::UABAgreement() {
+}
+
 void UABAgreement::QueryLegalEligibilities(const FString& Namespace, const FDArrayModelsRetrieveUserEligibilitiesResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -27,6 +30,4 @@ void UABAgreement::BulkAcceptPolicyVersions(const FArrayModelsAcceptAgreementReq
 void UABAgreement::AcceptPolicyVersion(const FString& LocalizedPolicyVersionId, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABAgreement::UABAgreement() {
-}
 

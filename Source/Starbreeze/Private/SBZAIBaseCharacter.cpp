@@ -49,6 +49,7 @@ ASBZAIBaseCharacter::ASBZAIBaseCharacter(const FObjectInitializer& ObjectInitial
     this->AdditiveBaseEyeHeightTickRate = 0.10f;
     this->CivilianNearRange = 250.00f;
     this->bIsSlowedAllowed = true;
+    this->DamageStatusMarkerAsset = NULL;
 }
 
 void ASBZAIBaseCharacter::OnRep_AgentId() {

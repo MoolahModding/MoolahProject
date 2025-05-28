@@ -3,5 +3,5 @@
 #include "AccelByteModelsJoinDefaultChannelResponse.h"
 #include "DJoinDefaultChannelChatResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDJoinDefaultChannelChatResponse, FAccelByteModelsJoinDefaultChannelResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDJoinDefaultChannelChatResponse, FAccelByteModelsJoinDefaultChannelResponse, Response);
 

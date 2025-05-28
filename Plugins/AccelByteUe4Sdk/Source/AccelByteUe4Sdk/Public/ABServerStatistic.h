@@ -16,6 +16,7 @@ class UABServerStatistic : public UObject {
     GENERATED_BODY()
 public:
     UABServerStatistic();
+
     UFUNCTION(BlueprintCallable)
     void IncrementUserStatItems(const FString& UserId, const TArray<FAccelByteModelsBulkStatItemInc>& Data, FDArrayBulkStatItemOperationDelegate OnSuccess, FDErrorHandler OnError);
     

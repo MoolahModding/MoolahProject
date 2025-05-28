@@ -3,5 +3,5 @@
 #include "AccelByteModelsPopulatedItemInfo.h"
 #include "DModelsPopulatedItemInfoResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPopulatedItemInfoResponse, FAccelByteModelsPopulatedItemInfo, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPopulatedItemInfoResponse, FAccelByteModelsPopulatedItemInfo, Response);
 

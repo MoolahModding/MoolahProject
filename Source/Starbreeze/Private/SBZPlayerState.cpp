@@ -17,9 +17,6 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->UICharacterEffects = CreateDefaultSubobject<USBZUICharacterEffectComponent>(TEXT("SBZUICharacterEffectComponent"));
     this->PlayerSlotId = 0;
     this->PlayerColors.AddDefaulted(4);
-    this->ReplicatedStartReplenishDodgeServerTime = -1.00f;
-    this->StartReplenishDodgeServerTime = -1.00f;
-    this->StartReplenishDodgeValue = -1.00f;
     this->bIsMaskOn = false;
     this->bIsLocallyControlled = false;
     this->EquipStateAndIndex = 0;
@@ -32,6 +29,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->bIsAttributeSetInitialized = false;
     this->bIsAttributeSetInitializedOnce = false;
     this->bIsPendingReconnectData = false;
+    this->bIsPendingInitRespawnAttributeSet = false;
     this->bIsLoadoutLoaded = false;
     this->bIsApplyingLoadout = false;
     this->CurrentCharacterData = NULL;
@@ -161,9 +159,6 @@ void ASBZPlayerState::OnRep_SpectateTime(float OldSpectateTime) {
 void ASBZPlayerState::OnRep_ServerReloadState() {
 }
 
-void ASBZPlayerState::OnRep_ReplicatedStartReplenishDodgeServerTime() {
-}
-
 void ASBZPlayerState::OnRep_RenownLevel() {
 }
 
@@ -243,9 +238,6 @@ void ASBZPlayerState::Multicast_StopTargeting_Implementation() {
 }
 
 void ASBZPlayerState::Multicast_StartTargeting_Implementation() {
-}
-
-void ASBZPlayerState::Multicast_StartDodgeReplenish_Implementation(float InStartReplenishDodgeServerTime) {
 }
 
 void ASBZPlayerState::Multicast_SetSpectateTime_Implementation(float Time) {
@@ -447,7 +439,6 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, EOSProductUserId);
     DOREPLIFETIME(ASBZPlayerState, bIsSkipIntroSequence);
     DOREPLIFETIME(ASBZPlayerState, PlayerSlotId);
-    DOREPLIFETIME(ASBZPlayerState, ReplicatedStartReplenishDodgeServerTime);
     DOREPLIFETIME(ASBZPlayerState, bIsMaskOn);
     DOREPLIFETIME(ASBZPlayerState, Loadout);
     DOREPLIFETIME(ASBZPlayerState, EquipStateAndIndex);

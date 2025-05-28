@@ -8,6 +8,7 @@ class UABServerCredentials : public UObject {
     GENERATED_BODY()
 public:
     UABServerCredentials();
+
     UFUNCTION(BlueprintCallable)
     FString GetAccessToken();
     

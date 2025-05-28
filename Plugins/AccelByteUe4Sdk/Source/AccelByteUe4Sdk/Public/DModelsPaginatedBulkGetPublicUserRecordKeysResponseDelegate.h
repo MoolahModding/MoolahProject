@@ -3,5 +3,5 @@
 #include "AccelByteModelsPaginatedBulkGetPublicUserRecordKeysResponse.h"
 #include "DModelsPaginatedBulkGetPublicUserRecordKeysResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedBulkGetPublicUserRecordKeysResponse, FAccelByteModelsPaginatedBulkGetPublicUserRecordKeysResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedBulkGetPublicUserRecordKeysResponse, FAccelByteModelsPaginatedBulkGetPublicUserRecordKeysResponse, Response);
 

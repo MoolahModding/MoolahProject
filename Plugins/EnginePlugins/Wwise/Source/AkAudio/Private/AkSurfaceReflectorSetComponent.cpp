@@ -1,6 +1,6 @@
 #include "AkSurfaceReflectorSetComponent.h"
 
-UAkSurfaceReflectorSetComponent::UAkSurfaceReflectorSetComponent() {
+UAkSurfaceReflectorSetComponent::UAkSurfaceReflectorSetComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bEnableSurfaceReflectors = true;
     this->bEnableDiffraction = true;
     this->bEnableDiffractionOnBoundaryEdges = false;

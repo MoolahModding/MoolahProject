@@ -3,5 +3,5 @@
 #include "PagedPlatformLinks.h"
 #include "DPagedPlatformLinksResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPagedPlatformLinksResponse, FPagedPlatformLinks, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPagedPlatformLinksResponse, FPagedPlatformLinks, Response);
 

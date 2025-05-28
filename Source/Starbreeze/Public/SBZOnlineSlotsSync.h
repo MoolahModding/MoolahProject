@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Info.h"
 #include "GameFramework/OnlineReplStructs.h"
+#include "SBZPlayerStateAddedEvent.h"
 #include "SBZSlotData.h"
 #include "SBZOnlineSlotsSync.generated.h"
 
@@ -17,6 +18,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_SlotsData, meta=(AllowPrivateAccess=true))
     TArray<FSBZSlotData> SlotsData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ASBZPlayerState*> PendingPlayerStates;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZOnlineSession* OnlineSession;
@@ -57,7 +61,13 @@ private:
     void OnRemovePlayerState(const FUniqueNetIdRepl& InPlayerId);
     
     UFUNCTION(BlueprintCallable)
+    void OnPlayerStateReceivedUniqueId(ASBZPlayerState* InPlayerState);
+    
+    UFUNCTION(BlueprintCallable)
     void OnGameModeInitialized(AGameModeBase* GameMode);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnAddPlayerStateEvent(const FSBZPlayerStateAddedEvent& PlayerStateAddedEventData);
     
     UFUNCTION(BlueprintCallable)
     void OnAddPlayerState(APlayerState* PlayerState);

@@ -12,6 +12,7 @@
 #include "SBZPlaceableCharges.generated.h"
 
 class AActor;
+class ASBZPlayerState;
 class AStaticMeshActor;
 class UBoxComponent;
 class UProjectileMovementComponent;
@@ -62,6 +63,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsAIPlaced;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* ServerPlayerState;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))

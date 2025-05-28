@@ -12,6 +12,18 @@ USBZMainMenuItemInventoryScreen::USBZMainMenuItemInventoryScreen() {
 
 
 
+void USBZMainMenuItemInventoryScreen::OnShowBuySlotPopUpClosed(FName InActionName) {
+}
+
+
+
+
+
+void USBZMainMenuItemInventoryScreen::OnGameInstallStateChanged(bool bIsInstallPending) {
+}
+
+void USBZMainMenuItemInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+}
 
 void USBZMainMenuItemInventoryScreen::NativeOnItemSlotButtonSelected(USBZMenuButton* SelectedButton) {
 }

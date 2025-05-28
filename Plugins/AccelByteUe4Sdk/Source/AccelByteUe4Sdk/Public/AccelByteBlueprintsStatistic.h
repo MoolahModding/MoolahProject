@@ -19,6 +19,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsStatistic();
+
     UFUNCTION(BlueprintCallable)
     static void IncrementUserStatItems(const TArray<FAccelByteModelsBulkStatItemInc>& Data, const UAccelByteBlueprintsStatistic::FBulkAddUserStatItemValueSuccess& OnSuccess, const UAccelByteBlueprintsStatistic::FBlueprintErrorHandler& OnError);
     

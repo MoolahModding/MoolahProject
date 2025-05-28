@@ -21,7 +21,7 @@ ASBZHoldOutAIDrone::ASBZHoldOutAIDrone(const FObjectInitializer& ObjectInitializ
     this->CurrentDifficulty = ESBZHoldOutModeDifficulty::Default;
     this->UnwrappedCurrentAreaIndex = -1;
     this->TotalPayout = 0;
-    //this->AKComponent->SetupAttachment(RootComponent);
+    this->AKComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZHoldOutAIDrone::StopOverrideFogSettings() {

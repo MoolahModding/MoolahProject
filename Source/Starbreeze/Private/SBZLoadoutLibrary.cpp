@@ -24,7 +24,15 @@ FSBZWeaponInventorySlot USBZLoadoutLibrary::GetWeaponConfigSlot(const UObject* W
     return FSBZWeaponInventorySlot{};
 }
 
+USBZInventoryBaseData* USBZLoadoutLibrary::GetSuitDataForLoadoutIndex(const UObject* WorldContextObject, const int32 LoadoutIndex) {
+    return NULL;
+}
+
 USBZInventoryBaseData* USBZLoadoutLibrary::GetSuitData(const UObject* WorldContextObject) {
+    return NULL;
+}
+
+USBZInventoryBaseData* USBZLoadoutLibrary::GetMaskDataForLoadoutIndex(const UObject* WorldContextObject, const int32 LoadoutIndex) {
     return NULL;
 }
 
@@ -38,8 +46,16 @@ void USBZLoadoutLibrary::GetInventorySuitSlotAt(const UObject* WorldContextObjec
 void USBZLoadoutLibrary::GetInventoryGloveSlotAt(const UObject* WorldContextObject, FSBZGloveInventorySlot& OutGloveInventorySlot, int32 GloveSlotIndex, bool& IsValidIndex) {
 }
 
+USBZInventoryBaseData* USBZLoadoutLibrary::GetGloveDataForLoadoutIndex(const UObject* WorldContextObject, const int32 LoadoutIndex) {
+    return NULL;
+}
+
 USBZInventoryBaseData* USBZLoadoutLibrary::GetGloveData(const UObject* WorldContextObject) {
     return NULL;
+}
+
+FSBZArmorInventorySlot USBZLoadoutLibrary::GetArmorInventorySlot(const UObject* WorldContextObject, int32 InArmorSlotIndex) {
+    return FSBZArmorInventorySlot{};
 }
 
 FSBZArmorConfig USBZLoadoutLibrary::GetArmorConfigSlot(const UObject* WorldContextObject, int32 InArmorSlotIndex) {

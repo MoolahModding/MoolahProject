@@ -10,6 +10,7 @@ class ACCELBYTEUE4SDK_API UAccelByteBlueprintsSettings : public UBlueprintFuncti
     GENERATED_BODY()
 public:
     UAccelByteBlueprintsSettings();
+
     UFUNCTION(BlueprintCallable)
     static void SetUGCServerUrl(const FString& UGCServerUrl);
     
@@ -126,6 +127,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static FString GetStatisticServerUrl();
+    
+    UFUNCTION(BlueprintCallable)
+    static FString GetSettingsEnvironment();
     
     UFUNCTION(BlueprintCallable)
     static FString GetSessionServerUrl();

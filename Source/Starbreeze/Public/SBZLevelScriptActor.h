@@ -37,6 +37,9 @@ public:
     ASBZLevelScriptActor(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetLevelCriteriaCompleted(const USBZStatisticCriteriaData* StatisticData, bool bIsCompleted);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetBagMarkerEnabledByTags(const FGameplayTagContainer& BagGameplayTagContainer, bool bEnabled);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
@@ -127,7 +130,7 @@ protected:
     void HandleIntroSequenceChanged(bool bIsStarted);
     
     UFUNCTION(BlueprintCallable)
-    void HandleBlackScreenStarted();
+    void HandleBlackScreenStarted(const bool bIsRestar);
     
     UFUNCTION(BlueprintCallable)
     void HandleActionPhaseStarted();

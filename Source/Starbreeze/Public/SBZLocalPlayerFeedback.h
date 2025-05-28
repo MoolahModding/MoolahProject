@@ -109,6 +109,9 @@ protected:
     USBZChromaSensaEffectDataAsset* ChromaSensaEffect;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZChromaSensaEffectDataAsset* ChromaSensaFadeOutEffect;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString AudioRTPC;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

@@ -168,9 +168,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString EnemyGrenadeMultiKill;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FString KillEnemySnipersWithMarksman;
-    
     STARBREEZE_API FSBZStatisticCodeCollection();
 };
 

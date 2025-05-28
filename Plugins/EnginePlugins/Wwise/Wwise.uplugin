@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
-	"Version": 202112580,
-	"VersionName": "2021.1.13.8036.2580",
+	"Version": 202112656,
+	"VersionName": "2021.1.14.8108.2656",
 	"FriendlyName": "Wwise Unreal Engine Integration",
 	"Description": "Wwise integration for Unreal Engine",
 	"Category": "Audio",
@@ -11,7 +11,7 @@
 	"MarketplaceURL": "",
 	"SupportURL": "",
 	"EngineVersion": "4.27.0",
-	"EnabledByDefault": true,
+	"EnabledByDefault": false,
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,

@@ -2,8 +2,8 @@
 
 UAccelByteServerSettings::UAccelByteServerSettings() {
     this->ForceEnableSettings = false;
-    this->ClientId = TEXT("121f07b3990a49c384942e372a500c3b");
-    this->ClientSecret = TEXT("YMs]DKN8-Z4CbudBB8_1RRtcT4Me%(7O");
+    this->ClientId = TEXT("de1a888b2ec84579a3ffe67f1af295b6");
+    this->ClientSecret = TEXT("IlA+2hfb4xUuW-1P,WxJp3!d;-fZcrW6");
     this->Namespace = TEXT("pd3");
     this->PublisherNamespace = TEXT("starbreeze");
     this->RedirectURI = TEXT("http://127.0.0.1");
@@ -12,4 +12,5 @@ UAccelByteServerSettings::UAccelByteServerSettings() {
     this->AMSHeartbeatInterval = 15;
     this->bSendPredefinedEvent = false;
 }
+
 

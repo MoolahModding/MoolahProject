@@ -36,7 +36,7 @@ private:
     UAkAuxBus* AuxBusManual;
     
 public:
-    UAkLateReverbComponent();
+    UAkLateReverbComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void AssociateAkTextureSetComponent(UAkAcousticTextureSetComponent* textureSetComponent);

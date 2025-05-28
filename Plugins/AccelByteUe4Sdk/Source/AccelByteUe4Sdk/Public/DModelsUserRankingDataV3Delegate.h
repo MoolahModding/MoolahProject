@@ -3,5 +3,5 @@
 #include "AccelByteModelsUserRankingDataV3.h"
 #include "DModelsUserRankingDataV3Delegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUserRankingDataV3, FAccelByteModelsUserRankingDataV3, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUserRankingDataV3, FAccelByteModelsUserRankingDataV3, Response);
 

@@ -5,7 +5,7 @@
 #include "OnItemBoolPropertySelectionChangedDelegate.h"
 #include "AkItemBoolProperties.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Editor)
+UCLASS(Blueprintable, DefaultConfig, Config=Editor)
 class AKAUDIO_API UAkItemBoolProperties : public UWidget {
     GENERATED_BODY()
 public:

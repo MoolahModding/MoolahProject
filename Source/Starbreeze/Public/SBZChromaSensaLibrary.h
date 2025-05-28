@@ -15,7 +15,13 @@ public:
     static void StopChromaSensaEffect(USBZChromaSensaEffectDataAsset* Effect);
     
     UFUNCTION(BlueprintCallable)
+    static void SetChromaIdleEffect(USBZChromaSensaEffectDataAsset* Effect);
+    
+    UFUNCTION(BlueprintCallable)
     static void PlayChromaSensaEffect(USBZChromaSensaEffectDataAsset* Effect);
+    
+    UFUNCTION(BlueprintCallable)
+    static void EnableChromaSensa(bool bEnable);
     
 };
 

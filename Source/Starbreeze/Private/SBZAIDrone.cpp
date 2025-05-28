@@ -63,6 +63,7 @@ ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->SentryHackDamageInterval[2] = 0.00f;
     this->SentryHackDamageInterval[3] = 0.00f;
     this->bIsDeathAllowed = true;
+    this->DamageStatusMarkerAsset = NULL;
     this->bShouldTelegraphAttack = false;
     this->bIsHackingSentry = false;
     this->HackingSentryEffectComponent = NULL;

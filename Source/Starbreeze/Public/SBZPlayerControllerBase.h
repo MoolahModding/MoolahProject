@@ -33,7 +33,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_SetAccelByteSessionInformation(const FString& InAccelByteUserId, const FString& InSessionId, const ESBZFirstPartyPlatform FirstPartyPlatform);
+    void Server_SetAccelByteSessionInformation(const FString& InAccelByteUserId, const ESBZFirstPartyPlatform FirstPartyPlatform);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsPausedPreferred() const;

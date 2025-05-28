@@ -12,7 +12,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USoundSubmix* SubmixToRecord;
     
-    UAkSubmixInputComponent();
+    UAkSubmixInputComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

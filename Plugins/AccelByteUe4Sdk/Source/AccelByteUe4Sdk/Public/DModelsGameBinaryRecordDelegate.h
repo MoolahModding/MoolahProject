@@ -3,5 +3,5 @@
 #include "AccelByteModelsGameBinaryRecord.h"
 #include "DModelsGameBinaryRecordDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsGameBinaryRecord, FAccelByteModelsGameBinaryRecord, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsGameBinaryRecord, FAccelByteModelsGameBinaryRecord, Response);
 

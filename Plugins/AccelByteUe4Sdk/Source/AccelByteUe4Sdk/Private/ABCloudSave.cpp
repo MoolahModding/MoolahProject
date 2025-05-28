@@ -1,5 +1,8 @@
 #include "ABCloudSave.h"
 
+UABCloudSave::UABCloudSave() {
+}
+
 void UABCloudSave::SaveUserRecord(const FString& Key, FJsonObjectWrapper RecordRequest, bool IsPublic, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -57,6 +60,4 @@ void UABCloudSave::BulkGetOtherPlayerPublicRecordKeys(const FString& UserId, con
 void UABCloudSave::BulkGetGameRecords(const TArray<FString>& Keys, const FDModelsListGameRecords& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABCloudSave::UABCloudSave() {
-}
 

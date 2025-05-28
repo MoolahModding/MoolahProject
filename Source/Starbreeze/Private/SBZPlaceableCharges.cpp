@@ -15,6 +15,7 @@ ASBZPlaceableCharges::ASBZPlaceableCharges(const FObjectInitializer& ObjectIniti
     this->PlaceableChargeState = ESBZPlaceableChargeState::None;
     this->PlacedVoiceComment = NULL;
     this->bIsAIPlaced = false;
+    this->ServerPlayerState = NULL;
     this->OutOfBoundsBoxComponent->SetupAttachment(RootComponent);
 }
 

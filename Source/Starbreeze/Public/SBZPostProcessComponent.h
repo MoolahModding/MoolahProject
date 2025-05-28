@@ -1,7 +1,4 @@
 #pragma once
-
-// Removed completely due to build errors that cannot be fixed
-/*
 #include "CoreMinimal.h"
 #include "Components/PostProcessComponent.h"
 #include "SBZComponentSelector.h"
@@ -20,4 +17,3 @@ public:
 
 };
 
-*/

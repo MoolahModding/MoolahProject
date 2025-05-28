@@ -20,8 +20,8 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString CurrencySymbol;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 Balance;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    int64 Balance;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FAccelByteModelsWalletInfo> WalletInfos;

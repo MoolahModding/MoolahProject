@@ -1,6 +1,8 @@
 #include "SBZEquippableData.h"
 
 USBZEquippableData::USBZEquippableData() {
+    this->bIsOverkill = false;
+    this->bIsInitialLoadoutAllowed = true;
     this->EquippableDefaultIdleFPPose = NULL;
     this->EquippableDefaultIdleTPPose = NULL;
     this->DefaultRightGripFPPose = NULL;

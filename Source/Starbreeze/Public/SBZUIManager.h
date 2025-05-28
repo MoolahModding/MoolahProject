@@ -231,6 +231,9 @@ public:
     bool TryRemoveFromStack(const FName& StackValue);
     
     UFUNCTION(BlueprintCallable)
+    bool TriggerWindowsFlash(bool bTriggerOnlyOnWindowNotActive, uint8 BlinkCount);
+    
+    UFUNCTION(BlueprintCallable)
     void SwitchUIStack(const FName& StackValueToSwitch);
     
     UFUNCTION(BlueprintCallable)

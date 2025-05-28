@@ -2,5 +2,6 @@
 
 FSBZAmmoPickupLookup::FSBZAmmoPickupLookup() {
     this->Actor = NULL;
+    this->KillerPlayerState = NULL;
 }
 

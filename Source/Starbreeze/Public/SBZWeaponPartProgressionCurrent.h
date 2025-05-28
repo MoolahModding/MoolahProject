@@ -5,6 +5,8 @@
 #include "ESBZItemCurrencyType.h"
 #include "ESBZWeaponPartApplyStatus.h"
 #include "ESBZWeaponPartLockReason.h"
+#include "SBZChallengeLock.h"
+#include "SBZSharedWeaponParentLock.h"
 #include "SBZWeaponPartProgressionCurrent.generated.h"
 
 class USBZWeaponPartDataAsset;
@@ -24,6 +26,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZWeaponPartLockReason WeaponPartLockReason;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZSharedWeaponParentLock SharedWeaponParentLock;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZChallengeLock ChallengeLock;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int64 Price;

@@ -105,6 +105,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString FirstPlatformPurchaseUrl;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsVendorPermissionRequired;
+    
     STARBREEZE_API FSBZStoreBaseItem();
 };
 

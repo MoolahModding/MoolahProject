@@ -1,6 +1,6 @@
 #include "AkAcousticTextureSetComponent.h"
 
-UAkAcousticTextureSetComponent::UAkAcousticTextureSetComponent() {
+UAkAcousticTextureSetComponent::UAkAcousticTextureSetComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
 }
 
 

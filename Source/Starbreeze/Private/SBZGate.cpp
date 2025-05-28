@@ -4,6 +4,7 @@
 #include "Net/UnrealNetwork.h"
 #include "SBZAIAttractorComponent.h"
 #include "SBZAcousticPortalConnectorComponent.h"
+#include "SBZAirNavLinkComponent.h"
 
 ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bReplicates = true;
@@ -19,6 +20,7 @@ ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->bIsNavigationLinkCalculated = true;
     this->NavLinkCount = 1;
     this->NavlinkEnabledMask = 65535;
+    this->AirNavLinkEnabledMask = 65439;
     this->NavLinkComponentArray.AddDefaulted(1);
     this->bIsOpenForward = true;
     this->bIsOpenBackwardAllowed = true;
@@ -36,6 +38,7 @@ ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->BreachSound = NULL;
     this->UnlockSound = NULL;
     this->bUseBreachPOIandSound = false;
+    this->AirNavLinkComponent = CreateDefaultSubobject<USBZAirNavLinkComponent>(TEXT("SBZAirNavLinkComponent"));
     this->NavAreaClass = UNavArea_Null::StaticClass();
     this->ToolSnapData = NULL;
     this->SoundRange = 1500.00f;

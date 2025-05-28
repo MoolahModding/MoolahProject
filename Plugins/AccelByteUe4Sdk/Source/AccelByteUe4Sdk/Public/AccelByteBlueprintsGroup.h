@@ -28,6 +28,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FCreateGroupSuccess, const FAccelByteModelsGroupInformation&, Result);
     
     UAccelByteBlueprintsGroup();
+
     UFUNCTION(BlueprintCallable)
     static void UpdateGroupPredefinedRule(const FString& GroupId, const EAccelByteAllowedAction& AllowedAction, const FAccelByteModelsUpdateGroupPredefinedRuleRequest& RequestContent, const UAccelByteBlueprintsGroup::FUpdateGroupPredefinedRuleSuccess& OnSuccess, const FDErrorHandler& OnError);
     

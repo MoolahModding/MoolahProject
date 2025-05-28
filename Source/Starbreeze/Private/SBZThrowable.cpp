@@ -55,10 +55,13 @@ void ASBZThrowable::OnInstigatorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReaso
 
 
 
-void ASBZThrowable::Multicast_SetThrowVelocity_Implementation(const FVector_NetQuantizeNormal& ThrowDirection) {
+void ASBZThrowable::Multicast_SetThrowState_Implementation(ESBZThrowableState NewThrowState) {
 }
 
-void ASBZThrowable::Multicast_SetThrowState_Implementation(ESBZThrowableState NewThrowState) {
+void ASBZThrowable::Multicast_SetThrowDirection_Implementation(const FVector_NetQuantizeNormal& ThrowDirection) {
+}
+
+void ASBZThrowable::Multicast_OnCluster_Implementation(const FVector_NetQuantize& Location, const FSBZQuat_NetQuantizeNormal& Quat, const FVector_NetQuantizeNormal& Direction) {
 }
 
 void ASBZThrowable::Multicast_DestroyBreakable_Implementation(const FHitResult& InBreakableHitResult) {

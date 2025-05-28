@@ -1,5 +1,8 @@
 #include "ABAchievement.h"
 
+UABAchievement::UABAchievement() {
+}
+
 void UABAchievement::UnlockAchievement(const FString& AchievementCode, const FDHandler OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -27,6 +30,4 @@ void UABAchievement::GetAchievement(const FString& AchievementCode, const FDMode
 void UABAchievement::ClaimGlobalAchievements(const FString& AchievementCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABAchievement::UABAchievement() {
-}
 

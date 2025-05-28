@@ -8,7 +8,7 @@ USBZOnlineSlotsHost::USBZOnlineSlotsHost() {
     this->OnlineSession = NULL;
 }
 
-void USBZOnlineSlotsHost::IndividualReadyTimerTimeout(FUniqueNetIdRepl PlayerId) {
+void USBZOnlineSlotsHost::IndividualReadyTimerTimeout(FUniqueNetIdRepl InPlayerId) const {
 }
 
 

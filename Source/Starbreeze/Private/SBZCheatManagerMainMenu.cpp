@@ -21,9 +21,6 @@ void USBZCheatManagerMainMenu::UseDefaultSuit() {
 void USBZCheatManagerMainMenu::UseDefaultMask() {
 }
 
-void USBZCheatManagerMainMenu::UnlockCharacterForTutorial() {
-}
-
 void USBZCheatManagerMainMenu::SyncDLC() {
 }
 
@@ -45,7 +42,13 @@ void USBZCheatManagerMainMenu::SetEquippiedSuitInventoryIndex(uint32 ConfigSlotI
 void USBZCheatManagerMainMenu::SetEquippiedMaskInventoryIndex(uint32 ConfigSlotIndex) {
 }
 
+void USBZCheatManagerMainMenu::SetEquippedArmorInventoryIndex(const int32 CheckedConfigSlotIndex) {
+}
+
 void USBZCheatManagerMainMenu::SetCheatAllowAttachAllWeaponParts(bool bIsSetCheatAllowAttachAllWeaponParts) {
+}
+
+void USBZCheatManagerMainMenu::SetArmorPlate(const FString& ConfigSlotEntitlementIdString, const int32 ChuckIndex, const ESBZArmorChunkType ArmorChunkType) {
 }
 
 void USBZCheatManagerMainMenu::SetActiveLoadoutIndex(int32 ActiveLoadoutIndex) {
@@ -96,16 +99,13 @@ void USBZCheatManagerMainMenu::PurchaseItem(const FString& ItemId) {
 void USBZCheatManagerMainMenu::PrintNews(ESBZOnlineCode ErrorCode, const TArray<FSBZNewsDataUIEntry>& NewsFeedList) {
 }
 
-void USBZCheatManagerMainMenu::LockCharacterForTutorial() {
-}
-
 void USBZCheatManagerMainMenu::LoadWeaponExperienceToLevelTable(const FString& ItemId) {
 }
 
 void USBZCheatManagerMainMenu::JoinPartyByCode(const FString& Code) {
 }
 
-void USBZCheatManagerMainMenu::GetWeaponProgressionForBarrelSlot(const FString& WeaponEntitlementIdString) {
+void USBZCheatManagerMainMenu::GetWeaponProgressionForSightSlot(const FString& WeaponEntitlementIdString) {
 }
 
 void USBZCheatManagerMainMenu::GetUserEntitlementsForAllItems() {
@@ -189,6 +189,9 @@ void USBZCheatManagerMainMenu::DumpInventoryItems() {
 void USBZCheatManagerMainMenu::DumpGetProgressInfo() {
 }
 
+void USBZCheatManagerMainMenu::DumpEquippedArmor(const int32 LoadoutIndex) {
+}
+
 void USBZCheatManagerMainMenu::DumpEntitlementSkuFromDLCButNotOwnedArray() const {
 }
 
@@ -223,6 +226,9 @@ void USBZCheatManagerMainMenu::DumpAvavilableWeaponParts(const FString& ItemId) 
 }
 
 void USBZCheatManagerMainMenu::DumpAttachedWeaponPartsForAllInventorySlots() {
+}
+
+void USBZCheatManagerMainMenu::DumpArmorInventorySlots() {
 }
 
 void USBZCheatManagerMainMenu::DumpAllWeaponPresets() {

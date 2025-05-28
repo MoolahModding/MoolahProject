@@ -14,7 +14,7 @@ class UAkAuxBus;
 class UAkRtpc;
 class UPhysicalMaterial;
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Game)
+UCLASS(Blueprintable, DefaultConfig, Config=Game)
 class AKAUDIO_API UAkSettings : public UObject {
     GENERATED_BODY()
 public:

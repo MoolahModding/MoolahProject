@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZArmorChunkType.h"
 #include "SBZReconnectPlayerStateLoadoutData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -17,6 +18,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float DownedCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ESBZArmorChunkType> ChunkTypeArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<float> EquippableAmmoLoadedScaleArray;

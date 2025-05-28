@@ -13,7 +13,7 @@ enum class EAkCurveInterpolation : uint8 {
     Exp1,
     SineRecip,
     Exp3,
-    LastFadeCurve = 0x8,
+    LastFadeCurve = Exp3,
     Constant,
 };
 

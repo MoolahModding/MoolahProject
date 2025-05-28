@@ -1,5 +1,8 @@
 #include "BPUser.h"
 
+UBPUser::UBPUser() {
+}
+
 void UBPUser::Verify(const FString& VerificationCode, const FDHandler& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -63,6 +66,4 @@ void UBPUser::GetPlatformLinks(const FDPlatformLinksHandler& OnSuccess, const FD
 void UBPUser::ForgetAllCredentials() {
 }
 
-UBPUser::UBPUser() {
-}
 

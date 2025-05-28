@@ -32,7 +32,13 @@ void ASBZOnlineSlotsSync::OnRep_SlotsData() {
 void ASBZOnlineSlotsSync::OnRemovePlayerState(const FUniqueNetIdRepl& InPlayerId) {
 }
 
+void ASBZOnlineSlotsSync::OnPlayerStateReceivedUniqueId(ASBZPlayerState* InPlayerState) {
+}
+
 void ASBZOnlineSlotsSync::OnGameModeInitialized(AGameModeBase* GameMode) {
+}
+
+void ASBZOnlineSlotsSync::OnAddPlayerStateEvent(const FSBZPlayerStateAddedEvent& PlayerStateAddedEventData) {
 }
 
 void ASBZOnlineSlotsSync::OnAddPlayerState(APlayerState* PlayerState) {

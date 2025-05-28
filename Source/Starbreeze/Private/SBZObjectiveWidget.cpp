@@ -10,6 +10,7 @@ USBZObjectiveWidget::USBZObjectiveWidget() {
     this->bIsTimed = false;
     this->TickingLootManagerPtr = NULL;
     this->ObjectiveType = ESBZObjectiveType::OneShot;
+    this->MultiplierSignHelper = FText::FromString(TEXT("x{0}"));
     this->Objective = NULL;
 }
 

@@ -6,6 +6,7 @@
 #include "SBZInventoryBaseData.h"
 #include "SBZSkillFloatValue.h"
 #include "SBZSkillIntValue.h"
+#include "SBZSkillTagContainerValue.h"
 #include "Templates/SubclassOf.h"
 #include "SBZSkillData.generated.h"
 
@@ -21,6 +22,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTag EquippedTag;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTag EquippedTreeTag;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsEquippedTagGranted;
@@ -57,6 +61,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, EditFixedSize, meta=(AllowPrivateAccess=true))
     TArray<FSBZSkillIntValue> IntArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, EditFixedSize, meta=(AllowPrivateAccess=true))
+    TArray<FSBZSkillTagContainerValue> TagContainerArray;
     
     USBZSkillData();
 

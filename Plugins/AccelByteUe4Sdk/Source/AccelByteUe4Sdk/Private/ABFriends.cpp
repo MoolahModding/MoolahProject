@@ -1,5 +1,8 @@
 #include "ABFriends.h"
 
+UABFriends::UABFriends() {
+}
+
 void UABFriends::Unfriend(const FString& UserId, FDUnfriendResponse OnResponse, FDErrorHandler OnError) {
 }
 
@@ -45,6 +48,4 @@ void UABFriends::BulkFriendRequest(FAccelByteModelsBulkFriendsRequest UserIds, F
 void UABFriends::AcceptFriend(const FString& UserId, FDAcceptFriendsResponse OnResponse, FDErrorHandler OnError) {
 }
 
-UABFriends::UABFriends() {
-}
 

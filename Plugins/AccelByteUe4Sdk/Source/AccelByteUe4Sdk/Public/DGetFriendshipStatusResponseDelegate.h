@@ -3,5 +3,5 @@
 #include "AccelByteModelsGetFriendshipStatusResponse.h"
 #include "DGetFriendshipStatusResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDGetFriendshipStatusResponse, FAccelByteModelsGetFriendshipStatusResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDGetFriendshipStatusResponse, FAccelByteModelsGetFriendshipStatusResponse, Response);
 

@@ -8,5 +8,6 @@ FSBZOnlineMatchmakingParams::FSBZOnlineMatchmakingParams() {
     this->Command = ESBZMatchmakingCommand::RegularMatchmaking;
     this->bIsHost = false;
     this->TacticType = ESBZOnlineTacticType::Default;
+    this->bIsServerBrowserJoin = false;
 }
 

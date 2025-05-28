@@ -5,15 +5,15 @@
 UENUM(BlueprintType)
 enum class EAkMidiEventType : uint8 {
     AkMidiEventTypeInvalid,
-    AkMidiEventTypeNoteOff = 0x80,
-    AkMidiEventTypeNoteOn = 0x90,
-    AkMidiEventTypeNoteAftertouch = 0xA0,
-    AkMidiEventTypeController = 0xB0,
-    AkMidiEventTypeProgramChange = 0xC0,
-    AkMidiEventTypeChannelAftertouch = 0xD0,
-    AkMidiEventTypePitchBend = 0xE0,
-    AkMidiEventTypeSysex = 0xF0,
-    AkMidiEventTypeEscape = 0xF7,
-    AkMidiEventTypeMeta = 0xFF,
+    AkMidiEventTypeNoteOff = 128,
+    AkMidiEventTypeNoteOn = 144,
+    AkMidiEventTypeNoteAftertouch = 160,
+    AkMidiEventTypeController = 176,
+    AkMidiEventTypeProgramChange = 192,
+    AkMidiEventTypeChannelAftertouch = 208,
+    AkMidiEventTypePitchBend = 224,
+    AkMidiEventTypeSysex = 240,
+    AkMidiEventTypeEscape = 247,
+    AkMidiEventTypeMeta = 255,
 };
 

@@ -62,7 +62,7 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void NativeOnCharacterPreferenceUpdated();
+    void NativeOnCharacterPreferenceUpdated(int32 SlotIndex);
     
     UFUNCTION(BlueprintCallable)
     void NativeOnActiveCharacterSlotIndexChanged(int32 NewIndex);

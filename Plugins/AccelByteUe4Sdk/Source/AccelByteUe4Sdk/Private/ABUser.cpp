@@ -1,5 +1,8 @@
 #include "ABUser.h"
 
+UABUser::UABUser() {
+}
+
 void UABUser::Verify(const FString& VerificationCode, FDHandler OnSuccess, FDErrorHandler OnError) {
 }
 
@@ -123,6 +126,4 @@ void UABUser::BulkGetUserInfo(const TArray<FString>& UserIds, FDListBulkUserInfo
 void UABUser::BulkGetUserByOtherPlatformUserIds(EAccelBytePlatformType PlatformType, const TArray<FString>& OtherPlatformUserId, FDBulkPlatformUserIdResponse OnSuccess, FDErrorHandler OnError) {
 }
 
-UABUser::UABUser() {
-}
 

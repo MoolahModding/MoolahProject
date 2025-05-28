@@ -60,6 +60,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZEquippableEndMissionResultData ThrowableData;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 RequestOverkillCount;
+    
     STARBREEZE_API FSBZPlayerEndMissionResultData();
 };
 

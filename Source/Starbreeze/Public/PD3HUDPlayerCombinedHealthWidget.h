@@ -4,6 +4,7 @@
 #include "PD3HUDPlayerCombinedHealthWidget.generated.h"
 
 class UPD3AttributePercentWidget;
+class USBZArmorWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class STARBREEZE_API UPD3HUDPlayerCombinedHealthWidget : public USBZPlayerStateWidgetBase {
@@ -14,13 +15,10 @@ protected:
     UPD3AttributePercentWidget* Widget_HealthGauge;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UPD3AttributePercentWidget* Widget_ArmorGauge;
+    USBZArmorWidget* Widget_ArmorGauge;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UPD3AttributePercentWidget* Widget_OverHealGauge;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UPD3AttributePercentWidget* Widget_HealthTraumaGauge;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float MaskOffOpacity;
@@ -31,12 +29,5 @@ protected:
 public:
     UPD3HUDPlayerCombinedHealthWidget();
 
-protected:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void Setup();
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void BP_OnReplenishArmorChanged(bool bIsReplenishingArmor);
-    
 };
 

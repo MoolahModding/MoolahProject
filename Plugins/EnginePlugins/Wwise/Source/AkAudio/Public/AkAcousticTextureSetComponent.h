@@ -7,7 +7,7 @@ UCLASS(Abstract, Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableCompo
 class AKAUDIO_API UAkAcousticTextureSetComponent : public USceneComponent {
     GENERATED_BODY()
 public:
-    UAkAcousticTextureSetComponent();
+    UAkAcousticTextureSetComponent(const FObjectInitializer& ObjectInitializer);
 
 };
 

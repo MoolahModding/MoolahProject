@@ -28,7 +28,10 @@ void USBZGameStateMachine::SetMatchmakingDifficulty(ESBZDifficulty InDifficulty,
 void USBZGameStateMachine::SetIsMatchmakingQuickMatch(bool bInIsQuickMatch) {
 }
 
-void USBZGameStateMachine::SetIsMatchmakingHost(bool bIsHost) {
+void USBZGameStateMachine::SetIsMatchmakingHost(bool bIsHost) const {
+}
+
+void USBZGameStateMachine::SetIsJoiningFromServerBrowser(bool bJoiningFromServerBrowser) const {
 }
 
 void USBZGameStateMachine::RequestSoloGame(int32 LevelIdx, int32 DifficultyIdx, bool bSkipPreMatch) {

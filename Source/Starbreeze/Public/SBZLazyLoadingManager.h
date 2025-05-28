@@ -12,9 +12,6 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FString, FSBZFetchStatItemsValueQueryArray> FetchStatItemsValueQueries;
     
-    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<uint32, FSBZFetchStatItemsValueQueryArray> PinnedFetchStatItemsValueQueries;
-    
 public:
     USBZLazyLoadingManager();
 

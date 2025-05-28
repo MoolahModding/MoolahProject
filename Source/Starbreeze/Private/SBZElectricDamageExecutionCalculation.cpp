@@ -1,7 +1,7 @@
 #include "SBZElectricDamageExecutionCalculation.h"
 
 USBZElectricDamageExecutionCalculation::USBZElectricDamageExecutionCalculation() {
-    this->RelevantAttributesToCapture.AddDefaulted(3);
+    this->RelevantAttributesToCapture.AddDefaulted(4);
 }
 
 

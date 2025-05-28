@@ -8,6 +8,7 @@
 
 class ASBZWeapon;
 class USBZBaseWeaponData;
+class USBZCustomizationRotateComponent;
 class USBZEquippablePartConfig;
 class USBZEquippablePartDataAsset;
 class USBZModularPartSlotBase;
@@ -43,6 +44,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     AActor* SpawnedPivotPoint;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZCustomizationRotateComponent* RotateComponent;
     
 public:
     ASBZStandaloneWeaponDisplay(const FObjectInitializer& ObjectInitializer);

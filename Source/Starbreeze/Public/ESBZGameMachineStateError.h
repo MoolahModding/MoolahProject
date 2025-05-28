@@ -56,5 +56,6 @@ enum class ESBZGameMachineStateError : uint8 {
     LobbyClosedConnection,
     PlayerBanned,
     JoinedCrossPlatformSession,
+    MultipleSessionsLogin,
 };
 

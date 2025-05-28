@@ -3,5 +3,5 @@
 #include "AccelByteModelsPartyMessageNotice.h"
 #include "DPartyChatNotifDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyChatNotif, FAccelByteModelsPartyMessageNotice, Notif);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDPartyChatNotif, FAccelByteModelsPartyMessageNotice, Notif);
 

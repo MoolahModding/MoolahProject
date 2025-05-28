@@ -21,6 +21,7 @@ class UABAchievement : public UObject {
     GENERATED_BODY()
 public:
     UABAchievement();
+
     UFUNCTION(BlueprintCallable)
     void UnlockAchievement(const FString& AchievementCode, const FDHandler OnSuccess, const FDErrorHandler& OnError);
     

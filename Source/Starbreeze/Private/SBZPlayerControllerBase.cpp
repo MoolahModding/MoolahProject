@@ -22,7 +22,7 @@ bool ASBZPlayerControllerBase::Server_SetLoadout_Validate(const FPD3PlayerLoadou
     return true;
 }
 
-void ASBZPlayerControllerBase::Server_SetAccelByteSessionInformation_Implementation(const FString& InAccelByteUserId, const FString& InSessionId, const ESBZFirstPartyPlatform FirstPartyPlatform) {
+void ASBZPlayerControllerBase::Server_SetAccelByteSessionInformation_Implementation(const FString& InAccelByteUserId, const ESBZFirstPartyPlatform FirstPartyPlatform) {
 }
 
 bool ASBZPlayerControllerBase::IsPausedPreferred() const {

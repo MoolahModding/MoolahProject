@@ -1,5 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ESBZArmorChunkType.h"
+#include "SBZPlayerCosmeticsConfig.h"
+#include "SBZPreferredPlayerCharacterArray.h"
 #include "SBZPlayerLoadoutConfig.generated.h"
 
 class USBZArmorData;
@@ -24,6 +27,15 @@ public:
     int32 SecondaryWeaponConfigSlotIndex;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZPlayerCosmeticsConfig PlayerCosmeticsConfig;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ArmorConfigSlotIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZPreferredPlayerCharacterArray PreferredPlayerCharacterArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZEquippableData* OverkillWeapon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -42,7 +54,13 @@ public:
     TArray<USBZSkillData*> Skills;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<USBZSkillData*> RemovedOverskillSkillArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZArmorData* Armor;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<ESBZArmorChunkType> ChunkTypeArray;
     
     FSBZPlayerLoadoutConfig();
 };

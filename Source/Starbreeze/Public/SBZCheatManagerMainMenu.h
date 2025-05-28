@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "InputCoreTypes.h"
+#include "ESBZArmorChunkType.h"
 #include "ESBZOnlineCode.h"
 #include "SBZCheatManagerBase.h"
 #include "SBZNewsDataUIEntry.h"
@@ -42,9 +43,6 @@ public:
     void UseDefaultMask();
     
     UFUNCTION(BlueprintCallable, Exec)
-    void UnlockCharacterForTutorial();
-    
-    UFUNCTION(BlueprintCallable, Exec)
     void SyncDLC();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -66,7 +64,13 @@ public:
     void SetEquippiedMaskInventoryIndex(uint32 ConfigSlotIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetEquippedArmorInventoryIndex(const int32 CheckedConfigSlotIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetCheatAllowAttachAllWeaponParts(bool bIsSetCheatAllowAttachAllWeaponParts);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetArmorPlate(const FString& ConfigSlotEntitlementIdString, const int32 ChuckIndex, const ESBZArmorChunkType ArmorChunkType);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetActiveLoadoutIndex(int32 ActiveLoadoutIndex);
@@ -119,16 +123,13 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Exec)
-    void LockCharacterForTutorial();
-    
-    UFUNCTION(BlueprintCallable, Exec)
     void LoadWeaponExperienceToLevelTable(const FString& ItemId);
     
     UFUNCTION(BlueprintCallable, Exec)
     void JoinPartyByCode(const FString& Code);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void GetWeaponProgressionForBarrelSlot(const FString& WeaponEntitlementIdString);
+    void GetWeaponProgressionForSightSlot(const FString& WeaponEntitlementIdString);
     
     UFUNCTION(BlueprintCallable, Exec)
     void GetUserEntitlementsForAllItems();
@@ -212,6 +213,9 @@ public:
     void DumpGetProgressInfo();
     
     UFUNCTION(BlueprintCallable, Exec)
+    void DumpEquippedArmor(const int32 LoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void DumpEntitlementSkuFromDLCButNotOwnedArray() const;
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -246,6 +250,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpAttachedWeaponPartsForAllInventorySlots();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpArmorInventorySlots();
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpAllWeaponPresets();

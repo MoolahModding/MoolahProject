@@ -15,9 +15,6 @@ USBZLoginScreenBaseWidget::USBZLoginScreenBaseWidget() {
 void USBZLoginScreenBaseWidget::WidgetReady() {
 }
 
-void USBZLoginScreenBaseWidget::ShowPrivacyPolicyPopup() {
-}
-
 void USBZLoginScreenBaseWidget::ShowEULAPopup() {
 }
 
@@ -28,10 +25,6 @@ void USBZLoginScreenBaseWidget::ShowEpilepsyWarningPopup() {
 
 void USBZLoginScreenBaseWidget::SetLoadingCanvasPanelVisibility(ESlateVisibility InVisibility) {
 }
-
-void USBZLoginScreenBaseWidget::OnPrivacyPopUpClosed(FName ClosingActionName) {
-}
-
 
 
 void USBZLoginScreenBaseWidget::OnLoadProgressionUpdate(int32 CurrentProgress, int32 MaxProgress) {

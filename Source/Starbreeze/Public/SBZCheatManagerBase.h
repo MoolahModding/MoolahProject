@@ -200,6 +200,12 @@ public:
     void PrintSelection(int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PrintPlayerStateArrayBothCurrent();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void PrintPlayerStateArray();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintLog(const FString& Text, bool bIsDecodingNeeded) const;
     
     UFUNCTION(BlueprintCallable, Exec)

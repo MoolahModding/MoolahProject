@@ -3,5 +3,5 @@
 #include "AccelByteModelsPaginatedGameBinaryRecords.h"
 #include "DModelsPaginatedGameBinaryRecordsDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedGameBinaryRecords, FAccelByteModelsPaginatedGameBinaryRecords, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsPaginatedGameBinaryRecords, FAccelByteModelsPaginatedGameBinaryRecords, Response);
 

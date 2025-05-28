@@ -17,6 +17,7 @@
 	"IsExperimentalVersion": false,
 	"Installed": false,
 	"SupportedTargetPlatforms": [
-		"Win64"
+		"Win64",
+		"WinGDK"
 	]
 }

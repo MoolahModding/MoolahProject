@@ -41,6 +41,9 @@ public:
     static void SetAndDriveEscapeVanRoute(UObject* WorldContextObject, ASBZWheeledVehicle* NewEscapeVan, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo, bool bTeleportToPathStart);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool SetAndDriveCustomVehicleRoute(UObject* WorldContextObject, ASBZWheeledVehicle* Vehicle, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, bool bTeleportToPathStart);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool SetAndDriveAerialVehicleRoute(UObject* WorldContextObject, ASBZAerialVehicle* Vehicle, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline);
     
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))

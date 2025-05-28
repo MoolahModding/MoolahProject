@@ -1,6 +1,6 @@
 #include "AkGameObject.h"
 
-UAkGameObject::UAkGameObject() {
+UAkGameObject::UAkGameObject(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->AkAudioEvent = NULL;
 }
 

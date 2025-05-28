@@ -15,3 +15,4 @@ UAccelByteSettings::UAccelByteSettings() {
     this->bServerUseAMS = false;
 }
 
+

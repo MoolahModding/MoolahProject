@@ -9,6 +9,7 @@ enum class ESBZBlackMarketVendorType : uint8 {
     Character,
     Tailor,
     Gold,
+    Armor,
     None,
 };
 

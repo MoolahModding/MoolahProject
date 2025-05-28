@@ -12,7 +12,7 @@
 #include "OnPropertyDropDetectedDelegate.h"
 #include "AkSlider.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Editor)
+UCLASS(Blueprintable, DefaultConfig, Config=Editor)
 class AKAUDIO_API UAkSlider : public UWidget {
     GENERATED_BODY()
 public:

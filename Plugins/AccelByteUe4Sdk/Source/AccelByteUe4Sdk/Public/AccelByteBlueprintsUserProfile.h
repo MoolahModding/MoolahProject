@@ -23,6 +23,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FBlueprintErrorHandler, int32, ErrorCode, const FString&, ErrorMessage);
     
     UAccelByteBlueprintsUserProfile();
+
     UFUNCTION(BlueprintCallable)
     static void UpdateUserProfile(const FAccelByteModelsUserProfileUpdateRequest& ProfileUpdateRequest, const UAccelByteBlueprintsUserProfile::FUpdateUserProfileSuccess& OnSuccess, const UAccelByteBlueprintsUserProfile::FBlueprintErrorHandler& OnError);
     

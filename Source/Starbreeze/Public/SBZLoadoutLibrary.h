@@ -3,6 +3,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "ESBZEquippableLoadoutSlot.h"
 #include "SBZArmorConfig.h"
+#include "SBZArmorInventorySlot.h"
 #include "SBZEquippablePartConfigGroup.h"
 #include "SBZGloveInventorySlot.h"
 #include "SBZPlayerLoadoutConfig.h"
@@ -42,7 +43,13 @@ public:
     static FSBZWeaponInventorySlot GetWeaponConfigSlot(const UObject* WorldContextObject, ESBZEquippableLoadoutSlot InEquippableSlot, int32 InWeaponSlotIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZInventoryBaseData* GetSuitDataForLoadoutIndex(const UObject* WorldContextObject, const int32 LoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZInventoryBaseData* GetSuitData(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZInventoryBaseData* GetMaskDataForLoadoutIndex(const UObject* WorldContextObject, const int32 LoadoutIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZInventoryBaseData* GetMaskData(const UObject* WorldContextObject);
@@ -54,7 +61,13 @@ public:
     static void GetInventoryGloveSlotAt(const UObject* WorldContextObject, FSBZGloveInventorySlot& OutGloveInventorySlot, int32 GloveSlotIndex, bool& IsValidIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static USBZInventoryBaseData* GetGloveDataForLoadoutIndex(const UObject* WorldContextObject, const int32 LoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZInventoryBaseData* GetGloveData(const UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static FSBZArmorInventorySlot GetArmorInventorySlot(const UObject* WorldContextObject, int32 InArmorSlotIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static FSBZArmorConfig GetArmorConfigSlot(const UObject* WorldContextObject, int32 InArmorSlotIndex);

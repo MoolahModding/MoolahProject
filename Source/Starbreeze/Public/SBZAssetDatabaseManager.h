@@ -5,6 +5,7 @@
 #include "SBZAssetDatabaseManagerInterface.h"
 #include "SBZAssetDatabaseManager.generated.h"
 
+class USBZArmorData;
 class USBZBaseWeaponData;
 class USBZItemDataContainer;
 class USBZMaskData;
@@ -13,6 +14,7 @@ class USBZOverskillLoadoutData;
 class USBZPayDayCreditData;
 class USBZPlayerCharacterData;
 class USBZPreplanningAssetData;
+class USBZSkillCategoryData;
 class USBZSkillLineData;
 class USBZSuitData;
 class USBZVendorData;
@@ -32,6 +34,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZSkillLineData*> SkillLines;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZSkillCategoryData*> SkillCategories;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZPreplanningAssetData*> PreplanningAssets;
@@ -56,6 +61,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZOverskillLoadoutData*> AllOverskillLoadouts;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZArmorData*> AllArmors;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZWeaponCharmData*> AllWeaponCharms;

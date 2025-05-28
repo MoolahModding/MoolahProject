@@ -5,13 +5,22 @@
 #include "SBZAirNavigationTree.h"
 #include "SBZAirNavigation.generated.h"
 
-UCLASS(Blueprintable, MinimalAPI)
-class ASBZAirNavigation : public AInfo {
+class USBZAirNavLinkComponent;
+
+UCLASS(Blueprintable)
+class STARBREEZE_API ASBZAirNavigation : public AInfo {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    uint16 NodeMinSize;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZAirNavigationTree> NavData;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Export, meta=(AllowPrivateAccess=true))
+    TArray<TSoftObjectPtr<USBZAirNavLinkComponent>> AirNavLinkArray;
     
 public:
     ASBZAirNavigation(const FObjectInitializer& ObjectInitializer);

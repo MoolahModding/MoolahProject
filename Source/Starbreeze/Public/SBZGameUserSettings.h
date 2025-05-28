@@ -230,6 +230,12 @@ protected:
     bool bUseForceFeedback;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnableChromaSensa;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bBypassChromaDeviceDetection;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TargetingSensitivityMultiplier;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -525,6 +531,9 @@ public:
     void SetChromaticAberrationEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
+    void SetChromaSensaEnabled(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable)
     void SetChatDisabled(bool bDisable);
     
     UFUNCTION(BlueprintCallable)
@@ -532,6 +541,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetCameraVerticalFoV(int32 Value);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetBypassChromaDeviceDetection(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
     void SetBrightness(float Value);
@@ -597,7 +609,13 @@ public:
     bool IsChromaticAberrationEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsChromaSensaEnabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsChatDisabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsBypassChromaDeviceDetectionEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetVOVolume() const;

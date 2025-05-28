@@ -10,7 +10,7 @@ enum class EAkChannelMask : uint8 {
     LowFrequency,
     BackLeft,
     BackRight,
-    BackCenter = 0x8,
+    BackCenter = 8,
     SideLeft,
     SideRight,
     Top,

@@ -23,6 +23,10 @@ void USBZTrafficFunctionLibrary::SetEscapeVan(UObject* WorldContextObject, ASBZW
 void USBZTrafficFunctionLibrary::SetAndDriveEscapeVanRoute(UObject* WorldContextObject, ASBZWheeledVehicle* NewEscapeVan, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, ESBZTrafficNodeExec& Exec, FLatentActionInfo LatentInfo, bool bTeleportToPathStart) {
 }
 
+bool USBZTrafficFunctionLibrary::SetAndDriveCustomVehicleRoute(UObject* WorldContextObject, ASBZWheeledVehicle* Vehicle, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline, bool bTeleportToPathStart) {
+    return false;
+}
+
 bool USBZTrafficFunctionLibrary::SetAndDriveAerialVehicleRoute(UObject* WorldContextObject, ASBZAerialVehicle* Vehicle, ASBZTrafficSpline* StartSpline, ASBZTrafficSpline* DestinationSpline) {
     return false;
 }

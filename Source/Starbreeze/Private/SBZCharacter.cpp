@@ -176,6 +176,8 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->HeadBone = TEXT("Head");
     this->CarryWeightTierOffset = 1.00f;
     this->CurrentlyUsedThrowable = NULL;
+    this->ConsumableMontageName = TEXT("Interact_Equipped_Montage");
+    this->ConsumableMontageDuration = 0.50f;
     const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
     (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
     this->AudioComponent->SetupAttachment(RootComponent);

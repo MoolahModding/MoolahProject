@@ -24,6 +24,7 @@ class UABEntitlement : public UObject {
     GENERATED_BODY()
 public:
     UABEntitlement();
+
     UFUNCTION(BlueprintCallable)
     void ValidateUserItemPurchaseCondition(const TArray<FString>& Items, FDAccelByteModelsPlatformValidateUserItemPurchaseResponse OnSuccess, FDErrorHandler OnError);
     

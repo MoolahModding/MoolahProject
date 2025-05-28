@@ -11,12 +11,6 @@ class USBZCharacterAbilityData : public UDataAsset {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float InitialOverskillProgression;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float InitialOverskillProgressionMax;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InitialHealth;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -26,10 +20,13 @@ public:
     int32 InitialArmorHurtReactionWeightReduction;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float InitialDealtDamageMultiplier;
+    float InitialOutgoingDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSubclassOf<USBZGameplayAbility>> AbilityArray;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float InitialHurtReactionWeightBuildupDifficultyScaleArray[4];
     
     USBZCharacterAbilityData();
 

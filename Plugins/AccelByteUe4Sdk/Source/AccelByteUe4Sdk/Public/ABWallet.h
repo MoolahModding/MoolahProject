@@ -11,6 +11,7 @@ class UABWallet : public UObject {
     GENERATED_BODY()
 public:
     UABWallet();
+
     UFUNCTION(BlueprintCallable)
     void GetWalletInfoByCurrencyCodeV2(const FString& CurrencyCode, FDAccelByteModelsWalletInfosResponse OnSuccess, FDErrorHandler OnError);
     

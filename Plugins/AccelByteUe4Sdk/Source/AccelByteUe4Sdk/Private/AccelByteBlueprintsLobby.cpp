@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsLobby.h"
 
+UAccelByteBlueprintsLobby::UAccelByteBlueprintsLobby() {
+}
+
 void UAccelByteBlueprintsLobby::Unfriend(const FString& UserId) {
 }
 
@@ -175,6 +178,4 @@ void UAccelByteBlueprintsLobby::BindEvent(const UAccelByteBlueprintsLobby::FConn
 void UAccelByteBlueprintsLobby::AcceptFriend(const FString& UserId) {
 }
 
-UAccelByteBlueprintsLobby::UAccelByteBlueprintsLobby() {
-}
 

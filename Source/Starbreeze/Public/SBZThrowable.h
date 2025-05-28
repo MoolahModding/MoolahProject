@@ -4,9 +4,11 @@
 #include "Engine/EngineTypes.h"
 #include "Engine/EngineTypes.h"
 #include "Engine/NetSerialization.h"
+#include "Engine/NetSerialization.h"
 #include "ESBZThrowableState.h"
 #include "SBZEquippable.h"
 #include "SBZProjectileInterface.h"
+#include "SBZQuat_NetQuantizeNormal.h"
 #include "Templates/SubclassOf.h"
 #include "SBZThrowable.generated.h"
 
@@ -124,14 +126,17 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAttachForThrow();
     
-public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetThrowVelocity(const FVector_NetQuantizeNormal& ThrowDirection);
-    
-protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetThrowState(ESBZThrowableState NewThrowState);
     
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetThrowDirection(const FVector_NetQuantizeNormal& ThrowDirection);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_OnCluster(const FVector_NetQuantize& Location, const FSBZQuat_NetQuantizeNormal& Quat, const FVector_NetQuantizeNormal& Direction);
+    
+protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DestroyBreakable(const FHitResult& InBreakableHitResult);
     

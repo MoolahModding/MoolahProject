@@ -3,7 +3,10 @@
 
 USBZLaserSightComponent::USBZLaserSightComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->LaserEffectComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("NiagaraComponent"));
-    this->FocusTime = 1.00f;
+    this->DifficultyFocusTimeArray[0] = 1.00f;
+    this->DifficultyFocusTimeArray[1] = 1.00f;
+    this->DifficultyFocusTimeArray[2] = 1.00f;
+    this->DifficultyFocusTimeArray[3] = 1.00f;
     this->MaxHorizontalOffset = 200.00f;
     this->MaxVerticalOffset = 200.00f;
     this->HorizontalFrequency = 10.00f;

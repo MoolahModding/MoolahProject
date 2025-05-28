@@ -6,6 +6,7 @@
 #include "Templates/SubclassOf.h"
 #include "SBZFragGrenadeData.generated.h"
 
+class ASBZFragGrenadeCluster;
 class UGameplayEffect;
 class USBZDamageType;
 
@@ -27,6 +28,18 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float InstigatorPlayerDamageScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSoftClassPtr<ASBZFragGrenadeCluster> ClusterGrenadeClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ClusterDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float RandomAdditionalClusterDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ClusterGrenadeSpawnDegrees;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZHurtReactionData HurtReactionData;

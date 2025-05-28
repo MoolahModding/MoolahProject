@@ -19,7 +19,7 @@ bool USBZMainMenuInventoryCharacterPreferenceDisplay::IsActiveSlotEmpty() const 
     return false;
 }
 
-void USBZMainMenuInventoryCharacterPreferenceDisplay::InitializeCharacterDisplays() {
+void USBZMainMenuInventoryCharacterPreferenceDisplay::InitializeCharacterDisplays(int32 SlotIndex) {
 }
 
 void USBZMainMenuInventoryCharacterPreferenceDisplay::IncrementActiveIndex() {

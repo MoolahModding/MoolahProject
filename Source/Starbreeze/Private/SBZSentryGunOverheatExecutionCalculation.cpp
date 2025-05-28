@@ -1,7 +1,7 @@
 #include "SBZSentryGunOverheatExecutionCalculation.h"
 
 USBZSentryGunOverheatExecutionCalculation::USBZSentryGunOverheatExecutionCalculation() {
-    this->RelevantAttributesToCapture.AddDefaulted(2);
+    this->RelevantAttributesToCapture.AddDefaulted(1);
 }
 
 

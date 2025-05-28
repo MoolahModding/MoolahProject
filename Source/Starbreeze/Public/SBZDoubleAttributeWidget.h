@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AttributeSet.h"
+#include "Abilities/GameplayAbility.h"
 #include "SBZPlayerStateWidgetBase.h"
 #include "SBZDoubleAttributeWidget.generated.h"
 

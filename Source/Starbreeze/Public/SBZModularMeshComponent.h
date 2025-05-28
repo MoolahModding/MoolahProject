@@ -4,7 +4,6 @@
 #include "SBZModularMeshVisibility.h"
 #include "SBZModularMeshComponent.generated.h"
 
-class UMeshComponent;
 class USkeletalMesh;
 class USkeletalMeshComponent;
 
@@ -19,7 +18,7 @@ public:
     TArray<FSBZModularMeshVisibility> VisibilityMeshes;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<USkeletalMesh>, UMeshComponent*> CreatedMeshes;
+    TMap<TSoftObjectPtr<USkeletalMesh>, USkeletalMeshComponent*> CreatedMeshes;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))

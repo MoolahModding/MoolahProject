@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
-	"Version": 17,
-	"VersionName": "21.0.3",
+	"Version": 53,
+	"VersionName": "24.7.2",
 	"FriendlyName": "AccelByte Unreal Engine SDK",
 	"Description": "Official AccelByte SDK for Unreal Engine 4",
 	"Category": "Online Platform",
@@ -20,5 +20,17 @@
 			"Type": "Runtime",
 			"LoadingPhase": "PreDefault"
 		}
-	]
+	],
+	"PreBuildSteps":
+	{
+		"Win64": [
+			"call \"$(PluginDir)\\PreBuildProcessor.bat\" \"$(EngineDir)\" \"$(ProjectDir)\" $(TargetConfiguration) $(TargetType) False"
+		]
+	},
+	"PostBuildSteps":
+	{
+		"Win64": [
+			"call \"$(PluginDir)\\PostBuildProcessor.bat\" \"$(ProjectDir)\" "
+		]
+	}
 }

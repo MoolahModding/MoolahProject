@@ -3,5 +3,5 @@
 #include "AccelByteModelsSeasonClaimRewardResponse.h"
 #include "DModelsSeasonClaimRewardResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsSeasonClaimRewardResponse, FAccelByteModelsSeasonClaimRewardResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsSeasonClaimRewardResponse, FAccelByteModelsSeasonClaimRewardResponse, Response);
 

@@ -302,6 +302,10 @@ FString USBZOnlineFunctionLibrary::GetOverrideAccelbyteGameMode() {
     return TEXT("");
 }
 
+FString USBZOnlineFunctionLibrary::GetNetworkVersion() {
+    return TEXT("");
+}
+
 TArray<FSBZMergePlayerData> USBZOnlineFunctionLibrary::GetMergePartyInformation(UObject* WorldContextObject) {
     return TArray<FSBZMergePlayerData>();
 }
@@ -356,6 +360,10 @@ FSBZLoginFieldInfo USBZOnlineFunctionLibrary::GetDebugLoginAndPassword(const UOb
 
 int32 USBZOnlineFunctionLibrary::GetConnectionsCount(const UObject* WorldContextObject) {
     return 0;
+}
+
+FString USBZOnlineFunctionLibrary::GetBuildVersion() {
+    return TEXT("");
 }
 
 void USBZOnlineFunctionLibrary::GetBeaconMissionInfo(UObject* WorldContextObject, FSBZMissionInfo& OutInfo) {

@@ -5,7 +5,7 @@
 #include "OnItemSelectionChangedDelegate.h"
 #include "AkWwiseTreeSelector.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Editor)
+UCLASS(Blueprintable, DefaultConfig, Config=Editor)
 class AKAUDIO_API UAkWwiseTreeSelector : public UWidget {
     GENERATED_BODY()
 public:

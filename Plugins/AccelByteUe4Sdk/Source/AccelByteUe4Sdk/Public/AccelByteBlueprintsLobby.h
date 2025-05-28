@@ -92,6 +92,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FAcceptFriendsResponseDelegate, const FAccelByteModelsAcceptFriendsResponse&, Result);
     
     UAccelByteBlueprintsLobby();
+
     UFUNCTION(BlueprintCallable)
     static void Unfriend(const FString& UserId);
     

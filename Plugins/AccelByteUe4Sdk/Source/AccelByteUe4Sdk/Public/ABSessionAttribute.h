@@ -14,6 +14,7 @@ class UABSessionAttribute : public UObject {
     GENERATED_BODY()
 public:
     UABSessionAttribute();
+
     UFUNCTION(BlueprintCallable)
     FString SetSessionAttribute(const FSetSessionAttributeRequest& Request, FDSetSessionAttributeResponse OnResponse, FDErrorHandler OnError);
     

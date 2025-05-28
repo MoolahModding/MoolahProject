@@ -17,6 +17,7 @@ class UABServerLobby : public UObject {
     GENERATED_BODY()
 public:
     UABServerLobby();
+
     UFUNCTION(BlueprintCallable)
     void WritePartyStorage(const FString& PartyId, FDPayloadModifier PayloadModifier, const int32& RetryAttempt, FDPartyDataNotifDelegate OnSuccess, FDErrorHandler OnError);
     

@@ -568,6 +568,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<ASBZGrenadeProjectile*> ReplicatedGrenadeProjectileArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FName ConsumableMontageName;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ConsumableMontageDuration;
+    
 public:
     ASBZCharacter(const FObjectInitializer& ObjectInitializer);
 
@@ -767,11 +773,9 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_HumanShieldInstigatorSlotReached();
     
-public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ExitMeleeMontage();
     
-protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_EnableThrowState();
     

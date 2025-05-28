@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Components/ActorComponent.h"
+#include "SBZDamageStatusMarkerRuntime.h"
 #include "SBZMarkerReplication.h"
 #include "SBZMarkerRuntime.h"
 #include "SBZMarkerManager.generated.h"
@@ -16,9 +17,18 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReplicatedMarkers, meta=(AllowPrivateAccess=true))
     TArray<FSBZMarkerReplication> ReplicatedMarkers;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint32 MaxDamageStatusMarkerCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float DamageStatusMarkerDurationSeconds;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZMarkerRuntime> RuntimeMarkers;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZDamageStatusMarkerRuntime> DamageStatusMarkerArray;
     
 public:
     USBZMarkerManager(const FObjectInitializer& ObjectInitializer);

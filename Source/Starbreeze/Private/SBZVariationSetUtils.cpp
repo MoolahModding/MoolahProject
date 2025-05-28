@@ -3,13 +3,20 @@
 USBZVariationSetUtils::USBZVariationSetUtils() {
 }
 
-void USBZVariationSetUtils::ApplyVariationToStatic(UStaticMeshComponent* StatComponent, USBZVariationSetData* VariationSet, int32 VariationIdx) {
+bool USBZVariationSetUtils::ApplyVariationToStatic(UStaticMeshComponent* StatComponent, const USBZVariationSetData* VariationSet, int32 VariationIdx) {
+    return false;
 }
 
-void USBZVariationSetUtils::ApplyVariationToSkeletal(USkeletalMeshComponent* SkelComponent, USBZVariationSetData* VariationSet, int32 VariationIdx) {
+bool USBZVariationSetUtils::ApplyVariationToSkeletal(USkeletalMeshComponent* SkelComponent, const USBZVariationSetData* VariationSet, int32 VariationIdx) {
+    return false;
 }
 
-void USBZVariationSetUtils::ApplyVariation(AActor* Actor, USBZVariationSetData* VariationSet, int32 VariationIdx) {
+bool USBZVariationSetUtils::ApplyVariationToMesh(UMeshComponent* MeshComponent, const USBZVariationSetData* VariationSet, int32 VariationIdx) {
+    return false;
+}
+
+bool USBZVariationSetUtils::ApplyVariation(AActor* Actor, const USBZVariationSetData* VariationSet, int32 VariationIdx) {
+    return false;
 }
 
 

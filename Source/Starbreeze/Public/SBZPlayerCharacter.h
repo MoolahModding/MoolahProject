@@ -195,20 +195,17 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> ArmorDepletedFeedback;
     
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> ArmorChunkDepletedFeedback[3];
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> ArmorReplenishedFeedback;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> ArmorDamageFeedback;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> ArmorChunkReplenishedFeedback[3];
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> DodgeDepletedFeedback;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> DodgeReplenishedFeedback;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZLocalPlayerFeedback> DodgeDamageFeedback;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> ArmorChunkDamageFeedback[3];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> HealthDamageFeedback;

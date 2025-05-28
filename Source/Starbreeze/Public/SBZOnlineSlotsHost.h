@@ -39,7 +39,7 @@ public:
     USBZOnlineSlotsHost();
 
     UFUNCTION(BlueprintCallable)
-    void IndividualReadyTimerTimeout(FUniqueNetIdRepl PlayerId);
+    void IndividualReadyTimerTimeout(FUniqueNetIdRepl InPlayerId) const;
     
 };
 

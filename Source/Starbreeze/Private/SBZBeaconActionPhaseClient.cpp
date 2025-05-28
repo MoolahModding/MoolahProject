@@ -116,7 +116,10 @@ void ASBZBeaconActionPhaseClient::SendActiveLoadout(const FUniqueNetIdRepl& InPl
 void ASBZBeaconActionPhaseClient::OnRep_CharactersInfo() {
 }
 
-void ASBZBeaconActionPhaseClient::OnActiveLoadoutChanged(int32 NewActiveLoadoutIndex) {
+void ASBZBeaconActionPhaseClient::OnLocalPlayerLoadoutChanged(const FSBZPlayerLoadoutConfig& PlayerLoadout, int32 PlayerLoadoutIndex) {
+}
+
+void ASBZBeaconActionPhaseClient::OnActiveLoadoutIndexChanged(int32 NewActiveLoadoutIndex) {
 }
 
 void ASBZBeaconActionPhaseClient::NotifyMissionEnd_Implementation() {

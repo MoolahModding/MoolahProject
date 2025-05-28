@@ -1,13 +1,12 @@
 #include "AkAcousticPortal.h"
 #include "AkPortalComponent.h"
-#include "Components/BrushComponent.h"
 
 AAkAcousticPortal::AAkAcousticPortal(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bColored = true;
     this->Portal = CreateDefaultSubobject<UAkPortalComponent>(TEXT("PortalComponent"));
-    this->Portal->SetupAttachment(GetBrushComponent());
     this->InitialState = AkAcousticPortalState::Open;
     this->bRequiresStateMigration = false;
-    this->bColored = true;
+    this->Portal->SetupAttachment(RootComponent);
 }
 
 void AAkAcousticPortal::SetExtent(const FVector& Extent) {

@@ -1,5 +1,8 @@
 #include "ABGroup.h"
 
+UABGroup::UABGroup() {
+}
+
 void UABGroup::UpdateV2GroupPredefinedRule(const FString& GroupId, const EAccelByteAllowedAction& AllowedAction, const FAccelByteModelsUpdateGroupPredefinedRuleRequest& RequestContent, const FUpdateGroupPredefinedRuleSuccess& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -147,6 +150,4 @@ void UABGroup::AcceptGroupJoinRequest(const FString& UserId, const FAcceptGroupJ
 void UABGroup::AcceptGroupInvitation(const FString& GroupId, const FAcceptGroupInvitationSuccess& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABGroup::UABGroup() {
-}
 

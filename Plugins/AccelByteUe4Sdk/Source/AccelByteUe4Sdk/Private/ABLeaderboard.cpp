@@ -1,5 +1,8 @@
 #include "ABLeaderboard.h"
 
+UABLeaderboard::UABLeaderboard() {
+}
+
 void UABLeaderboard::GetUserRankingV3(const FString& UserId, const FString& LeaderboardCode, const FDModelsUserRankingDataV3& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -21,6 +24,4 @@ void UABLeaderboard::GetLeaderboards(int32 Offset, int32 Limit, const FDModelsPa
 void UABLeaderboard::GetBulkUserRankingV3(const TArray<FString>& UserIds, const FString& LeaderboardCode, const FDModelsBulkUserRankingDataV3& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABLeaderboard::UABLeaderboard() {
-}
 

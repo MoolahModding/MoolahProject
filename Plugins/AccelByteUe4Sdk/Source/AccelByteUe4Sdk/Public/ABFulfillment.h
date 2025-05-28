@@ -10,6 +10,7 @@ class UABFulfillment : public UObject {
     GENERATED_BODY()
 public:
     UABFulfillment();
+
     UFUNCTION(BlueprintCallable)
     void RedeemCode(const FString& Code, const FString& Region, const FString& Language, FDAccelByteModelsFulfillmentResponse OnSuccess, FDErrorHandler OnError);
     

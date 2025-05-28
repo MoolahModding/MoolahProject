@@ -17,6 +17,7 @@ class UABServerSessionBrowser : public UObject {
     GENERATED_BODY()
 public:
     UABServerSessionBrowser();
+
     UFUNCTION(BlueprintCallable)
     void UpdateGameSessionByStruct(const FString& SessionId, const FAccelByteModelsSessionBrowserUpdateRequest& UpdateSessionRequest, const FDServerSessionBrowserDataResponse& OnSuccess, const FDErrorHandler& OnError);
     

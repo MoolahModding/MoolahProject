@@ -21,9 +21,6 @@ class USBZLoginScreenBaseWidget : public USBZInternetStatusWidget {
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FSBZInfoPopupText PrivacyPolicyContent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZInfoPopupText EULAContent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -90,9 +87,6 @@ public:
     void WidgetReady();
     
     UFUNCTION(BlueprintCallable)
-    void ShowPrivacyPolicyPopup();
-    
-    UFUNCTION(BlueprintCallable)
     void ShowEULAPopup();
     
     UFUNCTION(BlueprintCallable)
@@ -106,14 +100,6 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SetLoadingCanvasPanelVisibility(ESlateVisibility InVisibility);
-    
-protected:
-    UFUNCTION(BlueprintCallable)
-    void OnPrivacyPopUpClosed(FName ClosingActionName);
-    
-public:
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnPrivacyPolicyChoice(FName ClosingActionName);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

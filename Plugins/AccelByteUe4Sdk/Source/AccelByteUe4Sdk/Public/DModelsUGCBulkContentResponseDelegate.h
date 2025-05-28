@@ -3,5 +3,5 @@
 #include "AccelByteModelsUGCContentResponse.h"
 #include "DModelsUGCBulkContentResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCBulkContentResponse, TArray<FAccelByteModelsUGCContentResponse>, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDModelsUGCBulkContentResponse, TArray<FAccelByteModelsUGCContentResponse>, Response);
 

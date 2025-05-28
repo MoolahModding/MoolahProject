@@ -52,7 +52,7 @@ public:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void InitializeCharacterDisplays();
+    void InitializeCharacterDisplays(int32 SlotIndex);
     
 public:
     UFUNCTION(BlueprintCallable)

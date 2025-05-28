@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZEquippableLoadoutSlot.h"
+#include "SBZArmorInventorySlot.h"
 #include "SBZGloveInventorySlot.h"
 #include "SBZMaskInventorySlot.h"
 #include "SBZPlayerCosmeticsConfig.h"
@@ -48,6 +49,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetEquippedWeaponInventorySlotIndex(const int32 LoadoutIndex, ESBZEquippableLoadoutSlot ItemSlot) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    TArray<FSBZArmorInventorySlot> GetArmorInventorySlotArray() const;
     
 
     // Fix for true pure virtual functions not being implemented

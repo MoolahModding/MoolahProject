@@ -1,5 +1,8 @@
 #include "AccelByteBlueprintsSettings.h"
 
+UAccelByteBlueprintsSettings::UAccelByteBlueprintsSettings() {
+}
+
 void UAccelByteBlueprintsSettings::SetUGCServerUrl(const FString& UGCServerUrl) {
 }
 
@@ -123,6 +126,10 @@ FString UAccelByteBlueprintsSettings::GetStatisticServerUrl() {
     return TEXT("");
 }
 
+FString UAccelByteBlueprintsSettings::GetSettingsEnvironment() {
+    return TEXT("");
+}
+
 FString UAccelByteBlueprintsSettings::GetSessionServerUrl() {
     return TEXT("");
 }
@@ -239,6 +246,4 @@ FString UAccelByteBlueprintsSettings::GetAchievementServerUrl() {
     return TEXT("");
 }
 
-UAccelByteBlueprintsSettings::UAccelByteBlueprintsSettings() {
-}
 

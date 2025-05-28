@@ -1,5 +1,8 @@
 #include "ABStatistic.h"
 
+UABStatistic::UABStatistic() {
+}
+
 void UABStatistic::IncrementUserStatItems(const TArray<FAccelByteModelsBulkStatItemInc>& Data, const FDArrayModelsBulkStatItemOperationResultResponse& OnSuccess, const FDErrorHandler& OnError) {
 }
 
@@ -18,6 +21,4 @@ void UABStatistic::CreateUserStatItems(const TArray<FString>& StatCodes, const F
 void UABStatistic::BulkFetchStatItemsValue(const FString& StatCode, const TArray<FString>& UserIds, const FDModelsStatItemValueResponses& OnSuccess, const FDErrorHandler& OnError) {
 }
 
-UABStatistic::UABStatistic() {
-}
 

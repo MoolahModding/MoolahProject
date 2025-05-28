@@ -53,6 +53,9 @@ public:
     float OverHealDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float HealthDamageMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorPenetration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -107,13 +110,7 @@ public:
     TArray<FSBZDamageDistance> DamageDistanceProjectileArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float ClusterDamageModifier;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ClusterGrenadeSpawnDegrees;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 ClusterGrenadestoSpawn;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     uint32 AmmoLoadedMax;

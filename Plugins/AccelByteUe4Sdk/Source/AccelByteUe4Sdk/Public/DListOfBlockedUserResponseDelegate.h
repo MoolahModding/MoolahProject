@@ -3,5 +3,5 @@
 #include "AccelByteModelsListBlockedUserResponse.h"
 #include "DListOfBlockedUserResponseDelegate.generated.h"
 
-UDELEGATE() DECLARE_DYNAMIC_DELEGATE_OneParam(FDListOfBlockedUserResponse, FAccelByteModelsListBlockedUserResponse, Response);
+UDELEGATE(BlueprintCallable) DECLARE_DYNAMIC_DELEGATE_OneParam(FDListOfBlockedUserResponse, FAccelByteModelsListBlockedUserResponse, Response);
 

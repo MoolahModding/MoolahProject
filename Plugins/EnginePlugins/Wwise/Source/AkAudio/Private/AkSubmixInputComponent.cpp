@@ -1,6 +1,6 @@
 #include "AkSubmixInputComponent.h"
 
-UAkSubmixInputComponent::UAkSubmixInputComponent() {
+UAkSubmixInputComponent::UAkSubmixInputComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->SubmixToRecord = NULL;
 }
 

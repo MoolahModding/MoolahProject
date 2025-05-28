@@ -7,7 +7,9 @@ UPD3OverkillWeaponRequestWidget::UPD3OverkillWeaponRequestWidget() {
     this->OverkillProgressionScale = 0.00f;
     this->bIsOverskillLoadoutTicking = false;
     this->bIsReady = false;
+    this->OverkillData = NULL;
 }
+
 
 
 

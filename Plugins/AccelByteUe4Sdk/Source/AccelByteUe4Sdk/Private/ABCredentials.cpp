@@ -1,5 +1,8 @@
 #include "ABCredentials.h"
 
+UABCredentials::UABCredentials() {
+}
+
 void UABCredentials::SetUserEmailAddress(const FString& EmailAddress) {
 }
 
@@ -72,6 +75,4 @@ FString UABCredentials::GetAccessToken() {
 void UABCredentials::ForgetAll() {
 }
 
-UABCredentials::UABCredentials() {
-}
 

@@ -6,6 +6,7 @@
 #include "SBZWidgetBase.h"
 #include "PD3MiniGameWidgetBase.generated.h"
 
+class ASBZPlayerState;
 class UAkComponent;
 class USBZMiniGameComponent;
 
@@ -34,6 +35,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float YAxisLastUpdateTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* PlayerState;
     
 public:
     UPD3MiniGameWidgetBase();

@@ -1,11 +1,11 @@
 #include "AkPortalComponent.h"
 
-UAkPortalComponent::UAkPortalComponent() {
+UAkPortalComponent::UAkPortalComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->bUseAttachParentBound = true;
     this->bDynamic = false;
     this->InitialState = AkAcousticPortalState::Open;
     this->ObstructionRefreshInterval = 0.00f;
     this->ObstructionCollisionChannel = ECC_Visibility;
-    this->bUseAttachParentBound = true;
 }
 
 bool UAkPortalComponent::PortalPlacementValid() const {

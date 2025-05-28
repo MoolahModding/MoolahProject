@@ -18,6 +18,7 @@ class UABSessionBrowser : public UObject {
     GENERATED_BODY()
 public:
     UABSessionBrowser();
+
     UFUNCTION(BlueprintCallable)
     void UpdateGameSettingsByJsonObject(const FString& SessionId, FJsonObjectWrapper Settings, const FDModelsSessionBrowserDataResponse& OnSuccess, const FDErrorHandler& OnError);
     

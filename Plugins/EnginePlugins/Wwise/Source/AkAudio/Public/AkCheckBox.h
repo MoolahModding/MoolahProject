@@ -13,7 +13,7 @@
 #include "OnWwiseItemDropDetectedDelegate.h"
 #include "AkCheckBox.generated.h"
 
-UCLASS(Blueprintable, Config=Engine, DefaultConfig, Config=Editor)
+UCLASS(Blueprintable, DefaultConfig, Config=Editor)
 class AKAUDIO_API UAkCheckBox : public UContentWidget {
     GENERATED_BODY()
 public:
