@@ -9105,3 +9105,5 @@ Content/Weapons/WeaponMasterSkeleton/SK_WP_Master_Rig_Skeleton.uasset
 
 Binaries/Win64/EOSSDK-Win64-Shipping.dll
 .vs
+StagingTemp
+zModLoader_P.pak
