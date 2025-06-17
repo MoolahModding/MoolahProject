@@ -333,5 +333,14 @@ protected:
     UFUNCTION(BlueprintCallable, Exec)
     void DisplayVersion();
     
+private:
+    virtual void Init() override;
+    void InitManagers();
+    virtual void StartGameInstance() override;
+#if WITH_EDITOR
+    virtual FGameInstancePIEResult StartPlayInEditorGameInstance(ULocalPlayer* LocalPlayer, const FGameInstancePIEParameters& Params) override;
+#endif
+public:
+    USBZGameStateMachine* GetGameStateMachine() { return this->GameStateMachine; }
 };
 

@@ -280,5 +280,8 @@ public:
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void DifficultyBranch(UObject* WorldContextObject, ESBZDifficulty& OutputPins);
     
+
+    virtual void BeginPlay() override;
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 };
 

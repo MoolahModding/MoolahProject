@@ -154,5 +154,6 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static TArray<FSBZHeistCollection> GetHeistCollections(const UObject* WorldContextObject);
     
+    void LoadWidgetClasses();
 };
 

@@ -9,4 +9,8 @@ void USBZStateMachineStateSubsystemInitialisation::OnUIStackLockChangedAfterPriv
 void USBZStateMachineStateSubsystemInitialisation::HandlePlatformUserLoginComplete(bool bSuccess) {
 }
 
+void USBZStateMachineStateSubsystemInitialisation::OnEnter(USBZStateMachineData* InData) {
+  Super::OnEnter(InData);
+}
+
 

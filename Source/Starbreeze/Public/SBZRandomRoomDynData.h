@@ -7,5 +7,8 @@ struct FSBZRandomRoomDynData {
     GENERATED_BODY()
 public:
     STARBREEZE_API FSBZRandomRoomDynData();
+
+
+    friend FArchive& operator<<(FArchive& Ar, FSBZRandomRoomDynData& RoomDynData);
 };
 

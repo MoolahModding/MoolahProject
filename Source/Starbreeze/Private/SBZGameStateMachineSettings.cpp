@@ -46,4 +46,7 @@ TArray<FSBZHeistCollection> USBZGameStateMachineSettings::GetHeistCollections(co
     return TArray<FSBZHeistCollection>();
 }
 
+void USBZGameStateMachineSettings::LoadWidgetClasses() {
+}
+
 

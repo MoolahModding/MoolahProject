@@ -36,5 +36,8 @@ protected:
 public:
     ASBZMask(const FObjectInitializer& ObjectInitializer);
 
+private:
+  UMaterialInstanceDynamic* GetDynamicMaterialInstance();
+  void SetMaterialParameters(UTexture2D* BaseNormalTexture, UTexture2D* AgedNormalTexture, UTexture2D* AgedAlbedoTexture, float Metallic, float Roughness, float DetailTiling, float ShadingModel, bool UseAlbedo);
 };
 

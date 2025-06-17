@@ -102,7 +102,8 @@ bool USBZOnlineFunctionLibrary::IsServerAcceptingSlots(UObject* WorldContextObje
 }
 
 bool USBZOnlineFunctionLibrary::IsSecurityCompaniesProvided() {
-    return false;
+  auto CmdLine = FCommandLine::Get();
+  return FParse::Param(CmdLine, TEXT("companies"));
 }
 
 bool USBZOnlineFunctionLibrary::IsSameUniqueId(const FUniqueNetIdRepl& UniqueNetIdA, const FUniqueNetIdRepl& UniqueNetIdB) {
@@ -194,7 +195,11 @@ bool USBZOnlineFunctionLibrary::IsEOSActive() {
 }
 
 bool USBZOnlineFunctionLibrary::IsDifficultyArgumentProvided(const UObject* WorldContextObject) {
-    return false;
+  return IsDifficultyArgumentProvided();
+}
+bool USBZOnlineFunctionLibrary::IsDifficultyArgumentProvided() {
+  auto CmdLine = FCommandLine::Get();
+  return FParse::Param(CmdLine, TEXT("difficulty"));
 }
 
 bool USBZOnlineFunctionLibrary::IsDebugRandomSeedProvided() {

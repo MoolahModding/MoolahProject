@@ -15,6 +15,7 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void HandlePlatformUserLoginComplete(bool bSuccess);
-    
+
+    virtual void OnEnter(USBZStateMachineData* InData) override;
 };
 

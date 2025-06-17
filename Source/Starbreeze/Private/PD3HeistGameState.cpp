@@ -3,6 +3,10 @@
 #include "PD3Dispatcher.h"
 #include "PD3GameIntensityAnalyzer.h"
 #include "SBZRoomPathFinder.h"
+#include "SBZWorldSettings.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraParameterCollection.h"
+#include "Materials/MaterialParameterCollectionInstance.h"
 
 APD3HeistGameState::APD3HeistGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->CurrentSuspenseValue = 0;
@@ -130,6 +134,33 @@ EPD3HeistState APD3HeistGameState::GetCurrentHeistState() const {
 }
 
 void APD3HeistGameState::DifficultyBranch(UObject* WorldContextObject, ESBZDifficulty& OutputPins) {
+}
+
+void APD3HeistGameState::BeginPlay() {
+  Super::BeginPlay();
+  
+  if (GetNetMode() != ENetMode::NM_DedicatedServer) {
+    GlobalMaterialCollectionInstance = GetWorld()->GetParameterCollectionInstance(GlobalMaterialParameterCollection);
+    GlobalNiagaraCollectionInstance = UNiagaraFunctionLibrary::GetNiagaraParameterCollection(GetWorld(), GlobalNiagaraParameterCollection);
+
+    if (GlobalMaterialCollectionInstance || GlobalNiagaraCollectionInstance) {
+      ASBZWorldSettings* WorldSettings = Cast<ASBZWorldSettings>(GetWorld()->GetWorldSettings());
+
+      if (IsValid(GlobalMaterialCollectionInstance)) {
+        GlobalMaterialCollectionInstance->SetVectorParameterValue("FX_GlobalBaseColor", WorldSettings->GlobalMaterialParameters.FXGlobalBaseColor);
+        GlobalMaterialCollectionInstance->SetVectorParameterValue("FX_GlobalEmissive", WorldSettings->GlobalMaterialParameters.FXGlobalEmissive);
+
+        GlobalMaterialCollectionInstance->SetVectorParameterValue("Wind_direction", WorldSettings->GlobalMaterialParameters.WindDirection);
+        GlobalMaterialCollectionInstance->SetScalarParameterValue("Wind_strength", WorldSettings->GlobalMaterialParameters.WindSpeed);
+      }
+      if (IsValid(GlobalNiagaraCollectionInstance)) {
+      }
+    }
+  }
+}
+
+void APD3HeistGameState::EndPlay(const EEndPlayReason::Type EndPlayReason) {
+  Super::EndPlay(EndPlayReason);
 }
 
 void APD3HeistGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

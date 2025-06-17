@@ -4,6 +4,16 @@
 #include "Components/PrimitiveComponent.h"
 #include "SBZAIVisibilityComponent.generated.h"
 
+struct FSBZAIVisibilityComponentCustomVersion {
+  enum Version {
+    V5 = 5,
+    V6 = 6, // random room struct is now 80 bytes
+
+    LatestVersion = V6
+  };
+  const static FGuid GUID;
+};
+
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZAIVisibilityComponent : public UPrimitiveComponent {
     GENERATED_BODY()
@@ -51,5 +61,30 @@ protected:
 public:
     USBZAIVisibilityComponent(const FObjectInitializer& ObjectInitializer);
 
+    virtual void Serialize(FArchive& Ar) override;
+
+public:
+  struct FPayload {
+    unsigned short CrouchDistances[40];
+    unsigned short StandDistances[40];
+    unsigned short UpAzymut15Distances[40];
+    unsigned short UpAzymut30Distances[40];
+    unsigned short UpAzymut45Distances[40];
+    unsigned short UpAzymut60Distances[40];
+
+    friend FArchive& operator<<(FArchive& Ar, FPayload& Payload);
+  };
+  struct FNode {
+    char pad[0xC];
+    friend FArchive& operator<<(FArchive& Ar, FNode& Node);
+  };
+  class FTree {
+  public:
+    FIntVector BoxCenter;
+    unsigned int BoxHalfSize;
+    unsigned int NodeHalfSize;
+    TArray<FNode> Nodes;
+    TArray<FPayload> Payloads;
+  };
 };
 

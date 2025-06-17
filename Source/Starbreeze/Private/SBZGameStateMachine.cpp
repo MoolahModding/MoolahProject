@@ -1,5 +1,11 @@
 #include "SBZGameStateMachine.h"
 
+#include "SBZGameStateMachineSettings.h"
+#include "SBZCommonStateMachine.h"
+#include "SBZOnlineFunctionLibrary.h"
+#include "SBZClientStateMachine.h"
+#include "SBZDsStateMachine.h"
+
 USBZGameStateMachine::USBZGameStateMachine() {
     this->StateMachine = NULL;
 }
@@ -149,6 +155,30 @@ bool USBZGameStateMachine::CanRequestSoloGame() const {
 }
 
 void USBZGameStateMachine::AddMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany) {
+}
+
+void USBZGameStateMachine::Start() {
+  this->SetMatchmakingDifficulty(ESBZDifficulty::Default, 0);
+  if (USBZOnlineFunctionLibrary::IsDifficultyArgumentProvided()) {}
+  if (USBZOnlineFunctionLibrary::IsSecurityCompaniesProvided()) {}
+  if (USBZOnlineFunctionLibrary::IsDebugRandomSeedProvided()) {}
+
+  USBZGameStateMachineSettings::StaticClass()->GetDefaultObject<USBZGameStateMachineSettings>()->LoadWidgetClasses();
+
+  StateMachine->Start();
+  // TODO: Call delegate OnStateMachineStarted
+  
+}
+
+void USBZGameStateMachine::InitStateMachine() {
+  /*if (GetWorld()->GetGameInstance()->IsDedicatedServerInstance()) {
+    this->StateMachine = NewObject<USBZDsStateMachine>();
+  }
+  else {
+    this->StateMachine = NewObject<USBZClientStateMachine>();
+  }*/
+  StateMachine = NewObject<USBZClientStateMachine>();
+  StateMachine->Init();
 }
 
 

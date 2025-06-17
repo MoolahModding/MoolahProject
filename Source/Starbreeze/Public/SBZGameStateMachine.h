@@ -220,6 +220,8 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void AddMatchmakingSecurityCompany(ESBZSecurityCompany InSecurityCompany);
-    
+
+    void Start();
+    void InitStateMachine();
 };
 

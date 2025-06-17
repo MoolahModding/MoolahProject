@@ -191,6 +191,7 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool IsDifficultyArgumentProvided(const UObject* WorldContextObject);
+    static bool IsDifficultyArgumentProvided();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsDebugRandomSeedProvided();

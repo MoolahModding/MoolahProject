@@ -15,6 +15,8 @@
 
 class USBZLoadingScreen;
 
+DECLARE_LOG_CATEGORY_EXTERN(LogClientStateMachine, Log, All);
+
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZClientStateMachine : public USBZCommonStateMachine {
     GENERATED_BODY()
@@ -133,5 +135,16 @@ public:
     UFUNCTION(BlueprintCallable)
     void ApplyPreplanningAsset(const FString& ItemSku);
     
+    virtual void Init() override;
+    virtual void Start() override;
+    virtual void HandleStateEntered(FName StateName) override;
+private:
+    void Init_Internal(UGameInstance* GameInstance);
+
+    void OnAppReactivated();
+    void OnAppDeactivated();
+
+    bool bIsAppDeactivated;
+    bool bIsReturnToMainMenuInProgress;
 };
 

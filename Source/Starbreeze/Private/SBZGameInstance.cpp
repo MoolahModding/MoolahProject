@@ -1,5 +1,52 @@
 #include "SBZGameInstance.h"
 
+#include "SBZWorldLoader.h"
+#include "SBZSafeHouseManager.h"
+#include "SBZPlatformUserManager.h"
+#include "SBZGameStateMachine.h"
+#include "SBZOnlineSession.h"
+#include "SBZMissionState.h"
+#include "SBZGlobalItemDatabase.h"
+#include "SBZUIManager.h"
+
+#include "SBZGameEventBroker.h"
+#include "SBZOnlineEventBroker.h"
+#include "SBZSaveManager.h"
+#include "SBZSettingsMenuManager.h"
+#include "SBZWeaponConfigManager.h"
+#include "SBZCosmeticsManager.h"
+#include "SBZWeaponProgressionManager.h"
+#include "SBZAssetDatabaseManager.h"
+#include "SBZStoreManager.h"
+#include "SBZInventoryManager.h"
+#include "SBZPlayerStatisticsManager.h"
+#include "SBZLoadoutManager.h"
+#include "SBZCharacterManager.h"
+#include "SBZCurrencyManager.h"
+#include "SBZExperienceManager.h"
+#include "SBZInfamyManager.h"
+#include "SBZSkillManager.h"
+#include "SBZPreplanningAssetManager.h"
+#include "SBZUE4StatsProfiler.h"
+#include "SBZInstantLootManager.h"
+
+#include "SBZGameplayManager.h"
+#include "SBZTimeEventManager.h"
+#include "SBZAccelByteNetworkErrorManager.h"
+#include "SBZItemProgressionManager.h"
+#include "SBZAchievementManager.h"
+#include "SBZMusicManager.h"
+#include "SBZVolumeManager.h"
+#include "SBZWwiseMotionManagerComponent.h"
+#include "SBZGamepadBindingsManager.h"
+#include "SBZListenerManager.h"
+#include "SBZSoundEnvironmentManager.h"
+#include "SBZChallengeManager.h"
+#include "SBZChallengeCategoryManager.h"
+
+#include "GameplayAbilitiesModule.h"
+#include "AbilitySystemGlobals.h"
+
 USBZGameInstance::USBZGameInstance() {
     this->GameEventBroker = NULL;
     this->OnlineEventBroker = NULL;
@@ -77,6 +124,7 @@ USBZGameInstance::USBZGameInstance() {
 }
 
 void USBZGameInstance::SetDifficulty(ESBZDifficulty InDifficulty) {
+  //return Cast<ASBZMissionState>(this->GetWorld()->GetGameState())->SetDifficulty(InDifficulty);
 }
 
 
@@ -84,27 +132,27 @@ void USBZGameInstance::HandleGameStateEntered(FName StateName) {
 }
 
 USBZTimeEventManager* USBZGameInstance::GetTimeEventManager() const {
-    return NULL;
+    return this->TimeEventManager;
 }
 
 USBZSaveManager* USBZGameInstance::GetSaveManager() const {
-    return NULL;
+    return this->SaveManager;
 }
 
 USBZReplayManager* USBZGameInstance::GetReplayManager() const {
-    return NULL;
+    return this->ReplayManager;
 }
 
 USBZPlatformUserManager* USBZGameInstance::GetPlatformUserManager() const {
-    return NULL;
+    return this->PlatformUserManager;
 }
 
 USBZGlobalItemDatabase* USBZGameInstance::GetGlobalItemDatabase() const {
-    return NULL;
+    return this->GlobalItemDatabase;
 }
 
 ESBZDifficulty USBZGameInstance::GetDifficulty() const {
-    return ESBZDifficulty::Default;
+  return Cast<ASBZMissionState>(this->GetWorld()->GetGameState())->GetDifficulty();
 }
 
 FString USBZGameInstance::GetBuiltFromChangelist() {
@@ -118,4 +166,111 @@ FString USBZGameInstance::GetBranch() {
 void USBZGameInstance::DisplayVersion() {
 }
 
+void USBZGameInstance::Init() {
+  Super::Init();
+  if (!IsRunningCommandlet()) {
+    PlatformUserManager = NewObject<USBZPlatformUserManager>();
+    GameStateMachine = NewObject<USBZGameStateMachine>();
+    GameStateMachine->InitStateMachine();
+
+    //TODO: Slate Input Manager
+  }
+  // TODO: Load GameUserSettings
+}
+
+void USBZGameInstance::InitManagers() {
+  GameplayManager = NewObject<USBZGameplayManager>();
+
+  GameEventBroker = NewObject<USBZGameEventBroker>();
+  OnlineEventBroker = NewObject<USBZOnlineEventBroker>();
+  SaveManager = NewObject<USBZSaveManager>();
+  SettingsMenuManager = NewObject<USBZSettingsMenuManager>();
+  WeaponConfigManager = NewObject<USBZWeaponConfigManager>();
+  WeaponCosmeticsManager = NewObject<USBZCosmeticsManager>();
+  WeaponProgressionManager = NewObject<USBZWeaponProgressionManager>();
+  AssetDatabaseManager = NewObject<USBZAssetDatabaseManager>();
+  StoreManager = NewObject<USBZStoreManager>();
+  InventoryManager = NewObject<USBZInventoryManager>();
+  PlayerStatisticsManager = NewObject<USBZPlayerStatisticsManager>();
+  LoadoutManager = NewObject<USBZLoadoutManager>();
+  CharacterManager = NewObject<USBZCharacterManager>();
+  CurrencyManager = NewObject<USBZCurrencyManager>();
+  ExperienceManager = NewObject<USBZExperienceManager>();
+  InfamyManager = NewObject<USBZInfamyManager>();
+  SkillManager = NewObject<USBZSkillManager>();
+  PreplanningAssetManager = NewObject<USBZPreplanningAssetManager>();
+  UE4StatsProfiler = NewObject<USBZUE4StatsProfiler>();
+  InstantLootManager = NewObject<USBZInstantLootManager>();
+
+  //SaveManager->Load();
+
+  if (this->GetWorld()->GetGameInstance() && !this->GetWorld()->GetGameInstance()->IsDedicatedServerInstance()) {
+    if(MusicManagerClass)
+      MusicManager = NewObject<USBZMusicManager>(this, MusicManagerClass);
+    if(VolumeManagerClass)
+      VolumeManager = NewObject<USBZVolumeManager>(this, VolumeManagerClass);
+    if(MotionManagerClass)
+      MotionManager = NewObject<USBZWwiseMotionManagerComponent>(this, MotionManagerClass);
+    if(GamepadBindingsManagerClass)
+      GamepadBindingsManager = NewObject<USBZGamepadBindingsManager>(this, GamepadBindingsManagerClass);
+
+    //SettingsMenuManager->Initialize();
+    //VolumeManager->ApplySavedValues();
+    //GamepadBindingsManager->ApplySavedValues();
+
+    if(ListenerManagerClass)
+      ListenerManager = NewObject<USBZListenerManager>(this, ListenerManagerClass);
+    if(SoundEnvironmentManagerClass)
+      SoundEnvironmentManager = NewObject<USBZSoundEnvironmentManager>(this, SoundEnvironmentManagerClass);
+    if(UIManagerClass)
+      UIManager = NewObject<USBZUIManager>(this, UIManagerClass);
+    //UIManager->Init();
+
+    if(ChallengeManagerClass)
+      ChallengeManager = NewObject<USBZChallengeManager>(this, ChallengeManagerClass);
+    //ChallengeManager->Init();
+    if(ChallengeCategoryManagerClass)
+      ChallengeCategoryManager = NewObject<USBZChallengeCategoryManager>(this, ChallengeCategoryManagerClass);
+    //ChallengeCategoryManager->Init();
+
+    TimeEventManager = NewObject<USBZTimeEventManager>();
+    AccelByteNetworkPoll = NewObject<USBZAccelByteNetworkErrorManager>();
+    //AccelByteNetworkPoll->StartPolling();
+
+    ItemProgressionManager = NewObject<USBZItemProgressionManager>();
+    //ItemProgressionManager->Init();
+
+    //StoreManager->Init();
+
+    AchievementManager = NewObject<USBZAchievementManager>();
+    //AchievementManager->Init();
+  }
+
+  GlobalItemDatabase = GlobalItemDatabaseClass ? NewObject<USBZGlobalItemDatabase>(this, GlobalItemDatabaseClass) : NewObject<USBZGlobalItemDatabase>();
+
+  //GameplayManager->Initialize();
+}
+
+void USBZGameInstance::StartGameInstance() {
+  this->InitManagers();
+
+  if (this->GetWorld()->GetGameInstance() && this->GetWorld()->GetGameInstance()->IsDedicatedServerInstance()) {
+    Super::StartGameInstance();
+    GameStateMachine->Start();
+  }
+  else {
+    GameStateMachine->Start();
+    Super::StartGameInstance();
+  }
+}
+
+#if WITH_EDITOR
+FGameInstancePIEResult USBZGameInstance::StartPlayInEditorGameInstance(ULocalPlayer* LocalPlayer, const FGameInstancePIEParameters& Params) {
+  this->InitManagers();
+
+  GameStateMachine->Start();
+
+  return Super::StartPlayInEditorGameInstance(LocalPlayer, Params);
+}
+#endif
 

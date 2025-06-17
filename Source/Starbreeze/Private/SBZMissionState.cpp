@@ -219,7 +219,7 @@ uint8 ASBZMissionState::GetDifficultyIdx() const {
 }
 
 ESBZDifficulty ASBZMissionState::GetDifficulty() const {
-    return ESBZDifficulty::Default;
+    return this->Difficulty;
 }
 
 int32 ASBZMissionState::GetCharacterSeed(const ASBZCharacter* Character, int32 MixSeed) {

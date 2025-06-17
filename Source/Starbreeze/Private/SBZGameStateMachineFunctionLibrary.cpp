@@ -1,4 +1,5 @@
 #include "SBZGameStateMachineFunctionLibrary.h"
+#include "SBZGameInstance.h"
 
 USBZGameStateMachineFunctionLibrary::USBZGameStateMachineFunctionLibrary() {
 }
@@ -20,7 +21,7 @@ TEnumAsByte<ESBZGameStateMachineState> USBZGameStateMachineFunctionLibrary::GetG
 }
 
 USBZGameStateMachine* USBZGameStateMachineFunctionLibrary::GetGameStateMachine(const UObject* WorldContextObject) {
-    return NULL;
+    return Cast<USBZGameInstance>(GEngine->GetWorldFromContextObject(WorldContextObject)->GetGameInstance())->GetGameStateMachine();
 }
 
 ESBZCurrentPlatform USBZGameStateMachineFunctionLibrary::GetCurrentPlatform() {
