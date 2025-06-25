@@ -46,7 +46,7 @@ void USBZBlackMarketVendorsWidget::OnGameInstallStateChanged(bool bIsInstallPend
 void USBZBlackMarketVendorsWidget::OnBuyRealMoneyItemCompleted(ESBZMetaRequestResult Result) {
 }
 
-void USBZBlackMarketVendorsWidget::OnBuyItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZBlackMarketVendorsWidget::OnBuyItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku) {
 }
 
 void USBZBlackMarketVendorsWidget::NativeOnVendorButtonSelected(USBZMenuButton* InButton) {

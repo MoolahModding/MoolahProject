@@ -1,6 +1,6 @@
 #include "SBZRevertDamageAttributeSetData.h"
 
 FSBZRevertDamageAttributeSetData::FSBZRevertDamageAttributeSetData() {
-    this->Character = NULL;
+    this->Pawn = NULL;
 }
 

@@ -39,7 +39,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->DropInType = ESBZOnlineDropInType::Default;
     this->MatchmakingDifficulty = ESBZDifficulty::Default;
     this->MasterVolume = 65.00f;
-    this->MusicVolume = 65.00f;
+    this->MusicVolume = 10.00f;
     this->VOVolume = 100.00f;
     this->OperatorVOVolume = 100.00f;
     this->SFXVolume = 80.00f;
@@ -314,6 +314,9 @@ void USBZGameUserSettings::SetBrightness(float Value) {
 }
 
 void USBZGameUserSettings::SetAudioToDefaults() {
+}
+
+void USBZGameUserSettings::SendBackendSettingsToAccelByte() {
 }
 
 bool USBZGameUserSettings::IsVoIPEnabled() const {

@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ESBZItemLoadoutSlot.h"
 #include "ESBZMetaRequestResult.h"
 #include "SBZInventorySlotStoreItem.h"
@@ -75,7 +74,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
+    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& Itemsku);
     
 private:
     UFUNCTION(BlueprintCallable)

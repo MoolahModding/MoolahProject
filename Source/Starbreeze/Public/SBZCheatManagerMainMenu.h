@@ -153,7 +153,7 @@ public:
     void DumpWeaponWeaponPartProgressionArray(const FString& ItemIdSku, const FString& EntitlementId);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void DumpWeaponSlotToWeaponPartMap(const FString& ItemId);
+    void DumpWeaponSlotToWeaponPartMap(const FString& ItemSKu);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpWeaponSlotEntitlementSkuDlcMap() const;
@@ -246,7 +246,7 @@ public:
     void DumpBaseWeaponProgressionInfo(const FString& ItemId);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void DumpAvavilableWeaponParts(const FString& ItemId);
+    void DumpAvavilableWeaponParts(const FString& ItemSku);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpAttachedWeaponPartsForAllInventorySlots();

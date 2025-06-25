@@ -551,6 +551,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetAudioToDefaults();
     
+    UFUNCTION(BlueprintCallable)
+    void SendBackendSettingsToAccelByte();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsVoIPEnabled() const;
     

@@ -34,5 +34,8 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnAmmoInventoryChanged(int32 InAmmoInventory);
     
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void OnAmmoAdded();
+    
 };
 

@@ -12,6 +12,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->ProgressionSaveGame = NULL;
     this->ProgressionSaveChallenges = NULL;
     this->bIsSkipIntroSequence = false;
+    this->DefensiveMeasuresCount = 0;
     this->AttributeSet = CreateDefaultSubobject<USBZPlayerAttributeSet>(TEXT("SBZPlayerAttributeSet"));
     this->AbilitySystem = CreateDefaultSubobject<USBZPlayerAbilitySystemComponent>(TEXT("SBZPlayerAbilitySystemComponent"));
     this->UICharacterEffects = CreateDefaultSubobject<USBZUICharacterEffectComponent>(TEXT("SBZUICharacterEffectComponent"));
@@ -20,6 +21,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->bIsMaskOn = false;
     this->bIsLocallyControlled = false;
     this->EquipStateAndIndex = 0;
+    this->ReloadEndTime = -1.00f;
     this->CharacterClass = NULL;
     this->bIsValidLoadout = false;
     this->DefeatState = EPD3DefeatState::None;
@@ -76,6 +78,9 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->OverskillDamageModifier[1] = 1.00f;
     this->OverskillDamageModifier[2] = 1.00f;
     this->OverskillDamageModifier[3] = 1.00f;
+    this->ConstantFlowCount = 0;
+    this->SMGMasterCount = 0;
+    this->bIsSmokeMasterEnabled = false;
 }
 
 void ASBZPlayerState::SetSkipIntroSequence(bool bInIsSkipIntroSequence) {
@@ -156,7 +161,10 @@ void ASBZPlayerState::OnRuntimeActorDestroyed(AActor* InRuntimeActor) {
 void ASBZPlayerState::OnRep_SpectateTime(float OldSpectateTime) {
 }
 
-void ASBZPlayerState::OnRep_ServerReloadState() {
+void ASBZPlayerState::OnRep_SMGMasterCount(uint8 OldCount) {
+}
+
+void ASBZPlayerState::OnRep_ServerReloadState(const FSBZReplicatedReloadState& OldServerReloadState) {
 }
 
 void ASBZPlayerState::OnRep_RenownLevel() {
@@ -181,6 +189,9 @@ void ASBZPlayerState::OnRep_Loadout(const FPD3PlayerLoadout& InOldLoadout) {
 }
 
 void ASBZPlayerState::OnRep_IsTargeting() {
+}
+
+void ASBZPlayerState::OnRep_IsSmokeMasterEnabled() {
 }
 
 void ASBZPlayerState::OnRep_IsOverkillEnabled() {
@@ -210,6 +221,9 @@ void ASBZPlayerState::OnRep_CustodyReleaseCost() {
 void ASBZPlayerState::OnRep_CustodyCharacterClass() {
 }
 
+void ASBZPlayerState::OnRep_ConstantFlowCount(uint16 OldCount) {
+}
+
 void ASBZPlayerState::OnRep_AccelByteUserName() {
 }
 
@@ -228,6 +242,9 @@ void ASBZPlayerState::OnIsOverskillLoadoutTickingChanged() {
 void ASBZPlayerState::OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive) {
 }
 
+void ASBZPlayerState::OnDefensiveMeasuresCountChanged() {
+}
+
 void ASBZPlayerState::MulticastReceiveLocalizedChatMessage_Implementation(const FString& TableId, const FString& LocaleKey) {
 }
 
@@ -240,10 +257,19 @@ void ASBZPlayerState::Multicast_StopTargeting_Implementation() {
 void ASBZPlayerState::Multicast_StartTargeting_Implementation() {
 }
 
+void ASBZPlayerState::Multicast_SmokeMasterEnabled_Implementation() {
+}
+
+void ASBZPlayerState::Multicast_SmokeMasterDisabled_Implementation() {
+}
+
 void ASBZPlayerState::Multicast_SetSpectateTime_Implementation(float Time) {
 }
 
 void ASBZPlayerState::Multicast_SetSpectateDurationModification_Implementation(float Duration) {
+}
+
+void ASBZPlayerState::Multicast_SetSMGMasterCount_Implementation(uint8 Count) {
 }
 
 void ASBZPlayerState::Multicast_SetSkipIntroSequence_Implementation(bool bInIsSkipIntroSequence) {
@@ -297,9 +323,6 @@ void ASBZPlayerState::Multicast_SetEOSProductUserId_Implementation(const FString
 void ASBZPlayerState::Multicast_SetDefeatState_Implementation(EPD3DefeatState InDefeatState) {
 }
 
-void ASBZPlayerState::Multicast_SetCustodyCharacterClass_Implementation(FSoftObjectPath InCharacterClass) {
-}
-
 void ASBZPlayerState::Multicast_SetAccelByteUserName_Implementation(const FString& InAccelByteUserName) {
 }
 
@@ -313,6 +336,15 @@ void ASBZPlayerState::Multicast_RejectEquipStateAndIndex_Implementation(uint8 In
 }
 
 void ASBZPlayerState::Multicast_OnKill_Implementation(uint32 NetID) {
+}
+
+void ASBZPlayerState::Multicast_OnConstantFlowReset_Implementation() {
+}
+
+void ASBZPlayerState::Multicast_DefensiveMeasuresCount_Implementation(uint8 InDefensiveMeasuresCount) {
+}
+
+void ASBZPlayerState::Multicast_DebugSyncServerResultData_Implementation(const FSBZPlayerEndMissionResultData& Data) {
 }
 
 void ASBZPlayerState::Multicast_DebugConsoleCommand_Implementation(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex) {
@@ -351,6 +383,14 @@ float ASBZPlayerState::GetOverskillProgress(const FName& InProgressLevelID) cons
 
 bool ASBZPlayerState::GetMergePartySelected() const {
     return false;
+}
+
+UPaperSprite* ASBZPlayerState::GetMaskedOnIcon() const {
+    return NULL;
+}
+
+UPaperSprite* ASBZPlayerState::GetMaskedOffIcon() const {
+    return NULL;
 }
 
 int32 ASBZPlayerState::GetInfamyLevel() const {
@@ -423,7 +463,7 @@ void ASBZPlayerState::Client_CreateVoiceSession_Implementation() {
 void ASBZPlayerState::Client_CheatSetInfiniteAmmo_Implementation(bool bInHasInifiniteAmmo) {
 }
 
-void ASBZPlayerState::Client_ChallengeCompleted_Implementation(const FChallengeNotifPayload& ChallengeNotifPayload) {
+void ASBZPlayerState::Client_ChallengeCompleted_Implementation(const FSBZInternalChallengeNotifPayload& ChallengeNotifPayload) {
 }
 
 void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -438,11 +478,13 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, AccelByteUserId);
     DOREPLIFETIME(ASBZPlayerState, EOSProductUserId);
     DOREPLIFETIME(ASBZPlayerState, bIsSkipIntroSequence);
+    DOREPLIFETIME(ASBZPlayerState, DefensiveMeasuresCount);
     DOREPLIFETIME(ASBZPlayerState, PlayerSlotId);
     DOREPLIFETIME(ASBZPlayerState, bIsMaskOn);
     DOREPLIFETIME(ASBZPlayerState, Loadout);
     DOREPLIFETIME(ASBZPlayerState, EquipStateAndIndex);
     DOREPLIFETIME(ASBZPlayerState, ServerReloadState);
+    DOREPLIFETIME(ASBZPlayerState, ReloadEndTime);
     DOREPLIFETIME(ASBZPlayerState, CustodyCharacterClass);
     DOREPLIFETIME(ASBZPlayerState, DefeatState);
     DOREPLIFETIME(ASBZPlayerState, OnKillNetID);
@@ -458,6 +500,9 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, bIsOverkillEnabled);
     DOREPLIFETIME(ASBZPlayerState, bIsOverskillLoadoutTicking);
     DOREPLIFETIME(ASBZPlayerState, bIsMergePartySelected);
+    DOREPLIFETIME(ASBZPlayerState, ConstantFlowCount);
+    DOREPLIFETIME(ASBZPlayerState, SMGMasterCount);
+    DOREPLIFETIME(ASBZPlayerState, bIsSmokeMasterEnabled);
 }
 
 

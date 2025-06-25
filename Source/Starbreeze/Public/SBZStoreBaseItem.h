@@ -21,6 +21,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGuid ItemId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString ItemSku;
+    
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     int64 Price;
     

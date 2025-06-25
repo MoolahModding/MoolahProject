@@ -21,6 +21,9 @@ void ASBZAICrewState::OnRep_IsMaskOn() {
 void ASBZAICrewState::OnRep_DefeatState(EPD3DefeatState InOldDefeatState) {
 }
 
+void ASBZAICrewState::OnRep_CharacterClass() {
+}
+
 void ASBZAICrewState::OnRep_Character(ASBZAICrewCharacter* OldCharacter) {
 }
 
@@ -28,6 +31,18 @@ void ASBZAICrewState::Multicast_SetMaskOn_Implementation(bool bMaskOn) {
 }
 
 void ASBZAICrewState::Multicast_SetDefeatState_Implementation(EPD3DefeatState InState) {
+}
+
+bool ASBZAICrewState::IsMaskOn() const {
+    return false;
+}
+
+UPaperSprite* ASBZAICrewState::GetMaskedCharacterIcon() const {
+    return NULL;
+}
+
+FLinearColor ASBZAICrewState::GetCrewAIColor() {
+    return FLinearColor{};
 }
 
 FText ASBZAICrewState::GetCharacterName() {
@@ -42,6 +57,7 @@ void ASBZAICrewState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZAICrewState, Character);
+    DOREPLIFETIME(ASBZAICrewState, CharacterClass);
     DOREPLIFETIME(ASBZAICrewState, DefeatState);
     DOREPLIFETIME(ASBZAICrewState, bIsMaskOn);
 }

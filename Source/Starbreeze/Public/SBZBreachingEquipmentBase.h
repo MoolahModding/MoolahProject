@@ -112,6 +112,9 @@ protected:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void SetState(ESBZBreachingEquipmentState NewState, bool bDoCosmetics);
     
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetAbortedAndDisabled();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_CurrentState(ESBZBreachingEquipmentState OldState);
     

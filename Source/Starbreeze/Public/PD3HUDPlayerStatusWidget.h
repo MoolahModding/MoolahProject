@@ -4,8 +4,8 @@
 #include "PD3HUDPlayerStatusWidget.generated.h"
 
 class ASBZPlayerState;
-class UImage;
 class UPD3ConsumableStatusWidget;
+class UPD3CustodyTimerWidget;
 class UPD3DefeatTimerWidget;
 class UPD3DetectionMeterContainer;
 class UPD3HUDPlayerCarryWidget;
@@ -19,6 +19,7 @@ class UPD3ReviveInteractionWidget;
 class UPD3ThrowableStatusWidget;
 class UPD3ToolStatusWidget;
 class UPD3WeaponStatusWidget;
+class UPaperSprite;
 class USBZCharacterEffectContainer;
 class USBZInteractionWidget;
 class USBZReticleWidget;
@@ -45,7 +46,7 @@ protected:
     UPD3WeaponStatusWidget* Widget_OverkillWeaponAmmo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    UImage* Image_PlayerIcon;
+    UPD3CustodyTimerWidget* Widget_CustodyTimerWidget;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UTextBlock* Text_PlayerName;
@@ -104,6 +105,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInfamyLevelChanged(ASBZPlayerState* InPlayerState);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnHeisterIconChangedEvent(UPaperSprite* InNewHeisterIcon);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetUserId() const;

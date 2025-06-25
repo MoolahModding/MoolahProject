@@ -9,6 +9,7 @@ ASBZSingleBagGenerator::ASBZSingleBagGenerator(const FObjectInitializer& ObjectI
     (*p_RemoteRole->ContainerPtrToValuePtr<TEnumAsByte<ENetRole>>(this)) = ROLE_SimulatedProxy;
     this->BagType = NULL;
     this->SecondaryBagType = NULL;
+    this->bIsDestroyedOnInteract = true;
     this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("Interactable"));
     this->Outline = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));
     this->bIsSecondaryTypeUsed = false;

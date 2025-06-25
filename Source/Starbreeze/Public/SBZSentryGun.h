@@ -36,6 +36,7 @@ class USBZLocalPlayerFeedback;
 class USBZOutlineAsset;
 class USBZSentryGunAttributeSet;
 class USBZSentryInteractableComponent;
+class USceneComponent;
 class USkeletalMeshComponent;
 
 UCLASS(Blueprintable)
@@ -158,6 +159,9 @@ protected:
     UBoxComponent* OutOfBoundsBoxComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    USceneComponent* CenterComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UBoxComponent* BoxComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -225,7 +229,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_Fall(const FVector& InStartLocation, const FVector& InTargetLocation, const FQuat& InTargetQuat);
+    void Multicast_Fall(const FVector& InTargetLocation, const FQuat& InTargetQuat);
     
 
     // Fix for true pure virtual functions not being implemented

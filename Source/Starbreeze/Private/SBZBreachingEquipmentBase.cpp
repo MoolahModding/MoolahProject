@@ -44,6 +44,9 @@ void ASBZBreachingEquipmentBase::UpdateMarker(USBZMarkerDataAsset* MarkerAsset, 
 void ASBZBreachingEquipmentBase::SetState(ESBZBreachingEquipmentState NewState, bool bDoCosmetics) {
 }
 
+void ASBZBreachingEquipmentBase::SetAbortedAndDisabled() {
+}
+
 void ASBZBreachingEquipmentBase::OnRep_CurrentState(ESBZBreachingEquipmentState OldState) {
 }
 

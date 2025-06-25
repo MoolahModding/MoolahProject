@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ESBZEquippableLoadoutSlot.h"
 #include "ESBZMetaRequestResult.h"
 #include "SBZButtonControlReference.h"
@@ -102,7 +101,7 @@ private:
     void OnPurchaseItemPopUpClosed(FName ClosingActionName);
     
     UFUNCTION(BlueprintCallable)
-    void OnPayForAttachItemDone(const ESBZMetaRequestResult BuyWeaponResult, const FGuid ItemId);
+    void OnPayForAttachItemDone(const ESBZMetaRequestResult BuyWeaponResult, const FString& ItemSku);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

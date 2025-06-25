@@ -5,6 +5,7 @@
 ASBZGameModeMainMenu::ASBZGameModeMainMenu(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->PlayerControllerClass = ASBZPlayerControllerMainMenu::StaticClass();
     this->SpectatorClass = ASBZMainMenuSpectatorPawn::StaticClass();
+    this->ReplaySpectatorPlayerControllerClass = ASBZPlayerControllerMainMenu::StaticClass();
 }
 
 void ASBZGameModeMainMenu::SetMainMenuState(ESBZMainMenuState NewState) {

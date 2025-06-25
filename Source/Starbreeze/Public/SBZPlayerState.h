@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "ChallengeNotifPayload.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
@@ -18,6 +17,7 @@
 #include "SBZAmmoPickupLookup.h"
 #include "SBZCrewStateInterface.h"
 #include "SBZDropPlaceableEquippableData.h"
+#include "SBZInternalChallengeNotifPayload.h"
 #include "SBZOnInfamyLevelChangedDynamicDelegate.h"
 #include "SBZOverskillProgressResultData.h"
 #include "SBZPlayerEndMissionResultData.h"
@@ -33,6 +33,7 @@ class ASBZGrenadeProjectile;
 class ASBZPlayerCharacter;
 class ASBZPlayerMicroCamera;
 class ASBZPlayerState;
+class ASBZSentryGun;
 class ASBZTool;
 class UPaperSprite;
 class USBZArmorData;
@@ -101,6 +102,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnIsSkipIntroSequenceChanged, meta=(AllowPrivateAccess=true))
     bool bIsSkipIntroSequence;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnDefensiveMeasuresCountChanged, meta=(AllowPrivateAccess=true))
+    uint8 DefensiveMeasuresCount;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FString ServerRegion;
     
@@ -143,6 +147,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ServerReloadState, meta=(AllowPrivateAccess=true))
     FSBZReplicatedReloadState ServerReloadState;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    float ReloadEndTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSubclassOf<ASBZPlayerCharacter> CharacterClass;
@@ -345,6 +352,18 @@ private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float OverskillDamageModifier[4];
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ASBZSentryGun*> ServerSentryGunArray;
+    
+    UPROPERTY(EditAnywhere, Transient, ReplicatedUsing=OnRep_ConstantFlowCount, meta=(AllowPrivateAccess=true))
+    uint16 ConstantFlowCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_SMGMasterCount, meta=(AllowPrivateAccess=true))
+    uint8 SMGMasterCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsSmokeMasterEnabled, meta=(AllowPrivateAccess=true))
+    bool bIsSmokeMasterEnabled;
+    
 public:
     ASBZPlayerState(const FObjectInitializer& ObjectInitializer);
 
@@ -437,7 +456,10 @@ private:
     void OnRep_SpectateTime(float OldSpectateTime);
     
     UFUNCTION(BlueprintCallable)
-    void OnRep_ServerReloadState();
+    void OnRep_SMGMasterCount(uint8 OldCount);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ServerReloadState(const FSBZReplicatedReloadState& OldServerReloadState);
     
 public:
     UFUNCTION(BlueprintCallable)
@@ -465,6 +487,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsTargeting();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IsSmokeMasterEnabled();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsOverkillEnabled();
@@ -495,6 +520,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnRep_CustodyCharacterClass();
     
+    UFUNCTION()
+    void OnRep_ConstantFlowCount(uint16 OldCount);
+    
 public:
     UFUNCTION(BlueprintCallable)
     void OnRep_AccelByteUserName();
@@ -518,6 +546,10 @@ private:
     UFUNCTION(BlueprintCallable)
     void OnECMCountChanged(int32 NewCount, int32 OldCount, float AddedTime, bool bInIsSignalScanActive);
     
+protected:
+    UFUNCTION(BlueprintCallable)
+    void OnDefensiveMeasuresCountChanged();
+    
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void MulticastReceiveLocalizedChatMessage(const FString& TableId, const FString& LocaleKey);
@@ -533,10 +565,19 @@ private:
     void Multicast_StartTargeting();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SmokeMasterEnabled();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SmokeMasterDisabled();
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSpectateTime(float Time);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSpectateDurationModification(float Duration);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetSMGMasterCount(uint8 Count);
     
 protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -593,9 +634,6 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDefeatState(EPD3DefeatState InDefeatState);
     
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetCustodyCharacterClass(FSoftObjectPath InCharacterClass);
-    
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetAccelByteUserName(const FString& InAccelByteUserName);
@@ -613,6 +651,18 @@ private:
     UFUNCTION(NetMulticast, Reliable)
     void Multicast_OnKill(uint32 NetID);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_OnConstantFlowReset();
+    
+protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_DefensiveMeasuresCount(uint8 InDefensiveMeasuresCount);
+    
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_DebugSyncServerResultData(const FSBZPlayerEndMissionResultData& Data);
+    
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DebugConsoleCommand(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex);
     
@@ -643,6 +693,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetMergePartySelected() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPaperSprite* GetMaskedOnIcon() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPaperSprite* GetMaskedOffIcon() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetInfamyLevel() const;
@@ -715,7 +771,7 @@ public:
     void Client_CheatSetInfiniteAmmo(bool bInHasInifiniteAmmo);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void Client_ChallengeCompleted(const FChallengeNotifPayload& ChallengeNotifPayload);
+    void Client_ChallengeCompleted(const FSBZInternalChallengeNotifPayload& ChallengeNotifPayload);
     
 
     // Fix for true pure virtual functions not being implemented

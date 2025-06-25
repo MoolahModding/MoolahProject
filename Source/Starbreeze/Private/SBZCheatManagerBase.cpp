@@ -44,6 +44,9 @@ void USBZCheatManagerBase::SimulateLobbyCloseConnection() {
 void USBZCheatManagerBase::ShowSidebarNotification(const FString& TableName, const FString& Key, const FString& Header, float DisplayTime) {
 }
 
+void USBZCheatManagerBase::SetUIDebugState(ESBZUIDebugState State, int32 PlayerIndex) {
+}
+
 void USBZCheatManagerBase::SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex) {
 }
 
@@ -62,7 +65,7 @@ void USBZCheatManagerBase::SetListenerEnabled(bool bIsEnabled) {
 void USBZCheatManagerBase::SetInputTypeOverride(int32 Override) {
 }
 
-void USBZCheatManagerBase::SetInfamyLevelExperience(int32 Level, int32 Experience) {
+void USBZCheatManagerBase::SetInfamyLevelPoints(int32 Level, int32 Points) {
 }
 
 void USBZCheatManagerBase::SetInfamyLevel(int32 Amount, int32 PlayerIndex) {
@@ -146,6 +149,9 @@ void USBZCheatManagerBase::RequestSwitchUser() {
 void USBZCheatManagerBase::RequestGameError(ESBZGameMachineStateError State, int32 PlayerIndex) {
 }
 
+void USBZCheatManagerBase::ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked) {
+}
+
 void USBZCheatManagerBase::RemoveCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex) {
 }
 
@@ -188,6 +194,9 @@ void USBZCheatManagerBase::PrintInputEnabled(int32 PlayerIndex) {
 void USBZCheatManagerBase::PrintError(const FString& Text, bool bIsDecodingNeeded) const {
 }
 
+void USBZCheatManagerBase::PrintEffectsGrantingAbility() {
+}
+
 void USBZCheatManagerBase::PrintAbilitySystemBothCurrent() {
 }
 
@@ -201,6 +210,30 @@ void USBZCheatManagerBase::LoadProgressionSaveGame() {
 }
 
 void USBZCheatManagerBase::LoadProgressionSaveChallenges() {
+}
+
+void USBZCheatManagerBase::InputVectorAxisTarget(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputVectorAxisPlayer(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputKeyTarget(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputKeyPlayer(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputAxisTarget(const FName& AxisName, float InputValue, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputAxisPlayer(const FName& AxisName, float InputValue, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputActionTarget(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, bool bIsReleaseCancelingAbility, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::FetchAllVendorItems(int32 MaxCount) {

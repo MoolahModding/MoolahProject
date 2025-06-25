@@ -12,11 +12,13 @@ FSBZDamageEvent::FSBZDamageEvent() {
     this->HealthDamage = 0.00f;
     this->OverHealDamage = 0.00f;
     this->OverskillProgressionDamage = 0.00f;
-    this->bCritical = false;
-    this->bWasArmorBroken = false;
+    this->Distance = 0.00f;
+    this->bIsCritical = false;
+    this->bIsArmorBreak = false;
     this->bIsKillshot = false;
     this->bIsFrequent = false;
     this->bIsOverskillBroken = false;
+    this->HitCount = 0;
     this->EquippableIndex = 0;
 }
 

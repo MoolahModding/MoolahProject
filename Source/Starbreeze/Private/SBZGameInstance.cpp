@@ -13,6 +13,8 @@ USBZGameInstance::USBZGameInstance() {
     this->GamepadBindingsManagerClass = NULL;
     this->ListenerManagerClass = NULL;
     this->SoundEnvironmentManagerClass = NULL;
+    this->SkillManagerClass = NULL;
+    this->InfamyManagerClass = NULL;
     this->ChallengeManagerClass = NULL;
     this->ChallengeCategoryManagerClass = NULL;
     this->DSChallengeManagerClass = NULL;

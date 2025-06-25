@@ -33,7 +33,7 @@ void USBZMainMenuWeaponModifierScreen::OnWeaponPartProgressionButtonFocusedChang
 void USBZMainMenuWeaponModifierScreen::OnPurchaseItemPopUpClosed(FName ClosingActionName) {
 }
 
-void USBZMainMenuWeaponModifierScreen::OnPayForAttachItemDone(const ESBZMetaRequestResult BuyWeaponResult, const FGuid ItemId) {
+void USBZMainMenuWeaponModifierScreen::OnPayForAttachItemDone(const ESBZMetaRequestResult BuyWeaponResult, const FString& ItemSku) {
 }
 
 

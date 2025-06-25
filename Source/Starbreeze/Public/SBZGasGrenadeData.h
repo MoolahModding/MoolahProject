@@ -23,6 +23,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDroppedConvertedToFragGrenade;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer NoDamagePawnTypeTagContainer;
+    
     USBZGasGrenadeData();
 
 };

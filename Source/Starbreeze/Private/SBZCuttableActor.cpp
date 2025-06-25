@@ -23,13 +23,13 @@ ASBZCuttableActor::ASBZCuttableActor(const FObjectInitializer& ObjectInitializer
     this->MaterialInterface = NULL;
     this->InteractableComponent = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
     this->bIsHinged = false;
+    this->CuttableVFXComponent->SetupAttachment(RootComponent);
     this->WholeMesh->SetupAttachment(RootComponent);
     this->CutMesh->SetupAttachment(RootComponent);
     this->CutOutlineMesh->SetupAttachment(RootComponent);
     this->MeltingMesh->SetupAttachment(RootComponent);
     this->BoxComponent->SetupAttachment(RootComponent);
     this->CuttableSplineComponent->SetupAttachment(RootComponent);
-    this->CuttableVFXComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZCuttableActor::PropDamageReached() {

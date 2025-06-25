@@ -38,7 +38,7 @@ ESBZEquippableLoadoutSlot USBZMainMenuLoadoutWeaponSlotButton::GetEquippableSlot
     return ESBZEquippableLoadoutSlot::PrimaryWeapon;
 }
 
-void USBZMainMenuLoadoutWeaponSlotButton::GetEntitlementAndWeaponID(FGuid& EntitlementID, FGuid& ItemID) const {
+void USBZMainMenuLoadoutWeaponSlotButton::GetEntitlementAndWeaponSku(FGuid& EntitlementID, FString& Item) const {
 }
 
 

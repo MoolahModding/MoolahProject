@@ -141,7 +141,9 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->ForcedFacialAnimaton = NULL;
     this->EquippedMask = NULL;
     this->DisplayIcon = NULL;
+    this->MaskedOnDisplayIcon = NULL;
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
+    this->LastArmorConductorPlayerState = NULL;
     this->HurtReactionOffset[0] = 0;
     this->HurtReactionOffset[1] = 0;
     this->HurtReactionOffset[2] = 0;
@@ -285,9 +287,6 @@ void ASBZCharacter::Multicast_StopTargeting_Implementation() {
 void ASBZCharacter::Multicast_StopRecoil_Implementation(bool bWasCancelled) {
 }
 
-void ASBZCharacter::Multicast_StopOverrideMaxWalkSpeed_Implementation() {
-}
-
 void ASBZCharacter::Multicast_StopMontage_Implementation(UAnimMontage* Montage, bool bAllowExitSectionSwitch) {
 }
 
@@ -340,9 +339,6 @@ void ASBZCharacter::Multicast_PlayMontageMove_Implementation(FName MontageName, 
 }
 
 void ASBZCharacter::Multicast_PlayMontage_Implementation(UAnimMontage* Montage, bool bPlayOnDedicatedServer, bool bStopAllActiveMontages) {
-}
-
-void ASBZCharacter::Multicast_OverrideMaxWalkSpeed_Implementation(float MaxWalkSpeed) {
 }
 
 void ASBZCharacter::Multicast_OnThrowCarryActor_Implementation(uint32 NetID, bool bInIsCarriedLastHitByIgnored) {

@@ -36,7 +36,7 @@ public:
     void InitializeArmorSlot(int32 InArmorSlotIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetEntitlementAndArmorID(FGuid& EntitlementID, FGuid& ItemID) const;
+    void GetEntitlementAndArmorSku(FGuid& EntitlementID, FString& Sku) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetArmorSlotIndex() const;

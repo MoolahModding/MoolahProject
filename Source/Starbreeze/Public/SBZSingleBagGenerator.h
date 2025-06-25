@@ -26,6 +26,9 @@ public:
     USBZBagType* SecondaryBagType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsDestroyedOnInteract;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZBagHandle BagHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -50,6 +53,7 @@ public:
     UFUNCTION(BlueprintCallable)
     void OnRep_ShouldUseSecondaryType();
     
+protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ChangeToSecondaryType();
     

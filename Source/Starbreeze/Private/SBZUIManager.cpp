@@ -6,6 +6,7 @@ USBZUIManager::USBZUIManager() {
     this->TutorialPopUpBodyWidgetClass = NULL;
     this->TutorialPopUpBody = NULL;
     this->FullscreenNotificationWidgetClass = NULL;
+    this->NewPlayerLevelGatingCap = 5;
     this->FullscreenNotificationWidget = NULL;
     this->SideBarNotificationWidgetClass = NULL;
     this->SideBarNotificationWidget = NULL;
@@ -56,10 +57,10 @@ void USBZUIManager::ShowTutorialPopUp(const UObject* WorldContextObject, const U
 void USBZUIManager::ShowSidebarNotification(FSBZSideBarNotificationData InSideBarNotificationData) {
 }
 
-void USBZUIManager::ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents) {
+void USBZUIManager::ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents, bool bInputsClosePopup) {
 }
 
-void USBZUIManager::ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents) {
+void USBZUIManager::ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents, bool bInputsClosePopup) {
 }
 
 void USBZUIManager::ShowMetaNotification(FSBZMetaNotification InMetaNotification) {
@@ -240,6 +241,9 @@ bool USBZUIManager::GetActiveControlsReference(FSBZControlsReference& OutControl
 }
 
 void USBZUIManager::DisplayHUDNotification(const FSBZHUDNotificationData& HUDNotification) {
+}
+
+void USBZUIManager::ClosePopupWidget() {
 }
 
 void USBZUIManager::ClearPopupStack() {

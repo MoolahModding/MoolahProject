@@ -12,8 +12,8 @@ ASBZPlaceableTripMine::ASBZPlaceableTripMine(const FObjectInitializer& ObjectIni
     this->AIExplosionRange = 500.00f;
     this->PlayerExplosionRange = 300.00f;
     this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
-    this->AkComponent->SetupAttachment(RootComponent);
     this->BoxComponent->SetupAttachment(RootComponent);
+    this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZPlaceableTripMine::Server_SetUnarmed_Implementation() {

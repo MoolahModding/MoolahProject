@@ -12,6 +12,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float LastAddedECMTime;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 ElectricInterferenceCount;
+    
     STARBREEZE_API FSBZECMCountData();
 };
 

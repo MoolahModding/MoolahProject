@@ -87,7 +87,7 @@ bool ASBZPlayerController::FadeOutCameraFeedback(int32 CameraFeedbackID, bool bI
     return false;
 }
 
-void ASBZPlayerController::ClientReceiveReward_Implementation(const FChallengeNotifPayload& ChallengeReward) {
+void ASBZPlayerController::ClientReceiveReward_Implementation(const FSBZInternalChallengeNotifPayload& ChallengeReward) {
 }
 
 void ASBZPlayerController::Client_UnsetViewTargetCollection_Implementation() {

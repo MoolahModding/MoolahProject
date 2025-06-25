@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GenericTeamAgentInterface.h"
-#include "ChallengeNotifPayload.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
 #include "GameFramework/OnlineReplStructs.h"
@@ -9,6 +8,7 @@
 #include "EPD3DefeatState.h"
 #include "SBZDamageInstigatorInterface.h"
 #include "SBZFactionIdHelper.h"
+#include "SBZInternalChallengeNotifPayload.h"
 #include "SBZLocalPlayerFeedbackParameters.h"
 #include "SBZLockCameraData.h"
 #include "SBZPlayerControllerBase.h"
@@ -148,7 +148,7 @@ public:
     bool FadeOutCameraFeedback(int32 CameraFeedbackID, bool bIsAutoRemoved);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ClientReceiveReward(const FChallengeNotifPayload& ChallengeReward);
+    void ClientReceiveReward(const FSBZInternalChallengeNotifPayload& ChallengeReward);
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)

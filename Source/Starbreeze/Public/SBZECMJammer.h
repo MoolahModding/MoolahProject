@@ -3,6 +3,7 @@
 #include "SBZPlaceableToolBase.h"
 #include "SBZECMJammer.generated.h"
 
+class ASBZPlayerState;
 class UAkComponent;
 class UBoxComponent;
 
@@ -16,6 +17,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UBoxComponent* BoxComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* OwningPlayerState;
     
 public:
     ASBZECMJammer(const FObjectInitializer& ObjectInitializer);

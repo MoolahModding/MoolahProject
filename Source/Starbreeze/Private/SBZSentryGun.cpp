@@ -2,6 +2,7 @@
 #include "AkComponent.h"
 #include "Components/BoxComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Components/SceneComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZSentryExplosionDamageType.h"
@@ -9,7 +10,7 @@
 #include "SBZSentryInteractableComponent.h"
 
 ASBZSentryGun::ASBZSentryGun(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->RootComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
+    this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("CenterComponent"));
     this->Tags.AddDefaulted(2);
     this->FireCooldown = 3.00f;
     this->FireTime = 3.00f;
@@ -43,11 +44,13 @@ ASBZSentryGun::ASBZSentryGun(const FObjectInitializer& ObjectInitializer) : Supe
     this->InstigatorPlayerDamageScale = 1.00f;
     this->ExplosionArmorPenetration = 0.00f;
     this->OutOfBoundsBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("OutOfBoundsBoxComp"));
-    this->BoxComponent = (UBoxComponent*)RootComponent;
+    this->CenterComponent = (USceneComponent*)RootComponent;
+    this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
     this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
     this->HackingDrone = NULL;
-    this->SkeletalMeshComponent->SetupAttachment(RootComponent);
+    this->SkeletalMeshComponent->SetupAttachment(BoxComponent);
     this->OutOfBoundsBoxComponent->SetupAttachment(SkeletalMeshComponent);
+    this->BoxComponent->SetupAttachment(RootComponent);
     this->AudioComponent->SetupAttachment(SkeletalMeshComponent);
 }
 
@@ -86,7 +89,7 @@ void ASBZSentryGun::Multicast_ReplicateExplosion_Implementation(const FSBZExplos
 void ASBZSentryGun::Multicast_ReachedTargetLocation_Implementation(const FVector& InTargetLocation, const FRotator& InTargetRotation) {
 }
 
-void ASBZSentryGun::Multicast_Fall_Implementation(const FVector& InStartLocation, const FVector& InTargetLocation, const FQuat& InTargetQuat) {
+void ASBZSentryGun::Multicast_Fall_Implementation(const FVector& InTargetLocation, const FQuat& InTargetQuat) {
 }
 
 void ASBZSentryGun::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

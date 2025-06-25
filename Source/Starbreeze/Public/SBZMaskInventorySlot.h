@@ -15,7 +15,7 @@ public:
     FGuid MaskInSlotEntitlementId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid MaskInSlotAccelByteItemId;
+    FString MaskInSlotAccelByteItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZItemInventorySlotType MaskInventorySlotType;

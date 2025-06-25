@@ -20,6 +20,7 @@
 #include "SBZArmedPawn.generated.h"
 
 class ASBZEquippable;
+class ASBZPlayerState;
 class ASBZRangedWeapon;
 class ASBZRoomVolume;
 class UAIPerceptionStimuliSourceComponent;
@@ -78,6 +79,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZDamageStatusMarkerDataAsset* DamageStatusMarkerAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* LastArmorConductorPlayerState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZReplicatedEquippableState ReplicatedEquippableState;

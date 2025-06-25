@@ -6,7 +6,7 @@ UPD3HUDPlayerStatusWidget::UPD3HUDPlayerStatusWidget() {
     this->Widget_PrimaryWeaponAmmo = NULL;
     this->Widget_SecondaryWeaponAmmo = NULL;
     this->Widget_OverkillWeaponAmmo = NULL;
-    this->Image_PlayerIcon = NULL;
+    this->Widget_CustodyTimerWidget = NULL;
     this->Text_PlayerName = NULL;
     this->Widget_PlayerDefeatState = NULL;
     this->Widget_DefeatTimer = NULL;
@@ -24,6 +24,7 @@ UPD3HUDPlayerStatusWidget::UPD3HUDPlayerStatusWidget() {
     this->Widget_KeyItemContainer = NULL;
     this->Widget_CharacterEffectsContainer = NULL;
 }
+
 
 
 

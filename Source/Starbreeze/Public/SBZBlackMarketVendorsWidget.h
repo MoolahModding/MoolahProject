@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ESBZMetaRequestResult.h"
 #include "SBZActionControlReference.h"
 #include "SBZBlackMarketUIVendorData.h"
@@ -143,7 +142,7 @@ private:
     void OnBuyRealMoneyItemCompleted(ESBZMetaRequestResult Result);
     
     UFUNCTION(BlueprintCallable)
-    void OnBuyItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
+    void OnBuyItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku);
     
     UFUNCTION(BlueprintCallable)
     void NativeOnVendorButtonSelected(USBZMenuButton* InButton);

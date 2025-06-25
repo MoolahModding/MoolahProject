@@ -50,4 +50,8 @@ bool USBZTrafficFunctionLibrary::AppendEscapeVanRoute(UObject* WorldContextObjec
     return false;
 }
 
+bool USBZTrafficFunctionLibrary::AppendCustomVehicleRoute(UObject* WorldContextObject, ASBZWheeledVehicle* Vehicle, ASBZTrafficSpline* DestinationSpline) {
+    return false;
+}
+
 

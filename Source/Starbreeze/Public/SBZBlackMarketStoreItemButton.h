@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ESBZCurrencyCode.h"
 #include "SBZMenuButton.h"
 #include "SBZStoreItemUIData.h"
@@ -31,7 +30,7 @@ public:
     void InitializeStoreData(const FSBZStoreItemUIData& InStoreItemUIData);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    FGuid GetItemID() const;
+    FString GetItemSku() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZInventoryBaseData* GetItemData() const;

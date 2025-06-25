@@ -13,7 +13,7 @@ bool USBZMainMenuLoadoutArmorSlotButton::IsEmpty() const {
 void USBZMainMenuLoadoutArmorSlotButton::InitializeArmorSlot(int32 InArmorSlotIndex) {
 }
 
-void USBZMainMenuLoadoutArmorSlotButton::GetEntitlementAndArmorID(FGuid& EntitlementID, FGuid& ItemID) const {
+void USBZMainMenuLoadoutArmorSlotButton::GetEntitlementAndArmorSku(FGuid& EntitlementID, FString& Sku) const {
 }
 
 int32 USBZMainMenuLoadoutArmorSlotButton::GetArmorSlotIndex() const {

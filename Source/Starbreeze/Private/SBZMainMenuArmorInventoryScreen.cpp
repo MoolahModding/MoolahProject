@@ -29,7 +29,7 @@ void USBZMainMenuArmorInventoryScreen::OnShowBuySlotPopUpClosed(FName InActionNa
 void USBZMainMenuArmorInventoryScreen::OnDiscardArmorPopUpClosed(FName ClosingActionName) {
 }
 
-void USBZMainMenuArmorInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZMainMenuArmorInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku) {
 }
 
 void USBZMainMenuArmorInventoryScreen::NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton) {

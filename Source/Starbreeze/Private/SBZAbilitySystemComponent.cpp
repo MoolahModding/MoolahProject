@@ -3,7 +3,7 @@
 #include "SBZLandingEffect.h"
 
 USBZAbilitySystemComponent::USBZAbilitySystemComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
-    this->Character = NULL;
+    this->Pawn = NULL;
     this->LandingGameplayEffectClass = USBZLandingEffect::StaticClass();
 }
 
@@ -56,6 +56,9 @@ void USBZAbilitySystemComponent::Multicast_EnterVolumeDamage_Implementation(uint
 }
 
 void USBZAbilitySystemComponent::Multicast_DebugApplyGameplayEffectSpecToSelf_Implementation(FGameplayEffectSpec EffectSpec, float Duration, const FString& NameMagnitudeString) {
+}
+
+void USBZAbilitySystemComponent::Multicast_ApplyHurtReaction_Implementation(const FSBZHurtReactionPrediction& HurtReactionPrediction) {
 }
 
 void USBZAbilitySystemComponent::Multicast_ApplyGameplayEffectSpecToSelf_Implementation(const FGameplayEffectSpec& EffectSpec) {

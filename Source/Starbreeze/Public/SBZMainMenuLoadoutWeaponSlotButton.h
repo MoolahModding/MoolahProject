@@ -59,7 +59,7 @@ public:
     ESBZEquippableLoadoutSlot GetEquippableSlot() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    void GetEntitlementAndWeaponID(FGuid& EntitlementID, FGuid& ItemID) const;
+    void GetEntitlementAndWeaponSku(FGuid& EntitlementID, FString& Item) const;
     
 };
 

@@ -99,7 +99,7 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ReplicateExplosion(const FSBZExplosionResult& Result);
     
-public:
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_OverloadMicroCamera();
     

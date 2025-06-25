@@ -1,8 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "GameplayAbilitySpec.h"
+#include "AttributeSet.h"
 #include "GameplayTagContainer.h"
 #include "ESBZPlayerAbilityBuffType.h"
 #include "SBZAbilitySystemComponent.h"
+#include "SBZAttributeGUIEffectData.h"
 #include "SBZHET5BlackOverskillTargetData.h"
 #include "SBZPlayerAbilitySystemComponent.generated.h"
 
@@ -118,6 +121,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorDamageReductionDegradationTickInterval;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<FGameplayAttribute, FSBZAttributeGUIEffectData> AttributeGUIEffectDataMap;
+    
 public:
     USBZPlayerAbilitySystemComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -182,11 +188,9 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSpeedBuffTime(float Time);
     
-public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetRepairArmorInteractionImmuneTime(float ImmuneTime);
     
-private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMitigationBuffTime(float Time);
     

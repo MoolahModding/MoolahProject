@@ -22,7 +22,7 @@ void USBZMainMenuItemInventoryScreen::OnShowBuySlotPopUpClosed(FName InActionNam
 void USBZMainMenuItemInventoryScreen::OnGameInstallStateChanged(bool bIsInstallPending) {
 }
 
-void USBZMainMenuItemInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZMainMenuItemInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& Itemsku) {
 }
 
 void USBZMainMenuItemInventoryScreen::NativeOnItemSlotButtonSelected(USBZMenuButton* SelectedButton) {

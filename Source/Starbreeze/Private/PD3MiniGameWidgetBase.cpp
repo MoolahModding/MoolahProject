@@ -16,6 +16,10 @@ void UPD3MiniGameWidgetBase::SetMiniGameState(EPD3MiniGameState NewState) {
 
 
 
+bool UPD3MiniGameWidgetBase::IsLockpickInstant() const {
+    return false;
+}
+
 bool UPD3MiniGameWidgetBase::HasTag(const FGameplayTag& Tag) const {
     return false;
 }

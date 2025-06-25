@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
-#include "Engine/EngineBaseTypes.h"
 #include "InputCoreTypes.h"
 #include "EPD3DispatchCaller.h"
 #include "EPD3DispatchCallerReason.h"
@@ -77,6 +76,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void TasePlayer(int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SyncServerResultData();
     
     UFUNCTION(BlueprintCallable, Exec)
     void SurrenderTarget(int32 PlayerIndex);
@@ -256,7 +258,7 @@ public:
     void SetEquippedTarget(bool bIsEquipped, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void SetEquippableWeaponPreset(const FString& WeaponPresetGuid, int32 EquippableIndex, int32 PlayerIndex);
+    void SetEquippableWeaponPreset(const FString& WeaponPresetSku, int32 EquippableIndex, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetEquippablePreset(const FName& EquippableDataName, int32 EquippableIndex, int32 PlayerIndex);
@@ -341,9 +343,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation, int32 PlayersInEscapeVolume);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked);
     
     UFUNCTION(BlueprintCallable, Exec)
     void ReplenishPlayerArmor(int32 PlayerIndex);
@@ -438,30 +437,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void InteractAITarget(ESBZInteractionAction Action, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputVectorAxisTarget(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputVectorAxisPlayer(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputKeyTarget(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputKeyPlayer(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputAxisTarget(const FName& AxisName, float InputValue, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputAxisPlayer(const FName& AxisName, float InputValue, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputActionTarget(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, bool bIsReleaseCancelingAbility, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void GrabInstantLoot();

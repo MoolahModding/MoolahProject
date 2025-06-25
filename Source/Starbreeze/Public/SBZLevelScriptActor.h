@@ -130,7 +130,7 @@ protected:
     void HandleIntroSequenceChanged(bool bIsStarted);
     
     UFUNCTION(BlueprintCallable)
-    void HandleBlackScreenStarted(const bool bIsRestar);
+    void HandleBlackScreenStarted();
     
     UFUNCTION(BlueprintCallable)
     void HandleActionPhaseStarted();

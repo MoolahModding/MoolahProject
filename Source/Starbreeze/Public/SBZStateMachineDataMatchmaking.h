@@ -33,9 +33,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZOnlineJoinType JoinType;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsRestart;
-    
     USBZStateMachineDataMatchmaking();
 
 };

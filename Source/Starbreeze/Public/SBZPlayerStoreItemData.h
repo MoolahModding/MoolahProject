@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "SBZArmorStoreItem.h"
 #include "SBZCoinStoreItem.h"
 #include "SBZGloveStoreItem.h"
@@ -39,118 +38,118 @@ struct FSBZPlayerStoreItemData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponStoreItem> PrimaryWeaponMap;
+    TMap<FString, FSBZWeaponStoreItem> PrimaryWeaponMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponStoreItem> SecondaryWeaponMap;
+    TMap<FString, FSBZWeaponStoreItem> SecondaryWeaponMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZGloveStoreItem> GloveMap;
+    TMap<FString, FSBZGloveStoreItem> GloveMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZSuitPresetStoreItem> SuitPresetMap;
+    TMap<FString, FSBZSuitPresetStoreItem> SuitPresetMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZSuitBaseStoreItem> SuitBaseMap;
+    TMap<FString, FSBZSuitBaseStoreItem> SuitBaseMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWatchStoreItem> WatchMap;
+    TMap<FString, FSBZWatchStoreItem> WatchMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZPreplanningAssetStoreItem> PreplanningAssetMap;
+    TMap<FString, FSBZPreplanningAssetStoreItem> PreplanningAssetMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZInventorySlotStoreItem> PrimaryInventorySlotMap;
+    TMap<FString, FSBZInventorySlotStoreItem> PrimaryInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZInventorySlotStoreItem> SecondaryInventorySlotMap;
+    TMap<FString, FSBZInventorySlotStoreItem> SecondaryInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZInventorySlotStoreItem> ArmorInventorySlotMap;
+    TMap<FString, FSBZInventorySlotStoreItem> ArmorInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZInventorySlotStoreItem> MaskInventorySlotMap;
+    TMap<FString, FSBZInventorySlotStoreItem> MaskInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZInventorySlotStoreItem> SuitInventorySlotMap;
+    TMap<FString, FSBZInventorySlotStoreItem> SuitInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZInventorySlotStoreItem> GloveInventorySlotMap;
+    TMap<FString, FSBZInventorySlotStoreItem> GloveInventorySlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponPresetStoreItem> PrimaryWeaponPresetMap;
+    TMap<FString, FSBZWeaponPresetStoreItem> PrimaryWeaponPresetMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponPresetStoreItem> SecondaryWeaponPresetMap;
+    TMap<FString, FSBZWeaponPresetStoreItem> SecondaryWeaponPresetMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZLoadoutSlotStoreItem> LoadoutSlotMap;
+    TMap<FString, FSBZLoadoutSlotStoreItem> LoadoutSlotMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZSprayCanStoreItem> SprayCanMap;
+    TMap<FString, FSBZSprayCanStoreItem> SprayCanMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponCharmStoreItem> WeaponCharmMap;
+    TMap<FString, FSBZWeaponCharmStoreItem> WeaponCharmMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponPatternStoreItem> WeaponPatternMap;
+    TMap<FString, FSBZWeaponPatternStoreItem> WeaponPatternMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZWeaponStickerStoreItem> WeaponStickerMap;
+    TMap<FString, FSBZWeaponStickerStoreItem> WeaponStickerMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZMaskMouldStoreItem> MaskMouldMap;
+    TMap<FString, FSBZMaskMouldStoreItem> MaskMouldMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZMaskPresetStoreItem> MaskPresetMap;
+    TMap<FString, FSBZMaskPresetStoreItem> MaskPresetMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZMaskPreconfigStoreItem> MaskPreconfigMap;
+    TMap<FString, FSBZMaskPreconfigStoreItem> MaskPreconfigMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZMaskPatternStoreItem> MaskPatternMap;
+    TMap<FString, FSBZMaskPatternStoreItem> MaskPatternMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZMaskVFXStoreItem> MaskVFXMap;
+    TMap<FString, FSBZMaskVFXStoreItem> MaskVFXMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZSuitMaterialStoreItem> SuitMaterialMap;
+    TMap<FString, FSBZSuitMaterialStoreItem> SuitMaterialMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZSuitPatternStoreItem> SuitPatternMap;
+    TMap<FString, FSBZSuitPatternStoreItem> SuitPatternMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZCoinStoreItem> CoinMap;
+    TMap<FString, FSBZCoinStoreItem> CoinMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZItemBundleStoreItem> ItemBundleMap;
+    TMap<FString, FSBZItemBundleStoreItem> ItemBundleMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZHeistStoreItem> HeistMap;
+    TMap<FString, FSBZHeistStoreItem> HeistMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZVendorPermissionStoreItem> VendorPermissionMap;
+    TMap<FString, FSBZVendorPermissionStoreItem> VendorPermissionMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZPlayerCharacterStoreItem> PlayerCharacterMap;
+    TMap<FString, FSBZPlayerCharacterStoreItem> PlayerCharacterMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZOverkillWeaponStoreItem> OverkillWeaponMap;
+    TMap<FString, FSBZOverkillWeaponStoreItem> OverkillWeaponMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZOverskillLoadoutStoreItem> OverskillLoadoutMap;
+    TMap<FString, FSBZOverskillLoadoutStoreItem> OverskillLoadoutMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZPlaceableStoreItem> PlaceableMap;
+    TMap<FString, FSBZPlaceableStoreItem> PlaceableMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZToolStoreItem> ToolMap;
+    TMap<FString, FSBZToolStoreItem> ToolMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZArmorStoreItem> ArmorMap;
+    TMap<FString, FSBZArmorStoreItem> ArmorMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TMap<FGuid, FSBZThrowableStoreItem> ThrowableMap;
+    TMap<FString, FSBZThrowableStoreItem> ThrowableMap;
     
     STARBREEZE_API FSBZPlayerStoreItemData();
 };

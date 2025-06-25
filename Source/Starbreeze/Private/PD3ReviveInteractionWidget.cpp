@@ -6,7 +6,9 @@ UPD3ReviveInteractionWidget::UPD3ReviveInteractionWidget() {
     this->Progress = 0.00f;
 }
 
-void UPD3ReviveInteractionWidget::OnReviveInteractionEnded(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled) {
+
+void UPD3ReviveInteractionWidget::OnReviveInteractionEndedInternal(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled) {
 }
+
 
 

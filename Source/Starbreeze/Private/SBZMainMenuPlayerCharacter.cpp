@@ -15,8 +15,8 @@ ASBZMainMenuPlayerCharacter::ASBZMainMenuPlayerCharacter(const FObjectInitialize
     this->PreferredEquippableIndex = 0;
     this->NameplateWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("NameplateWidget"));
     this->RandomSeed = -1;
-    this->Mesh->SetupAttachment(RootComponent);
     this->NameplateWidgetComponent->SetupAttachment(Mesh);
+    this->Mesh->SetupAttachment(RootComponent);
 }
 
 void ASBZMainMenuPlayerCharacter::OnChunkInstall(bool bIsGameInstallPending) {

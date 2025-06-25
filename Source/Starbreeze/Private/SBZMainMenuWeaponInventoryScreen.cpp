@@ -42,7 +42,7 @@ void USBZMainMenuWeaponInventoryScreen::OnDiscardWeaponPopUpClosed(FName Closing
 }
 
 
-void USBZMainMenuWeaponInventoryScreen::OnBuyWeaponSlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZMainMenuWeaponInventoryScreen::OnBuyWeaponSlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku) {
 }
 
 

@@ -14,7 +14,7 @@
 
 ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RandomSeed = -1;
-    this->ServerChangelist = 829894;
+    this->ServerChangelist = 840290;
     this->Difficulty = ESBZDifficulty::Default;
     this->PickupDifficultyModifierArray[0] = 1.00f;
     this->PickupDifficultyModifierArray[1] = 1.00f;
@@ -111,7 +111,7 @@ void ASBZMissionState::OnRep_BlockedBagMarkers() {
 void ASBZMissionState::OnInstantLootTaken(const FString& LootName) {
 }
 
-void ASBZMissionState::OnBlackScreenStarted(const bool bIsRestart) {
+void ASBZMissionState::OnBlackScreenStarted() {
 }
 
 void ASBZMissionState::OnAmmoSpecialistHighGrainSkillTimeChanged(float OldTime) {
@@ -157,6 +157,9 @@ void ASBZMissionState::Multicast_MissionResult_Implementation(const FSBZEndMissi
 }
 
 void ASBZMissionState::Multicast_MissionEnd_Implementation(const int32 OutroVariation) {
+}
+
+void ASBZMissionState::Multicast_DebugSyncServerResultData_Implementation(const FSBZEndMissionResultData& Data) {
 }
 
 bool ASBZMissionState::IsTutorialLevel() const {

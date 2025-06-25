@@ -2,11 +2,14 @@
 #include "CoreMinimal.h"
 #include "GameFramework/CheatManager.h"
 #include "Engine/EngineTypes.h"
+#include "Engine/EngineBaseTypes.h"
+#include "InputCoreTypes.h"
 #include "ESBZCurrencyCode.h"
 #include "ESBZDebugNetEmulationTarget.h"
 #include "ESBZDebugNetEmulationType.h"
 #include "ESBZFirstPartyPlatform.h"
 #include "ESBZGameMachineStateError.h"
+#include "ESBZUIDebugState.h"
 #include "SBZDebugSelection.h"
 #include "SBZCheatManagerBase.generated.h"
 
@@ -74,6 +77,9 @@ public:
     void ShowSidebarNotification(const FString& TableName, const FString& Key, const FString& Header, float DisplayTime);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetUIDebugState(ESBZUIDebugState State, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetPreMatchInfamyExperience(int32 Experience, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -92,7 +98,7 @@ public:
     void SetInputTypeOverride(int32 Override);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void SetInfamyLevelExperience(int32 Level, int32 Experience);
+    void SetInfamyLevelPoints(int32 Level, int32 Points);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetInfamyLevel(int32 Amount, int32 PlayerIndex);
@@ -176,6 +182,9 @@ public:
     void RequestGameError(ESBZGameMachineStateError State, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void RemoveCurrency(ESBZCurrencyCode Type, int32 Amount, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -218,6 +227,9 @@ public:
     void PrintError(const FString& Text, bool bIsDecodingNeeded) const;
     
     UFUNCTION(BlueprintCallable, Exec)
+    void PrintEffectsGrantingAbility();
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void PrintAbilitySystemBothCurrent();
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -233,6 +245,30 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void LoadProgressionSaveChallenges();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputVectorAxisTarget(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputVectorAxisPlayer(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputKeyTarget(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputKeyPlayer(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputAxisTarget(const FName& AxisName, float InputValue, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputAxisPlayer(const FName& AxisName, float InputValue, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputActionTarget(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, bool bIsReleaseCancelingAbility, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void FetchAllVendorItems(int32 MaxCount);

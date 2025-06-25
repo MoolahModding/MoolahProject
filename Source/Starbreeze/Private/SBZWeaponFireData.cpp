@@ -17,6 +17,7 @@ USBZWeaponFireData::USBZWeaponFireData() {
     this->AdditionalPlayerRange = 0.00f;
     this->OverHealDamageMultiplier = 1.00f;
     this->HealthDamageMultiplier = 1.00f;
+    this->ArmorDamageMultiplier = 1.00f;
     this->ArmorPenetration = 0.00f;
     this->ImpactType = ESBZProjectileImpactType::Light;
     this->FireBuildupIncrease = 0.00f;

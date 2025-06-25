@@ -31,7 +31,7 @@ void USBZMainMenuGloveInventoryScreen::OnGameInstallStateChanged(bool bIsInstall
 void USBZMainMenuGloveInventoryScreen::OnDiscardGlovePopUpClosed(FName ClosingActionName) {
 }
 
-void USBZMainMenuGloveInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZMainMenuGloveInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku) {
 }
 
 void USBZMainMenuGloveInventoryScreen::NativeOnGloveSlotButtonSelected(USBZMenuButton* InSelectedButton) {

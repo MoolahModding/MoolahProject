@@ -20,6 +20,7 @@ USBZMainMenuWidget::USBZMainMenuWidget() {
     this->Widget_FullscreenVideo = NULL;
     this->CosmeticItemButtonClass = NULL;
     this->CrossplayPopupWidgetClass = NULL;
+    this->OnboardingPopupWidgetClass = NULL;
     this->TutorialPopupWidgetClass = NULL;
     this->PopUpBody = NULL;
     this->LoadoutChangePopupWidgetClass = NULL;
@@ -33,6 +34,9 @@ void USBZMainMenuWidget::ShowTutorialPopup() {
 }
 
 void USBZMainMenuWidget::ShowTelemetryPopup() {
+}
+
+void USBZMainMenuWidget::ShowOnboardingPopup() {
 }
 
 
@@ -53,6 +57,9 @@ void USBZMainMenuWidget::OnTutorialPopUpClosed(FName ClosingActionName) {
 }
 
 void USBZMainMenuWidget::OnTelemetryPopUpClosed(FName ClosingActionName) {
+}
+
+void USBZMainMenuWidget::OnOnboardingPopUpInput(FName ActionInputName) {
 }
 
 void USBZMainMenuWidget::OnMainMenuInitializeComplete() {

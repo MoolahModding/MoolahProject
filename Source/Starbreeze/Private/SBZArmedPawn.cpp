@@ -15,6 +15,7 @@ ASBZArmedPawn::ASBZArmedPawn(const FObjectInitializer& ObjectInitializer) : Supe
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->bIsDeathAllowed = true;
     this->DamageStatusMarkerAsset = NULL;
+    this->LastArmorConductorPlayerState = NULL;
 }
 
 void ASBZArmedPawn::Multicast_PredictedRagdollDenied_Implementation(int32 HurtReactionIndex) {

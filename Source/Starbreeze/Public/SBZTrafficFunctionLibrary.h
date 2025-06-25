@@ -61,5 +61,8 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool AppendEscapeVanRoute(UObject* WorldContextObject, ASBZTrafficSpline* DestinationSpline);
     
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool AppendCustomVehicleRoute(UObject* WorldContextObject, ASBZWheeledVehicle* Vehicle, ASBZTrafficSpline* DestinationSpline);
+    
 };
 

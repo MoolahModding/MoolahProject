@@ -9,7 +9,7 @@ struct FSBZQueuedAbilityData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZGameplayAbility* AbilityCDO;
+    USBZGameplayAbility* CDO;
     
     STARBREEZE_API FSBZQueuedAbilityData();
 };

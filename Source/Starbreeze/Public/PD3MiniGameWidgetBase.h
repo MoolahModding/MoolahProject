@@ -58,6 +58,9 @@ public:
     void MiniGameStateChanged(EPD3MiniGameState NewState);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsLockpickInstant() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasTag(const FGameplayTag& Tag) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

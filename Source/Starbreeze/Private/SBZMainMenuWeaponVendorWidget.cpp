@@ -18,7 +18,7 @@ void USBZMainMenuWeaponVendorWidget::TryBuyWeapon(const FSBZWeaponStoreItem& Wea
 void USBZMainMenuWeaponVendorWidget::NativeOnBuyWeaponPresetDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId) {
 }
 
-void USBZMainMenuWeaponVendorWidget::NativeOnBuyWeaponDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId) {
+void USBZMainMenuWeaponVendorWidget::NativeOnBuyWeaponDone(ESBZMetaRequestResult BuyWeaponResult, const FString& ItemId) {
 }
 
 

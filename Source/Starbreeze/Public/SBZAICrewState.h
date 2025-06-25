@@ -18,7 +18,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Character, meta=(AllowPrivateAccess=true))
     ASBZAICrewCharacter* Character;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_CharacterClass, meta=(AllowPrivateAccess=true))
     TSubclassOf<ASBZAICrewCharacter> CharacterClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_DefeatState, meta=(AllowPrivateAccess=true))
@@ -49,6 +49,9 @@ private:
     void OnRep_DefeatState(EPD3DefeatState InOldDefeatState);
     
     UFUNCTION(BlueprintCallable)
+    void OnRep_CharacterClass();
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_Character(ASBZAICrewCharacter* OldCharacter);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -58,6 +61,15 @@ private:
     void Multicast_SetDefeatState(EPD3DefeatState InState);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsMaskOn() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UPaperSprite* GetMaskedCharacterIcon() const;
+    
+    UFUNCTION(BlueprintCallable)
+    FLinearColor GetCrewAIColor();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetCharacterName();
     

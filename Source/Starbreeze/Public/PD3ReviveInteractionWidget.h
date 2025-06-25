@@ -17,9 +17,16 @@ protected:
 public:
     UPD3ReviveInteractionWidget();
 
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnReviveInteractionStarted();
+    
 private:
     UFUNCTION(BlueprintCallable)
-    void OnReviveInteractionEnded(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
+    void OnReviveInteractionEndedInternal(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* InInteractor, bool bInIsLocallyControlled);
+    
+public:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnReviveInteractionEnded();
     
 };
 

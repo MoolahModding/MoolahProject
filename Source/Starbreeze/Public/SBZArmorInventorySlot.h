@@ -13,7 +13,7 @@ public:
     FGuid ArmorInSlotEntitlementId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid ArmorInSlotAccelByteItemId;
+    FString ArmorInSlotAccelByteItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZArmorConfig ArmorConfig;

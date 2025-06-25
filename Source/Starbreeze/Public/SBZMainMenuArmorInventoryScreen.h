@@ -96,7 +96,7 @@ private:
     void OnDiscardArmorPopUpClosed(FName ClosingActionName);
     
     UFUNCTION(BlueprintCallable)
-    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
+    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku);
     
     UFUNCTION(BlueprintCallable)
     void NativeOnBuySlotsButtonSelected(USBZMenuButton* InSelectedButton);

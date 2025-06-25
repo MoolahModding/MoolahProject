@@ -11,8 +11,8 @@ bool USBZBlackMarketStoreItemButton::IsTransactionInProgress() const {
 void USBZBlackMarketStoreItemButton::InitializeStoreData(const FSBZStoreItemUIData& InStoreItemUIData) {
 }
 
-FGuid USBZBlackMarketStoreItemButton::GetItemID() const {
-    return FGuid{};
+FString USBZBlackMarketStoreItemButton::GetItemSku() const {
+    return TEXT("");
 }
 
 USBZInventoryBaseData* USBZBlackMarketStoreItemButton::GetItemData() const {

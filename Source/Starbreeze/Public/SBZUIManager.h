@@ -70,6 +70,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZFullScreenNotification> FullscreenNotificationWidgetClass;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 NewPlayerLevelGatingCap;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZFullScreenNotification* FullscreenNotificationWidget;
     
@@ -246,10 +249,10 @@ public:
     void ShowSidebarNotification(FSBZSideBarNotificationData InSideBarNotificationData);
     
     UFUNCTION(BlueprintCallable)
-    void ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents);
+    void ShowPopUpWithCallback(FSBZUIPopupData InPopupData, FSBZOnPopUpWidgetClosed InPopUpActionInputDelegate, int32 InAutomaticClosingCountdownTime, FName InAutomaticClosingActionName, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents, bool bInputsClosePopup);
     
     UFUNCTION(BlueprintCallable)
-    void ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents);
+    void ShowPopUp(FSBZUIPopupData InPopupData, bool bReturnFocusWhenClosed, bool bDeferUIStackEvents, bool bInputsClosePopup);
     
     UFUNCTION(BlueprintCallable)
     void ShowMetaNotification(FSBZMetaNotification InMetaNotification);
@@ -410,6 +413,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void DisplayHUDNotification(const FSBZHUDNotificationData& HUDNotification);
+    
+    UFUNCTION(BlueprintCallable)
+    void ClosePopupWidget();
     
     UFUNCTION(BlueprintCallable)
     void ClearPopupStack();

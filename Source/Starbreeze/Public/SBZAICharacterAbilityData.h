@@ -11,6 +11,9 @@ public:
     float ArmorHardness;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float HealthDifficultyScaleArray[4];
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float ArmorDifficultyScaleArray[4];
     
     USBZAICharacterAbilityData();

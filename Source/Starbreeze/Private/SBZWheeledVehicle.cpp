@@ -27,8 +27,8 @@ ASBZWheeledVehicle::ASBZWheeledVehicle(const FObjectInitializer& ObjectInitializ
     this->MaxEjectCharacterVelocity = 800.00f;
     this->ObstacleCheckInterval = 0.04f;
     this->Seed = -1;
-    this->AudioComponent->SetupAttachment(RootComponent);
     this->RadioComponent->SetupAttachment(RootComponent);
+    this->AudioComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZWheeledVehicle::SetLightType(ESBZVehicleLightType LightType, bool bIsOn) {

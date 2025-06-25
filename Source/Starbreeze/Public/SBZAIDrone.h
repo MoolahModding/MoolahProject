@@ -34,6 +34,7 @@
 
 class AActor;
 class ASBZEquippable;
+class ASBZPlayerState;
 class ASBZRangedWeapon;
 class ASBZRoomVolume;
 class UAIPerceptionStimuliSourceComponent;
@@ -226,6 +227,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZDamageStatusMarkerDataAsset* DamageStatusMarkerAsset;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* LastArmorConductorPlayerState;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldTelegraphAttack;
@@ -301,14 +305,13 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_TelegraphAttack(bool bInIsTelegraphingAttack);
     
-public:
+protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopHackingSentry();
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartHackingSentry();
     
-protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetRuntimed(ESBZRuntimeState InRuntimeState);
     

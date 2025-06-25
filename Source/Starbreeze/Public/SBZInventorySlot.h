@@ -15,7 +15,7 @@ public:
     FGuid ConfigSlotEntitlementId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid ConfigSlotItemId;
+    FString ConfigSlotItemSku;
     
     STARBREEZE_API FSBZInventorySlot();
 };

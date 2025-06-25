@@ -55,6 +55,7 @@ class ASBZCosmeticProp;
 class ASBZEquippable;
 class ASBZGrenadeProjectile;
 class ASBZMask;
+class ASBZPlayerState;
 class ASBZRoomVolume;
 class ASBZThrowable;
 class ASBZZipline;
@@ -514,10 +515,16 @@ protected:
     UPaperSprite* DisplayIcon;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPaperSprite* MaskedOnDisplayIcon;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer HitImmunityGrantingTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UGameplayEffect> MarkedGameplayEffectClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZPlayerState* LastArmorConductorPlayerState;
     
 private:
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -691,9 +698,6 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_StopOverrideMaxWalkSpeed();
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StopMontage(UAnimMontage* Montage, bool bAllowExitSectionSwitch);
     
 protected:
@@ -707,10 +711,10 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetThrowBagAnimationActive(bool bActive);
     
+protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetStance(ESBZCharacterStance NewStance);
     
-protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetReloadState(const FSBZReplicatedReloadState& InReplicatedReloadState);
     
@@ -736,7 +740,6 @@ protected:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetCurrentPlaceableIndex(int32 NewPlaceableIndex);
     
-public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetActiveGadget(int32 NewIndex);
     
@@ -756,9 +759,6 @@ public:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_PlayMontage(UAnimMontage* Montage, bool bPlayOnDedicatedServer, bool bStopAllActiveMontages);
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_OverrideMaxWalkSpeed(float MaxWalkSpeed);
     
 protected:
     UFUNCTION(NetMulticast, Reliable)

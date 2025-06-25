@@ -31,7 +31,7 @@ void USBZMainMenuWeaponInventoryWidget::TryBuyItemSlots() {
 void USBZMainMenuWeaponInventoryWidget::NativeOnWeaponSlotButtonSelected(USBZMenuButton* SelectedButton) {
 }
 
-void USBZMainMenuWeaponInventoryWidget::NativeOnBuyWeaponConfigSlotDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId) {
+void USBZMainMenuWeaponInventoryWidget::NativeOnBuyWeaponConfigSlotDone(ESBZMetaRequestResult BuyWeaponResult, const FString& ItemSku) {
 }
 
 int32 USBZMainMenuWeaponInventoryWidget::GetSlotPrice() const {

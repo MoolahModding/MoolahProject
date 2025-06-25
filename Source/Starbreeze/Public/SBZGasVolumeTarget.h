@@ -2,14 +2,14 @@
 #include "CoreMinimal.h"
 #include "SBZGasVolumeTarget.generated.h"
 
-class ASBZCharacter;
+class APawn;
 
 USTRUCT(BlueprintType)
 struct FSBZGasVolumeTarget {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZCharacter* Character;
+    APawn* Pawn;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float PendingTimeSeconds;

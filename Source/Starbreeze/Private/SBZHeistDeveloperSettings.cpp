@@ -1,7 +1,7 @@
 #include "SBZHeistDeveloperSettings.h"
 
 USBZHeistDeveloperSettings::USBZHeistDeveloperSettings() {
-    this->HeistLevelPairArray.AddDefaulted(21);
+    this->HeistLevelPairArray.AddDefaulted(24);
 }
 
 UPD3HeistDataAsset* USBZHeistDeveloperSettings::GetHeistDataFromLevelShortName(const FString& ShortName) {

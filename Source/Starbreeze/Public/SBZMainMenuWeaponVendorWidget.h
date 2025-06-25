@@ -27,10 +27,10 @@ protected:
     void TryBuyWeapon(const FSBZWeaponStoreItem& WeaponStoreItem);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnWeaponStoreItemsUpdated(const TMap<FGuid, FSBZWeaponStoreItem>& InWeaponStoreMap);
+    void OnWeaponStoreItemsUpdated(const TMap<FString, FSBZWeaponStoreItem>& InWeaponStoreMap);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnWeaponPresetStoreItemsUpdated(const TMap<FGuid, FSBZWeaponPresetStoreItem>& InWeaponPresetStoreMap);
+    void OnWeaponPresetStoreItemsUpdated(const TMap<FString, FSBZWeaponPresetStoreItem>& InWeaponPresetStoreMap);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnBuyWeaponPresetDone(bool bWasSuccess);
@@ -42,7 +42,7 @@ protected:
     void NativeOnBuyWeaponPresetDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
     
     UFUNCTION(BlueprintCallable)
-    void NativeOnBuyWeaponDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
+    void NativeOnBuyWeaponDone(ESBZMetaRequestResult BuyWeaponResult, const FString& ItemId);
     
 };
 

@@ -14,6 +14,9 @@ public:
     bool bIsOwned;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsQuickplaySelectableLevel;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FString FirstPlatformPurchaseUrl;
     
     STARBREEZE_API FSBZHeistLevelWithOwnership();

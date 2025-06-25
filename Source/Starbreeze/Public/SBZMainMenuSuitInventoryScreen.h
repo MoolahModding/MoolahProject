@@ -99,7 +99,7 @@ private:
     void OnDiscardSuitPopUpClosed(FName ClosingActionName);
     
     UFUNCTION(BlueprintCallable)
-    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
+    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku);
     
     UFUNCTION(BlueprintCallable)
     void NativeSuitSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused);

@@ -44,8 +44,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UCapsuleComponent* EscortCapsule;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float SpeedPerPlayer;
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float SpeedPerPlayerArray[5];
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 PlayersOverlapping;

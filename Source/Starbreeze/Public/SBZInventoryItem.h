@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ESBZItemType.h"
 #include "SBZInventoryItem.generated.h"
 
@@ -15,7 +14,7 @@ public:
     ESBZItemType ItemType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid ItemId;
+    FString ItemSku;
     
     STARBREEZE_API FSBZInventoryItem();
 };

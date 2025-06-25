@@ -88,7 +88,7 @@ private:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void NativeOnBuyWeaponConfigSlotDone(ESBZMetaRequestResult BuyWeaponResult, FGuid ItemId);
+    void NativeOnBuyWeaponConfigSlotDone(ESBZMetaRequestResult BuyWeaponResult, const FString& ItemSku);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

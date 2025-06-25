@@ -31,10 +31,18 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     UNiagaraComponent* DetonationEffect;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsArmorConductor, meta=(AllowPrivateAccess=true))
+    bool bIsArmorConductor;
+    
 public:
     ASBZGrenade(const FObjectInitializer& ObjectInitializer);
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 protected:
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IsArmorConductor();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnExplosion();
     

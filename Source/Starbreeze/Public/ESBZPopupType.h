@@ -26,5 +26,6 @@ enum class ESBZPopupType : uint8 {
     LoadoutMenu,
     SoloMode,
     SeverBrowserLongIntro,
+    Onboarding,
 };
 

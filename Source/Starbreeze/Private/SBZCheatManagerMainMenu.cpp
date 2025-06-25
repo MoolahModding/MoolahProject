@@ -129,7 +129,7 @@ void USBZCheatManagerMainMenu::EmptyPrimaryWeaponLoadout(uint32 LoadoutIndex) {
 void USBZCheatManagerMainMenu::DumpWeaponWeaponPartProgressionArray(const FString& ItemIdSku, const FString& EntitlementId) {
 }
 
-void USBZCheatManagerMainMenu::DumpWeaponSlotToWeaponPartMap(const FString& ItemId) {
+void USBZCheatManagerMainMenu::DumpWeaponSlotToWeaponPartMap(const FString& ItemSKu) {
 }
 
 void USBZCheatManagerMainMenu::DumpWeaponSlotEntitlementSkuDlcMap() const {
@@ -222,7 +222,7 @@ void USBZCheatManagerMainMenu::DumpBaseWeaponProgressionLevel(const FString& Ite
 void USBZCheatManagerMainMenu::DumpBaseWeaponProgressionInfo(const FString& ItemId) {
 }
 
-void USBZCheatManagerMainMenu::DumpAvavilableWeaponParts(const FString& ItemId) {
+void USBZCheatManagerMainMenu::DumpAvavilableWeaponParts(const FString& ItemSku) {
 }
 
 void USBZCheatManagerMainMenu::DumpAttachedWeaponPartsForAllInventorySlots() {

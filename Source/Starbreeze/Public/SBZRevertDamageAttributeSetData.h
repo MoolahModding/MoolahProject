@@ -2,14 +2,14 @@
 #include "CoreMinimal.h"
 #include "SBZRevertDamageAttributeSetData.generated.h"
 
-class ASBZCharacter;
+class APawn;
 
 USTRUCT(BlueprintType)
 struct FSBZRevertDamageAttributeSetData {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZCharacter* Character;
+    APawn* Pawn;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<uint8> ByteArray;

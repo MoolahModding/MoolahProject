@@ -32,7 +32,7 @@ void USBZMainMenuSuitInventoryScreen::OnGameInstallStateChanged(bool bIsInstallP
 void USBZMainMenuSuitInventoryScreen::OnDiscardSuitPopUpClosed(FName ClosingActionName) {
 }
 
-void USBZMainMenuSuitInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZMainMenuSuitInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku) {
 }
 
 void USBZMainMenuSuitInventoryScreen::NativeSuitSlotButtonFocusedChanged(USBZMenuButton* InFocusedButton, bool bIsFocused) {

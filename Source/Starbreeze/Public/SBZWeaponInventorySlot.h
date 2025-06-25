@@ -15,9 +15,6 @@ public:
     FGuid WeaponInSlotEntitlementId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid WeaponInSlotAccelByteItemId;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString WeaponInSlotAccelByteItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

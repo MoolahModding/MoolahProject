@@ -23,6 +23,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData IncomingArmorPenetration;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData ArmorDamageMultiplier;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Health, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData Health;
     
@@ -44,14 +47,14 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData ArmorHurtReactionWeightReduction;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    FGameplayAttributeData OutgoingDamageMultiplier;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OverHeal, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData OverHeal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData OverHealMax;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OutgoingDamageMultiplier, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData OutgoingDamageMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IncomingDamageMultiplier, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData IncomingDamageMultiplier;
@@ -88,6 +91,9 @@ protected:
     void OnRep_OverHeal(const FGameplayAttributeData& OldValue);
     
     UFUNCTION(BlueprintCallable)
+    void OnRep_OutgoingDamageMultiplier(const FGameplayAttributeData& OldValue);
+    
+    UFUNCTION(BlueprintCallable)
     void OnRep_IncomingDamageMultiplier(const FGameplayAttributeData& OldValue);
     
     UFUNCTION(BlueprintCallable)
@@ -101,6 +107,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetOverHeal(float NewCurrentValue);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetOutgoingDamageMultiplier(float NewCurrentValue);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetIncomingDamageMultiplier(float NewCurrentValue);

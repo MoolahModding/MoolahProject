@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "SBZInfamyLevelData.h"
 #include "SBZOnInfamyXPChangedDelegateDelegate.h"
 #include "SBZOnRenownLevelChangedDelegateDelegate.h"
 #include "SBZPlayerStatisticsManager.h"
@@ -18,6 +19,11 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnRenownLevelChangedDelegate OnRenownLevelChangedDelegate;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZInfamyLevelData> LevelDataArray;
+    
+public:
     USBZInfamyManager();
 
 private:

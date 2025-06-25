@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "ESBZStoreItemUIIdSource.h"
 #include "SBZStoreBaseItem.h"
 #include "SBZStoreItemUIData.generated.h"
@@ -15,7 +14,7 @@ public:
     ESBZStoreItemUIIdSource StoreItemUIIdSource;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid ItemUID;
+    FString ItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString ExternalItemId;

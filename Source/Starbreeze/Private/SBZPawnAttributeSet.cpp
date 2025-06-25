@@ -12,6 +12,9 @@ USBZPawnAttributeSet::USBZPawnAttributeSet() {
 void USBZPawnAttributeSet::OnRep_OverHeal(const FGameplayAttributeData& OldValue) {
 }
 
+void USBZPawnAttributeSet::OnRep_OutgoingDamageMultiplier(const FGameplayAttributeData& OldValue) {
+}
+
 void USBZPawnAttributeSet::OnRep_IncomingDamageMultiplier(const FGameplayAttributeData& OldValue) {
 }
 
@@ -25,6 +28,9 @@ void USBZPawnAttributeSet::OnRep_Armor(const FGameplayAttributeData& OldValue) {
 }
 
 void USBZPawnAttributeSet::Multicast_SetOverHeal_Implementation(float NewCurrentValue) {
+}
+
+void USBZPawnAttributeSet::Multicast_SetOutgoingDamageMultiplier_Implementation(float NewCurrentValue) {
 }
 
 void USBZPawnAttributeSet::Multicast_SetIncomingDamageMultiplier_Implementation(float NewCurrentValue) {
@@ -45,6 +51,7 @@ void USBZPawnAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(USBZPawnAttributeSet, Health);
     DOREPLIFETIME(USBZPawnAttributeSet, Armor);
     DOREPLIFETIME(USBZPawnAttributeSet, OverHeal);
+    DOREPLIFETIME(USBZPawnAttributeSet, OutgoingDamageMultiplier);
     DOREPLIFETIME(USBZPawnAttributeSet, IncomingDamageMultiplier);
     DOREPLIFETIME(USBZPawnAttributeSet, ArmorDamageReduction);
 }

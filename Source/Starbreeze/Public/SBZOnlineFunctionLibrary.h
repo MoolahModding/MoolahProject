@@ -49,6 +49,9 @@ public:
     static void SetLocalClientReady(UObject* WorldContextObject, bool bIsClientReady);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetAnalyticsManagerConsent(const UObject* WorldContextObject, bool bHasConsent);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestVoteRestartLevel(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -162,6 +165,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsNoChallenges();
     
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool IsNewPlayer(UObject* WorldContextObject);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsLocalPlayerSessionHost(const UObject* WorldContextObject);
     
@@ -212,6 +218,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static bool HasPrivilege(const UObject* WorldContextObject, ESBZUserPrivilegesProxy Privilege);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
+    static bool HasCrossplayUserPrivilege(const UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void GetUiLobbyInfo(UObject* WorldContextObject, TArray<FSBZLobbyCharacterInfoUi>& OutInfo);

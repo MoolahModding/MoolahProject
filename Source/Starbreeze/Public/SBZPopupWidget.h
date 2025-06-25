@@ -8,6 +8,7 @@
 class UCanvasPanel;
 class USBZControlsReferenceWidget;
 class UTextBlock;
+class UUserWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
 class STARBREEZE_API USBZPopupWidget : public USBZWidgetBase, public ISBZPopupWidgetInterface {
@@ -34,6 +35,10 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsShowing;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UUserWidget* WidgetBody;
     
 public:
     USBZPopupWidget();

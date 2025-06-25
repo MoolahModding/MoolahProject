@@ -11,5 +11,6 @@ enum class ESBZBreachingEquipmentState : uint8 {
     NeedsAdjusting,
     Jammed,
     Done,
+    AbortedAndDisabled,
 };
 

@@ -104,7 +104,7 @@ private:
     void OnDiscardMaskPopUpClosed(FName ClosingActionName);
     
     UFUNCTION(BlueprintCallable)
-    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
+    void OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku);
     
     UFUNCTION(BlueprintCallable)
     void NativeOnMaskSlotButtonSelected(USBZMenuButton* InSelectedButton);

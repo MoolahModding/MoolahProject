@@ -1,15 +1,15 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UserChallengeRecord.h"
 #include "UObject/Object.h"
 #include "ESBZChallengeConversion.h"
 #include "SBZChallengeData.h"
 #include "SBZChallengeProgressStat.h"
+#include "SBZInternalStatData.h"
+#include "SBZInternalUserChallengeRecord.h"
 #include "SBZOnCompletedAchievementRequestDoneDelegateDelegate.h"
 #include "SBZOnCompletedChallengeRequestDoneDelegateDelegate.h"
 #include "SBZOnDailyChallengesUpdatedDelegateDelegate.h"
 #include "SBZRecommendedChallenges.h"
-#include "SBZStatData.h"
 #include "SBZChallengeManager.generated.h"
 
 class USBZChallengeLocalizationOverrides;
@@ -50,7 +50,7 @@ private:
     TMap<FName, FSBZChallengeData> AchievementMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FName, FSBZStatData> StatMap;
+    TMap<FName, FSBZInternalStatData> StatMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZChallengeData> CompletedChallenges;
@@ -62,7 +62,7 @@ private:
     TArray<FSBZChallengeData> CompletedAchievementsAtStartup;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FUserChallengeRecord> ChallengeRecordCaches;
+    TArray<FSBZInternalUserChallengeRecord> ChallengeRecordCaches;
     
 public:
     USBZChallengeManager();

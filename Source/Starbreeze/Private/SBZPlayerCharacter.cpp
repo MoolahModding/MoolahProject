@@ -162,6 +162,7 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->MinLandingSlideWalkToRunLerp = 0.40f;
     this->LastCuttableActor = NULL;
     this->LastHackedActor = NULL;
+    this->bIsNextLandServerCorrected = false;
     this->ReflectorShieldMaxBlindedDuration = 4.00f;
     this->ReflectorShieldCooldownTime = 5.00f;
     this->ThePunchActivatedEvent = NULL;
@@ -169,11 +170,11 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->OperatorActivatedEvent = NULL;
     const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
     (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
-    this->FPCameraAttachment->SetupAttachment(RootComponent);
     this->Mesh1P->SetupAttachment(FPCameraAttachment);
     this->Mesh1PBody->SetupAttachment(Mesh1P);
     this->Mesh1PSuit->SetupAttachment(Mesh1P);
     this->Mesh1PGloves->SetupAttachment(Mesh1P);
+    this->FPCameraAttachment->SetupAttachment(RootComponent);
 }
 
 void ASBZPlayerCharacter::StartEmote(const FText& EmoteText) {
@@ -279,20 +280,12 @@ bool ASBZPlayerCharacter::IsSeenByAI() const {
     return false;
 }
 
-bool ASBZPlayerCharacter::GetHealthAttributes(const UObject* WorldContextObject, float& Health, float& MaxHealth) {
-    return false;
-}
-
 TArray<FSBZDetectionData> ASBZPlayerCharacter::GetDetectionData() const {
     return TArray<FSBZDetectionData>();
 }
 
 USBZMiniGameComponent* ASBZPlayerCharacter::GetCurrentMiniGameComponent() const {
     return NULL;
-}
-
-bool ASBZPlayerCharacter::GetArmorAttributes(const UObject* WorldContextObject, float& Armor, float& MaxArmor) {
-    return false;
 }
 
 bool ASBZPlayerCharacter::FadeOutCameraFeedback(int32 RemoveID, bool bIsAutoRemoved) {

@@ -1,9 +1,14 @@
 #include "SBZGrenade.h"
+#include "Net/UnrealNetwork.h"
 
 ASBZGrenade::ASBZGrenade(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Tags.AddDefaulted(1);
     this->InstigatorAbilitySystemComponent = NULL;
     this->DetonationEffect = NULL;
+    this->bIsArmorConductor = false;
+}
+
+void ASBZGrenade::OnRep_IsArmorConductor() {
 }
 
 
@@ -18,6 +23,12 @@ void ASBZGrenade::Multicast_OnServerCollision_Implementation(bool bInIsExplodedO
 }
 
 void ASBZGrenade::Multicast_ExplosionInHand_Implementation() {
+}
+
+void ASBZGrenade::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(ASBZGrenade, bIsArmorConductor);
 }
 
 

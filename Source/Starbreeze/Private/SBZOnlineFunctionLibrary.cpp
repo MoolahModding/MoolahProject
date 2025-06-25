@@ -18,6 +18,9 @@ void USBZOnlineFunctionLibrary::SetMatchmakingRegion(const UObject* WorldContext
 void USBZOnlineFunctionLibrary::SetLocalClientReady(UObject* WorldContextObject, bool bIsClientReady) {
 }
 
+void USBZOnlineFunctionLibrary::SetAnalyticsManagerConsent(const UObject* WorldContextObject, bool bHasConsent) {
+}
+
 void USBZOnlineFunctionLibrary::RequestVoteRestartLevel(UObject* WorldContextObject) {
 }
 
@@ -157,6 +160,10 @@ bool USBZOnlineFunctionLibrary::IsNoChallenges() {
     return false;
 }
 
+bool USBZOnlineFunctionLibrary::IsNewPlayer(UObject* WorldContextObject) {
+    return false;
+}
+
 bool USBZOnlineFunctionLibrary::IsLocalPlayerSessionHost(const UObject* WorldContextObject) {
     return false;
 }
@@ -220,6 +227,10 @@ void USBZOnlineFunctionLibrary::HideSessionFromJoin(UObject* WorldContextObject)
 }
 
 bool USBZOnlineFunctionLibrary::HasPrivilege(const UObject* WorldContextObject, ESBZUserPrivilegesProxy Privilege) {
+    return false;
+}
+
+bool USBZOnlineFunctionLibrary::HasCrossplayUserPrivilege(const UObject* WorldContextObject) {
     return false;
 }
 

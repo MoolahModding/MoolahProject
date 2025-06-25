@@ -14,6 +14,9 @@ private:
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PollPlayerCountInterval;
     
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString BridgeURL;
+    
 public:
     USBZAccelByteDSV2();
 

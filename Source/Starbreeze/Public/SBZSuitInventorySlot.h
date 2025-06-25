@@ -15,7 +15,7 @@ public:
     FGuid SuitInSlotEntitlementId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid SuitInSlotAccelByteItemId;
+    FString SuitInSlotAccelByteItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZItemInventorySlotType SuitInventorySlotType;

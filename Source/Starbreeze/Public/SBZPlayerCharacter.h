@@ -34,7 +34,6 @@ class ASBZZiplineMotor;
 class UAkAudioEvent;
 class UCameraModifier;
 class UNiagaraComponent;
-class UObject;
 class USBZAIVisualDetectionComponent;
 class USBZAimAssistComponent;
 class USBZBaseInteractableComponent;
@@ -550,6 +549,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FHitResult ClientUpdateLandHitResult;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsNextLandServerCorrected;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve PostProcessFadeInBlendCurve;
     
@@ -689,17 +691,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSeenByAI() const;
     
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    bool GetHealthAttributes(const UObject* WorldContextObject, float& Health, float& MaxHealth);
-    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZDetectionData> GetDetectionData() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     USBZMiniGameComponent* GetCurrentMiniGameComponent() const;
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    bool GetArmorAttributes(const UObject* WorldContextObject, float& Armor, float& MaxArmor);
     
     UFUNCTION(BlueprintCallable)
     bool FadeOutCameraFeedback(int32 RemoveID, bool bIsAutoRemoved);

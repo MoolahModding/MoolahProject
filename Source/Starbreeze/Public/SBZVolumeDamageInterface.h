@@ -38,6 +38,9 @@ public:
     AActor* GetVolumeDamageOwner(UObject* ThisObject) const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    FGameplayTagContainer GetVolumeDamageNoDamagePawnTypeTagContainer() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     TSubclassOf<USBZVolumeDamageEffect> GetVolumeDamageEffectClass() const;
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

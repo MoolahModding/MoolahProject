@@ -38,6 +38,9 @@ void USBZCheatManager::ThrowItem(int32 PlayerIndex) {
 void USBZCheatManager::TasePlayer(int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SyncServerResultData() {
+}
+
 void USBZCheatManager::SurrenderTarget(int32 PlayerIndex) {
 }
 
@@ -215,7 +218,7 @@ void USBZCheatManager::SetFriendlyFireSettings(int32 Value) {
 void USBZCheatManager::SetEquippedTarget(bool bIsEquipped, int32 PlayerIndex) {
 }
 
-void USBZCheatManager::SetEquippableWeaponPreset(const FString& WeaponPresetGuid, int32 EquippableIndex, int32 PlayerIndex) {
+void USBZCheatManager::SetEquippableWeaponPreset(const FString& WeaponPresetSku, int32 EquippableIndex, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetEquippablePreset(const FName& EquippableDataName, int32 EquippableIndex, int32 PlayerIndex) {
@@ -300,9 +303,6 @@ void USBZCheatManager::RequestMissionFail() {
 }
 
 void USBZCheatManager::RequestMissionEnd(ESBZEndMissionResult Result, int32 OutroVariation, int32 PlayersInEscapeVolume) {
-}
-
-void USBZCheatManager::ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked) {
 }
 
 void USBZCheatManager::ReplenishPlayerArmor(int32 PlayerIndex) {
@@ -393,30 +393,6 @@ void USBZCheatManager::KillAllAI() {
 }
 
 void USBZCheatManager::InteractAITarget(ESBZInteractionAction Action, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputVectorAxisTarget(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputVectorAxisPlayer(const FName& AxisName, float X, float Y, float Z, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputKeyTarget(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputKeyPlayer(const FKey& Key, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputAxisTarget(const FName& AxisName, float InputValue, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputAxisPlayer(const FName& AxisName, float InputValue, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputActionTarget(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, bool bIsReleaseCancelingAbility, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::GrabInstantLoot() {

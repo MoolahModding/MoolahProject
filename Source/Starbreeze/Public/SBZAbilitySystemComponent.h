@@ -8,6 +8,7 @@
 #include "SBZActorMultiHitResult.h"
 #include "SBZExplosionResult.h"
 #include "SBZFallDamageTargetData.h"
+#include "SBZHurtReactionPrediction.h"
 #include "SBZMeleeTargetData.h"
 #include "SBZProjectileTargetData.h"
 #include "SBZQueuedAbilityData.h"
@@ -19,7 +20,6 @@
 
 class ACharacter;
 class APawn;
-class ASBZCharacter;
 class UGameplayEffect;
 class UObject;
 class USBZDamageType;
@@ -30,7 +30,7 @@ class STARBREEZE_API USBZAbilitySystemComponent : public UAbilitySystemComponent
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZCharacter* Character;
+    APawn* Pawn;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer InputToggledContainer;
@@ -115,6 +115,9 @@ protected:
 public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DebugApplyGameplayEffectSpecToSelf(FGameplayEffectSpec EffectSpec, float Duration, const FString& NameMagnitudeString);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_ApplyHurtReaction(const FSBZHurtReactionPrediction& HurtReactionPrediction);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_ApplyGameplayEffectSpecToSelf(const FGameplayEffectSpec& EffectSpec);

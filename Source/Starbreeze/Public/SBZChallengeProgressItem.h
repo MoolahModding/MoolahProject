@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "SBZChallengeProgressItem.generated.h"
 
 class USBZInventoryBaseData;
@@ -10,7 +9,7 @@ struct FSBZChallengeProgressItem {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid AccelbyteItemId;
+    FString AccelbyteItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 CurrentQuantity;

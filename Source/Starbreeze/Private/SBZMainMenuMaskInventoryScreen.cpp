@@ -31,7 +31,7 @@ void USBZMainMenuMaskInventoryScreen::OnShowBuySlotPopUpClosed(FName InActionNam
 void USBZMainMenuMaskInventoryScreen::OnDiscardMaskPopUpClosed(FName ClosingActionName) {
 }
 
-void USBZMainMenuMaskInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId) {
+void USBZMainMenuMaskInventoryScreen::OnBuySlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku) {
 }
 
 void USBZMainMenuMaskInventoryScreen::NativeOnMaskSlotButtonSelected(USBZMenuButton* InSelectedButton) {

@@ -102,6 +102,9 @@ private:
     TSubclassOf<USBZLoginScreenInfoPopupWidget> CrossplayPopupWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZWidgetBase> OnboardingPopupWidgetClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZWidgetBase> TutorialPopupWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -124,6 +127,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZButtonControlReference PopUpOptOutAction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FSBZButtonControlReference> OnboardingActions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText TelemetryHeaderText;
@@ -174,6 +180,9 @@ private:
     UFUNCTION(BlueprintCallable)
     void ShowTelemetryPopup();
     
+    UFUNCTION(BlueprintCallable)
+    void ShowOnboardingPopup();
+    
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ShowMainMenuFunction();
@@ -201,6 +210,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnTelemetryPopUpClosed(FName ClosingActionName);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnOnboardingPopUpInput(FName ActionInputName);
     
 public:
     UFUNCTION(BlueprintCallable)

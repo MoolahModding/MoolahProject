@@ -9,6 +9,7 @@ ASBZGameMode::ASBZGameMode(const FObjectInitializer& ObjectInitializer) : Super(
     this->PlayerStateClass = ASBZPlayerState::StaticClass();
     this->DefaultPawnClass = ASBZPlayerCharacter::StaticClass();
     this->SpectatorClass = ASBZSpectatorPawn::StaticClass();
+    this->ReplaySpectatorPlayerControllerClass = ASBZPlayerController::StaticClass();
 }
 
 

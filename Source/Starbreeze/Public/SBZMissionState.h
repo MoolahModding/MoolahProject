@@ -29,6 +29,7 @@ class APlayerState;
 class ASBZAICrewState;
 class ASBZCharacter;
 class ASBZMissionState;
+class ASBZPlayerState;
 class ASBZPowerUp;
 class ASBZTickingLootManager;
 class UAkAudioBank;
@@ -230,6 +231,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float WeaponArmorPenetrationModifier;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<ASBZPlayerState*> DefensiveMeasuresBaseSet;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TSet<ASBZPlayerState*> DefensiveMeasuresAcedSet;
+    
 public:
     ASBZMissionState(const FObjectInitializer& ObjectInitializer);
 
@@ -302,7 +309,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnBlackScreenStarted(const bool bIsRestart);
+    void OnBlackScreenStarted();
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -356,6 +363,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MissionEnd(const int32 OutroVariation);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_DebugSyncServerResultData(const FSBZEndMissionResultData& Data);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

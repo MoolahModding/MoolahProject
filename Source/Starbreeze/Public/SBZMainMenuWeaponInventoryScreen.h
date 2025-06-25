@@ -119,7 +119,7 @@ protected:
     
 private:
     UFUNCTION(BlueprintCallable)
-    void OnBuyWeaponSlotItemCompleted(ESBZMetaRequestResult Result, FGuid ItemId);
+    void OnBuyWeaponSlotItemCompleted(ESBZMetaRequestResult Result, const FString& ItemSku);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

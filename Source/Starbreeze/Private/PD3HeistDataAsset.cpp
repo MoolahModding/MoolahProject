@@ -8,6 +8,8 @@ UPD3HeistDataAsset::UPD3HeistDataAsset() {
     this->bHasIntroSequence = false;
     this->bHasOutroSequence = false;
     this->bIsTutorialLevel = false;
+    this->bIsSmashAndGrab = false;
+    this->bIsQuickplaySelectableLevel = false;
     this->HeistButtonHoverPlayEvent = NULL;
     this->HeistDescriptionPlayEvent = NULL;
     this->HeistDescriptionStopEvent = NULL;

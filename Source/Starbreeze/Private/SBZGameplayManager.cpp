@@ -12,7 +12,7 @@ void USBZGameplayManager::OnPlayableLevelInitialized(UWorld* World) {
 void USBZGameplayManager::OnOutroSequenceStarted(const int32 OutroVariation) {
 }
 
-void USBZGameplayManager::OnBlackScreenStarted(const bool bIsRestart) {
+void USBZGameplayManager::OnBlackScreenStarted() {
 }
 
 void USBZGameplayManager::OnActionPhaseStarted() {

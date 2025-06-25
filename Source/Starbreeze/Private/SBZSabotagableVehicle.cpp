@@ -11,7 +11,11 @@ ASBZSabotagableVehicle::ASBZSabotagableVehicle(const FObjectInitializer& ObjectI
     this->MovingNavModifier = CreateDefaultSubobject<USBZPredefinedBoxNavModifierComponent>(TEXT("SBZPredefinedBoxNavModifierComponent"));
     this->SabotagePointInstance = NULL;
     this->EscortCapsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
-    this->SpeedPerPlayer = 1.20f;
+    this->SpeedPerPlayerArray[0] = 0.00f;
+    this->SpeedPerPlayerArray[1] = 0.00f;
+    this->SpeedPerPlayerArray[2] = 0.00f;
+    this->SpeedPerPlayerArray[3] = 0.00f;
+    this->SpeedPerPlayerArray[4] = 0.00f;
     this->PlayersOverlapping = 0;
     this->bEscortModeEnabled = false;
     this->bStartWithEscortModeEnabled = false;

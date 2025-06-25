@@ -58,7 +58,7 @@ void ASBZLevelScriptActor::HandleKeyItemCountChanged(const FSBZKeyItemCountChang
 void ASBZLevelScriptActor::HandleIntroSequenceChanged(bool bIsStarted) {
 }
 
-void ASBZLevelScriptActor::HandleBlackScreenStarted(const bool bIsRestar) {
+void ASBZLevelScriptActor::HandleBlackScreenStarted() {
 }
 
 void ASBZLevelScriptActor::HandleActionPhaseStarted() {

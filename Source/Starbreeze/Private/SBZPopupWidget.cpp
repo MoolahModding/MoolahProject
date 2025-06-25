@@ -6,6 +6,7 @@ USBZPopupWidget::USBZPopupWidget() {
     this->Widget_ControlsReference = NULL;
     this->CanvasPanel_PopUpBody = NULL;
     this->bIsShowing = false;
+    this->WidgetBody = NULL;
 }
 
 

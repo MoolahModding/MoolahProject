@@ -31,9 +31,6 @@ void USBZCharacterMovementComponent::Server_StartZipline_Implementation(ASBZZipl
 
 void USBZCharacterMovementComponent::Server_StartTraversal_Implementation(const FSBZMinimalAgilityTraversalTrajectory& MinimalTrajectory) {
 }
-bool USBZCharacterMovementComponent::Server_StartTraversal_Validate(const FSBZMinimalAgilityTraversalTrajectory& MinimalTrajectory) {
-    return true;
-}
 
 void USBZCharacterMovementComponent::Server_StartSlide_Implementation(const FVector& InSlideDirection, const FVector& InEndSlideLocation) {
 }

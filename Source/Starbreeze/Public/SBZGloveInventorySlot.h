@@ -14,7 +14,7 @@ public:
     FGuid GloveInSlotEntitlementId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    FGuid GloveInSlotAccelByteItemId;
+    FString GloveInSlotAccelByteItemSku;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZGloveData* GloveData;
