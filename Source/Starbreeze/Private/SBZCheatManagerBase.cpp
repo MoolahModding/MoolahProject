@@ -149,6 +149,9 @@ void USBZCheatManagerBase::RequestSwitchUser() {
 void USBZCheatManagerBase::RequestGameError(ESBZGameMachineStateError State, int32 PlayerIndex) {
 }
 
+void USBZCheatManagerBase::RequestBackendError(ESBZGameMachineStateError Error, int32 PlayerIndex) {
+}
+
 void USBZCheatManagerBase::ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked) {
 }
 
@@ -234,6 +237,9 @@ void USBZCheatManagerBase::InputActionTarget(const FName& ActionName, TEnumAsByt
 }
 
 void USBZCheatManagerBase::InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::FetchMapConfigurationData() {
 }
 
 void USBZCheatManagerBase::FetchAllVendorItems(int32 MaxCount) {

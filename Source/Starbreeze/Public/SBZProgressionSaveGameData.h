@@ -60,7 +60,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString ResearchMarker;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
     TMap<FString, int32> CurrentRequestedPriceProgressionLevel;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -78,7 +78,7 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZWeaponPartAttachmentData WeaponPartAttachmentData;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NotReplicated, meta=(AllowPrivateAccess=true))
     TMap<FString, FSBZRecommendedChallengeBlock> RecommendedChallengeBlockMap;
     
     FSBZProgressionSaveGameData();

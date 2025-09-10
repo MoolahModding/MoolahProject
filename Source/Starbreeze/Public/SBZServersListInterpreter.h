@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AccelByteModelsV2PaginatedGameSessionQueryResult.h"
 #include "UObject/Interface.h"
 #include "ESBZDifficulty.h"
 #include "ESBZOnlineTacticType.h"
@@ -83,9 +82,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void InitServerListInterpreter(const UObject* Context);
-    
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void Init(FAccelByteModelsV2PaginatedGameSessionQueryResult& InServersCollection);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     ESBZOnlineTacticType GetTactic() const;

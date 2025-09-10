@@ -182,6 +182,9 @@ public:
     void RequestGameError(ESBZGameMachineStateError State, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void RequestBackendError(ESBZGameMachineStateError Error, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void ReportBug(const FString& Description, bool bIsEverywhere, bool bIsBlockerChecked, bool bIsInteractableChecked);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -269,6 +272,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void FetchMapConfigurationData();
     
     UFUNCTION(BlueprintCallable, Exec)
     void FetchAllVendorItems(int32 MaxCount);

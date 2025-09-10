@@ -48,10 +48,10 @@ ASBZSentryGun::ASBZSentryGun(const FObjectInitializer& ObjectInitializer) : Supe
     this->BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
     this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
     this->HackingDrone = NULL;
+    this->AudioComponent->SetupAttachment(SkeletalMeshComponent);
     this->SkeletalMeshComponent->SetupAttachment(BoxComponent);
     this->OutOfBoundsBoxComponent->SetupAttachment(SkeletalMeshComponent);
     this->BoxComponent->SetupAttachment(RootComponent);
-    this->AudioComponent->SetupAttachment(SkeletalMeshComponent);
 }
 
 void ASBZSentryGun::OnServerCompleteInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {

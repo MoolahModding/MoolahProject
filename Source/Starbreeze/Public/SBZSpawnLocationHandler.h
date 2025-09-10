@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "SBZOnActorSpawnedDelegateDelegate.h"
 #include "SBZOnLocationSelectedEventDelegate.h"
 #include "SBZSpawnLocation.h"
 #include "SBZSpawnLocationHandlerDelegateDelegate.h"
@@ -21,6 +22,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintAuthorityOnly, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZSpawnLocationHandlerDelegate OnKeyItemPickedUp;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintAuthorityOnly, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnActorSpawnedDelegate OnActorSpawned;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

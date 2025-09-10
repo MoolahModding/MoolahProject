@@ -49,7 +49,7 @@ protected:
     void OnRestartLevelTimeExpired();
     
     UFUNCTION(BlueprintCallable)
-    void OnRestartAcceptTimerFinsihed();
+    void OnRestartAcceptTimerFinished();
     
     UFUNCTION(BlueprintCallable)
     void OnRestartAccepted(const FUniqueNetIdRepl& PlayerId);

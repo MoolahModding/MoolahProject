@@ -6,7 +6,7 @@ USBZGameStateMachineSettings::USBZGameStateMachineSettings() {
     this->OutroSequenceSafetyTimeout = 10.00f;
     this->JobOveviewToActionPhaseDropInTime = 1.00f;
     this->HeistCollections.AddDefaulted(4);
-    this->Levels.AddDefaulted(20);
+    this->Levels.AddDefaulted(23);
     this->LevelsTutorial.AddDefaulted(4);
 }
 

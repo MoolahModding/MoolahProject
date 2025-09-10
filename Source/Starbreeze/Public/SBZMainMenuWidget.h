@@ -178,23 +178,12 @@ private:
     void ShowTutorialPopup();
     
     UFUNCTION(BlueprintCallable)
-    void ShowTelemetryPopup();
-    
-    UFUNCTION(BlueprintCallable)
     void ShowOnboardingPopup();
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ShowMainMenuFunction();
     
-private:
-    UFUNCTION(BlueprintCallable)
-    void ShowGameSensePopup();
-    
-    UFUNCTION(BlueprintCallable)
-    void ShowCrossplayPopup();
-    
-public:
     UFUNCTION(BlueprintCallable)
     void SetVendorTypeToOpen(ESBZBlackMarketVendorType VendorType);
     
@@ -209,9 +198,6 @@ private:
     void OnTutorialPopUpClosed(FName ClosingActionName);
     
     UFUNCTION(BlueprintCallable)
-    void OnTelemetryPopUpClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
     void OnOnboardingPopUpInput(FName ActionInputName);
     
 public:
@@ -221,12 +207,6 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnLoadoutChangePopupClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnGameSensePopUpClosed(FName ClosingActionName);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnCrossplayPopUpClosed(FName ClosingActionName);
     
 public:
     UFUNCTION(BlueprintCallable)

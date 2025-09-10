@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
 #include "InputCoreTypes.h"
+#include "EPD3AssaultPhase.h"
 #include "EPD3DispatchCaller.h"
 #include "EPD3DispatchCallerReason.h"
 #include "EPD3HeistState.h"
@@ -192,13 +193,13 @@ public:
     void SetOverskillLoadout(const FName& DataName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetOverskillEnabled(bool bIsEnabled, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetOverkillWeaponProgress(float InProgress, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetOverkillWeaponLoadout(const FName& DataName, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetOverkillEnabled(bool bIsEnabled, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetOptionalMilestonePassed(const FString& OptionalMilestoneName);
@@ -288,6 +289,9 @@ public:
     void SetAttributeValue(const FName& Name, float Value, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetAssaultPhase(EPD3AssaultPhase Phase, bool bIsStatic);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetAssaultLevelProgression(float Progression);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -298,6 +302,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetAmmoInventory(float NewAmmoCount, int32 WeaponIndex, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void SetAllSkillsByTag(bool bIsAcquired, const FName& TagName, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetAllSkills(bool bIsAcquired, bool bIsRemoveAllowed, bool bIsVersion2, int32 PlayerIndex);
@@ -476,6 +483,12 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpPlayersMergePartyStatus();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpLootValue(const FString& LootName);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DumpAllLootValues(const int32 Difficulty);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DestroyTargetAI(int32 PlayerIndex);

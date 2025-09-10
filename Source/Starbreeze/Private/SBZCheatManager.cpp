@@ -152,13 +152,13 @@ void USBZCheatManager::SetPlaceable(const FName& PlaceableDataName, int32 Placea
 void USBZCheatManager::SetOverskillLoadout(const FName& DataName, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetOverskillEnabled(bool bIsEnabled, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetOverkillWeaponProgress(float InProgress, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetOverkillWeaponLoadout(const FName& DataName, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::SetOverkillEnabled(bool bIsEnabled, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetOptionalMilestonePassed(const FString& OptionalMilestoneName) {
@@ -248,6 +248,9 @@ void USBZCheatManager::SetCrouchedTarget(bool bIsCrouched, int32 PlayerIndex) {
 void USBZCheatManager::SetAttributeValue(const FName& Name, float Value, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetAssaultPhase(EPD3AssaultPhase Phase, bool bIsStatic) {
+}
+
 void USBZCheatManager::SetAssaultLevelProgression(float Progression) {
 }
 
@@ -258,6 +261,9 @@ void USBZCheatManager::SetAmmoLoaded(float NewAmmoCount, int32 WeaponIndex, int3
 }
 
 void USBZCheatManager::SetAmmoInventory(float NewAmmoCount, int32 WeaponIndex, int32 PlayerIndex) {
+}
+
+void USBZCheatManager::SetAllSkillsByTag(bool bIsAcquired, const FName& TagName, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::SetAllSkills(bool bIsAcquired, bool bIsRemoveAllowed, bool bIsVersion2, int32 PlayerIndex) {
@@ -432,6 +438,12 @@ void USBZCheatManager::EquipOverkillWeapon(bool bIsFirstEquip, int32 PlayerIndex
 }
 
 void USBZCheatManager::DumpPlayersMergePartyStatus() {
+}
+
+void USBZCheatManager::DumpLootValue(const FString& LootName) {
+}
+
+void USBZCheatManager::DumpAllLootValues(const int32 Difficulty) {
 }
 
 void USBZCheatManager::DestroyTargetAI(int32 PlayerIndex) {

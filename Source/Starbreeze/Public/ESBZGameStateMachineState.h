@@ -31,6 +31,7 @@ enum ESBZGameStateMachineState {
     SM_WaitingReplay,
     SM_Replay,
     SM_Outro,
+    SM_RestartLevelHost,
     SM_WaitingRestartLevel,
     SM_Undefined,
 };

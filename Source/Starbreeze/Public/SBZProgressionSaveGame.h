@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ESBZEquippableLoadoutSlot.h"
+#include "ESBZMetaRequestResult.h"
 #include "SBZArmorInventorySlot.h"
 #include "SBZGloveInventorySlot.h"
 #include "SBZMaskInventorySlot.h"
@@ -23,6 +24,11 @@ protected:
 public:
     USBZProgressionSaveGame();
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnUseDefaultOutfitDone(ESBZMetaRequestResult Result);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     TArray<FSBZWeaponInventorySlot> GetWeaponInventorySlotArray(ESBZEquippableLoadoutSlot EquippableSlot) const;
     

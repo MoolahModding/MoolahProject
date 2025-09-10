@@ -5,6 +5,9 @@ USBZAnalyticsManager::USBZAnalyticsManager() {
     this->HeartbeatWorldContextObject = NULL;
 }
 
+void USBZAnalyticsManager::SendVendorWeaponsInfamy(const UObject* WorldContextObject, const ESBZWeaponInfamyEventType WeaponInfamyEvent, const TMap<FString, FSBZWeaponStoreItem>& WeaponMap) {
+}
+
 void USBZAnalyticsManager::SendSyncDLC(const bool bIsSyncDLCSuccessful, const FString& SyncDLCFailureMessage) {
 }
 

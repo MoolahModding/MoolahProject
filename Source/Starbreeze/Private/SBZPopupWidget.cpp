@@ -9,6 +9,9 @@ USBZPopupWidget::USBZPopupWidget() {
     this->WidgetBody = NULL;
 }
 
+void USBZPopupWidget::SetControlsReference(const FSBZButtonControlsReference& InControlsReference, int32 InCountdownTime, FName InCountdownActionName, bool bInputsClosePopup) {
+}
+
 
 void USBZPopupWidget::OnActionPressed(FName ActionName) {
 }

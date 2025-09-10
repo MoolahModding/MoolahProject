@@ -18,6 +18,9 @@ protected:
     float OverkillProgressionScale;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIsOverskillEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsOverskillLoadoutTicking;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -43,13 +46,13 @@ protected:
     void OnOverkillProgressChanged(float NewProgress);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnOverkillDisabled();
-    
-    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void OnOverkillDataChanged();
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
     void BP_OnOverskillLoadoutTickingChanged(bool bInIsTicking);
+    
+    UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
+    void BP_OnOverskillEnabledChanged(bool bInIsEnabled);
     
 };
 

@@ -44,6 +44,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZAmmoPickup* AmmoPickup;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* LastHitCharacter;
+    
 public:
     ASBZThrowableKnife(const FObjectInitializer& ObjectInitializer);
 

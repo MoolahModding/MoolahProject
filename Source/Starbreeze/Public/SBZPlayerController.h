@@ -12,6 +12,7 @@
 #include "SBZLocalPlayerFeedbackParameters.h"
 #include "SBZLockCameraData.h"
 #include "SBZPlayerControllerBase.h"
+#include "SBZPlayerEndMissionResultData.h"
 #include "Templates/SubclassOf.h"
 #include "SBZPlayerController.generated.h"
 
@@ -107,6 +108,9 @@ private:
     void Server_SetCurrentSpectateTargetPlayerID(int32 InID);
     
 public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_SendPlayerPlayerResultsData(const FSBZPlayerEndMissionResultData& InData);
+    
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_RestartRequested(const FUniqueNetIdRepl& PlayerID);
     
@@ -171,6 +175,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RestartAccepted(const FUniqueNetIdRepl& PlayerID);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_LeaveDueToMissingPlayerData();
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_Disband_LeaveJoinParty(const FString& PartyCode);

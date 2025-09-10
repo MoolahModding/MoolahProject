@@ -74,6 +74,9 @@ public:
     FSBZStatisticCriteriaDataCollection StatisticsCriteriaDataCollection;
     
 protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    FSBZEndMissionResultData CurrentMissionResultData;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_RandomSeed, meta=(AllowPrivateAccess=true))
     int32 RandomSeed;
     
@@ -242,11 +245,6 @@ public:
 
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-private:
-    UFUNCTION(BlueprintCallable)
-    void ServerPostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
-    
-public:
     UFUNCTION(BlueprintCallable)
     void RewardCompleteExperienceObjective(const FString& ObjectName);
     
@@ -260,6 +258,9 @@ public:
     void RemovePreplanningAsset(const FUniqueNetIdRepl& InPlayerId);
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void PostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData);
+    
     UFUNCTION(BlueprintCallable)
     void PlayerStateRemovedDuringEndMission(const FSBZPlayerStateRemovedEvent& Data);
     
@@ -327,6 +328,9 @@ private:
     void NotifyClientPassedMilestone(ESBZMilestoneType MilestoneType, const FString& MilestoneName);
     
 protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_UpdateMissionEndClientPlayerData(const FSBZEndMissionResultData& InMissionResultData, int32 InHumanShieldInstigatorAmount);
+    
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_StartOverkillCooldown();
     

@@ -57,5 +57,8 @@ enum class ESBZGameMachineStateError : uint8 {
     PlayerBanned,
     JoinedCrossPlatformSession,
     MultipleSessionsLogin,
+    P2PConnectionLost,
+    ClientDataMissingOnP2PHost,
+    P2PGameSessionError,
 };
 

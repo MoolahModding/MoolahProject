@@ -25,6 +25,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsPartyLeader;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FUniqueNetIdRepl P2PPlatformId;
+    
     STARBREEZE_API FSBZPlayerSlotInfo();
 };
 

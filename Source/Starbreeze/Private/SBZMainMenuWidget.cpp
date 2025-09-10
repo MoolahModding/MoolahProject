@@ -33,18 +33,9 @@ USBZMainMenuWidget::USBZMainMenuWidget() {
 void USBZMainMenuWidget::ShowTutorialPopup() {
 }
 
-void USBZMainMenuWidget::ShowTelemetryPopup() {
-}
-
 void USBZMainMenuWidget::ShowOnboardingPopup() {
 }
 
-
-void USBZMainMenuWidget::ShowGameSensePopup() {
-}
-
-void USBZMainMenuWidget::ShowCrossplayPopup() {
-}
 
 void USBZMainMenuWidget::SetVendorTypeToOpen(ESBZBlackMarketVendorType VendorType) {
 }
@@ -56,9 +47,6 @@ void USBZMainMenuWidget::RequestRemoveBackgroundBlur() {
 void USBZMainMenuWidget::OnTutorialPopUpClosed(FName ClosingActionName) {
 }
 
-void USBZMainMenuWidget::OnTelemetryPopUpClosed(FName ClosingActionName) {
-}
-
 void USBZMainMenuWidget::OnOnboardingPopUpInput(FName ActionInputName) {
 }
 
@@ -66,12 +54,6 @@ void USBZMainMenuWidget::OnMainMenuInitializeComplete() {
 }
 
 void USBZMainMenuWidget::OnLoadoutChangePopupClosed(FName ClosingActionName) {
-}
-
-void USBZMainMenuWidget::OnGameSensePopUpClosed(FName ClosingActionName) {
-}
-
-void USBZMainMenuWidget::OnCrossplayPopUpClosed(FName ClosingActionName) {
 }
 
 ESBZBlackMarketVendorType USBZMainMenuWidget::GetVendorTypeToOpen(bool bResetValue) {

@@ -70,7 +70,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->CustodyReleaseCost = 1;
     this->CurrentTradeReduction = 0;
     this->bServerIsHardBargainCustody = false;
-    this->bIsOverkillEnabled = true;
+    this->bIsOverskillEnabled = true;
     this->bIsOverskillLoadoutTicking = false;
     this->bIsMergePartySelected = false;
     this->PickupConsumableCooldownTime = 0.80f;
@@ -194,7 +194,7 @@ void ASBZPlayerState::OnRep_IsTargeting() {
 void ASBZPlayerState::OnRep_IsSmokeMasterEnabled() {
 }
 
-void ASBZPlayerState::OnRep_IsOverkillEnabled() {
+void ASBZPlayerState::OnRep_IsOverskillEnabled() {
 }
 
 void ASBZPlayerState::OnRep_IsMaskOn() {
@@ -293,6 +293,9 @@ void ASBZPlayerState::Multicast_SetPlatform_Implementation(const ESBZPlatform In
 void ASBZPlayerState::Multicast_SetOverskillLoadoutTicking_Implementation(bool bInIsTicking) {
 }
 
+void ASBZPlayerState::Multicast_SetOverskillEnabled_Implementation(bool bInIsEnabled) {
+}
+
 void ASBZPlayerState::Multicast_SetMiniGameState_Implementation(EPD3MiniGameState InMiniGameState, ASBZPlayerState* InWinningParticipant) {
 }
 
@@ -350,7 +353,8 @@ void ASBZPlayerState::Multicast_DebugSyncServerResultData_Implementation(const F
 void ASBZPlayerState::Multicast_DebugConsoleCommand_Implementation(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex) {
 }
 
-void ASBZPlayerState::Multicast_CheatSetOverkillEnabled_Implementation(bool bIsEnabled) {
+bool ASBZPlayerState::IsStillInP2PSession() const {
+    return false;
 }
 
 bool ASBZPlayerState::IsSkipIntroSequence() const {
@@ -451,7 +455,10 @@ void ASBZPlayerState::Client_LeaveVoiceSession_Implementation() {
 void ASBZPlayerState::Client_JoinVoiceSession_Implementation(const FSBZVoiceSessionData& VoiceSessionData) {
 }
 
-void ASBZPlayerState::Client_DisableOverskill_Implementation() {
+void ASBZPlayerState::Client_IncrementStatsArray_Implementation(const TArray<FAccelByteModelsBulkStatItemInc>& InArray) {
+}
+
+void ASBZPlayerState::Client_IncrementStat_Implementation(const FString& InStatCode, float InIncrement) {
 }
 
 void ASBZPlayerState::Client_DestroyVoiceSession_Implementation() {
@@ -497,7 +504,7 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, bIsLastArrestedByGuard);
     DOREPLIFETIME(ASBZPlayerState, bIsTargeting);
     DOREPLIFETIME(ASBZPlayerState, CustodyReleaseCost);
-    DOREPLIFETIME(ASBZPlayerState, bIsOverkillEnabled);
+    DOREPLIFETIME(ASBZPlayerState, bIsOverskillEnabled);
     DOREPLIFETIME(ASBZPlayerState, bIsOverskillLoadoutTicking);
     DOREPLIFETIME(ASBZPlayerState, bIsMergePartySelected);
     DOREPLIFETIME(ASBZPlayerState, ConstantFlowCount);

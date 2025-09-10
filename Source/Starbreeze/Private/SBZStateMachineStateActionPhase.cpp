@@ -6,6 +6,9 @@ USBZStateMachineStateActionPhase::USBZStateMachineStateActionPhase() {
     this->InitialLongTimeoutDelay = 0.00f;
 }
 
+void USBZStateMachineStateActionPhase::PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId) {
+}
+
 void USBZStateMachineStateActionPhase::PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId) {
 }
 

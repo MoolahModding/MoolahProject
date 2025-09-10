@@ -6,6 +6,7 @@ USBZHUDChatWidget::USBZHUDChatWidget() {
     this->ShortenTextMaxLines = 30;
     this->bIsChatInputActive = false;
     this->bIsChatDisabled = false;
+    this->Chat = NULL;
 }
 
 
@@ -27,7 +28,7 @@ void USBZHUDChatWidget::OnPlayerDefeatStateChangedInternal(const FSBZPlayerDefea
 void USBZHUDChatWidget::OnPingReceived(const FSBZPlayerPingEvent& PingEventData) {
 }
 
-void USBZHUDChatWidget::OnMessageReceived(const FSBZPlayerChatEvent& ChatEventData) {
+void USBZHUDChatWidget::OnMessageReceived(const FSBZChatMessage& InChatMessage) {
 }
 
 void USBZHUDChatWidget::OnCloseChatReceived() {

@@ -15,6 +15,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZComponentSelector PhysicsComponent;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MultipleSpawnOffsetX;
+    
 public:
     ASBZAmmoPickup(const FObjectInitializer& ObjectInitializer);
 

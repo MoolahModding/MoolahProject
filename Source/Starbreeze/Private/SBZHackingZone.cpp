@@ -34,6 +34,7 @@ void ASBZHackingZone::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZHackingZone, bEnabled);
+    DOREPLIFETIME(ASBZHackingZone, ActiveTime);
 }
 
 

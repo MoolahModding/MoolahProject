@@ -5,7 +5,6 @@
 		"XeFGBlueprint": "UE4Editor-XeFGBlueprint.dll",
 		"XeLLBlueprint": "UE4Editor-XeLLBlueprint.dll",
 		"XeSSBlueprint": "UE4Editor-XeSSBlueprint.dll",
-		"XeSSCore": "UE4Editor-XeSSCore.dll",
-		"XeSSPlugin": "UE4Editor-XeSSPlugin.dll"
+		"XeSSCore": "UE4Editor-XeSSCore.dll"
 	}
 }

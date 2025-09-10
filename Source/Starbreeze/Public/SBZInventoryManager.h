@@ -33,7 +33,7 @@ private:
     TArray<FGuid> OwningEntitlementIdArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TArray<FGuid> OwningItemIdArray;
+    TMap<FGuid, int32> OwningItemIdArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FString> OwnedHeistSkus;

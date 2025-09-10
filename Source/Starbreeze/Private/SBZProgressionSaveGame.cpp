@@ -3,6 +3,9 @@
 USBZProgressionSaveGame::USBZProgressionSaveGame() {
 }
 
+void USBZProgressionSaveGame::OnUseDefaultOutfitDone(ESBZMetaRequestResult Result) {
+}
+
 TArray<FSBZWeaponInventorySlot> USBZProgressionSaveGame::GetWeaponInventorySlotArray(ESBZEquippableLoadoutSlot EquippableSlot) const {
     return TArray<FSBZWeaponInventorySlot>();
 }

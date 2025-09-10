@@ -17,10 +17,7 @@ class STARBREEZE_API USBZPlayerStatisticsManager : public UObject, public ISBZPl
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZPlayerStatisticsData* PlayerStatisticsData;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TMap<FUniqueNetIdRepl, USBZPlayerStatisticsData*> ServerPlayerStatisticsData;
+    TMap<FUniqueNetIdRepl, USBZPlayerStatisticsData*> PlayerStatisticsDataMap;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZServerStatBatcher* ServerStatBatcher;

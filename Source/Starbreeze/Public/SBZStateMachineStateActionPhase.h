@@ -28,6 +28,9 @@ public:
     USBZStateMachineStateActionPhase();
 
     UFUNCTION(BlueprintCallable)
+    void PlayerWaitForReady(const FUniqueNetIdRepl& WaitForReadyPlayerId);
+    
+    UFUNCTION(BlueprintCallable)
     void PlayerReadyReceived(const FUniqueNetIdRepl& PlayerId);
     
 private:

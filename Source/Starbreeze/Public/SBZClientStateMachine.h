@@ -26,6 +26,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZLoadingScreen* LoadingScreen;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZLoadingScreen* WaitingActionPhaseLoadingScreen;
+    
 public:
     USBZClientStateMachine();
 

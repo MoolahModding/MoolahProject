@@ -8,5 +8,6 @@ FSBZPlayerEndMissionResultData::FSBZPlayerEndMissionResultData() {
     this->AmmoPickupCreated = 0;
     this->AmmoPickupRemoved = 0;
     this->RequestOverkillCount = 0;
+    this->bPlayerDisconnected = false;
 }
 

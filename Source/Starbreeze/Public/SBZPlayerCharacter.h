@@ -457,7 +457,7 @@ private:
     float GadgetDetectionMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bIsGadgetPlacingIllegal;
+    float ThrowItemDetectionMultiplier;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bIsCurrentNavLocationValid;
@@ -724,12 +724,6 @@ protected:
     
     UFUNCTION(Client, Reliable)
     void Client_SetDetectionData(uint32 PackedData);
-    
-    UFUNCTION(BlueprintCallable, Client, Unreliable)
-    void Client_PlayOverHealRestoredEffect();
-    
-    UFUNCTION(BlueprintCallable, Client, Unreliable)
-    void Client_PlayOverHealGainedEffect();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_MaskOn(float AnimationDuration, ESBZMaskType MaskType, const FName& MorphTargetName);

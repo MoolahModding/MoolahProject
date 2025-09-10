@@ -38,8 +38,10 @@ enum class ESBZOnlineCode : uint8 {
     InactiveTimeout,
     MemberBlock,
     EmptyMember,
+    HostSessionFailed,
     ReturnToIIS,
     UserHasChanged,
     SoloGameRequested,
+    P2PHostRequired,
 };
 

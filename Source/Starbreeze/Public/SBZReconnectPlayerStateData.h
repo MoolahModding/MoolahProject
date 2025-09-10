@@ -77,7 +77,7 @@ public:
     bool bIsARGESRestorationActivatable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    bool bIsOverkillEnabled;
+    bool bIsOverskillEnabled;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     EPD3DefeatState DefeatState;

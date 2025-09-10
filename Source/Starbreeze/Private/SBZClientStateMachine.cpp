@@ -2,6 +2,7 @@
 
 USBZClientStateMachine::USBZClientStateMachine() {
     this->LoadingScreen = NULL;
+    this->WaitingActionPhaseLoadingScreen = NULL;
 }
 
 void USBZClientStateMachine::RequestTravelToServer() {

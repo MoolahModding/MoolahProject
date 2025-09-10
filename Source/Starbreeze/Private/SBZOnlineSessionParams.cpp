@@ -6,6 +6,7 @@ FSBZOnlineSessionParams::FSBZOnlineSessionParams() {
     this->JoinType = ESBZOnlineJoinType::Debug_DEPRECATED;
     this->LevelIdx = 0;
     this->DifficultyIdx = 0;
+    this->TacticType = ESBZOnlineTacticType::Default;
     this->bIsDebugSession = false;
     this->FreeSlots = 0;
     this->bIgnoreFullSession = false;

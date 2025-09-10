@@ -33,5 +33,6 @@ enum class ESBZLoadProgressionStep : uint8 {
     ClientFetchChallengeRecommendationsDone,
     FetchChallengeDailiesDone,
     ClientFetchChallengesDone,
+    RetrieveRewardReductionDataDone,
 };
 

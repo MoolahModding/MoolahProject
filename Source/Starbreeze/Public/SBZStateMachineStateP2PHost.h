@@ -3,7 +3,6 @@
 #include "SBZClientStateMachineState.h"
 #include "SBZStateMachineStateP2PHost.generated.h"
 
-class USBZAccelByteDS;
 class USBZStateMachineDataMatchmaking;
 class UWorld;
 
@@ -14,10 +13,6 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZStateMachineDataMatchmaking* MatchmakingData;
-    
-private:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZAccelByteDS* AccelByteDS;
     
 public:
     USBZStateMachineStateP2PHost();

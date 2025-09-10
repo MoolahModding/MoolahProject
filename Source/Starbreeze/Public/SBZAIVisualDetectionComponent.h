@@ -67,9 +67,6 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void OnTargetIllegalAction(AActor* Target);
-    
-    UFUNCTION(BlueprintCallable)
     void OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
     
     UFUNCTION(BlueprintCallable)

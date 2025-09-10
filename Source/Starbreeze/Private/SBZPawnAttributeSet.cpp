@@ -7,6 +7,10 @@ USBZPawnAttributeSet::USBZPawnAttributeSet() {
     this->FlashedVoiceComment = NULL;
     this->FlashedByAllyVoiceComment = NULL;
     this->HitByFragVoiceComment = NULL;
+    this->ArmorBrickBusterIncomingDamageIncrease = 0.00f;
+    this->ElectricTenderizerIncomingDamageIncrease = 0.00f;
+    this->FragTenderizeIncomingDamageIncrease = 0.00f;
+    this->FlashbangMasterIncomingDamageIncrease = 0.00f;
 }
 
 void USBZPawnAttributeSet::OnRep_OverHeal(const FGameplayAttributeData& OldValue) {
@@ -16,6 +20,9 @@ void USBZPawnAttributeSet::OnRep_OutgoingDamageMultiplier(const FGameplayAttribu
 }
 
 void USBZPawnAttributeSet::OnRep_IncomingDamageMultiplier(const FGameplayAttributeData& OldValue) {
+}
+
+void USBZPawnAttributeSet::OnRep_IncomingDamageIncrease() {
 }
 
 void USBZPawnAttributeSet::OnRep_Health(const FGameplayAttributeData& OldValue) {
@@ -54,6 +61,10 @@ void USBZPawnAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
     DOREPLIFETIME(USBZPawnAttributeSet, OutgoingDamageMultiplier);
     DOREPLIFETIME(USBZPawnAttributeSet, IncomingDamageMultiplier);
     DOREPLIFETIME(USBZPawnAttributeSet, ArmorDamageReduction);
+    DOREPLIFETIME(USBZPawnAttributeSet, ArmorBrickBusterIncomingDamageIncrease);
+    DOREPLIFETIME(USBZPawnAttributeSet, ElectricTenderizerIncomingDamageIncrease);
+    DOREPLIFETIME(USBZPawnAttributeSet, FragTenderizeIncomingDamageIncrease);
+    DOREPLIFETIME(USBZPawnAttributeSet, FlashbangMasterIncomingDamageIncrease);
 }
 
 

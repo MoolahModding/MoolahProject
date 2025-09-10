@@ -3,11 +3,11 @@
 #include "Types/SlateEnums.h"
 #include "SBZAICrewChatEvent.h"
 #include "SBZAICrewDefeatStateChangedData.h"
+#include "SBZChatMessage.h"
 #include "SBZDelegateHandle.h"
 #include "SBZHUDWidgetBase.h"
 #include "SBZKeyItemCountChangedEvent.h"
 #include "SBZPlayerCallEvent.h"
-#include "SBZPlayerChatEvent.h"
 #include "SBZPlayerDefeatStateChangedData.h"
 #include "SBZPlayerPingEvent.h"
 #include "SBZPlayerStateRemovedEvent.h"
@@ -17,6 +17,7 @@
 
 class ASBZPlayerState;
 class UEditableTextBox;
+class USBZChat;
 
 UCLASS(Blueprintable, EditInlineNew)
 class USBZHUDChatWidget : public USBZHUDWidgetBase {
@@ -45,6 +46,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<ASBZPlayerState*, FSBZDelegateHandle> PlayerNameChangedHandleMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZChat* Chat;
+    
 public:
     USBZHUDChatWidget();
 
@@ -61,7 +65,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void PlayerMessageReceived(const FSBZPlayerChatEvent& ChatEventData);
+    void PlayerMessageReceived(const FSBZChatMessage& InChatMessage);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void PingReceived(const FSBZPlayerPingEvent& PingEventData);
@@ -88,7 +92,7 @@ private:
     void OnPingReceived(const FSBZPlayerPingEvent& PingEventData);
     
     UFUNCTION(BlueprintCallable)
-    void OnMessageReceived(const FSBZPlayerChatEvent& ChatEventData);
+    void OnMessageReceived(const FSBZChatMessage& InChatMessage);
     
     UFUNCTION(BlueprintCallable)
     void OnCloseChatReceived();

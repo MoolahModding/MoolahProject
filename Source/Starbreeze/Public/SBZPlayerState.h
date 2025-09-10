@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "AccelByteModelsBulkStatItemInc.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/EngineTypes.h"
@@ -19,6 +20,7 @@
 #include "SBZDropPlaceableEquippableData.h"
 #include "SBZInternalChallengeNotifPayload.h"
 #include "SBZOnInfamyLevelChangedDynamicDelegate.h"
+#include "SBZOnPlayerStateLeftP2PSessionDelegate.h"
 #include "SBZOverskillProgressResultData.h"
 #include "SBZPlayerEndMissionResultData.h"
 #include "SBZPlayerSkillEffectData.h"
@@ -97,6 +99,9 @@ public:
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnInfamyLevelChangedDynamic OnRenownLevelChangedDynamic;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FSBZOnPlayerStateLeftP2PSession OnLeftP2PSession;
     
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnIsSkipIntroSequenceChanged, meta=(AllowPrivateAccess=true))
@@ -322,8 +327,8 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     bool bServerIsHardBargainCustody;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsOverkillEnabled, meta=(AllowPrivateAccess=true))
-    bool bIsOverkillEnabled;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsOverskillEnabled, meta=(AllowPrivateAccess=true))
+    bool bIsOverskillEnabled;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnIsOverskillLoadoutTickingChanged, meta=(AllowPrivateAccess=true))
     bool bIsOverskillLoadoutTicking;
@@ -492,7 +497,7 @@ private:
     void OnRep_IsSmokeMasterEnabled();
     
     UFUNCTION(BlueprintCallable)
-    void OnRep_IsOverkillEnabled();
+    void OnRep_IsOverskillEnabled();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IsMaskOn();
@@ -603,6 +608,9 @@ private:
     void Multicast_SetOverskillLoadoutTicking(bool bInIsTicking);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetOverskillEnabled(bool bInIsEnabled);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMiniGameState(EPD3MiniGameState InMiniGameState, ASBZPlayerState* InWinningParticipant);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -667,8 +675,8 @@ private:
     void Multicast_DebugConsoleCommand(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex);
     
 public:
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_CheatSetOverkillEnabled(bool bIsEnabled);
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsStillInP2PSession() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsSkipIntroSequence() const;
@@ -757,9 +765,14 @@ private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_JoinVoiceSession(const FSBZVoiceSessionData& VoiceSessionData);
     
+public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void Client_DisableOverskill();
+    void Client_IncrementStatsArray(const TArray<FAccelByteModelsBulkStatItemInc>& InArray);
     
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_IncrementStat(const FString& InStatCode, float InIncrement);
+    
+private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_DestroyVoiceSession();
     

@@ -18,8 +18,8 @@ ASBZNiagaraWwiseActor::ASBZNiagaraWwiseActor(const FObjectInitializer& ObjectIni
     this->bUpdateRtpc = false;
     this->RtpcUpdateValue = 0.00f;
     this->RtpcInterpolationTimerMS = 0.00f;
-    this->AudioComponent->SetupAttachment(RootComponent);
     this->NiagaraComponent->SetupAttachment(RootComponent);
+    this->AudioComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZNiagaraWwiseActor::UpdateRtpc(float RtpcValue, float RtpcInterpolationValue) {

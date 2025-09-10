@@ -35,6 +35,9 @@ void ASBZBeaconActionPhaseClient::ServerTogglePlayerReady_Implementation(const F
 void ASBZBeaconActionPhaseClient::ServerSetVoiceSessionData_Implementation(const FString& VoiceSessionId, const FUniqueNetIdRepl& InPlayerId) {
 }
 
+void ASBZBeaconActionPhaseClient::ServerSetStatCodeToValueMap_Implementation(const FSBZPlayerStatisticsStatCodeToValueMapRepl& InMap) {
+}
+
 void ASBZBeaconActionPhaseClient::ServerSetSlotStatus_Implementation(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status) {
 }
 
@@ -60,6 +63,9 @@ void ASBZBeaconActionPhaseClient::ServerSetPlayerData_Implementation(const FSBZS
 }
 
 void ASBZBeaconActionPhaseClient::ServerSetPlayerCharactersArray_Implementation(const FUniqueNetIdRepl& InPlayerId, const TArray<FSoftObjectPath>& InPreferredPlayerCharacters, const TArray<FSoftObjectPath>& InInventoryPlayerCharacters) {
+}
+
+void ASBZBeaconActionPhaseClient::ServerSetItemProgressionLevelMap_Implementation(const FSBZPlayerStatisticsItemProgressionLevelMapRepl& InMap) {
 }
 
 void ASBZBeaconActionPhaseClient::ServerReserveSlot_Implementation(const TArray<FSBZPlayerSlotInfo>& InPlayers) {
@@ -179,10 +185,19 @@ void ASBZBeaconActionPhaseClient::ClientPreplanningAssetAdded_Implementation(con
 void ASBZBeaconActionPhaseClient::ClientPreMatchLobbyStatusUpdated_Implementation(ESBZPreMatchLobbyStatus InStatus) {
 }
 
+void ASBZBeaconActionPhaseClient::ClientPreInitializeTravel_Implementation() {
+}
+
+void ASBZBeaconActionPhaseClient::ClientPreHostInitializeTravel_Implementation() {
+}
+
 void ASBZBeaconActionPhaseClient::ClientPlayerToReadyAck_Implementation() {
 }
 
 void ASBZBeaconActionPhaseClient::ClientPlayerReadyAck_Implementation(bool bIsReady) {
+}
+
+void ASBZBeaconActionPhaseClient::ClientOnDataTransmissionFailed_Implementation(bool bInStatCodeToValueMapReceived, bool bInItemProgressionLevelMapReceived) {
 }
 
 void ASBZBeaconActionPhaseClient::ClientLeaveVoiceSession_Implementation() {

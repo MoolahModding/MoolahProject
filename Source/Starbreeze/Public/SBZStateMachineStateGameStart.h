@@ -5,7 +5,6 @@
 #include "SBZStateMachineStateGameStart.generated.h"
 
 class USBZLoadingScreen;
-class UWorld;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZStateMachineStateGameStart : public USBZClientStateMachineState {
@@ -18,13 +17,6 @@ private:
 public:
     USBZStateMachineStateGameStart();
 
-protected:
-    UFUNCTION(BlueprintCallable)
-    void SessionJoinStarted();
-    
-    UFUNCTION(BlueprintCallable)
-    void SessionJoined(UWorld* InWorld);
-    
 private:
     UFUNCTION(BlueprintCallable)
     void OnPopUpKickedFromHeistClosed(FName CloseActionName);

@@ -31,6 +31,9 @@ bool UTLMVoiceChatSubsystem::IsPlayerInChannel() {
     return false;
 }
 
+void UTLMVoiceChatSubsystem::HandleStaleIPAddress() {
+}
+
 bool UTLMVoiceChatSubsystem::GetVoiceChatEnabled() const {
     return false;
 }

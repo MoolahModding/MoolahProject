@@ -13,6 +13,7 @@ ASBZThrowableKnife::ASBZThrowableKnife(const FObjectInitializer& ObjectInitializ
     this->ThrowableKnifePOIInstance = NULL;
     this->LastHitComponent = NULL;
     this->AmmoPickup = NULL;
+    this->LastHitCharacter = NULL;
 }
 
 void ASBZThrowableKnife::Server_ReplicateDamage_Implementation(const FSBZKnifeProjectileTargetData& TargetData) {

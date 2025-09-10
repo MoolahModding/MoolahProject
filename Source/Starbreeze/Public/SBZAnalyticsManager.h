@@ -4,8 +4,10 @@
 #include "UObject/Object.h"
 #include "ESBZCheaterPolicyType.h"
 #include "ESBZNotOwningHeistPolicyType.h"
+#include "ESBZWeaponInfamyEventType.h"
 #include "SBZChallengeData.h"
 #include "SBZEntitlementsTelemetryPayload.h"
+#include "SBZWeaponStoreItem.h"
 #include "SBZAnalyticsManager.generated.h"
 
 UCLASS(Blueprintable)
@@ -25,6 +27,9 @@ private:
 public:
     USBZAnalyticsManager();
 
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    void SendVendorWeaponsInfamy(const UObject* WorldContextObject, const ESBZWeaponInfamyEventType WeaponInfamyEvent, const TMap<FString, FSBZWeaponStoreItem>& WeaponMap);
+    
     UFUNCTION(BlueprintCallable)
     void SendSyncDLC(const bool bIsSyncDLCSuccessful, const FString& SyncDLCFailureMessage);
     

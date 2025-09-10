@@ -9,5 +9,9 @@ class USBZGameSessionManager : public UObject {
 public:
     USBZGameSessionManager();
 
+private:
+    UFUNCTION(BlueprintCallable)
+    void OnMatchmakingInitialized();
+    
 };
 

@@ -13,9 +13,6 @@ USBZAIVisualDetectionComponent::USBZAIVisualDetectionComponent(const FObjectInit
     this->bShouldPauseDetectionOnCriminal = true;
 }
 
-void USBZAIVisualDetectionComponent::OnTargetIllegalAction(AActor* Target) {
-}
-
 void USBZAIVisualDetectionComponent::OnPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus) {
 }
 

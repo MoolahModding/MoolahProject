@@ -140,7 +140,7 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->MiniGameDetectionMultiplier = 1.00f;
     this->CuttingToolDetectionMultiplier = 0.50f;
     this->GadgetDetectionMultiplier = 0.25f;
-    this->bIsGadgetPlacingIllegal = true;
+    this->ThrowItemDetectionMultiplier = 1.00f;
     this->bIsCurrentNavLocationValid = false;
     this->NavLocationSaveInterval = 1.00f;
     this->NavigationZAxisLocationOffset = 20.00f;
@@ -170,11 +170,11 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->OperatorActivatedEvent = NULL;
     const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
     (*p_Mesh->ContainerPtrToValuePtr<USkeletalMeshComponent*>(this))->SetupAttachment(RootComponent);
+    this->FPCameraAttachment->SetupAttachment(RootComponent);
     this->Mesh1P->SetupAttachment(FPCameraAttachment);
     this->Mesh1PBody->SetupAttachment(Mesh1P);
     this->Mesh1PSuit->SetupAttachment(Mesh1P);
     this->Mesh1PGloves->SetupAttachment(Mesh1P);
-    this->FPCameraAttachment->SetupAttachment(RootComponent);
 }
 
 void ASBZPlayerCharacter::StartEmote(const FText& EmoteText) {
@@ -311,12 +311,6 @@ void ASBZPlayerCharacter::Client_SetDetector_Implementation(uint8 Index, AActor*
 }
 
 void ASBZPlayerCharacter::Client_SetDetectionData_Implementation(uint32 PackedData) {
-}
-
-void ASBZPlayerCharacter::Client_PlayOverHealRestoredEffect_Implementation() {
-}
-
-void ASBZPlayerCharacter::Client_PlayOverHealGainedEffect_Implementation() {
 }
 
 

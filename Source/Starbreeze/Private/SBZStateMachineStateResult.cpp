@@ -2,6 +2,8 @@
 
 USBZStateMachineStateResult::USBZStateMachineStateResult() {
     this->ResultWidget = NULL;
+    this->LoadingScreen = NULL;
+    this->ResultData = NULL;
 }
 
 void USBZStateMachineStateResult::SetupMergePartyDone() {
@@ -23,6 +25,9 @@ void USBZStateMachineStateResult::OnRestartAccepted(const FUniqueNetIdRepl& Play
 }
 
 void USBZStateMachineStateResult::OnExpireRestartTimerUpdate() {
+}
+
+void USBZStateMachineStateResult::HandlePlayerStateRemoved(const FSBZPlayerStateRemovedEvent& InData) {
 }
 
 

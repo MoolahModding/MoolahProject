@@ -81,6 +81,18 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZVoiceCommentDataAsset* HitByFragVoiceComment;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IncomingDamageIncrease, meta=(AllowPrivateAccess=true))
+    float ArmorBrickBusterIncomingDamageIncrease;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IncomingDamageIncrease, meta=(AllowPrivateAccess=true))
+    float ElectricTenderizerIncomingDamageIncrease;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IncomingDamageIncrease, meta=(AllowPrivateAccess=true))
+    float FragTenderizeIncomingDamageIncrease;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IncomingDamageIncrease, meta=(AllowPrivateAccess=true))
+    float FlashbangMasterIncomingDamageIncrease;
+    
 public:
     USBZPawnAttributeSet();
 
@@ -95,6 +107,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_IncomingDamageMultiplier(const FGameplayAttributeData& OldValue);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_IncomingDamageIncrease();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_Health(const FGameplayAttributeData& OldValue);

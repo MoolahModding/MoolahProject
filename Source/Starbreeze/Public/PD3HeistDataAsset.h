@@ -122,6 +122,9 @@ public:
     FGameplayTagContainer PrePlanningTagContainer;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayTagContainer ExcludedPrePlanningTagContainer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<USBZStatisticCriteriaData*> StatisticCriteriaDataArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

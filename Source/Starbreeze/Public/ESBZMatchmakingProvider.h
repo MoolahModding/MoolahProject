@@ -7,6 +7,7 @@ enum class ESBZMatchmakingProvider : uint8 {
     Accelbyte,
     AmazonGameLift,
     EdgeGap,
+    EOS,
     MAX,
 };
 

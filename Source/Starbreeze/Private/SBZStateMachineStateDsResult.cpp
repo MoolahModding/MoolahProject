@@ -13,7 +13,7 @@ void USBZStateMachineStateDsResult::OnRestartTimerFinsihed() {
 void USBZStateMachineStateDsResult::OnRestartLevelTimeExpired() {
 }
 
-void USBZStateMachineStateDsResult::OnRestartAcceptTimerFinsihed() {
+void USBZStateMachineStateDsResult::OnRestartAcceptTimerFinished() {
 }
 
 void USBZStateMachineStateDsResult::OnRestartAccepted(const FUniqueNetIdRepl& PlayerId) {

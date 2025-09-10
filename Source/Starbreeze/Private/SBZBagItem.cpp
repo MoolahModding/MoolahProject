@@ -30,6 +30,7 @@ ASBZBagItem::ASBZBagItem(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->bCanCrewAICarry = true;
     this->bShouldBroadcastOnHitEvent = false;
     this->MarkerID = -1;
+    this->HurtReactionWeightOnAI = 3.00f;
     this->AudioComponent->SetupAttachment(RootComponent);
 }
 

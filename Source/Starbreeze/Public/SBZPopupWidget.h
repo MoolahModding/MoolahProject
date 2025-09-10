@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "SBZButtonControlsReference.h"
 #include "SBZControlsReference.h"
 #include "SBZPopupWidgetInterface.h"
 #include "SBZWidgetBase.h"
@@ -43,6 +44,9 @@ private:
 public:
     USBZPopupWidget();
 
+    UFUNCTION(BlueprintCallable)
+    void SetControlsReference(const FSBZButtonControlsReference& InControlsReference, int32 InCountdownTime, FName InCountdownActionName, bool bInputsClosePopup);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnDisplayPopUp();
     

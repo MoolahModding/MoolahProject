@@ -14,7 +14,7 @@
 
 ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RandomSeed = -1;
-    this->ServerChangelist = 840290;
+    this->ServerChangelist = 860844;
     this->Difficulty = ESBZDifficulty::Default;
     this->PickupDifficultyModifierArray[0] = 1.00f;
     this->PickupDifficultyModifierArray[1] = 1.00f;
@@ -54,9 +54,6 @@ ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) 
     this->WeaponArmorPenetrationModifier = 0.00f;
 }
 
-void ASBZMissionState::ServerPostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData) {
-}
-
 void ASBZMissionState::RewardCompleteExperienceObjective(const FString& ObjectName) {
 }
 
@@ -67,6 +64,9 @@ void ASBZMissionState::ResetPreplanningAssets() {
 }
 
 void ASBZMissionState::RemovePreplanningAsset(const FUniqueNetIdRepl& InPlayerId) {
+}
+
+void ASBZMissionState::PostOnTakenDamageEvent(const FSBZDamageEvent& DamageEventData) {
 }
 
 void ASBZMissionState::PlayerStateRemovedDuringEndMission(const FSBZPlayerStateRemovedEvent& Data) {
@@ -124,6 +124,9 @@ void ASBZMissionState::OnActionPhaseExited() {
 }
 
 void ASBZMissionState::NotifyClientPassedMilestone_Implementation(ESBZMilestoneType MilestoneType, const FString& MilestoneName) {
+}
+
+void ASBZMissionState::Multicast_UpdateMissionEndClientPlayerData_Implementation(const FSBZEndMissionResultData& InMissionResultData, int32 InHumanShieldInstigatorAmount) {
 }
 
 void ASBZMissionState::Multicast_StartOverkillCooldown_Implementation() {
@@ -240,6 +243,7 @@ bool ASBZMissionState::AddPreplanningAsset(const FUniqueNetIdRepl& InPlayerId, c
 void ASBZMissionState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(ASBZMissionState, CurrentMissionResultData);
     DOREPLIFETIME(ASBZMissionState, RandomSeed);
     DOREPLIFETIME(ASBZMissionState, ServerChangelist);
     DOREPLIFETIME(ASBZMissionState, Difficulty);

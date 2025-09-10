@@ -18,7 +18,7 @@ FSBZReconnectPlayerStateData::FSBZReconnectPlayerStateData() {
     this->CurrentTradeReduction = 0;
     this->bServerIsHardBargainCustody = false;
     this->bIsARGESRestorationActivatable = false;
-    this->bIsOverkillEnabled = false;
+    this->bIsOverskillEnabled = false;
     this->DefeatState = EPD3DefeatState::None;
     this->bIsLastArrestedByGuard = false;
     this->RepairArmorInteractionImmuneTime = 0.00f;

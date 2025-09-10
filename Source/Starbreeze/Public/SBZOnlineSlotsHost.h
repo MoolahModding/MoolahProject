@@ -29,6 +29,9 @@ protected:
     float PreMatchShortReadyTimeLimit;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float PreMatchReadyTimerThreshold;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PreTravelTimeLimit;
     
 private:

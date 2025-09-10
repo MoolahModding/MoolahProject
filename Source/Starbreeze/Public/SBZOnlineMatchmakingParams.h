@@ -36,6 +36,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsServerBrowserJoin;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<FString> ExcludedSessionIds;
+    
     FSBZOnlineMatchmakingParams();
 };
 

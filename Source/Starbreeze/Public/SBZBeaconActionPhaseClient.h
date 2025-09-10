@@ -15,6 +15,8 @@
 #include "SBZOnlineBeaconClient.h"
 #include "SBZPlayerLoadoutConfig.h"
 #include "SBZPlayerSlotInfo.h"
+#include "SBZPlayerStatisticsItemProgressionLevelMapRepl.h"
+#include "SBZPlayerStatisticsStatCodeToValueMapRepl.h"
 #include "SBZSlotData.h"
 #include "SBZVoiceSessionData.h"
 #include "SBZBeaconActionPhaseClient.generated.h"
@@ -69,6 +71,9 @@ public:
     void ServerSetVoiceSessionData(const FString& VoiceSessionId, const FUniqueNetIdRepl& InPlayerId);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ServerSetStatCodeToValueMap(const FSBZPlayerStatisticsStatCodeToValueMapRepl& InMap);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetSlotStatus(const FUniqueNetIdRepl& InPlayerId, ESBZSlotStatus Status);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -91,6 +96,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerSetPlayerCharactersArray(const FUniqueNetIdRepl& InPlayerId, const TArray<FSoftObjectPath>& InPreferredPlayerCharacters, const TArray<FSoftObjectPath>& InInventoryPlayerCharacters);
+    
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void ServerSetItemProgressionLevelMap(const FSBZPlayerStatisticsItemProgressionLevelMapRepl& InMap);
     
 protected:
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
@@ -215,10 +223,19 @@ public:
     void ClientPreMatchLobbyStatusUpdated(ESBZPreMatchLobbyStatus InStatus);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ClientPreInitializeTravel();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ClientPreHostInitializeTravel();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPlayerToReadyAck();
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientPlayerReadyAck(bool bIsReady);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void ClientOnDataTransmissionFailed(bool bInStatCodeToValueMapReceived, bool bInItemProgressionLevelMapReceived);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientLeaveVoiceSession();

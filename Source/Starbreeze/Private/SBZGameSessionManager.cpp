@@ -3,4 +3,7 @@
 USBZGameSessionManager::USBZGameSessionManager() {
 }
 
+void USBZGameSessionManager::OnMatchmakingInitialized() {
+}
+
 

@@ -5846,6 +5846,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/SBZEOSP2PConfig/SBZEOSP2PConfig.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/SBZPakAuditTool/SBZPakAuditTool.uplugin",
 			"Type": "UFS"
 		},

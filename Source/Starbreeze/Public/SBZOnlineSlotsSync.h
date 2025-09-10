@@ -10,6 +10,7 @@ class AGameModeBase;
 class APlayerState;
 class ASBZPlayerState;
 class USBZOnlineSession;
+class UWorld;
 
 UCLASS(Blueprintable)
 class ASBZOnlineSlotsSync : public AInfo {
@@ -62,6 +63,9 @@ private:
     
     UFUNCTION(BlueprintCallable)
     void OnPlayerStateReceivedUniqueId(ASBZPlayerState* InPlayerState);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnP2PSeamlessTravelComplete(UWorld* InWorld);
     
     UFUNCTION(BlueprintCallable)
     void OnGameModeInitialized(AGameModeBase* GameMode);

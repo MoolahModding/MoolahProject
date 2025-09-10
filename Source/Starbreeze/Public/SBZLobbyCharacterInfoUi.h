@@ -78,6 +78,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSoftObjectPath SelectedCharacter;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FUniqueNetIdRepl P2PPlatformId;
+    
     STARBREEZE_API FSBZLobbyCharacterInfoUi();
 };
 

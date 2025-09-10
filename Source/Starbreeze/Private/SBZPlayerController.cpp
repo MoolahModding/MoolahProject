@@ -42,6 +42,9 @@ void ASBZPlayerController::Server_SetCurrentViewTargetIndex_Implementation(int32
 void ASBZPlayerController::Server_SetCurrentSpectateTargetPlayerID_Implementation(int32 InID) {
 }
 
+void ASBZPlayerController::Server_SendPlayerPlayerResultsData_Implementation(const FSBZPlayerEndMissionResultData& InData) {
+}
+
 void ASBZPlayerController::Server_RestartRequested_Implementation(const FUniqueNetIdRepl& PlayerID) {
 }
 bool ASBZPlayerController::Server_RestartRequested_Validate(const FUniqueNetIdRepl& PlayerID) {
@@ -106,6 +109,9 @@ void ASBZPlayerController::Client_RestartInitiate_Implementation(float SecondsRe
 }
 
 void ASBZPlayerController::Client_RestartAccepted_Implementation(const FUniqueNetIdRepl& PlayerID) {
+}
+
+void ASBZPlayerController::Client_LeaveDueToMissingPlayerData_Implementation() {
 }
 
 void ASBZPlayerController::Client_Disband_LeaveJoinParty_Implementation(const FString& PartyCode) {

@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "ESBZOnlineJoinType.h"
 #include "ESBZOnlineSessionPhase.h"
+#include "ESBZOnlineTacticType.h"
 #include "ESBZServerSessionType.h"
 #include "SBZOnlineSessionParams.generated.h"
 
@@ -26,6 +27,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FString SecurityCompaniesList;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZOnlineTacticType TacticType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsDebugSession;

@@ -23,13 +23,7 @@ protected:
     void OnServerRetrieveEntitlementsDone(ESBZMetaRequestResult Result);
     
     UFUNCTION(BlueprintCallable)
-    void OnServerGameRecordsReceived(const ESBZMetaRequestResult Result);
-    
-    UFUNCTION(BlueprintCallable)
     void OnLoadChallengesDone(const ESBZMetaRequestResult Result);
-    
-    UFUNCTION(BlueprintCallable)
-    void OnGetSkuToItemIdMappingForItemsToGrantDone(ESBZMetaRequestResult Result);
     
     UFUNCTION(BlueprintCallable)
     void OnFetchMapConfigurationDataDone(const ESBZMetaRequestResult Result, const FString& InMapAssetName, FSBZMatchmakingSessionResult InMatchmakingResult);

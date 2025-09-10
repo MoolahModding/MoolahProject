@@ -52,6 +52,9 @@ public:
     UFUNCTION(BlueprintCallable)
     bool IsPlayerInChannel();
     
+    UFUNCTION(BlueprintCallable)
+    void HandleStaleIPAddress();
+    
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool GetVoiceChatEnabled() const;
     

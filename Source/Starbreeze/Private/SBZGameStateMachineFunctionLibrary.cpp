@@ -7,6 +7,10 @@ bool USBZGameStateMachineFunctionLibrary::IsValidPakchunkIndex(int32 PakchunkInd
     return false;
 }
 
+bool USBZGameStateMachineFunctionLibrary::IsRestartCurrentlyPossible(UObject* WorldContextObject) {
+    return false;
+}
+
 bool USBZGameStateMachineFunctionLibrary::IsPie(UObject* WorldContextObject) {
     return false;
 }

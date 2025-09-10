@@ -10,6 +10,7 @@ class ASBZBeaconActionPhaseClient;
 class ASBZBeaconActionPhaseHost;
 class ASBZLobbyBeaconClient;
 class ASBZLobbyBeaconHost;
+class ASBZOnlineBeaconHost;
 class USBZLobbyLocalState;
 
 UCLASS(Blueprintable, DefaultConfig, NotPlaceable, Transient, Config=Starbreeze)
@@ -41,7 +42,7 @@ private:
     ASBZBeaconActionPhaseHost* BeaconActionPhaseHost;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    AOnlineBeaconHost* ActionPhaseOnlineBeacon;
+    ASBZOnlineBeaconHost* ActionPhaseOnlineBeacon;
     
 public:
     USBZLobby();

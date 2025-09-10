@@ -217,6 +217,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_OutgoingArmorPenetration, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData OutgoingArmorPenetration;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData IncomingOverHealDamageMultiplier;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData IncomingOverHealGainMultiplier;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerAbilityData* AbilityData;

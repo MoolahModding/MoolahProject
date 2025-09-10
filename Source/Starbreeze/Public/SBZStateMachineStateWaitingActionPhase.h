@@ -5,7 +5,6 @@
 #include "SBZClientStateMachineState.h"
 #include "SBZStateMachineStateWaitingActionPhase.generated.h"
 
-class USBZLoadingScreen;
 class USBZStateMachineDataWaitActionPhase;
 class UWorld;
 
@@ -14,9 +13,6 @@ class STARBREEZE_API USBZStateMachineStateWaitingActionPhase : public USBZClient
     GENERATED_BODY()
 public:
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
-    USBZLoadingScreen* LoadingScreen;
-    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZStateMachineDataWaitActionPhase* WaitingActionPhaseData;
     

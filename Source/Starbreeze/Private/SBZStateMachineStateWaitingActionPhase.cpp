@@ -1,7 +1,6 @@
 #include "SBZStateMachineStateWaitingActionPhase.h"
 
 USBZStateMachineStateWaitingActionPhase::USBZStateMachineStateWaitingActionPhase() {
-    this->LoadingScreen = NULL;
     this->WaitingActionPhaseData = NULL;
 }
 

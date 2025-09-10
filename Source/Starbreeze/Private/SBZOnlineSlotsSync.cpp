@@ -35,6 +35,9 @@ void ASBZOnlineSlotsSync::OnRemovePlayerState(const FUniqueNetIdRepl& InPlayerId
 void ASBZOnlineSlotsSync::OnPlayerStateReceivedUniqueId(ASBZPlayerState* InPlayerState) {
 }
 
+void ASBZOnlineSlotsSync::OnP2PSeamlessTravelComplete(UWorld* InWorld) {
+}
+
 void ASBZOnlineSlotsSync::OnGameModeInitialized(AGameModeBase* GameMode) {
 }
 
