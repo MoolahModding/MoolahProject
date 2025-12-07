@@ -7,6 +7,7 @@
 #include "SBZMarkerRuntime.h"
 #include "SBZMarkerManager.generated.h"
 
+class ASBZWaypointVolume;
 class USBZMarkerDataAsset;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -44,7 +45,7 @@ private:
     void Multicast_RemoveMarker(uint32 ID);
     
     UFUNCTION(NetMulticast, Reliable)
-    void Multicast_AddMarker(uint32 ID, const USBZMarkerDataAsset* MarkerAsset, const FVector& Translation);
+    void Multicast_AddMarker(uint32 ID, const USBZMarkerDataAsset* MarkerAsset, const FVector& Translation, const ASBZWaypointVolume* WaypointVolume);
     
 };
 

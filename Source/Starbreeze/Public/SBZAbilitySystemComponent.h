@@ -5,6 +5,7 @@
 #include "GameplayEffect.h"
 #include "GameplayPrediction.h"
 #include "GameplayTagContainer.h"
+#include "SBZAbilitySystemTickDamageData.h"
 #include "SBZActorMultiHitResult.h"
 #include "SBZExplosionResult.h"
 #include "SBZFallDamageTargetData.h"
@@ -18,6 +19,7 @@
 #include "Templates/SubclassOf.h"
 #include "SBZAbilitySystemComponent.generated.h"
 
+class AActor;
 class ACharacter;
 class APawn;
 class UGameplayEffect;
@@ -31,6 +33,9 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     APawn* Pawn;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    AActor* CrewStateActor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer InputToggledContainer;
@@ -54,6 +59,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<TSubclassOf<USBZDamageType>, float> LastVolumeDamageTypeUpdateTimeMap;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_TickDamageDataArray, meta=(AllowPrivateAccess=true))
+    TArray<FSBZAbilitySystemTickDamageData> TickDamageDataArray;
+    
 public:
     USBZAbilitySystemComponent(const FObjectInitializer& ObjectInitializer);
 
@@ -68,6 +76,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_MaskOn();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_TickDamageDataArray();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_AppliedVolumeDamageNetIDArray();
@@ -125,12 +136,18 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_AppliedSkillHurtReaction(const FSBZSkillTriggeredHurtTargetData& SkillTriggeredHurtTargetData);
     
+private:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_AddTickDamage(FSBZAbilitySystemTickDamageData Data);
+    
+public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RevertDamageAttributeSetArray(const TArray<FSBZRevertDamageAttributeSetData>& AttributeSetDataArray);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_RevertDamageAttributeSet(const FSBZRevertDamageAttributeSetData& AttributeSetData);
     
+protected:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_PredictedRagdollDenied(APawn* InPawn, int32 HurtReactionIndex);
     

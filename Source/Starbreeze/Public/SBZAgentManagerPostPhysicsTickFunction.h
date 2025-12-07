@@ -3,10 +3,15 @@
 #include "Engine/EngineBaseTypes.h"
 #include "SBZAgentManagerPostPhysicsTickFunction.generated.h"
 
+class USBZAgentManager;
+
 USTRUCT(BlueprintType)
 struct FSBZAgentManagerPostPhysicsTickFunction : public FTickFunction {
     GENERATED_BODY()
 public:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USBZAgentManager* Target;
+    
     STARBREEZE_API FSBZAgentManagerPostPhysicsTickFunction();
 };
 

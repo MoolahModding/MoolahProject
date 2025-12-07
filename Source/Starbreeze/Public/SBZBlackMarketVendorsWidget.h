@@ -42,6 +42,12 @@ protected:
     TSubclassOf<USBZBlackMarketStoreItemButton> GoldStoreItemButtonClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZBlackMarketStoreItemButton> FeaturedBundleItemButtonClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZBlackMarketStoreItemButton> BundleItemButtonClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZActionControlReference PaydayStoreControlsReferenceAction;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
@@ -71,6 +77,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZBlackMarketStoreItemButton*> GoldStoreItemButtonPool;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZBlackMarketStoreItemButton*> BundleItemButtonPool;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZBlackMarketStoreItemButton*> FeaturedBundleItemButtonPool;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZBlackMarketConfirmationPopupBody> PurchaseItemPopUpBodyWidgetClass;

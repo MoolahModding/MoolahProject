@@ -7,6 +7,8 @@ USBZBlackMarketVendorsWidget::USBZBlackMarketVendorsWidget() {
     this->CategoryButtonClass = NULL;
     this->StoreItemButtonClass = NULL;
     this->GoldStoreItemButtonClass = NULL;
+    this->FeaturedBundleItemButtonClass = NULL;
+    this->BundleItemButtonClass = NULL;
     this->ControlsRefActionWidget_PaydayStore = NULL;
     this->VendorButtonClass = NULL;
     this->bIsTransactionInProgress = false;

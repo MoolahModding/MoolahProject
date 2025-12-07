@@ -20,10 +20,15 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDownloadLocalizedTextsDelegate OnFail;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     UGridlyTask_DownloadLocalizedTexts();
 
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static UGridlyTask_DownloadLocalizedTexts* DownloadLocalizedTexts(const UObject* WorldContextObject);
+    static UGridlyTask_DownloadLocalizedTexts* DownloadLocalizedTexts(const UObject* NewWorldContextObject);
     
 };
 

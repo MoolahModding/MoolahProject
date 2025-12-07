@@ -4,6 +4,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataAsset.h"
 #include "Styling/SlateBrush.h"
+#include "ESBZMarkerOffscreenCategory.h"
 #include "Templates/SubclassOf.h"
 #include "SBZMarkerDataAsset.generated.h"
 
@@ -40,6 +41,9 @@ public:
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     FFloatInterval VisibleRange;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZMarkerOffscreenCategory OffScreenCategory;
     
     USBZMarkerDataAsset();
 

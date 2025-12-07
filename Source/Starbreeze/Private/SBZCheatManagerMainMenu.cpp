@@ -10,6 +10,7 @@ USBZCheatManagerMainMenu::USBZCheatManagerMainMenu() {
     this->SuitPartConfigs[0] = NULL;
     this->SuitPartConfigs[1] = NULL;
     this->SuitPartConfigs[2] = NULL;
+    this->SelectedAnimAsset = NULL;
 }
 
 void USBZCheatManagerMainMenu::WriteAchievement(const FString& AchievementId) {
@@ -97,6 +98,9 @@ void USBZCheatManagerMainMenu::PurchaseItem(const FString& ItemId) {
 }
 
 void USBZCheatManagerMainMenu::PrintNews(ESBZOnlineCode ErrorCode, const TArray<FSBZNewsDataUIEntry>& NewsFeedList) {
+}
+
+void USBZCheatManagerMainMenu::OpenXBoxShop(const FString& ProductId) {
 }
 
 void USBZCheatManagerMainMenu::LoadWeaponExperienceToLevelTable(const FString& ItemId) {

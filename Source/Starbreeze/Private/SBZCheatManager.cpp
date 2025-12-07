@@ -77,6 +77,9 @@ void USBZCheatManager::SetThrowableAmmo(int32 Count, int32 ThrowableIndex, int32
 void USBZCheatManager::SetThrowable(const FName& ThrowableDataName, int32 ThrowableIndex, int32 PlayerIndex) {
 }
 
+void USBZCheatManager::SetTaserTase(bool bIsTaserTase, int32 PlayerIndex) {
+}
+
 void USBZCheatManager::SetTargetLooseTagCount(const FName& Tag, int32 Count, int32 PlayerIndex) {
 }
 
@@ -105,9 +108,6 @@ void USBZCheatManager::SetPlayerSuit(const FName& PlayerMaskName, int32 PlayerIn
 }
 
 void USBZCheatManager::SetPlayerName(const FString& Name, int32 PlayerIndex) {
-}
-
-void USBZCheatManager::SetPlayerMergePartySelected(bool bIsMergePartySelected) {
 }
 
 void USBZCheatManager::SetPlayerMaskMould(const FName& PlayerMaskMouldName, int32 PlayerIndex) {
@@ -437,13 +437,13 @@ void USBZCheatManager::FindBlocker(bool bIsComplex, float TraceDistance, float T
 void USBZCheatManager::EquipOverkillWeapon(bool bIsFirstEquip, int32 PlayerIndex) {
 }
 
-void USBZCheatManager::DumpPlayersMergePartyStatus() {
-}
-
 void USBZCheatManager::DumpLootValue(const FString& LootName) {
 }
 
 void USBZCheatManager::DumpAllLootValues(const int32 Difficulty) {
+}
+
+void USBZCheatManager::DropPlayerEquippable(int32 Index, bool bIsInstant, int32 PlayerIndex) {
 }
 
 void USBZCheatManager::DestroyTargetAI(int32 PlayerIndex) {

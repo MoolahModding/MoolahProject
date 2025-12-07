@@ -30,10 +30,10 @@ bool ASBZPlayerController::SetCameraFeedbackIntensity(int32 CameraFeedbackID, fl
 void ASBZPlayerController::Server_UnsetViewTargetCollection_Implementation() {
 }
 
-void ASBZPlayerController::Server_SetViewTargetCollection_Implementation(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex) {
+void ASBZPlayerController::Server_StayAsPartyDecisionMade_Implementation(const FUniqueNetIdRepl& InPlayerId) {
 }
 
-void ASBZPlayerController::Server_SetPartyCode_Implementation(const FString& PartyCode) {
+void ASBZPlayerController::Server_SetViewTargetCollection_Implementation(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex) {
 }
 
 void ASBZPlayerController::Server_SetCurrentViewTargetIndex_Implementation(int32 InViewTargetIndex) {
@@ -54,7 +54,7 @@ bool ASBZPlayerController::Server_RestartRequested_Validate(const FUniqueNetIdRe
 void ASBZPlayerController::Server_RestartLevel_Implementation() {
 }
 
-void ASBZPlayerController::Server_RequestMergeParty_Implementation(bool bIsSelected, const TArray<FString>& PartyMemberPlayerIdArray) {
+void ASBZPlayerController::Server_PlayerRequestStayAsParty_Implementation(const FUniqueNetIdRepl& InPlayerId, bool bInStayAsParty) {
 }
 
 void ASBZPlayerController::Server_HostRestartRequested_Implementation(const FUniqueNetIdRepl& PlayerID) {
@@ -70,9 +70,6 @@ void ASBZPlayerController::Server_DebugTeleportTo_Implementation(const FVector& 
 }
 
 void ASBZPlayerController::Server_DebugPlayMontage_Implementation(AActor* Actor, UAnimMontage* Montage) {
-}
-
-void ASBZPlayerController::Server_CheckIfPartyLeader_Implementation(const bool bMergePartySelected, const bool bIsPartyLeader, const int32 NumberOfPartyMembers) {
 }
 
 bool ASBZPlayerController::RemoveCameraFeedback(int32 CameraFeedbackID) {
@@ -96,7 +93,7 @@ void ASBZPlayerController::ClientReceiveReward_Implementation(const FSBZInternal
 void ASBZPlayerController::Client_UnsetViewTargetCollection_Implementation() {
 }
 
-void ASBZPlayerController::Client_SkipCreateMergeParty_Implementation() {
+void ASBZPlayerController::Client_StayAsPartyStateUpdated_Implementation(const int32 StayAsPartyPlayerCount) {
 }
 
 void ASBZPlayerController::Client_SetViewTargetCollection_Implementation(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex) {
@@ -111,16 +108,25 @@ void ASBZPlayerController::Client_RestartInitiate_Implementation(float SecondsRe
 void ASBZPlayerController::Client_RestartAccepted_Implementation(const FUniqueNetIdRepl& PlayerID) {
 }
 
+void ASBZPlayerController::Client_PlayerRequestStayAsPartyAck_Implementation(bool bInStayAsParty) {
+}
+
+void ASBZPlayerController::Client_PartyMergeCancelled_Implementation() {
+}
+
+void ASBZPlayerController::Client_NotifyMergePartyCompleted_Implementation() {
+}
+
 void ASBZPlayerController::Client_LeaveDueToMissingPlayerData_Implementation() {
+}
+
+void ASBZPlayerController::Client_JoinMergedParty_Implementation(const FString& InPartyCode) {
 }
 
 void ASBZPlayerController::Client_Disband_LeaveJoinParty_Implementation(const FString& PartyCode) {
 }
 
 void ASBZPlayerController::Client_Disband_LeaveCreateParty_Implementation(const FString& LeaderID, const TArray<FString>& NonLeaderPartyMembersStillInGameSession) {
-}
-
-void ASBZPlayerController::Client_CheckIfPartyLeaderResponse_Implementation(bool bIsPartyLeader, const FString& PartyCode) {
 }
 
 int32 ASBZPlayerController::ApplyCameraFeedback(FSBZLocalPlayerFeedbackParameters& Parameters) {

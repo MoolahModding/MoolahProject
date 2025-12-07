@@ -6,6 +6,7 @@
 #include "SBZMarkerWidgetContainer.generated.h"
 
 class UCanvasPanel;
+class USBZMarkerDataAsset;
 class USBZMarkerWidget;
 
 UCLASS(Blueprintable, EditInlineNew)
@@ -20,10 +21,10 @@ protected:
     TSubclassOf<USBZMarkerWidget> MarkerWidgetClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float OffScreenRadiusPercentage;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float OffScreenTransitionTime;
+    
+    UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
+    float OffScreenRadiusPercentageArray[3];
     
 public:
     USBZMarkerWidgetContainer();
@@ -31,6 +32,10 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnMarkerAdded(FSBZMarkerRuntime& MarkerRuntime);
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void BP_OnInsideVolumeChanged(bool bInsideVolume, const USBZMarkerDataAsset* MarkerDataAsset);
     
 };
 

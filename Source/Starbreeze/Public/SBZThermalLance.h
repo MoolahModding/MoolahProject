@@ -25,6 +25,10 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintAuthorityOnly, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZBreachingEquipmentDelegate OnDisassemblyNeeded;
     
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ASBZBagTriggerVolume* BagTriggerVolume;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZInteractableComponent* IgnitionInteraction;
@@ -52,9 +56,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bShouldSpawnBagsWhenCompleted;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    ASBZBagTriggerVolume* BagTriggerVolume;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bStartWithBagTriggerEnabled;
@@ -118,6 +119,9 @@ private:
     void OnAckAddedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled);
     
 protected:
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    FVector GetInteractionMarkerLocation() const;
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void BP_OnBolted(int32 Amount, int32 BoltIndex);
     

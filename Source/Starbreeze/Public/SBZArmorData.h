@@ -52,7 +52,7 @@ protected:
     float RepairArmorInteractionImmuneDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float KillEnemyTraumaRestore;
+    float BreakOwnArmorImmuneDuration;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     ESBZArmorSpeedPenalty SpeedPenalty;
@@ -95,9 +95,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetLoadoutWeight() const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    float GetKillEnemyTraumaRestore() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FText GetFormattedPassiveDescriptionText() const;

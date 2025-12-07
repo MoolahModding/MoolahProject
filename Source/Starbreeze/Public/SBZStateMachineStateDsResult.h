@@ -43,7 +43,7 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
-    void OnRestartTimerFinsihed();
+    void OnRestartTimerFinished();
     
     UFUNCTION(BlueprintCallable)
     void OnRestartLevelTimeExpired();

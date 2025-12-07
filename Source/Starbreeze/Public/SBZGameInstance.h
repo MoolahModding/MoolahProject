@@ -4,6 +4,7 @@
 #include "ESBZDifficulty.h"
 #include "ESBZHostingProvider.h"
 #include "ESBZMatchmakingProvider.h"
+#include "SBZBuildNumberInterface.h"
 #include "SBZReplayInfo.h"
 #include "Templates/SubclassOf.h"
 #include "SBZGameInstance.generated.h"
@@ -39,7 +40,6 @@ class USBZLazyLoadingManager;
 class USBZListenerManager;
 class USBZLoadProgressionManager;
 class USBZLoadoutManager;
-class USBZMergePartyManager;
 class USBZMetaDataLoader;
 class USBZMusicManager;
 class USBZOnlineEventBroker;
@@ -67,7 +67,7 @@ class USBZWorldLoader;
 class USBZWwiseMotionManagerComponent;
 
 UCLASS(Blueprintable, DefaultConfig, NonTransient, Config=Starbreeze)
-class STARBREEZE_API USBZGameInstance : public UGameInstance {
+class STARBREEZE_API USBZGameInstance : public UGameInstance, public ISBZBuildNumberInterface {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -142,6 +142,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float FramerateLimitOutOfFocus;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 BuildNumber;
     
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -274,9 +277,6 @@ private:
     USBZGameplayManager* GameplayManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZMergePartyManager* MergePartyManager;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPartyMemberDataManager* PartyMemberDataManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -339,5 +339,7 @@ protected:
     UFUNCTION(BlueprintCallable, Exec)
     void DisplayVersion();
     
+
+    // Fix for true pure virtual functions not being implemented
 };
 

@@ -139,6 +139,9 @@ void USBZPlayerAbilitySystemComponent::Multicast_MarkTarget_Implementation(APawn
 void USBZPlayerAbilitySystemComponent::Multicast_MarkedForDeath_Implementation(const TArray<ASBZAIBaseCharacter*>& AICharacters) {
 }
 
+void USBZPlayerAbilitySystemComponent::Multicast_FireSkillGraceAOE_Implementation(const FSBZSkillGrazeTargetData& InTargetData) {
+}
+
 void USBZPlayerAbilitySystemComponent::Multicast_FireHET5AOE_Implementation(const FSBZHET5BlackOverskillTargetData& InTargetData) {
 }
 

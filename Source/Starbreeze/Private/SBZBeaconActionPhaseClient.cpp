@@ -5,9 +5,6 @@ ASBZBeaconActionPhaseClient::ASBZBeaconActionPhaseClient(const FObjectInitialize
     this->bIsDsLobbyClient = false;
 }
 
-void ASBZBeaconActionPhaseClient::ServerVoteStayAsParty_Implementation() {
-}
-
 void ASBZBeaconActionPhaseClient::ServerVoiceSessionUpdate_Implementation(const FString& VoiceSessionId, const ETLMVoiceSessionState VoiceSessionState) {
 }
 
@@ -135,9 +132,6 @@ void ASBZBeaconActionPhaseClient::ClientVoiceSessionReturnState_Implementation(c
 }
 
 void ASBZBeaconActionPhaseClient::ClientVoiceSessionInitialized_Implementation(const FString& VoiceSessionId) {
-}
-
-void ASBZBeaconActionPhaseClient::ClientUpdateStayAsPartyList_Implementation(const TArray<FString>& BackendPlayerIds) {
 }
 
 void ASBZBeaconActionPhaseClient::ClientUpdateSlotsData_Implementation(const TArray<FSBZSlotData>& InSlotsData) {

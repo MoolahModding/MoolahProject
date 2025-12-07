@@ -11,6 +11,7 @@ FSBZDamageEvent::FSBZDamageEvent() {
     this->Armor = 0.00f;
     this->HealthDamage = 0.00f;
     this->OverHealDamage = 0.00f;
+    this->bIsOverHealBreak = false;
     this->OverskillProgressionDamage = 0.00f;
     this->Distance = 0.00f;
     this->bIsCritical = false;

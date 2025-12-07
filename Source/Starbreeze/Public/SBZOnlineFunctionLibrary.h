@@ -15,7 +15,6 @@
 #include "ESBZUserPrivilegesProxy.h"
 #include "SBZLobbyCharacterInfoUi.h"
 #include "SBZLoginFieldInfo.h"
-#include "SBZMergePlayerData.h"
 #include "SBZMissionInfo.h"
 #include "SBZOnlineMatchmakingParams.h"
 #include "SBZOnlineSearchResult.h"
@@ -62,9 +61,6 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestRestartLevel(UObject* WorldContextObject);
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static void RequestMergeParty(UObject* WorldContextObject, bool bIsSelected);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void RequestLoginWithDeviceID(UObject* WorldContextObject);
@@ -284,9 +280,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FString GetNetworkVersion();
-    
-    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static TArray<FSBZMergePlayerData> GetMergePartyInformation(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static uint8 GetMaxPlayersForSession(const UObject* WorldContextObject);

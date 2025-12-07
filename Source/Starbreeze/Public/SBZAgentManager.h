@@ -6,12 +6,19 @@
 #include "SBZAgentManager.generated.h"
 
 class ANavigationData;
+class UNetConnection;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class STARBREEZE_API USBZAgentManager : public UActorComponent, public INavEdgeProviderInterface {
     GENERATED_BODY()
 public:
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UNetConnection*> Connections;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<UNetConnection*> QueuedConnections;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZAgentManagerPostPhysicsTickFunction PostPhysicsTickFunction;
     

@@ -3,6 +3,7 @@
 #include "AttributeSet.h"
 #include "SBZArmorChunkTypeData.h"
 #include "SBZCharacterAttributeSet.h"
+#include "SBZSkillAttackCount.h"
 #include "SBZWeightTagData.h"
 #include "SBZPlayerAttributeSet.generated.h"
 
@@ -185,6 +186,9 @@ public:
     FGameplayAttributeData MinRespawnHealth;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData MinRespawnHealthScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData MinRespawnArmorChunkCountPercent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -223,6 +227,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayAttributeData IncomingOverHealGainMultiplier;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData SniperExpertDamageMultiplierIncrease;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FGameplayAttributeData SMGMasterDamageMultiplierIncrease;
+    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerAbilityData* AbilityData;
@@ -230,11 +240,26 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZWeightTagData> WeightTagDataArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MinServerAmmoInventoryPredictionTimeout;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float MinServerAmmoLoadedPredictionTimeout;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerMovementWeightAsset* WeightAssetOverride;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FSBZArmorChunkTypeData> ArmorChunkTypeDataArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=UpdateOutgoingArmorPenetration, meta=(AllowPrivateAccess=true))
+    float CrackOpenOutgoingArmorPenetration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=UpdateOutgoingArmorPenetration, meta=(AllowPrivateAccess=true))
+    FSBZSkillAttackCount HighQualityBagAttackCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=UpdateOutgoingDamageMultiplier, meta=(AllowPrivateAccess=true))
+    FSBZSkillAttackCount HighGrainAttackCount;
     
 public:
     USBZPlayerAttributeSet();
@@ -242,6 +267,12 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 protected:
+    UFUNCTION(BlueprintCallable)
+    void UpdateOutgoingDamageMultiplier();
+    
+    UFUNCTION(BlueprintCallable)
+    void UpdateOutgoingArmorPenetration();
+    
     UFUNCTION(BlueprintCallable)
     void OnRep_TertiaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData);
     
@@ -380,6 +411,9 @@ protected:
     void Multicast_SetHealthTrauma(float NewCurrentValue);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetEquippableAmmoInventoryLoaded(int32 EquippableIndex, float AmmoLoaded, float AmmoInventory);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetDownedCount(float NewCurrentValue);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
@@ -387,6 +421,17 @@ protected:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetArmorTrauma(float NewCurrentValue);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_OnAmmoBagConsumeCharges();
+    
+public:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_SetSniperExpertDamageMultiplierIncrease(float NewCurrentValue);
+    
+protected:
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_ResendHighGrainPrimaryThrowableAttackCount(int32 Count);
     
 };
 

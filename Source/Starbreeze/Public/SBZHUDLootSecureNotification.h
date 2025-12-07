@@ -9,6 +9,11 @@ UCLASS(Blueprintable, EditInlineNew)
 class STARBREEZE_API USBZHUDLootSecureNotification : public USBZHUDWidgetBase {
     GENERATED_BODY()
 public:
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<USBZBagType*> QueuedSecuredLoot;
+    
+public:
     USBZHUDLootSecureNotification();
 
     UFUNCTION(BlueprintCallable, BlueprintPure)

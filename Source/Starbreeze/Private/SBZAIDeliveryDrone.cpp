@@ -10,7 +10,7 @@ ASBZAIDeliveryDrone::ASBZAIDeliveryDrone(const FObjectInitializer& ObjectInitial
     this->StopEvent = NULL;
     this->DropBagEvent = NULL;
     this->DespawnEvent = NULL;
-    this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    //this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->bIsBagDropped = false;
     //this->AkComponent->SetupAttachment(RootComponent);
 }

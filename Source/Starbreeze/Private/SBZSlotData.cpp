@@ -13,8 +13,9 @@ FSBZSlotData::FSBZSlotData() {
     this->bVoiceSessionEnabled = false;
     this->bVoiceSessionInitiator = false;
     this->bDropIn = false;
-    this->bHasLoadoutData = false;
     this->bStayAsParty = false;
+    this->bStayAsPartyDecided = false;
+    this->bHasLoadoutData = false;
     this->FirstPartyPlatform = ESBZFirstPartyPlatform::Unknown;
     this->Platform = ESBZPlatform::Unknown;
     this->InfamyLevel = 0;

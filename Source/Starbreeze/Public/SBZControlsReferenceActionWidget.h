@@ -36,6 +36,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZActionControlReference InputRegisteredControlsReferenceAction;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float HoldTimer;
+    
 public:
     USBZControlsReferenceActionWidget();
 
@@ -43,8 +46,20 @@ protected:
     UFUNCTION(BlueprintCallable)
     void PressControlsReferenceAction();
     
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnTimerUpdated();
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnTimerCompleted();
+    
     UFUNCTION(BlueprintCallable)
     void OnInputAction(const FName ActionName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnHoldActionReleased(const FName ActionName);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void OnHoldActionPressed(const FName ActionName);
     
 public:
     UFUNCTION(BlueprintCallable)

@@ -41,6 +41,8 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->VariationData = NULL;
     this->LastInteractorCharacter = NULL;
     this->ShotBlockedDownTime = 6.00f;
+    this->ShotBlockedBreakFollowDownDelay = 6.00f;
+    this->ShotBlockedBreakFollowDownTimer = 0.00f;
     this->SurrenderedNavFilter = NULL;
     this->DialogAllowedBehaviorCategory = 2;
     this->bTelegraphAttack = false;
@@ -66,6 +68,8 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->bIsScramblerSignalScanSkillActive = false;
     this->bHasGuardBehavior = false;
     this->bIsHogTiedOnce = false;
+    this->bIsDownOnGroundAllowed = true;
+    this->bIsHumanShieldAllowed = true;
     this->LastTieHandsInstigatorPlayerState = NULL;
     this->PagerData = NULL;
     this->PagerTriggeredCount = 0;
@@ -76,6 +80,8 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->HackedGameplayEffectClass = NULL;
     this->AttachedLoot = NULL;
     this->CurrentLifeActionTriggerVolume = NULL;
+    this->bIsPendingPagerEnabled = false;
+    this->bIsPagerScrambled = false;
     this->LocallyDamagedByPlayer = NULL;
     this->PendingMeleeDownOnGoundInstigator = NULL;
     this->SurrenderInstigatorPlayerState = NULL;
@@ -86,6 +92,8 @@ ASBZAICharacter::ASBZAICharacter(const FObjectInitializer& ObjectInitializer) : 
     this->StatisticsMarkEnemyMicroCamera = TEXT("mark-enemy-micro-camera");
     this->bCanBeSeenByThermalScope = true;
     this->KillInstigatorController = NULL;
+    this->CurrentOperatorRadioSilenceCount = 0;
+    this->bEnablePagerAfterOperatorTimeout = false;
 }
 
 ASBZCarriedStaticInteractionActor* ASBZAICharacter::SpawnLootOnCharacter(TSubclassOf<ASBZCarriedStaticInteractionActor> ClassTOSpawn) {
@@ -93,6 +101,12 @@ ASBZCarriedStaticInteractionActor* ASBZAICharacter::SpawnLootOnCharacter(TSubcla
 }
 
 void ASBZAICharacter::SetStartRoomLabel() {
+}
+
+void ASBZAICharacter::SetHumanShieldAllowed(bool bIsAllowed) {
+}
+
+void ASBZAICharacter::SetDownOnGroundAllowed(bool bIsAllowed) {
 }
 
 void ASBZAICharacter::RemoveMarkerFromAsObjective() {
@@ -168,6 +182,9 @@ void ASBZAICharacter::Multicast_StopRoomScanning_Implementation(ESBZRoomScanning
 }
 
 void ASBZAICharacter::Multicast_SetVariationCategory_Implementation(ESBZAICharacterVariationCategory Category) {
+}
+
+void ASBZAICharacter::Multicast_SetHumanShieldAllowed_Implementation(bool bIsAllowed) {
 }
 
 void ASBZAICharacter::Multicast_SetHacked_Implementation(float Duration) {

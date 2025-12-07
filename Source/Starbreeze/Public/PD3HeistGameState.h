@@ -116,6 +116,9 @@ private:
     TSubclassOf<ASBZPlaceableWeapon> DefaultWeaponBoxClass;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<ASBZPlaceableWeapon> DefaultOverkillWeaponBoxClass;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 MaxCrewCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))

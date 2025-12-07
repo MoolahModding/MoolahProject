@@ -7,6 +7,7 @@ ASBZAIPointOfInterestDeadBody::ASBZAIPointOfInterestDeadBody(const FObjectInitia
     this->LifeActionComponent = CreateDefaultSubobject<USBZLifeActionComponent>(TEXT("SBZLifeActionComponent"));
     this->LifeActionInstance = CreateDefaultSubobject<USBZLifeActionInstance>(TEXT("SBZLifeActionInstance"));
     this->LifeActionSlot = CreateDefaultSubobject<USBZLifeActionSlot>(TEXT("SBZLifeActionSlot"));
+    this->LifeActionSlotArray.AddDefaulted(3);
     this->LifeActionInstance->SetupAttachment(RootComponent);
     this->LifeActionSlot->SetupAttachment(LifeActionInstance);
 }

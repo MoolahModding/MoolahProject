@@ -21,7 +21,16 @@ USBZPlayerAttributeSet::USBZPlayerAttributeSet() {
     this->SecondaryToolAmmoInventoryServer = -1.00f;
     this->TertiaryToolAmmoInventoryServer = -1.00f;
     this->AbilityData = NULL;
+    this->MinServerAmmoInventoryPredictionTimeout = 0.30f;
+    this->MinServerAmmoLoadedPredictionTimeout = 0.30f;
     this->WeightAssetOverride = NULL;
+    this->CrackOpenOutgoingArmorPenetration = 0.00f;
+}
+
+void USBZPlayerAttributeSet::UpdateOutgoingDamageMultiplier() {
+}
+
+void USBZPlayerAttributeSet::UpdateOutgoingArmorPenetration() {
 }
 
 void USBZPlayerAttributeSet::OnRep_TertiaryToolPlaceableAmmoInventory(const FGameplayAttributeData& OldData) {
@@ -159,6 +168,9 @@ void USBZPlayerAttributeSet::Multicast_SetOutgoingArmorPenetration_Implementatio
 void USBZPlayerAttributeSet::Multicast_SetHealthTrauma_Implementation(float NewCurrentValue) {
 }
 
+void USBZPlayerAttributeSet::Multicast_SetEquippableAmmoInventoryLoaded_Implementation(int32 EquippableIndex, float AmmoLoaded, float AmmoInventory) {
+}
+
 void USBZPlayerAttributeSet::Multicast_SetDownedCount_Implementation(float NewCurrentValue) {
 }
 
@@ -166,6 +178,15 @@ void USBZPlayerAttributeSet::Multicast_SetConsumableCount_Implementation(float N
 }
 
 void USBZPlayerAttributeSet::Multicast_SetArmorTrauma_Implementation(float NewCurrentValue) {
+}
+
+void USBZPlayerAttributeSet::Multicast_OnAmmoBagConsumeCharges_Implementation() {
+}
+
+void USBZPlayerAttributeSet::Client_SetSniperExpertDamageMultiplierIncrease_Implementation(float NewCurrentValue) {
+}
+
+void USBZPlayerAttributeSet::Client_ResendHighGrainPrimaryThrowableAttackCount_Implementation(int32 Count) {
 }
 
 void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
@@ -195,6 +216,9 @@ void USBZPlayerAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
     DOREPLIFETIME(USBZPlayerAttributeSet, ConsumableCount);
     DOREPLIFETIME(USBZPlayerAttributeSet, OverskillProgression);
     DOREPLIFETIME(USBZPlayerAttributeSet, OutgoingArmorPenetration);
+    DOREPLIFETIME(USBZPlayerAttributeSet, CrackOpenOutgoingArmorPenetration);
+    DOREPLIFETIME(USBZPlayerAttributeSet, HighQualityBagAttackCount);
+    DOREPLIFETIME(USBZPlayerAttributeSet, HighGrainAttackCount);
 }
 
 

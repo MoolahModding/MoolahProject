@@ -23,6 +23,10 @@ void USBZGameStartMainMenuSkillsSelection::NativeOnAlternativeSelectionPressed()
 void USBZGameStartMainMenuSkillsSelection::HandleProgressionSave(ESBZMetaRequestResult Result) {
 }
 
+int32 USBZGameStartMainMenuSkillsSelection::GetEquippedSkillCount() const {
+    return 0;
+}
+
 bool USBZGameStartMainMenuSkillsSelection::CustomizeSkillsForPlayerLoadoutIndex(int32 InLoadoutIndex) {
     return false;
 }

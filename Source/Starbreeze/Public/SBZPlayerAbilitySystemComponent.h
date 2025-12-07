@@ -7,6 +7,7 @@
 #include "SBZAbilitySystemComponent.h"
 #include "SBZAttributeGUIEffectData.h"
 #include "SBZHET5BlackOverskillTargetData.h"
+#include "SBZSkillGrazeTargetData.h"
 #include "SBZPlayerAbilitySystemComponent.generated.h"
 
 class APawn;
@@ -220,6 +221,9 @@ public:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_MarkedForDeath(const TArray<ASBZAIBaseCharacter*>& AICharacters);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_FireSkillGraceAOE(const FSBZSkillGrazeTargetData& InTargetData);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_FireHET5AOE(const FSBZHET5BlackOverskillTargetData& InTargetData);

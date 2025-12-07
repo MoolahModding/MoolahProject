@@ -84,4 +84,8 @@ FText USBZUIStatics::ClampText(const FText& InText, int32 MaxCharacters, bool bA
     return FText::GetEmpty();
 }
 
+FText USBZUIStatics::AddRichTextTag(const FText& InText, const FString& InTag) {
+    return FText::GetEmpty();
+}
+
 

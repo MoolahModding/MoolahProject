@@ -2,6 +2,7 @@
 
 USBZStateMachineStateWaitSoloGame::USBZStateMachineStateWaitSoloGame() {
     this->LoadingScreen = NULL;
+    this->MatchmakingData = NULL;
 }
 
 void USBZStateMachineStateWaitSoloGame::OnServerRetrieveEntitlementsDone(ESBZMetaRequestResult Result) {

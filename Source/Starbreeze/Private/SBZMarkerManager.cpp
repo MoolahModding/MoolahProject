@@ -12,7 +12,7 @@ void USBZMarkerManager::OnRep_ReplicatedMarkers() {
 void USBZMarkerManager::Multicast_RemoveMarker_Implementation(uint32 ID) {
 }
 
-void USBZMarkerManager::Multicast_AddMarker_Implementation(uint32 ID, const USBZMarkerDataAsset* MarkerAsset, const FVector& Translation) {
+void USBZMarkerManager::Multicast_AddMarker_Implementation(uint32 ID, const USBZMarkerDataAsset* MarkerAsset, const FVector& Translation, const ASBZWaypointVolume* WaypointVolume) {
 }
 
 void USBZMarkerManager::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {

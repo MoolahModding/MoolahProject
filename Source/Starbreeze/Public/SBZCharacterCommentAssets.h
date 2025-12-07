@@ -9,7 +9,10 @@ struct FSBZCharacterCommentAssets {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    USBZVoiceCommentDataAsset* TakeDamage;
+    USBZVoiceCommentDataAsset* TakeHealthDamage;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    USBZVoiceCommentDataAsset* TakeArmorDamage;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZVoiceCommentDataAsset* OnDeath;

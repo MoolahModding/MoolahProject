@@ -9,7 +9,6 @@
 #include "SBZEquippable.h"
 #include "SBZProjectileInterface.h"
 #include "SBZQuat_NetQuantizeNormal.h"
-#include "Templates/SubclassOf.h"
 #include "SBZThrowable.generated.h"
 
 class AActor;
@@ -46,6 +45,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZCharacter* OwnerCharacter;
     
+    UPROPERTY(EditAnywhere, ReplicatedUsing=OnRep_SpawnIndex, meta=(AllowPrivateAccess=true))
+    int8 SpawnIndex;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ThrowableState, meta=(AllowPrivateAccess=true))
     ESBZThrowableState ThrowableState;
     
@@ -79,9 +81,6 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float AudioImpactForceModifierValue;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    TSubclassOf<USBZThrowableData> DataType;
-    
 public:
     ASBZThrowable(const FObjectInitializer& ObjectInitializer);
 
@@ -108,6 +107,9 @@ protected:
     UFUNCTION(BlueprintCallable)
     void OnRep_ThrowableState();
     
+    UFUNCTION(BlueprintCallable)
+    void OnRep_SpawnIndex();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnReady();
     
@@ -119,9 +121,6 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnInstigatorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason);
-    
-    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnDetachForThrow();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnAttachForThrow();

@@ -3,6 +3,9 @@
 USBZBlackMarketStoreItemButton::USBZBlackMarketStoreItemButton() {
 }
 
+void USBZBlackMarketStoreItemButton::RequestOpenItemInPlatformStore() {
+}
+
 
 bool USBZBlackMarketStoreItemButton::IsTransactionInProgress() const {
     return false;

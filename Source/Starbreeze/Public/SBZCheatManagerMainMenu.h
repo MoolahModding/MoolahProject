@@ -8,6 +8,7 @@
 #include "SBZServersListInterpreter.h"
 #include "SBZCheatManagerMainMenu.generated.h"
 
+class UAnimSequenceBase;
 class UInputComponent;
 class USBZSprayCanData;
 class USBZSuitPartConfig;
@@ -29,6 +30,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TSet<UTexture2D*> IconTextureSet;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UAnimSequenceBase* SelectedAnimAsset;
     
 public:
     USBZCheatManagerMainMenu();
@@ -122,6 +126,9 @@ private:
     void PrintNews(ESBZOnlineCode ErrorCode, const TArray<FSBZNewsDataUIEntry>& NewsFeedList);
     
 public:
+    UFUNCTION(BlueprintCallable, Exec)
+    void OpenXBoxShop(const FString& ProductId);
+    
     UFUNCTION(BlueprintCallable, Exec)
     void LoadWeaponExperienceToLevelTable(const FString& ItemId);
     

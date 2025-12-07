@@ -164,6 +164,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FText LoadoutChangePopupListText;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FText LoadoutChangePopupAcedSkillFormatText;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZMainMenuCosmeticItemButton*> CosmeticButtonPool;
     
@@ -184,6 +187,11 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ShowMainMenuFunction();
     
+private:
+    UFUNCTION(BlueprintCallable)
+    void ShowLoadoutChangePopup();
+    
+public:
     UFUNCTION(BlueprintCallable)
     void SetVendorTypeToOpen(ESBZBlackMarketVendorType VendorType);
     

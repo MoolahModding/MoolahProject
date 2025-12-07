@@ -5,6 +5,7 @@ ASBZWaypoint::ASBZWaypoint(const FObjectInitializer& ObjectInitializer) : Super(
     this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
     this->bShowMarkerOnSpawn = false;
     this->MarkerAsset = NULL;
+    this->WaypointVolume = NULL;
 }
 
 void ASBZWaypoint::RemoveMarker() {

@@ -21,7 +21,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZMiniGameComponent* MiniGameComponent;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     uint8 bIsMinigameIgnored: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -30,6 +30,11 @@ protected:
 public:
     ASBZInteractableGate(const FObjectInitializer& ObjectInitializer);
 
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetLockedState(bool bIsFromFrontAllowed, bool bIsFromBackAllowed, bool bInIsMinigameIgnored);
+    
 protected:
     UFUNCTION(BlueprintCallable)
     void OnStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
@@ -48,6 +53,10 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
+    
+public:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetLockedState(bool bIsFromFrontAllowed, bool bIsFromBackAllowed, bool bInIsMinigameIgnored);
     
 
     // Fix for true pure virtual functions not being implemented

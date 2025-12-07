@@ -34,6 +34,9 @@ private:
 public:
     USBZStoreManager();
 
+    UFUNCTION(BlueprintCallable)
+    void OpenDlcInFirstPartyStore(const FString& ProductId);
+    
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZStoreManager* GetStoreManagerChecked(const UObject* WorldContextObject);
     

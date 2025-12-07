@@ -93,14 +93,14 @@ private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_UnsetViewTargetCollection();
     
+public:
+    UFUNCTION(BlueprintCallable, Reliable, Server)
+    void Server_StayAsPartyDecisionMade(const FUniqueNetIdRepl& InPlayerId);
+    
+private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetViewTargetCollection(UObject* InViewTargetCollectionObject, int32 InViewTargetIndex);
     
-public:
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_SetPartyCode(const FString& PartyCode);
-    
-private:
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_SetCurrentViewTargetIndex(int32 InViewTargetIndex);
     
@@ -120,7 +120,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_RequestMergeParty(bool bIsSelected, const TArray<FString>& PartyMemberPlayerIdArray);
+    void Server_PlayerRequestStayAsParty(const FUniqueNetIdRepl& InPlayerId, bool bInStayAsParty);
     
     UFUNCTION(BlueprintCallable, Reliable, Server, WithValidation)
     void Server_HostRestartRequested(const FUniqueNetIdRepl& PlayerID);
@@ -133,9 +133,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
     void Server_DebugPlayMontage(AActor* Actor, UAnimMontage* Montage);
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
-    void Server_CheckIfPartyLeader(const bool bMergePartySelected, const bool bIsPartyLeader, const int32 NumberOfPartyMembers);
     
     UFUNCTION(BlueprintCallable)
     bool RemoveCameraFeedback(int32 CameraFeedbackID);
@@ -160,7 +157,7 @@ private:
     
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
-    void Client_SkipCreateMergeParty();
+    void Client_StayAsPartyStateUpdated(const int32 StayAsPartyPlayerCount);
     
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
@@ -177,16 +174,25 @@ public:
     void Client_RestartAccepted(const FUniqueNetIdRepl& PlayerID);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_PlayerRequestStayAsPartyAck(bool bInStayAsParty);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_PartyMergeCancelled();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_NotifyMergePartyCompleted();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_LeaveDueToMissingPlayerData();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_JoinMergedParty(const FString& InPartyCode);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_Disband_LeaveJoinParty(const FString& PartyCode);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_Disband_LeaveCreateParty(const FString& LeaderID, const TArray<FString>& NonLeaderPartyMembersStillInGameSession);
-    
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void Client_CheckIfPartyLeaderResponse(bool bIsPartyLeader, const FString& PartyCode);
     
     UFUNCTION(BlueprintCallable)
     int32 ApplyCameraFeedback(UPARAM(Ref) FSBZLocalPlayerFeedbackParameters& Parameters);

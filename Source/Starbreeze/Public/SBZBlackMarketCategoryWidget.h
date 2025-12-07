@@ -16,6 +16,9 @@ public:
     USBZBlackMarketCategoryWidget();
 
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void UpdateCategoryVisuals(ESBZStoreItemDefaultUICategory CategoryType);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetStoreCategoryName(const FText& InCategoryName);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

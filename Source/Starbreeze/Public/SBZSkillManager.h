@@ -24,6 +24,9 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<int32> SkillLayerPrerequisiteCountArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TArray<int32> SkillLayerCostArray;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZSkillLine* ModifyingSkillLine;
@@ -44,10 +47,10 @@ public:
     bool IsSkillEquippable(const USBZSkill* Skill, const FSBZPlayerLoadoutConfig& PlayerLoadoutConfig) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetSkillPointsFromInfamyLevel(int32 InfamyLevel) const;
+    int32 GetSkillPointsFromInfamyLevel(int32 InfamyLevel, int32 SkillVersionIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetSkillPointsFromInfamyExperience(int32 InfamyExperience) const;
+    int32 GetSkillPointsFromInfamyExperience(int32 InfamyExperience, int32 SkillVersionIndex) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static USBZSkillManager* GetSkillManager(const UObject* WorldContextObject);
@@ -71,7 +74,7 @@ public:
     float GetMaxProgressLevel(const USBZSkillLineData* SkillLine) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    int32 GetEarnedSkillPoints();
+    int32 GetEarnedSkillPoints(int32 SkillVersionIndex) const;
     
     UFUNCTION(BlueprintCallable)
     bool EquipSkills(TArray<USBZSkill*>& Skills, FSBZPlayerLoadoutConfig& PlayerLoadoutConfig);

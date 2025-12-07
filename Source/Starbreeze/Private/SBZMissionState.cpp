@@ -14,7 +14,7 @@
 
 ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RandomSeed = -1;
-    this->ServerChangelist = 860844;
+    this->ServerChangelist = 889942;
     this->Difficulty = ESBZDifficulty::Default;
     this->PickupDifficultyModifierArray[0] = 1.00f;
     this->PickupDifficultyModifierArray[1] = 1.00f;
@@ -45,7 +45,6 @@ ASBZMissionState::ASBZMissionState(const FObjectInitializer& ObjectInitializer) 
     this->DroneDeliverySquadPawn = NULL;
     this->LastOverkillWeaponCaller = NULL;
     this->SeasonalEventItemCount = 0;
-    this->DSChallengeManager = NULL;
     this->OverkillWeaponCooldown = 45.00f;
     this->TutorialPlayerCharacterData = NULL;
     this->bIsAmmoSpecialistHighGrainSkillActive = false;
@@ -82,6 +81,9 @@ void ASBZMissionState::OnSecurityCompaniesChanged() {
 }
 
 void ASBZMissionState::OnRep_ServerChangelist() {
+}
+
+void ASBZMissionState::OnRep_ReplicatedSharedKeyItemTagCount() {
 }
 
 void ASBZMissionState::OnRep_RandomSeed() {

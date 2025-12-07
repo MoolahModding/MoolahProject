@@ -1,6 +1,8 @@
 #include "SBZSkillManager.h"
 
 USBZSkillManager::USBZSkillManager() {
+    this->SkillLayerPrerequisiteCountArray.AddDefaulted(4);
+    this->SkillLayerCostArray.AddDefaulted(4);
     this->ModifyingSkillLine = NULL;
 }
 
@@ -19,11 +21,11 @@ bool USBZSkillManager::IsSkillEquippable(const USBZSkill* Skill, const FSBZPlaye
     return false;
 }
 
-int32 USBZSkillManager::GetSkillPointsFromInfamyLevel(int32 InfamyLevel) const {
+int32 USBZSkillManager::GetSkillPointsFromInfamyLevel(int32 InfamyLevel, int32 SkillVersionIndex) const {
     return 0;
 }
 
-int32 USBZSkillManager::GetSkillPointsFromInfamyExperience(int32 InfamyExperience) const {
+int32 USBZSkillManager::GetSkillPointsFromInfamyExperience(int32 InfamyExperience, int32 SkillVersionIndex) const {
     return 0;
 }
 
@@ -54,7 +56,7 @@ float USBZSkillManager::GetMaxProgressLevel(const USBZSkillLineData* SkillLine) 
     return 0.0f;
 }
 
-int32 USBZSkillManager::GetEarnedSkillPoints() {
+int32 USBZSkillManager::GetEarnedSkillPoints(int32 SkillVersionIndex) const {
     return 0;
 }
 

@@ -15,6 +15,7 @@ ASBZThrowable::ASBZThrowable(const FObjectInitializer& ObjectInitializer) : Supe
     this->StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
     this->Data = NULL;
     this->OwnerCharacter = NULL;
+    this->SpawnIndex = -1;
     this->ThrowableState = ESBZThrowableState::Spawned;
     this->PlayerState = NULL;
     this->ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
@@ -26,7 +27,6 @@ ASBZThrowable::ASBZThrowable(const FObjectInitializer& ObjectInitializer) : Supe
     this->OverrideAudioEvent = NULL;
     this->OverrideAudioRTPC = NULL;
     this->AudioImpactForceModifierValue = 1.00f;
-    this->DataType = NULL;
 }
 
 void ASBZThrowable::Server_SetThrowableState_Implementation(ESBZThrowableState NewThrowableState) {
@@ -43,6 +43,9 @@ void ASBZThrowable::OnThrownActorBeginOverlap(UPrimitiveComponent* OverlappedCom
 void ASBZThrowable::OnRep_ThrowableState() {
 }
 
+void ASBZThrowable::OnRep_SpawnIndex() {
+}
+
 
 void ASBZThrowable::OnProjectileStopped(const FHitResult& InHitResult) {
 }
@@ -52,7 +55,6 @@ void ASBZThrowable::OnProjectileBounce(const FHitResult& InHitResult, const FVec
 
 void ASBZThrowable::OnInstigatorEndPlay(AActor* Actor, TEnumAsByte<EEndPlayReason::Type> EndPlayReason) {
 }
-
 
 
 void ASBZThrowable::Multicast_SetThrowState_Implementation(ESBZThrowableState NewThrowState) {
@@ -73,6 +75,7 @@ void ASBZThrowable::CreateImpactPoint(const FHitResult& Hit, float Velocity) {
 void ASBZThrowable::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
+    DOREPLIFETIME(ASBZThrowable, SpawnIndex);
     DOREPLIFETIME(ASBZThrowable, ThrowableState);
 }
 

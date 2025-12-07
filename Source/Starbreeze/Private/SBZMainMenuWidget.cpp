@@ -37,6 +37,9 @@ void USBZMainMenuWidget::ShowOnboardingPopup() {
 }
 
 
+void USBZMainMenuWidget::ShowLoadoutChangePopup() {
+}
+
 void USBZMainMenuWidget::SetVendorTypeToOpen(ESBZBlackMarketVendorType VendorType) {
 }
 

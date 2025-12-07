@@ -3,6 +3,7 @@
 
 ASBZThermalLance::ASBZThermalLance(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Tags.AddDefaulted(1);
+    this->BagTriggerVolume = NULL;
     this->IgnitionInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("IgnitionInteraction"));
     this->RemoveCanisterInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("RemoveCanisterInteraction"));
     this->AddCanisterInteraction = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("AddCanisterInteraction"));
@@ -10,7 +11,6 @@ ASBZThermalLance::ASBZThermalLance(const FObjectInitializer& ObjectInitializer) 
     this->BoltingInteractions.AddDefaulted(3);
     this->bNeedsDisassemblyWhenFinished = true;
     this->bShouldSpawnBagsWhenCompleted = true;
-    this->BagTriggerVolume = NULL;
     this->bStartWithBagTriggerEnabled = true;
     this->RequiredBagType = NULL;
     this->DisassembleInteractionWaitTime = 2.00f;
@@ -53,6 +53,10 @@ void ASBZThermalLance::OnAckRemovedCanister(USBZBaseInteractableComponent* Inter
 }
 
 void ASBZThermalLance::OnAckAddedCanister(USBZBaseInteractableComponent* Interactable, USBZInteractorComponent* Interactor, bool bInIsLocallyControlled) {
+}
+
+FVector ASBZThermalLance::GetInteractionMarkerLocation_Implementation() const {
+    return FVector{};
 }
 
 

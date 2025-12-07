@@ -11,6 +11,9 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnStayAsPartyTimerCompletedLocalEvent();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartExpireTimerUpdated(float InNewTime);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -18,6 +21,9 @@ protected:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRestartAcceptTimerUpdated(float InNewTime);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnPartyMergeFinished(bool bWasCancelled);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnMergePartyUpdated(const FString& PlayerDisplayName, const bool bIsMergePartySelected);

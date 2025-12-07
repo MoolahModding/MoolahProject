@@ -1,10 +1,8 @@
 #include "SBZShockGrenade.h"
 #include "Components/CapsuleComponent.h"
-#include "SBZShockGrenadeData.h"
 
 ASBZShockGrenade::ASBZShockGrenade(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UCapsuleComponent>(TEXT("CollisionCapsule"))) {
     this->Tags.AddDefaulted(1);
-    this->DataType = USBZShockGrenadeData::StaticClass();
     this->CapsuleCollision = (UCapsuleComponent*)RootComponent;
     this->CurrentChainedActor = NULL;
     this->MinInterweaveAngle = 65.00f;

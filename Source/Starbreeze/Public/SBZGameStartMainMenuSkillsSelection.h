@@ -64,6 +64,9 @@ private:
     void HandleProgressionSave(ESBZMetaRequestResult Result);
     
 public:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetEquippedSkillCount() const;
+    
     UFUNCTION(BlueprintCallable)
     bool CustomizeSkillsForPlayerLoadoutIndex(int32 InLoadoutIndex);
     

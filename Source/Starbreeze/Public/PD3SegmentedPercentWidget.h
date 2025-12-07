@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AttributeSet.h"
+#include "Abilities/GameplayAbility.h"
 #include "PD3AttributePercentWidget.h"
 #include "PD3SegmentedPercentWidget.generated.h"
 

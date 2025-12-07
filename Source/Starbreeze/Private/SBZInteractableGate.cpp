@@ -1,4 +1,5 @@
 #include "SBZInteractableGate.h"
+#include "Net/UnrealNetwork.h"
 #include "SBZInteractableComponent.h"
 #include "SBZMiniGameComponent.h"
 
@@ -9,6 +10,9 @@ ASBZInteractableGate::ASBZInteractableGate(const FObjectInitializer& ObjectIniti
     this->MiniGameComponent = CreateDefaultSubobject<USBZMiniGameComponent>(TEXT("SBZMiniGameComponent"));
     this->bIsMinigameIgnored = false;
     this->bIsMinigameFrontOnly = false;
+}
+
+void ASBZInteractableGate::SetLockedState(bool bIsFromFrontAllowed, bool bIsFromBackAllowed, bool bInIsMinigameIgnored) {
 }
 
 void ASBZInteractableGate::OnStartInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {
@@ -27,6 +31,15 @@ void ASBZInteractableGate::OnAckRejectedPredictedInteraction(USBZBaseInteractabl
 }
 
 void ASBZInteractableGate::OnAckAbortInteraction(USBZBaseInteractableComponent* InInteractable, USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor) {
+}
+
+void ASBZInteractableGate::Multicast_SetLockedState_Implementation(bool bIsFromFrontAllowed, bool bIsFromBackAllowed, bool bInIsMinigameIgnored) {
+}
+
+void ASBZInteractableGate::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    
+    DOREPLIFETIME(ASBZInteractableGate, bIsMinigameIgnored);
 }
 
 

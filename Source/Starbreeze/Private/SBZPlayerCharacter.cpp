@@ -5,7 +5,6 @@
 #include "NiagaraComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SBZAimAssistComponent.h"
-#include "SBZCharacterComponent.h"
 #include "SBZCustomizableSuitMeshComponent.h"
 #include "SBZFirstPersonCameraAttachment.h"
 #include "SBZMiniGameComponent.h"
@@ -39,7 +38,6 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->FPCameraAttachment = CreateDefaultSubobject<USBZFirstPersonCameraAttachment>(TEXT("FirstPersonCameraAttachment"));
     this->RecoilComponent = CreateDefaultSubobject<USBZRecoilComponent>(TEXT("RecoilComponent"));
     this->AimAssistComponent = CreateDefaultSubobject<USBZAimAssistComponent>(TEXT("SBZAimAssistComponent"));
-    this->CharacterComponent = CreateDefaultSubobject<USBZCharacterComponent>(TEXT("CharacterComponent"));
     this->Mesh1P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("PawnMesh1P"));
     this->Mesh1PBody = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("PawnMesh1PBody"));
     this->Mesh1PSuit = CreateDefaultSubobject<USBZCustomizableSuitMeshComponent>(TEXT("PawnMesh1PSuit"));
@@ -80,9 +78,11 @@ ASBZPlayerCharacter::ASBZPlayerCharacter(const FObjectInitializer& ObjectInitial
     this->OverHealDamageFeedback = NULL;
     this->OverHealGainedFeedback = NULL;
     this->OverHealRestoredFeedback = NULL;
+    this->OverHealDepletedFeedback = NULL;
     this->ShieldFlashFeedback = NULL;
     this->OverskillDepletedFeedback = NULL;
     this->OverskillDamageFeedback = NULL;
+    this->SmokeMasterFeedback = NULL;
     this->RevivedComment = NULL;
     this->UncuffedComment = NULL;
     this->StealthMaskOnComment = NULL;

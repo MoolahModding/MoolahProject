@@ -7,6 +7,7 @@
 #include "AI/Navigation/NavRelevantInterface.h"
 #include "GameplayTagContainer.h"
 #include "NavLinkHostInterface.h"
+#include "ESBZGateOpenDirection.h"
 #include "ESBZGateSoundReduction.h"
 #include "ESBZGateState.h"
 #include "SBZAIActionInteractableInterface.h"
@@ -48,6 +49,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_State, meta=(AllowPrivateAccess=true))
     ESBZGateState State;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ESBZGateState LastState;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZGateState LinkMoveFinishedState;
@@ -94,13 +98,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     TArray<USBZGateNavLinkAgilityComponent*> NavLinkAgilityComponentArray;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    uint8 bIsOpenForward: 1;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    uint8 bIsOpenFromBackAllowed: 1;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    uint8 bIsOpenBackwardAllowed: 1;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     uint8 bIsOpenFromFrontAllowed: 1;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
@@ -114,6 +115,12 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 bIsSliding: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsYawInversed: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ESBZGateOpenDirection OpenDirection;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float UnlockingLinkMoveCooldownDuration;
@@ -195,6 +202,9 @@ public:
 
 protected:
     UFUNCTION(BlueprintCallable)
+    void TickYaw(USceneComponent* InForwardHinge, USceneComponent* InBackwardHinge, float InYaw);
+    
+    UFUNCTION(BlueprintCallable)
     void SetYaw(USceneComponent* Mesh, float InYaw);
     
 public:
@@ -234,6 +244,12 @@ public:
     void Multicast_HandleAgilityTagEvent(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator, const FVector& InstigatorLocation);
     
 protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsYawInversedState(ESBZGateState InState) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsYawInversed() const;
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     bool IsOpenForwardFromLocation(const FVector& Location) const;
     
@@ -241,8 +257,22 @@ public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure)
     bool IsOpenForwardFromDirection(const FVector& Direction) const;
     
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDirectionStateChange(ESBZGateState InOldState, ESBZGateState InNewState, bool bInIsForward) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsDirectionState(ESBZGateState InState, bool bInIsForward) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsClosedState(ESBZGateState InState) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsClosed() const;
+    
 
     // Fix for true pure virtual functions not being implemented
+public:
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     bool SetEnabled(bool bEnabled) override PURE_VIRTUAL(SetEnabled, return false;);
     

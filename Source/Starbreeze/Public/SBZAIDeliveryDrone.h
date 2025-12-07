@@ -3,6 +3,7 @@
 #include "GameplayTagContainer.h"
 #include "SBZAIDroneBase.h"
 #include "SBZBagHandle.h"
+#include "SBZPawnLifetime.h"
 #include "SBZRoomVolumeInterface.h"
 #include "SBZTypeInterface.h"
 #include "SBZAIDeliveryDrone.generated.h"
@@ -14,7 +15,7 @@ class UBehaviorTree;
 class USBZBagType;
 
 UCLASS(Blueprintable)
-class ASBZAIDeliveryDrone : public ASBZAIDroneBase, public ISBZTypeInterface, public ISBZRoomVolumeInterface {
+class ASBZAIDeliveryDrone : public ASBZAIDroneBase, public ISBZTypeInterface, public ISBZRoomVolumeInterface, public ISBZPawnLifetime {
     GENERATED_BODY()
 public:
 protected:

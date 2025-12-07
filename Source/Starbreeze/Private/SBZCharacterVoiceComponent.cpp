@@ -40,7 +40,7 @@ void USBZCharacterVoiceComponent::SayCharacterEvent(const FString& CommentState,
 void USBZCharacterVoiceComponent::Say(UAkAudioEvent* AudioEvent, ESBZVoicePriority InPlayingPriority) {
 }
 
-void USBZCharacterVoiceComponent::OnTakeDamage() {
+void USBZCharacterVoiceComponent::OnTakeDamage(const FSBZDamageEvent& Event) {
 }
 
 void USBZCharacterVoiceComponent::OnStaminaValueChanged(float NewValue, float OldValue, float MaxValue) {

@@ -3,6 +3,7 @@
 #include "GameFramework/Actor.h"
 #include "SBZWaypoint.generated.h"
 
+class ASBZWaypointVolume;
 class USBZMarkerDataAsset;
 
 UCLASS(Blueprintable)
@@ -15,6 +16,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     USBZMarkerDataAsset* MarkerAsset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    ASBZWaypointVolume* WaypointVolume;
     
 public:
     ASBZWaypoint(const FObjectInitializer& ObjectInitializer);

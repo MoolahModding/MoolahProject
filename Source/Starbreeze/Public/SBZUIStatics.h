@@ -85,5 +85,8 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static FText ClampText(const FText& InText, int32 MaxCharacters, bool bAddElipses);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static FText AddRichTextTag(const FText& InText, const FString& InTag);
+    
 };
 

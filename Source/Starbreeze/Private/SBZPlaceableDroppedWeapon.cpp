@@ -5,8 +5,8 @@
 
 ASBZPlaceableDroppedWeapon::ASBZPlaceableDroppedWeapon(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->bDestroyOnInteraction = true;
+    this->bIsBoundScaled = true;
     this->WeaponPoint = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComponent"));
-    this->AttachedWeapon = NULL;
     this->PhysicsCorrector = CreateDefaultSubobject<USBZSimplePhysicsCorrector>(TEXT("SBZSimplePhysicsCorrector"));
     this->AmmoLoadedLeft = 0;
     this->AmmoInventoryLeft = 0;

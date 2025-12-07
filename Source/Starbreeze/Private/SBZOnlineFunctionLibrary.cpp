@@ -33,9 +33,6 @@ void USBZOnlineFunctionLibrary::RequestSteamLogin(UObject* WorldContextObject) {
 void USBZOnlineFunctionLibrary::RequestRestartLevel(UObject* WorldContextObject) {
 }
 
-void USBZOnlineFunctionLibrary::RequestMergeParty(UObject* WorldContextObject, bool bIsSelected) {
-}
-
 void USBZOnlineFunctionLibrary::RequestLoginWithDeviceID(UObject* WorldContextObject) {
 }
 
@@ -315,10 +312,6 @@ FString USBZOnlineFunctionLibrary::GetOverrideAccelbyteGameMode() {
 
 FString USBZOnlineFunctionLibrary::GetNetworkVersion() {
     return TEXT("");
-}
-
-TArray<FSBZMergePlayerData> USBZOnlineFunctionLibrary::GetMergePartyInformation(UObject* WorldContextObject) {
-    return TArray<FSBZMergePlayerData>();
 }
 
 uint8 USBZOnlineFunctionLibrary::GetMaxPlayersForSession(const UObject* WorldContextObject) {

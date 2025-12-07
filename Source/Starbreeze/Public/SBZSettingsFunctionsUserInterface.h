@@ -40,6 +40,9 @@ public:
     static void SetFPSCountEnabled(UObject* WorldContextObject, bool bEnabled);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static void SetEnemyHealthBarEnabled(UObject* WorldContextObject, bool bEnabled);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void SetCrosshairsShowAccuracy(UObject* WorldContextObject, bool bShowAccuracy);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
@@ -71,6 +74,12 @@ public:
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static bool IsFPSCountEnabled(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsEnemyHealthBarEnabledByDefault(UObject* WorldContextObject);
+    
+    UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
+    static bool IsEnemyHealthBarEnabled(UObject* WorldContextObject);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static float GetSubtitlesSize(UObject* WorldContextObject);

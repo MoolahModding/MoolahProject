@@ -68,6 +68,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, EditFixedSize, meta=(AllowPrivateAccess=true))
     TArray<FSBZSkillTagContainerValue> TagContainerArray;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 EquipCost;
+    
     USBZSkillData();
 
 };

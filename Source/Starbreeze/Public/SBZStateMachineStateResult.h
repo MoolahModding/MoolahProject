@@ -31,9 +31,6 @@ public:
 
 private:
     UFUNCTION(BlueprintCallable)
-    void SetupMergePartyDone();
-    
-    UFUNCTION(BlueprintCallable)
     void OnRestartTimeExpired();
     
     UFUNCTION(BlueprintCallable)

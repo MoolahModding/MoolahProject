@@ -9,7 +9,6 @@ enum class ESBZThrowableState : uint8 {
     Ready,
     AttachedForThrow,
     ThrownStillAttached,
-    DetachedForThrow,
     Thrown,
     Canceled,
     Dropped,

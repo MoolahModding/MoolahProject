@@ -7,7 +7,7 @@ USBZStateMachineStateDsResult::USBZStateMachineStateDsResult() {
     this->ResultWidget = NULL;
 }
 
-void USBZStateMachineStateDsResult::OnRestartTimerFinsihed() {
+void USBZStateMachineStateDsResult::OnRestartTimerFinished() {
 }
 
 void USBZStateMachineStateDsResult::OnRestartLevelTimeExpired() {

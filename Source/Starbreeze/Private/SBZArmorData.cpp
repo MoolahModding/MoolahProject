@@ -11,7 +11,7 @@ USBZArmorData::USBZArmorData() {
     this->NoThrowableReplenishDelay = 10.00f;
     this->NoThrowableReplenishCount = 0.00f;
     this->RepairArmorInteractionImmuneDuration = 0.00f;
-    this->KillEnemyTraumaRestore = 0.00f;
+    this->BreakOwnArmorImmuneDuration = 2.00f;
     this->SpeedPenalty = ESBZArmorSpeedPenalty::None;
     this->ArmorDescriptionStatColorName = TEXT("StatDescription");
 }
@@ -45,10 +45,6 @@ float USBZArmorData::GetMaxDownCount() const {
 }
 
 float USBZArmorData::GetLoadoutWeight() const {
-    return 0.0f;
-}
-
-float USBZArmorData::GetKillEnemyTraumaRestore() const {
     return 0.0f;
 }
 

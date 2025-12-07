@@ -20,9 +20,6 @@ public:
     UAkAudioEvent* ReadyEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    UAkAudioEvent* ThrownEvent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UNiagaraSystem* ShatteredEffect;
     
     USBZPlayerThrowableKnifeData();

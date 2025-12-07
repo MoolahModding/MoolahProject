@@ -25,6 +25,7 @@ USBZGameInstance::USBZGameInstance() {
     this->ChromaSensaIdleAnimationEffect = NULL;
     this->GameStateMachine = NULL;
     this->FramerateLimitOutOfFocus = 30.00f;
+    this->BuildNumber = -1;
     this->SaveManager = NULL;
     this->SettingsMenuManager = NULL;
     this->WeaponConfigManager = NULL;
@@ -68,7 +69,6 @@ USBZGameInstance::USBZGameInstance() {
     this->BanPlayerManager = NULL;
     this->UE4StatsProfiler = NULL;
     this->GameplayManager = NULL;
-    this->MergePartyManager = NULL;
     this->PartyMemberDataManager = NULL;
     this->FGRLManager = NULL;
     this->LazyLoadingManager = NULL;

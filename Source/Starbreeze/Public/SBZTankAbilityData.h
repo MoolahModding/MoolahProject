@@ -7,12 +7,6 @@ UCLASS(Blueprintable)
 class USBZTankAbilityData : public USBZAICharacterAbilityData {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float Visor;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    float VisorHardness;
-    
     USBZTankAbilityData();
 
 };

@@ -14,14 +14,14 @@ ASBZHoldOutAIDrone::ASBZHoldOutAIDrone(const FObjectInitializer& ObjectInitializ
     this->EventReactorComponent = CreateDefaultSubobject<USBZHoldOutEventReactorComponent>(TEXT("SBZHoldOutEventReactorComponent"));
     this->VoiceComponent = CreateDefaultSubobject<USBZHoldOutDroneVoiceComponent>(TEXT("SBZHoldOutDroneVoiceComponent"));
     this->VOCollection = NULL;
-    this->AKComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    //this->AKComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->InitHoldOutAreaIndex = 0;
     this->bIsEscapeArea = false;
     this->PayoutValue = 0;
     this->CurrentDifficulty = ESBZHoldOutModeDifficulty::Default;
     this->UnwrappedCurrentAreaIndex = -1;
     this->TotalPayout = 0;
-    this->AKComponent->SetupAttachment(RootComponent);
+    //this->AKComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZHoldOutAIDrone::StopOverrideFogSettings() {

@@ -22,6 +22,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->FrameInterpolator = ESBZFrameInterpolator::None;
     this->CapsuleShadowQuality = 3;
     this->bUseOutlines = true;
+    this->bEnemyHealthBar = true;
     this->bUseSubtitles = true;
     this->SubtitlesSize = 16;
     this->bUseFPSDisplay = true;
@@ -44,7 +45,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->OperatorVOVolume = 0.00f;
     this->SFXVolume = 40.00f;
     this->bVoIPEnabled = true;
-    this->bPushToTalkEnabled = false;
+    this->bPushToTalkEnabled = true;
     this->VoipVolume = 100.00f;
     this->VoipMicVolume = 100.00f;
     this->CinematicVolume = 65.00f;
@@ -77,7 +78,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->AxisKeyboardBindings.AddDefaulted(8);
     this->ActionKeyboardBindings.AddDefaulted(34);
     this->GamepadBindingsPreset = 0;
-    this->PopupsShownBitmask = 2;
+    this->PopupsShownBitmask = 4194306;
     this->AdapterName = TEXT("AMD Radeon RX 7800 XT");
     this->CPUPerfIndex = 222.61f;
     this->GPUPerfIndex = 844.85f;
@@ -89,6 +90,7 @@ USBZGameUserSettings::USBZGameUserSettings() {
     this->OptimalFoliageQuality = 3;
     this->OptimalShadingQuality = 3;
     this->GameInstance = NULL;
+    this->bShouldShowSkills2Intro = false;
 }
 
 void USBZGameUserSettings::SetVOVolume(float Volume) {
@@ -241,6 +243,9 @@ void USBZGameUserSettings::SetFPSDisplayEnabled(bool bEnable) {
 void USBZGameUserSettings::SetForceFeedbackEnabled(bool bEnable) {
 }
 
+void USBZGameUserSettings::SetEnemyHealthBarEnabled(bool bEnable) {
+}
+
 void USBZGameUserSettings::SetDropInType(ESBZOnlineDropInType InDropInType, bool bIsSaved) {
 }
 
@@ -376,6 +381,10 @@ bool USBZGameUserSettings::IsFPSDisplayEnabled() const {
 }
 
 bool USBZGameUserSettings::IsForceFeedbackEnabled() const {
+    return false;
+}
+
+bool USBZGameUserSettings::IsEnemyHealthBarEnabled() const {
     return false;
 }
 

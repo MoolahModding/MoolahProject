@@ -10,7 +10,6 @@
 class ASBZEquippable;
 class ASBZMainMenuPlayerCharacter;
 class UObject;
-class USBZCharacterComponent;
 class USBZModularCharacterComponent;
 class USBZPlayerCharacterData;
 class UWidgetComponent;
@@ -32,9 +31,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZMaskConfig MaskConfigEquipped;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZCharacterComponent* CharacterComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZPlayerCharacterData* PlayerCharacterData;

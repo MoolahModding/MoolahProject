@@ -3,7 +3,7 @@
 USBZLoadoutSkillsButton::USBZLoadoutSkillsButton() {
 }
 
-void USBZLoadoutSkillsButton::NativeInitializeSkills(const TArray<USBZSkillData*>& SkillList) {
+void USBZLoadoutSkillsButton::NativeInitializeSkills() {
 }
 
 

@@ -9,8 +9,8 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->RenownLevel = 0;
     this->Platform = ESBZPlatform::Unknown;
     this->FirstPartyPlatform = ESBZFirstPartyPlatform::Unknown;
-    this->ProgressionSaveGame = NULL;
     this->ProgressionSaveChallenges = NULL;
+    this->ProgressionSaveGame = NULL;
     this->bIsSkipIntroSequence = false;
     this->DefensiveMeasuresCount = 0;
     this->AttributeSet = CreateDefaultSubobject<USBZPlayerAttributeSet>(TEXT("SBZPlayerAttributeSet"));
@@ -54,7 +54,6 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->PrecisionShotGUIEffectData = NULL;
     this->ArmorReductionGUIEffectData = NULL;
     this->SkillTankDisengageActivatedTimeSeconds = -1.00f;
-    this->SurrenderedEnemy = NULL;
     this->EnforcerSkillKillCount = 0;
     this->EnforcerSkillLastKillTime = 0.00f;
     this->EnforcerAcedSkillKillCount = 0;
@@ -65,6 +64,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->OverkillWeaponProgressObjectiveIncrease = 5.00f;
     this->OverkillWeaponProgressSubObjectiveIncrease = 2.50f;
     this->bIsLastArrestedByGuard = false;
+    this->bIsTaserTase = false;
     this->bIsTargeting = false;
     this->CustodyCount = 0;
     this->CustodyReleaseCost = 1;
@@ -72,7 +72,6 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->bServerIsHardBargainCustody = false;
     this->bIsOverskillEnabled = true;
     this->bIsOverskillLoadoutTicking = false;
-    this->bIsMergePartySelected = false;
     this->PickupConsumableCooldownTime = 0.80f;
     this->OverskillDamageModifier[0] = 1.00f;
     this->OverskillDamageModifier[1] = 1.00f;
@@ -81,6 +80,7 @@ ASBZPlayerState::ASBZPlayerState(const FObjectInitializer& ObjectInitializer) : 
     this->ConstantFlowCount = 0;
     this->SMGMasterCount = 0;
     this->bIsSmokeMasterEnabled = false;
+    this->GraceSkill = NULL;
 }
 
 void ASBZPlayerState::SetSkipIntroSequence(bool bInIsSkipIntroSequence) {
@@ -182,9 +182,6 @@ void ASBZPlayerState::OnRep_OnKillNetID() {
 void ASBZPlayerState::OnRep_MiniGameState(EPD3MiniGameState OldMiniGameState) {
 }
 
-void ASBZPlayerState::OnRep_MergePartySelected() {
-}
-
 void ASBZPlayerState::OnRep_Loadout(const FPD3PlayerLoadout& InOldLoadout) {
 }
 
@@ -263,6 +260,9 @@ void ASBZPlayerState::Multicast_SmokeMasterEnabled_Implementation() {
 void ASBZPlayerState::Multicast_SmokeMasterDisabled_Implementation() {
 }
 
+void ASBZPlayerState::Multicast_SetTaserTase_Implementation(bool bInIsTaserTase) {
+}
+
 void ASBZPlayerState::Multicast_SetSpectateTime_Implementation(float Time) {
 }
 
@@ -297,9 +297,6 @@ void ASBZPlayerState::Multicast_SetOverskillEnabled_Implementation(bool bInIsEna
 }
 
 void ASBZPlayerState::Multicast_SetMiniGameState_Implementation(EPD3MiniGameState InMiniGameState, ASBZPlayerState* InWinningParticipant) {
-}
-
-void ASBZPlayerState::Multicast_SetMergePartySelected_Implementation(const bool bIsSelected) {
 }
 
 void ASBZPlayerState::Multicast_SetLoadout_Implementation(const FPD3PlayerLoadout& InLoadout) {
@@ -350,6 +347,9 @@ void ASBZPlayerState::Multicast_DefensiveMeasuresCount_Implementation(uint8 InDe
 void ASBZPlayerState::Multicast_DebugSyncServerResultData_Implementation(const FSBZPlayerEndMissionResultData& Data) {
 }
 
+void ASBZPlayerState::Multicast_DebugFetchServerPlayerStatistics_Implementation(const TArray<FSBZDebugValidatePlayerStatisticTuple>& ServerTupleArray) {
+}
+
 void ASBZPlayerState::Multicast_DebugConsoleCommand_Implementation(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex) {
 }
 
@@ -383,10 +383,6 @@ TArray<FSBZOverskillProgressResultData> ASBZPlayerState::GetOverskillProgressRes
 
 float ASBZPlayerState::GetOverskillProgress(const FName& InProgressLevelID) const {
     return 0.0f;
-}
-
-bool ASBZPlayerState::GetMergePartySelected() const {
-    return false;
 }
 
 UPaperSprite* ASBZPlayerState::GetMaskedOnIcon() const {
@@ -431,9 +427,6 @@ void ASBZPlayerState::EquipEquippableToLoadoutAt(const USBZEquippableData* Equip
 void ASBZPlayerState::EquipCuttingToolToLoadout(USBZToolCuttingData* ItemToEquip) {
 }
 
-void ASBZPlayerState::Client_SetSurrenderedEnemy_Implementation(ASBZAICharacter* InSurrenderedEnemy) {
-}
-
 void ASBZPlayerState::Client_SetReducedCustodyTime_Implementation(float InReducedCustodyTime) {
 }
 
@@ -441,6 +434,9 @@ void ASBZPlayerState::Client_SetCustodyReleaseCost_Implementation(int32 InNewCus
 }
 
 void ASBZPlayerState::Client_SendPlayerReloadProgressionSaveGame_Implementation() {
+}
+
+void ASBZPlayerState::Client_RemoveSurrenderedEnemy_Implementation(ASBZAICharacter* InSurrenderedEnemy) {
 }
 
 void ASBZPlayerState::Client_PickupAmmo_Implementation(uint32 ID) {
@@ -473,6 +469,9 @@ void ASBZPlayerState::Client_CheatSetInfiniteAmmo_Implementation(bool bInHasInif
 void ASBZPlayerState::Client_ChallengeCompleted_Implementation(const FSBZInternalChallengeNotifPayload& ChallengeNotifPayload) {
 }
 
+void ASBZPlayerState::Client_AddSurrenderedEnemy_Implementation(ASBZAICharacter* InSurrenderedEnemy) {
+}
+
 void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
@@ -502,11 +501,11 @@ void ASBZPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME(ASBZPlayerState, SpectateDurationModification);
     DOREPLIFETIME(ASBZPlayerState, bIsFirstOverkillWeaponEquip);
     DOREPLIFETIME(ASBZPlayerState, bIsLastArrestedByGuard);
+    DOREPLIFETIME(ASBZPlayerState, bIsTaserTase);
     DOREPLIFETIME(ASBZPlayerState, bIsTargeting);
     DOREPLIFETIME(ASBZPlayerState, CustodyReleaseCost);
     DOREPLIFETIME(ASBZPlayerState, bIsOverskillEnabled);
     DOREPLIFETIME(ASBZPlayerState, bIsOverskillLoadoutTicking);
-    DOREPLIFETIME(ASBZPlayerState, bIsMergePartySelected);
     DOREPLIFETIME(ASBZPlayerState, ConstantFlowCount);
     DOREPLIFETIME(ASBZPlayerState, SMGMasterCount);
     DOREPLIFETIME(ASBZPlayerState, bIsSmokeMasterEnabled);

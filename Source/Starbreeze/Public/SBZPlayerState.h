@@ -17,6 +17,7 @@
 #include "PD3PlayerLoadout.h"
 #include "SBZAmmoPickupLookup.h"
 #include "SBZCrewStateInterface.h"
+#include "SBZDebugValidatePlayerStatisticTuple.h"
 #include "SBZDropPlaceableEquippableData.h"
 #include "SBZInternalChallengeNotifPayload.h"
 #include "SBZOnInfamyLevelChangedDynamicDelegate.h"
@@ -89,10 +90,10 @@ public:
     FString EOSProductUserId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZProgressionSaveGame* ProgressionSaveGame;
+    USBZProgressionSaveChallenges* ProgressionSaveChallenges;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZProgressionSaveChallenges* ProgressionSaveChallenges;
+    USBZProgressionSaveGame* ProgressionSaveGame;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FSBZOnInfamyLevelChangedDynamic OnInfamyLevelChangedDynamic;
@@ -277,7 +278,7 @@ private:
     TArray<AActor*> RuntimeActorArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZAICharacter* SurrenderedEnemy;
+    TArray<ASBZAICharacter*> SurrenderedEnemiesArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 EnforcerSkillKillCount;
@@ -312,6 +313,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     bool bIsLastArrestedByGuard;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsTaserTase;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsTargeting, meta=(AllowPrivateAccess=true))
     bool bIsTargeting;
     
@@ -332,9 +336,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnIsOverskillLoadoutTickingChanged, meta=(AllowPrivateAccess=true))
     bool bIsOverskillLoadoutTicking;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_MergePartySelected, meta=(AllowPrivateAccess=true))
-    bool bIsMergePartySelected;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float PickupConsumableCooldownTime;
@@ -368,6 +369,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_IsSmokeMasterEnabled, meta=(AllowPrivateAccess=true))
     bool bIsSmokeMasterEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZSkillData* GraceSkill;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSBZDebugValidatePlayerStatisticTuple> ServerStatTupleArray;
     
 public:
     ASBZPlayerState(const FObjectInitializer& ObjectInitializer);
@@ -485,9 +492,6 @@ private:
     void OnRep_MiniGameState(EPD3MiniGameState OldMiniGameState);
     
     UFUNCTION(BlueprintCallable)
-    void OnRep_MergePartySelected();
-    
-    UFUNCTION(BlueprintCallable)
     void OnRep_Loadout(const FPD3PlayerLoadout& InOldLoadout);
     
     UFUNCTION(BlueprintCallable)
@@ -575,6 +579,11 @@ private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SmokeMasterDisabled();
     
+protected:
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetTaserTase(bool bInIsTaserTase);
+    
+private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetSpectateTime(float Time);
     
@@ -612,9 +621,6 @@ private:
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetMiniGameState(EPD3MiniGameState InMiniGameState, ASBZPlayerState* InWinningParticipant);
-    
-    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
-    void Multicast_SetMergePartySelected(const bool bIsSelected);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetLoadout(const FPD3PlayerLoadout& InLoadout);
@@ -670,6 +676,9 @@ public:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DebugSyncServerResultData(const FSBZPlayerEndMissionResultData& Data);
     
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_DebugFetchServerPlayerStatistics(const TArray<FSBZDebugValidatePlayerStatisticTuple>& ServerTupleArray);
+    
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_DebugConsoleCommand(const FString& Command, const FString& InstigatorContextText, bool bIsLocallyControlledOnly, int32 PlayerIndex);
@@ -698,9 +707,6 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure=false)
     float GetOverskillProgress(const FName& InProgressLevelID) const;
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool GetMergePartySelected() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UPaperSprite* GetMaskedOnIcon() const;
@@ -738,9 +744,6 @@ public:
     UFUNCTION(BlueprintCallable)
     void EquipCuttingToolToLoadout(USBZToolCuttingData* ItemToEquip);
     
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void Client_SetSurrenderedEnemy(ASBZAICharacter* InSurrenderedEnemy);
-    
 private:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_SetReducedCustodyTime(float InReducedCustodyTime);
@@ -751,6 +754,9 @@ private:
 public:
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_SendPlayerReloadProgressionSaveGame();
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_RemoveSurrenderedEnemy(ASBZAICharacter* InSurrenderedEnemy);
     
     UFUNCTION(Client, Reliable)
     void Client_PickupAmmo(uint32 ID);
@@ -785,6 +791,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void Client_ChallengeCompleted(const FSBZInternalChallengeNotifPayload& ChallengeNotifPayload);
+    
+    UFUNCTION(BlueprintCallable, Client, Reliable)
+    void Client_AddSurrenderedEnemy(ASBZAICharacter* InSurrenderedEnemy);
     
 
     // Fix for true pure virtual functions not being implemented

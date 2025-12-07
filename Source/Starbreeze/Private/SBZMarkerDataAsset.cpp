@@ -5,6 +5,7 @@ USBZMarkerDataAsset::USBZMarkerDataAsset() {
     this->bHasOffScreenTracking = true;
     this->bShowDistance = true;
     this->OnDisplayAudioEvent = NULL;
+    this->OffScreenCategory = ESBZMarkerOffscreenCategory::Mid;
 }
 
 

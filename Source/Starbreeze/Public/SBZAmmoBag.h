@@ -14,6 +14,12 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     uint8 NumberOfGrenadesPerCharge;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float NumberOfMagazinesPerChargeScale;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 NumberOfGrenadesPerChargeChange;
+    
 public:
     ASBZAmmoBag(const FObjectInitializer& ObjectInitializer);
 

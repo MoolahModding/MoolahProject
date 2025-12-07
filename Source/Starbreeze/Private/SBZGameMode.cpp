@@ -11,6 +11,7 @@ ASBZGameMode::ASBZGameMode(const FObjectInitializer& ObjectInitializer) : Super(
     this->SpectatorClass = ASBZSpectatorPawn::StaticClass();
     this->ReplaySpectatorPlayerControllerClass = ASBZPlayerController::StaticClass();
     this->PostKickPlayerRemovalDelay = 10.00f;
+    this->BuildNumber = -1;
 }
 
 

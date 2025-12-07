@@ -2,7 +2,7 @@
 #include "CoreMinimal.h"
 #include "BehaviorTree/Tasks/BTTask_RunBehavior.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
-//CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=SBZPathOffset -FallbackName=SBZPathOffset
+#include "SBZPathOffset.h"
 #include "Templates/SubclassOf.h"
 #include "SBZBTTask_RunMoveToBehavior.generated.h"
 

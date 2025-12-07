@@ -4,15 +4,13 @@
 #include "SBZWidgetBase.h"
 #include "SBZCharacterEffectWidget.generated.h"
 
-class USBZCharacterEffectDataAsset;
-
 UCLASS(Blueprintable, EditInlineNew)
 class USBZCharacterEffectWidget : public USBZWidgetBase {
     GENERATED_BODY()
 public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZCharacterEffectDataAsset* BuffDataAsset;
+    FSBZCharacterEffectRuntime Data;
     
 public:
     USBZCharacterEffectWidget();
@@ -21,14 +19,14 @@ public:
     void SetProgress(float InNewProgress);
     
     UFUNCTION(BlueprintCallable)
-    void SetEffectValue(int32 InNewValue);
+    void SetEffectValue(float InNewValue);
     
     UFUNCTION(BlueprintCallable)
     void SetActive(bool bIsActive);
     
 protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void OnEffectValueChanged(int32 InNewEffectValue);
+    void OnEffectValueChanged(float InNewEffectValue);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnCooldownProgressChanged(float InNewProgress);
@@ -38,7 +36,7 @@ protected:
     
 public:
     UFUNCTION(BlueprintCallable)
-    void InitializeCharacterEffect(FSBZCharacterEffectRuntime& InCharacterEffectRuntime);
+    void InitializeCharacterEffect(const FSBZCharacterEffectRuntime& InCharacterEffectRuntime);
     
 };
 

@@ -48,7 +48,7 @@ protected:
     void OnAmmoInventoryChanged(int32 AmmoInventoryChanged);
     
     UFUNCTION(BlueprintCallable, BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnAmmoAdded(int32 AmmoAddedCount);
+    void OnAmmoAdded(int32 AmmoAddedCount, bool bIsFireRangedWeaponScope);
     
 };
 

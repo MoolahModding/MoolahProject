@@ -6,7 +6,9 @@
 #include "Templates/SubclassOf.h"
 #include "SBZFlashBangGrenadeData.generated.h"
 
+class UAkAudioEvent;
 class UGameplayEffect;
+class UNiagaraSystem;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZFlashBangGrenadeData : public USBZGrenadeData {
@@ -38,6 +40,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer PawnTypesToIgnoreSkills;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UNiagaraSystem* SuppressedDetonationEffect;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    UAkAudioEvent* SuppressedDetonationEvent;
     
     USBZFlashBangGrenadeData();
 

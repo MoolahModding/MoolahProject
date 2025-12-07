@@ -16,6 +16,7 @@
 class AActor;
 class UInputComponent;
 class USBZAccelByteAdminHelper;
+class UTexture2D;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZCheatManagerBase : public UCheatManager {
@@ -36,6 +37,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ESBZDebugNetEmulationType SelectedEmulationType;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UTexture2D* TooltipTexture;
     
 public:
     USBZCheatManagerBase();
@@ -60,6 +64,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleInGameCheatMenu();
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void ToggleInfoWindow();
     
     UFUNCTION(BlueprintCallable, Exec)
     void ToggleDrawDebugSpread();
@@ -272,6 +279,9 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void FetchServerPlayerStatistics(int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void FetchMapConfigurationData();

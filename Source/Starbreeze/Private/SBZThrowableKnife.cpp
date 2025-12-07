@@ -1,10 +1,8 @@
 #include "SBZThrowableKnife.h"
 #include "Components/BoxComponent.h"
-#include "SBZPlayerThrowableKnifeData.h"
 
 ASBZThrowableKnife::ASBZThrowableKnife(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer.SetDefaultSubobjectClass<UBoxComponent>(TEXT("BoxCollision"))) {
     this->Tags.AddDefaulted(1);
-    this->DataType = USBZPlayerThrowableKnifeData::StaticClass();
     this->BoxCollision = (UBoxComponent*)RootComponent;
     this->OverrideThrowableProjectileHitEvent = NULL;
     this->OverrideThrowableProjectileBounceHitEvent = NULL;

@@ -41,9 +41,6 @@ public:
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION(BlueprintCallable, Reliable, Server)
-    void ServerVoteStayAsParty();
-    
-    UFUNCTION(BlueprintCallable, Reliable, Server)
     void ServerVoiceSessionUpdate(const FString& VoiceSessionId, const ETLMVoiceSessionState VoiceSessionState);
     
     UFUNCTION(BlueprintCallable, Reliable, Server)
@@ -169,9 +166,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientVoiceSessionInitialized(const FString& VoiceSessionId);
-    
-    UFUNCTION(BlueprintCallable, Client, Reliable)
-    void ClientUpdateStayAsPartyList(const TArray<FString>& BackendPlayerIds);
     
     UFUNCTION(BlueprintCallable, Client, Reliable)
     void ClientUpdateSlotsData(const TArray<FSBZSlotData>& InSlotsData);

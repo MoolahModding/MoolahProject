@@ -8,6 +8,7 @@ enum class ESBZStoreItemDefaultUICategory : uint8 {
     Armor,
     PayDayCredits,
     Bundle,
+    FeaturedBundle,
     PremiumPresetWeapon,
     PremiumMask,
     PremiumSuit,

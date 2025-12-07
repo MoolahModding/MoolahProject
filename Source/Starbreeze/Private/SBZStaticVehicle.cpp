@@ -9,10 +9,10 @@ ASBZStaticVehicle::ASBZStaticVehicle(const FObjectInitializer& ObjectInitializer
     this->AlarmEquippedChance = 1.00f;
     this->bHasAlarm = false;
     this->bAlarmActivated = false;
-    this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    //this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->AlarmStartEvent = NULL;
     this->AlarmStopEvent = NULL;
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZStaticVehicle::TryActivateAlarm_Implementation() {

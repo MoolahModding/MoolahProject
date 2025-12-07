@@ -4,6 +4,7 @@
 
 USBZAbilitySystemComponent::USBZAbilitySystemComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->Pawn = NULL;
+    this->CrewStateActor = NULL;
     this->LandingGameplayEffectClass = USBZLandingEffect::StaticClass();
 }
 
@@ -14,6 +15,9 @@ void USBZAbilitySystemComponent::Server_ReplicateCosmeticExplosion_Implementatio
 }
 
 void USBZAbilitySystemComponent::Server_MaskOn_Implementation() {
+}
+
+void USBZAbilitySystemComponent::OnRep_TickDamageDataArray() {
 }
 
 void USBZAbilitySystemComponent::OnRep_AppliedVolumeDamageNetIDArray() {
@@ -67,6 +71,9 @@ void USBZAbilitySystemComponent::Multicast_ApplyGameplayEffectSpecToSelf_Impleme
 void USBZAbilitySystemComponent::Multicast_AppliedSkillHurtReaction_Implementation(const FSBZSkillTriggeredHurtTargetData& SkillTriggeredHurtTargetData) {
 }
 
+void USBZAbilitySystemComponent::Multicast_AddTickDamage_Implementation(FSBZAbilitySystemTickDamageData Data) {
+}
+
 void USBZAbilitySystemComponent::Client_RevertDamageAttributeSetArray_Implementation(const TArray<FSBZRevertDamageAttributeSetData>& AttributeSetDataArray) {
 }
 
@@ -80,6 +87,7 @@ void USBZAbilitySystemComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProp
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(USBZAbilitySystemComponent, AppliedVolumeDamageNetIDArray);
+    DOREPLIFETIME(USBZAbilitySystemComponent, TickDamageDataArray);
 }
 
 

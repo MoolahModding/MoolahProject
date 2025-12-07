@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AttributeSet.h"
+#include "Abilities/GameplayAbility.h"
 #include "SBZPlayerStateWidgetBase.h"
 #include "PD3AttributePercentWidget.generated.h"
 

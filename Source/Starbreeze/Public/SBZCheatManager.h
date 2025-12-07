@@ -22,7 +22,7 @@
 class UInputComponent;
 class USBZCosmeticsDataAsset;
 class USBZCosmeticsPartSlot;
-class USBZWeaponPartDataAsset;
+class USBZModularPartDataAsset;
 class USBZWeaponPartSlot;
 
 UCLASS(Blueprintable)
@@ -37,7 +37,7 @@ private:
     USBZWeaponPartSlot* SelectedWeaponPartSlot;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZWeaponPartDataAsset* SelectedWeaponPart;
+    USBZModularPartDataAsset* SelectedWeaponPart;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZCosmeticsPartSlot* SelectedWeaponCosmeticsPartSlot;
@@ -118,6 +118,9 @@ public:
     void SetThrowable(const FName& ThrowableDataName, int32 ThrowableIndex, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
+    void SetTaserTase(bool bIsTaserTase, int32 PlayerIndex);
+    
+    UFUNCTION(BlueprintCallable, Exec)
     void SetTargetLooseTagCount(const FName& Tag, int32 Count, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
@@ -146,9 +149,6 @@ public:
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerName(const FString& Name, int32 PlayerIndex);
-    
-    UFUNCTION(BlueprintCallable, Exec)
-    void SetPlayerMergePartySelected(bool bIsMergePartySelected);
     
     UFUNCTION(BlueprintCallable, Exec)
     void SetPlayerMaskMould(const FName& PlayerMaskMouldName, int32 PlayerIndex);
@@ -482,13 +482,13 @@ public:
     void EquipOverkillWeapon(bool bIsFirstEquip, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
-    void DumpPlayersMergePartyStatus();
-    
-    UFUNCTION(BlueprintCallable, Exec)
     void DumpLootValue(const FString& LootName);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DumpAllLootValues(const int32 Difficulty);
+    
+    UFUNCTION(BlueprintCallable, Exec)
+    void DropPlayerEquippable(int32 Index, bool bIsInstant, int32 PlayerIndex);
     
     UFUNCTION(BlueprintCallable, Exec)
     void DestroyTargetAI(int32 PlayerIndex);

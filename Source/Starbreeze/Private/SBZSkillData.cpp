@@ -8,6 +8,7 @@ USBZSkillData::USBZSkillData() {
     this->PlayerEffect = NULL;
     this->CrewEffect = NULL;
     this->bIsAnyRequiredBuffTypeEnough = false;
+    this->EquipCost = -1;
 }
 
 

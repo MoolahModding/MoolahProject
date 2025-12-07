@@ -3,6 +3,7 @@
 #include "UObject/Object.h"
 #include "UObject/NoExportTypes.h"
 #include "GameFramework/OnlineReplStructs.h"
+#include "SBZBuildNumberInterface.h"
 #include "SBZLevelTimesStruct.h"
 #include "SBZPlayerStatisticsManagerInterface.h"
 #include "SBZPlayerStatisticsManager.generated.h"
@@ -12,9 +13,13 @@ class USBZPlayerStatisticsManager;
 class USBZServerStatBatcher;
 
 UCLASS(Blueprintable)
-class STARBREEZE_API USBZPlayerStatisticsManager : public UObject, public ISBZPlayerStatisticsManagerInterface {
+class STARBREEZE_API USBZPlayerStatisticsManager : public UObject, public ISBZPlayerStatisticsManagerInterface, public ISBZBuildNumberInterface {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 BuildNumber;
+    
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<FUniqueNetIdRepl, USBZPlayerStatisticsData*> PlayerStatisticsDataMap;

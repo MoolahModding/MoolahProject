@@ -9,7 +9,7 @@ void USBZMarkerLibrary::RemoveReplicatedMarker(UObject* WorldContextObject, int3
 void USBZMarkerLibrary::RemoveLocalMarker(UObject* WorldContextObject, int32 ID) {
 }
 
-int32 USBZMarkerLibrary::AddReplicatedMarker(UObject* WorldContextObject, USBZMarkerDataAsset* MarkerDataAsset, const FVector Location) {
+int32 USBZMarkerLibrary::AddReplicatedMarker(UObject* WorldContextObject, USBZMarkerDataAsset* MarkerDataAsset, const FVector Location, const ASBZWaypointVolume* WaypointVolume) {
     return 0;
 }
 

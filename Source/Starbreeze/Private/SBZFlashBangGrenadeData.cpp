@@ -8,6 +8,8 @@ USBZFlashBangGrenadeData::USBZFlashBangGrenadeData() {
     this->FriendlyPlayerFlashTimeScale = 0.25f;
     this->FlashPlayerFalloffExponent = 1.00f;
     this->GameplayEffectClass = NULL;
+    this->SuppressedDetonationEffect = NULL;
+    this->SuppressedDetonationEvent = NULL;
 }
 
 

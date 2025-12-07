@@ -20,10 +20,15 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDownloadGridlyNativeCultureDelegate OnFail;
     
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
+public:
     USBZGridlyTask_DownloadGridlyNativeCulture();
 
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static USBZGridlyTask_DownloadGridlyNativeCulture* DownloadLocalizedTexts(const UObject* WorldContextObject);
+    static USBZGridlyTask_DownloadGridlyNativeCulture* DownloadLocalizedTexts(const UObject* NewWorldContextObject);
     
 };
 

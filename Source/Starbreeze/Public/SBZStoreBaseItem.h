@@ -109,6 +109,12 @@ public:
     FString FirstPlatformPurchaseUrl;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString FirstPartyProductId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FString EpicStoreProductId;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bIsVendorPermissionRequired;
     
     STARBREEZE_API FSBZStoreBaseItem();

@@ -4,6 +4,7 @@
 #include "SBZPlaceableBase.h"
 #include "SBZPlaceableWeapon.generated.h"
 
+class ASBZWeapon;
 class USBZBaseInteractableComponent;
 class USBZInteractorComponent;
 class USBZMarkerDataAsset;
@@ -25,6 +26,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bDestroyOnInteraction;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ASBZWeapon* AttachedWeapon;
     
 public:
     ASBZPlaceableWeapon(const FObjectInitializer& ObjectInitializer);

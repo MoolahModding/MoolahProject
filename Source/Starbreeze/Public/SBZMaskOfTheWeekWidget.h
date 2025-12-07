@@ -5,6 +5,8 @@
 #include "SBZStoreItemUIData.h"
 #include "SBZMaskOfTheWeekWidget.generated.h"
 
+class USBZTimeEventManager;
+
 UCLASS(Blueprintable, EditInlineNew)
 class STARBREEZE_API USBZMaskOfTheWeekWidget : public USBZMenuButton {
     GENERATED_BODY()
@@ -12,6 +14,13 @@ public:
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TimerUpdateFrequency;
+    
+private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZTimeEventManager* TimeEventManager;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZStoreItemUIData StoreItemUIData;
     
 public:
     USBZMaskOfTheWeekWidget();

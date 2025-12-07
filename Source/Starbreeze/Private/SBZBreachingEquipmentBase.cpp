@@ -28,14 +28,14 @@ ASBZBreachingEquipmentBase::ASBZBreachingEquipmentBase(const FObjectInitializer&
     this->LifeActionSlot = CreateDefaultSubobject<USBZLifeActionSlot>(TEXT("SBZLifeActionSlot"));
     this->InteractionMarkerAsset = NULL;
     this->FixMarkerAsset = NULL;
-    this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    //this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->DrillingEvent = NULL;
     this->JammedEvent = NULL;
     this->HeatingUpEvent = NULL;
     this->DoneEvent = NULL;
     this->LifeActionInstance->SetupAttachment(RootComponent);
     this->LifeActionSlot->SetupAttachment(LifeActionInstance);
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZBreachingEquipmentBase::UpdateMarker(USBZMarkerDataAsset* MarkerAsset, const FVector MarkerLocation) {

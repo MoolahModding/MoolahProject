@@ -7,6 +7,11 @@ UCLASS(Abstract, Blueprintable)
 class ASBZFragGrenadeCluster : public ASBZFragGrenade {
     GENERATED_BODY()
 public:
+protected:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float AdditionalRandomDelay;
+    
+public:
     ASBZFragGrenadeCluster(const FObjectInitializer& ObjectInitializer);
 
 };

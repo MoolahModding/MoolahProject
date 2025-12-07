@@ -28,10 +28,10 @@ ASBZZipline::ASBZZipline(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->HalfExtentSizeToAdd = 15.00f;
     this->StartForcedDirectionThreshold = 0.20f;
     this->EndForcedDirectionThreshold = 0.20f;
+    this->EndPointMesh->SetupAttachment(RootComponent);
     this->OverlapBox->SetupAttachment(SplineComponent);
     this->SplineComponent->SetupAttachment(RootComponent);
     this->StartPointMesh->SetupAttachment(RootComponent);
-    this->EndPointMesh->SetupAttachment(RootComponent);
 }
 
 void ASBZZipline::SetZiplineEnabled(bool bEnabled) {

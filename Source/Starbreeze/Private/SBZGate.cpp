@@ -14,6 +14,7 @@ ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->Tags.AddDefaulted(1);
     this->InitialState = ESBZGateState::Closed;
     this->State = ESBZGateState::Closed;
+    this->LastState = ESBZGateState::Closed;
     this->LinkMoveFinishedState = ESBZGateState::Closed;
     this->ServerState = ESBZGateState::Closed;
     this->ExplosionInstigator = NULL;
@@ -22,13 +23,14 @@ ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->NavlinkEnabledMask = 65535;
     this->AirNavLinkEnabledMask = 65439;
     this->NavLinkComponentArray.AddDefaulted(1);
-    this->bIsOpenForward = true;
-    this->bIsOpenBackwardAllowed = true;
+    this->bIsOpenFromBackAllowed = true;
     this->bIsOpenFromFrontAllowed = true;
     this->bIsLinkMoveFinishedStateSet = false;
     this->bIsUnlockingLinkMove = false;
     this->bIsUnlockingLinkMoveCooldown = false;
     this->bIsSliding = false;
+    this->bIsYawInversed = false;
+    this->OpenDirection = ESBZGateOpenDirection::Any;
     this->UnlockingLinkMoveCooldownDuration = 2.00f;
     this->UnlockingLinkMoveCooldownTime = -1.00f;
     this->SlammedClosedSound = NULL;
@@ -52,6 +54,9 @@ ASBZGate::ASBZGate(const FObjectInitializer& ObjectInitializer) : Super(ObjectIn
     this->bIsServerRestoringState = false;
     this->PendingMoveIgnorePawn = NULL;
     this->bIsNavigationLinksEnabled = true;
+}
+
+void ASBZGate::TickYaw(USceneComponent* InForwardHinge, USceneComponent* InBackwardHinge, float InYaw) {
 }
 
 void ASBZGate::SetYaw(USceneComponent* Mesh, float InYaw) {
@@ -89,6 +94,14 @@ void ASBZGate::Multicast_OnAddIgnoreMoveActor_Implementation(APawn* InPawn) {
 void ASBZGate::Multicast_HandleAgilityTagEvent_Implementation(const FGameplayTag& TagEvent, ASBZAIBaseCharacter* AICharacterInstigator, const FVector& InstigatorLocation) {
 }
 
+bool ASBZGate::IsYawInversedState(ESBZGateState InState) const {
+    return false;
+}
+
+bool ASBZGate::IsYawInversed() const {
+    return false;
+}
+
 bool ASBZGate::IsOpenForwardFromLocation(const FVector& Location) const {
     return false;
 }
@@ -97,10 +110,28 @@ bool ASBZGate::IsOpenForwardFromDirection(const FVector& Direction) const {
     return false;
 }
 
+bool ASBZGate::IsDirectionStateChange(ESBZGateState InOldState, ESBZGateState InNewState, bool bInIsForward) const {
+    return false;
+}
+
+bool ASBZGate::IsDirectionState(ESBZGateState InState, bool bInIsForward) const {
+    return false;
+}
+
+bool ASBZGate::IsClosedState(ESBZGateState InState) const {
+    return false;
+}
+
+bool ASBZGate::IsClosed() const {
+    return false;
+}
+
 void ASBZGate::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
     
     DOREPLIFETIME(ASBZGate, State);
+    DOREPLIFETIME(ASBZGate, bIsOpenFromBackAllowed);
+    DOREPLIFETIME(ASBZGate, bIsOpenFromFrontAllowed);
 }
 
 

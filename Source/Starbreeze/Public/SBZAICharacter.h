@@ -197,6 +197,12 @@ protected:
     float ShotBlockedDownTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float ShotBlockedBreakFollowDownDelay;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    float ShotBlockedBreakFollowDownTimer;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<UNavigationQueryFilter> SurrenderedNavFilter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -275,6 +281,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bIsHogTiedOnce: 1;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsDownOnGroundAllowed: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    uint8 bIsHumanShieldAllowed: 1;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZPlayerState* LastTieHandsInstigatorPlayerState;
     
@@ -304,6 +316,12 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZLifeActionTriggerVolume* CurrentLifeActionTriggerVolume;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPendingPagerEnabled;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bIsPagerScrambled;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     ASBZPlayerCharacter* LocallyDamagedByPlayer;
@@ -348,6 +366,12 @@ private:
     TArray<FUniqueNetIdRepl> HackedByPlayerArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    int32 CurrentOperatorRadioSilenceCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bEnablePagerAfterOperatorTimeout;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FSBZKilledContextData KillContextData;
     
 public:
@@ -363,6 +387,12 @@ private:
     void SetStartRoomLabel();
     
 public:
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetHumanShieldAllowed(bool bIsAllowed);
+    
+    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
+    void SetDownOnGroundAllowed(bool bIsAllowed);
+    
     UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable)
     void RemoveMarkerFromAsObjective();
     
@@ -444,6 +474,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetVariationCategory(ESBZAICharacterVariationCategory Category);
+    
+    UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+    void Multicast_SetHumanShieldAllowed(bool bIsAllowed);
     
     UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
     void Multicast_SetHacked(float Duration);

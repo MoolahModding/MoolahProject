@@ -6,6 +6,7 @@ USBZOnlineSlotsHost::USBZOnlineSlotsHost() {
     this->PreMatchShortReadyTimeLimit = 60.00f;
     this->PreMatchReadyTimerThreshold = 5.00f;
     this->PreTravelTimeLimit = 5.00f;
+    this->StayAsPartyTimeLimit = 15.00f;
     this->OnlineSession = NULL;
 }
 

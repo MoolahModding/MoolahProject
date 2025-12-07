@@ -30,6 +30,7 @@ ASBZBagItem::ASBZBagItem(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->bCanCrewAICarry = true;
     this->bShouldBroadcastOnHitEvent = false;
     this->MarkerID = -1;
+    this->bIsInAir = false;
     this->HurtReactionWeightOnAI = 3.00f;
     this->AudioComponent->SetupAttachment(RootComponent);
 }
@@ -59,6 +60,7 @@ void ASBZBagItem::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifet
     DOREPLIFETIME(ASBZBagItem, TimeOnZipline);
     DOREPLIFETIME(ASBZBagItem, bIsMovingOnZiplineForward);
     DOREPLIFETIME(ASBZBagItem, BagId);
+    DOREPLIFETIME(ASBZBagItem, bIsInAir);
 }
 
 

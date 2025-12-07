@@ -42,6 +42,12 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPD3VehicleSpawnRequest> VehicleSpawnRequests;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ASBZSpline*> EnabledVehicleSplines;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<ASBZSpline*> OccupiedVehicleSplines;
+    
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float ThrowableTypeCooldown[6];
     

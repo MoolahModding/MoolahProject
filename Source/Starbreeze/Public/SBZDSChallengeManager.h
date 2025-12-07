@@ -6,6 +6,7 @@
 #include "SBZDSChallengeManager.generated.h"
 
 class USBZDSChallengeManager;
+class USBZProgressionSaveChallenges;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZDSChallengeManager : public UObject {
@@ -14,6 +15,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FUserChallengeRecord> ChallengeRecordCaches;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TMap<FString, USBZProgressionSaveChallenges*> UserIdToProgressionSaveChallengeMap;
     
 public:
     USBZDSChallengeManager();

@@ -4,6 +4,7 @@
 #include "EPD3DefeatState.h"
 #include "SBZPlayerEndMissionResultData.h"
 #include "SBZReconnectPlayerStateLoadoutData.h"
+#include "SBZSkillAttackCount.h"
 #include "SBZReconnectPlayerStateData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -102,6 +103,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     float SkillTankLastManStandingImmuneTime;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZSkillAttackCount HighQualityBagAttackCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    FSBZSkillAttackCount HighGrainAttackCount;
     
     STARBREEZE_API FSBZReconnectPlayerStateData();
 };

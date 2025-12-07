@@ -19,9 +19,9 @@ ASBZMicroCamera::ASBZMicroCamera(const FObjectInitializer& ObjectInitializer) : 
     this->StopOverloadStopEvent = NULL;
     this->ArmedEvent = NULL;
     this->OverloadSoundDuration = 1.50f;
-    this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    //this->AkComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     this->BoxComponent->SetupAttachment(RootComponent);
-    this->AkComponent->SetupAttachment(RootComponent);
+    //this->AkComponent->SetupAttachment(RootComponent);
 }
 
 void ASBZMicroCamera::OnAICharacterKilled(APawn* InAIPawn) {

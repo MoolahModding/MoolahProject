@@ -28,6 +28,7 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->ZiplineAttachmentBone = TEXT("Hips");
     this->bRandomMeshScaleEnabled = false;
     this->EventReactionComponent = NULL;
+    this->BagCollisionPhysicalMaterial = NULL;
     this->MaxCarryBagCount = 1;
     this->bIsAlive = true;
     this->bIsRagdolled = false;
@@ -177,7 +178,6 @@ ASBZCharacter::ASBZCharacter(const FObjectInitializer& ObjectInitializer) : Supe
     this->ExplosionLineTraceBoneArray.AddDefaulted(6);
     this->HeadBone = TEXT("Head");
     this->CarryWeightTierOffset = 1.00f;
-    this->CurrentlyUsedThrowable = NULL;
     this->ConsumableMontageName = TEXT("Interact_Equipped_Montage");
     this->ConsumableMontageDuration = 0.50f;
     const FProperty* p_Mesh = GetClass()->FindPropertyByName("Mesh");
@@ -432,8 +432,7 @@ void ASBZCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
     DOREPLIFETIME(ASBZCharacter, Seed);
 }
 
-UAbilitySystemComponent* ASBZCharacter::GetAbilitySystemComponent() const
-{
+UAbilitySystemComponent* ASBZCharacter::GetAbilitySystemComponent() const {
     return nullptr; 
 }
 

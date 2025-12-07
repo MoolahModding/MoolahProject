@@ -15,7 +15,7 @@ protected:
     ASBZCharacter* OwnerCharacter;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    ASBZThrowable* Throwable;
+    TArray<ASBZThrowable*> ThrowableArray;
     
 public:
     USBZThrowItemAbility();

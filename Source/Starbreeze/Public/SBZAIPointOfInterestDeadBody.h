@@ -21,6 +21,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZLifeActionSlot* LifeActionSlot;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TArray<USBZLifeActionSlot*> LifeActionSlotArray;
+    
 public:
     ASBZAIPointOfInterestDeadBody(const FObjectInitializer& ObjectInitializer);
 

@@ -10,10 +10,16 @@ public:
     float InitialProgress;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    int32 InitialCharacterEffectValue;
+    float InitialCharacterEffectValue;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bHidesWhenActive;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MinFractionalDigitCount;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 MaxFractionalDigitCount;
     
     STARBREEZE_API FSBZCharacterEffectSpawnParams();
 };

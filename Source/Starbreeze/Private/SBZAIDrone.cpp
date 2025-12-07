@@ -52,7 +52,7 @@ ASBZAIDrone::ASBZAIDrone(const FObjectInitializer& ObjectInitializer) : Super(Ob
     this->AIDamageModifier = 1.00f;
     this->MarkedGameplayEffectClass = USBZApplyMarkedTagEffect::StaticClass();
     this->MarkedOutline = NULL;
-    this->AKComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
+    //this->AKComponent = CreateDefaultSubobject<UAkComponent>(TEXT("AkComponent"));
     const FProperty* p_Mesh_Parent = GetClass()->FindPropertyByName("Mesh");
     this->SentryHackDamageAmount[0] = 0.00f;
     this->SentryHackDamageAmount[1] = 0.00f;

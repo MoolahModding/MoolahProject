@@ -8,6 +8,7 @@
 #include "SBZHUDWidgetBase.h"
 #include "SBZKeyItemCountChangedEvent.h"
 #include "SBZPlayerCallEvent.h"
+#include "SBZPlayerChatEvent.h"
 #include "SBZPlayerDefeatStateChangedData.h"
 #include "SBZPlayerPingEvent.h"
 #include "SBZPlayerStateRemovedEvent.h"
@@ -90,6 +91,9 @@ protected:
 private:
     UFUNCTION(BlueprintCallable)
     void OnPingReceived(const FSBZPlayerPingEvent& PingEventData);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnMessageReceivedFallback(const FSBZPlayerChatEvent& ChatEventData);
     
     UFUNCTION(BlueprintCallable)
     void OnMessageReceived(const FSBZChatMessage& InChatMessage);

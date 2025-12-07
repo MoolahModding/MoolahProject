@@ -22,6 +22,9 @@ public:
     FImportDataTableFromGridlyDelegate OnFail;
     
 private:
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    UObject* WorldContextObject;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     UGridlyDataTable* GridlyDataTable;
     
@@ -29,7 +32,7 @@ public:
     UGridlyTask_ImportDataTableFromGridly();
 
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
-    static UGridlyTask_ImportDataTableFromGridly* ImportDataTableFromGridly(const UObject* WorldContextObject, UGridlyDataTable* NewGridlyDataTable);
+    static UGridlyTask_ImportDataTableFromGridly* ImportDataTableFromGridly(const UObject* NewWorldContextObject, UGridlyDataTable* NewGridlyDataTable);
     
 };
 

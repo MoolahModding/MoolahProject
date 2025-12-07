@@ -1,7 +1,8 @@
 #include "SBZCharacterCommentAssets.h"
 
 FSBZCharacterCommentAssets::FSBZCharacterCommentAssets() {
-    this->TakeDamage = NULL;
+    this->TakeHealthDamage = NULL;
+    this->TakeArmorDamage = NULL;
     this->OnDeath = NULL;
     this->GruntLight = NULL;
     this->GruntHeavy = NULL;

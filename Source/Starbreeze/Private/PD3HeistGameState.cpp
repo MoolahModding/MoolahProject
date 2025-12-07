@@ -19,6 +19,7 @@ APD3HeistGameState::APD3HeistGameState(const FObjectInitializer& ObjectInitializ
     this->NrHostagesDemand = 0;
     this->AnswerPagerCount = 0;
     this->DefaultWeaponBoxClass = NULL;
+    this->DefaultOverkillWeaponBoxClass = NULL;
     this->MaxCrewCount = 4;
     this->GlobalMaterialParameterCollection = NULL;
     this->GlobalNiagaraParameterCollection = NULL;

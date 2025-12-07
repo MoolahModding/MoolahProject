@@ -10,10 +10,11 @@ UCLASS(Blueprintable, EditInlineNew)
 class USBZMarkerWidget : public UUserWidget {
     GENERATED_BODY()
 public:
-private:
+protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UImage* Icon;
     
+private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     UImage* Arrow;
     

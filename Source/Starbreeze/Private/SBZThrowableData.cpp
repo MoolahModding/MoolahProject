@@ -8,6 +8,9 @@ USBZThrowableData::USBZThrowableData() {
     this->bIsHeldItem = false;
     this->AmmoInventoryMax = 5;
     this->AmmoInventory = 5;
+    this->ThrowCount = 1;
+    this->ThrowConsumeCount = 1;
+    this->MultipleThrowAngleDegrees = 3.00f;
     this->bIsFriendlyFireAllowed = true;
     this->OnHitVelocityModifier = 1.00f;
     this->ThrowComment = NULL;

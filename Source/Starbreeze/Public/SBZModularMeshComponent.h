@@ -17,9 +17,6 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSBZModularMeshVisibility> VisibilityMeshes;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    TMap<TSoftObjectPtr<USkeletalMesh>, USkeletalMeshComponent*> CreatedMeshes;
-    
 protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USkeletalMeshComponent* VisibilityRig;
@@ -29,6 +26,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     uint8 bMeshReady: 1;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
+    TMap<TSoftObjectPtr<USkeletalMesh>, USkeletalMeshComponent*> CreatedMeshArray;
     
 public:
     USBZModularMeshComponent(const FObjectInitializer& ObjectInitializer);

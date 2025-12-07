@@ -40,7 +40,6 @@ class USBZActorPoolManager;
 class USBZAgentManager;
 class USBZBagManager;
 class USBZCosmeticDestructionComponent;
-class USBZDSChallengeManager;
 class USBZDialogManager;
 class USBZKeyItemData;
 class USBZLifeActionManager;
@@ -74,28 +73,28 @@ public:
     FSBZStatisticCriteriaDataCollection StatisticsCriteriaDataCollection;
     
 protected:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     FSBZEndMissionResultData CurrentMissionResultData;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_RandomSeed, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_RandomSeed, meta=(AllowPrivateAccess=true))
     int32 RandomSeed;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_ServerChangelist, meta=(AllowPrivateAccess=true))
     int32 ServerChangelist;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_Difficulty, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_Difficulty, meta=(AllowPrivateAccess=true))
     ESBZDifficulty Difficulty;
     
     UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess=true))
     float PickupDifficultyModifierArray[4];
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnSecurityCompaniesChanged, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnSecurityCompaniesChanged, meta=(AllowPrivateAccess=true))
     TArray<ESBZSecurityCompany> SecurityCompanies;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FGameplayTagContainer AppliedPreplanningTags;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_ReplicatedSharedKeyItemTagCount, meta=(AllowPrivateAccess=true))
     TArray<FSBZRepSharedKeyItemTags> ReplicatedSharedKeyItemTagCount;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -104,7 +103,7 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float ServerUnblockAbilityEarlierSeconds;
     
-    UPROPERTY(EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
+    UPROPERTY(EditAnywhere, Replicated, Transient, meta=(AllowPrivateAccess=true))
     int16 MissionStartTime;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -165,13 +164,13 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bPlayerFriendlyFire;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_PlayersInEscapeVolume, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PlayersInEscapeVolume, meta=(AllowPrivateAccess=true))
     uint8 PlayersInEscapeVolume;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_PlayersRequiredInEscapeVolume, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PlayersRequiredInEscapeVolume, meta=(AllowPrivateAccess=true))
     uint8 PlayersRequiredInEscapeVolume;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_EscapeTimeLeft, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_EscapeTimeLeft, meta=(AllowPrivateAccess=true))
     int32 EscapeTimeLeft;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -180,7 +179,7 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float DropKillingSpreeWaitTime;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, ReplicatedUsing=OnRep_PreplanningAssetsApplied, meta=(AllowPrivateAccess=true))
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, ReplicatedUsing=OnRep_PreplanningAssetsApplied, meta=(AllowPrivateAccess=true))
     TArray<FSBZPreplanningAsset> PreplanningAssets;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -206,9 +205,6 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     int32 SeasonalEventItemCount;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
-    USBZDSChallengeManager* DSChallengeManager;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<USBZStatisticCriteriaData*> LevelCriteriaCompletedArray;
@@ -276,6 +272,9 @@ protected:
     
     UFUNCTION(BlueprintCallable)
     void OnRep_ServerChangelist();
+    
+    UFUNCTION(BlueprintCallable)
+    void OnRep_ReplicatedSharedKeyItemTagCount();
     
     UFUNCTION(BlueprintCallable)
     void OnRep_RandomSeed();

@@ -30,6 +30,9 @@ void USBZSettingsFunctionsUserInterface::SetHitIndicatorColorCrit(UObject* World
 void USBZSettingsFunctionsUserInterface::SetFPSCountEnabled(UObject* WorldContextObject, bool bEnabled) {
 }
 
+void USBZSettingsFunctionsUserInterface::SetEnemyHealthBarEnabled(UObject* WorldContextObject, bool bEnabled) {
+}
+
 void USBZSettingsFunctionsUserInterface::SetCrosshairsShowAccuracy(UObject* WorldContextObject, bool bShowAccuracy) {
 }
 
@@ -64,6 +67,14 @@ bool USBZSettingsFunctionsUserInterface::IsFPSCountEnabledByDefault(UObject* Wor
 }
 
 bool USBZSettingsFunctionsUserInterface::IsFPSCountEnabled(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsUserInterface::IsEnemyHealthBarEnabledByDefault(UObject* WorldContextObject) {
+    return false;
+}
+
+bool USBZSettingsFunctionsUserInterface::IsEnemyHealthBarEnabled(UObject* WorldContextObject) {
     return false;
 }
 

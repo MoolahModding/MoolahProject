@@ -3,7 +3,6 @@
 #include "BehaviorTree/Tasks/BTTask_MoveTo.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "UObject/NoExportTypes.h"
-//CROSS-MODULE INCLUDE V2: -ModuleName=Engine -ObjectName=SBZPathOffset -FallbackName=SBZPathOffset
 #include "SBZPathOffset.h"
 #include "SBZBTTask_MoveTo.generated.h"
 

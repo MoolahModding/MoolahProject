@@ -6,6 +6,7 @@
 #include "SBZStateMachineStateWaitSoloGame.generated.h"
 
 class USBZLoadingScreen;
+class USBZStateMachineDataMatchmaking;
 
 UCLASS(Blueprintable)
 class STARBREEZE_API USBZStateMachineStateWaitSoloGame : public USBZClientStateMachineState {
@@ -14,6 +15,9 @@ public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
     USBZLoadingScreen* LoadingScreen;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    USBZStateMachineDataMatchmaking* MatchmakingData;
     
 public:
     USBZStateMachineStateWaitSoloGame();

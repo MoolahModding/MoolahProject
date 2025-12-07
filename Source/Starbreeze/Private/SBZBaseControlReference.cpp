@@ -1,9 +1,10 @@
 #include "SBZBaseControlReference.h"
 
 FSBZBaseControlReference::FSBZBaseControlReference() {
-    this->bIsAction = false;
+    this->InputType = ESBZInputType::SingleAction;
+    this->HoldActionDuration = 0.00f;
     this->bIsInputRegistered = false;
-    this->EventType = IE_Pressed;
+    this->SingleActionEventType = IE_Pressed;
     this->bIsInputConsumed = false;
 }
 

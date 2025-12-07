@@ -7,6 +7,7 @@
 #include "SBZAIAlertnessComment.h"
 #include "SBZAIAlertnessDialogRules.h"
 #include "SBZCharacterCommentAssets.h"
+#include "SBZDamageEvent.h"
 #include "SBZPlayerCallEvent.h"
 #include "SBZRandomDefaultSwitchStates.h"
 #include "SBZVoiceEventData.h"
@@ -123,7 +124,7 @@ public:
     void Say(UAkAudioEvent* AudioEvent, ESBZVoicePriority InPlayingPriority);
     
     UFUNCTION(BlueprintCallable)
-    void OnTakeDamage();
+    void OnTakeDamage(const FSBZDamageEvent& Event);
     
     UFUNCTION(BlueprintCallable)
     void OnStaminaValueChanged(float NewValue, float OldValue, float MaxValue);

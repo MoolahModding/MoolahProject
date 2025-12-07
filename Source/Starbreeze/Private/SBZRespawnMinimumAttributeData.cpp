@@ -3,6 +3,7 @@
 FSBZRespawnMinimumAttributeData::FSBZRespawnMinimumAttributeData() {
     this->bForceValues = false;
     this->Health = 0.00f;
+    this->HealthScale = 0.00f;
     this->PercentOfMaxChunkCount = 0.00f;
     this->DownedCount = 0;
     this->WeaponAmmoScale = 0.00f;

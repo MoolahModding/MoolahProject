@@ -8,6 +8,7 @@ ASBZPlaceableWeapon::ASBZPlaceableWeapon(const FObjectInitializer& ObjectInitial
     this->BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
     this->WeaponMarker = NULL;
     this->bDestroyOnInteraction = false;
+    this->AttachedWeapon = NULL;
     this->BaseMesh->SetupAttachment(RootComponent);
 }
 

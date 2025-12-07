@@ -95,6 +95,9 @@ protected:
     bool bUseOutlines;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bEnemyHealthBar;
+    
+    UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bUseSubtitles;
     
     UPROPERTY(BlueprintReadWrite, Config, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -320,6 +323,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     USBZGameInstance* GameInstance;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    bool bShouldShowSkills2Intro;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSet<USBZSkillData*> InvalidSkillSet;
     
@@ -477,6 +483,9 @@ public:
     void SetForceFeedbackEnabled(bool bEnable);
     
     UFUNCTION(BlueprintCallable)
+    void SetEnemyHealthBarEnabled(bool bEnable);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDropInType(ESBZOnlineDropInType InDropInType, bool bIsSaved);
     
     UFUNCTION(BlueprintCallable)
@@ -598,6 +607,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsForceFeedbackEnabled() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool IsEnemyHealthBarEnabled() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsDepthOfFieldEnabled() const;

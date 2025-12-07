@@ -14,6 +14,7 @@ ASBZMiniGameActor::ASBZMiniGameActor(const FObjectInitializer& ObjectInitializer
     this->RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
     this->bIsUnlocked = false;
     this->bIsMiniGameIgnored = false;
+    this->bIsMiniGameIgnoredAllowed = false;
     this->MiniGameComponent = CreateDefaultSubobject<USBZMiniGameComponent>(TEXT("SBZMiniGameComponent"));
     this->Interactable = CreateDefaultSubobject<USBZInteractableComponent>(TEXT("SBZInteractableComponent"));
     this->OutlineComponent = CreateDefaultSubobject<USBZOutlineComponent>(TEXT("SBZOutlineComponent"));

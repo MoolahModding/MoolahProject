@@ -28,6 +28,9 @@ void USBZHUDChatWidget::OnPlayerDefeatStateChangedInternal(const FSBZPlayerDefea
 void USBZHUDChatWidget::OnPingReceived(const FSBZPlayerPingEvent& PingEventData) {
 }
 
+void USBZHUDChatWidget::OnMessageReceivedFallback(const FSBZPlayerChatEvent& ChatEventData) {
+}
+
 void USBZHUDChatWidget::OnMessageReceived(const FSBZChatMessage& InChatMessage) {
 }
 

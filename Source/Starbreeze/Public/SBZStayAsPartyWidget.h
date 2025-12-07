@@ -11,6 +11,20 @@ class USBZStayAsPartyWidget : public USBZWidgetBase {
 public:
     USBZStayAsPartyWidget();
 
+    UFUNCTION(BlueprintCallable)
+    void StayAsPartyDecisionMade();
+    
+    UFUNCTION(BlueprintCallable)
+    void RequestStayAsParty();
+    
+protected:
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnStayAsPartyStateUpdated(int32 PlayerCount);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnStayAsPartyLocalStateUpdated(bool bInStayAsParty);
+    
+public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnSetup(const TArray<ASBZPlayerState*>& PlayerStateArray);
     
@@ -36,6 +50,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnInitialTimerStarted(float InNewTime);
+    
+    UFUNCTION(BlueprintCallable)
+    void CancelStayAsParty();
     
 };
 

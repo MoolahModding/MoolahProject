@@ -5,5 +5,6 @@ FSBZMarkerRuntime::FSBZMarkerRuntime() {
     this->MarkerWidget = NULL;
     this->PanelSlot = NULL;
     this->Component = NULL;
+    this->WaypointVolume = NULL;
 }
 

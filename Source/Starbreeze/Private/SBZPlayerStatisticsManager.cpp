@@ -2,6 +2,7 @@
 #include "SBZServerStatBatcher.h"
 
 USBZPlayerStatisticsManager::USBZPlayerStatisticsManager() {
+    this->BuildNumber = -1;
     this->ServerStatBatcher = CreateDefaultSubobject<USBZServerStatBatcher>(TEXT("SBZServerStatBatcher"));
 }
 

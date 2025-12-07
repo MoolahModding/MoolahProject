@@ -6,9 +6,6 @@ USBZStateMachineStateResult::USBZStateMachineStateResult() {
     this->ResultData = NULL;
 }
 
-void USBZStateMachineStateResult::SetupMergePartyDone() {
-}
-
 void USBZStateMachineStateResult::OnRestartTimeExpired() {
 }
 

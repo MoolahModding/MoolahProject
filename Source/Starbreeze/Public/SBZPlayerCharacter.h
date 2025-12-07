@@ -38,7 +38,6 @@ class USBZAIVisualDetectionComponent;
 class USBZAimAssistComponent;
 class USBZBaseInteractableComponent;
 class USBZBaseWeaponData;
-class USBZCharacterComponent;
 class USBZCustomizableSuitMeshComponent;
 class USBZDialogDataAsset;
 class USBZEmoteData;
@@ -130,9 +129,6 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USBZAimAssistComponent* AimAssistComponent;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
-    USBZCharacterComponent* CharacterComponent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, meta=(AllowPrivateAccess=true))
     USkeletalMeshComponent* Mesh1P;
@@ -237,6 +233,9 @@ protected:
     TSubclassOf<USBZLocalPlayerFeedback> OverHealRestoredFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> OverHealDepletedFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> ShieldFlashFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -244,6 +243,9 @@ protected:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TSubclassOf<USBZLocalPlayerFeedback> OverskillDamageFeedback;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TSubclassOf<USBZLocalPlayerFeedback> SmokeMasterFeedback;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, meta=(AllowPrivateAccess=true))
     FVector_NetQuantize DesiredAcceleration;

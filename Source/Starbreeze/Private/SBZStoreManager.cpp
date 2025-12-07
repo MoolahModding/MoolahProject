@@ -3,6 +3,9 @@
 USBZStoreManager::USBZStoreManager() {
 }
 
+void USBZStoreManager::OpenDlcInFirstPartyStore(const FString& ProductId) {
+}
+
 USBZStoreManager* USBZStoreManager::GetStoreManagerChecked(const UObject* WorldContextObject) {
     return NULL;
 }

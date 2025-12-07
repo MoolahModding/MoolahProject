@@ -6,6 +6,7 @@ USBZCheatManagerBase::USBZCheatManagerBase() {
     this->InputComponent = NULL;
     this->AccelByteAdminHelper = NULL;
     this->SelectedEmulationType = ESBZDebugNetEmulationType::None;
+    this->TooltipTexture = NULL;
 }
 
 void USBZCheatManagerBase::VoteRestartLevel() {
@@ -27,6 +28,9 @@ void USBZCheatManagerBase::ToggleMuteMusic() {
 }
 
 void USBZCheatManagerBase::ToggleInGameCheatMenu() {
+}
+
+void USBZCheatManagerBase::ToggleInfoWindow() {
 }
 
 void USBZCheatManagerBase::ToggleDrawDebugSpread() {
@@ -237,6 +241,9 @@ void USBZCheatManagerBase::InputActionTarget(const FName& ActionName, TEnumAsByt
 }
 
 void USBZCheatManagerBase::InputActionPlayer(const FName& ActionName, TEnumAsByte<EInputEvent> InputEvent, int32 PlayerIndex) {
+}
+
+void USBZCheatManagerBase::FetchServerPlayerStatistics(int32 PlayerIndex) {
 }
 
 void USBZCheatManagerBase::FetchMapConfigurationData() {
