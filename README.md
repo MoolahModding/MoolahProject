@@ -1,5 +1,7 @@
 # MoolahProject
 
+**As of the Unreal Engine 5 update this project has been replaced with https://github.com/PAYDAY3-Modding/PD3-Modkit**
+
 ## Installation
 - Install Unreal Engine 4.27 from the Epic Games Launcher
 - Download this Project
